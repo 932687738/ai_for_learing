@@ -1,5 +1,151 @@
 ﻿# AI Daily Digest
 
+## 2026-05-11
+
+### 1. 今日总览
+
+按 Asia/Shanghai 时区检索 2026-05-11 00:00:00 到 23:59:59 的 AI/人工智能相关更新后，当天没有发现 OpenAI、Anthropic、Google DeepMind、Meta、LangChain/LangGraph 发布新的通用基础模型大版本；更有价值的变化集中在四条主线：
+
+- 企业 AI 部署从“买模型/API”进一步转向“嵌入工程团队 + 改造业务流程”：OpenAI 正式推出 OpenAI Deployment Company，并同日发布企业 AI 规模化指南。
+- Claude 平台进入更复杂的企业采购和云集成形态：Anthropic 在 Claude Platform release notes 中发布 Claude Platform on AWS，可通过 AWS 账号、IAM/SigV4、Marketplace billing 使用 Anthropic 管理的 Claude API 能力。
+- AI 安全风险从理论进入更具实操的防御议题：Google Threat Intelligence 相关报道披露其阻断了疑似 AI 辅助生成的 0-day 利用尝试，强化了“AI 帮助发现逻辑漏洞和绕过 2FA”的现实威胁。
+- 论文侧受 NeurIPS 2026 截止日前后影响，Hugging Face Daily Papers 在 5 月 11 日集中出现多篇与 RLVR、测试时扩展、多模态搜索 agent、agent red-teaming、agent memory、长上下文推理加速相关的论文。
+
+整体判断：2026-05-11 不是模型能力突增日，而是“AI 工程化和治理化”信号很强的一天。研发团队应重点关注企业部署方法论、Claude/AWS 接入差异、agent 安全评测环境，以及 test-time scaling、工具调用成本控制和 agent memory 这些可落地研究方向。
+
+### 2. 重要事件与发布
+
+#### OpenAI：推出 OpenAI Deployment Company，收购 Tomoro 扩充 FDE 能力
+
+OpenAI 在 2026-05-11 发布《OpenAI launches the OpenAI Deployment Company to help businesses build around intelligence》。新公司由 OpenAI 控股，目标是把 Forward Deployed Engineers 嵌入企业客户，帮助识别高价值 AI 场景、重构关键流程，并把模型能力接入客户的数据、工具、控制和业务系统。OpenAI 同时表示已同意收购 Tomoro，获得约 150 名 AI 部署工程师和专家；该业务有超过 40 亿美元初始投资，并与 TPG、Advent、Bain Capital、Brookfield、Goldman Sachs、SoftBank、Bain & Company、Capgemini、McKinsey 等投资、咨询和系统集成伙伴合作。
+
+对研发团队的意义：
+
+- 企业 AI 的竞争焦点从“谁的模型更强”继续转向“谁能把模型可靠地嵌入生产流程”。
+- FDE 模式说明大型模型厂商正在把咨询、系统集成、评估、变更管理、权限治理和业务指标交付纳入产品边界。
+- 内部 AI 平台如果只提供 API 网关和 prompt 模板，会越来越难满足业务部门对端到端落地的期望；更需要形成诊断、原型、评估、上线、观测、治理的闭环。
+
+来源：[OpenAI - OpenAI launches the OpenAI Deployment Company](https://openai.com/index/openai-launches-the-deployment-company/)；[Reuters - OpenAI creates new unit with $4 billion investment to aid corporate AI push](https://wincountry.com/2026/05/11/openai-creates-new-unit-with-4-billion-investment-to-aid-corporate-ai-push/)
+
+#### Anthropic：Claude Platform on AWS 上线
+
+Anthropic 的 Claude Platform release notes 在 2026-05-11 增加 Claude Platform on AWS：开发者可通过 AWS 账号访问 Anthropic 管理的 Claude API 基础设施，使用 AWS billing 和 IAM authentication，并获得 Messages API、Files API、Message Batches API、Claude Managed Agents、Agent Skills、code execution 和 tool use 等能力。官方文档强调这不同于 Amazon Bedrock：Claude Platform on AWS 由 Anthropic 运行推理栈，AWS 主要提供身份、账单和 Marketplace 集成；Bedrock 则由 AWS 运营模型服务，更适合需要 AWS 作为唯一数据处理方或特定合规边界的组织。
+
+对研发团队的意义：
+
+- Claude 的企业接入方式变成三类需要区分的选项：第一方 Claude API、Claude Platform on AWS、Amazon Bedrock。
+- 选型不能只看“都在 AWS 里用 Claude”，还要比较 API surface、beta header 支持、Agent Skills、数据处理方、PrivateLink、区域/地理绑定、IAM 审计和合规要求。
+- 对已经有 AWS 身份与采购体系的企业，Claude Platform on AWS 可能降低采购摩擦，但如果强要求 AWS 控制推理基础设施或 FedRAMP/IL/HIPAA 边界，则仍应评估 Bedrock。
+
+来源：[Claude Platform release notes](https://platform.claude.com/docs/en/release-notes/overview)；[Claude Platform on AWS](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws)
+
+#### Google / 安全媒体：AI 辅助 0-day 利用进入实战防御视野
+
+AP、The Verge、CSO Online 等在 2026-05-11 报道，Google Threat Intelligence Group 表示已阻断一个犯罪团伙使用 AI 发现或构造 0-day 利用的尝试，目标是一个未公开的开源 Web 系统管理工具，漏洞涉及 2FA 绕过和高层语义逻辑缺陷。报道提到研究人员在 Python exploit 中看到 AI 辅助痕迹，例如疑似幻觉生成的 CVSS 分数、教科书式结构等，但没有证据表明使用的是 Google Gemini。
+
+对研发团队的意义：
+
+- AI 攻击面不只包括 prompt injection 和数据泄露，也包括 AI 辅助漏洞发现、漏洞利用生成和对认证逻辑的语义推理。
+- 安全评审需要更重视业务逻辑、信任边界、2FA/SSO 假设、工具权限、agent 可执行动作，而不只是常规输入校验。
+- 内部引入代码 agent、MCP server、浏览器/办公自动化 agent 时，应把攻击者可通过 AI 批量探索工具语义和权限组合纳入威胁建模。
+
+来源：[AP - Google disrupts hackers using AI to exploit an unknown weakness](https://apnews.com/article/926aea7f7dc5e0e61adce3273c55c6d4)；[The Verge - Google stopped a zero-day hack that it says was developed with AI](https://www.theverge.com/tech/928007/google-ai-zero-day-exploit-stopped)；[CSO Online - Google discovers weaponized zero-day exploits created with AI](https://www.csoonline.com/article/4169046/google-discovers-weaponized-zero-day-exploits-created-with-ai.html)
+
+#### GitHub / LangChain / LangGraph：当天无新的 AI/Copilot 或 LangGraph 正式发布
+
+GitHub Changelog 的 Copilot 标签页显示，2026-05-11 没有新的 Copilot/AI changelog；最近相关条目仍集中在 5 月 8 日的 Copilot cloud agent secrets/variables、code review comment type metrics 和 Grok Code Fast 1 下线预告。LangGraph releases 页面最新仍为 2026-05-07 的 `langgraph-cli==0.4.25`，LangChain releases 最新为 2026-05-08 的 `langchain==1.2.18`，未见 5 月 11 日新版本。
+
+对研发团队的意义：今天不需要围绕 GitHub Copilot 或 LangChain 做紧急版本响应；更应把 5 月 8 日附近的 agent 凭证治理、metrics、LangChain 反序列化收紧和 LangGraph deploy/streaming 变化纳入后续排期。
+
+来源：[GitHub Changelog - Copilot label](https://github.blog/changelog/label/copilot/)；[GitHub Changelog](https://github.blog/changelog/)；[LangGraph GitHub Releases](https://github.com/langchain-ai/langgraph/releases)；[LangChain GitHub Releases](https://github.com/langchain-ai/langchain/releases)
+
+### 3. 技术文档与教程
+
+#### OpenAI：企业 AI 规模化指南强调文化、治理、所有权、质量和专家判断
+
+OpenAI 同日发布《How enterprises are scaling AI》，基于 Philips、BBVA、Mirakl、Scout24、JetBrains、Scania 等欧洲企业领导者访谈，总结企业规模化 AI 的五个模式：文化先于工具、治理作为加速器、从消费 AI 转向拥有和改造工作流、质量先于规模、保护专家判断工作。文章明确把 AI 规模化描述为“操作层和领导力纪律”，而不只是技术 rollout。
+
+工程启发：
+
+- AI 项目立项时应先定义 workflow fit、责任人、质量标准和上线门槛，而不是先采购工具再找场景。
+- 治理团队越早作为设计伙伴参与，后期返工越少；安全、法务、合规、IT 不应只在上线前做审批。
+- 对研发平台而言，需要提供评估、审计、回滚、权限和 usage visibility，而不是只交付模型调用 SDK。
+
+来源：[OpenAI - How enterprises are scaling AI](https://openai.com/business/guides-and-resources/how-enterprises-are-scaling-ai/)
+
+#### Claude Platform on AWS 文档：同一模型在不同云接入形态下的治理差异值得单独建档
+
+Claude Platform on AWS 文档给出了架构、账号设置、IAM/SigV4/API key、workspace、region、SDK client、模型列表和功能支持说明。值得注意的是，官方明确说明 Claude Platform on AWS 使用 Anthropic Messages API `/v1/messages`，多数新 feature 和 beta headers 可随第一方 API 更快可用；但推理数据处理方是 Anthropic，并且数据不一定驻留在 AWS，需通过 `inference_geo` 参数固定地理位置。
+
+工程启发：
+
+- 如果企业已有统一 LLM gateway，应把 `AnthropicAWS` 与 `AnthropicBedrock` 视为不同 provider profile，而不是简单共用“Claude on AWS”配置。
+- IAM 权限、Marketplace billing、workspace ID、region、ZDR、PrivateLink、beta feature 可用性，应进入接入 checklist。
+- 对合规敏感系统，选择 Claude Platform on AWS 前必须确认数据处理方、数据驻留、审计和 retention 策略。
+
+来源：[Claude Platform on AWS](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws)
+
+### 4. LangChain / Agent / LLM 工程相关进展
+
+#### Hugging Face Daily Papers：5 月 11 日 agent / LLM 工程论文集中出现
+
+Hugging Face Daily Papers 的 2026-05-11 列表包含多篇对 agent/LLM 工程有参考价值的论文：
+
+- 《Listwise Policy Optimization》：把 group-based RLVR 统一解释为 response simplex 上的 target projection，并提出显式 listwise policy optimization，用于提升 reasoning post-training 的稳定性和多样性。
+- 《HyperEyes》：面向多模态搜索 agent，把并行实体搜索、视觉 grounding、检索和工具调用成本一起优化；提出效率感知强化学习，并用准确率和工具调用轮数共同评估。
+- 《LLMs Improving LLMs: Agentic Discovery for Test-Time Scaling》：提出 AutoTTS，让 agent 自动发现 test-time scaling 策略，而不是人工手写 branch/continue/probe/prune/stop 规则。
+- 《DecodingTrust-Agent Platform (DTap)》：面向 AI agents 的可控、交互式 red-teaming 平台，覆盖 14 个真实领域和 50+ 仿真环境，并提出自动红队 agent DTap-Red 与 DTap-Bench。
+- 《From Storage to Experience》：梳理 LLM agent memory 从“存储历史”向“可用经验机制”演进，适合整理长期记忆、情景经验、反思和检索增强记忆的设计空间。
+
+工程启发：
+
+- 生产 agent 的优化目标不能只看最终正确率，还要看工具调用轮数、推理预算、失败可诊断性和安全后果。
+- test-time scaling 正从“手写推理策略”转向“可搜索、可评估、可迁移的控制器”，这对高成本推理系统很重要。
+- agent red-teaming 需要真实环境、可复现 judge、攻击向量组合和可并行测试，而不是只靠 prompt 黑盒测试。
+
+来源：[Hugging Face Daily Papers - May 11](https://huggingface.co/papers)；[Listwise Policy Optimization](https://huggingface.co/papers/2605.06139)；[HyperEyes](https://huggingface.co/papers/2605.07177)；[LLMs Improving LLMs](https://huggingface.co/papers/2605.08083)；[DTap](https://huggingface.co/papers/2605.04808)；[LLM Agent Memory Survey](https://huggingface.co/papers/2605.06716)
+
+#### LangChain 近期安全修复仍值得补看：反序列化和 manifest hardening
+
+虽然 2026-05-11 当天没有 LangChain 新版本，但 5 月 8 日 `langchain==1.2.18` 和 5 月 5 日 `langchain==0.3.29` 附近的发布仍值得关注：`langchain-classic` deprecate hub、limit loads/dumps，旧线则有 restrict deserialization、harden `load()` against untrusted manifests 等修复。
+
+工程启发：
+
+- LLM 应用框架里的“加载链、加载工具、加载 manifest、加载 hub artifact”属于供应链安全面，不应从不可信来源直接反序列化。
+- 自建 agent 平台如果支持从用户项目读取配置/skills/tools，应明确安全边界，避免把便捷加载变成任意代码执行或恶意工具注入入口。
+
+来源：[LangChain GitHub Releases](https://github.com/langchain-ai/langchain/releases)
+
+### 5. 值得深入阅读的资料
+
+- OpenAI Deployment Company 官方公告：适合产品、平台和管理者理解模型厂商为何开始下场做企业流程改造。
+- OpenAI《How enterprises are scaling AI》：适合整理企业 AI 项目的立项、治理、评估和 rollout checklist。
+- Claude Platform on AWS 文档：适合云平台团队、架构师和合规团队比较 Claude API、Claude Platform on AWS、Amazon Bedrock 的边界。
+- Google AI 辅助 0-day 相关报道：适合安全团队复盘 AI 时代的漏洞发现、业务逻辑缺陷和 agent/tool 权限风险。
+- DTap、HyperEyes、AutoTTS、Listwise Policy Optimization：适合 agent 平台、RAG/搜索、多模态检索、推理优化和安全评测团队安排论文阅读。
+
+### 6. 来源清单
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | OpenAI launches the OpenAI Deployment Company to help businesses build around intelligence | 2026-05-11 | [https://openai.com/index/openai-launches-the-deployment-company/](https://openai.com/index/openai-launches-the-deployment-company/) |
+| 新闻 | OpenAI creates new unit with $4 billion investment to aid corporate AI push | 2026-05-11 | [https://wincountry.com/2026/05/11/openai-creates-new-unit-with-4-billion-investment-to-aid-corporate-ai-push/](https://wincountry.com/2026/05/11/openai-creates-new-unit-with-4-billion-investment-to-aid-corporate-ai-push/) |
+| 官方指南 | How enterprises are scaling AI | 2026-05-11 | [https://openai.com/business/guides-and-resources/how-enterprises-are-scaling-ai/](https://openai.com/business/guides-and-resources/how-enterprises-are-scaling-ai/) |
+| 官方发布说明 | Claude Platform release notes | 2026-05-11 | [https://platform.claude.com/docs/en/release-notes/overview](https://platform.claude.com/docs/en/release-notes/overview) |
+| 官方文档 | Claude Platform on AWS | 2026-05-11 发布说明指向；文档当天可用 | [https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws) |
+| 新闻/安全 | Google disrupts hackers using AI to exploit an unknown weakness | 2026-05-11 | [https://apnews.com/article/926aea7f7dc5e0e61adce3273c55c6d4](https://apnews.com/article/926aea7f7dc5e0e61adce3273c55c6d4) |
+| 新闻/安全 | Google stopped a zero-day hack that it says was developed with AI | 2026-05-11 | [https://www.theverge.com/tech/928007/google-ai-zero-day-exploit-stopped](https://www.theverge.com/tech/928007/google-ai-zero-day-exploit-stopped) |
+| 新闻/安全 | Google discovers weaponized zero-day exploits created with AI | 2026-05-11 | [https://www.csoonline.com/article/4169046/google-discovers-weaponized-zero-day-exploits-created-with-ai.html](https://www.csoonline.com/article/4169046/google-discovers-weaponized-zero-day-exploits-created-with-ai.html) |
+| 论文聚合 | Hugging Face Daily Papers - May 11 | 2026-05-11 | [https://huggingface.co/papers](https://huggingface.co/papers) |
+| 论文 | Listwise Policy Optimization: Group-based RLVR as Target-Projection on the LLM Response Simplex | HF 提交 2026-05-11；arXiv 2026-05-07 | [https://huggingface.co/papers/2605.06139](https://huggingface.co/papers/2605.06139) |
+| 论文 | HyperEyes: Dual-Grained Efficiency-Aware Reinforcement Learning for Parallel Multimodal Search Agents | HF 提交 2026-05-11；arXiv 2026-05-08 | [https://huggingface.co/papers/2605.07177](https://huggingface.co/papers/2605.07177) |
+| 论文 | LLMs Improving LLMs: Agentic Discovery for Test-Time Scaling | HF 提交 2026-05-11；arXiv 2026-05-08 | [https://huggingface.co/papers/2605.08083](https://huggingface.co/papers/2605.08083) |
+| 论文/开源项目 | DecodingTrust-Agent Platform (DTap): A Controllable and Interactive Red-Teaming Platform for AI Agents | HF 提交 2026-05-11；arXiv 2026-05-06 | [https://huggingface.co/papers/2605.04808](https://huggingface.co/papers/2605.04808) |
+| 论文 | From Storage to Experience: A Survey on the Evolution of LLM Agent Memory Mechanisms | HF 提交 2026-05-11 | [https://huggingface.co/papers/2605.06716](https://huggingface.co/papers/2605.06716) |
+| 官方发布说明 | GitHub Changelog - Copilot label | 检索至 2026-05-11；当天无新 Copilot 条目 | [https://github.blog/changelog/label/copilot/](https://github.blog/changelog/label/copilot/) |
+| 开源发布 | LangGraph GitHub Releases | 最新相关为 2026-05-07；当天无新正式发布 | [https://github.com/langchain-ai/langgraph/releases](https://github.com/langchain-ai/langgraph/releases) |
+| 开源发布 | LangChain GitHub Releases | 最新相关为 2026-05-08；当天无新正式发布 | [https://github.com/langchain-ai/langchain/releases](https://github.com/langchain-ai/langchain/releases) |
+
 ## 2026-05-10
 
 ### 1. 今日总览

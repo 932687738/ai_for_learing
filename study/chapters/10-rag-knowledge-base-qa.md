@@ -687,3 +687,11 @@ Spring Boot API
 - Spring AI Vector Databases 文档：Java AI 工程向量存储集成。
 - LangChain Retrieval Conceptual Guide：retriever、document loader、text splitter、retrieval chain。
 
+## 14. 跨章节边界（去重指引）
+
+- 本课主讲：RAG 基础链路与知识库问答落地。
+- 第 09 课主讲：向量化与检索底层机制，本课只引用其基础概念。
+- 第 29 课主讲：企业级检索增强与 GraphRAG，本课不重复其高级策略。
+- 第 30 课主讲：Eval/Benchmark 工程，本课只保留 RAG 评测入口。
+- 第 33 课主讲：RAG 安全治理，本课不重复安全基线细节。
+

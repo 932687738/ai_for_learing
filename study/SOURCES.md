@@ -456,3 +456,105 @@
   - https://arxiv.org/abs/2406.04093
 - Decoding the brain: From neural representations to mechanistic models：用于补充神经科学连接。
   - https://doi.org/10.1016/j.cell.2024.08.051
+
+### 第 27 课：Agent Skills 与 AI 编程工作流
+
+- OpenAI Codex 文档：用于校准 Codex 作为 coding agent 的能力边界、代码读取、修改与运行流程。
+  - https://platform.openai.com/docs/codex/overview
+- OpenAI Codex 产品页：用于校准 Codex Skills 与团队规范、原型、文档等工作流结合方式。
+  - https://openai.com/codex
+- Claude Code Skills 文档：用于校准 Agent Skills / Claude Code Skills 的 `SKILL.md` 结构、按需加载和资料组织方式。
+  - https://code.claude.com/docs/en/skills
+- Claude Code 概览文档：用于校准终端内 agentic coding 工具的项目分析、文件编辑、命令执行和 MCP 集成。
+  - https://docs.claude.com/en/docs/claude-code/overview
+
+### 第 28 课：LangChain、LangGraph 与 LlamaIndex 框架对比
+
+- LangGraph 官方文档：用于校准 LangGraph 作为长运行、有状态 Agent 编排框架的定位。
+  - https://docs.langchain.com/langgraph
+- LangChain LangGraph 产品页：用于补充 human-in-the-loop、持久化、流式、多 Agent 控制流等工程能力。
+  - https://www.langchain.com/langgraph
+- LlamaIndex 官方文档：用于校准 LlamaIndex 在数据增强、RAG、Agent、Workflow 中的定位。
+  - https://docs.llamaindex.ai/
+- LlamaIndex RAG 入门文档：用于校准 Document、Node、Index、Query、Agent 与 RAG 的关系。
+  - https://docs.llamaindex.ai/en/stable/understanding/rag/
+
+### 第 29 课：GraphRAG、Reranker 与企业 AI 搜索
+
+- Microsoft GraphRAG 官方仓库：用于校准 GraphRAG 的索引、知识图谱、社区摘要和全局 / 局部查询流程。
+  - https://github.com/microsoft/graphrag
+- LlamaIndex API 文档：用于校准 LlamaIndex 中图检索和 RAG 结合方式。
+  - https://docs.llamaindex.ai/en/stable/api_reference/
+- OpenAI File Search / Retrieval 文档：用于校准托管检索、向量存储和企业问答入口。
+  - https://platform.openai.com/docs/guides/retrieval
+
+### 第 30 课：模型评测、Eval 与 Benchmark 工程
+
+- OpenAI Evals API 文档：用于校准 eval 的创建、运行、数据源和模型参数对比流程。
+  - https://platform.openai.com/docs/api-reference/evals
+- OpenAI Evals 指南：用于校准 prompt 回归、工具调用、结构化输出、Web Search、MCP 和 Agent 的评测方式。
+  - https://platform.openai.com/docs/guides/evals
+- OpenAI Graders 文档：用于校准 string check、text similarity、score model grader、Python code execution 等评分器。
+  - https://platform.openai.com/docs/guides/graders/
+- OpenAI Cookbook Evals 专题：用于补充图像、音频、Realtime、Agentic workflow 等 eval 示例。
+  - https://cookbook.openai.com/topic/evals
+
+### 第 31 课：MCP 与 A2A：工具协议和 Agent 协作协议
+
+- Model Context Protocol 官方仓库：用于校准 MCP 规范、schema、tools、resources、prompts 和官方文档入口。
+  - https://github.com/modelcontextprotocol/modelcontextprotocol
+- Model Context Protocol 官方文档：用于校准 MCP 的客户端、服务器、工具暴露和上下文连接方式。
+  - https://modelcontextprotocol.io/
+- Google / A2A Protocol Specification：用于校准 Agent Card、Task、Message、Artifact、SSE streaming 和认证授权。
+  - https://google-a2a.github.io/A2A/specification/
+- A2A GitHub 仓库：用于校准 A2A 作为跨框架、跨厂商 Agent 通信协议的实现资料。
+  - https://github.com/google/A2A
+
+### 第 32 课：OpenAI、Anthropic、Claude、Codex、Gemini 与 Llama 生态
+
+- OpenAI Models 文档：用于校准模型选择、能力边界和 API 模型清单。
+  - https://platform.openai.com/docs/models
+- Anthropic Claude Models API 文档：用于校准 Claude 模型清单和模型标识。
+  - https://docs.claude.com/en/api/models-list
+- Google Gemini Models 文档：用于校准 Gemini API 模型能力、稳定版 / 预览版 / 实验版差异。
+  - https://ai.google.dev/models/gemini
+- Meta Llama 官方 Hugging Face 组织：用于校准 Llama、Llama Guard、Prompt Guard 等开放权重模型生态。
+  - https://huggingface.co/meta-llama
+
+### 第 33 课：AI 安全：LLM / RAG / Agent 风险治理
+
+- OWASP Top 10 for LLM Applications：用于校准 Prompt Injection、敏感信息泄露、过度代理、模型 DoS、供应链等风险。
+  - https://owasp.org/www-project-top-10-for-large-language-model-applications
+- OWASP Top 10 for LLM Applications 2025：用于校准 2025 版 LLM 应用安全分类。
+  - https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025
+- OpenAI Production Best Practices：用于校准生产环境安全、限流、错误处理、成本控制和监控。
+  - https://platform.openai.com/docs/guides/production-best-practices
+
+### 第 34 课：模型基础设施：GPU、TPU、部署与推理加速
+
+- OpenAI Realtime / 模型 API 文档：用于校准低延迟模型调用、实时语音和多模态服务接口。
+  - https://platform.openai.com/docs/api-reference/realtime
+- vLLM 文档：用于校准高吞吐推理、PagedAttention、连续批处理和服务化部署。
+  - https://docs.vllm.ai/
+- NVIDIA TensorRT-LLM 文档：用于校准 GPU 推理优化、量化、KV cache 和 serving。
+  - https://nvidia.github.io/TensorRT-LLM/
+- Google Cloud TPU 文档：用于校准 TPU 与 JAX / TensorFlow / PyTorch 训练和推理场景。
+  - https://cloud.google.com/tpu/docs
+
+### 第 35 课：多模态与语音模型应用开发
+
+- OpenAI Audio API 文档：用于校准 speech-to-text、text-to-speech 和音频输入输出。
+  - https://platform.openai.com/docs/api-reference/audio
+- OpenAI Realtime API 文档：用于校准 WebRTC / WebSocket / SIP、speech-to-speech、文本 / 图像 / 音频输入输出。
+  - https://platform.openai.com/docs/api-reference/realtime
+- Spring AI API 文档：用于校准 Java 侧 Chat、Embedding、Audio Transcription、Text to Speech 等模型抽象。
+  - https://docs.spring.io/spring-ai/reference/api/
+
+### 第 36 课：OpenClaw、Hermes 与新兴 Agent 生态观察
+
+- OpenClaw 官网：用于观察新兴本地 Agent / 个人自动化生态的产品形态；该生态变化快，需结合官方仓库和安全审计交叉验证。
+  - https://openclaw.ai/
+- Nous Research Hermes 3：用于校准 Hermes 作为开放模型系列在函数调用、长上下文、多轮对话和 agentic 能力方面的定位。
+  - https://nousresearch.com/hermes3/
+- Nous Research Hermes 3 Hugging Face 集合：用于校准 Hermes 权重和模型变体。
+  - https://huggingface.co/collections/NousResearch/hermes-3

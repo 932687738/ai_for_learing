@@ -468,3 +468,9 @@ github.search_repositories
 - Triton: https://triton-lang.org
 
 后续更新本课时，优先通过 MCP 调用点 A 检索 2024-2026 年 LLM inference、KV cache compression、speculative decoding、quantization、PagedAttention 相关论文。
+
+## 14. 跨章节边界（去重指引）
+
+- 本课主讲：推理优化原理与内核机制（KV Cache、量化、投机解码、调度）。
+- 第 34 课主讲：基础设施选型与部署运维（GPU/TPU/API-first/self-hosted/hybrid）。
+- 本课关注“算法与系统机制”，第 34 课关注“生产架构与容量治理”。

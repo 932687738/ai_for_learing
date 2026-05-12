@@ -570,3 +570,10 @@ LIMIT 5 返回 top-5。
 - Pinecone Learning Center：向量数据库、语义搜索、ANN。
 - Qdrant Documentation：collection、payload、filter、相似度搜索。
 
+## 13. 跨章节边界（去重指引）
+
+- 本课主讲：`Embedding`、向量检索与向量数据库基础能力。
+- 第 10 课主讲：RAG 全链路（摄取、检索、生成、引用、拒答）。
+- 第 29 课主讲：企业搜索增强（GraphRAG、Reranker、评测拆分）。
+- 如涉及安全控制，统一引用第 33 课，不在本课重复展开。
+

@@ -1973,3 +1973,207 @@ top_students = df[df["average_score"] > 85]
 - pandas 官方用户指南：DataFrame、CSV 读取、数据选择和分析。
 - Matplotlib 官方快速入门：基础绘图流程。
 - scikit-learn 官方安装文档：后续机器学习环境依赖准备。
+
+## 22. 课程模式教学记录（2026-05-12）
+
+### 核心讲解
+
+- 本课目标不是精通 Python 语法，而是建立 AI 学习所需的最小 Python 工程能力。
+- 对 Java 开发者，关键是完成“工程系统思维 -> 实验迭代思维”的切换。
+- 开发环境的核心分工：
+  - `python`：解释器
+  - `.venv`：依赖隔离
+  - `pip`/`requirements.txt`：依赖安装与复现
+  - `Jupyter`：实验与可视化
+  - `src/*.py`：可维护、可复用的正式脚本
+
+### 问答记录
+
+- Q：为什么第 1 课要先学环境，而不是直接上模型训练？
+- A：因为后续所有 AI 实验都依赖稳定环境；环境不稳定会导致“代码没问题但运行失败”，学习成本急剧上升。
+- Q：学员反馈“两个问题都不理解”（工具职责与 Notebook/脚本分工）。
+- A：改用 Java 对照法解释：
+  - `python` 像 JVM，负责执行代码；
+  - `.venv` 像“项目独立依赖空间”，避免依赖串项目；
+  - `pip` 像 Maven 的下载动作（安装包）；
+  - `requirements.txt` 像依赖清单快照（便于复现）；
+  - `Jupyter` 像可交互的实验台，适合试错，不适合长期承载业务逻辑。
+- Q：第一个问题希望用“官方通用语言”描述。
+- A：标准表述如下：
+  - `python`：Python 解释器，用于解析并执行 Python 程序。
+  - `.venv`：Python 虚拟环境目录，用于为项目隔离解释器与第三方依赖。
+  - `pip`：Python 包安装与管理工具，用于从包索引安装、升级、卸载依赖。
+  - `requirements.txt`：依赖声明文件，记录项目运行所需包及版本，支持环境复现。
+  - `Jupyter`：交互式计算环境，用于分单元执行代码、展示结果并记录实验过程。
+- Q：为什么不直接在 `.py` 中运行？
+- A：可以直接在 `.py` 运行，但在 AI 学习和实验初期，Notebook 更高效，原因是：
+  - 支持分步骤执行，便于定位数据处理和特征工程问题；
+  - 可即时展示表格与图表，便于观察分布和中间结果；
+  - 更适合参数试验与快速迭代。
+  正确工程流程是：先在 Notebook 探索验证，再将稳定逻辑沉淀为 `.py` 脚本用于复用、测试和部署。
+
+### 外部补充
+
+- 暂无。
+
+### 本课掌握检查
+
+- 你能否解释 `python`、`.venv`、`pip`、`requirements.txt`、`Jupyter` 各自的职责？
+- 你能否说明为什么 Notebook 适合探索、脚本适合沉淀？
+
+### 学习状态
+
+- 状态：进行中
+- 最近更新：2026-05-12
+- 进入下一课条件：学员明确回复“这节课已经学会”
+
+## 23. 课程模式续讲（2026-05-12）
+
+### 核心讲解：Windows 最小可用命令流
+
+```powershell
+# 1) 进入你的学习项目目录
+cd D:\ai-learning
+
+# 2) 创建虚拟环境（目录名 .venv）
+python -m venv .venv
+
+# 3) 激活虚拟环境（PowerShell）
+.\.venv\Scripts\Activate.ps1
+
+# 4) 升级 pip（可选但推荐）
+python -m pip install --upgrade pip
+
+# 5) 安装本课常用包
+pip install numpy pandas matplotlib jupyterlab
+
+# 6) 固化依赖版本
+pip freeze > requirements.txt
+
+# 7) 启动 JupyterLab
+jupyter lab
+```
+
+### 逐行解释（为什么要这么做）
+
+- 第 1 步：确保后续文件都在统一项目目录内，避免路径混乱。
+- 第 2 步：为本项目创建独立依赖环境，避免与其他项目冲突。
+- 第 3 步：后续 `pip` 安装会进入当前 `.venv`，而不是全局 Python。
+- 第 4 步：减少包安装兼容问题。
+- 第 5 步：装齐本课数据实验最小依赖。
+- 第 6 步：生成“可复现依赖清单”，便于团队和未来自己复现环境。
+- 第 7 步：进入交互实验界面，快速做数据探索。
+
+### 常见错误与处理
+
+- 报错：`python 不是内部或外部命令`
+  - 处理：检查 Python 是否安装并加入 PATH，重新打开终端后再试。
+- 报错：`Activate.ps1 无法加载，因为在此系统上禁止运行脚本`
+  - 处理（当前终端临时放开）：
+    ```powershell
+    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+    ```
+- 报错：Notebook 中 `import pandas` 失败，但命令行能成功
+  - 处理：Notebook Kernel 与终端虚拟环境不一致，切换到 `.venv` 对应 Kernel。
+
+### 问答记录
+
+- Q：学员确认 `requirements.txt` 的作用是复现同一依赖版本。
+- A：确认正确，这是环境可复现的关键。
+- Q：为什么不直接在 `.py` 运行？
+- A：可直接运行；但学习初期先用 Notebook 做探索，再沉淀为 `.py`，效率和工程性更平衡。
+
+### 本课掌握检查（续）
+
+- 你能否解释“激活 `.venv`”和“未激活 `.venv`”对 `pip install` 的影响？
+- 你能否说出当 `Activate.ps1` 报错时的处理命令？
+
+## 24. 课程模式续讲（2026-05-12-2）
+
+### 问答记录
+
+- Q：不激活 `.venv` 就安装依赖，风险是什么？
+- A：会把依赖写入全局环境，污染其他工程并导致版本冲突。
+- Q：本地实验目录准备放在哪里？
+- A：学员确认使用 `ai-learning` 作为当前项目目录名。
+
+### 核心讲解：第一个 Notebook 实验
+
+目标：在 `ai-learning` 下完成“读取 CSV -> 基础分析 -> 柱状图”闭环。
+
+### 操作步骤
+
+1. 在项目目录创建数据文件 `data/students.csv`：
+
+```csv
+name,math,english,programming
+Alice,90,85,95
+Bob,70,80,75
+Cindy,88,92,90
+David,60,65,70
+```
+
+2. 启动 JupyterLab 后，新建 Notebook：`notebooks/01-python-basics.ipynb`
+3. 按顺序执行以下代码单元：
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("data/students.csv")
+df["average_score"] = df[["math", "english", "programming"]].mean(axis=1)
+
+print(df.head())
+print(df.describe())
+
+top_students = df[df["average_score"] > 85]
+print("Top students:")
+print(top_students[["name", "average_score"]])
+
+plt.figure(figsize=(8, 4))
+plt.bar(df["name"], df["average_score"])
+plt.title("Average Score by Student")
+plt.xlabel("Name")
+plt.ylabel("Average Score")
+plt.tight_layout()
+plt.show()
+```
+
+### 结果判定标准
+
+- 能看到 DataFrame 前几行输出；
+- 能看到 `average_score` 新增列；
+- 能筛选出平均分 > 85 的学生；
+- 能成功显示柱状图。
+
+### 本课掌握检查（续2）
+
+- 你能否解释 `df[["math","english","programming"]].mean(axis=1)` 的含义？
+- 你能否解释为什么 `top_students` 是“按条件筛选后的新结果集”？
+
+## 25. 暂停与续学锚点（2026-05-12）
+
+### 当前进度快照
+
+- 课程：第 1 课《Python 与 AI 开发环境》
+- 学习状态：进行中（未达到“这节课已经学会”）
+- 已完成内容：
+  - 环境工具职责（python/.venv/pip/requirements/Jupyter）
+  - Notebook 与 `.py` 的分工
+  - Windows 最小命令流
+- 当前停留点：
+  - 第一个 Notebook 实验（CSV -> 平均分 -> 筛选 -> 柱状图）待学员执行并反馈结果
+
+### 下次续学指令（新上下文可直接用）
+
+```text
+继续第1课，从“第一个 Notebook 实验结果复盘”开始。
+课程入口：./study/COURSE_OUTLINE.md
+当前课文件：./study/chapters/01-python-ai-environment.md
+```
+
+### 下次进入即执行
+
+1. 先核对学员实验结果（top_students 与图表是否成功）。
+2. 讲解 `mean(axis=1)` 与条件筛选语义。
+3. 通过后进入第 1 课收口检查，再确认是否“这节课已经学会”。

@@ -2,6 +2,75 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-05-11
+
+### 今日总览
+
+**一句话结论**：本日 AI 主线从单点模型发布转向 **Agent 工具链持续发版 + 企业部署服务化 + Agent 治理平台化**，其中 Codex 与 OpenClaw 的开源 release 最具工程可复现价值。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenAI / Anthropic / GitHub / Codex / Claude Code / OpenClaw / Hermes / Spring AI / LangGraph / RAG / MCP / arXiv / Hugging Face / VentureBeat / IAPP / 量子位 |
+| 核心趋势 | **Coding agent 继续高频迭代**：Codex alpha 与 OpenClaw beta 同日可核验；**企业 AI 进入交付公司化阶段**：OpenAI Deployment Company 线索显示模型厂商开始前置咨询和工程交付；**Agent 平台治理成为竞争点**：memory、eval、orchestration 与合规可观测被打包进平台能力 |
+| 可直接关注 | Codex `0.131.0-alpha.6` 的多平台资产与 sigstore；OpenClaw `maxPingPongTurns`、跨上下文消息权限、`/context map`；OpenAI / Anthropic 企业交付模式对自建 Agent 平台边界的影响 |
+| 专项检索结论 | **Codex**：GitHub `rust-v0.131.0-alpha.6` Published `2026-05-11T11:48:21Z`；**Claude Code**：未核验到官方 GitHub Release 页面明确标注 `2026-05-11` 的重要功能发布，第三方索引提到 `v2.1.138` internal fixes，未列为重大事件；**OpenClaw**：`v2026.5.10-beta.4` 在目标窗口可核验；**Hermes**：未发现当日新 release，最近仍为 `v2026.5.7`；**Spring AI**：未发现当日 release，最近相邻为 2026-05-08 的 `1.1.6` / `2.0.0-M6`；**skills**：未发现当日规范级新发布，OpenAI / Cursor / Claude skills 文档仍作为背景资料 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| AI 编程 / Codex | [OpenAI Codex `0.131.0-alpha.6`](https://github.com/openai/codex/releases/tag/rust-v0.131.0-alpha.6) | 2026-05-11 | 开源 prerelease | 覆盖 Codex CLI、app-server、responses proxy、Windows sandbox setup、npm 包和 sigstore 资产，适合验证跨平台分发与供应链签名流程 |
+| 开源 Agent 运行时 | [OpenClaw `v2026.5.10-beta.4`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.10-beta.4) | 2026-05-11 | 开源 prerelease | 增强 agent-to-agent 长链路、跨上下文消息权限、Slack 展开控制、Fly Machines 环境检测、`/context map`，可作为自托管 Agent 运行时治理参考 |
+| 企业 AI 落地 | [OpenAI launches the OpenAI Deployment Company](https://www.techmeme.com/260511/p22) | 2026-05-11 | 企业 AI / 媒体聚合 | OpenAI 以部署公司承接企业 AI 系统建设，说明模型厂商正在从 API 供应商向前置交付和工作流重构延伸 |
+| Agent 平台治理（相邻） | [Anthropic wants to own your agent's memory, evals, and orchestration](https://venturebeat.com/orchestration/anthropic-wants-to-own-your-agents-memory-evals-and-orchestration-and-that-should-make-enterprises-nervous/) | 2026-05-08（相邻日期） | 技术媒体 / 架构分析 | 把 Agent memory、evaluation、multi-agent orchestration 的平台化与厂商锁定风险讲清楚，适合企业评估自建 vs 托管 Agent 控制面 |
+| Java AI（相邻） | [Spring AI `2.0.0-M6`](https://github.com/spring-projects/spring-ai/releases/tag/v2.0.0-M6) | 2026-05-08（相邻日期） | 开源 milestone | OpenAI 类层次重构、provider options 不可变化、模块移除等变化提醒 Java 企业栈关注 API 兼容与值对象不可变设计 |
+| 政策监管（相邻） | [EU agrees to amend AI Act, clarifies overlap with machinery rules](https://iapp.org/news/a/eu-agrees-to-amend-ai-act-clarifies-overlap-with-machinery-rules) | 2026-05-07（相邻日期） | 政策监管 | 高风险 AI 合规期限、工业 AI 适用边界和 nudifier 禁令变化，会影响欧盟市场 AI 产品路线图与治理排期 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Codex 发布工程 | [Codex `0.131.0-alpha.6` Release](https://github.com/openai/codex/releases/tag/rust-v0.131.0-alpha.6) | 多平台二进制、npm 包、sigstore、Windows sandbox setup | DevEx / 供应链安全 |
+| Agent 运行时治理 | [OpenClaw `v2026.5.10-beta.4`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.10-beta.4) | 消息权限、上下文地图、Slack 配置、local model service | Agent 平台 / 自托管团队 |
+| Workspace Agent 背景 | [Introducing workspace agents in ChatGPT](https://openai.com/index/introducing-workspace-agents-in-chatgpt/) | 组织共享 Agent、审批、Slack、Compliance API、prompt injection safeguard | 企业 AI 平台 / 治理团队 |
+| Java Agent 生态 | [Spring AI `2.0.0-M6`](https://github.com/spring-projects/spring-ai/releases/tag/v2.0.0-M6) | breaking changes、provider options 不可变、MCP SDK 演进 | Java / Spring AI 团队 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：当日未发现 LangChain / LangGraph / LlamaIndex / MCP 官方在 `2026-05-11` 的重大新 release；工程焦点落在 coding agent 本体、Agent 运行时治理和企业交付模式。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Coding agent | Codex alpha 继续提供完整多平台资产矩阵 | 内部试用 alpha 通道时要把 **版本固定、资产校验、回滚策略**纳入流水线，而不是只看功能点 |
+| Agent runtime | OpenClaw 放大跨 Agent 消息链路、上下文可视化和 provider local service | 长会话 Agent 的治理重点是 **上下文可解释、权限可控、运行时可迁移** |
+| 托管 Agent 平台 | OpenAI / Anthropic 都在把企业流程、memory、eval、orchestration 前移到平台层 | 企业要先定义哪些能力必须由自己掌控，避免业务规则、评测标准和记忆数据被单一厂商绑定 |
+| Java AI | Spring AI 相邻版本强调不可变 options 与接口重构 | 企业 Java 栈要把 AI provider 配置当成稳定契约管理，避免应用层堆 if/else 适配各供应商 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [OpenClaw `v2026.5.10-beta.4`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.10-beta.4) | 最能观察自托管 Agent runtime 在权限、上下文、消息平台和本地模型服务上的演进 |
+| 必读 | [Codex `0.131.0-alpha.6`](https://github.com/openai/codex/releases/tag/rust-v0.131.0-alpha.6) | 适合检查 Codex 的跨平台构建、资产命名和供应链签名方式 |
+| 推荐 | [VentureBeat：Anthropic agent memory/evals/orchestration](https://venturebeat.com/orchestration/anthropic-wants-to-own-your-agents-memory-evals-and-orchestration-and-that-should-make-enterprises-nervous/) | 帮助判断托管 Agent 平台与自建 LangGraph / CrewAI / RAG memory 的边界 |
+| 延伸 | [IAPP：EU AI Act amendments](https://iapp.org/news/a/eu-agrees-to-amend-ai-act-clarifies-overlap-with-machinery-rules) | 合规期限和工业 AI 边界变化会直接影响产品出海排期 |
+
+### 来源清单
+
+- 检索范围：2026-05-11 00:00:00 到 2026-05-11 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, openai.com, techmeme.com, venturebeat.com, iapp.org, spring-projects/spring-ai
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | OpenAI Codex `0.131.0-alpha.6` | 2026-05-11 | https://github.com/openai/codex/releases/tag/rust-v0.131.0-alpha.6 |
+| 开源发布 | OpenClaw `v2026.5.10-beta.4` | 2026-05-11 | https://github.com/openclaw/openclaw/releases/tag/v2026.5.10-beta.4 |
+| 媒体聚合 / 企业 AI | OpenAI Deployment Company | 2026-05-11 | https://www.techmeme.com/260511/p22 |
+| 官方产品背景 | Introducing workspace agents in ChatGPT | 2026-04-22（相邻背景） | https://openai.com/index/introducing-workspace-agents-in-chatgpt/ |
+| 技术媒体 | Anthropic agent memory/evals/orchestration analysis | 2026-05-08（相邻日期） | https://venturebeat.com/orchestration/anthropic-wants-to-own-your-agents-memory-evals-and-orchestration-and-that-should-make-enterprises-nervous/ |
+| 开源发布 | Spring AI `2.0.0-M6` | 2026-05-08（相邻日期） | https://github.com/spring-projects/spring-ai/releases/tag/v2.0.0-M6 |
+| 政策监管 | EU AI Act amendments | 2026-05-07（相邻日期） | https://iapp.org/news/a/eu-agrees-to-amend-ai-act-clarifies-overlap-with-machinery-rules |
+
 ## 2026-05-10
 
 ### 今日总览

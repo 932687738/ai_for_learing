@@ -13,6 +13,30 @@
 5. 能使用 Spring Boot、Spring AI、LangChain4j 将 AI 能力接入 Java 系统。
 6. 能完成企业知识库问答系统和智能客服系统两个综合项目。
 
+## 统一课程入口（唯一）
+
+为避免目录入口歧义，课程学习与回写统一从以下单文件入口开始：
+
+- 主入口：`study/COURSE_OUTLINE.md`
+- 任务与状态：`study/COURSE_TASKS.md`
+- 去重索引：`study/chapters/CROSS_REFERENCE.md`
+- 27-36 回归执行说明：`study/projects/27-36-min-eval-regression.md`
+- 27-36 基线回归记录：`study/projects/27-36-min-eval-regression-run-2026-05-12.md`
+
+## 章节状态机定义
+
+统一状态值：
+
+- `未开始`：内容已就绪，尚未进入教学
+- `进行中`：正在讲解或练习
+- `已掌握`：学员明确确认“这节课已经学会”
+
+状态流转规则：
+
+`未开始 -> 进行中 -> 已掌握`
+
+不允许跨级跳转；仅当当前课达到 `已掌握`，才允许进入下一课。
+
 ## 阶段 0：入门定位
 
 推荐时间：1 周
@@ -144,3 +168,58 @@
 - 阶段考试、自测题与最终验收
 - 进阶方向：微调、LoRA、Agent、多模态、MLOps、模型部署、推理优化
 
+## 课程覆盖度评估与补齐计划（2026-05-12 追加）
+
+本次检查结论：
+
+- 已覆盖：AI / ML / DL / LLM 基础、Prompt Engineering、Embedding、向量数据库、RAG、Tool Calling、Agent、Spring AI、LangChain4j、Java AI 工程化、推理优化、对齐、安全相关基础、可解释性。
+- 需补齐：Agent Skills、Codex Skills / Claude Code Skills / Cursor Skills、LangGraph、LlamaIndex、GraphRAG、系统化 eval / benchmark、MCP 与 A2A 协议工程、多模型厂商生态、OpenClaw / Hermes 新兴生态、企业 AI 搜索、多模态与语音模型、GPU / TPU / 推理加速的工程选型。
+- 处理方式：不重写已有课程，在第 27-36 课追加现代 Agentic AI 与企业落地模块；已有章节涉及的主题在新课中会通过“与旧课关联”回链。
+
+### 追加课程进度表
+
+| 课时 | 主题 | 状态 | 关联旧课 |
+| --- | --- | --- | --- |
+| 第 27 课 | Agent Skills 与 AI 编程工作流 | 未开始（内容已就绪） | 第 11、14 课 |
+| 第 28 课 | LangChain、LangGraph 与 LlamaIndex 框架对比 | 未开始（内容已就绪） | 第 10、11、13 课 |
+| 第 29 课 | GraphRAG、Reranker 与企业 AI 搜索 | 未开始（内容已就绪） | 第 9、10 课 |
+| 第 30 课 | 模型评测、Eval 与 Benchmark 工程 | 未开始（内容已就绪） | 第 5、14、23 课 |
+| 第 31 课 | MCP 与 A2A：工具协议和 Agent 协作协议 | 未开始（内容已就绪） | 第 11、14 课 |
+| 第 32 课 | OpenAI、Anthropic、Claude、Codex、Gemini 与 Llama 生态 | 未开始（内容已就绪） | 第 8、11、14 课 |
+| 第 33 课 | AI 安全：LLM / RAG / Agent 风险治理 | 未开始（内容已就绪） | 第 10、11、14、26 课 |
+| 第 34 课 | 模型基础设施：GPU、TPU、部署与推理加速 | 未开始（内容已就绪） | 第 14、20、24 课 |
+| 第 35 课 | 多模态与语音模型应用开发 | 未开始（内容已就绪） | 第 8、12、24 课 |
+| 第 36 课 | OpenClaw、Hermes 与新兴 Agent 生态观察 | 未开始（内容已就绪） | 第 11、27、31、33 课 |
+
+## 阶段 7：现代 Agentic AI 与企业落地补齐模块
+
+推荐时间：4-8 周
+
+学习目标：
+
+- 能解释 agentic AI、AI agent、autonomous agent、coding agent 的工程边界。
+- 能设计可复用的 Agent Skills，并理解 Codex Skills、Claude Code Skills、Cursor Skills 等形态的共同点。
+- 能区分 LangChain、LangGraph、LlamaIndex 在 RAG、Agent、Workflow 中的定位。
+- 能将 RAG 扩展为 GraphRAG、Hybrid Search、Reranker 与企业 AI 搜索系统。
+- 能建立面向 Prompt、RAG、Tool、Agent、多模态和语音模型的 eval 体系。
+- 能解释 MCP 和 A2A 的关系：MCP 连接工具与上下文，A2A 连接独立 Agent。
+- 能根据 OpenAI、Anthropic、Google DeepMind / Gemini、Meta Llama 等生态选择模型和工程方案。
+- 能从安全、权限、审计、成本、延迟、可观测性、数据治理角度评估企业 AI 系统。
+
+课程：
+
+- 第 27 课：Agent Skills 与 AI 编程工作流
+- 第 28 课：LangChain、LangGraph 与 LlamaIndex 框架对比
+- 第 29 课：GraphRAG、Reranker 与企业 AI 搜索
+- 第 30 课：模型评测、Eval 与 Benchmark 工程
+- 第 31 课：MCP 与 A2A：工具协议和 Agent 协作协议
+- 第 32 课：OpenAI、Anthropic、Claude、Codex、Gemini 与 Llama 生态
+- 第 33 课：AI 安全：LLM / RAG / Agent 风险治理
+- 第 34 课：模型基础设施：GPU、TPU、部署与推理加速
+- 第 35 课：多模态与语音模型应用开发
+- 第 36 课：OpenClaw、Hermes 与新兴 Agent 生态观察
+
+阶段项目：
+
+- 企业 AI 搜索系统：文档解析、Embedding、向量检索、关键词检索、Reranker、GraphRAG 摘要、权限过滤、答案引用、Eval 回归测试。
+- Agentic Coding 规范包：为 Java / Python 项目设计 `AGENTS.md`、Skills、MCP 工具、评测集和安全边界。

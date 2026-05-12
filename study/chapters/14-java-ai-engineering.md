@@ -186,3 +186,10 @@ estimated_cost
 - LangChain4j Streaming 文档：Java 大模型流式响应。
 - OWASP Top 10 for LLM Applications：LLM 安全风险。
 
+## 11. 跨章节边界（去重指引）
+
+- 本课主讲：Java AI 工程化总览（流式、权限、日志、成本、治理）。
+- 第 30 课主讲：Eval/Benchmark 方法与评测治理，本课只保留工程接入点。
+- 第 33 课主讲：安全威胁模型与防护基线，本课只保留架构层控制点。
+- 第 34 课主讲：模型基础设施与推理选型，本课不重复硬件与部署细节。
+
