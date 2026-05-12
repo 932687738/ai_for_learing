@@ -2177,3 +2177,80 @@ plt.show()
 1. 先核对学员实验结果（top_students 与图表是否成功）。
 2. 讲解 `mean(axis=1)` 与条件筛选语义。
 3. 通过后进入第 1 课收口检查，再确认是否“这节课已经学会”。
+
+## 26. 恢复学习记录（2026-05-12 续）
+
+### 问答记录
+
+- Q：继续。
+- A：按续学锚点恢复到“第一个 Notebook 实验结果复盘”。
+- Q：实验的源码在什么位置？
+- A：当前实验代码已写在本课文档第 24 节代码块中（Notebook 示例）。建议落盘位置：
+  - `ai-learning/01-python-ai-environment/scripts/01-python-basics.py`
+  - `ai-learning/01-python-ai-environment/data/students.csv`
+- Q：同意创建实验文件。
+- A：已创建：
+  - `ai-learning/01-python-ai-environment/data/students.csv`
+  - `ai-learning/01-python-ai-environment/scripts/01-python-basics.py`
+- Q：`axis=1` 和 `axis=0` 的区别是什么？
+- A：
+  - `axis=1`：按行计算（横向），例如每个学生一行，计算该行三门课平均分。
+  - `axis=0`：按列计算（纵向），例如每门课一列，计算该列全体学生平均分。
+- Q：为什么 `top_students = df[df["average_score"] > 85]` 不会破坏原始 `df`？
+- A：因为这是“布尔掩码筛选并返回新 DataFrame”的写法，属于读取+生成新结果，不是原地修改。原始 `df` 仍保留全部行。
+- Q：实验结果反馈。
+- A：`top_students` 输出 `Alice`、`Cindy`，图表正常显示，结果判定通过。
+
+### 核心讲解：实验结果标准答案与语义说明
+
+对于示例数据：
+
+- `average_score` 结果：
+  - Alice: 90.0
+  - Bob: 75.0
+  - Cindy: 90.0
+  - David: 65.0
+- `top_students`（`average_score > 85`）应为：`Alice`、`Cindy`
+- 柱状图应显示 4 个学生的平均分柱，Alice/Cindy 高于 Bob/David
+
+`mean(axis=1)` 的语义：
+
+- `axis=1` 表示“按行计算”，即每个学生一行，取该行三门课平均值。
+- 若是 `axis=0`，则会按列计算（每门课的全班均值）。
+
+条件筛选语义：
+
+- `df["average_score"] > 85` 会产生布尔掩码（True/False）。
+- `df[布尔掩码]` 会返回满足条件的新 DataFrame，不会修改原 DataFrame。
+
+### 本课掌握检查（续3）
+
+- 你能否用自己的话区分 `axis=1` 和 `axis=0`？
+- 你能否说明“布尔掩码筛选”为什么不等于“原地删除数据”？
+
+## 27. 结课确认与暂停锚点（2026-05-12）
+
+### 问答记录
+
+- Q：学会了；后续与 Python 相关的文件统一生成 `.py`；先暂停课程，恢复时直接从第 2 课开始。
+- A：已确认并固化为课程约定与续学锚点。
+
+### 学习状态（更新）
+
+- 状态：已掌握
+- 结课确认语：这节课已经学会
+- 最近更新：2026-05-12
+
+### 续学约定
+
+- 后续课程中所有 Python 相关示例、实验与作业文件，默认生成 `.py` 文件。
+- 非必要不再新增 `.ipynb`，如确需 Notebook，需学员显式提出。
+
+### 下次续学指令（新上下文可直接用）
+
+```text
+继续课程，从第2课开始。
+课程入口：./study/COURSE_OUTLINE.md
+当前课文件：./study/chapters/02-ai-math-foundation.md
+并遵循约定：后续 Python 文件统一生成 .py
+```
