@@ -2,9 +2,11 @@
 from pathlib import Path
 
 import pandas as pd
-# import matplotlib
-# matplotlib.use('TkAgg')
-import matplotlib.pyplot as plt
+
+try:
+    import matplotlib.pyplot as plt
+except ImportError:
+    plt = None
 
 
 def main():

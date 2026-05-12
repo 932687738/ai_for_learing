@@ -4,6 +4,7 @@ project_graphrag/impact_stockserviceimpl.json
 project_graphrag/graph_edges.jsonl
 project_graphrag/graph_nodes.jsonl
 project_graphrag/logs/
+project_graphrag/chroma_data/
 __pycache__/
 *.py[cod]
 

@@ -2,8 +2,8 @@ from pathlib import Path
 
 # 碰到AttributeError: module 'backend_interagg' has no attribute 'FigureCanvas'. Did you mean: 'FigureCanvasAgg'?
 # 把下面这行放开
-# import matplotlib
-# matplotlib.use('TkAgg')
+import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import pandas as pd
 

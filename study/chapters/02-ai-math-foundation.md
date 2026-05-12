@@ -2016,6 +2016,7 @@ python ai-learning/02-ai-math-foundation/scripts/linear_regression_from_scratch.
 
 - 学员要求：继续第 2 课；后续 Python 文件统一 `.py`。已按约定创建第 2 课脚本与示例数据。
 - 学员反馈：不应在未讲解的情况下先提问；已调整教学顺序为 **先讲（shape / 余弦 / 学习率）→ 再脚本 → 再自查**。
+- **续学（2026-05-12）**：学员口令「继续学习」。锚点仍为 **§18 本课实践**；推进顺序为：任务 1 `vector_matrix_practice.py`（核对 `dot`、范数、`@` 与 `shape`）→ 任务 2 `cosine_search_practice.py`（检索排序直觉）→ 任务 3 `stats_houses.py`（统计 + 可选直方图；无 `matplotlib` 时仍打印均值/方差/极值）→ 任务 4 `linear_regression_from_scratch.py`（MSE + 梯度下降收口）；可选 `broadcast_demo.py` 对照 **§24** 里广播与 `shape`。修复：`stats_houses.py` 改为 **try/except** 导入 `matplotlib`，与 §22「本地练习文件」说明一致。
 
 ### 学习状态
 
