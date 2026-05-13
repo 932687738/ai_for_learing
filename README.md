@@ -41,7 +41,7 @@
 | 包名 | 说明 |
 | --- | --- |
 | `numpy` | 数值与张量练习（第 2 课 `**/scripts/`） |
-| `pandas` | CSV 与表格（各课；含 `house_price_linear_regression.py`、`house_price_pipeline.py`） |
+| `pandas` | CSV 与表格（各课；含 `house_price_*.py` 系列脚本） |
 | `matplotlib` | 图表；未安装时部分脚本跳过绘图 |
 | `scikit-learn` | `LinearRegression`、`train_test_split`、metrics、Pipeline、`cross_val_score` 等（第 3 课 **`src`** 与教材共用） |
 | `joblib` | 教材保存模型小节（第十八节示例）用到的 `.joblib` 序列化 |

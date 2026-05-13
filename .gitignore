@@ -12,3 +12,6 @@ __pycache__/
 scripts/dual-digest-scheduled/node_modules/
 scripts/dual-digest-scheduled/logs/
 /.idea/
+
+# 第 3 课 Pipeline 本地序列化产物（可由脚本重新生成）
+ai-learning/03-machine-learning-workflow/models/
