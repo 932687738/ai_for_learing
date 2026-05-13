@@ -29,21 +29,36 @@
 
 配置完成后，PyCharm 的代码补全、运行/调试与会话所使用的 Python 才与项目目录一致。
 
-### `ai-learning` 脚本依赖安装
+### `ai-learning` 示例代码依赖安装
 
-仓库内 `ai-learning/**/scripts/*.py` 累计使用到的第三方包如下，运行前请先安装：
+`ai-learning` 目录下练习与脚本包括：
+
+- `**/scripts/**/*.py`（如第 1～2 课）
+- **`03-machine-learning-workflow/src/**/*.py`**（第 3 课教材第九节起的配套脚本，见 `study/chapters/03-machine-learning-workflow.md`）
+
+用到的第三方包汇总如下（按需安装）：
 
 | 包名 | 说明 |
 | --- | --- |
-| `numpy` | 数值与张量练习（向量/矩阵、广播、线性回归、余弦相似度等） |
-| `pandas` | CSV 读写与统计（学生成绩、房价等示例） |
-| `matplotlib` | 图表展示；`stats_houses.py` 在未安装时会跳过绘图，其余依赖绘图的脚本需安装 |
+| `numpy` | 数值与张量练习（第 2 课 `**/scripts/`） |
+| `pandas` | CSV 与表格（各课；含 `house_price_linear_regression.py`、`house_price_pipeline.py`） |
+| `matplotlib` | 图表；未安装时部分脚本跳过绘图 |
+| `scikit-learn` | `LinearRegression`、`train_test_split`、metrics、Pipeline、`cross_val_score` 等（第 3 课 **`src`** 与教材共用） |
+| `joblib` | 教材保存模型小节（第十八节示例）用到的 `.joblib` 序列化 |
 
-在项目已激活的虚拟环境中执行（推荐先 `cd` 到仓库根目录再执行）：
+在已激活的虚拟环境中，**推荐一条命令覆盖当前仓库上述全部示例**（含 `03-machine-learning-workflow/src`）：
 
 ```bash
-python -m pip install numpy pandas matplotlib
+python -m pip install numpy pandas matplotlib scikit-learn joblib
 ```
+
+若只跑 **第 3 课** `ai-learning/03-machine-learning-workflow/src/house_price_linear_regression.py`，最少需要 **`pandas`** 与 **`scikit-learn`**（`numpy` 常随依赖装好；为保证环境一致仍建议用上条完整命令）。
+
+```bash
+python -m pip install pandas scikit-learn
+```
+
+**说明**：新增示例若仍在使用表中已有包（未出现新的 PyPI 名），**不会产生新的包名**，但应在 **本节覆盖路径**——此前 README 仅写 **`**/scripts/`**，遗漏了 **`**/src/`**，易造成「没有对应安装命令」的观感。
 
 **续课（控制上下文长度）**：进度已落在 `study/COURSE_PROGRESS.md`，新开对话时让助手**先读该文件**再讲，无需复述整段聊天历史。
 
