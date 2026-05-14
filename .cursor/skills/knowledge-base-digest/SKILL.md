@@ -42,8 +42,11 @@ description: Generates a Chinese knowledge-base digest from a fixed set of Chine
 - 日报目录：`dailyReport/knowledge-base-news`
 - 状态文件：`dailyReport/knowledge-base-news/knowledge-base-state.json`
 - 日报文件：`dailyReport/knowledge-base-news/knowledge-base-digest.md`
+- **GitHub Star 前十快照（每次知识库拉取必跑）**：`dailyReport/github-topz.md`
 
 如日报目录不存在，先创建目录。如日报文件不存在，创建文件并写入标题。
+
+**双 Digest 规程链接**（纳入知识库拉取清单，与「拉取日报」工作流一致）：[`.cursor/rules/dual-digest-on-pull.mdc`](../../rules/dual-digest-on-pull.mdc)（工作区根路径：`.cursor/rules/dual-digest-on-pull.mdc`）。
 
 ## 状态文件格式
 
@@ -88,7 +91,7 @@ description: Generates a Chinese knowledge-base digest from a fixed set of Chine
 本次无新资讯
 ```
 
-此时不要修改日报文件或状态文件。
+此时不要修改 `knowledge-base-digest.md` 或 `knowledge-base-state.json`，但仍须在同一次会话内执行 [`tools/update_github_topz.py`](../../../tools/update_github_topz.py)（相对本仓库根目录），成功则刷新 `dailyReport/github-topz.md`；收尾仍需说明 github-topz 是否已更新。（github-topz 数据源独立于按日的中文来源检索。）
 
 ## 固定来源清单
 
@@ -118,6 +121,24 @@ description: Generates a Chinese knowledge-base digest from a fixed set of Chine
 | 网易 | 网易传媒技术团队 | https://www.zhihu.com/org/wang-yi-yun-54-1/posts | 主要技术输出渠道为知乎专栏。 |
 | 360 | 360 核心安全技术博客 | http://blogs.360.cn/ | 聚焦网络安全、攻防技术、漏洞分析。 |
 | 有赞 | 有赞技术团队 | https://tech.youzan.com/ | 电商 SaaS 技术博客，覆盖支付、安全、大数据。 |
+| （工具） | GitHub Top（starz 快照） | `https://api.github.com/search/repositories`（`sort=stars&order=desc&per_page=10`） | 每次拉取对本 skill 成功跑通时，必须用仓库脚本更新 `dailyReport/github-topz.md`，与历史行合并：已有仓库更新 Stars，新仓库插入后全表按 Stars 降序。 |
+
+## GitHub star 前十（github-topz）
+
+与本 skill 同批执行（同一天、同一 `force`/`YYYY-MM-DD` 选择下，在写完 `knowledge-base-digest.md` 与状态文件**之后**），在仓库根目录执行：
+
+```bash
+python tools/update_github_topz.py
+```
+
+行为说明：
+
+- 调用 GitHub REST Search API 拉取全局按 Star 降序的前 **10** 条仓库。
+- 读取已有 `dailyReport/github-topz.md` 表格；对每个拉取到的仓库：若 `owner/name` 已在文件中则**更新 Star 与链接**，否则**追加**；最终全表按 Star **从大到小**排序。
+- 可选：设置环境变量 `GITHUB_TOKEN` 或 `GH_TOKEN` 以降低匿名限流风险。
+- Markdown 头部需保留对双 Digest 规则的引用（由脚本写入 `dailyReport/github-topz.md` 内 `../.cursor/rules/dual-digest-on-pull.mdc` 相对链接）。
+
+若 API 失败或未返回结果，在收尾说明中写明「github-topz 未更新及原因」，不得静默当作成功。
 
 ## 检索规则
 
@@ -148,6 +169,8 @@ description: Generates a Chinese knowledge-base digest from a fixed set of Chine
 3. 对高价值或不确定结果，必须用 WebFetch 打开原文核验标题、发布时间、作者/团队、正文技术含量和链接。
 4. 建立去重后的来源列表，记录来源名称、标题、URL、发布日期/更新时间、主题、可信度、研发/学习价值。
 5. 不要按 URL 逐篇机械罗列；先融合信息，再按统一脉络生成当天知识库日报。
+
+在完成所有待写入日期章节并成功保存 `knowledge-base-digest.md` 与状态之后；若将只输出「本次无新资讯」，在输出该行**之前**：必须在同一次会话内执行仓库根命令 `python tools/update_github_topz.py`（说明见「GitHub star 前十」），刷新 `dailyReport/github-topz.md`。
 
 建议查询示例：
 
@@ -303,7 +326,7 @@ description: Generates a Chinese knowledge-base digest from a fixed set of Chine
 完成后简要告知用户：
 
 - 处理了哪些日期。
-- 写入或覆盖了哪个 Markdown 文件。
+- 写入或覆盖了哪个 Markdown 文件（含 `dailyReport/github-topz.md` 是否已更新）。
 - 状态文件已更新。
 
 指定日期重复时，唯一输出必须是：
