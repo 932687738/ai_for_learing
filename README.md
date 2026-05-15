@@ -1,13 +1,62 @@
 # ai_for_learning
 
-本项目已新增一组“AI 课程导师”自定义 Agent（基于 Cursor Subagents），用于围绕单一课程大纲文件进行持续教学与项目实战辅导。
+本项目已新增一组“AI 课程导师”自定义 Agent（基于 Cursor Subagents），用于围绕单一课程大纲文件进行持续教学与项目实战辅导。**本机仓库目录名**可能为 `ai_for_learing` 等，以你克隆/打开的实际路径为准。
 
-## 新增 Agent 列表（已拆分）
+## 仓库地图：主要目录
 
-- 课程模式：`.cursor/agents/ai-course-mentor-course-mode.md`
-  - 仅做课程评估、逐课教学、问答回写、进度维护。
-- 项目模式：`.cursor/agents/ai-course-mentor-project-mode.md`
-  - 聚焦 Java/Python 项目分析与改造，并将实战结论回写课程章节。
+| 路径 | 用途 |
+| --- | --- |
+| [`study/`](study/) | **课程主资产**：章节 [`study/chapters/`](study/chapters/)、项目实战小节 [`study/projects/`](study/projects/)、大纲 [`study/COURSE_OUTLINE.md`](study/COURSE_OUTLINE.md)、进度 [`study/COURSE_PROGRESS.md`](study/COURSE_PROGRESS.md)、任务 [`study/COURSE_TASKS.md`](study/COURSE_TASKS.md)、写作规范 [`study/COURSE_WRITING_STANDARD.md`](study/COURSE_WRITING_STANDARD.md)、高阶路线 [`study/high/`](study/high/) 等；总览可选读 [`study/README.md`](study/README.md) |
+| [`ai-learning/`](ai-learning/) | **可运行练习代码与数据**：与各课章对应的 `scripts/`、`src/`、`data/` |
+| [`dailyReport/`](dailyReport/) | **日报与状态**：AI 日报 [`dailyReport/ai-daily-news/`](dailyReport/ai-daily-news/)、知识库摘要 [`dailyReport/knowledge-base-news/`](dailyReport/knowledge-base-news/)、GitHub 快照 [`dailyReport/github-topz.md`](dailyReport/github-topz.md) |
+| [`project_graphrag/`](project_graphrag/) | **本地知识图谱与 GraphRAG**：配置、节点/边导出、构建与同步脚本、`summary.md`、可选 Chroma 向量数据等（只写本目录，不改动被分析的目标业务项目源码） |
+| [`tools/`](tools/) | **仓库级命令行工具**（见下文「脚本与工具」） |
+| [`.cursor/`](.cursor/) | **Cursor Agents、Rules、Skills、Settings**（见下文） |
+| 仓库根其它 | 如 [`LOCAL_PATH.md`](LOCAL_PATH.md)（本地路径备忘）、[`RAG_LangChain_Java_Beginner_Guide.md`](RAG_LangChain_Java_Beginner_Guide.md)、根级 `ai-daily-digest.md`（若仍存在则多为历史/副本，**以 `dailyReport/` 下为准**） |
+
+## Agents（`.cursor/agents/`）
+
+在 Cursor 中以 **Subagents / 自定义 Agent** 使用的说明文件（YAML front matter + 角色与回写规则）。
+
+| 文件 | 作用 |
+| --- | --- |
+| [`.cursor/agents/ai-course-mentor-course-mode.md`](.cursor/agents/ai-course-mentor-course-mode.md) | **课程模式**：围绕 `{COURSE_PATH}` 逐课教学、问答回写、进度维护 |
+| [`.cursor/agents/ai-course-mentor-project-mode.md`](.cursor/agents/ai-course-mentor-project-mode.md) | **项目模式**：结合 `{JAVA_PROJECT_PATH}` / `{PYTHON_PROJECT_PATH}` 做项目分析与改造，结论回写课程实战小节 |
+
+触发方式仍可用对话中的短指令（例如「调用 /ai-course-mentor-course-mode」），详见下文「触发示例」。
+
+## Rules（`.cursor/rules/`）
+
+给 **主对话或匹配文件** 的长期规则（`.mdc`，可含 `alwaysApply`、`globs` 等）。
+
+| 文件 | 说明 |
+| --- | --- |
+| [`.cursor/rules/dual-digest-on-pull.mdc`](.cursor/rules/dual-digest-on-pull.mdc) | **双 Digest**：当用户语义为「拉取日报」（非 Git `pull`）时，必须先读并按顺序执行两条 Skill（AI 日报 + 知识库），并约定与 `dailyReport/`、`github-topz` 的配合方式 |
+| [`.cursor/rules/front-end-cursor-rules.mdc`](.cursor/rules/front-end-cursor-rules.mdc) | **前端主线栈**（React 16、react-router-dom 4、Redux/Zustand、Ant Design 5、Less 等）的编码约束与偏好 |
+| [`.cursor/rules/graphrag.mdc`](.cursor/rules/graphrag.mdc) | **GraphRAG 智能体**：在 `project_graphrag/**`、`tools/chroma_crud.py` 等上下文下，规定目标项目只读、构建/增量/语义增强/写回与安全边界 |
+
+## Skills（`.cursor/skills/`）
+
+供 Agent **按文件名显式读取** 的流程说明书（通常为 `SKILL.md`）。
+
+| Skill | 路径 | 用途 |
+| --- | --- | --- |
+| `ai-daily-digest` | [`.cursor/skills/ai-daily-digest/SKILL.md`](.cursor/skills/ai-daily-digest/SKILL.md) | 中文 **AI 资讯日报**：增量/指定日、去重、写入 `dailyReport/ai-daily-news/` 与状态 JSON |
+| `knowledge-base-digest` | [`.cursor/skills/knowledge-base-digest/SKILL.md`](.cursor/skills/knowledge-base-digest/SKILL.md) | 中文 **知识库日报**：固定中文技术源、写入 `dailyReport/knowledge-base-news/`；流程中要求同批执行 `python tools/update_github_topz.py` 刷新 `dailyReport/github-topz.md` |
+
+与「拉取」相关的总入口逻辑见 **Rule** `dual-digest-on-pull.mdc`。
+
+## 脚本与工具（`tools/`）
+
+| 路径 | 说明 |
+| --- | --- |
+| [`tools/update_github_topz.py`](tools/update_github_topz.py) | 生成/更新 [`dailyReport/github-topz.md`](dailyReport/github-topz.md)：**模块一** 全局 Star Search API 与历史表合并；**模块二** 抓取 GitHub Trending（日/周/月）HTML 解析 |
+| [`tools/github_topz/`](tools/github_topz/) | 上述脚本的子包：`stars_merge.py`（Search + 合并）、`trending_fetch.py`（Trending）、`display_zh.py`（简介中文化与翻译辅助） |
+| [`tools/chroma_crud.py`](tools/chroma_crud.py) | **ChromaDB** 统一 CRUD/查询 CLI；依赖见 [`project_graphrag/requirements-chroma.txt`](project_graphrag/requirements-chroma.txt)；大规模整库同步仍用 `project_graphrag/scripts/sync_graphrag_chroma.py`（与 GraphRAG Rule 一致） |
+
+## 其它 Cursor 文件
+
+- [`.cursor/settings.json`](.cursor/settings.json)：本仓库在 Cursor 侧的工作区相关设置（若存在）。
 
 ## 使用说明
 
