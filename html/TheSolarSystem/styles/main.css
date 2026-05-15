@@ -30,6 +30,28 @@
       height: 100%;
     }
 
+    .console-toggle {
+      position: fixed;
+      top: 24px;
+      right: 370px;
+      z-index: 4;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 6px;
+      color: rgba(245, 248, 255, 0.92);
+      background: rgba(4, 9, 24, 0.72);
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(12px);
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .console-toggle:hover {
+      border-color: rgba(119, 215, 255, 0.34);
+      background: rgba(119, 215, 255, 0.12);
+    }
+
     .hint {
       position: fixed;
       left: 50%;
@@ -55,24 +77,99 @@
       top: 24px;
       right: 24px;
       z-index: 2;
-      width: min(280px, calc(100vw - 48px));
+      width: min(330px, calc(100vw - 48px));
       max-height: calc(100vh - 48px);
-      padding: 18px;
+      padding: 16px;
       border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 8px;
       color: rgba(245, 248, 255, 0.92);
-      background: rgba(4, 9, 24, 0.66);
+      background: linear-gradient(180deg, rgba(8, 14, 31, 0.82), rgba(4, 9, 24, 0.72));
       box-shadow: 0 18px 50px rgba(0, 0, 0, 0.34);
       backdrop-filter: blur(12px);
       cursor: default;
       overflow-y: auto;
+      scrollbar-color: rgba(119, 215, 255, 0.46) rgba(255, 255, 255, 0.08);
+      transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
     }
 
-    .controls h1 {
-      margin: 0 0 16px;
-      font-size: 16px;
+    body.console-hidden .controls {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(calc(100% + 40px));
+      pointer-events: none;
+    }
+
+    body.console-hidden .console-toggle {
+      right: 24px;
+    }
+
+    .control-header {
+      padding: 2px 2px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      margin-bottom: 10px;
+    }
+
+    .control-header h1 {
+      margin: 0;
+      font-size: 17px;
       font-weight: 600;
       line-height: 1.2;
+    }
+
+    .control-header p {
+      margin: 6px 0 0;
+      color: rgba(190, 213, 246, 0.7);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .control-section {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.045);
+      overflow: visible;
+    }
+
+    .control-section + .control-section {
+      margin-top: 10px;
+    }
+
+    .control-section > summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 38px;
+      padding: 0 12px;
+      color: rgba(245, 248, 255, 0.92);
+      font-size: 13px;
+      font-weight: 600;
+      list-style: none;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .control-section > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .control-section > summary::after {
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid rgba(255, 255, 255, 0.68);
+      content: "";
+      transition: transform 0.18s ease;
+    }
+
+    .control-section[open] > summary::after {
+      transform: rotate(180deg);
+    }
+
+    .section-body {
+      display: grid;
+      gap: 12px;
+      padding: 12px;
     }
 
     .control {
@@ -81,7 +178,7 @@
     }
 
     .control + .control {
-      margin-top: 18px;
+      margin-top: 0;
     }
 
     .control label {
@@ -94,7 +191,7 @@
     }
 
     .control output {
-      min-width: 52px;
+      min-width: 54px;
       color: rgba(255, 255, 255, 0.95);
       font-variant-numeric: tabular-nums;
       text-align: right;
@@ -124,7 +221,7 @@
       border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 6px;
       color: rgba(255, 255, 255, 0.9);
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.075);
       font-size: 13px;
     }
 
@@ -134,7 +231,8 @@
 
     .control-button:hover,
     .control-select:hover {
-      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(119, 215, 255, 0.34);
+      background: rgba(119, 215, 255, 0.12);
     }
 
     .control-select {
@@ -233,9 +331,21 @@
       align-items: center;
       justify-content: flex-start;
       gap: 9px;
+      min-height: 30px;
+      padding: 5px 7px;
+      border-radius: 6px;
       color: rgba(245, 248, 255, 0.86);
       font-size: 13px;
       cursor: pointer;
+    }
+
+    .toggle-option:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .toggle-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
     }
 
     .toggle-option input {
@@ -346,9 +456,23 @@
       .controls {
         top: 14px;
         right: 14px;
-        width: min(240px, calc(100vw - 28px));
+        width: min(310px, calc(100vw - 28px));
         max-height: calc(100vh - 28px);
-        padding: 14px;
+        padding: 12px;
+      }
+
+      .console-toggle {
+        top: 14px;
+        right: 14px;
+      }
+
+      body:not(.console-hidden) .console-toggle {
+        right: 14px;
+        top: calc(14px + 42px);
+      }
+
+      .toggle-grid {
+        grid-template-columns: 1fr;
       }
 
       .hint {

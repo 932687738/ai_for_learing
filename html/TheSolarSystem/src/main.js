@@ -3,15 +3,14 @@
     const sceneBuffer = document.createElement("canvas");
     const sceneCtx = sceneBuffer.getContext("2d");
     const controls = document.getElementById("controls");
+    const consoleToggle = document.getElementById("consoleToggle");
     const timeSpeedControl = document.getElementById("timeSpeedControl");
     const pauseControl = document.getElementById("pauseControl");
-    const resetTimeControl = document.getElementById("resetTimeControl");
     const scaleModeControl = document.getElementById("scaleModeControl");
     const targetSelect = document.getElementById("targetSelect");
-    const locateControl = document.getElementById("locateControl");
-    const focusControl = document.getElementById("focusControl");
     const measureControl = document.getElementById("measureControl");
     const clearMeasureControl = document.getElementById("clearMeasureControl");
+    const screenshotControl = document.getElementById("screenshotControl");
     const showTrailsControl = document.getElementById("showTrailsControl");
     const showOrbitsControl = document.getElementById("showOrbitsControl");
     const showLabelsControl = document.getElementById("showLabelsControl");
@@ -19,8 +18,13 @@
     const showCometsControl = document.getElementById("showCometsControl");
     const showMeteorsControl = document.getElementById("showMeteorsControl");
     const showStarsControl = document.getElementById("showStarsControl");
+    const showTeachingControl = document.getElementById("showTeachingControl");
+    const showSolarActivityControl = document.getElementById("showSolarActivityControl");
+    const solarActivityIntensityControl = document.getElementById("solarActivityIntensityControl");
+    const triggerSolarBurstControl = document.getElementById("triggerSolarBurstControl");
     const sizeControl = document.getElementById("sizeControl");
     const speedControl = document.getElementById("speedControl");
+    const performanceModeControl = document.getElementById("performanceModeControl");
     const magnifierControl = document.getElementById("magnifierControl");
     const magnifierZoomControl = document.getElementById("magnifierZoomControl");
     const magnifierRadiusControl = document.getElementById("magnifierRadiusControl");
@@ -32,6 +36,7 @@
     const infoMeasureControl = document.getElementById("infoMeasureControl");
     const measureBanner = document.getElementById("measureBanner");
     const timeSpeedValue = document.getElementById("timeSpeedValue");
+    const solarActivityIntensityValue = document.getElementById("solarActivityIntensityValue");
     const sizeValue = document.getElementById("sizeValue");
     const speedValue = document.getElementById("speedValue");
     const magnifierZoomValue = document.getElementById("magnifierZoomValue");
@@ -47,6 +52,9 @@
     const solarTargets = [];
     const planetTrails = new Map();
     const asteroids = [];
+    const solarActivityEvents = [];
+    const solarWindParticles = [];
+    const satelliteTrails = new Map();
     const measurement = {
       points: []
     };
@@ -56,6 +64,7 @@
     let pixelRatio = 1;
     let simulationTime = 0;
     let selectedInfoTarget = null;
+    let teachingTargetName = "";
     const pointer = {
       x: 0,
       y: 0,
@@ -76,6 +85,10 @@
       showComets: showCometsControl.checked,
       showMeteors: showMeteorsControl.checked,
       showStars: showStarsControl.checked,
+      showTeaching: showTeachingControl.checked,
+      showSolarActivity: showSolarActivityControl.checked,
+      solarActivityIntensity: Number(solarActivityIntensityControl.value),
+      performanceMode: performanceModeControl.value,
       magnifierEnabled: magnifierControl.checked,
       magnifierZoom: Number(magnifierZoomControl.value),
       magnifierRadius: Number(magnifierRadiusControl.value),
@@ -100,6 +113,11 @@
     const random = (min, max) => Math.random() * (max - min) + min;
     const AU_IN_KM = 149597870.7;
     const MOON_ORBIT_AU = 384400 / AU_IN_KM;
+    const performanceProfiles = {
+      low: { stars: 7600, asteroids: 15000, solarParticles: 0.55 },
+      medium: { stars: 4200, asteroids: 9000, solarParticles: 1 },
+      high: { stars: 2600, asteroids: 5600, solarParticles: 1.65 }
+    };
     const planets = [
       { name: "水星", color: "#b8aa98", au: 0.387, orbitYears: 0.2408, rotationHours: 1407.6, radius: 3.1, start: 0.7, diameter: "4,879 km", mass: "3.30 × 10^23 kg", gravity: "3.70 m/s²", orbitSpeed: "47.4 km/s", day: "58.6 个地球日", year: "88 个地球日", note: "太阳系中最小且离太阳最近的行星。" },
       { name: "金星", color: "#e1b66f", au: 0.723, orbitYears: 0.6152, rotationHours: -5832.5, radius: 4.5, start: 2.2, diameter: "12,104 km", mass: "4.87 × 10^24 kg", gravity: "8.87 m/s²", orbitSpeed: "35.0 km/s", day: "243 个地球日，逆向自转", year: "225 个地球日", note: "厚重大气带来强烈温室效应。" },
@@ -132,6 +150,13 @@
       year: "绕地球约 27.3 天一圈",
       note: "月球引力是地球潮汐的重要来源。"
     };
+    const satelliteInfos = {
+      木卫一: { name: "木卫一", type: "木星卫星", diameter: "3,643 km", mass: "8.93 × 10^22 kg", gravity: "1.80 m/s²", orbitSpeed: "约 17.3 km/s", day: "与公转同步，约 1.77 天", year: "绕木星约 1.77 天", note: "太阳系火山活动最强烈的天体之一。" },
+      木卫二: { name: "木卫二", type: "木星卫星", diameter: "3,122 km", mass: "4.80 × 10^22 kg", gravity: "1.31 m/s²", orbitSpeed: "约 13.7 km/s", day: "与公转同步，约 3.55 天", year: "绕木星约 3.55 天", note: "冰壳下可能存在全球性地下海洋。" },
+      木卫三: { name: "木卫三", type: "木星卫星", diameter: "5,268 km", mass: "1.48 × 10^23 kg", gravity: "1.43 m/s²", orbitSpeed: "约 10.9 km/s", day: "与公转同步，约 7.15 天", year: "绕木星约 7.15 天", note: "太阳系中最大的卫星，甚至大于水星。" },
+      木卫四: { name: "木卫四", type: "木星卫星", diameter: "4,821 km", mass: "1.08 × 10^23 kg", gravity: "1.24 m/s²", orbitSpeed: "约 8.2 km/s", day: "与公转同步，约 16.69 天", year: "绕木星约 16.69 天", note: "表面布满古老撞击坑。" },
+      泰坦: { name: "泰坦", type: "土星卫星", diameter: "5,149 km", mass: "1.35 × 10^23 kg", gravity: "1.35 m/s²", orbitSpeed: "约 5.6 km/s", day: "与公转同步，约 15.95 天", year: "绕土星约 15.95 天", note: "拥有浓厚氮气大气和甲烷湖泊。" }
+    };
     const cometInfo = {
       name: "哈雷彗星",
       type: "周期彗星",
@@ -161,8 +186,13 @@
       地球: { moons: "1 颗：月亮", atmosphere: "氮气、氧气为主", missions: "大量地球观测卫星", fact: "目前已知唯一有稳定液态水海洋和生命的行星。" },
       月亮: { moons: "无卫星", atmosphere: "极稀薄外逸层", missions: "阿波罗、嫦娥、LRO", fact: "月亮始终以近似同一面朝向地球。" },
       火星: { moons: "2 颗：火卫一、火卫二", atmosphere: "稀薄二氧化碳大气", missions: "海盗号、好奇号、毅力号、天问一号", fact: "拥有太阳系最高火山奥林匹斯山。" },
+      木卫一: { moons: "无卫星", atmosphere: "极稀薄二氧化硫外逸层", missions: "伽利略号、朱诺号近距离观测", fact: "潮汐加热驱动持续火山活动。" },
+      木卫二: { moons: "无卫星", atmosphere: "极稀薄氧气外逸层", missions: "欧罗巴快船、JUICE", fact: "是寻找地下海洋和潜在生命的重要目标。" },
+      木卫三: { moons: "无卫星", atmosphere: "极稀薄氧气外逸层", missions: "伽利略号、JUICE", fact: "太阳系唯一已知拥有自身磁场的卫星。" },
+      木卫四: { moons: "无卫星", atmosphere: "极稀薄二氧化碳外逸层", missions: "伽利略号、JUICE", fact: "地质活动弱，保留了大量古老撞击记录。" },
       木星: { moons: "已知卫星超过 90 颗", atmosphere: "氢、氦为主", missions: "伽利略号、朱诺号、欧罗巴快船", fact: "大红斑是持续数百年的巨型风暴。" },
       土星: { moons: "已知卫星超过 140 颗", atmosphere: "氢、氦为主", missions: "先锋11号、旅行者、卡西尼", fact: "土星环主要由冰粒和岩屑组成。" },
+      泰坦: { moons: "无卫星", atmosphere: "浓厚氮气大气，含甲烷", missions: "卡西尼-惠更斯、未来蜻蜓任务", fact: "除地球外，少数表面存在稳定液体的天体之一。" },
       天王星: { moons: "已知卫星 27 颗", atmosphere: "氢、氦、甲烷", missions: "旅行者2号", fact: "自转轴倾角约 98 度。" },
       海王星: { moons: "已知卫星 14 颗", atmosphere: "氢、氦、甲烷", missions: "旅行者2号", fact: "拥有太阳系行星中最强劲的风之一。" },
       哈雷彗星: { moons: "无卫星", atmosphere: "靠近太阳时形成彗发", missions: "乔托号、织女星探测器", fact: "下一次回归近日点预计在 2061 年。" },
@@ -177,6 +207,17 @@
       start: 0.45,
       eccentricity: 0.72,
       info: cometInfo
+    };
+    const satelliteSystems = {
+      木星: [
+        { name: "木卫一", color: "#e0c37b", periodDays: 1.769, distanceKm: 421700, visualOrbit: 1.85, visualRadius: 0.16, start: 0.2 },
+        { name: "木卫二", color: "#d8d6c6", periodDays: 3.551, distanceKm: 671100, visualOrbit: 2.35, visualRadius: 0.14, start: 1.4 },
+        { name: "木卫三", color: "#a99c8e", periodDays: 7.155, distanceKm: 1070400, visualOrbit: 2.95, visualRadius: 0.18, start: 2.6 },
+        { name: "木卫四", color: "#8f8275", periodDays: 16.689, distanceKm: 1882700, visualOrbit: 3.6, visualRadius: 0.16, start: 4.1 }
+      ],
+      土星: [
+        { name: "泰坦", color: "#d7a65c", periodDays: 15.945, distanceKm: 1221870, visualOrbit: 2.85, visualRadius: 0.18, start: 0.9 }
+      ]
     };
 
     function updateSetting(control, output, key) {
@@ -199,7 +240,15 @@
       settings.showComets = showCometsControl.checked;
       settings.showMeteors = showMeteorsControl.checked;
       settings.showStars = showStarsControl.checked;
+      settings.showTeaching = showTeachingControl.checked;
+      settings.showSolarActivity = showSolarActivityControl.checked;
+      settings.performanceMode = performanceModeControl.value;
       measureBanner.hidden = !settings.measureMode || measurement.points.length >= 2;
+    }
+
+    function updateSolarActivitySetting() {
+      settings.solarActivityIntensity = Number(solarActivityIntensityControl.value);
+      solarActivityIntensityValue.value = `${settings.solarActivityIntensity.toFixed(1)}x`;
     }
 
     function updateMagnifierSetting() {
@@ -208,6 +257,14 @@
       settings.magnifierRadius = Number(magnifierRadiusControl.value);
       magnifierZoomValue.value = `${settings.magnifierZoom.toFixed(1)}x`;
       magnifierRadiusValue.value = `${Math.round(settings.magnifierRadius)}px`;
+    }
+
+    function saveScreenshot() {
+      const link = document.createElement("a");
+      const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+      link.download = `solar-system-${timestamp}.png`;
+      link.href = canvas.toDataURL("image/png");
+      link.click();
     }
 
     function updateShapeSetting(inputs, output, summary, names, settingKey, allText, changedInput) {
@@ -237,6 +294,7 @@
         ["公转速度", data.orbitSpeed],
         ["自转周期", data.day],
         ["公转周期", data.year],
+        ["模拟速度", `${settings.timeSpeed.toFixed(1)}x，当前为${settings.scaleMode === "relative" ? "相对真实模式" : "视觉模式"}`],
         ["卫星", extra.moons],
         ["大气/组成", extra.atmosphere],
         ["探索任务", extra.missions],
@@ -391,7 +449,8 @@
 
     function createStars() {
       stars.length = 0;
-      const count = Math.floor((width * height) / 4200);
+      const profile = performanceProfiles[settings.performanceMode] || performanceProfiles.medium;
+      const count = Math.floor((width * height) / profile.stars);
 
       for (let i = 0; i < count; i += 1) {
         stars.push({
@@ -408,7 +467,8 @@
 
     function createAsteroids() {
       asteroids.length = 0;
-      const count = Math.max(90, Math.floor((width * height) / 9000));
+      const profile = performanceProfiles[settings.performanceMode] || performanceProfiles.medium;
+      const count = Math.max(45, Math.floor((width * height) / profile.asteroids));
 
       for (let i = 0; i < count; i += 1) {
         asteroids.push({
@@ -481,6 +541,151 @@
       ctx.beginPath();
       ctx.arc(x, y, radius * spread, 0, Math.PI * 2);
       ctx.fill();
+      ctx.restore();
+    }
+
+    function spawnSolarActivity(kind = "flare") {
+      const strength = settings.solarActivityIntensity;
+      const event = {
+        kind,
+        angle: random(0, Math.PI * 2),
+        age: 0,
+        life: kind === "cme" ? random(3.2, 5.4) : random(1.2, 2.4),
+        strength: random(0.75, 1.25) * strength,
+        twist: random(-0.55, 0.55)
+      };
+
+      solarActivityEvents.push(event);
+
+      if (kind !== "prominence") {
+        const profile = performanceProfiles[settings.performanceMode] || performanceProfiles.medium;
+        const particleCount = Math.floor(random(14, 26) * strength * profile.solarParticles);
+        for (let i = 0; i < particleCount; i += 1) {
+          solarWindParticles.push({
+            angle: event.angle + random(-0.22, 0.22),
+            age: 0,
+            life: random(1.4, 3.1),
+            speed: random(34, 72) * strength,
+            offset: random(-0.12, 0.12),
+            size: random(0.8, 1.8),
+            alpha: random(0.38, 0.78)
+          });
+        }
+      }
+    }
+
+    function updateSolarActivity(delta) {
+      if (!settings.showSolarActivity || settings.paused) {
+        return;
+      }
+
+      const chance = 0.22 * settings.solarActivityIntensity * delta;
+      if (Math.random() < chance) {
+        const roll = Math.random();
+        spawnSolarActivity(roll > 0.72 ? "cme" : roll > 0.36 ? "prominence" : "flare");
+      }
+    }
+
+    function drawSolarActivity(centerX, centerY, sunRadius, delta) {
+      if (!settings.showSolarActivity) {
+        return;
+      }
+
+      updateSolarActivity(delta);
+      ctx.save();
+      ctx.globalCompositeOperation = "lighter";
+
+      for (let i = solarActivityEvents.length - 1; i >= 0; i -= 1) {
+        const event = solarActivityEvents[i];
+        event.age += settings.paused ? 0 : delta;
+        const progress = Math.min(event.age / event.life, 1);
+        const fade = Math.sin(progress * Math.PI);
+        const baseX = centerX + Math.cos(event.angle) * sunRadius * 0.92;
+        const baseY = centerY + Math.sin(event.angle) * sunRadius * 0.92;
+
+        if (event.kind === "prominence") {
+          const height = sunRadius * (0.55 + event.strength * 0.2);
+          const controlAngle = event.angle + event.twist;
+          const endAngle = event.angle + event.twist * 0.82;
+          const endX = centerX + Math.cos(endAngle) * (sunRadius * 1.04);
+          const endY = centerY + Math.sin(endAngle) * (sunRadius * 1.04);
+          const ctrlX = centerX + Math.cos(controlAngle) * (sunRadius + height);
+          const ctrlY = centerY + Math.sin(controlAngle) * (sunRadius + height);
+
+          ctx.strokeStyle = `rgba(255, 106, 34, ${0.52 * fade})`;
+          ctx.lineWidth = Math.max(1.2, sunRadius * 0.055 * event.strength);
+          ctx.beginPath();
+          ctx.moveTo(baseX, baseY);
+          ctx.quadraticCurveTo(ctrlX, ctrlY, endX, endY);
+          ctx.stroke();
+
+          ctx.strokeStyle = `rgba(255, 214, 116, ${0.36 * fade})`;
+          ctx.lineWidth = Math.max(0.8, sunRadius * 0.022 * event.strength);
+          ctx.beginPath();
+          ctx.moveTo(baseX, baseY);
+          ctx.quadraticCurveTo(ctrlX, ctrlY, endX, endY);
+          ctx.stroke();
+        } else if (event.kind === "cme") {
+          const front = sunRadius * (1.15 + progress * (2.9 + event.strength * 0.45));
+          const width = 0.38 + event.strength * 0.12;
+          const gradient = ctx.createRadialGradient(centerX, centerY, sunRadius, centerX, centerY, front);
+          gradient.addColorStop(0, `rgba(255, 218, 126, ${0.14 * fade})`);
+          gradient.addColorStop(0.66, `rgba(255, 112, 48, ${0.08 * fade})`);
+          gradient.addColorStop(1, "rgba(255, 112, 48, 0)");
+          ctx.fillStyle = gradient;
+          ctx.beginPath();
+          ctx.moveTo(centerX, centerY);
+          ctx.arc(centerX, centerY, front, event.angle - width, event.angle + width);
+          ctx.closePath();
+          ctx.fill();
+
+          ctx.strokeStyle = `rgba(255, 224, 168, ${0.24 * fade})`;
+          ctx.lineWidth = Math.max(1, sunRadius * 0.018);
+          ctx.beginPath();
+          ctx.arc(centerX, centerY, front, event.angle - width, event.angle + width);
+          ctx.stroke();
+        } else {
+          const length = sunRadius * (0.8 + event.strength * 0.38);
+          const flareEndX = centerX + Math.cos(event.angle) * (sunRadius + length * progress);
+          const flareEndY = centerY + Math.sin(event.angle) * (sunRadius + length * progress);
+          const gradient = ctx.createLinearGradient(baseX, baseY, flareEndX, flareEndY);
+          gradient.addColorStop(0, `rgba(255, 255, 214, ${0.72 * fade})`);
+          gradient.addColorStop(0.48, `rgba(255, 156, 56, ${0.34 * fade})`);
+          gradient.addColorStop(1, "rgba(255, 80, 28, 0)");
+          ctx.strokeStyle = gradient;
+          ctx.lineWidth = Math.max(1.6, sunRadius * 0.07 * event.strength * fade);
+          ctx.lineCap = "round";
+          ctx.beginPath();
+          ctx.moveTo(baseX, baseY);
+          ctx.lineTo(flareEndX, flareEndY);
+          ctx.stroke();
+        }
+
+        if (event.age >= event.life) {
+          solarActivityEvents.splice(i, 1);
+        }
+      }
+
+      for (let i = solarWindParticles.length - 1; i >= 0; i -= 1) {
+        const particle = solarWindParticles[i];
+        particle.age += settings.paused ? 0 : delta;
+        const progress = Math.min(particle.age / particle.life, 1);
+        const distance = sunRadius * 1.05 + particle.speed * particle.age;
+        const angle = particle.angle + particle.offset * progress;
+        const x = centerX + Math.cos(angle) * distance;
+        const y = centerY + Math.sin(angle) * distance;
+        const alpha = particle.alpha * (1 - progress);
+
+        ctx.fillStyle = `rgba(255, 199, 112, ${alpha})`;
+        ctx.beginPath();
+        ctx.arc(x, y, particle.size, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (particle.age >= particle.life) {
+          solarWindParticles.splice(i, 1);
+        }
+      }
+
       ctx.restore();
     }
 
@@ -703,6 +908,8 @@
       ctx.arc(centerX, centerY, sunRadius, 0, Math.PI * 2);
       ctx.fill();
 
+      drawSolarActivity(centerX, centerY, sunRadius, Math.min(0.033, 1 / 60));
+
       if (settings.showLabels) {
         ctx.fillStyle = "rgba(255, 255, 255, 0.78)";
         ctx.font = `${Math.max(11, 12 * scale)}px "Microsoft YaHei", sans-serif`;
@@ -852,6 +1059,56 @@
         radius: moonRadius,
         hitRadius: Math.max(12, moonRadius + 8),
         data: moonInfo
+      };
+    }
+
+    function drawPlanetSatellite(parentX, parentY, parentRadius, parentRealX, parentRealY, earthDays, scale, satellite) {
+      const orbit = Math.max(parentRadius * satellite.visualOrbit, 10 * scale);
+      const radius = Math.max(1.2, parentRadius * satellite.visualRadius);
+      const angle = satellite.start + (earthDays / satellite.periodDays) * Math.PI * 2;
+      const x = parentX + Math.cos(angle) * orbit;
+      const y = parentY + Math.sin(angle) * orbit * 0.54;
+      const realOrbitAU = satellite.distanceKm / AU_IN_KM;
+      const realX = parentRealX + Math.cos(angle) * realOrbitAU;
+      const realY = parentRealY + Math.sin(angle) * realOrbitAU;
+
+      if (settings.showOrbits) {
+        ctx.strokeStyle = "rgba(210, 220, 238, 0.12)";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.ellipse(parentX, parentY, orbit, orbit * 0.54, 0, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+
+      drawTrail(satellite.name, satellite.color);
+      if (!settings.paused) {
+        recordTrail(satellite.name, x, y, 90);
+      }
+
+      drawRadialGlow(x, y, radius, satellite.color, 0.1, 2.4);
+      const body = ctx.createRadialGradient(x - radius * 0.3, y - radius * 0.35, radius * 0.1, x, y, radius);
+      body.addColorStop(0, "rgba(255, 255, 255, 0.9)");
+      body.addColorStop(0.45, satellite.color);
+      body.addColorStop(1, "rgba(16, 18, 28, 0.9)");
+      ctx.fillStyle = body;
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fill();
+
+      if (settings.showLabels && radius > 1.4) {
+        ctx.fillStyle = "rgba(226, 236, 255, 0.58)";
+        ctx.fillText(satellite.name, x, y - radius - 7 * scale);
+      }
+
+      return {
+        x,
+        y,
+        realX,
+        realY,
+        realZ: 0,
+        radius,
+        hitRadius: Math.max(9, radius + 6),
+        data: satelliteInfos[satellite.name]
       };
     }
 
@@ -1022,6 +1279,66 @@
       ctx.restore();
     }
 
+    function drawTeachingAnnotation(target, centerX, centerY) {
+      if (!settings.showTeaching || !target) {
+        return;
+      }
+
+      const dx = target.x - centerX;
+      const dy = target.y - centerY;
+      const distance = Math.hypot(dx, dy) || 1;
+      const tangentX = -dy / distance;
+      const tangentY = dx / distance;
+      const arrowLength = Math.max(28, target.hitRadius * 2.4);
+      const labelX = Math.min(width - 220, Math.max(24, target.x + 22));
+      const labelY = Math.min(height - 120, Math.max(24, target.y - 54));
+      const realDistance = Number.isFinite(target.realX) && Number.isFinite(target.realY)
+        ? Math.hypot(target.realX, target.realY, target.realZ || 0)
+        : null;
+      const rows = [
+        target.data.name,
+        target.data.orbitSpeed ? `公转速度：${target.data.orbitSpeed}` : "",
+        target.data.year ? `公转周期：${target.data.year}` : "",
+        realDistance ? `距太阳：${formatAU(realDistance)}` : ""
+      ].filter(Boolean);
+
+      ctx.save();
+      ctx.strokeStyle = "rgba(119, 215, 255, 0.78)";
+      ctx.fillStyle = "rgba(119, 215, 255, 0.9)";
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([5, 5]);
+      ctx.beginPath();
+      ctx.moveTo(centerX, centerY);
+      ctx.lineTo(target.x, target.y);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      ctx.strokeStyle = "rgba(255, 232, 126, 0.9)";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(target.x, target.y);
+      ctx.lineTo(target.x + tangentX * arrowLength, target.y + tangentY * arrowLength);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(target.x, target.y, target.hitRadius + 5, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.fillStyle = "rgba(4, 9, 24, 0.76)";
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.16)";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.roundRect(labelX, labelY, 196, 24 + rows.length * 17, 8);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = "rgba(245, 248, 255, 0.92)";
+      ctx.font = "12px \"Microsoft YaHei\", sans-serif";
+      rows.forEach((row, index) => {
+        ctx.fillText(row, labelX + 12, labelY + 20 + index * 17);
+      });
+      ctx.restore();
+    }
+
     function drawSolarSystem(time) {
       const minSize = Math.min(width, height);
       const scale = Math.max(0.64, Math.min(minSize / 820, 1.15));
@@ -1101,6 +1418,12 @@
           }
         }
 
+        if (satelliteSystems[planet.name]) {
+          satelliteSystems[planet.name].forEach((satellite) => {
+            solarTargets.push(drawPlanetSatellite(x, y, visualRadius, realX, realY, earthDays, scale, satellite));
+          });
+        }
+
         if (settings.showLabels) {
           ctx.fillStyle = "rgba(226, 236, 255, 0.72)";
           ctx.fillText(planet.name, x, y - visualRadius - 10 * scale);
@@ -1109,6 +1432,7 @@
 
       focusTarget = solarTargets.find((target) => target.data.name === settings.focusTarget);
       drawFocusMarker(focusTarget);
+      drawTeachingAnnotation(solarTargets.find((target) => target.data.name === teachingTargetName) || focusTarget, centerX, centerY);
       drawMeasurementLine();
 
       ctx.restore();
@@ -1390,6 +1714,7 @@
 
       if (target) {
         showInfo(target);
+        teachingTargetName = target.data.name;
         if (settings.measureMode) {
           addMeasurementTarget(target);
         }
@@ -1402,6 +1727,11 @@
     });
     window.addEventListener("contextmenu", (event) => {
       event.preventDefault();
+    });
+    consoleToggle.addEventListener("click", () => {
+      const hidden = document.body.classList.toggle("console-hidden");
+      consoleToggle.textContent = hidden ? "显示控制台" : "隐藏控制台";
+      consoleToggle.setAttribute("aria-expanded", String(!hidden));
     });
     infoClose.addEventListener("click", () => {
       infoPanel.hidden = true;
@@ -1424,32 +1754,26 @@
       }
     });
     timeSpeedControl.addEventListener("input", updateTimeSetting);
+    screenshotControl.addEventListener("click", saveScreenshot);
     pauseControl.addEventListener("click", () => {
       settings.paused = !settings.paused;
       pauseControl.textContent = settings.paused ? "继续" : "暂停";
-    });
-    resetTimeControl.addEventListener("click", () => {
-      simulationTime = 0;
-      planetTrails.clear();
-      measurement.points = [];
-      clearMeasurement();
     });
     scaleModeControl.addEventListener("change", () => {
       planetTrails.clear();
       updateDisplaySettings();
     });
-    locateControl.addEventListener("click", () => {
-      locateTarget(targetSelect.value, false);
-    });
-    focusControl.addEventListener("click", () => {
-      if (settings.focusTarget === targetSelect.value) {
-        setFocusTarget("");
-      } else {
-        locateTarget(targetSelect.value, true);
-      }
-    });
     targetSelect.addEventListener("change", () => {
-      locateTarget(targetSelect.value, false);
+      teachingTargetName = targetSelect.value;
+
+      if (!targetSelect.value) {
+        setFocusTarget("");
+        teachingTargetName = "";
+        pointer.active = false;
+        return;
+      }
+
+      locateTarget(targetSelect.value, true);
     });
     measureControl.addEventListener("change", () => {
       updateDisplaySettings();
@@ -1466,9 +1790,21 @@
       showAsteroidsControl,
       showCometsControl,
       showMeteorsControl,
-      showStarsControl
+      showStarsControl,
+      showTeachingControl,
+      showSolarActivityControl
     ].forEach((control) => {
       control.addEventListener("change", updateDisplaySettings);
+    });
+    performanceModeControl.addEventListener("change", () => {
+      updateDisplaySettings();
+      createStars();
+      createAsteroids();
+    });
+    solarActivityIntensityControl.addEventListener("input", updateSolarActivitySetting);
+    triggerSolarBurstControl.addEventListener("click", () => {
+      spawnSolarActivity("cme");
+      spawnSolarActivity("flare");
     });
     sizeControl.addEventListener("input", () => {
       updateSetting(sizeControl, sizeValue, "size");
@@ -1502,6 +1838,7 @@
     updateSetting(speedControl, speedValue, "speed");
     updateTimeSetting();
     updateDisplaySettings();
+    updateSolarActivitySetting();
     updateMagnifierSetting();
     updateShapeSetting(tailShapeInputs, tailShapeValue, tailShapeSummary, tailShapeNames, "tailShapes", "随机全部拖尾");
     updateShapeSetting(bodyShapeInputs, bodyShapeValue, bodyShapeSummary, bodyShapeNames, "bodyShapes", "随机全部本体");
