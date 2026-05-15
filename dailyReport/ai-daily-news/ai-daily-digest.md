@@ -2,6 +2,85 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-05-14
+
+### 今日总览
+
+**一句话结论**：同日主线更像「**云上团队 Agent（GitHub Copilot app + Workspace/Codex 移动协同）× 平台安全与向善部署（ChatGPT safety summaries × Gates×Anthropic 公益合作）**，再叠加 **`Interrupt`** 第二天的产业议程与国内媒体侧的 **竞品 CLI/组织策略**叙事。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenAI / Gates Foundation / Anthropic 官网；GitHub changelog（Copilot app / Auto / Usage API）；Anthropic Claude Code、`openclaw` release；LangChain Interrupt 会务材料；The Verge 产业报道；arxiv/huggingface Papers 抽样；skills/Agent Skills 专项；中文补充检索（机器之心未发现同日硬匹配） |
+| 核心趋势 | **协作入口**：GitHub-native Copilot desktop app（技术预览）把「从 GitHub 工件出发的云会话」做实；OpenAI「**随时随地连到正在跑的 Codex**」把移动端变成长任务 steering 面板；**安全与公共利益**：ChatGPT「**safety summaries**」对齐跨会话风险识别；Anthropic × Gates **`$200M/4yr`** 承诺把模型能力导向全球健康/教育与农业公共服务品 |
+| 可直接关注 | GitHub：`Copilot app`/`cloud agent`/usage API 同日三连发，企业要优先核对 **预览开关、CLI policy、配额与密钥面**；OpenAI：**Codex 移动协同**背后是 **中继层与令牌/会话审批**的工程与治理议题；Anthropic × Gates：**公共 benchmark/数据集**/连接器组合的路线，适合做对「向善部署」指标体系的对照阅读 |
+| 专项检索结论 | **Codex（GitHub `openai/codex` Release）**：`rust-v0.131.0-alpha.18` 的 `Published` 为 **`2026-05-14T21:41:33Z`**，折算 Asia/Shanghai 为 **`2026-05-15 05:41:33`**，**不属于**本日 **`2026-05-14 00:00–23:59（上海）`** 窗口，建议归入 **`2026-05-15`** 批次；**Claude Code**：`v2.1.141` 的 `Published` 为 **`2026-05-13T23:19:16Z`** → **`2026-05-14 07:19:16（上海）`**，**落入**当日窗口（偏工程体验/权限与企业身份联邦）；**OpenClaw**：`v2026.5.12-beta.6` 的 `Published` 为 **`2026-05-13T21:00:40Z`** → **`2026-05-14 05:00:40（上海）`**，**落入**当日窗口（含 Copilot Gemini 看图路由等修复）；`v2026.5.14-beta.1` 的 `Published` 为 **`2026-05-14T21:31:13Z`** → **`2026-05-15 05:31:13（上海）`**，**不属于**当日窗口；**Hermes**：**未发现**同日新 release tag；**Spring AI**：**未发现** `spring.io/blog` 上与 `2026-05-14` **日期字段明确对齐**的新发布条目；**MCP**：未检索到与原技能「规范级主线仓库」同日**可单列**的重大规范发布（以生态发布节奏与实现对齐 PR 为主）；**skills**：GitHub Copilot app changelog 写明可把 **skills/prompts 固化成可重复工作流**（更接近「组织能力资产化」，而非单一标准文本变更） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 安全 / ChatGPT | [Helping ChatGPT better recognize context in sensitive conversations](https://openai.com/index/chatgpt-recognize-context-in-sensitive-conversations/) | **2026-05-14**（OpenAI index 落款 **May 14, 2026**） | 官方安全说明 | 「跨消息/跨会话」风险识别引入 **narrow safety summaries**：对「自杀自伤 / 伤人意念」场景的 **意图随时间演化**更可审计；给企业做 **内容安全与工作场所辅导**的对话类产品提供「边界条件」范式（仍须结合法务与本地化流程） |
+| 产品 / Codex | [Work with Codex from anywhere](https://openai.com/index/work-with-codex-from-anywhere/) | **2026-05-14**（OpenAI index 落款 **May 14, 2026**） | 产品发布 | Codex **进入 ChatGPT 移动端预览**：手机侧跨线程 steering、命令审批、截图/终端/测试回填；同日强调 **Remote SSH GA**、**Hooks GA**、**Programmatic tokens（Business/Enterprise）** 与本地环境 HIPAA 场景的边界说明——本质是 **长时间运行 Agent 的移动控制面 + 令牌治理** |
+| 公益 × 模型商用 | [Making AI work for more people（Gates Foundation）](https://www.gatesfoundation.org/ideas/media-center/press-releases/2026/05/ai-anthropic-partnership) ; [Anthropic forms $200 million partnership with the Gates Foundation](https://www.anthropic.com/news/gates-foundation-partnership) | **2026-05-14**（双方稿件落款 **May 14, 2026**） | 官方公告 / 公益合作 | **4 年 2 亿美金**量级承诺（grant + credits + tech support）：把连接器、benchmark、数据集等 **公共品**投进全球健康（疫苗/疟疾 TB 建模伙伴 IDM/IHME 叙述）、教育与农业小额农户场景——对学习 **「有益部署 Beneficial deployments」指标体系**的团队是高信噪上下文 |
+| Copilot / 桌面 Agent | [GitHub Copilot app is now available in technical preview](https://github.blog/changelog/2026-05-14-github-copilot-app-is-now-available-in-technical-preview/) | **2026-05-14**（changelog **`2026-05-14-…`** 条目） | 官方 changelog | 从 **Issue/PR/会话**拉起隔离会话分支；集成终端/浏览器验证；可把 **skills/prompts**整理成例行工作流；并提到 **Agent Merge** 收口 review comments / checks——对平台工程团队是「**GitHub 原生 agentic IDE**」的新入口 |
+| Copilot Cloud | [Copilot cloud agent supports auto model selection](https://github.blog/changelog/2026-05-14-copilot-cloud-agent-supports-auto-model-selection/) | **2026-05-14**（changelog **`2026-05-14-…`** 条目） | 官方 changelog | Auto 选型把「系统健康 × 可用模型集合」收口成运行时策略——研发侧可把其当作 **运行时路由/兜底**的一层，但要注意组织策略与会话可追溯性 |
+| Copilot Metrics | [Team-level Copilot usage metrics now available via API](https://github.blog/changelog/2026-05-14-team-level-copilot-usage-metrics-now-available-via-api/) | **2026-05-14**（changelog **`2026-05-14-…`** 条目） | 官方 changelog | user↔teams 映射进入 **使用量 API**，可把「团队维度成本与采用率」接进内部 FinOps/License 工作台 |
+| 开发者工具 CLI | Claude Code [`v2.1.141`](https://github.com/anthropics/claude-code/releases/tag/v2.1.141)（`Published` **`2026-05-13T23:19:16Z`**） | **2026-05-13（UTC）/ 相邻落入上海：`2026-05-14 07:19:16`** | 开源发布 | Hooks 扩展 `terminalSequence`、插件 HTTPS 克隆开关、`ANTHROPIC_WORKSPACE_ID` workload identity federation、长思考 spinner 变暖提示、`/feedback`收录近 24h/7 天会话等——偏 **人机协同与政企身份**硬需求 |
+| 多通道 Agent 运行时 | OpenClaw [`v2026.5.12-beta.6`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.12-beta.6)（`Published` **`2026-05-13T21:00:40Z`**） | **2026-05-13（UTC）/ 相邻落入上海：`2026-05-14 05:00:40`** | 开源 prerelease | 网关协议：**要求 v4 客户端**，流式 `deltaText/replace` 帧明示；并为 **Gemini image** 走 OAuth→Copilot API token 交换等修复——说明 **模型能力扩展**常与 **令牌交换与网关协议版本**耦合 |
+| 竞品 / 开发者工具（媒体报道） | [xAI launches an “early beta” of its agentic CLI for Grok](https://www.theverge.com/ai-artificial-intelligence/930802/xai-launches-an-early-beta-of-its-agentic-cli-for-grok)（Posted **`May 14, 2026 7:38 PM UTC`**） | 2026-05-13（UTC 发布时间）→ **落入上海 `2026-05-15` 日历日凌晨**（但 **The Verge 页面日期落款为 May 14, 2026**） | 技术媒体 | 以 **`SuperGrok Heavy`** 订阅门槛推出的 **编码 CLI Beta**叙事；适合做「市场空间/定价」对照，工程技术细节仍需 **回溯 xAI 官方发布材料** |
+| 组织策略（媒体报道） | [Microsoft starts canceling Claude Code licenses](https://www.theverge.com/tech/930447/microsoft-claude-code-discontinued-notepad)（**`May 14, 2026, 7:00 PM UTC`**） | 同上行（ UTC 发布时间跨上海日历日边界；**落款 May 14, 2026**） | 技术媒体 | 观察 **大厂内部 toolchain 收敛**：Experiences + Devices 线转向 **Copilot CLI**的内部叙事与财年节点（报道引用内部 memo）；对评估「组织级 Agent IDE 选型」的人有 **路线图外生冲击**参考价值 |
+| 产业议程 | [Interrupt 2026 Agenda / FAQ](https://interrupt.langchain.com/event-agenda)（会期含 **`2026-05-14` Day 2**） | **2026-05-14**（旧金山 **Day 2**；与本 Skill 的上海日历窗口存在 **时区换算相邻**阅读） | 社区会议 | LangChain **`Interrupt`** 进入 Day 2：偏 **产品与治理议程**风向标；工程质量结论仍需 **`2026-05-14` 同日官方材料**逐项对齐 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| ChatGPT × 公共安全叙事 | OpenAI：**Helping ChatGPT better recognize context…**（见上链接） | safety summaries：跨会话narrow scope、限时保留、对齐专家输入 | Trust & Safety / PM |
+| Workspace / Codex Enterprise | OpenAI：**Work with Codex from anywhere** + [Hooks 文档入口](https://developers.openai.com/codex/hooks)（文内引用） | 移动 relay、REMOTE SSH、Hooks GA、程序化 token | DevEx / 平台安全架构师 |
+| GitHub Copilot App | GitHub：**GitHub Copilot app documentation**（见 changelog 文末 `gh.io` 导流链接聚合） | 会话隔离、terminal/browser 验证、PR 闭环 | 习惯 GitHub-centric 的研发团队 |
+| 受益部署指标体系 | Gates Foundation：**AI–Anthropic partnership**（见上） + Anthropic：**Beneficial deployments**叙述 | 「公共数据集 / benchmark / 连接器」组合的落地描述 | NGO Tech / Applied ML 负责人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：工程发布面 **GitHub Copilot app + cloud agent Auto routing**补齐「从哪里启动 session / 如何把长任务跑着」的云入口；开源侧 Claude Code/OpenClaw 继续堆 **网关协议、令牌交换与 IDE/通道体验**。**LangGraph 版本级旗舰发布**同日未检索到与上海窗口强绑定的一手「单一大盘」条目，更多注意力在 **Interrupt 会议议程**与 **多端 Agent 控制权**产品上。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 会话隔离与工作流封装 | Copilot desktop app：`Issue/PR/会话`起手 + `skills/prompts`沉淀 | 「组织知识」不要停留在 prompt 草稿，要能 **映射到可追溯 session 模板**并与 PR 门禁打通 |
+| 长任务人机协同 | ChatGPT Mobile ↔ Codex relay：移动端审批/改向 | 「长任务」的工程关键是 **checkpoint + interruptibility + 稽核链路**，不是再大一点的上下文窗口 |
+| 网关协议耦合 | OpenClaw：v4-only + 显式帧 | 多端 SDK **必须对齐协议版本演进**，否则会退化成「本地拼装 diff」, 失真且难排障 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | Gates Foundation：**Making AI work for more people** | 「公共品 + benchmark + country-led」组合拳的一手措辞，便于对齐你司 CSR/向善 AI 报告的引用口径 |
+| 必读 | Anthropic：**Gates partnership** | Anthropic Beneficial deployments 视角与「连接器/eval datasets」的工程落点并排阅读 |
+| 推荐 | GitHub Copilot：**app technical preview** changelog | 「GitHub-native agentic IDE」的路线级描述，直接关系到团队是否把工作流搬进 GitHub 会话容器 |
+| 推荐 | OpenAI：**Helping ChatGPT… sensitive conversations** | safety summaries「窄用途、短时、仅存安全相关 factual notes」的工程与伦理写法可借鉴 |
+| 延伸 | Verge：**Grok CLI early beta / Microsoft & Claude Code** | 适合做竞争态势阅读；关键技术结论请 **回到厂商原文**核验 |
+
+### 来源清单
+
+- 检索范围：2026-05-14 00:00:00 到 2026-05-14 23:59:59（Asia/Shanghai），并对照 UTC `Published` 时间校准「跨日时区边界」条目
+- 引用域名：`openai.com`, `gatesfoundation.org`, `anthropic.com`, `github.blog`, `github.com`, `interrupt.langchain.com`, `langchain.com`, `theverge.com`
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Helping ChatGPT better recognize context in sensitive conversations | **2026-05-14**（OpenAI：**May 14, 2026**） | https://openai.com/index/chatgpt-recognize-context-in-sensitive-conversations/ |
+| 官方发布 | Work with Codex from anywhere | **2026-05-14**（OpenAI：**May 14, 2026**） | https://openai.com/index/work-with-codex-from-anywhere/ |
+| 官方公告 | Making AI work for more people（Gates Foundation） | **2026-05-14**（稿件：**May 14, 2026**） | https://www.gatesfoundation.org/ideas/media-center/press-releases/2026/05/ai-anthropic-partnership |
+| 官方公告 | Anthropic forms $200 million partnership with the Gates Foundation | **2026-05-14**（稿件：**May 14, 2026**） | https://www.anthropic.com/news/gates-foundation-partnership |
+| 官方 changelog | GitHub Copilot app technical preview | **2026-05-14** | https://github.blog/changelog/2026-05-14-github-copilot-app-is-now-available-in-technical-preview/ |
+| 官方 changelog | Copilot cloud agent auto model selection | **2026-05-14** | https://github.blog/changelog/2026-05-14-copilot-cloud-agent-supports-auto-model-selection/ |
+| 官方 changelog | Team Copilot usage metrics API | **2026-05-14** | https://github.blog/changelog/2026-05-14-team-level-copilot-usage-metrics-now-available-via-api/ |
+| 开源发布 | Claude Code v2.1.141（UTC `Published` **`2026-05-13T23:19:16Z`**） | **落入上海 `2026-05-14` 相邻窗口** | https://github.com/anthropics/claude-code/releases/tag/v2.1.141 |
+| 开源发布 | OpenClaw v2026.5.12-beta.6（UTC `Published` **`2026-05-13T21:00:40Z`**） | **落入上海 `2026-05-14` 相邻窗口** | https://github.com/openclaw/openclaw/releases/tag/v2026.5.12-beta.6 |
+| 会务材料 | Interrupt 2026 Agenda（日程含 **`2026-05-14` Day 2；与 Asia/Shanghai 存在跨日时区相邻**） | 会议日（旧金山） | https://interrupt.langchain.com/event-agenda |
+| 技术媒体 | xAI Grok CLI early beta | **Posted May 14, 2026 7:38 PM UTC**（The Verge 日期落款 May 14, 2026） | https://www.theverge.com/ai-artificial-intelligence/930802/xai-launches-an-early-beta-of-its-agentic-cli-for-grok |
+| 技术媒体 | Microsoft starts canceling Claude Code licenses | **May 14, 2026, 7:00 PM UTC**（The Verge 日期落款 May 14, 2026） | https://www.theverge.com/tech/930447/microsoft-claude-code-discontinued-notepad |
+
 ## 2026-05-13
 
 ### 今日总览

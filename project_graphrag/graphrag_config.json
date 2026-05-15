@@ -1,13 +1,13 @@
 {
-  "storage_root": "C:\\Users\\BG518089\\IdeaProjects\\ai_for_learning\\project_graphrag",
+  "storage_root": "C:\\Users\\BG518089\\IdeaProjects\\ai_for_learing\\project_graphrag",
   "target_project_path": "C:\\Users\\BG518089\\IdeaProjects\\gwms",
   "summary_relative": "summary.md",
   "build_script_relative": "scripts/build_graphrag.py",
   "enrich_script_relative": "scripts/enrich_from_query.py",
   "graph_snapshot": {
-    "baseline_generated_at_utc": "2026-05-10T15:12:04.017170+00:00",
+    "baseline_generated_at_utc": "2026-05-14T14:07:29.439955+00:00",
     "baseline_summary_note": "与当前 summary.md 中 Generated At (UTC) 一致；增量/全量构建成功后应改写为最近一次构建时间。",
-    "baseline_local_calendar_date_hint": "2026-05-10"
+    "baseline_local_calendar_date_hint": "2026-05-14"
   },
   "incremental_build_policy": {
     "mechanism": "filesystem",
