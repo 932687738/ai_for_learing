@@ -2,6 +2,83 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-05-15
+
+### 今日总览
+
+**一句话结论**：`2026-05-15`（Asia/Shanghai，00:00–23:59）更像「**平台把 Agent 的个性化记忆与模型阵容治理收口（Copilot Memory 用户偏好 × Grok Code Fast 1 下线）** × **开源侧把 OpenAI 回合交给 Codex app-server 接管（OpenClaw 官方博文 + 巨型 beta 发布）** × **产业/监管侧讨论“GEO/操纵生成式答案也算垃圾内容”与“大厂组织全力押注单一 agentic 平台”**」三条主线并行。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | GitHub 官方 changelog（Copilot Memory、Grok 模型退役）；OpenClaw 官方博客 + GitHub `Published` 时间戳（UTC→上海）；OpenAI `codex` Release；Anthropic PwC 官宣（页面日期字段校准）；The Verge（OpenClaw×OpenAI、OpenAI 组织调整、Google spam policy）；Hugging Face Daily Papers `2026-05-15`；Spring AI / LangChain 博客日期硬对齐；Claude Code / Hermes GitHub releases 专项；skills/Cursor 专项；中文补充（机器之心等未见同日强匹配主编发） |
+| 核心趋势 | **记忆与偏好跨仓复用**：Copilot Memory 从「仓库级」扩到「用户级」偏好，直接影响多代理一致性与合规审计设计；**模型生命周期治理**：GitHub 侧明确退役 Grok Code Fast 1 并给替代模型建议；**运行时边界重划**：OpenClaw 将 `openai/gpt-*` 默认回合交给 Codex app-server，减少工具重复与会话泄漏；**搜索生态反 GEO**：Google 明确把「操纵生成式 AI 回答」纳入 spam 语义 |
+| 可直接关注 | 企业侧：把 **user-level memory**当成「可导出、可删除、可隔离租户」的合规对象，而不是聊天增值功能；平台侧：**模型退役**会打断自动化流水线，需在 CI/IDE policy 做 **pin + fallback**；Agent 工程：**harness 切换可显著改评测**（WildClawBench 结论与 OpenClaw/Codex 路线形成互文） |
+| 专项检索结论 | **Codex**：`rust-v0.131.0-alpha.18` 的 GitHub **`Published`** 为 **`2026-05-14T21:41:33Z`** → **`2026-05-15 05:41:33（Asia/Shanghai）`**，**落入**本日窗口；**Claude Code**：**未发现**与 **`2026-05-15（上海）`** 强对齐的新 GitHub Release tag（以 releases 页检索为准）；**OpenClaw**：`v2026.5.14-beta.1` 的 **`Published`** 为 **`2026-05-14T21:31:13Z`** → **`2026-05-15 05:31:13（Asia/Shanghai）`**，**落入**本日窗口；同日官方博文说明 **`openai/gpt-*` 默认走 Codex app-server**；**Hermes**：**未发现**同日 Hermes Agent **新 tag**；见 **第三方报道**对 OpenRouter 日推理排行的解读（需与官方/第三方 API 统计交叉核验）；**Spring AI**：**未发现** `spring.io/blog` 上与 **`2026-05-15`** 日期字段明确对齐的新条目；**MCP**：未检索到「规范级」单一重磅条款式发布；以 SDK/inspector 仓库活跃度与集成叙事为主；**skills**：OpenClaw 发布说明维护者侧 **`codex-review` skill**（偏工程化治理/评审闭环）；**Cursor Agent Skills**：**未发现**与 **`2026-05-15`** 强绑定的独立技能平台发布（仍以文档与邻近版本节奏为主） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Copilot / 记忆 | [Copilot Memory supports user preferences for Pro, Pro+ users](https://github.blog/changelog/2026-05-15-copilot-memory-supports-user-preferences-for-pro-pro-users/) | **2026-05-15**（changelog  slug **`2026-05-15`**) | 官方 changelog | 早期体验：把 **提交风格 / PR 结构 / 沟通语气**等做成 **跨仓库、跨代理**可用的用户级偏好；工程上要同步考虑 **记忆最小化、可撤回、与组织策略/审计日志**的对齐 |
+| Copilot / 模型治理 | [Grok Code Fast 1 deprecated](https://github.blog/changelog/2026-05-15-grok-code-fast-1-deprecated/) | **2026-05-15**（GitHub：**today, May 15, 2026**） | 官方 changelog | 明确 **退役日 + 建议替代**（GPT-5 mini / Claude Haiku 4.5）；对企业意味着 **模型白名单、提示词/评测基准、成本曲线**要随政策变化做例行巡检 |
+| 企业落地 / 合作伙伴 | [PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients](https://www.anthropic.com/news/pwc-expanded-partnership) | **2026-05-14**（Anthropic 页面落款；**与上海窗相邻/隔夜传播**） | 官方公告 | 组织级叙述聚焦 **Claude Code + Cowork** rollout、**30k** 培训认证、**Office of the CFO** 新事业群；更像「专业服务业如何把 agentic build/deal execution/职能再造打成产品」的样本，需结合客户行业合规再拆解 |
+| 多通道 Agent / Codex 集成 | OpenClaw：[OpenAI Models in OpenClaw, Done Right](https://openclaw.ai/blog/openai-models-in-openclaw-done-right) + The Verge：[OpenClaw now works better with OpenAI models and Codex](https://www.theverge.com/ai-artificial-intelligence/931078/openclaw-now-works-better-with-openai-models-and-codex) | Verge：**Posted May 15, 2026 at 12:29 AM UTC**（**落入上海 `2026-05-15` 08:29**）；OpenClaw 博文未展示独立「日历发布时间戳」（以正文表述为准） | 官方博客 + 技术媒体 | 关键工程信息：`openai/gpt-*` **默认**切到 **Codex app-server**；外层 OpenClaw 继续握 **channels/memory/cron/tools**；内层 **native thread/tool search/visible reply 工具化**——这是「两层 agent 平台」的清晰边界练习 |
+| 开源发布 / Codex CLI | [openai/codex `rust-v0.131.0-alpha.18`](https://github.com/openai/codex/releases/tag/rust-v0.131.0-alpha.18) | GitHub **`Published`** **`2026-05-14T21:41:33Z`** → **`2026-05-15 05:41:33（Asia/Shanghai）`** | 开源预发布 | 以 **UTC 发布时间换算**落入上海日历日窗口；适合作为 **`2026-05-15`** 批次的「二进制/代理/打包」增量追踪点 |
+| 开源发布 / OpenClaw | [openclaw/openclaw `v2026.5.14-beta.1`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.14-beta.1) | GitHub **`Published`** **`2026-05-14T21:31:13Z`** → **`2026-05-15 05:31:13（Asia/Shanghai）`** | 开源预发布 | 变更面极大：**Codex app-server 迁移/会话绑定**、**依赖与供应链治理（npm advisory gating）**、多通道 **status reaction**、以及与 **review skills / 贡献者分流 skills**相关的维护者工具链 |
+| 组织与产品战略（媒体报道） | [OpenAI keeps shuffling its executives in bid to win AI agent battle](https://www.theverge.com/ai-artificial-intelligence/931544/openai-keeps-shuffling-its-executives-in-bid-to-win-ai-agent-battle) | **May 15, 2026, 6:21 PM UTC** → **上海 `2026-05-16` 02:21**（**相邻日期/跨区域传播**；以稿件日期落款为准） | 技术媒体 | 引用备忘录口径：**单一 agentic 平台**、**合并 ChatGPT 与 Codex 体验**；组织研究价值高，但实施细节仍需 **OpenAI 官方后续产品与工程发布**印证 |
+| 搜索生态 / 治理 | [Google updates its spam rules to include attempts to ‘manipulate’ AI](https://www.theverge.com/tech/931416/google-ai-search-spam-policy) | **May 15, 2026, 4:42 PM UTC** → **上海 `2026-05-16` 00:42**（**相邻日期**；The Verge 引用 [Google spam policies](https://developers.google.com/search/docs/essentials/spam-policies)） | 技术媒体 + 政策文档入口 | 「**操纵生成式回答**」被明确纳入 spam 语义，和 **GEO / recommendation poisoning**讨论直接相关；内容侧与安全侧要做 **威胁建模：对手盘会如何注入“权威记忆”** |
+| 论文社区聚合 | [Hugging Face Daily Papers（May 15, 2026）](https://huggingface.co/papers/date/2026-05-15) | **2026-05-15**（HF 列表页日期） | 论文社区聚合 | 适合做当日「**Agent / 记忆 / 长程评测**」的阅读索引；单篇是否首发请以 arXiv **Submission history**为准 |
+| 论文原文（示例核验） | [WildClawBench（arXiv:2605.10912）](https://arxiv.org/abs/2605.10912) | **见于** HF Daily **`2026-05-15`** 列表；**arXiv 页面以 Submission history 为准** | 论文原文 | **原生运行时 + 长程 + 真实工具**的 Agent benchmark 叙事；核心方法信号：**同模型切换 harness 可带来大幅分数差**，直接支持你在架构评审里主张「**评测要绑定运行时**」 |
+| 产业排名（第三方报道） | TechTimes：[Nous Research's Hermes Agent…（OpenRouter 日推理排行叙事）](http://www.techtimes.com/articles/316694/20260515/nous-researchs-hermes-agent-dethrones-openclaw-worlds-most-used-open-source-ai-agent.htm) | 页面标识 **`20260515`**；**非 Hermes GitHub release** | **第三方报道，补充核验** | 只适合当「市场叙事/传播事件」线索；**token 规模、排行口径、统计窗口**必须回到 **OpenRouter / 项目方**一手材料复核 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Copilot Memory 治理 | GitHub Docs：[About GitHub Copilot Memory](https://docs.github.com/copilot/concepts/agents/copilot-memory) + [个人 Memory 设置](https://github.com/settings/copilot/memory) | 用户记忆的最小化、审阅与删除路径 | 企业安全 / DevEx |
+| OpenClaw × Codex 边界 | OpenClaw：**OpenAI Models in OpenClaw, Done Right**（见上） | app-server 负责 native loop；OpenClaw 负责通道与产品层策略 | 多模型 Agent 平台架构师 |
+| 反 GEO / 内容合规 | Google：**Search spam policies**（见 The Verge 引用链） | 操纵生成式结果亦可构成违规 | 增长 / SEO / Trust & Safety |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：工程发布主战场在 **「Copilot 记忆与模型阵容」**与 **「OpenClaw/Codex 运行时融合」**；论文侧 **HF 日更列表高密度**，但需 **逐篇用 arXiv 时间戳**剔除“旧稿新上榜”。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 记忆从仓库到用户 | Copilot Memory：user-level preferences | 多仓协作团队要避免「个人偏好」与「组织编码规范」冲突：需要 **precedence 规则** |
+| harness 与评测绑定 | WildClawBench + OpenClaw release | **benchmark 结论迁移到生产**时，至少锁定：**CLI 版本、工具白名单、超时、重试、权限** |
+| 模型退役 | Grok Code Fast 1 deprecated | 把「模型名」从配置与评测里 **参数化**，避免 CI 突然红一片 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | OpenClaw：**OpenAI Models in OpenClaw, Done Right** | 把「谁来跑 tool loop」讲清楚，是做多供应商 Agent 平台的通用参照 |
+| 必读 | GitHub：**Copilot Memory user preferences** changelog | 直接影响交付一致性与代码评审风格，且牵动隐私治理 |
+| 推荐 | arXiv：**WildClawBench（2605.10912）** | 用数据提醒：**换 harness ≈ 换系统**，别用单一分数拍板 |
+| 延伸 | The Verge：**Google spam policy / GEO** | 把「内容操纵」与「模型输出操纵」串到同一张风险地图上 |
+
+### 来源清单
+
+- 检索范围：2026-05-15 00:00:00 到 2026-05-15 23:59:59（Asia/Shanghai），并对 **GitHub `Published`（UTC）**与 **媒体 UTC 时间**做换算校准
+- 引用域名：`github.blog`, `github.com`, `anthropic.com`, `openclaw.ai`, `theverge.com`, `developers.google.com`, `huggingface.co`, `arxiv.org`, `techtimes.com`
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方 changelog | Copilot Memory user preferences | **2026-05-15** | https://github.blog/changelog/2026-05-15-copilot-memory-supports-user-preferences-for-pro-pro-users/ |
+| 官方 changelog | Grok Code Fast 1 deprecated | **2026-05-15** | https://github.blog/changelog/2026-05-15-grok-code-fast-1-deprecated/ |
+| 官方公告 | Anthropic × PwC expanded partnership | **2026-05-14（页面日期；相邻窗阅读）** | https://www.anthropic.com/news/pwc-expanded-partnership |
+| 官方博客 | OpenAI Models in OpenClaw, Done Right | 正文未给独立日历戳（以表述为准） | https://openclaw.ai/blog/openai-models-in-openclaw-done-right |
+| 技术媒体 | OpenClaw × OpenAI / Codex（The Verge） | Posted **2026-05-15 00:29 UTC** → 上海 **08:29** | https://www.theverge.com/ai-artificial-intelligence/931078/openclaw-now-works-better-with-openai-models-and-codex |
+| 技术媒体 | OpenAI executive shuffle / agent memo（The Verge） | **2026-05-15 18:21 UTC**（**上海日历相邻**） | https://www.theverge.com/ai-artificial-intelligence/931544/openai-keeps-shuffling-its-executives-in-bid-to-win-ai-agent-battle |
+| 技术媒体 | Google spam policy & AI manipulation（The Verge） | **2026-05-15 16:42 UTC**（**上海日历相邻**） | https://www.theverge.com/tech/931416/google-ai-search-spam-policy |
+| 开源发布 | Codex `rust-v0.131.0-alpha.18` | **`Published` UTC → 上海 `2026-05-15` 早盘** | https://github.com/openai/codex/releases/tag/rust-v0.131.0-alpha.18 |
+| 开源发布 | OpenClaw `v2026.5.14-beta.1` | **`Published` UTC → 上海 `2026-05-15` 早盘** | https://github.com/openclaw/openclaw/releases/tag/v2026.5.14-beta.1 |
+| 论文聚合 | Hugging Face Daily Papers | **2026-05-15** | https://huggingface.co/papers/date/2026-05-15 |
+| 论文原文 | WildClawBench | **见 HF 列表；arXiv 以 submission 为准** | https://arxiv.org/abs/2605.10912 |
+| 第三方报道 | Hermes/OpenRouter 叙事（TechTimes） | **20260515 页面标识** | http://www.techtimes.com/articles/316694/20260515/nous-researchs-hermes-agent-dethrones-openclaw-worlds-most-used-open-source-ai-agent.htm |
+
 ## 2026-05-14
 
 ### 今日总览
