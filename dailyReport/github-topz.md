@@ -14,20 +14,21 @@
 - **与 Trending 区别**：本节为全局累计 Star 排序快照；文末 Trending 为 GitHub「今日 / 本周 / 本月热度」榜单，数据源与口径均不同。
 - **标记**列：相对**本次拉取前**磁盘上 `github-topz.md` 中本节表格已存在的 `owner/repo`，不存在的行标为 **新增**；下次拉取会重新计算并清空上一次的「新增」（仅保留新一轮相对上一轮新增）。
 
-**最近一次更新时间**（Asia/Shanghai）： 2026-05-20 08:35:45
+**最近一次更新时间**（Asia/Shanghai）： 2026-05-21 08:27:06
 
 | 序号 | 仓库 | Stars | 仓库简介（中文） | 链接 | 标记 |
 | --- | --- | ---:| --- | --- | --- |
-| 1 | `codecrafters-io/build-your-own-x` | 502595 | 通过从零重写各类代表性技术来学习编程与设计，加深对底层原理的理解。 | https://github.com/codecrafters-io/build-your-own-x |  |
-| 2 | `sindresorhus/awesome` | 468157 | 围绕多种主题整理的「Awesome」精品清单合集。 | https://github.com/sindresorhus/awesome |  |
-| 3 | `freeCodeCamp/freeCodeCamp` | 445160 | freeCodeCamp 官网开源代码与学习课程：可免费学习编程、数学与计算机科学。 | https://github.com/freeCodeCamp/freeCodeCamp |  |
-| 4 | `public-apis/public-apis` | 435944 | 免费可用的公共 API 资源汇总清单。 | https://github.com/public-apis/public-apis |  |
+| 1 | `codecrafters-io/build-your-own-x` | 502855 | 通过从零重写各类代表性技术来学习编程与设计，加深对底层原理的理解。 | https://github.com/codecrafters-io/build-your-own-x |  |
+| 2 | `sindresorhus/awesome` | 468454 | 围绕多种主题整理的「Awesome」精品清单合集。 | https://github.com/sindresorhus/awesome |  |
+| 3 | `freeCodeCamp/freeCodeCamp` | 445190 | freeCodeCamp 官网开源代码与学习课程：可免费学习编程、数学与计算机科学。 | https://github.com/freeCodeCamp/freeCodeCamp |  |
+| 4 | `public-apis/public-apis` | 436149 | 免费可用的公共 API 资源汇总清单。 | https://github.com/public-apis/public-apis |  |
 | 5 | `EbookFoundation/free-programming-books` | 388593 | 可免费获取的编程与计算机类书籍书单汇总。 | https://github.com/EbookFoundation/free-programming-books |  |
-| 6 | `openclaw/openclaw` | 373264 | 可在多系统运行的个人 AI 助手（吉祥物为龙虾图标）。 | https://github.com/openclaw/openclaw |  |
-| 7 | `nilbuild/developer-roadmap` | 355096 | 交互式开发者路线图、入门与进阶教程等学习资料合集。 | https://github.com/nilbuild/developer-roadmap |  |
-| 8 | `donnemartin/system-design-primer` | 349343 | 大厂级系统设计学习与面试备战材料（含 Anki 卡片范例）。 | https://github.com/donnemartin/system-design-primer |  |
-| 9 | `jwasham/coding-interview-university` | 347080 | 面向软件工程师岗位的系统化计算机科学与面试自学路线图。 | https://github.com/jwasham/coding-interview-university |  |
-| 10 | `vinta/awesome-python` | 298586 | 带选型倾向的 Python 框架、扩展库、工具与学习资源合集。 | https://github.com/vinta/awesome-python |  |
+| 6 | `openclaw/openclaw` | 373553 | 可在多系统运行的个人 AI 助手（吉祥物为龙虾图标）。 | https://github.com/openclaw/openclaw |  |
+| 7 | `nilbuild/developer-roadmap` | 355145 | 交互式开发者路线图、入门与进阶教程等学习资料合集。 | https://github.com/nilbuild/developer-roadmap |  |
+| 8 | `donnemartin/system-design-primer` | 349572 | 大厂级系统设计学习与面试备战材料（含 Anki 卡片范例）。 | https://github.com/donnemartin/system-design-primer |  |
+| 9 | `jwasham/coding-interview-university` | 347150 | 面向软件工程师岗位的系统化计算机科学与面试自学路线图。 | https://github.com/jwasham/coding-interview-university |  |
+| 10 | `vinta/awesome-python` | 298727 | 带选型倾向的 Python 框架、扩展库、工具与学习资源合集。 | https://github.com/vinta/awesome-python |  |
+| 11 | `awesome-selfhosted/awesome-selfhosted` | 294092 | 可自行部署的各类自由软件网络服务与 Web 应用清单。 | https://github.com/awesome-selfhosted/awesome-selfhosted | 新增 |
 
 ---
 ## Trending 页面快照（HTML 抓取）
@@ -42,24 +43,23 @@
 
 | # | 仓库 | Stars | Forks | 语言 | 周期动向 | 仓库简介（中文） | 链接 | 标记 |
 | ---: | --- | ---:| ---:| --- | --- | --- | --- | --- |
-| 1 | `tinyhumansai/openhuman` | 21180 | 1865 | Rust | 3,973 stars today | 您的个人人工智能超级智能。私密、简单且功能强大。 | https://github.com/tinyhumansai/openhuman |  |
-| 2 | `HKUDS/CLI-Anything` | 37693 | 3609 | Python | 1,038 stars today | "CLI-Anything: Making ALL Software Agent-Native" -- CLI-Hub: https://clianything.cc/ | https://github.com/HKUDS/CLI-Anything |  |
-| 3 | `Imbad0202/academic-research-skills` | 14109 | 1333 | Python | 3,164 stars today | Claude Code的学术研究技能：研究→撰写→评审→修订→最终确定 | https://github.com/Imbad0202/academic-research-skills |  |
-| 4 | `obra/superpowers` | 198358 | 17698 | Shell | 1,623 stars today | 有效的代理技能框架和软件开发方法。 | https://github.com/obra/superpowers | 新增 |
-| 5 | `anthropics/claude-plugins-official` | 20174 | 2506 | Python | 171 stars today | 由Anthropic管理的高质量Claude Code插件的官方目录。 | https://github.com/anthropics/claude-plugins-official | 新增 |
-| 6 | `rohitg00/agentmemory` | 14133 | 1179 | TypeScript | 1,609 stars today | # 1基于真实世界基准的AI编码代理持久内存 | https://github.com/rohitg00/agentmemory | 新增 |
-| 7 | `CloakHQ/CloakBrowser` | 16576 | 1279 | Python | 1,463 stars today | Stealth Chromium可通过每次机器人检测测试。插入式剧作家更换源级指纹补丁，通过30/30测试 | https://github.com/CloakHQ/CloakBrowser |  |
-| 8 | `rtk-ai/rtk` | 50872 | 3102 | Rust | 704 stars today | CLI代理，可将常见开发命令的LLM令牌消耗量减少60-90%。单个Rust二进制文件，零依赖 | https://github.com/rtk-ai/rtk | 新增 |
-| 9 | `msitarzewski/agency-agents` | 101595 | 16795 | Shell | 1,120 stars today | 一个完整的人工智能机构，触手可及--从前端向导到Reddit社区忍者，从奇思妙想的注入者到现实检查者。每位客服代表都是具有个性、流程和经过验证的交付成果的专家。 | https://github.com/msitarzewski/agency-agents | 新增 |
-| 10 | `colbymchenry/codegraph` | 6588 | 435 | TypeScript | 1,850 stars today | Claude Code、Codex、Cursor和OpenCode的预索引代码知识图—更少的代币、更少的工具调用、100%本地 | https://github.com/colbymchenry/codegraph | 新增 |
-| 11 | `multica-ai/andrej-karpathy-skills` | 137980 | 14144 | — | 1,955 stars today | 一个用于改进Claude Code行为的CLAUDE.md文件，源自Andrej Karpathy对LLM编码陷阱的观察。 | https://github.com/multica-ai/andrej-karpathy-skills | 新增 |
-| 12 | `humanlayer/12-factor-agents` | 21174 | 1598 | TypeScript | 736 stars today | 我们可以使用哪些原则来构建基于LLM的软件，这些软件实际上足以交付给生产客户？ | https://github.com/humanlayer/12-factor-agents |  |
-| 13 | `Diolinux/PhotoGIMP` | 10769 | 375 | CSS | 493 stars today | 适用于Photoshop用户的GIMP 3 +修补程序 | https://github.com/Diolinux/PhotoGIMP | 新增 |
-| 14 | `Alishahryar1/free-claude-code` | 26369 | 3930 | Python | 563 stars today | 在终端中免费使用claude-code、VSCode扩展或像OpenClaw这样的不和谐（支持语音） | https://github.com/Alishahryar1/free-claude-code | 新增 |
-| 15 | `pascalorg/editor` | 15874 | 2080 | TypeScript | 110 stars today | 创建和共享3D建筑项目。 | https://github.com/pascalorg/editor | 新增 |
-| 16 | `frappe/erpnext` | 34272 | 11314 | Python | 98 stars today | 免费开源企业资源规划（ ERP ） | https://github.com/frappe/erpnext | 新增 |
-| 17 | `microsoft/ai-agents-for-beginners` | 64327 | 21291 | Jupyter Notebook | 818 stars today | 开始构建人工智能代理的12个教训 | https://github.com/microsoft/ai-agents-for-beginners |  |
-| 18 | `HKUDS/ViMax` | 5416 | 921 | Python | 503 stars today | "ViMax ： Agentic Video Generation （导演、编剧、制片人和视频生成器一体机）" | https://github.com/HKUDS/ViMax | 新增 |
+| 1 | `colbymchenry/codegraph` | 9484 | 580 | TypeScript | 2,123 stars today | Claude Code、Codex、Cursor和OpenCode的预索引代码知识图—更少的代币、更少的工具调用、100%本地 | https://github.com/colbymchenry/codegraph |  |
+| 2 | `Imbad0202/academic-research-skills` | 16146 | 1444 | Python | 1,667 stars today | Claude Code的学术研究技能：研究→撰写→评审→修订→最终确定 | https://github.com/Imbad0202/academic-research-skills |  |
+| 3 | `tinyhumansai/openhuman` | 23607 | 2112 | Rust | 3,394 stars today | 您的个人人工智能超级智能。私密、简单且功能强大。 | https://github.com/tinyhumansai/openhuman |  |
+| 4 | `multica-ai/andrej-karpathy-skills` | 140787 | 14444 | — | 2,679 stars today | 一个用于改进Claude Code行为的CLAUDE.md文件，源自Andrej Karpathy对LLM编码陷阱的观察。 | https://github.com/multica-ai/andrej-karpathy-skills |  |
+| 5 | `rohitg00/ai-engineering-from-scratch` | 9537 | 1941 | Python | 765 stars today | 学习它，构建它。为其他人运送。 | https://github.com/rohitg00/ai-engineering-from-scratch | 新增 |
+| 6 | `HKUDS/CLI-Anything` | 38528 | 3662 | Python | 890 stars today | "CLI-Anything: Making ALL Software Agent-Native" -- CLI-Hub: https://clianything.cc/ | https://github.com/HKUDS/CLI-Anything |  |
+| 7 | `can1357/oh-my-pi` | 5394 | 454 | TypeScript | 270 stars today | 终端的AI编码代理—哈希锚定编辑、优化工具线束、LSP、Python、浏览器、子代理等 | https://github.com/can1357/oh-my-pi | 新增 |
+| 8 | `obra/superpowers` | 199996 | 17834 | Shell | 1,743 stars today | 有效的代理技能框架和软件开发方法。 | https://github.com/obra/superpowers |  |
+| 9 | `anthropics/claude-plugins-official` | 20775 | 2544 | Python | 674 stars today | 由Anthropic管理的高质量Claude Code插件的官方目录。 | https://github.com/anthropics/claude-plugins-official |  |
+| 10 | `msitarzewski/agency-agents` | 102821 | 16946 | Shell | 1,636 stars today | 一个完整的人工智能机构，触手可及--从前端向导到Reddit社区忍者，从奇思妙想的注入者到现实检查者。每位客服代表都是具有个性、流程和经过验证的交付成果的专家。 | https://github.com/msitarzewski/agency-agents |  |
+| 11 | `rmyndharis/OpenWA` | 4851 | 983 | TypeScript | 741 stars today | 免费、开源、自托管的WhatsApp API网关 | https://github.com/rmyndharis/OpenWA | 新增 |
+| 12 | `truelockmc/streambert` | 2983 | 246 | JavaScript | 582 stars today | 一个跨平台的Electron桌面应用程序，用于流式传输和下载世界上的任何电影、电视剧或动漫。零广告和跟踪 | https://github.com/truelockmc/streambert | 新增 |
+| 13 | `opentoonz/opentoonz` | 6331 | 732 | C++ | 236 stars today | OpenToonz -一款开源全功能2D动画创作软件 | https://github.com/opentoonz/opentoonz | 新增 |
+| 14 | `zakirullin/files.md` | 2202 | 50 | Go | 429 stars today | 🌱 私密、安静的思考空间。适用于.md文件的简单应用程序。 | https://github.com/zakirullin/files.md | 新增 |
+| 15 | `rohitg00/agentmemory` | 15120 | 1250 | TypeScript | 1,080 stars today | # 1基于真实世界基准的AI编码代理持久内存 | https://github.com/rohitg00/agentmemory |  |
+| 16 | `ggml-org/llama.cpp` | 111837 | 18506 | C++ | 309 stars today | C/C + +中的LLM推理 | https://github.com/ggml-org/llama.cpp | 新增 |
+| 17 | `HKUDS/ViMax` | 6054 | 980 | Python | 674 stars today | "ViMax ： Agentic Video Generation （导演、编剧、制片人和视频生成器一体机）" | https://github.com/HKUDS/ViMax |  |
 
 
 ### 本周 trending（since=weekly）
@@ -68,21 +68,20 @@
 
 | # | 仓库 | Stars | Forks | 语言 | 周期动向 | 仓库简介（中文） | 链接 | 标记 |
 | ---: | --- | ---:| ---:| --- | --- | --- | --- | --- |
-| 1 | `tinyhumansai/openhuman` | 21181 | 1865 | Rust | 17,793 stars this week | 您的个人人工智能超级智能。私密、简单且功能强大。 | https://github.com/tinyhumansai/openhuman | 新增 |
-| 2 | `rohitg00/agentmemory` | 14133 | 1179 | TypeScript | 8,390 stars this week | # 1基于真实世界基准的AI编码代理持久内存 | https://github.com/rohitg00/agentmemory |  |
-| 3 | `CloakHQ/CloakBrowser` | 16576 | 1279 | Python | 8,997 stars this week | Stealth Chromium可通过每次机器人检测测试。插入式剧作家更换源级指纹补丁，通过30/30测试 | https://github.com/CloakHQ/CloakBrowser |  |
-| 4 | `Imbad0202/academic-research-skills` | 14109 | 1333 | Python | 7,443 stars this week | Claude Code的学术研究技能：研究→撰写→评审→修订→最终确定 | https://github.com/Imbad0202/academic-research-skills |  |
-| 5 | `oven-sh/bun` | 92070 | 4609 | Rust | 2,438 stars this week | 令人难以置信的快速JavaScript运行时、捆绑程序、测试运行程序和包管理器–所有功能于一身 | https://github.com/oven-sh/bun |  |
-| 6 | `ruvnet/RuView` | 60857 | 7940 | Rust | 8,076 stars this week | π RuView将商用WiFi信号转化为实时空间智能、生命体征监测和存在检测--所有这些都无需一个像素的视频。 | https://github.com/ruvnet/RuView |  |
-| 7 | `mattpocock/skills` | 94444 | 8312 | Shell | 19,038 stars this week | 真正工程师的技能。直接来自我的.claude目录。 | https://github.com/mattpocock/skills |  |
-| 8 | `colbymchenry/codegraph` | 6589 | 435 | TypeScript | 4,650 stars this week | Claude Code、Codex、Cursor和OpenCode的预索引代码知识图—更少的代币、更少的工具调用、100%本地 | https://github.com/colbymchenry/codegraph |  |
-| 9 | `yikart/AiToEarn` | 15520 | 2529 | TypeScript | 3,926 stars this week | 让我们使用人工智能来赚取收入！ | https://github.com/yikart/AiToEarn |  |
-| 10 | `facebook/pyrefly` | 6284 | 371 | Rust | 568 stars this week | Python的快速类型检查器和语言服务器 | https://github.com/facebook/pyrefly |  |
-| 11 | `anthropics/financial-services` | 25922 | 3600 | Python | 4,737 stars this week | — | https://github.com/anthropics/financial-services |  |
-| 12 | `BigBodyCobain/Shadowbroker` | 8258 | 1245 | Python | 1,902 stars this week | 面向全球影院的开源智能。在一个统一的界面中跟踪从富人的公司/私人飞机和间谍卫星到地震事件的所有内容。连接一个AI特工，让它解析数据并找到以前看不见的相关性。知识…… | https://github.com/BigBodyCobain/Shadowbroker | 新增 |
-| 13 | `millionco/react-doctor` | 10333 | 331 | TypeScript | 1,796 stars this week | 您的代理写入了错误的React。这会捕获它 | https://github.com/millionco/react-doctor |  |
-| 14 | `obra/superpowers` | 198359 | 17698 | Shell | 10,577 stars this week | 有效的代理技能框架和软件开发方法。 | https://github.com/obra/superpowers | 新增 |
-| 15 | `apernet/hysteria` | 21361 | 2187 | Go | 1,307 stars this week | 歇斯底里是一种强大、快如闪电、抗审查的代理。 | https://github.com/apernet/hysteria |  |
+| 1 | `tinyhumansai/openhuman` | 23607 | 2112 | Rust | 19,177 stars this week | 您的个人人工智能超级智能。私密、简单且功能强大。 | https://github.com/tinyhumansai/openhuman |  |
+| 2 | `rohitg00/agentmemory` | 15120 | 1250 | TypeScript | 7,976 stars this week | # 1基于真实世界基准的AI编码代理持久内存 | https://github.com/rohitg00/agentmemory |  |
+| 3 | `colbymchenry/codegraph` | 9484 | 580 | TypeScript | 6,731 stars this week | Claude Code、Codex、Cursor和OpenCode的预索引代码知识图—更少的代币、更少的工具调用、100%本地 | https://github.com/colbymchenry/codegraph |  |
+| 4 | `CloakHQ/CloakBrowser` | 17590 | 1373 | Python | 8,348 stars this week | Stealth Chromium可通过每次机器人检测测试。插入式剧作家更换源级指纹补丁，通过30/30测试 | https://github.com/CloakHQ/CloakBrowser |  |
+| 5 | `ruvnet/RuView` | 61955 | 8140 | Rust | 8,028 stars this week | π RuView将商用WiFi信号转化为实时空间智能、生命体征监测和存在检测--所有这些都无需一个像素的视频。 | https://github.com/ruvnet/RuView |  |
+| 6 | `Imbad0202/academic-research-skills` | 16146 | 1444 | Python | 8,737 stars this week | Claude Code的学术研究技能：研究→撰写→评审→修订→最终确定 | https://github.com/Imbad0202/academic-research-skills |  |
+| 7 | `oven-sh/bun` | 92142 | 4611 | Rust | 2,472 stars this week | 令人难以置信的快速JavaScript运行时、捆绑程序、测试运行程序和包管理器–所有功能于一身 | https://github.com/oven-sh/bun |  |
+| 8 | `facebook/pyrefly` | 6348 | 374 | Rust | 629 stars this week | Python的快速类型检查器和语言服务器 | https://github.com/facebook/pyrefly |  |
+| 9 | `mattpocock/skills` | 96929 | 8556 | Shell | 18,368 stars this week | 真正工程师的技能。直接来自我的.claude目录。 | https://github.com/mattpocock/skills |  |
+| 10 | `yikart/AiToEarn` | 15771 | 2567 | TypeScript | 3,160 stars this week | 让我们使用人工智能来赚取收入！ | https://github.com/yikart/AiToEarn |  |
+| 11 | `obra/superpowers` | 199996 | 17834 | Shell | 10,851 stars this week | 有效的代理技能框架和软件开发方法。 | https://github.com/obra/superpowers |  |
+| 12 | `datawhalechina/easy-vibe` | 13529 | 1292 | JavaScript | 2,984 stars this week | 💻 vibe coding 2026 ·您的第一个现代编程课程，供初学者一步一步掌握。 | https://github.com/datawhalechina/easy-vibe | 新增 |
+| 13 | `millionco/react-doctor` | 10462 | 337 | TypeScript | 1,345 stars this week | 您的代理写入了错误的React。这会捕获它 | https://github.com/millionco/react-doctor |  |
+| 14 | `anthropics/skills` | 138246 | 16304 | Python | 4,749 stars this week | 座席技能的公共存储库 | https://github.com/anthropics/skills | 新增 |
 
 
 ### 本月 trending（since=monthly）
@@ -91,21 +90,20 @@
 
 | # | 仓库 | Stars | Forks | 语言 | 周期动向 | 仓库简介（中文） | 链接 | 标记 |
 | ---: | --- | ---:| ---:| --- | --- | --- | --- | --- |
-| 1 | `mattpocock/skills` | 94445 | 8312 | Shell | 77,724 stars this month | 真正工程师的技能。直接来自我的.claude目录。 | https://github.com/mattpocock/skills |  |
-| 2 | `Alishahryar1/free-claude-code` | 26370 | 3930 | Python | 24,210 stars this month | 在终端中免费使用claude-code、VSCode扩展或像OpenClaw这样的不和谐（支持语音） | https://github.com/Alishahryar1/free-claude-code |  |
-| 3 | `multica-ai/andrej-karpathy-skills` | 137981 | 14144 | — | 78,225 stars this month | 一个用于改进Claude Code行为的CLAUDE.md文件，源自Andrej Karpathy对LLM编码陷阱的观察。 | https://github.com/multica-ai/andrej-karpathy-skills |  |
-| 4 | `AIDC-AI/Pixelle-Video` | 18420 | 2626 | Python | 14,219 stars this month | 🚀 AI 全自动短视频引擎 · AI Fully Automated Short Video Engine | https://github.com/AIDC-AI/Pixelle-Video |  |
-| 5 | `CloakHQ/CloakBrowser` | 16576 | 1279 | Python | 14,849 stars this month | Stealth Chromium可通过每次机器人检测测试。插入式剧作家更换源级指纹补丁，通过30/30测试 | https://github.com/CloakHQ/CloakBrowser |  |
-| 6 | `anthropics/financial-services` | 25922 | 3600 | Python | 18,269 stars this month | — | https://github.com/anthropics/financial-services |  |
-| 7 | `rohitg00/agentmemory` | 14133 | 1179 | TypeScript | 11,984 stars this month | # 1基于真实世界基准的AI编码代理持久内存 | https://github.com/rohitg00/agentmemory |  |
-| 8 | `Z4nzu/hackingtool` | 75596 | 8530 | Python | 17,621 stars this month | 面向黑客的一体化黑客工具 | https://github.com/Z4nzu/hackingtool |  |
-| 9 | `soxoj/maigret` | 29500 | 2119 | Python | 10,054 stars this month | 通过用户名从3000多个网站🕵️‍♂️收集个人档案 | https://github.com/soxoj/maigret |  |
-| 10 | `TauricResearch/TradingAgents` | 77379 | 15086 | Python | 26,106 stars this month | TradingAgent ：多代理LLM金融交易框架 | https://github.com/TauricResearch/TradingAgents |  |
-| 11 | `addyosmani/agent-skills` | 43865 | 4831 | Shell | 26,168 stars this month | AI编码代理的生产级工程技能。 | https://github.com/addyosmani/agent-skills |  |
-| 12 | `Anil-matcha/Open-Generative-AI` | 16057 | 2710 | JavaScript | 10,880 stars this month | 人工智能视频平台的开源替代品—免费的人工智能图像和视频生成工作室，拥有200多种型号（ Flux、Midjourney、Kling、Sora、Veo ）。无内容过滤器。自托管，麻省理工学院许可。 | https://github.com/Anil-matcha/Open-Generative-AI |  |
-| 13 | `decolua/9router` | 12547 | 1890 | JavaScript | 9,811 stars this month | 无限免费AI编码。通过40多家供应商将Claude Code、Codex、Cursor、Cline、Copilot、Antigravity连接到免费的Claude/GPT/Gemini。自动回退， RTK -40%代币，从未达到限制。 | https://github.com/decolua/9router |  |
-| 14 | `Fincept-Corporation/FinceptTerminal` | 21760 | 2924 | Python | 16,436 stars this month | FinceptTerminal是一款现代金融应用程序，提供先进的市场分析、投资研究和经济数据工具，专为在用户友好的环境中进行交互式探索和数据驱动的决策而设计。 | https://github.com/Fincept-Corporation/FinceptTerminal |  |
-| 15 | `Imbad0202/academic-research-skills` | 14109 | 1333 | Python | 10,628 stars this month | Claude Code的学术研究技能：研究→撰写→评审→修订→最终确定 | https://github.com/Imbad0202/academic-research-skills | 新增 |
-| 16 | `heygen-com/hyperframes` | 19700 | 1855 | TypeScript | 13,702 stars this month | 编写HTML。渲染视频。专为客服代表打造。 | https://github.com/heygen-com/hyperframes |  |
-| 17 | `ruvnet/ruflo` | 53218 | 6027 | TypeScript | 21,104 stars this month | 🌊 Claude的领先代理编排平台。部署智能多智能体群，协调自主工作流程，构建对话式人工智能系统。具有企业级架构、自学群体智能、RAG集成和本地Claude Code/… | https://github.com/ruvnet/ruflo |  |
+| 1 | `mattpocock/skills` | 96929 | 8556 | Shell | 80,029 stars this month | 真正工程师的技能。直接来自我的.claude目录。 | https://github.com/mattpocock/skills |  |
+| 2 | `Alishahryar1/free-claude-code` | 26952 | 4004 | Python | 24,944 stars this month | 在终端中免费使用claude-code、VSCode扩展或像OpenClaw这样的不和谐（支持语音） | https://github.com/Alishahryar1/free-claude-code |  |
+| 3 | `CloakHQ/CloakBrowser` | 17590 | 1373 | Python | 16,037 stars this month | Stealth Chromium可通过每次机器人检测测试。插入式剧作家更换源级指纹补丁，通过30/30测试 | https://github.com/CloakHQ/CloakBrowser |  |
+| 4 | `multica-ai/andrej-karpathy-skills` | 140787 | 14444 | — | 76,112 stars this month | 一个用于改进Claude Code行为的CLAUDE.md文件，源自Andrej Karpathy对LLM编码陷阱的观察。 | https://github.com/multica-ai/andrej-karpathy-skills |  |
+| 5 | `AIDC-AI/Pixelle-Video` | 18683 | 2658 | Python | 14,190 stars this month | 🚀 AI 全自动短视频引擎 · AI Fully Automated Short Video Engine | https://github.com/AIDC-AI/Pixelle-Video |  |
+| 6 | `rohitg00/agentmemory` | 15121 | 1250 | TypeScript | 13,014 stars this month | # 1基于真实世界基准的AI编码代理持久内存 | https://github.com/rohitg00/agentmemory |  |
+| 7 | `anthropics/financial-services` | 26223 | 3659 | Python | 18,624 stars this month | — | https://github.com/anthropics/financial-services |  |
+| 8 | `soxoj/maigret` | 29680 | 2128 | Python | 10,198 stars this month | 通过用户名从3000多个网站🕵️‍♂️收集个人档案 | https://github.com/soxoj/maigret |  |
+| 9 | `Z4nzu/hackingtool` | 75806 | 8546 | Python | 17,826 stars this month | 面向黑客的一体化黑客工具 | https://github.com/Z4nzu/hackingtool |  |
+| 10 | `TauricResearch/TradingAgents` | 77777 | 15147 | Python | 26,200 stars this month | TradingAgent ：多代理LLM金融交易框架 | https://github.com/TauricResearch/TradingAgents |  |
+| 11 | `Imbad0202/academic-research-skills` | 16146 | 1444 | Python | 12,191 stars this month | Claude Code的学术研究技能：研究→撰写→评审→修订→最终确定 | https://github.com/Imbad0202/academic-research-skills |  |
+| 12 | `addyosmani/agent-skills` | 44246 | 4877 | Shell | 26,157 stars this month | AI编码代理的生产级工程技能。 | https://github.com/addyosmani/agent-skills |  |
+| 13 | `colbymchenry/codegraph` | 9484 | 580 | TypeScript | 7,557 stars this month | Claude Code、Codex、Cursor和OpenCode的预索引代码知识图—更少的代币、更少的工具调用、100%本地 | https://github.com/colbymchenry/codegraph | 新增 |
+| 14 | `decolua/9router` | 12887 | 1930 | JavaScript | 10,123 stars this month | 无限免费AI编码。通过40多家供应商将Claude Code、Codex、Cursor、Cline、Copilot、Antigravity连接到免费的Claude/GPT/Gemini。自动回退， RTK -40%代币，从未达到限制。 | https://github.com/decolua/9router |  |
+| 15 | `Anil-matcha/Open-Generative-AI` | 16239 | 2734 | JavaScript | 10,937 stars this month | 人工智能视频平台的开源替代品—免费的人工智能图像和视频生成工作室，拥有200多种型号（ Flux、Midjourney、Kling、Sora、Veo ）。无内容过滤器。自托管，麻省理工学院许可。 | https://github.com/Anil-matcha/Open-Generative-AI |  |
+| 16 | `ruvnet/ruflo` | 53596 | 6065 | TypeScript | 21,381 stars this month | 🌊 Claude的领先代理编排平台。部署智能多智能体群，协调自主工作流程，构建对话式人工智能系统。具有企业级架构、自学群体智能、RAG集成和本地Claude Code/… | https://github.com/ruvnet/ruflo |  |
 

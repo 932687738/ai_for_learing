@@ -2,6 +2,78 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-05-20
+
+### 今日总览
+
+**一句话结论**：`2026-05-20`（Asia/Shanghai，00:00–23:59）主线是 **OpenAI 通用推理模型自主证伪 Erdős 平面单位距离猜想**（附数学家 companion remarks 与 PDF 证明）与 **Agent 产品/技能生态继续分化**（Figma 画布内 AI Agent、NVIDIA AI-Q 深度研究 Skill、OpenClaw `alpha.1`）并行；监管侧 **欧盟委员会发布高风险 AI 系统分类草案指南**并开放公众咨询至 6 月 23 日。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenAI 官方稿；TechCrunch/The Verge 跟进；NVIDIA Technical Blog；Figma 产品发布；EU AI Act 草案指南；Claude Code/Codex/OpenClaw/Hermes GitHub Release；arXiv/HF 论文；政策监管；中文补充 |
+| 核心趋势 | **AI 数学推理从「营销争议」走向「可核验证明 + 外部数学家背书」**；**设计/办公/研究三类 Agent 各自强化「上下文 + 多 Agent 并行 + 企业数据不出域」**；**EU AI Act 高风险分类进入咨询期**，合规时间表与 Digital Omnibus 修订联动 |
+| 可直接关注 | 研读 OpenAI **unit-distance proof + companion remarks** 评估「长链推理 + 跨领域连接」能力边界；设计/产品团队对照 **Figma 画布 Agent** 的多 Agent 协作模式；受监管行业跟进 **EU 高风险 AI 分类草案** 与 2027/2028 义务节点 |
+| 专项检索结论 | **Claude Code**：未发现 **`2026-05-20（上海）`** 新 GitHub Release（最近 **`v2.1.145`** 为 **`2026-05-19`**）；**Codex**：未发现当日新 tag（**`rust-v0.131.0`** 仍属 **`2026-05-19`** 窗口）；**OpenClaw**：**`v2026.5.19-alpha.1`** **`Published: 2026-05-20T00:50:52Z` → `2026-05-20 08:50:52（Asia/Shanghai）`**；**Hermes**：未发现 **`2026-05-20`** 新 tag（最近 **`v2026.5.16`**）；**Spring AI / LangChain**：未发现与 **`2026-05-20`** 硬对齐的新 release/博文；**skills**：NVIDIA 发布 **AI-Q deep research skill**（Claude Code/Codex 可安装）；OpenClaw 侧新增 **meme-maker / autoreview** 等 skills 迭代 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| AI 数学 / 推理 | [An OpenAI model has disproved a central conjecture in discrete geometry](https://openai.com/index/model-disproves-discrete-geometry-conjecture/) | **官方稿：`May 20, 2026`** | 官方发布 | 通用推理模型给出 **平面单位距离问题**新下界构造（推翻「方格网格 essentially optimal」长期信念），附 [证明 PDF](https://cdn.openai.com/pdf/74c24085-19b0-4534-9c90-465b8e29ad73/unit-distance-proof.pdf) 与 [数学家 companion remarks](https://cdn.openai.com/pdf/74c24085-19b0-4534-9c90-465b8e29ad73/unit-distance-remarks.pdf)——评估 **长链推理可信度** 与 **跨代数数论×组合几何** 连接能力 |
+| AI 数学（媒体） | [OpenAI claims it solved an 80-year-old math problem — for real this time](https://techcrunch.com/2026/05/20/openai-claims-it-solved-an-80-year-old-math-problem-for-real-this-time/) | **`May 20, 2026 1:28 PM PDT` → `2026-05-21 04:28（Asia/Shanghai）`（相邻日期/跨时区传播）** | 技术媒体 | 对照 **2025 年 GPT-5 Erdős 误报** 背景，说明本次附带 **Noga Alon / Thomas Bloom** 等外部数学家背书——研发侧应 **以 PDF+remarks 为准**，媒体作线索 |
+| 教育 / 国家级部署 | [The next phase of OpenAI’s Education for Countries](https://openai.com/index/the-next-phase-of-education-for-countries/) | **官方稿：`May 20, 2026`** | 官方发布 | 伦敦 Education World Forum 公布首批国家进展（爱沙尼亚 2 万+ 学生等），**新加坡加入**；强调 **研究驱动部署 + ChatGPT Edu/Codex 本地化 + 教师培训** |
+| 设计 Agent | [Figma adds an AI assistant to its collaborative canvas](https://techcrunch.com/2026/05/20/figma-adds-an-ai-assistant-to-its-collaborative-canvas/) | **`May 20, 2026 6:00 AM PDT` → `2026-05-20 21:00（Asia/Shanghai）`** | 产品发布 | 画布内 **自然语言驱动生成/编辑/自动化**，支持 **多 Agent 并行**；与既有 **Claude Code/Codex CLI 集成**形成「设计 + 代码」双栈 |
+| Agent Skills / 企业研究 | [Add a Specialized Deep Research Skill to Agent Harnesses](https://developer.nvidia.com/blog/add-a-specialized-deep-research-skill-to-agent-harnesses/) | **官方稿：`May 20, 2026`** | 官方教程 | **AI-Q skill** 让 Claude Code/Codex 将深度研究 **委托给本地/托管 AI-Q 服务器**，返回 **带引用的结构化报告**；含 **MCP 认证数据源**集成模式——受监管行业 **数据不出域** 参考架构 |
+| 政策 / EU AI Act | [European Commission Releases Draft Guidelines on High-Risk AI Under the EU AI Act](https://www.hunton.com/privacy-and-cybersecurity-law-blog/european-commission-releases-draft-guidelines-on-high-risk-ai-under-the-eu-ai-act) | **欧盟发布：`May 19, 2026`；公众咨询报道：`May 20, 2026`** | 政策标准 | **Article 6(5) 高风险 AI 分类草案指南**三部分（一般原则 / Annex I 产品安全 / Annex III 独立高风险场景）；咨询至 **2026-06-23**；义务节点延至 **2027-12-02 / 2028-08-02** |
+| 桌面 Agent 创业 | [IrisGo, a startup backed by Andrew Ng, looks to become the AI desktop buddy](https://techcrunch.com/2026/05/20/irisgo-a-startup-backed-by-andrew-ng-looks-to-become-the-ai-desktop-buddy-you-never-knew-you-needed/) | **`May 20, 2026`** | 技术媒体 | **录一次流程、自动重复** 的桌面 companion；内置邮件/发票/报告 skills——对照 **Spark/OpenClaw** 的「常驻助手」产品形态 |
+| OpenClaw | [openclaw/openclaw `v2026.5.19-alpha.1`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.19-alpha.1) | GitHub **`Published: 2026-05-20T00:50:52Z` → `2026-05-20 08:50:52（Asia/Shanghai）`** | 开源预发布 | Mac Settings 卡片化、**`defineToolPlugin`**、**meme-maker skill**、browser **`--timeout-ms`**、Node **≥22.19**、Docker **`OPENCLAW_IMAGE_APT_PACKAGES`** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| AI 数学证明 | OpenAI：**unit-distance proof + companion remarks** | 代数数论构造、外部数学家核验流程 | 研究/推理评测 / AI safety |
+| Agent Skills 企业化 | NVIDIA：**AI-Q deep research skill** | SKILL.md + helper script + MCP 认证数据源 | Agent 平台 / 合规研发 |
+| EU 合规准备 | EC 草案指南 + Digital Omnibus 时间表 | Annex I/III 分类、2027/2028 义务节点 | 法务 / 产品经理 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：**「通用 Agent 编排」与「垂直能力 Skill/Blueprint」继续解耦**——Figma/NVIDIA 分别把 **设计上下文** 与 **企业深度研究** 封装为可调用能力，OpenClaw 则在开源侧强化 **typed tool plugins + skills CLI**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Skill 标准化 | NVIDIA AI-Q skill 跨 Claude Code/Codex | 复杂子能力（研究/合规检索）应 **独立服务 + SKILL.md 契约**，而非塞进主 Agent prompt |
+| 多 Agent UI | Figma 画布多 Agent 并行 | 产品层需 **会话/任务隔离 + 权限边界**，避免 Agent 互相覆盖设计状态 |
+| 开源 Agent 网关 | OpenClaw **alpha.1** | **插件 SDK 版本化 + Node 基线抬升** 要纳入升级 runbook |
+| 数学推理评测 | OpenAI unit-distance 证明 | 建立 **「官方 PDF + 外部数学家 remarks + 媒体二次核验」** 三源证据链，避免 repeat Weil 式误报 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | OpenAI：**An OpenAI model has disproved…** + PDF 证明 | 当日 **最具里程碑** 的可核验一手材料 |
+| 必读 | NVIDIA：**Add a Specialized Deep Research Skill…** | **Agent Skills × 企业 MCP 数据源** 落地模板 |
+| 推荐 | OpenAI：**The next phase of Education for Countries** | 国家级 **研究驱动 AI 部署** 指标与新加坡案例 |
+| 推荐 | EU 高风险 AI 分类 **草案指南**（EC 链接见 Hunton 博文） | 2027 前 **产品分级与合规排期** 输入 |
+| 延伸 | Figma AI assistant（TechCrunch） | **设计工具 Agent 化** 的产品交互参考 |
+
+### 来源清单
+
+- 检索范围：2026-05-20 00:00:00 到 2026-05-20 23:59:59（Asia/Shanghai），并对 **GitHub `Published`（UTC）**、媒体 **PDT/UTC** 做换算标注
+- 引用域名：`openai.com`, `techcrunch.com`, `developer.nvidia.com`, `hunton.com`, `digital-strategy.ec.europa.eu`, `github.com`
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | OpenAI unit-distance conjecture disproof | **`May 20, 2026`** | https://openai.com/index/model-disproves-discrete-geometry-conjecture/ |
+| 官方发布 | OpenAI Education for Countries next phase | **`May 20, 2026`** | https://openai.com/index/the-next-phase-of-education-for-countries/ |
+| 官方教程 | NVIDIA AI-Q deep research skill | **`May 20, 2026`** | https://developer.nvidia.com/blog/add-a-specialized-deep-research-skill-to-agent-harnesses/ |
+| 技术媒体 | OpenAI 80-year math problem | **相邻日期/跨时区传播** | https://techcrunch.com/2026/05/20/openai-claims-it-solved-an-80-year-old-math-problem-for-real-this-time/ |
+| 技术媒体 | Figma AI assistant | **`May 20, 2026`（PDT→上海）** | https://techcrunch.com/2026/05/20/figma-adds-an-ai-assistant-to-its-collaborative-canvas/ |
+| 技术媒体 | IrisGo desktop buddy | **`May 20, 2026`** | https://techcrunch.com/2026/05/20/irisgo-a-startup-backed-by-andrew-ng-looks-to-become-the-ai-desktop-buddy-you-never-knew-you-needed/ |
+| 政策标准 | EU high-risk AI draft guidelines | **`May 19–20, 2026`** | https://www.hunton.com/privacy-and-cybersecurity-law-blog/european-commission-releases-draft-guidelines-on-high-risk-ai-under-the-eu-ai-act |
+| 开源发布 | OpenClaw v2026.5.19-alpha.1 | **UTC→上海 `2026-05-20`** | https://github.com/openclaw/openclaw/releases/tag/v2026.5.19-alpha.1 |
+
 ## 2026-05-19
 
 ### 今日总览
