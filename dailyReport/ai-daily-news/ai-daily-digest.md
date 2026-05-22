@@ -2,6 +2,82 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-05-21
+
+### 今日总览
+
+**一句话结论**：`2026-05-21`（Asia/Shanghai）主线是 **Coding Agent 双栈同日发版**（Claude Code **`v2.1.146`**、Codex **`rust-v0.133.0`**）与 **Google I/O Agent 产品落地争议**（Information Agents / Gemini Spark / Daily Brief 多入口但 Ultra 付费墙）并行；政策侧 **特朗普推迟签署 AI 安全审查 EO**，企业侧 **Microsoft × EY 宣布 10 亿美元级联合计划** 推动从试点到规模化落地。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenAI/Anthropic/Google/Microsoft 官方与 GitHub Release；TechCrunch/The Verge；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；arXiv 论文；EU/US 政策；中文补充 |
+| 核心趋势 | **终端 Coding Agent 进入「Goals 默认开 + 权限 Profile 继承 + /code-review 标准化」工程化阶段**；**消费级 Agent 生态产品化加速但付费墙与品牌碎片化引质疑**；**美国政府 AI 预发布审查 EO 暂缓**，监管与产业速度博弈加剧 |
+| 可直接关注 | 升级 **Claude Code v2.1.146** 评估 `/code-review` 与 Windows MCP 分页修复；评估 **Codex 0.133.0** 的 Goals 默认开启与 `remote-control` 前台化；跟踪 **OpenClaw beta.2** 的 Policy 插件与 Discord 语音 Agent |
+| 专项检索结论 | **Claude Code**：**`v2.1.146`** **`Published: 2026-05-21T01:51:52Z` → `2026-05-21 09:51:52（Asia/Shanghai）`**；**Codex**：**`rust-v0.133.0`** **`Published: 2026-05-21T16:48:03Z` → `2026-05-22 00:48:03（Asia/Shanghai）`（相邻日期/跨时区）**；**OpenClaw**：**`v2026.5.20-beta.2`** **`Published: 2026-05-21T15:57:15Z` → `2026-05-21 23:57:15（Asia/Shanghai）`**；**Hermes**：未发现 **`2026-05-21`** 新 tag（最近 **`v2026.5.16`** 为 **`2026-05-16`**）；**Spring AI**：未发现与 **`2026-05-21`** 硬对齐的新 release/博文；**skills/Cursor Skills**：未发现 **`2026-05-21`** 官方 Changelog（最近为 **`2026-05-20` Automations**） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Claude Code | [anthropics/claude-code `v2.1.146`](https://github.com/anthropics/claude-code/releases/tag/v2.1.146) | GitHub **`Published: 2026-05-21T01:51:52Z` → `2026-05-21 09:51:52（Asia/Shanghai）`** | 开源发布 | **`/simplify` 重命名为 `/code-review`**（可选 effort level）；修复 Windows PowerShell、MCP 分页、后台会话权限与 auto-updater 可靠性 |
+| Codex | [openai/codex `rust-v0.133.0`](https://github.com/openai/codex/releases/tag/rust-v0.133.0) | GitHub **`Published: 2026-05-21T16:48:03Z` → `2026-05-22 00:48:03（Asia/Shanghai）`（相邻日期/跨时区）** | 开源发布 | **Goals 默认开启** + 专用存储跨 turn 追踪；**`codex remote-control` 前台化**；Permission profiles 继承与 managed `requirements.toml` |
+| OpenClaw | [openclaw/openclaw `v2026.5.20-beta.2`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.20-beta.2) | GitHub **`Published: 2026-05-21T15:57:15Z` → `2026-05-21 23:57:15（Asia/Shanghai）`** | 开源预发布 |  bundled **Policy 插件**、Discord 语音会话跟随用户、**xAI device-code OAuth**、Skill 加载安全收紧（禁止 `cat SKILL.md` 兼容路径） |
+| 消费 Agent 生态 | [Google is pitching an AI agent ecosystem to consumers who may not buy it](https://techcrunch.com/2026/05/21/google-is-pitching-an-ai-agent-ecosystem-to-consumers-who-may-not-buy-it/) | **`May 21, 2026 6:52 AM PDT` → `2026-05-21 21:52（Asia/Shanghai）`** | 技术媒体 | I/O 后 **Information Agents / Gemini Spark / Daily Brief / Android Halo** 多品牌入口，初期锁定 **Google Ultra（$100/月）** 等付费档——产品策略与「Agent 普及」叙事存在张力 |
+| 政策监管 | [Trump delays AI security executive order](https://techcrunch.com/2026/05/21/trump-delays-ai-security-executive-order-i-dont-want-to-get-in-the-way-of-that-leading/) | **`May 21, 2026 10:30 AM PDT` → `2026-05-22 01:30（Asia/Shanghai）`（相邻日期/跨时区）** | 政策标准 | 拟要求 AI 公司在发布前 **14–90 天** 向政府共享前沿模型的 EO **暂缓签署**；背景含 Anthropic Mythos、OpenAI GPT-5.5 Cyber 等安全能力争议 |
+| 企业 AI 落地 | [From AI pilots to enterprise impact](https://blogs.microsoft.com/blog/2026/05/21/from-ai-pilots-to-enterprise-impact-why-execution-is-the-new-differentiator/) | **官方稿：`May 21, 2026`** | 官方发布 | Microsoft × EY **10 亿美元+** 联合计划；EY 作为 Customer Zero 披露 Copilot **94% 月活 / 85% 周活** 与 Finance/Tax/Assurance Agent 量化成效 |
+| AI 硬件/消费 | [Hark raises $700M Series A](https://techcrunch.com/2026/05/21/hark-raises-700m-series-a-for-its-secretive-universal-ai-interface/) | **`May 21, 2026 7:00 AM PDT` → `2026-05-21 22:00（Asia/Shanghai）`** | 融资/产品 | Figure.AI 创始人 Brett Adcock 的 **通用 AI 界面 + 硬件** 路线获 **$700M A 轮**（估值 $6B）；计划夏季发布多模态模型 |
+| AI 数学（延续） | [OpenAI model disproves discrete geometry conjecture](https://openai.com/index/model-disproves-discrete-geometry-conjecture/) | **官方稿：`May 20, 2026`；媒体持续：`May 21, 2026`** | 官方发布 | Erdős 平面单位距离问题 **首个 AI 自主证伪** 案例在 **`2026-05-21`** 继续发酵——研发侧应以 **PDF + companion remarks** 为证据链核心 |
+| 版权/生成式 AI | [Spotify and Universal Music strike deal on AI covers and remixes](https://techcrunch.com/2026/05/21/spotify-and-universal-music-strike-deal-allowing-fan-made-ai-covers-and-remixes/) | **`May 21, 2026`** | 行业协议 | Premium 用户可创作 **AI cover/remix** 并分成——「consent, credit, compensation」框架或成内容平台模板 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Claude Code 代码审查 | [Claude Code v2.1.146 Release Notes](https://github.com/anthropics/claude-code/releases/tag/v2.1.146) | `/code-review` effort level、MCP 分页、Windows 终端稳定性 | 日常 Claude Code 用户 / Windows 开发者 |
+| Codex Goals 与远程控制 | [Codex 0.133.0 Release](https://github.com/openai/codex/releases/tag/rust-v0.133.0) | Goals DB、permission profiles、`remote-control` 前台 UX | Codex CLI / 插件扩展开发者 |
+| OpenClaw Policy 与 Skill 安全 | [OpenClaw beta.2 Release](https://github.com/openclaw/openclaw/releases/tag/v2026.5.20-beta.2) | Policy 插件、Skill 必须通过 read tool 加载、Discord voice bootstrap | 自托管 Agent 平台工程 |
+| 企业 Agent 规模化 | [Microsoft × EY 官方公告](https://news.microsoft.com/source/2026/05/21/ey-and-microsoft-announce-global-initiative-to-help-clients-scale-ai-enterprisewide-value-creation-and-move-beyond-experimentation/) | Forward Deployed Engineers、Frontier Firm 蓝图 | 企业架构 / 转型负责人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：**Coding Agent 栈在「审查命令标准化 + 目标持久化 + 策略插件化」三处同时收敛**；消费侧 Agent 仍处 **多品牌、高付费、低统一入口** 阶段，与开源网关（OpenClaw）的 **Policy/Skill 安全收紧** 形成对照。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 代码审查 UX | Claude Code `/code-review` 取代 `/simplify` | 把「简化/审查」收敛为 **单一可配置 slash command**，降低团队培训成本 |
+| 跨 turn 目标 | Codex Goals 默认开 + 专用 DB | 长任务 Agent 应 **持久化 goal 状态**，而非仅依赖上下文窗口 |
+| 网关策略 | OpenClaw bundled Policy plugin | 频道合规、doctor lint、workspace repair 应 **插件化 + 可 opt-in 修复** |
+| Skill 加载安全 | OpenClaw 移除 `cat SKILL.md` 兼容 | Skill 文件 **只经 read tool 加载**，executable 单独 allowlist——防 prompt 注入式 bypass |
+| 企业落地度量 | EY Copilot 94% MAU | Agent 推广 KPI 应从 **试点满意度** 升级到 **周活/任务完成率/职能 ROI** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Claude Code v2.1.146** + **Codex rust-v0.133.0** Release Notes | 当日 **双 Coding Agent 发版**，直接影响日常工程工作流 |
+| 必读 | **OpenClaw v2026.5.20-beta.2** | Policy 插件与 Skill 安全模型是 **自托管 Agent 治理** 样板 |
+| 推荐 | TechCrunch：**Google Agent 生态** + **Trump 推迟 AI EO** | 理解 **产品付费墙** 与 **监管节奏** 对 Agent 路线的影响 |
+| 延伸 | Microsoft Blog：**AI pilots → enterprise impact** | 大型企业 **从试点到生产** 的可量化参考 |
+
+### 来源清单
+
+- 检索范围：2026-05-21 00:00:00 到 2026-05-21 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, openai.com, blogs.microsoft.com, techcrunch.com, news.microsoft.com, developer.nvidia.com（相邻检索）
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Claude Code v2.1.146 | 2026-05-21 | https://github.com/anthropics/claude-code/releases/tag/v2.1.146 |
+| 开源发布 | Codex rust-v0.133.0 | 2026-05-21（相邻日期/跨时区发布） | https://github.com/openai/codex/releases/tag/rust-v0.133.0 |
+| 开源发布 | OpenClaw v2026.5.20-beta.2 | 2026-05-21 | https://github.com/openclaw/openclaw/releases/tag/v2026.5.20-beta.2 |
+| 官方发布 | Microsoft：From AI pilots to enterprise impact | 2026-05-21 | https://blogs.microsoft.com/blog/2026/05/21/from-ai-pilots-to-enterprise-impact-why-execution-is-the-new-differentiator/ |
+| 官方发布 | Microsoft × EY 联合倡议 | 2026-05-21 | https://news.microsoft.com/source/2026/05/21/ey-and-microsoft-announce-global-initiative-to-help-clients-scale-ai-enterprisewide-value-creation-and-move-beyond-experimentation/ |
+| 技术媒体 | Google Agent 生态质疑 | 2026-05-21 | https://techcrunch.com/2026/05/21/google-is-pitching-an-ai-agent-ecosystem-to-consumers-who-may-not-buy-it/ |
+| 技术媒体 | Trump 推迟 AI 安全 EO | 2026-05-21（相邻日期/跨时区传播） | https://techcrunch.com/2026/05/21/trump-delays-ai-security-executive-order-i-dont-want-to-get-in-the-way-of-that-leading/ |
+| 技术媒体 | Hark $700M Series A | 2026-05-21 | https://techcrunch.com/2026/05/21/hark-raises-700m-series-a-for-its-secretive-universal-ai-interface/ |
+| 技术媒体 | Spotify × UMG AI covers 协议 | 2026-05-21 | https://techcrunch.com/2026/05/21/spotify-and-universal-music-strike-deal-allowing-fan-made-ai-covers-and-remixes/ |
+| 官方发布 | OpenAI 离散几何证明（延续传播） | 2026-05-20（2026-05-21 持续讨论） | https://openai.com/index/model-disproves-discrete-geometry-conjecture/ |
+
 ## 2026-05-20
 
 ### 今日总览
