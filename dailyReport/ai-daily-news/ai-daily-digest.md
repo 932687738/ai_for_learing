@@ -2,6 +2,178 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-05-23
+
+### 今日总览
+
+**一句话结论**：`2026-05-23`（Asia/Shanghai）主线是 **Spring AI 三版本同日发布并修复 CVE-2026-41863**（Anthropic Skills API 路径穿越）与 **Gemini Omni Flash 上手评测**（anything-to-anything 视频/deepfake 风险）并行；**Glasswing/Mythos 漏洞披露产能** 在媒体窗口继续发酵，**OpenClaw `v2026.5.22-beta.1`** 与 **Hermes Agent 超越 OpenClaw 的 OpenRouter 用量叙事** 推动个人 Agent 赛道竞争升温；**EU AI Act 高风险分类草案** 与 **美国 TAKE IT DOWN 执法** 同日呈现监管分化。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Spring 官方；OpenClaw GitHub；The Verge/TechCrunch/The Next Web；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；EU/US 政策；arXiv；中文补充 |
+| 核心趋势 | **Java AI 栈安全补丁与 MCP 传输迁移**（Spring AI 2.0-M7）；**多模态生成进入「真实视频 + deepfake」争议区**（Gemini Omni）；**漏洞发现速度 >> 补丁速度**（Glasswing 跟进报道）；**跨大西洋 AI 合规套利**（EU 收窄 vs US 扩大执法） |
+| 可直接关注 | 升级 **Spring AI ≥1.1.7** 修复 **CVE-2026-41863**；评估 **Gemini Omni / Flow** 的 deepfake 与 credits 成本；跟踪 **OpenClaw beta** 与 **Hermes 自进化 skills** 选型；对照 **EU Annex III 草案** 与 **FTC TAKE IT DOWN** 做产品合规映射 |
+| 专项检索结论 | **Claude Code**：终端 **`v2.1.148`** 仍为 **`2026-05-22`** 最新；**`claude-code-action v1.0.133`** **`Published: 2026-05-23T04:05:39Z` → `2026-05-23 12:05:39（Asia/Shanghai）`**（CI **workload identity federation**）；**Codex**：**Locked computer use** 在 **`2026-05-23`** 媒体继续解读（官方 Changelog 为 **`2026-05-21`**）；**OpenClaw**：**`v2026.5.22-beta.1`** **`Published: 2026-05-23T09:59:56Z` → `2026-05-23 17:59:56（Asia/Shanghai）`**；**Hermes**：The Batch / 社区分析强调 **OpenRouter 日 token 超越 OpenClaw** 与 **自动 skills 生成**（无 **`2026-05-23`** 新 tag）；**Spring AI**：官方博文 **`2026-05-23`** 发布 **`1.0.8`/`1.1.7`/`2.0.0-M7`**；**skills/Cursor Skills**：未发现 **`2026-05-23`** 官方 Changelog（Cursor Docs 为既有 open standard 文档） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Spring AI | [Spring AI 1.0.8, 1.1.7, 2.0.0-M7 Available Now](https://spring.io/blog/2026/05/23/spring-ai-1-0-8-1-1-7-2-0-0-M7-available-now) | **官方：`2026-05-23`** | 官方发布 | **`1.1.7`/`2.0.0-M7`** 修复 **CVE-2026-41863**（Anthropic Skills API 文件名未消毒导致 **Path.resolve 越界写**）；**2.0-M7** 弃用 MCP **SSE**、默认 **Streamable HTTP**，**ToolCallAdvisor** 成为默认工具调用路径 |
+| Spring 安全 | [CVE-2026-41863 Advisory](https://spring.io/security/cve-2026-41863) | **`2026-05-23`（随 1.1.7 发布）** | 安全公告 | 仅影响使用 **Anthropic Skills API** 且 LLM 可控文件名的应用——需升级 **≥1.1.7** |
+| 多模态 / Gemini | [Google’s new anything-to-anything AI model is wild](https://www.theverge.com/tech/936507/gemini-omni-hands-on-deepfake-ai-video) | **`May 23, 2026 11:00 AM UTC` → `2026-05-23 19:00（Asia/Shanghai）`** | 技术媒体 | **Gemini Omni Flash** 上手：**真实自拍视频 + 文本 prompt → deepfake 场景**；credits 消耗快（约 20 条 clip 后 Pro 计划剩 **145/1000** credits）——产品/合规需评估 **非 consensual likeness** 风险 |
+| AI 安全 / Glasswing | [Claude Mythos found 10,000 critical vulnerabilities… patches can't keep up](https://thenextweb.com/news/anthropic-glasswing-claude-mythos-10000-vulnerabilities) | **`2026-05-23`（媒体跟进 Glasswing 周五披露）** | 技术媒体 | **1,726** 已验证、**1,094** 高/严重确认、仅 **97** 已补丁；**WolfSSL CVE-2026-5194（CVSS 9.1）** 为标志性发现——「发现 >> 补丁」产能瓶颈 |
+| OpenClaw | [openclaw/openclaw `v2026.5.22-beta.1`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.22-beta.1) | GitHub **`Published: 2026-05-23T09:59:56Z` → `2026-05-23 17:59:56（Asia/Shanghai）`** | 开源预发布 | 文档/启动/插件/Gateway/CLI 可靠性 beta 线更新（含 Telegram/Slack/Windows 等修复）——跟踪 stable 晋升 |
+| Hermes / 个人 Agent | [Hermes Agent challenges OpenClaw（The Batch）](https://www.deeplearning.ai/the-batch/hermes-agent-challenges-openclaw) | **`2026-05-23`（The Batch 窗口）** | 技术媒体 | **Hermes** 强调 **多层 memory + 自动 SKILL.md 生成 + Curator 归档**；**OpenRouter** 日 token 超越 **OpenClaw**——个人 Agent 竞争从「渠道广度」转向「自进化深度」 |
+| Claude Code CI | [anthropics/claude-code-action `v1.0.133`](https://github.com/anthropics/claude-code-action/releases/tag/v1.0.133) | GitHub **`Published: 2026-05-23T04:05:39Z` → `2026-05-23 12:05:39（Asia/Shanghai）`** | 开源发布 | CI 工作流改用 **workload identity federation** 做 Claude 认证——企业 GitHub Actions 集成参考 |
+| 企业 AI / 体育 | [Ferrari is using IBM's AI to create F1 superfans](https://techcrunch.com/2026/05/23/ferrari-is-using-ai-to-create-f1-superfans/) | **`May 23, 2026 8:08 AM PDT` → `2026-05-23 23:08（Asia/Shanghai）`** | 企业落地 | IBM 重构 **Ferrari fan app**：**AI 赛事摘要、预测游戏、AI companion**；**race weekend 互动 +62%**——「telemetry → 叙事 → 个性化」闭环样本 |
+| AI 基础设施 / 能源 | [Elon Musk has given up on solar power (on Earth)](https://techcrunch.com/2026/05/23/elon-musk-has-given-up-on-solar-power-on-earth/) | **`May 23, 2026 6:00 AM PDT` → `2026-05-23 21:00（Asia/Shanghai）`** | 技术媒体 | SpaceX IPO 文件提及 **terawatt-scale AI compute** 与 **space-based solar**——AI 算力能源叙事从地面 NIMBY 转向轨道 |
+| AI 基础设施 / 核能 | [Nuclear startup Deep Fission… going public again](https://techcrunch.com/2026/05/23/nuclear-startup-deep-fission-says-its-going-public-again-and-i-have-questions/) | **`May 23, 2026 7:50 AM PDT` → `2026-05-23 22:50（Asia/Shanghai）`** | 技术媒体 | **Deep Fission** 拟 IPO 为 **AI 数据中心** 供地下反应堆电力——监管/技术现实与 AI 电力 hype 的张力 |
+| 政策 / EU | [EU draft guidance narrows high-risk AI classification](https://noah-news.com/eu-draft-guidance-narrows-high-risk-ai-classification-with-focus-on-purpose-and/) | **`Sat 23 May 2026`（解读 EU 5/22 草案）** | 政策标准 | **Annex III** 草案：**关键基础设施/执法/司法** 部分收窄，**就业/保险/教育** 扩大；反馈截止 **2026-06-23**；Annex III 合规延至 **2027-12-02** |
+| 政策 / US | [EU narrowed… FTC started fining eight platforms](https://ngtimes.org/2026/05/23/the-eu-narrowed-and-the-ftc-broadened-on-the-same-week) | **`May 23, 2026`** | 政策标准 | **FTC TAKE IT DOWN**（**5/19** 致函 8 平台）**$53,088/违规** vs **EU 高风险分类收窄**——跨大西洋 **compliance arbitrage** |
+| AI 伦理 / 内容 | [Author Steven Rosenbaum… trapped in a toxic relationship with AI](https://www.theverge.com/ai-artificial-intelligence/936827/author-steven-rosenbaum-sounds-like-hes-trapped-in-a-toxic-relationship-with-ai) | **`May 23, 2026 7:19 PM UTC` → `2026-05-24 03:19（Asia/Shanghai）`（相邻日期/跨时区）** | 社会观察 | AI 辅助写作 ** fabricated quotes** 案例——企业/出版 **human-in-the-loop + 出处核验** 警示 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Spring AI 升级 | [Spring AI 1.1.7 / 2.0.0-M7 Release Notes](https://github.com/spring-projects/spring-ai/releases/tag/v2.0.0-M7) | **ToolCallAdvisor**、**ToolSpec** API、MCP **Streamable HTTP** | Java/Spring Agent 开发者 |
+| CVE 修复 | [CVE-2026-41863](https://spring.io/security/cve-2026-41863) | Anthropic Skills API **文件名消毒** | 使用 Skills API 的安全评审 |
+| Codex 锁屏自动化 | [Computer Use – Codex app](https://developers.openai.com/codex/app/computer-use) | **Locked use** safeguards、短授权窗口 | macOS Codex 用户 / MDM |
+| MCP + LangChain | [Building Autonomous DevOps Agents with MCP and LangChain](https://dev.to/rs9000/building-autonomous-devops-agents-with-mcp-and-langchain-82n) | **`MultiServerMCPClient`** stdio + SSE 混合 | Agent 平台工程师 |
+| Cursor Skills | [Agent Skills \| Cursor Docs](https://cursor.com/docs/skills) | **SKILL.md** open standard、`.cursor/skills/` 发现规则 | IDE Agent 用户 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：**Agent 工程继续「运行时 + 安全 + 合规」三线并进**——Spring AI 在 **MCP 传输迁移与 ToolCallAdvisor 默认化** 上收口 Java 栈；个人 Agent 赛道 **OpenClaw beta vs Hermes 自进化 skills** 形成 **广度 vs 深度** 对照；安全侧 **Glasswing 披露漏斗** 与 **Spring CVE** 共同提示：**Agent 写文件/写 skill 路径必须消毒与审计**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Java AI 安全 | Spring AI **CVE-2026-41863** | LLM 影响的 **文件名/路径** 必须白名单或 sandbox，不可直接 **Path.resolve** |
+| MCP 协议演进 | Spring AI **2.0-M7** 弃用 SSE | 新集成优先 **Streamable HTTP**；legacy SSE 需迁移计划 |
+| 个人 Agent 竞争 | Hermes **自动 skills + Curator** vs OpenClaw **13k+ 静态 skills** | 选型：**Day-1 广度** 选 OpenClaw；**长期 workflow 复利** 评估 Hermes |
+| OpenClaw beta | **v2026.5.22-beta.1** | 生产环境跟踪 **stable 晋升** 与 **ClawHub 恶意 skills** 供应链 |
+| Agent 推理成本 | DEV 社区 **MCP+LangChain DevOps** 示例 | **stdio 本地 + SSE 远程 ticketing** 单 ReAct 环——多 MCP server 编排模板 |
+| 漏洞披露产能 | Glasswing **97/1094 已补丁** | 引入 **AI 扫描 + maintainer SLA**；缩短 patch cycle |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Spring AI 2026-05-23 三版本发布 + CVE-2026-41863** | 当日 **唯一硬对齐官方 Java AI 栈发布** |
+| 必读 | **The Verge：Gemini Omni hands-on** | **deepfake 门槛与 credits 经济学** 的直观样本 |
+| 推荐 | **The Next Web：Glasswing 补丁跟不上** | 量化 **发现/验证/补丁** 漏斗，安全团队必读 |
+| 推荐 | **DeepLearning.AI The Batch：Hermes vs OpenClaw** | 个人 Agent **memory/skills 架构** 对照 |
+| 延伸 | **NG Times：EU 收窄 vs FTC 扩大** | 跨国 AI 产品 **合规套利** 框架 |
+
+### 来源清单
+
+- 检索范围：2026-05-23 00:00:00 到 2026-05-23 23:59:59（Asia/Shanghai）
+- 引用域名：spring.io, github.com, theverge.com, techcrunch.com, thenextweb.com, deeplearning.ai, ngtimes.org, dev.to, cursor.com, developers.openai.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Spring AI 1.0.8 / 1.1.7 / 2.0.0-M7 | 2026-05-23 | https://spring.io/blog/2026/05/23/spring-ai-1-0-8-1-1-7-2-0-0-M7-available-now |
+| 安全公告 | CVE-2026-41863 | 2026-05-23 | https://spring.io/security/cve-2026-41863 |
+| 开源发布 | OpenClaw v2026.5.22-beta.1 | 2026-05-23 | https://github.com/openclaw/openclaw/releases/tag/v2026.5.22-beta.1 |
+| 开源发布 | claude-code-action v1.0.133 | 2026-05-23 | https://github.com/anthropics/claude-code-action/releases/tag/v1.0.133 |
+| 技术媒体 | Gemini Omni hands-on | 2026-05-23 | https://www.theverge.com/tech/936507/gemini-omni-hands-on-deepfake-ai-video |
+| 技术媒体 | Glasswing patches can't keep up | 2026-05-23 | https://thenextweb.com/news/anthropic-glasswing-claude-mythos-10000-vulnerabilities |
+| 技术媒体 | Hermes Agent challenges OpenClaw | 2026-05-23 | https://www.deeplearning.ai/the-batch/hermes-agent-challenges-openclaw |
+| 技术媒体 | Ferrari × IBM AI fan app | 2026-05-23 | https://techcrunch.com/2026/05/23/ferrari-is-using-ai-to-create-f1-superfans/ |
+| 政策标准 | EU/US regulatory divergence | 2026-05-23 | https://ngtimes.org/2026/05/23/the-eu-narrowed-and-the-ftc-broadened-on-the-same-week |
+| 教程 | MCP + LangChain DevOps agents | 2026-05-23 | https://dev.to/rs9000/building-autonomous-devops-agents-with-mcp-and-langchain-82n |
+| 论文 | 未发现可核验的 2026-05-23 arXiv cs.AI 新提交批次（最近为 2026-05-22） | - | - |
+| 中文补充 | 机器之心/量子位：未发现 2026-05-23 硬对齐 AI 要闻 | - | - |
+
+## 2026-05-22
+
+### 今日总览
+
+**一句话结论**：`2026-05-22`（Asia/Shanghai）主线是 **Anthropic Project Glasswing 首月进展披露**（Mythos Preview 与约 50 家伙伴累计发现 **1 万+** 高/严重漏洞，瓶颈转向 **验证—披露—补丁**）与 **Codex 桌面 Agent 能力再升级**（**Appshots / Goal mode GA / Locked computer use** 在 **`2026-05-22`** 媒体窗口集中发酵）并行；Coding Agent 侧 **Claude Code `v2.1.148`** 热修复 Bash 回归，**LangChain 生态** 在跨日窗口发布 **`langchain-openai==1.2.2`** 与 **`langchain@1.4.2`**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Anthropic/OpenAI 官方与 GitHub Release；TechCrunch/The Verge；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；arXiv 论文；EU/US 政策；中文补充 |
+| 核心趋势 | **AI 网络安全从「找洞」转向「披露与补丁产能」**；**Coding Agent 向「屏幕上下文 + 锁屏远程操控 + 跨日 Goal」收敛**；**平台侧 AI 内容生成（Spotify/Meta）与监管/伦理争议同步升温** |
+| 可直接关注 | 跟进 **Glasswing 开源漏洞 Dashboard** 与 **Claude Security / Mythos 工具申请**；评估 **Codex Appshots + Locked computer use** 的企业安全边界；升级 **Claude Code v2.1.148** 修复 Bash 127 回归 |
+| 专项检索结论 | **Claude Code**：**`v2.1.148`** **`Published: 2026-05-22T01:16:52Z` → `2026-05-22 09:16:52（Asia/Shanghai）`**；**Codex**：官方 Changelog **`2026-05-21`** 发布 **Appshots/Goal mode**（**`2026-05-22`** 媒体硬对齐）；**`rust-v0.134.0-alpha.1`** **`Published: 2026-05-22T19:03:43Z` → `2026-05-23 03:03:43（Asia/Shanghai）`（相邻日期/跨时区）**；**OpenClaw**：未发现 **`2026-05-22`** 新 tag（最近 **`v2026.5.20`** 为 **`2026-05-21`**）；**Hermes**：未发现 **`2026-05-22`** 新 tag；**Spring AI**：未发现 **`2026-05-22`** 硬对齐 release/博文；**skills/Cursor Skills**：未发现 **`2026-05-22`** 官方 Changelog（Anthropic 在 Glasswing 更新中提及向合格客户开放 **Mythos 配套 skills**） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| AI 安全 / Mythos | [Project Glasswing: An initial update](https://www.anthropic.com/research/glasswing-initial-update) | **官方稿：`May 22, 2026`** | 官方发布 | 首月 **1 万+** 高/严重漏洞；开源扫描 **6,202** 估高/严重（**23,019** 总量）；**530** 已披露高/严重、**75** 已补丁；发布 [开源漏洞 Dashboard](https://red.anthropic.com/2026/cvd/)——瓶颈从 **发现** 转向 **triaging/patching** |
+| AI 安全（媒体） | [Anthropic is making the security tools… just a bit more available](https://www.theverge.com/ai-artificial-intelligence/936637/anthropic-is-making-the-security-tools-its-used-with-claude-mythos-preview-just-a-bit-more-available) | **`May 22, 2026 10:55 PM UTC` → `2026-05-23 06:55（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | 合格客户可申请 **skills、harness、threat model builder**；与官方 Glasswing 稿交叉验证 |
+| Codex | [Appshots, goal mode, and more（Codex Changelog）](https://developers.openai.com/codex/changelog) | **Changelog：`2026-05-21`；媒体硬对齐：`May 22, 2026`** | 官方发布 | **Appshots**（双 Command 发送前台窗口截图+文本）；**Goal mode GA**；**Locked computer use**（锁屏/息屏仍可从手机驱动 Mac 应用，含 safeguards；**EEA/UK/CH 不可用**） |
+| Codex（媒体） | [OpenAI's Codex Can Now Use Your Mac Even When It's Locked](https://www.macrumors.com/2026/05/22/codex-use-mac-apps-when-locked/) | **`Friday May 22, 2026 4:28 am PDT` → `2026-05-22 19:28（Asia/Shanghai）`** | 技术媒体 | 需 **Computer Use 插件 + 屏幕录制/辅助功能** 权限；每 app 授权或 **Always allow**——企业需评估 ** unattended automation** 风险 |
+| Claude Code | [anthropics/claude-code `v2.1.148`](https://github.com/anthropics/claude-code/releases/tag/v2.1.148) | GitHub **`Published: 2026-05-22T01:16:52Z` → `2026-05-22 09:16:52（Asia/Shanghai）`** | 开源发布 | 修复 **`v2.1.147`** 引入的 **Bash tool 全量 exit code 127** 回归 |
+| Codex CLI | [openai/codex `rust-v0.134.0-alpha.1`](https://github.com/openai/codex/releases/tag/rust-v0.134.0-alpha.1) | GitHub **`Published: 2026-05-22T19:03:43Z` → `2026-05-23 03:03:43（Asia/Shanghai）`（相邻日期/跨时区）** | 开源预发布 | 当日 **alpha 预发布** 线更新（含 `codex-app-server`/`argument-comment-lint` 等资产）——跟踪下一稳定 tag |
+| LangChain | [langchain-openai==1.2.2](https://github.com/langchain-ai/langchain/releases/tag/langchain-openai%3D%3D1.2.2) | GitHub **`Published: 2026-05-21T22:08:45Z` → `2026-05-22 06:08:45（Asia/Shanghai）`** | 开源发布 | **ContextOverflowError** 条件放宽、**LLM context size** 取自 model profiles、**httpx finalizers** guard |
+| LangChain JS | [langchain@1.4.2](https://github.com/langchain-ai/langchainjs/releases/tag/langchain%401.4.2) | GitHub **`Published: 2026-05-21T22:00:57Z` → `2026-05-22 06:00:57（Asia/Shanghai）`** | 开源发布 | Agent stream **unwrap tool message outputs**；**todoListMiddleware** ToolMessage `name` 修复 |
+| AI 安全 / 社会 | [AI is being used to resurrect the voices of dead pilots](https://techcrunch.com/2026/05/22/ai-is-being-used-to-resurrect-the-voices-of-dead-pilots/) | **`May 22, 2026 4:03 PM PDT` → `2026-05-23 07:03（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | NTSB 因 **spectrogram + AI（含 Codex）** 重建遇难飞行员 CVR 音频暂时限制 docket；**42** 调查待复核——AI 滥用与 **敏感数据公开** 治理案例 |
+| 消费 AI / 内容 | [Spotify's AI bet: more of everything, less of what you want](https://techcrunch.com/2026/05/22/spotifys-ai-bet-more-of-everything-less-of-what-you-want/) | **`May 22, 2026 9:18 AM PDT` → `2026-05-22 21:18（Asia/Shanghai）`** | 技术媒体 | Investor Day 后 **Personal podcasts / 日历邮件音频简报 / 实验桌面 app** 等 **生成式内容** 堆叠；**Huxe** 同日关停——「功能商品化」挤压独立应用 |
+| 消费 AI / 社交 | [Meta quietly launches a new Reddit-like app called Forum](https://techcrunch.com/2026/05/22/meta-quietly-launches-a-new-reddit-like-app-called-forum/) | **`May 22, 2026 7:24 AM PDT` → `2026-05-22 22:24（Asia/Shanghai）`** | 产品发布 | **Ask** 标签页跨 Groups 聚合 AI 答案 + **Admin AI assistant**  moderation——对照 Google **Search Agents** 多入口策略 |
+| 搜索 / AI 产品 | [Google's AI search is so broken it can 'disregard' what you're looking for](https://www.theverge.com/tech/936176/google-ai-overviews-search-disregard) | **`May 22, 2026 4:01 PM UTC` → `2026-05-23 00:01（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | 搜索词 **`disregard`/`ignore`/`skip`** 触发 AI Overview **聊天式误回复**——I/O 后 **Gemini 3.5 Flash 默认化** 的可靠性警示 |
+| AI 硬件 | [We tried Google's AI glasses and they're almost there](https://techcrunch.com/2026/05/22/we-tried-googles-ai-glasses-and-theyre-almost-there/) | **`May 22, 2026 8:37 AM PDT` → `2026-05-22 23:37（Asia/Shanghai）`** | 技术媒体 | **Android XR 镜片显示版** 仍处 Trusted Tester；**2026 秋音频版** 先出货——与 Meta/Snap 竞争节奏 |
+| 论文 / Agent 治理 | [Contractual Skills: A GovernSpec Design Framework for Enterprise AI Agents](https://arxiv.org/html/2605.22634v1) | **arXiv 列表：`May 22, 2026`** | 论文原文 | 将 **SKILL.md** 组织为 **task contract**（goal/permissions/human gates/verification）——企业 Agent **可审计 Skill** 设计参考 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Mythos / 漏洞披露 | [Glasswing initial update](https://www.anthropic.com/research/glasswing-initial-update) + [CVD Dashboard](https://red.anthropic.com/2026/cvd/) | 90 天 CVD、maintainer capacity、triaging 漏斗 | 安全工程 / 开源维护者 |
+| Codex 桌面 Agent | [Codex Changelog：Appshots & Goal mode](https://developers.openai.com/codex/changelog) | Appshots、Goal mode、Locked computer use safeguards | macOS Codex 用户 / 安全评审 |
+| Claude Code 热修复 | [Claude Code v2.1.148](https://github.com/anthropics/claude-code/releases/tag/v2.1.148) | Bash 127 回归修复 | 已升级 **v2.1.147** 的用户 |
+| LangChain MCP | [LangChain MCP Docs](https://docs.langchain.com/oss/python/langchain/mcp) | `MultiServerMCPClient`、tool interceptors、stateful sessions | Python Agent 工程师 |
+| 企业 Skill 契约 | [Contractual Skills（GovernSpec）](https://arxiv.org/html/2605.22634v1) | SKILL.md 作为 **task contract** | Agent 平台 / 合规架构 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：**Agent 工程焦点从「能调用工具」转向「治理闭环」**——Glasswing 强调 **verify-gated disclosure**，论文侧同步出现 **Contractual Skills / Guardrails as Infrastructure / Verify-Gated Completion**；Coding Agent 则在 **屏幕上下文（Appshots）与锁屏自动化** 上继续扩展 **Computer Use** 边界。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 漏洞披露产能 | Glasswing：**发现 >> 补丁** | 引入 **AI 扫描 + 人工 triage SLA**；跟踪 [CVD Dashboard](https://red.anthropic.com/2026/cvd/) 漏斗 |
+| Skill 即契约 | GovernSpec **Contractual Skills** | SKILL.md 应含 **permissions / human gates / verification**，而非仅 prompt |
+| MCP 工程化 | LangChain **tool interceptors** | 在 MCP 层注入 **auth/header/retry**，弥补 server 进程隔离 |
+| 跨 turn 目标 | Codex **Goal mode GA** | 与 **Claude Code `/code-review`** 形成「长任务 + 审查」双轨 |
+| 锁屏自动化 | Codex **Locked computer use** | 必须 **短授权 + 本地输入重锁 + 区域限制**——纳入企业 MDM 策略 |
+| LangChain 补丁 | **langchain-openai 1.2.2** | 升级以修复 **ContextOverflowError** 误判与 context size 来源 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Anthropic：Project Glasswing initial update** | 当日 **最硬对齐官方稿**，定义 AI 时代 **漏洞披露瓶颈** |
+| 必读 | **Codex Changelog：Appshots / Goal mode / Locked use** | **Coding Agent 产品化** 与 **安全边界** 同日交汇 |
+| 推荐 | **Claude Code v2.1.148** Release | 小版本但影响 **Bash 全失败** 的生产事故 |
+| 推荐 | arXiv：**Contractual Skills（GovernSpec）** | 把 **Agent Skills** 上升到 **企业可审计契约** |
+| 延伸 | The Verge：**Google AI Overviews disregard bug** | I/O 后 **Search Agent 默认化** 的 **可靠性/提示注入** 风险样本 |
+
+### 来源清单
+
+- 检索范围：2026-05-22 00:00:00 到 2026-05-22 23:59:59（Asia/Shanghai）
+- 引用域名：anthropic.com, developers.openai.com, github.com, techcrunch.com, theverge.com, macrumors.com, arxiv.org, docs.langchain.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Project Glasswing: An initial update | 2026-05-22 | https://www.anthropic.com/research/glasswing-initial-update |
+| 官方发布 | Codex Changelog：Appshots, goal mode, and more | 2026-05-21（2026-05-22 媒体窗口） | https://developers.openai.com/codex/changelog |
+| 开源发布 | Claude Code v2.1.148 | 2026-05-22 | https://github.com/anthropics/claude-code/releases/tag/v2.1.148 |
+| 开源预发布 | Codex rust-v0.134.0-alpha.1 | 2026-05-22（相邻日期/跨时区发布） | https://github.com/openai/codex/releases/tag/rust-v0.134.0-alpha.1 |
+| 开源发布 | langchain-openai==1.2.2 | 2026-05-22（跨日窗口） | https://github.com/langchain-ai/langchain/releases/tag/langchain-openai%3D%3D1.2.2 |
+| 开源发布 | langchain@1.4.2 | 2026-05-22（跨日窗口） | https://github.com/langchain-ai/langchainjs/releases/tag/langchain%401.4.2 |
+| 技术媒体 | NTSB / AI 重建飞行员语音 | 2026-05-22（相邻日期/跨时区） | https://techcrunch.com/2026/05/22/ai-is-being-used-to-resurrect-the-voices-of-dead-pilots/ |
+| 技术媒体 | Spotify AI 内容堆叠 | 2026-05-22 | https://techcrunch.com/2026/05/22/spotifys-ai-bet-more-of-everything-less-of-what-you-want/ |
+| 技术媒体 | Meta Forum + AI Ask | 2026-05-22 | https://techcrunch.com/2026/05/22/meta-quietly-launches-a-new-reddit-like-app-called-forum/ |
+| 技术媒体 | Google AI Overviews disregard bug | 2026-05-22（相邻日期/跨时区） | https://www.theverge.com/tech/936176/google-ai-overviews-search-disregard |
+| 技术媒体 | Anthropic Glasswing 工具开放（Verge） | 2026-05-22（相邻日期/跨时区） | https://www.theverge.com/ai-artificial-intelligence/936637/anthropic-is-making-the-security-tools-its-used-with-claude-mythos-preview-just-a-bit-more-available |
+| 技术媒体 | Google AI 眼镜上手 | 2026-05-22 | https://techcrunch.com/2026/05/22/we-tried-googles-ai-glasses-and-theyre-almost-there/ |
+| 论文原文 | Contractual Skills: GovernSpec | 2026-05-22 | https://arxiv.org/html/2605.22634v1 |
+
 ## 2026-05-21
 
 ### 今日总览
