@@ -2,6 +2,85 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-05-24
+
+### 今日总览
+
+**一句话结论**：`2026-05-24`（Asia/Shanghai）主线是 **AI 安全从「人力防御」转向「Agentic Defense + 平台责任」**（Google Cloud COO 呼吁 **fully agentic defense**、NYT 报道 **Q1 网络安全岗位 +11%**）与 **OpenClaw `v2026.5.22` stable 发布**（Codex app-server/harness 可靠性收口）并行；**Claude Code 被用于 AutoTTS 自动发现 test-time scaling 控制器**（约 **$40/160min**、**~70% token 节省**）与 **Agent-BRACE 论文**（**2026-05-24 arXiv 提交**）共同指向 **「人类设计搜索空间，Agent 写策略/信念状态」** 范式；**Skills 生态** 出现 **69k+ SKILL.md 开放目录**（claudskills.com）但 **Claude Code/Codex/Hermes/Spring AI 当日无新官方 release**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenClaw GitHub；TechCrunch/NYT/The Decoder/The Register；Agent-BRACE/AutoTTS 论文与媒体；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；EU/US 政策窗口；中文补充 |
+| 核心趋势 | **AI 安全「机器速度 vs 机器速度」**（攻击 handoff **8h→22s**、Agent 漫游发现遗留 SharePoint）；**TTS/Agent 策略自动化**（Claude Code 写 controller、信念状态 WEP 标注）；**个人 Agent 平台 stable 线晋升**（OpenClaw **v2026.5.22**）；**Skills 供应链治理**（69k 目录 + 内容评分 admission） |
+| 可直接关注 | 评估 **OpenClaw v2026.5.22** 的 Codex migration/插件绑定修复；阅读 **AutoTTS** 离线 replay 环境设计；跟踪 **Google API key 撤销 23 分钟窗口** 与 **自动 tier 升级** 风险；用 **Agent-BRACE** 的 **WEP 信念状态** 改造长时程 Agent |
+| 专项检索结论 | **Claude Code**：未发现 **`2026-05-24`** 新 tag（最近 **`v2.1.148`** 为 **`2026-05-22`**）；**AutoTTS** 使用 **Claude Code** 作 explorer（**THE DECODER `May 24, 2026`** 解读）；**Codex**：未发现 **`2026-05-24`** 新 release（最近 **`rust-v0.134.0-alpha.1`** 为 **`2026-05-22`**）；**OpenClaw**：**`v2026.5.22`** **`Published: 2026-05-24T01:12:56Z` → `2026-05-24 09:12:56（Asia/Shanghai）`**；**Hermes**：未发现 **`2026-05-24`** 新 tag（最近 **`v2026.5.16`** 为 **`2026-05-16`**，仓库 **`Last push: 2026-05-24`**）；**Spring AI**：未发现 **`2026-05-24`** 硬对齐 release；**skills/Cursor Skills**：**claudskills.com** 跨 **69,369** SKILL.md（DEV 工程文 **`2026-05-24` 窗口**），**SKILL.md 格式向 cursor-rules/aider-skills 泄漏** |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| OpenClaw | [openclaw/openclaw `v2026.5.22`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.22) | GitHub **`Published: 2026-05-24T01:12:56Z` → `2026-05-24 09:12:56（Asia/Shanghai）`** | 开源发布 | **beta→stable** 线：Codex app-server **`/codex detach`** 插件绑定逃逸、**prompt timeout 竞态** 修复、**Codex/OpenClaw code-mode 边界** 文档澄清、QA-Lab 媒体工具超时修复 |
+| AI 安全 / 平台 | [Everyone is navigating AI security in real time — even Google](https://techcrunch.com/2026/05/24/everyone-is-navigating-ai-security-in-real-time-even-google/) | **`May 24, 2026 2:39 PM PDT` → `2026-05-25 05:39（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | Google Cloud COO **Francis de Souza**：**shadow AI**、**AI-native fully agentic defense**、攻击 **handoff 22 秒**；并引用 **Google API key 泄露账单** 与 **删除后 23 分钟仍可用** 争议 |
+| AI 安全 / 就业 | [One job growing in the AI era? Cybersecurity experts（NYT 转引）](https://www.straitstimes.com/business/economy/one-job-growing-in-the-ai-era-cybersecurity-experts-to-deal-with-the-bug-pocalypse) | **`May 24, 2026`（NYT/Techmeme 窗口）** | 技术媒体 | Glassdoor：**Q1 网络安全岗位发布 +11% YoY**；AI 生成代码引入漏洞 + **Mythos 类模型** 加速找洞——「**bug-pocalypse**」人力缺口 |
+| Claude Code / TTS | [Researchers let Claude Code discover AI scaling algorithms…](https://the-decoder.com/researchers-let-claude-code-discover-ai-scaling-algorithms-that-humans-probably-wouldnt-have-designed/) | **`May 24, 2026`** | 技术媒体 | **AutoTTS**：Claude Code 在离线 replay 环境迭代 **Confidence Momentum Controller**；**~70% token 节省**、发现成本 **~$40/160min**——人类设计 **environment**，Agent 写 **controller 代码** |
+| 论文 / Agent | [Agent-BRACE: Decoupling Beliefs from Actions…](https://arxiv.org/abs/2605.11436) | **arXiv 提交：`2026-05-24`** | 论文原文 | 将 LLM Agent 拆为 **belief state model + policy model**；用 **WEP  verbalized certainty** 标注原子 claim；Quest 上 **+14.5%/+5.3%** 绝对提升且 **context 近常数** |
+| Skills 生态 | [How I indexed 69,000 Claude Code skills…](https://dev.to/adamlankamer/how-i-indexed-69000-claude-code-skills-and-what-i-learned-doing-it-76f) | **`2026-05-24`（DEV 发布窗口）** | 社区工程 | **claudskills.com** 开放目录/API/Parquet 数据集；**24 源 nightly miner**、**内容 admission 评分**（反 popularity 排序）；**SKILL.md → cursor-rules/aider-skills** 跨 Agent 标准泄漏 |
+| AI 安全 / Google | [Threat hunters find Google API keys still usable 23 minutes after deletion](https://www.theregister.com/devops/2026/05/21/threat-hunters-find-google-api-keys-still-usable-23-minutes-after-deletion/5244504) | **`May 21, 2026`（`2026-05-24` TechCrunch 交叉引用）** | 技术媒体 | **Aikido**：legacy **Google API key** 删除后 **最长 23 分钟** 仍可用；**Gemini AQ key ~1min**、**service account ~5s**——平台 revoke SLA 不一致 |
+| Anthropic / Mythos | [Anthropic Moves Closer to Public Claude Mythos Release…](http://www.techtimes.com/articles/317076/20260524/anthropic-moves-closer-public-claude-mythos-release-10000-critical-bugs-found-first.htm) | **`May 24, 2026`** | 技术媒体 | 跟进 **5/22 Glasswing 更新**：**Mythos Preview 仍 gated**；**Claude Security beta** 三周 **2100+** 漏洞补丁——披露产能 vs 补丁产能张力延续 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| AutoTTS | [AutoTTS GitHub + 项目页](https://github.com/zhengkid/AutoTTS) | 离线 **replay environment**、**beta parameterization**、Claude Code **explorer loop** | Agent 推理成本优化 / TTS 研究者 |
+| Agent 信念状态 | [Agent-BRACE 论文 + 代码](https://github.com/joykirat18/Agent-BRACE) | **WEP 标注**、belief/policy **PPO 联合训练**、长时程 **POMDP** | 具身/文本世界 Agent 工程师 |
+| OpenClaw 升级 | [OpenClaw v2026.5.22 Release Notes](https://github.com/openclaw/openclaw/releases/tag/v2026.5.22) | Codex **plugin-owned conversation binding**、**migrate plan codex** | 自托管个人 Agent 运维 |
+| Skills 目录 | [claudskills.com API OpenAPI](https://claudskills.com/api/v1/openapi.json) | **CC BY 4.0 数据集**、**admission scoring**、跨 Agent **SKILL.md** 互操作 | Skills 平台/治理团队 |
+| MCP 企业运行时 | [Should you build or buy an MCP runtime…（DEV）](https://dev.to/arcade/should-you-build-or-buy-an-mcp-runtime-for-enterprise-ai-agents-in-2026-36jg) | **OAuth/审计/策略** vs 自建 LangChain/Mastra 适配 | 企业 Agent 架构师 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：Agent 工程继续从 **「手写 heuristics」** 迁移到 **「可搜索/可进化的控制面」**——**AutoTTS** 让 Claude Code 写 **TTS controller**，**Agent-BRACE** 让 RL 学 **结构化信念状态**；平台侧 **OpenClaw stable** 收口 Codex harness 可靠性；安全侧 **Agent 既是攻击面也是防御面**（漫游数据资产 + agentic defense）。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| TTS 自动化 | AutoTTS + Claude Code | 投资 **offline replay + trace feedback**，而非手工调 branch/prune 阈值 |
+| 长时程 POMDP | Agent-BRACE **WEP claims** | 用 **显式 verbalized uncertainty** 替代 raw history 或单点 summary |
+| 个人 Agent stable | OpenClaw **v2026.5.22** | 跟踪 **Codex code-mode 边界** 与 **plugin detach** 行为再评估生产策略 |
+| Skills 供应链 | 69k 开放目录 | 引入 **内容 admission + 来源审计**；勿仅按 stars/installs 安装 |
+| MCP 安全 | Agent framework RCE/CVE 清单（社区） | **STDIO MCP** 需 **allowlist/sandbox**；生产优先 **Streamable HTTP + runtime 层** |
+| Agentic Defense | Google Cloud COO 观点 | 安全架构需覆盖 **models/data pipelines/agents/prompts** 全栈，而非 perimeter-only |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **OpenClaw v2026.5.22 GitHub Release** | 当日 **唯一硬对齐官方开源 Agent 平台 stable 发布** |
+| 必读 | **THE DECODER：Claude Code × AutoTTS** | **Agent 写算法** 的可复现样本（$40 级 discovery 成本） |
+| 推荐 | **Agent-BRACE（2026-05-24 arXiv）** | 长时程 Agent **信念状态 + 不确定性** 的结构化做法 |
+| 推荐 | **TechCrunch：Google Cloud AI 安全访谈** | **Agentic defense** 与 **平台 revoke/计费** 现实差距的对照 |
+| 延伸 | **claudskills 69k 目录工程文** | Skills **发现/治理/跨 Agent 标准** 的一手数据 |
+
+### 来源清单
+
+- 检索范围：2026-05-24 00:00:00 到 2026-05-24 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, techcrunch.com, the-decoder.com, arxiv.org, dev.to, theregister.com, straitstimes.com, techtimes.com, zhengkid.github.io
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | OpenClaw v2026.5.22 | 2026-05-24 | https://github.com/openclaw/openclaw/releases/tag/v2026.5.22 |
+| 技术媒体 | Google Cloud AI security（TechCrunch） | 2026-05-24（PDT，Asia/Shanghai 跨至 05-25） | https://techcrunch.com/2026/05/24/everyone-is-navigating-ai-security-in-real-time-even-google/ |
+| 技术媒体 | Cybersecurity jobs +11%（NYT 转引） | 2026-05-24 | https://www.straitstimes.com/business/economy/one-job-growing-in-the-ai-era-cybersecurity-experts-to-deal-with-the-bug-pocalypse |
+| 技术媒体 | Claude Code AutoTTS（THE DECODER） | 2026-05-24 | https://the-decoder.com/researchers-let-claude-code-discover-ai-scaling-algorithms-that-humans-probably-wouldnt-have-designed/ |
+| 论文原文 | Agent-BRACE | 2026-05-24 | https://arxiv.org/abs/2605.11436 |
+| 社区工程 | 69k Claude Code skills catalog | 2026-05-24 | https://dev.to/adamlankamer/how-i-indexed-69000-claude-code-skills-and-what-i-learned-doing-it-76f |
+| 技术媒体 | Google API key 23min revoke gap | 2026-05-21（05-24 交叉引用） | https://www.theregister.com/devops/2026/05/21/threat-hunters-find-google-api-keys-still-usable-23-minutes-after-deletion/5244504 |
+| 技术媒体 | Anthropic Mythos 跟进 | 2026-05-24 | http://www.techtimes.com/articles/317076/20260524/anthropic-moves-closer-public-claude-mythos-release-10000-critical-bugs-found-first.htm |
+| 教程 | MCP runtime build vs buy | 2026-05-24 窗口 | https://dev.to/arcade/should-you-build-or-buy-an-mcp-runtime-for-enterprise-ai-agents-in-2026-36jg |
+| 官方发布 | OpenAI/Anthropic/Spring AI | 未发现 2026-05-24 硬对齐新 release | - |
+| 中文补充 | 机器之心/量子位 | 未发现 2026-05-24 硬对齐 AI 要闻 | - |
+
 ## 2026-05-23
 
 ### 今日总览
