@@ -2,6 +2,86 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-05-25
+
+### 今日总览
+
+**一句话结论**：`2026-05-25`（Asia/Shanghai）主线是 **AI 治理从「技术圈讨论」升格为「全球公共议题」**——教宗 Leo XIV 发布首份 AI 教谕 **Magnifica Humanitas** 并在梵蒂冈与 **Anthropic 联创 Chris Olah** 同台发布；**OpenAI** 同日宣布巴西首家媒体合作（Folha/UOL）；企业侧 **ClickUp 以 22% 裁员 + ~3000 内部 Agent** 诠释「100x org」叙事；工程侧 **OpenClaw `v2026.5.24-beta.2`** 在当日窗口发布（Gateway 性能/Meeting Notes/子 Agent 上下文收口）；**Claude Code/Codex/Hermes/Spring AI 当日无新官方 release**，**Agent Skills** 则以 Hugging Face 当日论文簇（SkillOpt、From Raw Experience to Skill Consumption）与 Cursor Skills 注入 bug 讨论延续。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenAI/Anthropic/Vatican 官方；OpenClaw GitHub；TechCrunch；Hugging Face Papers；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；EU/US 政策窗口；中文补充 |
+| 核心趋势 | **AI 治理公共化**（教谕 + Olah 同台 + 「disarm AI」话语）；**媒体/API 生态扩张**（OpenAI 巴西合作 + Codex/Enterprise/API 接入）；**Agent 组织重构**（ClickUp 内部 3000 Agent + 百万美元薪酬带）；**个人 Agent 平台迭代**（OpenClaw beta.2 性能/Meeting Notes）；**Skills 研究化**（自进化 Skill 优化与经验→Skill 消费链路） |
+| 可直接关注 | 阅读 **Magnifica Humanitas** 全文与 Olah 讲稿对照企业 AI 治理；评估 **OpenClaw v2026.5.24-beta.2** Gateway 热路径与 Meeting Notes 插件；跟踪 **Spring AI 2.0 GA（预计 5/28）** 与 Boot 4 迁移窗口；用 HF 当日 **SkillOpt / Skill Consumption** 论文设计 Skills 评测与归档 |
+| 专项检索结论 | **Claude Code**：未发现 **`2026-05-25`** 新 tag（最近 **`v2.1.146`** 为 **`2026-05-21`**）；**Codex**：未发现 **`2026-05-25`** 新 release（最近 **`rust-v0.134.0-alpha.1`** 为 **`2026-05-22`**）；**OpenClaw**：**`v2026.5.24-beta.2`** **`Published: 2026-05-24T23:49:30Z` → `2026-05-25 07:49:30（Asia/Shanghai）`**；**Hermes**：未发现 **`2026-05-25`** 新 tag（最近 **`v2026.5.16`** 为 **`2026-05-16`**）；**Spring AI**：未发现 **`2026-05-25`** 硬对齐 release（**2.0 GA 预计 2026-05-28**，当前最新里程碑 **`v2.0.0-M7`** 为 **`2026-05-22`**）；**skills/Cursor Skills**：HF **`2026-05-25`** 出现 **SkillOpt / From Raw Experience to Skill Consumption** 等 Agent Skills 论文；Cursor 社区 **`2026-05-25` 窗口** 报告 **`.agents/skills` 发现正常但 system prompt 注入失败** |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| AI 治理 / 教谕 | [Magnifica Humanitas: On safeguarding the human person in the time of artificial Intelligence（Vatican）](https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260525-enciclica-magnifica-humanitas.html) | **梵蒂冈发布：`2026-05-25`** | 政策/标准 | 首份以 AI 为核心议题的教谕；强调 **human dignity、劳动、民主、战争/自主武器**；提出 **「disarm AI」** 话语——技术权力须服从共同善与有效监督 |
+| Anthropic / 治理 | [Anthropic co-founder Chris Olah's remarks on Pope Leo XIV's encyclical](https://www.anthropic.com/news/chris-olah-pope-leo-encyclical) | **`May 25, 2026`** | 官方发布 | Olah 承认 frontier lab **激励结构** 与「做对的事」可能冲突；呼吁 **外部监督/批评者**；提出 **全球贫困、人类 flourishing、模型 interpretability** 三问——研发组织应纳入 humanities/宗教/哲学对话 |
+| OpenAI / 媒体 | [OpenAI, Grupo Folha, and Grupo UOL announce strategic content partnership](https://openai.com/index/grupo-folha-grupo-uol-partnership/) | **`May 25, 2026`** | 官方发布 | OpenAI **巴西首家媒体合作**；ChatGPT 展示 Folha/UOL 摘要并链回原文；合作方还可接入 **Codex、ChatGPT Enterprise、API** 探索新闻产品与内部工作流 |
+| 企业 Agent / 组织 | [What ClickUp's mass layoff tells us about the future of work（TechCrunch）](https://techcrunch.com/2026/05/25/what-clickups-mass-layoff-tells-us-about-the-future-of-work/) | **`May 25, 2026 9:00 AM PDT` → `2026-05-26 00:00（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | CEO 将 **22% 裁员** 框为 **AI 转型** 而非单纯降本；称已部署 **~3000 内部 AI Agent**、员工转向 **指挥 Agent + 审阅输出**；计划 **百万美元薪酬带** 与对外产品化 Agent 效率指标 |
+| AI 治理 / 媒体 | [The pope's AI encyclical isn't really about AI（TechCrunch）](https://techcrunch.com/2026/05/25/the-popes-ai-encyclical-isnt-really-about-ai/) | **`May 25, 2026 8:09 AM PDT` → `2026-05-25 23:09（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | 解读教谕核心：**权力集中、不平等、民主侵蚀、AI 军备竞赛**；并提及 **Trump 延迟签署 AI 行政令**（ reportedly 受 David Sacks 影响）与 **Meta Oversight Board** 对 deepfake/认知自由的关切 |
+| OpenClaw | [openclaw/openclaw `v2026.5.24-beta.2`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.24-beta.2) | GitHub **`Published: 2026-05-24T23:49:30Z` → `2026-05-25 07:49:30（Asia/Shanghai）`** | 开源发布 | **Gateway 热路径缓存**（models 列表 **~20s→~5ms**）、**Meeting Notes 源插件**（Discord voice 首发）、**子 Agent 默认仅 bootstrap AGENTS.md/TOOLS.md**、Codex 插件生命周期 QA-Lab 覆盖 |
+| 平台可靠性 | [Claude Status: Elevated error rates on Opus 4.7](https://status.anthropic.com/) | **事件：`2026-05-25 06:30–10:30 UTC` → `2026-05-25 14:30–18:30（Asia/Shanghai）`；Resolved `10:39 UTC`** | 官方状态 | **`2026-05-25`** Opus 4.7 **错误率升高** 约 4 小时后恢复——生产 Agent 需为 **模型 tier 波动** 预留 fallback/重试策略 |
+| 论文 / Agent Skills | [SkillOpt: Executive Strategy for Self-Evolving Agent Skills（HF Daily）](https://huggingface.co/papers/date/2026-05-25) | **HF Daily：`2026-05-25`** | 论文原文 | 当日 Agent Skills 论文簇之一：聚焦 **自进化 Skill 的执行策略优化**——与 Codex/Claude Code Skills 工程实践可对照 |
+| 论文 / Agent Skills | [From Raw Experience to Skill Consumption: A Systematic Study of Model-Generated Agent Skills（HF Daily）](https://huggingface.co/papers/date/2026-05-25) | **HF Daily：`2026-05-25`** | 论文原文 | 系统研究 **原始轨迹 → 可消费 Skill** 的生成与使用链路——对团队 Skills 归档/治理有直接参考 |
+| Skills / Cursor | [Cursor Agent Skills in `.agents/skills` — injection bug（Cursor Forum）](https://forum.cursor.com/t/cursor-agent-skills-in-agents-skills/161142) | **`2026-05-25` 窗口确认** | 社区/工程 | Skills **Settings 与 `/` 菜单可见** 但未注入 **` ` system prompt**——属 **注入阶段 bug** 而非发现失败；生产 Skills 工作流需临时 workaround |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| AI 治理 | [Magnifica Humanitas 全文（Vatican）](https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260525-enciclica-magnifica-humanitas.html) | **human dignity、劳动、LAWS、民主/信息操纵** | AI 产品/政策/合规负责人 |
+| Frontier lab 自省 | [Chris Olah 梵蒂冈讲稿（Anthropic）](https://www.anthropic.com/news/chris-olah-pope-leo-encyclical) | **激励结构、外部批评、interpretability 三问** | AI 安全/对齐研究者 |
+| OpenClaw 升级 | [OpenClaw v2026.5.24-beta.2 Release Notes](https://github.com/openclaw/openclaw/releases/tag/v2026.5.24-beta.2) | Gateway **provider auth 预暖**、Meeting Notes **SDK 源契约**、**imageQuality** 自适应压缩 | 自托管个人 Agent 运维 |
+| Agent Skills 研究 | [Hugging Face Daily Papers 2026-05-25](https://huggingface.co/papers/date/2026-05-25) | **SkillOpt**、**Skill Consumption**、**HINT-SD** 长时程 Agent | Agent 平台/Skills 治理团队 |
+| Spring AI 迁移 | [Spring AI 2.0.0-M7 Release](https://github.com/spring-projects/spring-ai/releases/tag/v2.0.0-M7) | **Boot 4 硬依赖**、Jackson 3、MCP-first；**GA 预计 2026-05-28** | Java AI 工程师（提前排迁移） |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：`2026-05-25` Agent 工程呈现 **「治理话语上行 + 平台能力下行」** 双轨——公共领域以教谕/Olah 将 **对齐与监督** 推向跨学科对话；工程侧 OpenClaw 继续 **Gateway 性能/Meeting Notes/子 Agent 上下文** 收口；Skills 方向从 **工具配置** 进入 **自进化与经验归档** 的研究阶段（HF 当日论文簇）。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 治理 × 研发 | Magnifica Humanitas + Olah 讲稿 | 产品/Agent 设计应预设 **外部审计者与社区参与**，而非仅内部 red team |
+| 企业 Agent 组织 | ClickUp ~3000 内部 Agent | 度量从 **token 消耗** 转向 **价值/节省时间**；但需警惕 **「自动化=留任」** 叙事与真实 headcount 曲线 |
+| 个人 Agent 平台 | OpenClaw **v2026.5.24-beta.2** | 优先验证 **Gateway models 列表延迟** 与 **Meeting Notes Discord voice** 集成后再上生产 |
+| Skills 生命周期 | HF **SkillOpt / Skill Consumption** | 建立 **轨迹→Skill→消费** 闭环与 admission 评分，避免仅堆 SKILL.md |
+| Cursor Skills | 注入 stage bug | 在修复前：显式 `@skill` 或手动引用 SKILL.md，勿假设 system prompt 自动携带 |
+| Java AI 栈 | Spring AI **2.0 GA 倒计时（5/28）** | Boot 3.5 **EOL 2026-06-30** 与 AI 2.0 窗口重叠——尽快做 **Boot 4 + Jackson 3** 清单 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Magnifica Humanitas + Olah 讲稿** | 当日 **唯一跨宗教/AI lab/公共政策** 的硬对齐同台事件 |
+| 必读 | **OpenAI 巴西媒体合作官方文** | 观察 **归因/透明/链回原文** 与 **Enterprise/API/Codex** 捆绑策略 |
+| 推荐 | **OpenClaw v2026.5.24-beta.2** | 当日 **主要开源 Agent 平台 release**（Gateway 4100× models 列表加速值得实测） |
+| 推荐 | **TechCrunch：ClickUp AI 裁员叙事** | **Agent 组织重构** 的公开样本（含 Gartner 80% 自主技术公司裁员对照） |
+| 延伸 | **HF 2026-05-25 Agent Skills 论文簇** | 将 Skills 从「prompt 文件」升级为 **可评测、可进化、可消费** 的工程对象 |
+
+### 来源清单
+
+- 检索范围：2026-05-25 00:00:00 到 2026-05-25 23:59:59（Asia/Shanghai）
+- 引用域名：vatican.va, anthropic.com, openai.com, github.com, techcrunch.com, huggingface.co, forum.cursor.com, status.anthropic.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 政策标准 | Magnifica Humanitas 教谕 | 2026-05-25 | https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260525-enciclica-magnifica-humanitas.html |
+| 官方发布 | Chris Olah 梵蒂冈讲稿 | 2026-05-25 | https://www.anthropic.com/news/chris-olah-pope-leo-encyclical |
+| 官方发布 | OpenAI × Folha/UOL 巴西合作 | 2026-05-25 | https://openai.com/index/grupo-folha-grupo-uol-partnership/ |
+| 开源发布 | OpenClaw v2026.5.24-beta.2 | 2026-05-25（Asia/Shanghai） | https://github.com/openclaw/openclaw/releases/tag/v2026.5.24-beta.2 |
+| 技术媒体 | ClickUp AI 裁员（TechCrunch） | 2026-05-25/26（跨时区） | https://techcrunch.com/2026/05/25/what-clickups-mass-layoff-tells-us-about-the-future-of-work/ |
+| 技术媒体 | 教谕解读（TechCrunch） | 2026-05-25/26（跨时区） | https://techcrunch.com/2026/05/25/the-popes-ai-encyclical-isnt-really-about-ai/ |
+| 官方状态 | Claude Opus 4.7 错误率事件 | 2026-05-25 | https://status.anthropic.com/ |
+| 论文原文 | HF Daily Papers（含 SkillOpt 等） | 2026-05-25 | https://huggingface.co/papers/date/2026-05-25 |
+| 社区工程 | Cursor Skills 注入 bug | 2026-05-25 窗口 | https://forum.cursor.com/t/cursor-agent-skills-in-agents-skills/161142 |
+| 开源发布 | Spring AI 2.0.0-M7（邻近日期参考） | 2026-05-22 | https://github.com/spring-projects/spring-ai/releases/tag/v2.0.0-M7 |
+
 ## 2026-05-24
 
 ### 今日总览
