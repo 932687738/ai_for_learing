@@ -2,6 +2,87 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-05-26
+
+### 今日总览
+
+**一句话结论**：`2026-05-26`（Asia/Shanghai）主线是 **「搜索入口 AI 化」引发用户用脚投票**（DuckDuckGo 安装量峰值 **+30.5%**、noai 页面 **+27.7%**）与 **Codex/OpenClaw 工程面双升级**（**Codex CLI 0.134.0** 本地历史检索 + `--profile` + MCP OAuth；**OpenClaw `v2026.5.25-beta.1`** Gateway 性能/语音/渠道/观测性大包）并行；**Skills 分发层** 出现 **Vercel `skills.sh`**（跨 **51** 个 Agent 的一键安装）；**Claude Code/Codex GitHub tag 当日无新 release**，但 **v2.1.150 远程 system prompt 注入** 在 **`2026-05-26` 窗口** 引发社区争议。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenAI Codex 官方 Changelog；OpenClaw GitHub API；TechCrunch；Anthropic Status/Webinar；skills.sh/Vercel；AgentTrust/RAC 论文；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；EU/US 政策窗口；中文补充 |
+| 核心趋势 | **消费者拒绝「强制 AI 搜索」**（Google I/O 后迁移 DuckDuckGo）；**编码 Agent 工具链成熟化**（Codex 历史搜索、MCP schema 可靠性）；**个人 Agent 平台运维化**（OpenClaw 可见回复延迟分离、Activity 观测、Rastermill 替代 Sharp）；**Skills npm 化**（`npx skills add` 跨 Agent 分发） |
+| 可直接关注 | 评估 **Codex 0.134.0** 的 `--profile` 迁移与 **readOnly MCP 并发**；升级 **OpenClaw v2026.5.25-beta.1** 并验证 **Talk/Discord voice** 与 **Activity tab**；团队 Skills 用 **skills.sh** 统一 `.cursor`/`.claude`/`.codex` 目录；Claude Code 用户检查 **v2.1.150 bootstrap/GrowthBook** 与 `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC` |
+| 专项检索结论 | **Claude Code**：未发现 **`2026-05-26`** 新 tag（最近 **`v2.1.150`** 为 **`2026-05-23`**）；**`2026-05-26` 窗口** HN 热议 **v2.1.150 远程 system prompt 注入**（`api.anthropic.com/api/claude_cli/bootstrap` + GrowthBook `tengu_heron_brook`）；**Codex**：**`Codex CLI 0.134.0`** 官方 Changelog **`2026-05-26`**（GitHub rust release tag 未同步）；**OpenClaw**：**`v2026.5.25-beta.1`** **`Published: 2026-05-26T09:41:10Z` → `2026-05-26 17:41:10（Asia/Shanghai）`**（**`v2026.5.26-beta.1`** 为 **`21:10 UTC` → `2026-05-27 05:10` 上海，属邻近日期）；**Hermes**：未发现 **`2026-05-26`** 新 tag（最近 **`v2026.5.16`**）；**Spring AI**：未发现 **`2026-05-26`** release（**2.0 GA 预计 2026-05-28**）；**skills**：**skills.sh**（**`26 May, 2026`** 深度文）+ **find-skills** 等 leaderboard 生态 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Codex | [Codex CLI 0.134.0（OpenAI Developers Changelog）](https://developers.openai.com/codex/changelog) | **`2026-05-26`** | 官方发布 | **本地会话历史搜索**（含预览）、**`--profile` 主选择器**、**MCP per-server env + OAuth**、**readOnly MCP 并发**、connector schema `$ref` 保留 |
+| OpenClaw | [openclaw/openclaw `v2026.5.25-beta.1`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.25-beta.1) | GitHub **`Published: 2026-05-26T09:41:10Z` → `2026-05-26 17:41:10（Asia/Shanghai）`** | 开源发布 | **可见回复延迟分离**、Gateway 热路径缓存、**Talk/Discord voice 可 inspect/steer**、**Activity tab**、**Rastermill 替代 Sharp**、多频道生产化修复 |
+| 搜索 / 产品 | [DuckDuckGo installs up 30% as users reject Google AI Search（TechCrunch）](https://techcrunch.com/2026/05/26/duckduckgo-installs-are-up-30-as-users-reject-being-force-fed-googles-ai-search/) | **`May 26, 2026 3:32 PM PDT` → `2026-05-27 06:32（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | Google I/O 后 **AI 搜索改造** 引发反弹；DDG 美国安装 **WoW +18.1% 均值、峰值 +30.5%（5/25）**；**noai.duckduckgo.com** 访问 **峰值 +27.7%** |
+| 版权 / 平台 | [UMG and TikTok renew agreement to combat unauthorized AI music（TechCrunch）](https://techcrunch.com/2026/05/26/universal-music-group-and-tiktok-renew-agreement-to-combat-unauthorized-ai-music/) | **`May 26, 2026 7:55 AM PDT` → `2026-05-26 22:55（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | 续约承诺 **下架未授权 AI 生成音乐**、改进署名——平台 **AI 音乐治理** 与 **EU 合成内容标注** 压力共振 |
+| Anthropic / 产品 | [Claude Mythos 1 商用准备（媒体跟进 Glasswing）](https://gbhackers.com/anthropic-prepares-claude-mythos-through-claude-code/) | **`May 26, 2026`（第三方报道）** | 技术媒体 | 代码/界面出现 **`claude-mythos-1-preview`**；拟接入 **Claude Code** 与 **Claude Security** 平台——需以 Anthropic 官方为准 |
+| Anthropic / 活动 | [How an Anthropic sales leader runs his week with Cowork（Webinar）](https://www.anthropic.com/webinars/how-anthropics-sales-leader-runs-his-week-with-claude) | **`May 26, 2026 10:00 am`** | 官方活动 | Cowork 在 **Salesforce + BigQuery** 场景下的 **forecast/overnight 4k 账户 评分** 实践样本 |
+| 平台可靠性 | [Claude Status: Elevated errors for Claude Code in Slack](https://status.anthropic.com/) | **事件：`2026-05-26 01:56–05:19 UTC` → `2026-05-26 09:56–13:19（Asia/Shanghai）`；Resolved `05:19 UTC`** | 官方状态 | Slack 集成 **Claude Code 错误率升高** 约 3.5 小时后恢复 |
+| Skills 生态 | [skills.sh: Vercel building the npm for Agent Skills](https://www.ailinklab.com/en/opensource/skills-ecosystem/) | **`26 May, 2026`** | 社区/工程 | **`npx skills add`** 支持 **51** 个 Agent；**agentskills.io** 开放格式 + **leaderboard 发现**；**find-skills** 等 **41 万+** 累计安装 |
+| Claude Code / 治理 | [HN: Claude Code v2.1.150 remote system prompt injection](https://news.ycombinator.com/item?id=48259288) | **`2026-05-26` 讨论窗口**（v2.1.150 发布于 **`2026-05-23`**） | 社区 | **`bootstrap` API + GrowthBook `tengu_heron_brook`（60s 刷新）** 可向本地 CLI 注入 system prompt 片段；缓解：`CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1` |
+| Agent 安全 | [AgentTrust: Runtime Safety for AI Agent Tool Use（arXiv 2605.04785）](https://arxiv.org/html/2605.04785v1) | **May 2026 论文**（ACM CAIS 会议 **`2026-05-26–29`** 窗口） | 论文原文 | **MCP 兼容** 工具执行拦截；**95% verdict / 0.3ms 级延迟**（生产 ruleset）；shell 去混淆 + **RiskChain** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Codex 升级 | [Codex Changelog 2026-05-26](https://developers.openai.com/codex/changelog) | 历史搜索、`--profile`、MCP OAuth、extension hook 上下文 | Codex CLI 日常用户 |
+| OpenClaw 升级 | [OpenClaw Releases（v2026.5.25-beta.1 要点）](https://github.com/openclaw/openclaw/releases) | 回复路径 perf、Transcripts、Diagnostics/OTel、移动端 Talk | 自托管个人 Agent 运维 |
+| Skills 分发 | [skills.sh 官网 + vercel-labs/skills](https://skills.sh) | `npx skills add owner/repo --skill name`、telemetry 可关 | 多 Agent 团队标准化 |
+| Agent 工具安全 | [AgentTrust 论文 + AGPL 实现](https://arxiv.org/html/2605.04785v1) | allow/warn/block/review、SafeFix、shell 规范化 | 企业 MCP/Agent 安全架构师 |
+| Spring AI 迁移 | [Spring AI 2.0 GA 倒计时（预计 5/28）](https://byteiota.com/spring-ai-2-ga-java-production-stack/) | Boot 4 硬依赖、Jackson 3、MCP-first | Java AI 工程师（提前排期） |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：Agent 工程继续从「能跑」走向「可运维、可分发、可治理」——**OpenClaw** 把 **延迟、观测、渠道、语音** 打成运维 release；**Codex** 强化 **profile/MCP/历史检索**；**skills.sh** 把 Skills 变成 **跨 Agent 包管理**；安全侧 **AgentTrust** 给出 **亚毫秒级工具拦截** 参考实现。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 搜索 UX 反弹 | Google AI Search → DuckDuckGo 迁移 | 产品侧需保留 **「纯链接/无 AI」** 路径；企业内网搜索同理 |
+| Codex 工具链 | **0.134.0** history search + MCP | 长会话 Agent 必备 **本地检索**；MCP 侧区分 **readOnly 并发** 与 OAuth |
+| 个人 Agent 运维 | OpenClaw **v2026.5.25-beta.1** | 投资 **Activity/OTel/secret-prep traces**；语音场景验证 **steer/cancel** |
+| Skills 供应链 | **skills.sh** 跨 51 Agent | 内部规范用 **SKILL.md + Git repo + `npx skills add`**，避免每 Agent 手抄 |
+| Claude Code 治理 | v2.1.150 远程 prompt 注入争议 | 企业部署需审计 **bootstrap/flags**；必要时 **DISABLE_NONESSENTIAL_TRAFFIC** |
+| Agent 工具安全 | AgentTrust **MCP 网关** | 在 MCP 与工具之间加 **策略层**（非仅靠模型自律） |
+| 补偿事务 | RAC（LangGraph/CrewAI 可插拔） | 长时程 Agent 用 **日志 + LIFO rollback** 替代纯 LLM「想想怎么撤销」 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Codex CLI 0.134.0 官方 Changelog** | 当日 **唯一硬对齐 OpenAI 编码 Agent 正式发布** |
+| 必读 | **OpenClaw v2026.5.25-beta.1 Release Highlights** | 当日 **上海时区硬对齐** 的最大开源个人 Agent 运维包 |
+| 推荐 | **TechCrunch：DuckDuckGo vs Google AI Search** | **C 端对「强制 AI 搜索」** 的量化反弹样本 |
+| 推荐 | **skills.sh 生态深度文（2026-05-26）** | Skills 从文件拷贝升级为 **包管理 + 发现层** |
+| 延伸 | **HN：Claude Code v2.1.150 远程 prompt** | 评估 **本地 CLI 是否应允许厂商动态注入 system 段** |
+
+### 来源清单
+
+- 检索范围：2026-05-26 00:00:00 到 2026-05-26 23:59:59（Asia/Shanghai）
+- 引用域名：developers.openai.com, github.com, techcrunch.com, anthropic.com, status.anthropic.com, ailinklab.com, skills.sh, arxiv.org, news.ycombinator.com, gbhackers.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Codex CLI 0.134.0 | 2026-05-26 | https://developers.openai.com/codex/changelog |
+| 开源发布 | OpenClaw v2026.5.25-beta.1 | 2026-05-26（Asia/Shanghai） | https://github.com/openclaw/openclaw/releases/tag/v2026.5.25-beta.1 |
+| 技术媒体 | DuckDuckGo 安装激增（TechCrunch） | 2026-05-26/27（跨时区） | https://techcrunch.com/2026/05/26/duckduckgo-installs-are-up-30-as-users-reject-being-force-fed-googles-ai-search/ |
+| 技术媒体 | UMG×TikTok AI 音乐治理（TechCrunch） | 2026-05-26/27（跨时区） | https://techcrunch.com/2026/05/26/universal-music-group-and-tiktok-renew-agreement-to-combat-unauthorized-ai-music/ |
+| 技术媒体 | Claude Mythos 1 准备（GBHackers） | 2026-05-26 | https://gbhackers.com/anthropic-prepares-claude-mythos-through-claude-code/ |
+| 官方活动 | Anthropic Cowork Webinar | 2026-05-26 | https://www.anthropic.com/webinars/how-anthropics-sales-leader-runs-his-week-with-claude |
+| 官方状态 | Claude Code in Slack 事件 | 2026-05-26 | https://status.anthropic.com/ |
+| 社区工程 | skills.sh 生态文 | 2026-05-26 | https://www.ailinklab.com/en/opensource/skills-ecosystem/ |
+| 社区 | HN Claude Code v2.1.150 prompt 注入 | 2026-05-26 窗口 | https://news.ycombinator.com/item?id=48259288 |
+| 论文原文 | AgentTrust | 2026-05（会议 05-26 起） | https://arxiv.org/html/2605.04785v1 |
+
 ## 2026-05-25
 
 ### 今日总览
