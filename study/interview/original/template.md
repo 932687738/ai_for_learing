@@ -1,171 +1,41 @@
-# Spring AI 知识库记忆存储：短期、长期与永久记忆
 
-在 Spring AI 应用中，记忆管理可按照生命周期划分为**短期记忆**（单次会话上下文）和**长期/永久记忆**（跨会话保留用户偏好、事实等）。本文介绍各自的核心技术、存储方式及代码示例。
+C -- 命中 --> D[加载 SKILL.md 加载技能指令]；
+D --> E[技能指令调用 Tools]；
+E --> F[通过 MCP 协议执行 Tools]；
+F --> G[工具执行结果返回]；
+C -- 未命中 --> H[直接调用 Tools]；
+H --> I[通过 MCP 协议执行 Tools]；
+I --> J[工具执行结果返回]；
+subgraph R [可选：并行知识库检索]
+K[查询重写] --> L[向量数据库检索]；
+L --> M[上下文增强]；
+end
+B -.-> K;
+J --> N[结果整合];
+G --> N;
+M --> N;
+N --> O[生成最终答案];
+流程主要分为以下五个步骤：
 
-## 1. 短期记忆
+意图识别与路由：模型首先分析用户的自然语言请求（如“查询上海地区的销售数据”），判断需要调用哪些能力来完成。Skills 是此阶段的主要决策依据，模型通过其描述找到匹配的任务。
 
-短期记忆用于维护当前对话的上下文连贯性，会话结束后通常不再保留。
+匹配 Skills 获取任务流：模型在 Skills 注册表中根据元数据（名称、描述）匹配合适的技能。一旦命中，就会加载该技能的完整指令文件 SKILL.md。SKILL.md 像一份指导书，明确了完成任务所需调用的工具、参数和操作步骤。
 
-### 核心技术：`ChatMemory` 与 `ChatMemoryRepository`
+执行 Tools 与 MCP 实现：根据 SKILL.md 的指令或模型决策，系统开始调用具体的 Tools。这个调用过程通过 MCP 协议来标准化执行。例如，执行数据库操作的 Tool 会通过 MCP 客户端，向 MCP 服务端发起请求。同时，知识库的检索（RAG）会并行进行，通过向量检索等手段获取相关背景知识。
 
-Spring AI 通过 `ChatMemory` 接口管理对话历史，应用需将历史消息作为提示词的一部分发送给模型。
+结果整合：工具执行和知识库检索的结果返回到上下文窗口。例如，execute_sql 工具返回查询数据集，RAG 检索返回相关的数据字典说明。
 
-- **常用策略**：滑动窗口（保留最近 N 条消息）
-- **默认实现**：`MessageWindowChatMemory`
-- **存储实现**：
-    - `InMemoryChatMemoryRepository`（开发/测试，重启丢失）
-    - `JdbcChatMemoryRepository`（关系数据库，持久化）
-    - `RedisSaver` / 自定义实现（Redis 等键值存储）
+生成最终答案：模型综合所有信息，生成最终回答。
 
-### 代码示例：配置基于数据库的短期记忆
+💎 总结
+简单来说，Skills、Tools 与 MCP、知识库之间的关系就像餐厅的标准化运作：
 
-```java
-@Configuration
-public class ChatMemoryConfig {
+知识库 (RAG) 像是菜谱和食材手册，提供静态参考知识。
 
-    @Bean
-    public ChatMemoryRepository chatMemoryRepository(JdbcTemplate jdbcTemplate) {
-        return new JdbcChatMemoryRepository(jdbcTemplate);
-    }
+MCP 则是标准化的厨房设备接口，确保任何品牌的厨具都能即插即用。
 
-    @Bean
-    public ChatMemory chatMemory(ChatMemoryRepository repository) {
-        // 滑动窗口，最多保留 20 条消息
-        return MessageWindowChatMemory.builder()
-                .chatMemoryRepository(repository)
-                .maxMessages(20)
-                .build();
-    }
-}
-使用短期记忆
-java
-@Service
-public class ConversationService {
+Tools 是具体的厨具，比如炒锅、烤箱，用来执行具体的烹饪动作。
 
-    private final ChatMemory chatMemory;
-    private final ChatClient chatClient;
+Skills 是一道道标准化菜品的制作流程（SOP）。
 
-    public ConversationService(ChatMemory chatMemory, ChatClient chatClient) {
-        this.chatMemory = chatMemory;
-        this.chatClient = chatClient;
-    }
-
-    public String talk(String conversationId, String userMessage) {
-        // 获取历史消息
-        List<Message> history = chatMemory.get(conversationId, 20);
-
-        // 添加用户新消息
-        history.add(new UserMessage(userMessage));
-
-        // 调用模型
-        ChatResponse response = chatClient.call(new ChatRequest(history));
-        String assistantMessage = response.getResult().getOutput();
-
-        // 保存助手回复到短期记忆
-        history.add(new AssistantMessage(assistantMessage));
-        chatMemory.add(conversationId, history);
-
-        return assistantMessage;
-    }
-}
-2. 长期/永久记忆
-长期记忆用于跨会话保留信息，例如用户偏好、事实陈述、项目决策等。
-
-2.1 工具驱动型：AutoMemoryTools
-Spring AI 提供的 AutoMemoryTools 允许 AI 自主读写 Markdown 文件来记录持久化信息。
-
-代码示例
-java
-@Configuration
-public class MemoryToolsConfig {
-
-    @Bean
-    public MemoryStore memoryStore() {
-        // 使用文件系统存储，路径可配置
-        return new FileSystemMemoryStore(Path.of("./memories"));
-    }
-
-    @Bean
-    public AutoMemoryTools autoMemoryTools(MemoryStore memoryStore) {
-        return AutoMemoryTools.builder()
-                .memoryStore(memoryStore)
-                .build();
-    }
-}
-然后在创建 ChatClient 时注册该工具：
-
-java
-@Bean
-public ChatClient chatClient(ChatModel model, AutoMemoryTools memoryTools) {
-    return ChatClient.builder(model)
-            .tools(memoryTools)
-            .build();
-}
-用户无需显式操作，AI 会根据对话内容自动调用 save_to_memory 或 recall_from_memory 工具来管理长期记忆。
-
-2.2 外部存储型：向量数据库 + RAG
-对于大量记忆或需要语义检索的场景，通常使用向量数据库（如 Redis、Chroma、Pinecone）与 RAG（检索增强生成） 结合。
-
-核心接口：MemoryStore / VectorStore
-
-工作流程：应用程序将用户相关事实切片、向量化后存入向量库；对话时检索最相似的“记忆片段”注入提示词。
-
-代码示例（以 Redis Vector Store 为例）
-java
-@Configuration
-public class LongTermMemoryConfig {
-
-    @Bean
-    public VectorStore vectorStore(EmbeddingModel embeddingModel, RedisVectorStoreProperties properties) {
-        return new RedisVectorStore(embeddingModel, properties);
-    }
-
-    @Bean
-    public MemoryAdvisor memoryAdvisor(VectorStore vectorStore) {
-        return new MemoryAdvisor(vectorStore);
-    }
-}
-写入长期记忆：
-
-java
-@Service
-public class MemoryService {
-
-    private final VectorStore vectorStore;
-    private final EmbeddingModel embeddingModel;
-
-    public void remember(String userId, String fact) {
-        Document doc = new Document(fact, Map.of("userId", userId));
-        vectorStore.add(List.of(doc));
-    }
-}
-读取长期记忆（在对话前注入）：
-
-java
-public String chatWithMemory(String userId, String query) {
-    // 检索与该用户相关的 topK 条记忆
-    List<Document> memories = vectorStore.similaritySearch(SearchRequest.query(query)
-            .withTopK(5)
-            .withFilterExpression("userId == '" + userId + "'"));
-
-    // 构建提示词，加入记忆内容
-    String memoryContext = memories.stream()
-            .map(Document::getText)
-            .collect(Collectors.joining("\n"));
-
-    String prompt = String.format("已知用户信息：\n%s\n\n用户新问题：%s", memoryContext, query);
-    return chatClient.call(prompt);
-}
-3. 三种记忆对比总结
-类型	生命周期	核心技术	典型存储	代码接口
-短期记忆	单次会话	ChatMemory + 滑动窗口	Redis / 关系库	ChatMemoryRepository
-长期记忆（工具型）	永久 / 跨会话	AutoMemoryTools	本地文件	MemoryStore
-长期记忆（外部库型）	永久 / 跨会话	向量数据库 + RAG	Redis, Chroma, PGVector	VectorStore / MemoryStore
-4. 选择建议
-仅需要会话内上下文 → 短期记忆（滑动窗口 + 数据库）
-
-需要记住用户偏好、少量事实 → AutoMemoryTools（零代码存储）
-
-大规模、语义检索型记忆 → 向量数据库 + RAG
-
-混合使用：短期记忆保持对话流畅，长期记忆通过检索注入个性化信息。
+当客人点“一道宫保鸡丁”（用户请求）时，系统首先找到“宫保鸡丁”的 Skill（标准化菜谱），该菜谱会指导厨师按顺序使用 Tools（如用炒锅爆香、用锅铲翻炒），这些厨具通过标准接口（MCP）接入，并在必要时查阅菜谱（知识库）来确认配料比例。最终，厨师整合所有步骤和资源，完成一道佳肴（最终答案）。

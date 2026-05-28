@@ -1,5 +1,20 @@
 # Markdown 问答分类合并日志
 
+## 2026-05-28（Skills / Tools / MCP / RAG 协同流程）
+
+**源文件**：`study/interview/original/template.md`（五步流程、Mermaid 片段、餐厅类比，41 行）
+
+**操作**：提炼 2 条问答，按主题写入 2 个分类文件；补全源文件残缺流程图为完整 Mermaid；无 `.bak` 备份。
+
+| 分类文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Agent与对话问答.md | 新增 | +1（Skills/Tools/MCP/知识库五步协同） |
+| RAG检索增强问答.md | 新增 | +1（Agent 流水线并行知识库检索） |
+
+**新增条目**：Skills+Tools+MCP 协同流程与类比表、并行 RAG 子流程（查询重写→向量检索→上下文增强）
+
+**合计**：2 个文件更新，净增 2 条；失败 0 条。
+
 ## 2026-05-28（Spring AI 记忆存储专题）
 
 **源文件**：`study/interview/original/template.md`（短期/长期/永久记忆与代码示例，171 行）
