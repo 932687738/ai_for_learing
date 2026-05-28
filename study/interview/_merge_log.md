@@ -1,5 +1,17 @@
 # Markdown 问答分类合并日志
 
+## 2026-05-28（相似度阈值检索策略）
+
+**源文件**：`study/interview/original/template.md`（similaritySearch 与阈值过滤实践，17 行）
+
+**操作**：提炼 1 条问答，合并至 `索引与存储问答.md`；无 `.bak` 备份。
+
+| 分类文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| 索引与存储问答.md | 新增 | +1（similaritySearch 与相似度阈值策略） |
+
+**合计**：1 个文件更新，净增 1 条（该文件共 5 条）；失败 0 条。
+
 ## 2026-05-28（Transform / Advisor / ReAct 专题）
 
 **源文件**：`study/interview/original/template.md`（Spring AI 核心概念与 ReAct/Transformer 辨析，109 行）
