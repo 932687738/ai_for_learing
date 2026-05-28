@@ -1,340 +1,341 @@
-# Spring AI 多模态、工作流、记忆与向量数据库分片问答总结
+# Spring Boot + Spring AI 构建智能体完全指南
 
-## 目录
-1. [Spring AI 多模态实现与动态模型切换](#1-spring-ai-多模态实现与动态模型切换)
-2. [AI 处理上传文件（PDF/Excel/图片）的原理](#2-ai-处理上传文件pdfexcel图片的原理)
-3. [Spring AI 根据提示词调用多个接口并分析组装](#3-spring-ai-根据提示词调用多个接口并分析组装)
-4. [Spring AI 工作流实现](#4-spring-ai-工作流实现)
-5. [Spring AI 多语言入参和回调](#5-spring-ai-多语言入参和回调)
-6. [Spring AI 自动解析入参 vs 自定义分词的区别](#6-spring-ai-自动解析入参-vs-自定义分词的区别)
-7. [Spring AI 中实现 Re-Ranker](#7-spring-ai-中实现-re-ranker)
-8. [Spring AI 中长期记忆、短期记忆和历史记忆的载体](#8-spring-ai-中长期记忆短期记忆和历史记忆的载体)
-9. [向量数据库中推荐的分片大小](#9-向量数据库中推荐的分片大小)
+本文档整合了从零开始搭建一个生产级智能体（Agent）所需的核心知识，包括：基础环境与必备条件、如何集成 Skills/MCP/Plugins 扩展能力，以及 Multi-Agent 多智能体协作的详细设计与实现。
 
----
+## 一、搭建智能体的五个必备条件
 
-## 1. Spring AI 多模态实现与动态模型切换
+### 1. 基础环境
 
-### 多模态实现
-Spring AI 通过 `Message API` 和 `ChatClient` 支持多模态。核心在于 `UserMessage` 的 `media` 字段，接受 `Media` 对象列表。
+- **JDK 17+**（Spring AI 3.x 要求）
+- **Spring Boot 3.2.x+**
+- **Maven / Gradle**
 
-#### 使用 `ChatModel`
-```java
-var imageResource = new ClassPathResource("/multimodal.test.png");
-var userMessage = new UserMessage(
-    "Explain what do you see in this picture?",
-    new Media(MimeTypeUtils.IMAGE_PNG, imageResource)
-);
-ChatResponse response = chatModel.call(new Prompt(userMessage));
-String reply = response.getResult().getOutput().getContent();
-使用 ChatClient（推荐）
-java
-String response = ChatClient.create(chatModel).prompt()
-    .user(u -> u.text("Explain what do you see on this picture?")
-        .media(MimeTypeUtils.IMAGE_PNG, new ClassPathResource("/multimodal.test.png")))
-    .call()
-    .content();
-多模态支持模型
-模型提供商	支持的多模态输入
-Google Vertex AI Gemini	文本, PDF, 图像, 音频, 视频
-OpenAI	输入: 文本, 图像, 音频；输出: 文本, 音频
-Anthropic Claude	文本, PDF, 图像
-Ollama	文本, 图像
-动态切换模型
-核心思想：配置多个 LLM 客户端 Bean，运行时根据条件动态选择。
+### 2. AI 服务商 API Key
 
-配置多 Bean
-java
-@Configuration
-public class ChatClientConfig {
-    @Bean
-    @Primary
-    public ChatClient primaryChatClient(OpenAiChatModel chatModel) {
-        return ChatClient.create(chatModel);
-    }
+| 提供商       | 推荐理由                         | 接入方式                   |
+| ------------ | -------------------------------- | -------------------------- |
+| 阿里云百炼   | 国内合规，深度集成               | spring-ai-alibaba-starter  |
+| OpenAI       | 模型强，生态最完善               | spring-ai-starter-model-openai |
+| DeepSeek     | 兼容 OpenAI，性价比高，国内可用  | 同上（修改 base-url）      |
+| 本地 Ollama  | 私有化部署，零延迟               | spring-ai-starter-model-ollama |
 
-    @Bean
-    public ChatClient cheapChatClient(OpenAiChatModel chatModel) {
-        return ChatClient.builder(chatModel)
-                .defaultOptions(OpenAiChatOptions.builder()
-                        .withModel("gpt-3.5-turbo")
-                        .withTemperature(0.3).build())
-                .build();
-    }
-}
-四种切换模式
-java
-@RestController
-public class ChatController {
-    private final Map<String, ChatClient> clientMap;
-    private final ChatClient primaryChatClient;
-
-    public ChatController(@Qualifier("primaryChatClient") ChatClient primary,
-                          @Qualifier("cheapChatClient") ChatClient cheap) {
-        this.primaryChatClient = primary;
-        this.clientMap = Map.of("primary", primary, "cheap", cheap);
-    }
-
-    @GetMapping("/chat")
-    public String chat(@RequestParam(defaultValue = "primary") String model, 
-                       @RequestParam String prompt) {
-        // 模式一：参数化动态决策（临时创建）
-        if ("cheap".equalsIgnoreCase(model)) {
-            return primaryChatClient.prompt().user(prompt)
-                    .options(OpenAiChatOptions.builder().withModel("gpt-3.5-turbo").build())
-                    .call().content();
-        }
-        // 模式二：从 Map 获取已配置的实例
-        ChatClient selectedClient = clientMap.getOrDefault(model, primaryChatClient);
-        return selectedClient.prompt().user(prompt).call().content();
-    }
-    
-    // 模式三：基于任务复杂度自动路由
-    @GetMapping("/smart-chat")
-    public String smartChat(@RequestParam String prompt) {
-        ChatClient client = prompt.length() > 50 ? clientMap.get("primary") : clientMap.get("cheap");
-        return client.prompt().user(prompt).call().content();
-    }
-    
-    // 模式四：接口级硬编码绑定
-    @GetMapping("/translate")
-    public String translate(@RequestParam String text) {
-        return clientMap.get("cheap").prompt().user("Translate to English: " + text).call().content();
-    }
-}
-2. AI 处理上传文件（PDF/Excel/图片）的原理
-文档类文件：通过 ETL 流水线（提取→转换→加载），利用 DocumentReader、DocumentTransformer、DocumentWriter 处理。
-
-图像类文件：多模态模型使用“视觉编码器+LLM”直接理解。
-
-混合处理包含图片的 PDF
-混合解析：提取文本 + 单独提取图片。
-
-并行处理：文本向量化，图片用多模态模型分析。
-
-内容融合：在语义层面整合结果。
-
-3. Spring AI 根据提示词调用多个接口并分析组装
-核心是 Tool Calling (Function Calling)。
-
-定义工具
-java
-@Service
-public class BusinessTools {
-    @Tool(description = "根据用户ID查询用户订单列表")
-    public List<Order> queryOrders(String userId) {
-        return orderRepository.findByUserId(userId);
-    }
-
-    @Tool(description = "查询指定城市的天气信息")
-    public String getWeather(String city) {
-        return weatherService.getWeatherByCity(city);
-    }
-}
-调用工具
-java
-@Autowired private ChatClient chatClient;
-@Autowired private BusinessTools businessTools;
-
-public String processUserRequest(String userPrompt) {
-    return chatClient.prompt()
-            .user(userPrompt)
-            .tools(businessTools)
-            .call()
-            .content();
-}
-工作流模式选择指南
-场景	推荐模式
-简单信息查询	工具调用
-明确步骤的数据处理	链式工作流
-不确定意图的请求分发	路由工作流
-耗时并行分析与聚合	并行化工作流
-复杂多级任务分解	编排器-工作者
-大型系统多领域协作	多智能体路由
-4. Spring AI 工作流实现
-轻量级工作流代码示例
-链式工作流
-java
-public class ChainWorkflow {
-    private final ChatClient chatClient;
-    private final String[] systemPrompts;
-
-    public String chain(String userInput) {
-        String response = userInput;
-        for (String prompt : systemPrompts) {
-            String input = String.format("{%s}\n {%s}", prompt, response);
-            response = chatClient.prompt(input).call().content();
-        }
-        return response;
-    }
-}
-并行化工作流
-java
-List<String> parallelResponse = new ParallelizationWorkflow(chatClient)
-    .parallel(
-        "Analyze how market changes will impact this stakeholder group.",
-        List.of("Customers: ...", "Employees: ...", "Investors: ...", "Suppliers: ..."),
-        4
-    );
-路由工作流
-java
-RoutingWorkflow workflow = new RoutingWorkflow(chatClient);
-Map<String, String> routes = Map.of(
-    "billing", "You are a billing specialist...",
-    "technical", "You are a technical support engineer...",
-    "general", "You are a customer service representative..."
-);
-String response = workflow.route(input, routes);
-编排器-工作者
-java
-public class TravelOrchestratorWorkflow {
-    private final ChatClient chatClient;
-
-    public TravelPlan createPlan(TravelRequest request) {
-        // 1. 编排器动态分解任务
-        String taskList = chatClient.prompt()
-            .user("Analyze this travel request and break it down into a list of independent subtasks: " + request.toString())
-            .call().content();
-        List<String> tasks = parseTasks(taskList);
-
-        // 2. 并行执行
-        List<String> results = tasks.parallelStream()
-            .map(task -> chatClient.prompt().user(task).call().content())
-            .toList();
-
-        // 3. 合成
-        String finalPlan = chatClient.prompt()
-            .user("Synthesize these travel insights into a comprehensive plan: " + String.join("\n", results))
-            .call().content();
-        return parsePlan(finalPlan);
-    }
-}
-多智能体协同
-Spring AI Alibaba 提供开箱即用的多智能体模式，基于 Graph Core 管理状态。
-
-顺序执行示例
-java
-ReactAgent writerAgent = ReactAgent.builder()
-    .name("writer_agent").model(chatModel)
-    .instruction("You are a writer. Write about: {input}.")
-    .outputKey("article")
-    .build();
-
-ReactAgent reviewerAgent = ReactAgent.builder()
-    .name("reviewer_agent").model(chatModel)
-    .instruction("Review this article: {article}")
-    .outputKey("reviewed_article")
-    .build();
-
-SequentialAgent blogAgent = SequentialAgent.builder()
-    .name("blog_agent")
-    .subAgents(List.of(writerAgent, reviewerAgent))
-    .build();
-
-Optional<OverAllState> result = blogAgent.invoke("Write about Spring AI");
-5. Spring AI 多语言入参和回调
-多语言输入处理
-语言自动识别与路由：可使用 Apache OpenNLP 检测语言后分发给不同模型。
-
-依赖 AI 模型自身多语言能力。
-
-国际化 i18n 管理提示词
-properties
-# messages_zh_CN.properties
-system.prompt=你是一位乐于助人的中文助手。
-user.greeting=你好！有什么可以帮助你的？
-yaml
+配置示例（`application.yml`）：
+```yaml
 spring:
-  messages:
-    basename: i18n/messages
-    encoding: UTF-8
-java
-@Autowired
-private MessageSource messageSource;
-String greeting = messageSource.getMessage("user.greeting", null, "Hello!", locale);
-热更新提示词
-java
-@Bean
-public MessageSource messageSource() {
-    ReloadableResourceBundleMessageSource source = new ReloadableResourceBundleMessageSource();
-    source.setBasename("classpath:i18n/messages");
-    source.setCacheSeconds(10); // 10秒刷新
-    return source;
-}
-多语言回调（Tool Calling）
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      base-url: ${OPENAI_BASE_URL:https://api.openai.com}
+      chat:
+        options:
+          model: gpt-4o
+3. 核心 Maven 依赖
+xml
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.2.5</version>
+</parent>
+
+<properties>
+    <spring-ai.version>1.0.0-M3</spring-ai.version>
+</properties>
+
+<dependencies>
+    <!-- Spring AI 核心 BOM -->
+    <dependency>
+        <groupId>org.springframework.ai</groupId>
+        <artifactId>spring-ai-bom</artifactId>
+        <version>${spring-ai.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+    </dependency>
+    <!-- OpenAI 接入 -->
+    <dependency>
+        <groupId>org.springframework.ai</groupId>
+        <artifactId>spring-ai-openai-spring-boot-starter</artifactId>
+    </dependency>
+    <!-- MCP 客户端（可选） -->
+    <dependency>
+        <groupId>org.springframework.ai</groupId>
+        <artifactId>spring-ai-mcp-client-spring-boot-starter</artifactId>
+    </dependency>
+</dependencies>
+4. 智能体核心能力组件
+4.1 工具（Tools）—— @Tool 注解
 java
 @Component
 public class WeatherService {
-    @Tool(description = """
-        Get the current weather in a given city. 
-        获取指定城市当前的天气情况。
-        """)
+
+    @Tool(description = "根据城市名称查询当前天气")
     public String getWeather(String city) {
-        return "晴朗， 25°C";
+        // 调用真实 API
+        return city + " 当前晴，25°C";
     }
 }
+4.2 记忆（Memory）
 java
-@Autowired private WeatherService weatherService;
-public String chatWithTool(String prompt) {
-    return ChatClient.create(chatModel)
-        .prompt(prompt)
-        .tools(weatherService)
-        .call()
-        .content();
+@Configuration
+public class MemoryConfig {
+    @Bean
+    public ChatMemory chatMemory() {
+        return new InMemoryChatMemory();  // 或 RedisChatMemory, JdbcChatMemory
+    }
 }
-6. Spring AI 自动解析入参 vs 自定义分词的区别
-维度	自动解析（结构化输出）	自定义分词（文本切分）
-目的	将非结构化文本转为程序对象	将长文本切分成语义块
-作用对象	AI 生成的响应（Output）	原始文档（Input）
-时机	生成响应之后	发送请求之前
-解决的问题	响应格式不统一	文本超出模型上下文窗口限制
-自动解析示例
+4.3 声明智能体 Bean
 java
-Student student = ChatClient.create(chatModel).prompt()
-    .user("Generate a student record")
-    .call()
-    .entity(Student.class);
-文本切分器选择
-TokenTextSplitter：按 Token 硬性切分
+@Configuration
+public class AgentConfig {
 
-SentenceSplitter：按句子语义边界
-
-RecursiveCharacterTextSplitter：用分隔符递归切分
-
-7. Spring AI 中实现 Re-Ranker
-开箱即用方案（RetrievalRerankAdvisor）
+    @Bean
+    public ChatClient chatClient(ChatModel chatModel,
+                                 List<ToolCallback> toolCallbacks) {
+        return ChatClient.builder(chatModel)
+                .defaultTools(toolCallbacks.toArray(new ToolCallback[0]))
+                .build();
+    }
+}
+5. 运行时接口与监控
 java
-public RerankController(ChatClient.Builder builder, VectorStore vectorStore, RerankModel rerankModel) {
-    this.chatClient = builder
-        .defaultAdvisors(new RetrievalRerankAdvisor(vectorStore, rerankModel))
+@RestController
+public class AgentController {
+
+    private final ChatClient chatClient;
+
+    public AgentController(ChatClient chatClient) {
+        this.chatClient = chatClient;
+    }
+
+    @PostMapping("/chat")
+    public String chat(@RequestBody String userMessage) {
+        return chatClient.prompt()
+                .user(userMessage)
+                .call()
+                .content();
+    }
+}
+二、集成 Skills / MCP / Plugins 能力
+核心概念对比
+概念	作用	类比
+MCP	统一协议，连接外部工具（文件系统、数据库、第三方 API）	AI 世界的 USB-C 口
+Skill	封装多步骤工作流，按需加载，避免上下文臃肿	工作流说明书
+Plugin	具体的功能单元（通常用 @Tool 实现）	可插拔的功能模块
+1. 集成 MCP 客户端（接入外部 MCP Server）
+步骤一：添加依赖（见前文）
+
+步骤二：配置 MCP Server 描述文件 src/main/resources/mcp-server.json5
+
+json5
+{
+  mcpServers: {
+    "baidu-map": {
+      command: "npx",
+      args: ["-y", "@baidumap/mcp-server-baidu-map"],
+      env: { BAIDU_MAP_API_KEY: "your-api-key" }
+    },
+    "filesystem": {
+      command: "npx",
+      args: ["-y", "@modelcontextprotocol/server-filesystem", "/tmp"]
+    }
+  }
+}
+步骤三：启用 MCP 客户端配置 application.yml
+
+yaml
+spring:
+  ai:
+    mcp:
+      client:
+        enabled: true
+        stdio:
+          servers-configuration: classpath:/mcp-server.json5
+步骤四：注入 MCP 提供的工具
+
+java
+@Configuration
+public class McpConfig {
+    @Bean
+    public ChatClient chatClient(ChatModel chatModel,
+                                 ToolCallbackProvider mcpToolProvider) {
+        return ChatClient.builder(chatModel)
+                .defaultTools(mcpToolProvider)
+                .build();
+    }
+}
+2. 实现 Skills（技能工作流）
+Skill 目录结构示例
+
+text
+src/main/resources/skills/
+└── generate-report/
+    ├── SKILL.md
+    ├── references/
+    │   └── template.md
+    └── scripts/
+        └── fetch_data.py
+SKILL.md 内容
+
+markdown
+---
+name: generate-report
+description: 根据 Jira 任务记录自动生成周报
+---
+
+# 执行步骤
+1. 调用工具 `get_jira_tasks` 获取本周任务。
+2. 按“已完成/进行中/计划中”分类。
+3. 参考 `references/template.md` 格式生成周报。
+加载 Skills 并注册到 Agent
+
+java
+SkillRegistry skillRegistry = ClasspathSkillRegistry.builder()
+        .skillPath("classpath:/skills")
         .build();
-}
-手动集成（DocumentPostProcessor）
+
+SkillsAgentHook skillsHook = SkillsAgentHook.builder()
+        .skillRegistry(skillRegistry)
+        .build();
+
+ReactAgent agent = ReactAgent.builder()
+        .name("assistant")
+        .model(chatModel)
+        .toolCallbacks(mcpToolProvider)   // MCP 工具
+        .hooks(List.of(skillsHook))       // Skill 钩子
+        .build();
+工作流：用户请求“生成周报” → Agent 发现 generate-report Skill → 加载 SKILL.md 指令 → 调用 get_jira_tasks（MCP 工具）→ 生成最终内容。
+
+三、Multi-Agent 多智能体协作详解
+核心价值
+能力解耦：不同 Agent 各司其职（代码专家、文案专家、质检员）。
+
+认知减负：每个 Agent 只关注自己的上下文，决策更精准。
+
+质量保证：引入评审 Agent 对执行结果进行校验。
+
+Spring AI Alibaba 原生支持的协作模式
+3.1 工具调用模式（集中式指挥）
 java
+// 定义专业 Agent 作为工具
 @Component
-public class MyRerankProcessor implements DocumentPostProcessor {
-    @Override
-    public List<Document> process(List<Document> documents) {
-        // 调用重排序 API 对文档评分并排序
-        return documents;
+public class CodeAgent {
+    @Tool(description = "编写 Java 代码")
+    public String writeCode(String requirement) {
+        return "public class Hello { public static void main(String[] args) { System.out.println(\"Hello\"); } }";
     }
 }
-8. Spring AI 中长期记忆、短期记忆和历史记忆的载体
-记忆类型	核心载体	存储	生命周期	特性
-短期记忆	ChatMemory / MessageWindowChatMemory	内存（可持久化）	单次会话	滑动窗口策略
-长期记忆	VectorStore / AutoMemoryTools	向量数据库/文件系统	跨会话	用户画像、偏好，常结合 RAG
-历史记录	ChatMemoryRepository	数据库（JDBC/Redis）	永久	完整审计日志
-9. 向量数据库中推荐的分片大小
-数据库	推荐单分片大小	建议
-Milvus	512MB / 1GB / 2GB	使用官方 Sizing Tool 根据内存计算
-Qdrant	< 1000万条向量	单分片模式上限约 1000 万条
-腾讯云	< 200-300万条向量	通用场景 100-200 万，DISK_FLAT 可放宽至 300 万
-Pinecone	约 100万-500万条向量	p1 Pod 约 100 万条，s1 Pod 约 500 万条
-黄金法则：确保索引完全加载进内存，分片尽量大一些。
 
-Milvus Sizing Tool 使用方法
-访问 milvus.io/tools/sizing
+@Component
+public class DocAgent {
+    @Tool(description = "编写技术文档")
+    public String writeDoc(String code) {
+        return "## 使用说明\n该代码用于...";
+    }
+}
 
-输入向量总数、维度、索引类型、分段大小等参数
+// 主管 Agent 自动注册上述工具
+@Configuration
+public class MultiAgentConfig {
+    @Bean
+    public ChatClient supervisor(ChatModel model,
+                                 CodeAgent codeAgent,
+                                 DocAgent docAgent) {
+        return ChatClient.builder(model)
+                .defaultTools(
+                    ToolCallbacks.from(codeAgent),
+                    ToolCallbacks.from(docAgent)
+                )
+                .build();
+    }
+}
+用户请求：“帮我写一个打印 Hello 的 Java 程序，并生成说明文档”
+→ 主管 Agent 依次调用 CodeAgent → DocAgent。
 
-观察不同分段大小对内存的影响，选择最佳配置
+3.2 交接模式（Handoffs，去中心化）
+java
+// 订单 Agent
+@Agent(name = "orderAgent", description = "处理订单相关问题")
+public class OrderAgent {
+    @Handoff(target = PaymentAgent.class, description = "转交支付问题")
+    public String handleOrder(String question) {
+        return "您的订单 #12345 正在配送中。";
+    }
+}
+
+// 支付 Agent
+@Agent(name = "paymentAgent", description = "处理支付相关问题")
+public class PaymentAgent {
+    public String handlePayment(String question) {
+        return "您的支付已完成，交易号：ABC123。";
+    }
+}
+用户问：“我的订单什么时候到？” → orderAgent 回答。
+用户接着问：“那这笔交易的支付记录呢？” → orderAgent 主动交接给 paymentAgent，用户无感知切换。
+
+更高级的编排：Graph 工作流
+java
+GraphAgent graph = GraphAgent.builder()
+        .name("risk-control")
+        .nodes(
+            Node.of("data_collect", collectorAgent),
+            Node.of("rule_engine", ruleEngineAgent),
+            Node.of("human_review", humanReviewAgent)
+        )
+        .edges(
+            Edge.from("data_collect").to("rule_engine"),
+            Edge.from("rule_engine").conditional(
+                result -> result.isPass() ? "end" : "human_review"
+            )
+        )
+        .build();
+上下文工程：占位符实现信息传递
+java
+@Agent(instruction = """
+        请根据用户需求选择合适的专家。
+        当前已收集的信息：{collected_info}
+        最后决策结果：{last_decision}
+        """)
+public class SupervisorAgent {
+    // 占位符会在运行时被自动填充
+}
+Multi-Agent 适用场景选择
+场景	推荐模式	说明
+自动周报生成	工具调用（顺序）	数据采集 → 分析 → 撰写
+智能客服（跨领域）	交接模式	订单 → 支付 → 售后 无缝切换
+视频生成流程	Graph 顺序编排	脚本 → 生成 → 字幕 → 发布
+风控审核	Graph 条件分支	自动规则通过→放行；否则人工
+并行信息聚合	并行节点	同时查询多个新闻源
+四、完整可运行示例代码
+以下是一个集成了 OpenAI + MCP 文件系统 + Skill 周报生成 的 Spring Boot 主类。
+
+java
+@SpringBootApplication
+public class AgentApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(AgentApplication.class, args);
+    }
+
+    @Bean
+    public CommandLineRunner demo(ChatClient chatClient) {
+        return args -> {
+            String response = chatClient.prompt()
+                    .user("帮我生成这周的周报")
+                    .call()
+                    .content();
+            System.out.println(response);
+        };
+    }
+}
+配套 application.yml：
+
+yaml
+spring:
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+    mcp:
+      client:
+        enabled: true
+        stdio:
+          servers-configuration: classpath:/mcp-server.json5
+至此，你已经拥有从基础环境、工具集成、MCP/Skills 到 Multi-Agent 协作的完整知识体系。根据实际业务场景，自由组合上述能力即可构建生产级智能体应用。

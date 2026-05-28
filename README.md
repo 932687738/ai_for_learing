@@ -6,13 +6,68 @@
 
 | 路径 | 用途 |
 | --- | --- |
-| [`study/`](study/) | **课程主资产**：章节 [`study/chapters/`](study/chapters/)、项目实战小节 [`study/projects/`](study/projects/)、大纲 [`study/COURSE_OUTLINE.md`](study/COURSE_OUTLINE.md)、进度 [`study/COURSE_PROGRESS.md`](study/COURSE_PROGRESS.md)、任务 [`study/COURSE_TASKS.md`](study/COURSE_TASKS.md)、写作规范 [`study/COURSE_WRITING_STANDARD.md`](study/COURSE_WRITING_STANDARD.md)、高阶路线 [`study/high/`](study/high/) 等；总览可选读 [`study/README.md`](study/README.md) |
+| [`study/`](study/) | **课程主资产**：章节 [`study/chapters/`](study/chapters/)、项目实战小节 [`study/projects/`](study/projects/)、大纲 [`study/COURSE_OUTLINE.md`](study/COURSE_OUTLINE.md)、进度 [`study/COURSE_PROGRESS.md`](study/COURSE_PROGRESS.md)、任务 [`study/COURSE_TASKS.md`](study/COURSE_TASKS.md)、写作规范 [`study/COURSE_WRITING_STANDARD.md`](study/COURSE_WRITING_STANDARD.md)、高阶路线 [`study/high/`](study/high/) 等；**面试知识点**见 [`study/interview/knowledge/`](study/interview/knowledge/)（下文专节）；总览可选读 [`study/README.md`](study/README.md) |
 | [`ai-learning/`](ai-learning/) | **可运行练习代码与数据**：与各课章对应的 `scripts/`、`src/`、`data/` |
 | [`dailyReport/`](dailyReport/) | **日报与状态**：AI 日报 [`dailyReport/ai-daily-news/`](dailyReport/ai-daily-news/)、知识库摘要 [`dailyReport/knowledge-base-news/`](dailyReport/knowledge-base-news/)、GitHub 快照 [`dailyReport/github-topz.md`](dailyReport/github-topz.md) |
 | [`project_graphrag/`](project_graphrag/) | **本地知识图谱与 GraphRAG**：配置、节点/边导出、构建与同步脚本、`summary.md`、可选 Chroma 向量数据等（只写本目录，不改动被分析的目标业务项目源码） |
 | [`tools/`](tools/) | **仓库级命令行工具**（见下文「脚本与工具」） |
 | [`.cursor/`](.cursor/) | **Cursor Agents、Rules、Skills、Settings**（见下文） |
 | 仓库根其它 | 如 [`LOCAL_PATH.md`](LOCAL_PATH.md)（本地路径备忘）、[`RAG_LangChain_Java_Beginner_Guide.md`](RAG_LangChain_Java_Beginner_Guide.md)、根级 `ai-daily-digest.md`（若仍存在则多为历史/副本，**以 `dailyReport/` 下为准**） |
+
+## 面试知识点库（`study/interview/knowledge/`）
+
+经 `@markdown-qa-classify-merge` 整理后的 **Spring AI / RAG / Agent** 面试标准知识点，按主题拆分为独立 Markdown 模块。详细条目索引见 [`study/interview/knowledge/索引.md`](study/interview/knowledge/索引.md)，分类路由见 [`.cursor/knowledge-taxonomy.md`](.cursor/knowledge-taxonomy.md)。
+
+**最后更新**：2026-05-28 · **合计**：15 个模块、97 个知识点
+
+### 模块导读
+
+#### 框架基础（Spring AI 核心）
+
+| 模块 | 文件 | 知识点 | 说明 |
+| :--- | :--- | ---: | :--- |
+| Spring AI 核心组件 | [`Spring AI核心组件.md`](study/interview/knowledge/Spring%20AI核心组件.md) | 9 | ChatClient / ChatModel、Prompt、Advisor、Transform 结构化输出、多模态与多语言 |
+| 文档 ETL 与分块 | [`文档ETL与分块.md`](study/interview/knowledge/文档ETL与分块.md) | 9 | DocumentReader、Tika、TokenTextSplitter、元数据 Enricher、ETL 流水线 |
+| 向量与嵌入 | [`向量与嵌入.md`](study/interview/knowledge/向量与嵌入.md) | 3 | EmbeddingModel、VectorStore.add / similaritySearch 调用链 |
+| 索引与存储 | [`索引与存储.md`](study/interview/knowledge/索引与存储.md) | 13 | 相似度阈值、HNSW/IVFFlat、多租户、PgVector/ES/Chroma 选型与分片 |
+
+#### RAG 检索增强
+
+| 模块 | 文件 | 知识点 | 说明 |
+| :--- | :--- | ---: | :--- |
+| RAG Advisor | [`RAG Advisor.md`](study/interview/knowledge/RAG%20Advisor.md) | 3 | QuestionAnswerAdvisor 流程与缓存、ResponseValidationAdvisor 质量检测 |
+| RAG 检索策略 | [`RAG检索策略.md`](study/interview/knowledge/RAG检索策略.md) | 9 | 多路径召回、MultiQueryExpander、BM25 混合、Rerank、查询改写、召回率 |
+| HyDE 假设文档嵌入 | [`HyDE假设文档嵌入.md`](study/interview/knowledge/HyDE假设文档嵌入.md) | 7 | HyDE 原理 / 实现 / 衍生方案、智能路由 |
+| RRF 混合检索融合 | [`RRF混合检索融合.md`](study/interview/knowledge/RRF混合检索融合.md) | 7 | Reciprocal Rank Fusion 公式、Spring AI 与各存储配置 |
+| RAG 长期记忆 | [`RAG长期记忆.md`](study/interview/knowledge/RAG长期记忆.md) | 1 | 向量库跨会话记忆、MemoryAdvisor 注入 |
+
+#### Agent 智能体
+
+| 模块 | 文件 | 知识点 | 说明 |
+| :--- | :--- | ---: | :--- |
+| Agent 记忆体系 | [`Agent记忆体系.md`](study/interview/knowledge/Agent记忆体系.md) | 3 | ChatMemory 短期记忆、AutoMemoryTools 长期记忆、选型对比 |
+| Agent 架构与协同 | [`Agent架构与协同.md`](study/interview/knowledge/Agent架构与协同.md) | 11 | ReAct、@Tool 动态 RAG、Skills/Tools/MCP、MCP Server/Client 实现 |
+| Agent 工作流模式 | [`Agent工作流模式.md`](study/interview/knowledge/Agent工作流模式.md) | 6 | SequentialAgent、LoopAgent、Orchestrator、CoT/ToT、Handoff |
+
+#### 生产运维与扩展
+
+| 模块 | 文件 | 知识点 | 说明 |
+| :--- | :--- | ---: | :--- |
+| 可观测与评估 | [`可观测与评估.md`](study/interview/knowledge/可观测与评估.md) | 9 | Micrometer 埋点、Tracing、Ragas 指标体系与 CI 集成、Prometheus/Grafana |
+| 性能与高可用 | [`性能与高可用.md`](study/interview/knowledge/性能与高可用.md) | 3 | 异步并行检索、CompletableFuture 超时、@Cacheable 响应缓存 |
+| 其他 | [`其他.md`](study/interview/knowledge/其他.md) | 4 | Cursor 多智能体实践、RAG vs 知识图谱、GraphRAG、多跳推理 |
+
+### 推荐阅读顺序
+
+1. **入门**：Spring AI 核心组件 → 文档 ETL 与分块 → 向量与嵌入 → 索引与存储
+2. **RAG 专项**：RAG Advisor → RAG 检索策略 → HyDE / RRF → RAG 长期记忆
+3. **Agent 专项**：Agent 记忆体系 → Agent 架构与协同 → Agent 工作流模式
+4. **上线保障**：可观测与评估 → 性能与高可用
+
+### 维护说明
+
+- 原始问答 Markdown 放入 [`study/interview/original/`](study/interview/original/)，经 Agent [`markdown-qa-classify-merge`](.cursor/agents/markdown-qa-classify-merge.md) 分类合并后写入 `knowledge/`，**禁止**再新建 `*问答.md` 类文件。
+- 每个模块文件含：核心概念、要点、代码示例（如有）、面试常问；合并日志见 [`study/interview/_merge_log.md`](study/interview/_merge_log.md)。
 
 ## Agents（`.cursor/agents/`）
 
