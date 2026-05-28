@@ -1,5 +1,19 @@
 # Markdown 问答分类合并日志
 
+## 2026-05-28（MCP 全面解析与 Spring AI 实战）
+
+**源文件**：`study/interview/original/template.md`（MCP 原理、与 Skill/Agent/Rule 区别、Spring AI MCP Server/Client 实战、Client+Server 共存，298 行）
+
+**说明**：源文件为 MCP 技术综合指南（非 Q&A 体），按知识点语义路由至 Agent 架构模块；与既有「Skills/Tools/MCP 协同流程」互补（本批侧重协议原理与 Spring AI 落地），未重复全文。
+
+| 模块文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Agent架构与协同.md | 新增 | +5（MCP 协议原理与架构、MCP 与 Skill/Agent/Rule 定位对比、Spring AI MCP Server/Client 实现、同一应用 Client+Server 共存） |
+
+**路由备注**：MCP 协议与 Spring AI 实现归入 `agent-architecture`；代码块（xml/yaml/java/json）已规范为 fenced block；无 `.bak`；失败 0 条。
+
+**合计**：1 个文件更新，净增 5 条；全库 88 条。
+
 ## 2026-05-28（RAG、知识图谱与向量图谱综合指南）
 
 **源文件**：`study/interview/original/template.md`（RAG/知识图谱/GraphRAG 概念、ANN、召回率、存储选型、Neo4j 示例，138 行）

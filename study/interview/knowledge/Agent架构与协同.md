@@ -11,6 +11,11 @@
 - [Skills、Tools、MCP 与知识库协同流程（含数据库场景）](#skillstoolsmcp-与知识库协同流程含数据库场景)
 - [Agent 流水线中的并行知识库检索](#agent-流水线中的并行知识库检索)
 - [基于 Cursor Rules 的领域角色智能体](#基于-cursor-rules-的领域角色智能体)
+- [MCP 协议原理与架构](#mcp-协议原理与架构)
+- [MCP 与 Skill、Agent、Rule 的定位对比](#mcp-与-skillagentrule-的定位对比)
+- [Spring AI MCP Server 端实现](#spring-ai-mcp-server-端实现)
+- [Spring AI MCP Client 端与 ChatClient 集成](#spring-ai-mcp-client-端与-chatclient-集成)
+- [同一应用同时作为 MCP Client 与 Server](#同一应用同时作为-mcp-client-与-server)
 
 ---
 ## ReAct 与 Transformer 架构的区别
@@ -276,5 +281,351 @@ alwaysApply: false
 
 - [IDE 分阶段顺序多智能体协同](Agent工作流模式.md)
 - [Cursor 多智能体开发最佳实践](其他.md)
+
+---
+## MCP 协议原理与架构
+
+> **模块**：Agent 架构与协同 | **标签**：MCP, JSON-RPC, 工具协议 | **更新**：2026-05-28
+
+### 核心概念
+
+MCP（Model Context Protocol）是 Anthropic 提出的开放标准，为 LLM 与外部工具/数据源提供统一通信中间层，常被类比为 AI 领域的「USB‑C」——通过标准化协议实现跨厂商、可动态发现的能力接入。
+
+### 要点
+
+**三大设计原则**：
+
+- **能力解耦**：工具调用从 Prompt 剥离，避免硬编码导致上下文膨胀。
+- **动态发现**：运行时按需加载外部能力，无需预先定义全部工具指令。
+- **安全隔离**：进程级隔离与权限控制，敏感数据可仅本地处理。
+
+**三层 Client‑Server 模型**：
+
+| 角色 | 职责 |
+| :--- | :--- |
+| Host（宿主应用） | 集成 MCP Client 的 AI 应用（如 Cursor、Claude Desktop） |
+| MCP Client | 协议解析、服务发现、会话管理，与 Server 一对一连接 |
+| MCP Server | 暴露 Tools/Resources/Prompts 的独立进程，隔离运行 |
+
+**通信**：基于 JSON‑RPC 2.0；传输层支持 stdio、HTTP、SSE/WebFlux 等。
+
+**三大核心能力**：
+
+| 能力 | 描述 | 典型场景 |
+| :--- | :--- | :--- |
+| Tools | 执行具体操作 | 发邮件、查库、调 API |
+| Resources | 提供实时数据流 | 行情、天气、文件读取 |
+| Prompts | 封装复杂任务模板 | 报告生成、数据分析 |
+
+**完整工作流**：能力发现 → LLM 决策调用 → Client 发 JSON‑RPC → Server 执行 → 结果回注上下文。
+
+**与传统 Function Calling 对比**：
+
+| 维度 | Function Calling | MCP |
+| :--- | :--- | :--- |
+| 工具定义 | 硬编码在 Prompt/代码 | 独立 Server 端，动态发现 |
+| 厂商绑定 | 与 LLM 提供商强绑定 | 跨厂商标准化 |
+| 执行管理 | 开发者手动解析调度 | Host/Client 统一转换与调度 |
+| 生命周期 | 无标准权限/连接管理 | 内置会话、权限、沙箱 |
+
+### 代码示例
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": "1",
+  "method": "calendar.query",
+  "params": {
+    "start_time": "2024-11-01T00:00:00Z",
+    "end_time": "2024-11-30T23:59:59Z"
+  }
+}
+```
+
+### 面试常问
+
+**问**：MCP 是什么？它和传统 Function Calling 有什么本质区别？
+
+**答**：MCP 是 LLM 与外部工具的标准化通信协议，采用 Client‑Server + JSON‑RPC，支持运行时动态发现 Tools/Resources/Prompts。相比 Function Calling，工具定义外置、跨厂商、且有统一会话与权限管理，更适合多工具、多系统集成场景。
+
+### 关联知识点
+
+- [MCP 与 Skill、Agent、Rule 的定位对比](#mcp-与-skillagentrule-的定位对比)
+- [Skills、Tools、MCP 与知识库协同流程（含数据库场景）](#skillstoolsmcp-与知识库协同流程含数据库场景)
+
+---
+## MCP 与 Skill、Agent、Rule 的定位对比
+
+> **模块**：Agent 架构与协同 | **标签**：MCP, Skill, Agent, Rule | **更新**：2026-05-28
+
+### 核心概念
+
+MCP、Skill、Agent、Rule 分处 AI 智能体生态不同层次：MCP 解决「能触达什么」，Skill 定义「怎么做」，Agent 负责「谁来调度」，Rule 约束「什么能做/不能做」；四者互补而非替代。
+
+### 要点
+
+| 概念 | 定位 | 核心关注点 | 类比 |
+| :--- | :--- | :--- | :--- |
+| MCP | 标准化通信协议 | 能做什么 — 触达外部工具与数据 | USB‑C 接口 |
+| Skill | 声明式流程规范 | 怎么做 — 业务规则与工作流可复用模块 | 操作手册 |
+| Agent | 智能体运行框架 | 谁来调度 — 感知、规划、执行 | 项目经理 |
+| Rule | 约束与合规规则 | 什么能做/不能做 — 行为边界 | 公司制度 |
+
+**协作关系**：完整 Agent ≈ 通用 LLM + MCP（连外部工具）+ Skills（操作流程）+ Rules（行为约束）。
+
+**MCP 与 Skill**：MCP 提供原子能力（如查天气），Skill 定义如何组合能力完成业务目标（如制定出行计划）。
+
+### 面试常问
+
+**问**：MCP、Skill、Agent、Rule 分别解决什么问题？能否用 MCP 替代 Skill？
+
+**答**：不能替代。MCP 是工具接入协议，Skill 是可复用任务 SOP；Agent 编排整体执行，Rule 限定边界。典型组合是 Agent 按 Skill 流程，经 MCP 调用 Tools，全程受 Rule 约束。
+
+### 关联知识点
+
+- [MCP 协议原理与架构](#mcp-协议原理与架构)
+- [Skills、Tools、MCP 与知识库协同流程（含数据库场景）](#skillstoolsmcp-与知识库协同流程含数据库场景)
+
+---
+## Spring AI MCP Server 端实现
+
+> **模块**：Agent 架构与协同 | **标签**：Spring AI, MCP Server, @Tool | **更新**：2026-05-28
+
+### 核心概念
+
+Spring AI 通过 MCP Server Starter 将 `@Tool` 标注的业务方法自动注册为 MCP 工具，支持 STDIO 与 WebMVC/WebFlux（SSE/Streamable-HTTP）多种传输，对外暴露标准化 JSON‑RPC 能力面。
+
+### 要点
+
+**常用 Starter**：
+
+| Starter | 用途 | 传输 |
+| :--- | :--- | :--- |
+| spring-ai-starter-mcp-server | 核心 Server | STDIO |
+| spring-ai-starter-mcp-server-webmvc | WebMVC Server | SSE 流式 |
+| spring-ai-starter-mcp-server-webflux | WebFlux Server | SSE 流式 |
+
+**关键配置项**：`spring.ai.mcp.server.type`（async/sync）、`protocol`（如 STREAMABLE）、`name`、`version`。
+
+**工具注册**：在 Service 方法上使用 `@Tool` + `@ToolParam`，Spring AI 自动扫描并生成 JSON Schema 供 Client 发现。
+
+### 代码示例
+
+```xml
+<dependency>
+    <groupId>org.springframework.ai</groupId>
+    <artifactId>spring-ai-starter-mcp-server-webmvc</artifactId>
+</dependency>
+```
+
+```yaml
+server:
+  port: 8014
+spring:
+  application:
+    name: mcp-server-demo
+  ai:
+    mcp:
+      server:
+        type: async
+        protocol: STREAMABLE
+        name: custom-mcp-server
+        version: 1.0.0
+```
+
+```java
+@Service
+public class WeatherService {
+    @Tool(description = "根据城市名称获取天气预报")
+    public String getWeatherByCity(
+        @ToolParam(description = "城市名称，如北京、上海、深圳") String city) {
+        return switch (city) {
+            case "北京" -> "北京：多云，15℃~27℃，南风3级";
+            case "上海" -> "上海：小雨，18℃~25℃，东风2级";
+            default -> "暂无该城市天气信息";
+        };
+    }
+}
+```
+
+### 面试常问
+
+**问**：Spring AI 如何把本地 Java 方法暴露为 MCP 工具？
+
+**答**：引入 `spring-ai-starter-mcp-server-*`，配置 `spring.ai.mcp.server`（协议、名称、传输类型），在 Bean 方法上加 `@Tool`/`@ToolParam` 即可自动注册；WebMVC/WebFlux Starter 通过 HTTP/SSE 对外提供 `/mcp` 端点。
+
+### 关联知识点
+
+- [Spring AI MCP Client 端与 ChatClient 集成](#spring-ai-mcp-client-端与-chatclient-集成)
+- [Agent 与 RAG 协同 @Tool 动态加载](#agent-与-rag-协同-tool-动态加载)
+
+---
+## Spring AI MCP Client 端与 ChatClient 集成
+
+> **模块**：Agent 架构与协同 | **标签**：Spring AI, MCP Client, ChatClient | **更新**：2026-05-28
+
+### 核心概念
+
+MCP Client Starter 负责连接远程 Streamable-HTTP 或 STDIO MCP Server，将远端工具注册为 `ToolCallback`，注入 `ChatClient` 后由 LLM 自主决定是否跨进程调用外部能力。
+
+### 要点
+
+**常用 Starter**：
+
+| Starter | 传输 |
+| :--- | :--- |
+| spring-ai-starter-mcp-client | STDIO + HTTP SSE |
+| spring-ai-starter-mcp-client-webflux | SSE 流式 |
+
+**Streamable-HTTP 连接**：在 `spring.ai.mcp.client.streamable-http.connections` 下配置 `url` 与 `endpoint`（如 `/mcp`）。
+
+**STDIO 第三方服务**：通过 `classpath:/mcp-server.json5` 描述 `command`、`args`、`env`，Client 按配置拉起子进程。
+
+**ChatClient 集成**：注入 `ToolCallbackProvider`，`defaultToolCallbacks(tools.getToolCallbacks())` 即可把 MCP 工具并入对话链。
+
+**典型调用链**：用户提问 → ChatClient 判定需工具 → MCP Client 发 JSON‑RPC → Server 执行 `@Tool` → 结果回注 → 生成自然语言回复。
+
+### 代码示例
+
+```xml
+<dependency>
+    <groupId>org.springframework.ai</groupId>
+    <artifactId>spring-ai-starter-mcp-client</artifactId>
+</dependency>
+```
+
+```yaml
+server:
+  port: 8015
+spring:
+  ai:
+    mcp:
+      client:
+        type: async
+        request-timeout: 60s
+        toolcallback:
+          enabled: true
+        streamable-http:
+          connections:
+            weather-server:
+              url: http://localhost:8014
+              endpoint: /mcp
+```
+
+```json5
+{
+  "mcpServers": {
+    "baidu-map": {
+      "command": "npx",
+      "args": ["-y", "@baidumap/mcp-server-baidu-map"],
+      "env": {
+        "BAIDU_MAP_API_KEY": "${BAIDU_MAP_API_KEY}"
+      }
+    }
+  }
+}
+```
+
+```java
+@Configuration
+public class AiConfig {
+    @Bean
+    public ChatClient chatClient(
+            ChatModel chatModel,
+            ToolCallbackProvider tools) {
+        return ChatClient.builder(chatModel)
+                .defaultToolCallbacks(tools.getToolCallbacks())
+                .build();
+    }
+}
+
+@RestController
+public class ChatController {
+    @Resource
+    private ChatClient chatClient;
+
+    @GetMapping("/chat")
+    public Flux<String> chat(@RequestParam(defaultValue = "北京") String msg) {
+        return chatClient.prompt(msg).stream().content();
+    }
+}
+```
+
+### 面试常问
+
+**问**：Spring AI MCP Client 如何把远程 MCP Server 的工具交给 ChatClient 使用？
+
+**答**：启用 `toolcallback`，配置 streamable-http 或 stdio 连接；将 `ToolCallbackProvider` 注入 ChatClient 的 `defaultToolCallbacks`。模型推理时会经 MCP Client 向 Server 发 JSON‑RPC，无需手写工具调度代码。
+
+### 关联知识点
+
+- [Spring AI MCP Server 端实现](#spring-ai-mcp-server-端实现)
+- [MCP 协议原理与架构](#mcp-协议原理与架构)
+
+---
+## 同一应用同时作为 MCP Client 与 Server
+
+> **模块**：Agent 架构与协同 | **标签**：Spring AI, MCP, 自调用 | **更新**：2026-05-28
+
+### 核心概念
+
+同一 Spring 应用可同时引入 MCP Server 与 Client Starter，Client 指向本机 `/mcp` 端点，实现「自服务」式工具暴露与调用；可行但存在网络栈开销与递归风险，多数场景更推荐本地 `@Tool` + ToolCallback。
+
+### 要点
+
+**实现方式**：共存 Server/Client Starter；Client 的 `streamable-http.connections.self.url` 指向 `http://localhost:{port}`。
+
+**典型场景**：统一工具管理平面、为未来拆服务预留协议边界、调试 MCP 实现、通过 MCP 权限沙箱限制 LLM 访问内部工具。
+
+**注意事项**：
+
+- **性能**：自调用走完整序列化/TCP，高频轻量工具不推荐。
+- **循环调用**：工具内再触发 ChatClient 易无限递归，业务层需设终止条件。
+- **最佳实践**：仅为了让 LLM 调本服务方法时，直接用 `@Tool` + 本地 ToolCallback 更简单；需对外暴露标准 MCP 服务且自身复用同一套工具描述时，才采用 Client+Server 共存。
+
+### 代码示例
+
+```xml
+<dependency>
+    <groupId>org.springframework.ai</groupId>
+    <artifactId>spring-ai-starter-mcp-server-webmvc</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.ai</groupId>
+    <artifactId>spring-ai-starter-mcp-client</artifactId>
+</dependency>
+```
+
+```yaml
+server:
+  port: 8080
+spring:
+  ai:
+    mcp:
+      server:
+        type: ASYNC
+        protocol: STREAMABLE
+        name: self-serving-server
+      client:
+        type: ASYNC
+        toolcallback:
+          enabled: true
+        streamable-http:
+          connections:
+            self:
+              url: http://localhost:8080
+              endpoint: /mcp
+```
+
+### 面试常问
+
+**问**：一个 Spring 服务能否既是 MCP Server 又是 MCP Client？什么时候值得这样做？
+
+**答**：可以，Client 连本机 `/mcp` 即可。适合需要标准 MCP 对外暴露且内部也走同一协议的场景；若仅为 LLM 调本地方法，直接 `@Tool` 注入 ChatClient 更高效，避免自调用网络开销与递归风险。
+
+### 关联知识点
+
+- [Spring AI MCP Server 端实现](#spring-ai-mcp-server-端实现)
+- [Spring AI MCP Client 端与 ChatClient 集成](#spring-ai-mcp-client-端与-chatclient-集成)
 
 ---
