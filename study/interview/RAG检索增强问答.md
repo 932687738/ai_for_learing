@@ -1,5 +1,72 @@
 <!-- 最后更新于 2026-05-28 -->
 
+## 多路径检索三种召回策略
+
+**问**：生产级 RAG 中「原始语义 + MultiQueryExpander + 关键词扩展」三路检索有何区别？为什么要合并？
+
+**答**：
+
+| 维度 | 路径1（原始） | 路径2（语义扩展） | 路径3（关键词扩展） |
+| :--- | :--- | :--- | :--- |
+| 输入形式 | 用户原问题 | 多个自然语言变体 | 关键词组合/布尔查询 |
+| 转换方式 | 无 | LLM 生成 | 规则/词典/模型扩展 |
+| 检索原理 | 语义相似度 | 多角度语义覆盖 | 关键词匹配 + 语义 |
+| LLM 依赖 | 无 | 需要 | 可能不需要 |
+| 计算成本 | 低（1 次） | 高（K 次） | 中（1 次） |
+| 召回类型 | 直接相关 | 间接相关、不同表述 | 含关键词但语义可能偏离 |
+
+**合并原因**：路径 1 保精准度，路径 2 提召回率，路径 3 弥补语义检索遗漏的关键词匹配；合并常用 **RRF** 或加权平均。
+
+**代码示例**：
+
+```java
+// 路径1：原始问题直出 embedding
+List<Document> originalDocs = searchKnowledgeDocuments(originalQuery.text(), perPathK);
+
+// 路径2：MultiQueryExpander 扩展查询（不含原问）
+MultiQueryExpander expander = MultiQueryExpander.builder()
+    .numberOfQueries(3)
+    .includeOriginal(false)
+    .build();
+List<Query> expandedQueries = expander.expand(originalQuery);
+
+// 路径3：关键词扩展检索
+Query keywordQuery = keywordExpansionQueryTransformer.transform(originalQuery);
+List<Document> keywordDocs = searchKnowledgeDocuments(keywordQuery.text(), perPathK);
+```
+
+分类标签：RAG检索增强 | 更新日期：2026-05-28
+
+---
+
+## MultiQueryExpander.expand 的作用
+
+**问**：`MultiQueryExpander.expand()` 的核心功能是什么？关键配置参数有哪些？
+
+**答**：
+
+- **核心功能**：利用 LLM 将一个用户查询扩展为多个语义不同但相关的查询变体，提高召回率，避免因用户措辞差异遗漏文档。
+- **工作流程**：接收 `originalQuery` → 调用 ChatClient 按提示词模板生成变体 → 返回 `List<Query>`。
+- **关键参数**：
+  - `numberOfQueries`：生成变体数量。
+  - `includeOriginal`：是否包含原始查询（多路径场景常设 `false`，避免与路径 1 重复）。
+
+**代码示例**：
+
+```java
+List<Query> expandedQueries = queryExpander.expand(originalQuery);
+```
+
+**扩展示例**（用户问「怎么学 Spring AI」）：
+
+- "Spring AI 的学习步骤是什么？"
+- "Spring AI 入门教程有哪些？"
+- "如何上手 Spring AI 框架？"
+
+分类标签：RAG检索增强 | 更新日期：2026-05-28
+
+---
+
 ## 多路召回向量与 BM25
 
 **问**：如何通过多路召回（例如结合关键词搜索 BM25 和向量搜索）来提升召回率？请简述在 Spring AI 中集成 ElasticsearchVectorStore 并实现混合检索的思路。

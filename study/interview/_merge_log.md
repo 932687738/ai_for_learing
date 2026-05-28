@@ -1,5 +1,20 @@
 # Markdown 问答分类合并日志
 
+## 2026-05-28（多路径检索与监控）
+
+**源文件**：`study/interview/original/template.md`（Spring AI RAG 多路径检索与监控最佳实践，5 个技术点）
+
+**操作**：提炼 5 条问答，合并至 4 个分类文件；无 `.bak` 备份。
+
+| 分类文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Spring AI基础问答.md | 新增 | +1（Query 对象） |
+| RAG检索增强问答.md | 新增 | +2（三路检索、MultiQueryExpander） |
+| 可观测与评估问答.md | 新增 | +1（joined/reranked 埋点） |
+| 文档与分块问答.md | 合并增强 | 1 条扩展（content vs metadata） |
+
+**合计**：4 个文件更新，净增 4 条；语义去重合并 1 条；失败 0 条。
+
 ## 2026-05-28（RRF 专题合并）
 
 **源文件**：`study/interview/original/template.md`（RRF 详解技术文章，非标准问答格式）

@@ -1,5 +1,40 @@
 <!-- 最后更新于 2026-05-28 -->
 
+## 检索 Query 对象 vs 直接传字符串
+
+**问**：Spring AI RAG 检索中为什么使用 `Query` 对象而不是直接传 `question.trim()` 字符串？
+
+**答**：
+
+- **Query 作用**：封装用户问题为标准检索对象，为后续扩展 TopK、相似度阈值、过滤表达式、元数据等参数预留空间。
+- **对比直接传字符串**：
+
+| 直接传字符串 | 使用 Query 对象 |
+| :--- | :--- |
+| 无法携带额外参数 | 可携带阈值、过滤、用户标识等 |
+| 接口变更成本高 | 扩展时无需修改方法签名 |
+| 语义不明确 | 明确表达这是检索查询 |
+| 不利于统一日志/监控 | 可嵌入检索类型、时间戳等元数据 |
+
+**代码示例**：
+
+```java
+Query originalQuery = Query.builder().text(question.trim()).build();
+List<Document> originalDocs = searchKnowledgeDocuments(originalQuery.text(), perPathK);
+
+// 可扩展的 Query 构建
+Query query = Query.builder()
+    .text(question.trim())
+    .withTopK(5)
+    .withSimilarityThreshold(0.7)
+    .withFilterExpression("tenant_id == '123'")
+    .build();
+```
+
+分类标签：Spring AI基础 | 更新日期：2026-05-28
+
+---
+
 ## ChatClient 与 ChatModel 的区别
 
 **问**：ChatClient 和 ChatModel 有什么区别？
