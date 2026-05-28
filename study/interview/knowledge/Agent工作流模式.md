@@ -11,6 +11,7 @@
 - [Orchestrator 子任务拆解与 CoT/ToT 推理](#orchestrator-子任务拆解与-cottot-推理)
 - [Spring AI 常见工作流模式](#spring-ai-常见工作流模式)
 - [多智能体监督与交接模式](#多智能体监督与交接模式)
+- [IDE 分阶段顺序多智能体协同](#ide-分阶段顺序多智能体协同)
 
 ---
 ## SequentialAgent 与 LoopAgent 工作流
@@ -328,5 +329,79 @@ supportAgent.registerHandoff("technical_issue", technicalAgent);
 
 - [Agent 架构与协同](Agent架构与协同.md)
 - [Agent 记忆体系](Agent记忆体系.md)
+
+---
+## IDE 分阶段顺序多智能体协同
+
+> **模块**：Agent 工作流模式 | **标签**：Cursor, 顺序协同 | **更新**：2026-05-28
+
+### 核心概念
+
+Cursor 不支持多 Agent 真并行对话，采用**顺序协同流水线**：产品经理 → 架构师 → 后端 → 前端 → 测试，各阶段产出通过 `@文件名` 注入下一阶段上下文，人类充当总工（触发、审核、合并）。
+
+### 要点
+
+| 阶段 | 触发示例 | 上游引用 | 产出 |
+| :--- | :--- | :--- | :--- |
+| 需求 | `@product-manager 设计任务协作平台 PRD` | — | `requirements.md` |
+| 方案 | `@architect 基于需求设计技术方案` | `@requirements.md` | `design.md`（Mermaid、DDL、API 表） |
+| 后端 | `@backend-dev 实现创建项目接口` | `@design.md` | 路由、模型、单测 |
+| 前端 | `@frontend-dev 实现项目列表页` | `@design.md` + 后端接口 | 页面组件 |
+| 测试 | `@tester 生成 Playwright E2E` | 前后端代码 | `tests/e2e/` |
+
+- **上下文传递**：架构师引用 `requirements.md`；工程师引用 `design.md`；前端可同时 `@backend/models` 保持接口一致。
+- **Git 分支协同**：各角色产出可提交 `feature/backend`、`feature/frontend` 等分支，由人工 merge 解决冲突。
+- **Composer 跨栈**：单条指令可同时改 `projects.py` 与 `Projects.tsx`，保证字段一致（类 Spring AI 并行工作流的一次性编排）。
+- **对照 SequentialAgent**：IDE 流水线由人切换 `@角色`；运行时由 `outputKey` 链式传参（写作→审阅→润色）。
+
+### 代码示例
+
+```python
+# 后端：FastAPI 创建项目（节选）
+@router.post("/", response_model=schemas.ProjectOut)
+def create_project(
+    project_in: schemas.ProjectCreate,
+    db: Session = Depends(get_db),
+    current_user = Depends(get_current_user)
+):
+    db_project = models.Project(name=project_in.name, owner_id=current_user.id)
+    db.add(db_project)
+    db.commit()
+    db.refresh(db_project)
+    return db_project
+```
+
+```tsx
+// 前端：调用 /api/projects（节选）
+const handleCreate = async (name: string) => {
+  const res = await api.post('/projects', { name });
+  setProjects([...projects, res.data]);
+  setShowModal(false);
+};
+```
+
+```typescript
+// Playwright E2E（节选）
+test('用户能够创建新项目', async ({ page }) => {
+  await page.goto('/login');
+  await page.fill('#email', 'test@example.com');
+  await page.click('button[type="submit"]');
+  await page.click('text=新建项目');
+  await page.fill('input[name="name"]', '我的项目');
+  await expect(page.locator('text=我的项目')).toBeVisible();
+});
+```
+
+### 面试常问
+
+**问**：IDE 里多智能体协同与 Spring AI SequentialAgent 有何异同？
+
+**答**：相同点都是固定顺序、上游产出作下游输入。不同点：IDE 靠 `@文件` 与人工切换角色，无框架级 `outputKey`；SequentialAgent 由代码编排子 Agent 与终止条件，适合可重复自动化流水线。
+
+### 关联知识点
+
+- [基于 Cursor Rules 的领域角色智能体](Agent架构与协同.md)
+- [SequentialAgent 与 LoopAgent 工作流](#sequentialagent-与-loopagent-工作流)
+- [Cursor 多智能体开发最佳实践](其他.md)
 
 ---

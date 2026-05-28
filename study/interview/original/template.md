@@ -1,382 +1,290 @@
-Spring AI 核心技术与实践指南
-1. 概述
-   本文档总结了 Spring AI 框架中的关键技术点，包括核心组件、检索优化、提示词设计、输出检测、文本补全、问题转换、多智能体协作及工作流模式等，并提供可复用的代码示例。
+# 使用 Cursor 搭建多智能体协同编码完整指南
 
-2. Transformer 与 Advisor
-   2.1 Transformer
-   负责数据转换，如文档分割、内容增强、结构化输出格式化。
+本指南展示如何利用 Cursor 内置的 AI 能力（Composer、Chat、Agent 模式）以及自定义角色指令，模拟“产品经理、架构师、前端工程师、后端工程师、测试工程师”等多个智能体，协作完成一个完整项目的开发。
 
-java
-// 文档分割示例
-TextSplitter splitter = new TokenTextSplitter();
-List<Document> chunks = splitter.split(document);
+## 目录
+1. [总体架构与角色定义](#总体架构与角色定义)
+2. [阶段一：需求设计 —— 产品经理智能体](#阶段一需求设计--产品经理智能体)
+3. [阶段二：方案设计 —— 架构师智能体](#阶段二方案设计--架构师智能体)
+4. [阶段三：后端编码 —— 后端工程师智能体](#阶段三后端编码--后端工程师智能体)
+5. [阶段四：前端编码 —— 前端工程师智能体](#阶段四前端编码--前端工程师智能体)
+6. [阶段五：测试 —— 测试工程师智能体](#阶段五测试--测试工程师智能体)
+7. [多智能体协同工作流](#多智能体协同工作流)
+8. [最佳实践与技巧](#最佳实践与技巧)
 
-// 结构化输出转换
-BeanOutputConverter<MyPojo> converter = new BeanOutputConverter<>(MyPojo.class);
-MyPojo result = chatClient.prompt()
-.user("Extract info...")
-.call()
-.entity(MyPojo.class);
-2.2 Advisor
-实现横切关注点（记忆、RAG、日志、安全等），采用责任链模式。
+---
 
-java
-// 自定义回答验证 Advisor
-public class ResponseValidationAdvisor implements CallAdvisor {
-@Override
-public AdvisedResponse adviseCall(AdvisedRequest request, CallAdvisorChain chain) {
-AdvisedResponse response = chain.nextCall(request);
-String content = response.response().getResult().getOutput().getText();
-if (!isValid(content)) {
-throw new RuntimeException("Invalid response");
-}
-return response;
-}
+## 总体架构与角色定义
 
-    @Override
-    public int getOrder() { return 0; }
-}
+在 Cursor 中，我们通过 **`.cursorrules`** 文件为每个“智能体”定义角色、职责和输出规范。实际使用时，可以在不同对话中切换角色，或通过 `@` 引用不同的规则文件。
 
-// 使用 Advisor
-ChatClient client = ChatClient.builder(chatModel)
-.addAdvisors(new MessageChatMemoryAdvisor(), new QuestionAnswerAdvisor())
-.build();
-3. 检索效率优化
-   3.1 架构与索引
-   分片与副本：合理选择分片键，控制分片大小（10GB-50GB），使用副本提升吞吐。
+### 示例：项目根目录结构
+my-project/
+├── .cursor/
+│ ├── rules/
+│ │ ├── product-manager.mdc
+│ │ ├── architect.mdc
+│ │ ├── frontend-dev.mdc
+│ │ ├── backend-dev.mdc
+│ │ └── tester.mdc
+│ └── prompts/
+│ └── common.md
+├── docs/
+│ ├── requirements.md
+│ ├── design.md
+│ └── test-plan.md
+├── frontend/
+├── backend/
+└── tests/
 
-向量索引：HNSW（低延迟）、IVF（内存友好）、DiskANN（SSD平衡）。
-
-yaml
-# Elasticsearch 索引配置示例
-settings:
-number_of_shards: 3
-number_of_replicas: 1
-index:
-refresh_interval: 30s
-3.2 查询优化
-java
-// 使用路由精确查找
-@Document(indexName = "orders", routing = "customerId")
-public class Order { ... }
-
-// 查询时指定 routing
-SearchRequest request = SearchRequest.of(q -> q
-.index("orders")
-.routing("cust_123")
-.query(...)
-);
-3.3 缓存策略
-java
-@Cacheable(value = "aiResponses", key = "#prompt")
-public String getCompletion(String prompt) {
-return chatClient.prompt(prompt).call().content();
-}
-4. 提示词设计
-   4.1 核心原则
-   清晰明确、提供角色与背景、使用分隔符、指定输出格式。
-
-4.2 结构化模板
 text
-# Role
-你是一位资深Python面试官
 
-# Task
-提出3个关于装饰器的问题
+### 角色定义示例（`.cursor/rules/product-manager.mdc`）
 
-# Constraints
-由浅入深，每个问题附带预期答案
+```markdown
+---
+description: 产品经理智能体 - 负责需求分析与PRD撰写
+globs: docs/requirements.md
+alwaysApply: false
+---
 
-# Output Format
-JSON: [{"question": "", "expected_answer": ""}]
-4.3 Spring AI 中实践
-java
-// 使用 PromptTemplate
-PromptTemplate template = new PromptTemplate("Translate to {lang}: {text}");
-Prompt prompt = template.create(Map.of("lang", "French", "text", "Hello"));
-String response = chatClient.prompt(prompt).call().content();
-5. 回答检测机制
-   5.1 检测维度
-   事实准确性、安全性、格式合规、相关性、逻辑一致性、来源可溯。
+# 角色：产品经理
 
-5.2 实现方案
-5.2.1 规则校验
-java
-public boolean isValidJson(String response) {
-try { new ObjectMapper().readTree(response); return true; }
-catch (Exception e) { return false; }
-}
-5.2.2 LLM-as-Judge
-java
-public String selfCorrect(String originalQuestion, String firstAnswer) {
-return chatClient.prompt()
-.user("Check the following answer for accuracy. If wrong, correct it.\n"
-+ "Question: " + originalQuestion + "\nAnswer: " + firstAnswer)
-.call().content();
-}
-5.2.3 集成到 Advisor
-参见第 2.2 节 ResponseValidationAdvisor 示例。
+## 职责
+- 与用户沟通，挖掘真实需求
+- 编写清晰、可量化的产品需求文档（PRD）
+- 拆解用户故事（User Story）
+- 输出 Markdown 格式，包含以下章节：
+  1. 背景与目标
+  2. 功能列表（优先级 P0/P1/P2）
+  3. 用户故事（格式：作为…，我希望…，以便…）
+  4. 非功能性需求（性能、安全等）
+  5. 验收标准
 
-6. 文本补全实现
-   6.1 极简模式
-   java
-   @Service
-   public class CompletionService {
-   private final ChatClient chatClient;
+## 输出要求
+- 使用中文
+- 每项功能必须附带验收标准
+- 禁止直接输出代码
+其他角色定义类似，可根据需要调整 globs 和作用文件。
 
-   public CompletionService(ChatClient.Builder builder) {
-   this.chatClient = builder.build();
-   }
+阶段一：需求设计 —— 产品经理智能体
+触发方式
+在 Cursor 中按 Cmd+K (Mac) 或 Ctrl+K (Win)，切换到 Agent 模式，输入：
 
-   public String complete(String prompt) {
-   return chatClient.prompt().user(prompt).call().content();
-   }
-   }
-   6.2 结构化输出
-   java
-   record Champion(String first, String last, List<Integer> years) {}
+text
+@product-manager 请帮我们设计一个“任务协作平台”的需求文档，用户可以在平台上创建项目、分配任务、评论和上传附件。
+输出示例（docs/requirements.md）
+markdown
+# 任务协作平台 - 产品需求文档
 
-Champion champion = chatClient.prompt()
-.user("Current chess world champion and years")
-.call()
-.entity(Champion.class);
-6.3 流式输出
-java
-@GetMapping(value = "/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-public Flux<String> stream(@RequestParam String prompt) {
-return chatClient.prompt().user(prompt).stream().content();
-}
-6.4 参数调优
-java
-ChatResponse response = chatClient.prompt()
-.user(prompt)
-.options(ChatOptions.builder()
-.temperature(0.7)
-.maxTokens(500)
-.build())
-.call();
-7. 问题转换提高精准度
-   7.1 基于 LLM 的重写
-   java
-   @Component
-   public class QueryRewriteAdvisor implements CallAdvisor {
-   private final ChatClient rewriteClient;
+## 背景与目标
+为了提升团队协作效率，需要一个轻量级的任务管理工具…
 
-   public QueryRewriteAdvisor(ChatClient.Builder builder) {
-   this.rewriteClient = builder
-   .defaultSystem("Rewrite the user query into a clear, precise form. Output only the rewritten query.")
-   .build();
-   }
+## 功能列表
+| 模块 | 优先级 | 功能点 | 验收标准 |
+|------|--------|--------|----------|
+| 项目管理 | P0 | 创建/编辑/删除项目 | 只有项目拥有者可删除 |
+| 任务管理 | P0 | 分配任务、设置截止日期 | 任务状态支持待办/进行中/已完成 |
+| 评论 | P1 | 在任务下添加评论 | 支持@提及成员 |
+| 附件 | P2 | 上传图片或文件 | 单个文件≤10MB |
 
-   @Override
-   public AdvisedResponse adviseCall(AdvisedRequest request, CallAdvisorChain chain) {
-   String rewritten = rewriteClient.prompt()
-   .user("Original: " + request.userText())
-   .call()
-   .content();
-   AdvisedRequest newRequest = AdvisedRequest.from(request).withUserText(rewritten).build();
-   return chain.nextCall(newRequest);
-   }
+## 用户故事
+- 作为项目管理员，我希望邀请成员加入项目，以便协作…
+…
+💡 可以继续追问：@product-manager 请补充用户权限表，生成更详细的权限矩阵。
 
-   @Override
-   public int getOrder() { return 1; }
-   }
-   7.2 多查询生成
-   java
-   List<String> variants = List.of(
-   "How to optimize retrieval in Spring AI",
-   "Spring AI retrieval performance tuning",
-   "Boost query speed in Spring AI"
-   );
-   // 并行检索后合并结果
-   7.3 HyDE（假设性文档嵌入）
-   java
-   String hypotheticalAnswer = chatClient.prompt()
-   .user("Write a detailed answer to: " + userQuestion)
-   .call()
-   .content();
-   // 用 hypotheticalAnswer 的向量进行检索
-8. 多 Agent 串行交互
-   8.1 A → B → C 顺序执行
-   使用 Spring AI Alibaba 的 SequentialAgent。
+阶段二：方案设计 —— 架构师智能体
+触发示例
+text
+@architect 基于上面的需求文档，设计技术方案。要求：前端使用 React + TypeScript，后端使用 FastAPI + PostgreSQL，提供 RESTful API。
+输出（docs/design.md 节选）
+markdown
+# 技术方案设计
 
-java
-ReactAgent agentA = ReactAgent.builder()
-.name("writer")
-.model(chatModel)
-.instruction("Write content based on: {input}")
-.outputKey("article")
-.build();
+## 架构图（Mermaid）
 
-ReactAgent agentB = ReactAgent.builder()
-.name("reviewer")
-.model(chatModel)
-.instruction("Review and improve: {article}")
-.outputKey("reviewed")
-.build();
-
-ReactAgent agentC = ReactAgent.builder()
-.name("polisher")
-.model(chatModel)
-.instruction("Polish: {reviewed}")
-.outputKey("final")
-.build();
-
-SequentialAgent workflow = SequentialAgent.builder()
-.name("blogPipeline")
-.subAgents(List.of(agentA, agentB, agentC))
-.build();
-
-workflow.invoke("Spring AI basics");
-8.2 A → B → A 循环（LoopAgent）
-java
-LoopAgent loopAgent = LoopAgent.builder()
-.name("planningLoop")
-.subAgents(List.of(plannerAgent, reviewerAgent))
-.condition(state -> {
-int score = extractScore(state.get("review_result"));
-return score < 80;   // 继续循环直到评分达标
-})
-.maxIterations(5)
-.build();
-8.3 基于外部记忆的双向交互
-java
-ChatMemory memory = new InMemoryChatMemory();
-Agent a = new ReactAgent(..., memory);
-Agent b = new ReactAgent(..., memory);
-// 多轮交替调用，共享对话历史
-9. 子任务拆解与 CoT/ToT
-   9.1 任务拆解（规划→执行→聚合）
-   java
-   // 伪代码示例：协调器动态拆解任务
-   public class Orchestrator {
-   public String execute(String goal) {
-   List<String> subTasks = decompose(goal);   // LLM 分解
-   List<String> results = new ArrayList<>();
-   for (String task : subTasks) {
-   results.add(workerAgent.act(task));
-   }
-   return aggregator.merge(results);
-   }
-
-   private List<String> decompose(String goal) {
-   String response = chatClient.prompt()
-   .user("Break this goal into 3-5 subtasks: " + goal)
-   .call().content();
-   return parseSubtasks(response);
-   }
-   }
-   9.2 Chain-of-Thought (CoT)
-   java
-   String prompt = """
-   Question: Roger has 5 tennis balls. He buys 2 more cans of 3 balls each. How many does he have?
-   Let's think step by step:
-    1. Roger starts with 5 balls.
-    2. Each can has 3 balls, and he buys 2 cans → 2 * 3 = 6 balls.
-    3. Total = 5 + 6 = 11.
-       Answer: 11
-       Now answer: {question}
-       """;
-       9.3 Tree-of-Thoughts (ToT)
-       需要编程实现树的搜索。伪代码框架：
-
-java
-public class TreeOfThoughts {
-public String solve(String problem) {
-List<Node> currentLevel = List.of(new Node(problem, null));
-for (int depth = 0; depth < maxDepth; depth++) {
-List<Node> nextLevel = new ArrayList<>();
-for (Node node : currentLevel) {
-List<String> thoughts = generateThoughts(node.state);
-for (String thought : thoughts) {
-String newState = evaluate(thought);
-nextLevel.add(new Node(newState, node));
-}
-}
-currentLevel = prune(nextLevel, beamWidth);
-}
-return bestLeaf(currentLevel).getSolution();
-}
-}
-10. 工作流模式详解
-    10.1 链式工作流 (Chain)
-    java
-    public class ChainWorkflow {
-    private final ChatClient client;
-    private final List<String> prompts; // 顺序执行的角色提示词
-
-    public String execute(String input) {
-    String result = input;
-    for (String prompt : prompts) {
-    result = client.prompt(prompt + "\n" + result).call().content();
-    }
-    return result;
-    }
-    }
-    10.2 路由工作流 (Routing)
-    java
-    LlmRoutingAgent router = LlmRoutingAgent.builder()
-    .name("router")
-    .model(chatModel)
-    .subAgents(List.of(weatherAgent, newsAgent, financeAgent))
-    .build();
-
-router.invoke("What's the weather in London?"); // 自动选 weatherAgent
-10.3 并行化工作流 (Parallelization)
-java
-ParallelizationWorkflow workflow = new ParallelizationWorkflow(chatClient);
-List<String> tasks = List.of("Impact on customers", "Impact on employees", "Impact on suppliers");
-List<String> results = workflow.parallel(
-"Analyze how market change affects stakeholders",
-tasks,
-maxConcurrency = 4
+```mermaid
+graph LR
+    A[React SPA] --> B[FastAPI + Nginx]
+    B --> C[(PostgreSQL)]
+    B --> D[MinIO (附件)]
+    A --> E[WebSocket (实时通知)]
+数据库设计（核心表）
+sql
+-- 项目表
+CREATE TABLE projects (
+    id UUID PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    owner_id UUID REFERENCES users(id),
+    created_at TIMESTAMP DEFAULT NOW()
 );
-10.4 编排器-工作者 (Orchestrator-Workers)
-java
-// 使用 @ParallelAgent 注解（Spring AI Alibaba）
-@ParallelAgent
-public class Orchestrator {
-@SubAgent
-public String researchAgent(String topic) { ... }
 
-    @SubAgent
-    public String writerAgent(String outline) { ... }
-    
-    @ParallelTask
-    public List<String> gatherData(String[] sources) { ... }
-}
-10.5 评估器-优化器 (Evaluator-Optimizer)
-java
-public class IterativeRefinement {
-public String refine(String initialDraft) {
-String current = initialDraft;
-for (int i = 0; i < maxIterations; i++) {
-String feedback = evaluator.evaluate(current);
-if (isAcceptable(feedback)) break;
-current = optimizer.improve(current, feedback);
-}
-return current;
-}
-}
-10.6 多智能体路由与监督模式
-工具调用模式：监督者将其他 Agent 作为工具调用。
+-- 任务表
+CREATE TABLE tasks (
+    id UUID PRIMARY KEY,
+    project_id UUID REFERENCES projects(id) ON DELETE CASCADE,
+    title VARCHAR(200),
+    assignee_id UUID REFERENCES users(id),
+    status VARCHAR(20) DEFAULT 'todo',
+    due_date DATE
+);
+API 设计（节选）
+方法	路径	描述
+GET	/api/projects	获取用户的项目列表
+POST	/api/projects	创建项目
+GET	/api/tasks/{id}	获取任务详情
+安全设计
+JWT 身份认证
 
-交接模式：Agent 通过 transfer_to 将控制权移交。
+项目成员权限中间件
 
-java
-// 交接模式示例（概念）
-Agent supportAgent = new HandoffAgent("support", chatModel);
-Agent technicalAgent = new HandoffAgent("technical", chatModel);
-supportAgent.registerHandoff("technical_issue", technicalAgent);
-11. 总结
-    模式/技术	核心用途	典型组件
-    Transformer	数据格式转换、文档处理	DocumentTransformer, BeanOutputConverter
-    Advisor	横切关注点（记忆、RAG、安全）	CallAdvisor, MessageChatMemoryAdvisor
-    问题转换	提高查询精度	QueryRewriteAdvisor, HyDE
-    CoT/ToT	复杂推理	提示工程 + 树搜索算法
-    链式工作流	固定顺序流水线	SequentialAgent
-    路由工作流	智能任务分发	LlmRoutingAgent
-    并行工作流	并发独立任务	ParallelizationWorkflow
-    编排器-工作者	动态任务拆解	@ParallelAgent, Orchestrator
-    评估器-优化器	迭代改进	自定义循环
-    以上内容涵盖了 Spring AI 开发中的常见场景，可根据实际需求选择组合使用。
+text
+
+---
+
+## 阶段三：后端编码 —— 后端工程师智能体
+
+### 在 Cursor 中创建后端代码
+打开 `/backend` 文件夹，使用 `Cmd+L` 打开 Composer，输入：
+@backend-dev 根据 design.md 中的数据库模型和 API 设计，使用 FastAPI 实现项目创建的接口，包括：
+
+模型定义（SQLAlchemy）
+
+请求/响应 Schema (Pydantic)
+
+路由和依赖注入（当前用户）
+
+单元测试
+
+text
+
+### 生成的代码示例（`backend/app/routers/projects.py`）
+
+```python
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.orm import Session
+from app import models, schemas
+from app.database import get_db
+from app.auth import get_current_user
+
+router = APIRouter(prefix="/api/projects", tags=["projects"])
+
+@router.post("/", response_model=schemas.ProjectOut)
+def create_project(
+    project_in: schemas.ProjectCreate,
+    db: Session = Depends(get_db),
+    current_user = Depends(get_current_user)
+):
+    """创建项目"""
+    db_project = models.Project(
+        name=project_in.name,
+        owner_id=current_user.id
+    )
+    db.add(db_project)
+    db.commit()
+    db.refresh(db_project)
+    return db_project
+自动生成测试代码（backend/tests/test_projects.py）
+python
+def test_create_project(client, test_user):
+    response = client.post(
+        "/api/projects",
+        json={"name": "新项目"},
+        headers={"Authorization": f"Bearer {test_user.token}"}
+    )
+    assert response.status_code == 200
+    assert response.json()["name"] == "新项目"
+阶段四：前端编码 —— 前端工程师智能体
+触发示例
+text
+@frontend-dev 根据 requirements.md 和 design.md，使用 React + TypeScript + TailwindCSS 实现“项目列表页”和“创建项目”弹窗。调用后端 /api/projects 接口。
+生成的代码（frontend/src/pages/Projects.tsx）
+tsx
+import React, { useEffect, useState } from 'react';
+import { api } from '../lib/api';
+import { Project } from '../types';
+
+export const ProjectsPage: React.FC = () => {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    api.get('/projects').then(res => setProjects(res.data));
+  }, []);
+
+  const handleCreate = async (name: string) => {
+    const res = await api.post('/projects', { name });
+    setProjects([...projects, res.data]);
+    setShowModal(false);
+  };
+
+  return (
+    <div className="p-6">
+      <button onClick={() => setShowModal(true)} className="bg-blue-500 text-white px-4 py-2 rounded">
+        新建项目
+      </button>
+      {/* 项目列表渲染... */}
+    </div>
+  );
+};
+阶段五：测试 —— 测试工程师智能体
+自动生成端到端测试
+text
+@tester 为上面的“创建项目”功能生成 Playwright 端到端测试脚本，包含登录、创建项目、验证列表更新。
+输出（tests/e2e/create-project.spec.ts）
+typescript
+import { test, expect } from '@playwright/test';
+
+test('用户能够创建新项目', async ({ page }) => {
+  await page.goto('/login');
+  await page.fill('#email', 'test@example.com');
+  await page.fill('#password', 'password');
+  await page.click('button[type="submit"]');
+
+  await page.click('text=新建项目');
+  await page.fill('input[name="name"]', '我的项目');
+  await page.click('button:has-text("确认")');
+
+  await expect(page.locator('text=我的项目')).toBeVisible();
+});
+多智能体协同工作流
+Cursor 本身并不直接支持多个智能体同时对话，但可以通过以下方式实现 顺序协同：
+
+上下文传递：使用 @文件名 引用上一个阶段产出的文档。例如：
+
+架构师引用 requirements.md → 生成 design.md
+
+后端工程师引用 design.md → 生成代码
+
+前端工程师引用 design.md 和 backend/models.py（保持接口一致）
+
+指令模板：创建 .cursor/prompts/common.md 存储公共约束，每次对话时粘贴或使用 @common。
+
+Git 分支协同：
+
+每个智能体生成的内容提交到不同分支（feature/backend, feature/frontend）
+
+人类作为总工程师合并代码并解决冲突
+
+Cursor 的 Composer 多文件编辑：在 Composer 中，可以要求 AI 同时修改前后端多个文件，实现一个指令完成跨智能体任务，例如：
+
+text
+请同时完成后端创建项目接口（projects.py）和前端调用该接口的代码（Projects.tsx），保持字段一致。
+最佳实践与技巧
+实践	说明
+使用 .cursorrules 分角色	为每个智能体独立规则文件，通过 @规则名 切换
+明确输出格式	在角色定义中强制要求输出 Markdown、JSON 或代码块
+增量迭代	不要一次要求全部功能，分模块逐步生成
+保留人类审核权	所有生成的代码必须经过人工 review 再合并
+结合 Cursor 的 “Apply” 功能	AI 生成的 diff 可以直接应用到文件，提高效率
+使用 // @ai 注释	在代码中写注释引导 AI 生成具体实现，例如 // @ai 实现附件上传逻辑
+总结
+通过上述方法，你可以利用 Cursor 模拟多个智能体角色，从需求到测试全流程自动化辅助开发。关键在于：
+
+角色定义清晰（.cursorrules）
+
+上下文严格传递（@引用文件）
+
+人类作为流程管理者（触发、审核、合并）
+
+此流程不仅适用于新项目，也可以用于遗留系统的维护和迭代。将重复性工作交给 AI 智能体，让人类专注于架构决策和关键业务逻辑。

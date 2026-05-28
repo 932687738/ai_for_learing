@@ -10,6 +10,7 @@
 - [Agent 与 RAG 协同 @Tool 动态加载](#agent-与-rag-协同-tool-动态加载)
 - [Skills、Tools、MCP 与知识库协同流程（含数据库场景）](#skillstoolsmcp-与知识库协同流程含数据库场景)
 - [Agent 流水线中的并行知识库检索](#agent-流水线中的并行知识库检索)
+- [基于 Cursor Rules 的领域角色智能体](#基于-cursor-rules-的领域角色智能体)
 
 ---
 ## ReAct 与 Transformer 架构的区别
@@ -221,5 +222,59 @@ flowchart TD
 
 - [Agent 工作流模式](Agent工作流模式.md)
 - [RAG 检索策略](RAG检索策略.md)
+
+---
+## 基于 Cursor Rules 的领域角色智能体
+
+> **模块**：Agent 架构与协同 | **标签**：Cursor, 多角色, Rules | **更新**：2026-05-28
+
+### 核心概念
+
+在 Cursor 中通过 `.cursor/rules/*.mdc` 为不同职能定义独立「智能体」角色（职责、输出格式、作用文件范围），对话中用 `@规则名` 切换角色，实现**角色分工**而非多模型并行对话；与 Spring AI 中 Skills 按场景分工的思路类似，但落点在 IDE 规则文件。
+
+### 要点
+
+| 角色 | 职责 | 典型产出 |
+| :--- | :--- | :--- |
+| 产品经理 | 需求挖掘、PRD、用户故事、验收标准 | `docs/requirements.md` |
+| 架构师 | 技术方案、架构图、库表、API、安全设计 | `docs/design.md` |
+| 后端工程师 | 模型、Schema、路由、单测 | `backend/` |
+| 前端工程师 | 页面与组件、对接 API | `frontend/` |
+| 测试工程师 | 单测、E2E | `tests/` |
+
+- **规则文件要素**：`description`（角色说明）、`globs`（限定可改动的文件）、`alwaysApply`（是否全局生效）。
+- **推荐目录**：`.cursor/rules/` 分文件存放各角色；`.cursor/prompts/common.md` 存放跨角色公共约束。
+- **边界约束**：在角色定义中强制输出形态（如 PM 只写 Markdown PRD、禁止直接出代码），避免职责越界。
+- **与 Spring AI 对照**：Rules ≈ 按领域拆分的 Skill 描述；`@规则名` ≈ 路由到对应子 Agent/专家。
+
+### 代码示例
+
+```markdown
+---
+description: 产品经理智能体 - 负责需求分析与 PRD 撰写
+globs: docs/requirements.md
+alwaysApply: false
+---
+
+# 角色：产品经理
+
+## 职责
+- 与用户沟通，挖掘真实需求
+- 编写 PRD：背景与目标、功能列表（P0/P1/P2）、用户故事、非功能需求、验收标准
+
+## 输出要求
+- 使用中文；每项功能附带验收标准；禁止直接输出代码
+```
+
+### 面试常问
+
+**问**：在 IDE 里如何模拟「产品经理 + 架构师 + 前后端 + 测试」多智能体？和真正的多 Agent 运行时有何区别？
+
+**答**：用 `.cursor/rules` 为每个职能写清职责与输出格式，对话中 `@规则名` 切换角色；本质是**同一模型、不同系统提示与文件作用域**，顺序由人触发。Spring AI SequentialAgent 则由框架编排子 Agent 的 `outputKey` 与执行顺序。
+
+### 关联知识点
+
+- [IDE 分阶段顺序多智能体协同](Agent工作流模式.md)
+- [Cursor 多智能体开发最佳实践](其他.md)
 
 ---
