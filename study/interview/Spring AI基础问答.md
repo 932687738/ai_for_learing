@@ -189,3 +189,26 @@ public class SafeWordAdvisor implements Advisor {
 **小结**：Transformer 是数据「精炼厂」，Advisor 是 AI 调用的横切拦截器。
 
 分类标签：Spring AI基础 | 更新日期：2026-05-28
+
+---
+
+## Spring AI 记忆类型对比与选型
+
+**问**：Spring AI 中短期记忆、工具型长期记忆、向量库型长期记忆有何区别？如何选型？
+
+**答**：
+
+| 类型 | 生命周期 | 核心技术 | 典型存储 | 代码接口 |
+| :--- | :--- | :--- | :--- | :--- |
+| **短期记忆** | 单次会话 | `ChatMemory` + 滑动窗口 | Redis / 关系库 | `ChatMemoryRepository` |
+| **长期记忆（工具型）** | 永久 / 跨会话 | `AutoMemoryTools` | 本地 Markdown 文件 | `MemoryStore` |
+| **长期记忆（外部库型）** | 永久 / 跨会话 | 向量数据库 + RAG | Redis、Chroma、PGVector | `VectorStore` / `MemoryAdvisor` |
+
+**选型建议**：
+
+- 仅需会话内上下文 → 短期记忆（滑动窗口 + 可选 JDBC/Redis 持久化）
+- 需记住用户偏好、少量事实、零代码文件存储 → `AutoMemoryTools`
+- 大规模、语义检索型记忆 → 向量库 + RAG 检索注入
+- **混合方案**：短期 `ChatMemory` 保持对话流畅，长期记忆通过检索或 Tool 注入个性化信息
+
+分类标签：Spring AI基础 | 更新日期：2026-05-28

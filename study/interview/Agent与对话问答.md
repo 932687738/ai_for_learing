@@ -80,22 +80,63 @@ public ChatClient agentChatClient(ChatClient.Builder builder) {
 
 ---
 
-## 多轮对话记忆管理
+## 多轮对话记忆管理（短期记忆）
 
-**问**：如何在多轮对话中让 Agent 记住上下文，并避免记忆膨胀？请说明 ChatMemory 与 ToolContext 的配合。
+**问**：Spring AI 短期记忆如何实现？如何在多轮对话中保持上下文并避免记忆膨胀？
 
 **答**：
 
-- **短期记忆**：`MessageWindowChatMemory` 保留最近 N 条，配合 `MessageChatMemoryAdvisor`；超窗时压缩历史提取要点。
-- **长期记忆**：将会话摘要或关键事实写入 ES/PgVector。
-- **ToolContext**：在 Tool 调用间传递会话态，避免全量历史塞入 Prompt。
+- **定位**：短期记忆维护**单次会话**上下文连贯性；默认会话结束后不保留，若使用 JDBC/Redis 等 Repository 则可持久化会话历史。
+- **核心组件**：`ChatMemory` 管理对话历史；`ChatMemoryRepository` 负责存储；应用将历史消息作为 Prompt 一部分发送给模型。
+- **常用策略**：滑动窗口，`MessageWindowChatMemory` 保留最近 N 条消息。
+- **存储实现**：
+  - `InMemoryChatMemoryRepository`：开发/测试，重启丢失
+  - `JdbcChatMemoryRepository`：关系数据库持久化
+  - Redis 或自定义实现：键值存储
+- **Advisor 集成**：`MessageChatMemoryAdvisor` 自动注入/保存历史，业务侧无需手写 get/add 循环。
+- **ToolContext**：在 Tool 调用间传递会话态，避免全量历史塞入 Prompt；超窗时可压缩历史提取要点。
+- **与长期记忆分工**：短期保对话流畅；跨会话用户偏好/事实见 AutoMemoryTools 或向量库 + RAG 专题。
 
 **代码示例**：
 
 ```java
-@Bean
-public ChatMemory chatMemory() {
-    return new MessageWindowChatMemory(10); // 保留最近10条消息
+@Configuration
+public class ChatMemoryConfig {
+
+    @Bean
+    public ChatMemoryRepository chatMemoryRepository(JdbcTemplate jdbcTemplate) {
+        return new JdbcChatMemoryRepository(jdbcTemplate);
+    }
+
+    @Bean
+    public ChatMemory chatMemory(ChatMemoryRepository repository) {
+        return MessageWindowChatMemory.builder()
+                .chatMemoryRepository(repository)
+                .maxMessages(20)
+                .build();
+    }
+}
+
+@Service
+public class ConversationService {
+
+    private final ChatMemory chatMemory;
+    private final ChatClient chatClient;
+
+    public ConversationService(ChatMemory chatMemory, ChatClient chatClient) {
+        this.chatMemory = chatMemory;
+        this.chatClient = chatClient;
+    }
+
+    public String talk(String conversationId, String userMessage) {
+        List<Message> history = chatMemory.get(conversationId, 20);
+        history.add(new UserMessage(userMessage));
+        ChatResponse response = chatClient.call(new ChatRequest(history));
+        String assistantMessage = response.getResult().getOutput();
+        history.add(new AssistantMessage(assistantMessage));
+        chatMemory.add(conversationId, history);
+        return assistantMessage;
+    }
 }
 
 @Bean
@@ -103,6 +144,48 @@ public ChatClient chatClient(ChatClient.Builder builder, ChatMemory chatMemory) 
     return builder
         .defaultAdvisors(new MessageChatMemoryAdvisor(chatMemory))
         .build();
+}
+```
+
+分类标签：Agent与对话 | 更新日期：2026-05-28
+
+---
+
+## AutoMemoryTools 工具驱动型长期记忆
+
+**问**：Spring AI 中如何用 AutoMemoryTools 实现跨会话长期记忆？与短期 ChatMemory 有何不同？
+
+**答**：
+
+- **定位**：长期/永久记忆用于跨会话保留用户偏好、事实陈述、项目决策等；生命周期超出单次会话。
+- **机制**：`AutoMemoryTools` 允许模型自主读写 Markdown 文件（`save_to_memory` / `recall_from_memory`），底层由 `MemoryStore`（如 `FileSystemMemoryStore`）持久化。
+- **使用方式**：将 `AutoMemoryTools` 注册为 ChatClient 的 Tool，用户无需显式调用，模型根据对话内容自动存取。
+- **适用场景**：需要记住少量偏好/事实、希望零代码文件存储的场景；大规模语义检索见向量库 + RAG。
+
+**代码示例**：
+
+```java
+@Configuration
+public class MemoryToolsConfig {
+
+    @Bean
+    public MemoryStore memoryStore() {
+        return new FileSystemMemoryStore(Path.of("./memories"));
+    }
+
+    @Bean
+    public AutoMemoryTools autoMemoryTools(MemoryStore memoryStore) {
+        return AutoMemoryTools.builder()
+                .memoryStore(memoryStore)
+                .build();
+    }
+}
+
+@Bean
+public ChatClient chatClient(ChatModel model, AutoMemoryTools memoryTools) {
+    return ChatClient.builder(model)
+            .tools(memoryTools)
+            .build();
 }
 ```
 

@@ -1,61 +1,171 @@
-# VectorStore 检索方法对比：similaritySearch vs similarityThreshold
+# Spring AI 知识库记忆存储：短期、长期与永久记忆
 
-在向量检索中，`similaritySearch` 和基于 `similarityThreshold` 的检索是两种不同的策略。  
-`SIMILARITY_THRESHOLD_ACCEPT_ALL`（值为 `0.0`）是 Spring AI 中用于“接受所有结果”的特殊常量，可使阈值检索退化为普通的 `similaritySearch`。
+在 Spring AI 应用中，记忆管理可按照生命周期划分为**短期记忆**（单次会话上下文）和**长期/永久记忆**（跨会话保留用户偏好、事实等）。本文介绍各自的核心技术、存储方式及代码示例。
 
-## 核心区别一览
+## 1. 短期记忆
 
-| 特性               | `similaritySearch` (无阈值)                 | `similarityThreshold` (带阈值)                |
-| ------------------ | ------------------------------------------- | ---------------------------------------------- |
-| **核心理念**       | 数量优先，保证返回 `topK` 条结果            | 质量优先，只返回相似度超过阈值的结果           |
-| **返回数量**       | **固定为 K** （即使低分文档也会被强制返回） | **不固定**（可能少于 K，甚至为 0）             |
-| **文档质量**       | 可能混入不相关内容                          | 通过阈值过滤，结果更精准、更相关               |
-| **典型应用场景**   | 对结果数量有硬性要求，或需要二次排序/过滤   | 对检索准确性要求高，希望避免低质量噪声         |
+短期记忆用于维护当前对话的上下文连贯性，会话结束后通常不再保留。
 
-## 举例说明
+### 核心技术：`ChatMemory` 与 `ChatMemoryRepository`
 
-假设检索“猫咪吃什么比较好？”，向量库中有以下文档及相似度得分：
+Spring AI 通过 `ChatMemory` 接口管理对话历史，应用需将历史消息作为提示词的一部分发送给模型。
 
-1.  “猫咪需要高蛋白食物”  → 得分 0.92
-2.  “猫咪喜欢睡觉”      → 得分 0.35
-3.  “狗狗需要运动”      → 得分 0.12
+- **常用策略**：滑动窗口（保留最近 N 条消息）
+- **默认实现**：`MessageWindowChatMemory`
+- **存储实现**：
+    - `InMemoryChatMemoryRepository`（开发/测试，重启丢失）
+    - `JdbcChatMemoryRepository`（关系数据库，持久化）
+    - `RedisSaver` / 自定义实现（Redis 等键值存储）
 
-- **使用 `similaritySearch`（topK=2）**：返回文档 1 和文档 2。文档 2 得分很低，但为了凑够数量仍被返回。
-- **使用 `similarityThreshold`（阈值=0.7）**：仅返回文档 1。文档 2 和 3 因得分低于 0.7 被过滤，即使请求 topK=10 也只会返回 1 条。
-
-## 常量 `SIMILARITY_THRESHOLD_ACCEPT_ALL`
-
-该常量定义为 `0.0`，表示**接受所有文档**。  
-当阈值设为 `0.0` 时，所有文档（得分 ≥ 0）都被视为通过筛选，效果等同于普通的 `similaritySearch`。
-
-## Spring AI 中的代码示例
-
-使用 `SearchRequest` 构建请求，并调用 `VectorStore.similaritySearch(request)`。
-
-### 方式一：关闭阈值（等效 similaritySearch）
+### 代码示例：配置基于数据库的短期记忆
 
 ```java
-SearchRequest request = SearchRequest.query("用户问题")
-        .withTopK(5)  // 固定返回 5 条文档
-        .withSimilarityThreshold(SearchRequest.SIMILARITY_THRESHOLD_ACCEPT_ALL);
+@Configuration
+public class ChatMemoryConfig {
 
-List<Document> results = vectorStore.similaritySearch(request);
-方式二：开启阈值过滤
+    @Bean
+    public ChatMemoryRepository chatMemoryRepository(JdbcTemplate jdbcTemplate) {
+        return new JdbcChatMemoryRepository(jdbcTemplate);
+    }
+
+    @Bean
+    public ChatMemory chatMemory(ChatMemoryRepository repository) {
+        // 滑动窗口，最多保留 20 条消息
+        return MessageWindowChatMemory.builder()
+                .chatMemoryRepository(repository)
+                .maxMessages(20)
+                .build();
+    }
+}
+使用短期记忆
 java
-SearchRequest request = SearchRequest.query("用户问题")
-        .withTopK(10)          // 候选池大小（最多返回 10 条）
-        .withSimilarityThreshold(0.75);  // 只返回相似度 ≥ 0.75 的文档
+@Service
+public class ConversationService {
 
-List<Document> results = vectorStore.similaritySearch(request);
-如何选择？实践建议
-使用阶段	推荐方式
-初期开发 / 快速验证	使用 SIMILARITY_THRESHOLD_ACCEPT_ALL（即普通 similaritySearch）
-需要保证召回数量	使用 similaritySearch 并调高 topK，后续再对结果做业务过滤
-追求检索精准度	设置合适的阈值（如 0.75 ~ 0.82），并配合稍大的 topK 作为候选池
-混合策略（推荐）	先用 similaritySearch 拉取较多候选（如 topK=20），再在内存中二次阈值过滤
-补充说明
-阈值 0.0 的含义：通常相似度得分在 [0, 1] 区间，0.0 表示接受任何得分（含 0 分）的文档，因此相当于“不过滤”。
+    private final ChatMemory chatMemory;
+    private final ChatClient chatClient;
 
-不同向量数据库（如 Chroma, PGVector, Pinecone）对相似度度量的实现可能略有差异，但 SearchRequest 的抽象保证了行为一致。
+    public ConversationService(ChatMemory chatMemory, ChatClient chatClient) {
+        this.chatMemory = chatMemory;
+        this.chatClient = chatClient;
+    }
 
-若阈值设置过高（如 0.95），可能返回空列表，建议结合业务数据分布进行调优。
+    public String talk(String conversationId, String userMessage) {
+        // 获取历史消息
+        List<Message> history = chatMemory.get(conversationId, 20);
+
+        // 添加用户新消息
+        history.add(new UserMessage(userMessage));
+
+        // 调用模型
+        ChatResponse response = chatClient.call(new ChatRequest(history));
+        String assistantMessage = response.getResult().getOutput();
+
+        // 保存助手回复到短期记忆
+        history.add(new AssistantMessage(assistantMessage));
+        chatMemory.add(conversationId, history);
+
+        return assistantMessage;
+    }
+}
+2. 长期/永久记忆
+长期记忆用于跨会话保留信息，例如用户偏好、事实陈述、项目决策等。
+
+2.1 工具驱动型：AutoMemoryTools
+Spring AI 提供的 AutoMemoryTools 允许 AI 自主读写 Markdown 文件来记录持久化信息。
+
+代码示例
+java
+@Configuration
+public class MemoryToolsConfig {
+
+    @Bean
+    public MemoryStore memoryStore() {
+        // 使用文件系统存储，路径可配置
+        return new FileSystemMemoryStore(Path.of("./memories"));
+    }
+
+    @Bean
+    public AutoMemoryTools autoMemoryTools(MemoryStore memoryStore) {
+        return AutoMemoryTools.builder()
+                .memoryStore(memoryStore)
+                .build();
+    }
+}
+然后在创建 ChatClient 时注册该工具：
+
+java
+@Bean
+public ChatClient chatClient(ChatModel model, AutoMemoryTools memoryTools) {
+    return ChatClient.builder(model)
+            .tools(memoryTools)
+            .build();
+}
+用户无需显式操作，AI 会根据对话内容自动调用 save_to_memory 或 recall_from_memory 工具来管理长期记忆。
+
+2.2 外部存储型：向量数据库 + RAG
+对于大量记忆或需要语义检索的场景，通常使用向量数据库（如 Redis、Chroma、Pinecone）与 RAG（检索增强生成） 结合。
+
+核心接口：MemoryStore / VectorStore
+
+工作流程：应用程序将用户相关事实切片、向量化后存入向量库；对话时检索最相似的“记忆片段”注入提示词。
+
+代码示例（以 Redis Vector Store 为例）
+java
+@Configuration
+public class LongTermMemoryConfig {
+
+    @Bean
+    public VectorStore vectorStore(EmbeddingModel embeddingModel, RedisVectorStoreProperties properties) {
+        return new RedisVectorStore(embeddingModel, properties);
+    }
+
+    @Bean
+    public MemoryAdvisor memoryAdvisor(VectorStore vectorStore) {
+        return new MemoryAdvisor(vectorStore);
+    }
+}
+写入长期记忆：
+
+java
+@Service
+public class MemoryService {
+
+    private final VectorStore vectorStore;
+    private final EmbeddingModel embeddingModel;
+
+    public void remember(String userId, String fact) {
+        Document doc = new Document(fact, Map.of("userId", userId));
+        vectorStore.add(List.of(doc));
+    }
+}
+读取长期记忆（在对话前注入）：
+
+java
+public String chatWithMemory(String userId, String query) {
+    // 检索与该用户相关的 topK 条记忆
+    List<Document> memories = vectorStore.similaritySearch(SearchRequest.query(query)
+            .withTopK(5)
+            .withFilterExpression("userId == '" + userId + "'"));
+
+    // 构建提示词，加入记忆内容
+    String memoryContext = memories.stream()
+            .map(Document::getText)
+            .collect(Collectors.joining("\n"));
+
+    String prompt = String.format("已知用户信息：\n%s\n\n用户新问题：%s", memoryContext, query);
+    return chatClient.call(prompt);
+}
+3. 三种记忆对比总结
+类型	生命周期	核心技术	典型存储	代码接口
+短期记忆	单次会话	ChatMemory + 滑动窗口	Redis / 关系库	ChatMemoryRepository
+长期记忆（工具型）	永久 / 跨会话	AutoMemoryTools	本地文件	MemoryStore
+长期记忆（外部库型）	永久 / 跨会话	向量数据库 + RAG	Redis, Chroma, PGVector	VectorStore / MemoryStore
+4. 选择建议
+仅需要会话内上下文 → 短期记忆（滑动窗口 + 数据库）
+
+需要记住用户偏好、少量事实 → AutoMemoryTools（零代码存储）
+
+大规模、语义检索型记忆 → 向量数据库 + RAG
+
+混合使用：短期记忆保持对话流畅，长期记忆通过检索注入个性化信息。

@@ -1,5 +1,21 @@
 # Markdown 问答分类合并日志
 
+## 2026-05-28（Spring AI 记忆存储专题）
+
+**源文件**：`study/interview/original/template.md`（短期/长期/永久记忆与代码示例，171 行）
+
+**操作**：提炼 4 条问答，按主题写入 3 个分类文件；扩展合并 `Agent与对话` 既有短期记忆条目；无 `.bak` 备份。
+
+| 分类文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Agent与对话问答.md | 合并增强 + 新增 | 1 条扩展（短期记忆），+1（AutoMemoryTools） |
+| RAG检索增强问答.md | 新增 | +1（向量库跨会话长期记忆） |
+| Spring AI基础问答.md | 新增 | +1（记忆类型对比与选型） |
+
+**新增/扩展条目**：短期 ChatMemory 配置与用法、AutoMemoryTools、向量库长期记忆 RAG 注入、三种记忆对比选型表
+
+**合计**：3 个文件更新，净增 3 条（含 1 条语义合并增强）；失败 0 条。
+
 ## 2026-05-28（similaritySearch vs similarityThreshold 扩展）
 
 **源文件**：`study/interview/original/template.md`（检索方法对比全文，61 行）
