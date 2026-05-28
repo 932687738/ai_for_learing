@@ -2,6 +2,104 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-05-27
+
+### 今日总览
+
+**一句话结论**：`2026-05-27`（Asia/Shanghai）主线是 **Agent 从「能写代码」走向「能交易、能自治改进、能进企业控制面」**——**Robinhood** 开放 **MCP 驱动的 Agent 交易/虚拟卡**；**OpenAI** 发布 **Codex 自改进 Tax AI** 工程范式与 **2026 全球选举保障**；**Claude Code `v2.1.152`** 强化 **`/code-review --fix` + Skills 热重载** 并配套 **security-guidance 插件**；**OpenClaw `v2026.5.26-beta.2`** 继续 **Gateway/Transcript/渠道/观测性** 大包；资本侧 **Cognition/Devin 融资 $1B@$25B** 与 **Snowflake×AWS $6B Graviton** 显示 **编码 Agent 与 Agent 算力 CPU 层** 仍在升温。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenAI/Anthropic 官方；OpenClaw/Claude Code/Codex GitHub；TechCrunch/VentureBeat；Fujitsu 企业合作；HF Papers 2026-05-27；EU AI Act 高风险指南跟进；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；中文补充 |
+| 核心趋势 | **金融 Agent 基础设施化**（Robinhood MCP 交易/支付）；**生产 Agent 自改进闭环**（Codex Tax AI 25%→97%）；**编码 Agent 产品化竞争**（Claude Code review/fix + 安全插件 vs Cognition $25B）；**平台治理与选举诚信**（OpenAI 选举保障 + YouTube 自动 AI 标签）；**个人 Agent 运维 release 节奏**（OpenClaw beta.2 捆绑 Codex 0.134.0） |
+| 可直接关注 | 评估 **Claude Code v2.1.152** 的 **`/code-review --fix`** 与 **`/reload-skills`**；安装 **security-guidance@claude-plugins-official** 做提交前扫描；读 **OpenAI Tax AI + Codex 有界 worktree** 设计自改进 Agent；升级 **OpenClaw v2026.5.26-beta.2** 验证 **Activity tab + Gateway perf**；企业 Agent 对照 **Merck/Mastercard「plumbing first」** 与 **Robinhood MCP** 集成模式 |
+| 专项检索结论 | **Claude Code**：**`v2.1.152`** **`Published: 2026-05-27T01:30:59Z` → `2026-05-27 09:30:59（Asia/Shanghai）`**；同日 **security-guidance 插件** 全用户可用；**Codex**：**无新 CLI tag**（最近 **`rust-v0.134.0`** 为 **`2026-05-26`**）；**OpenAI 官方文** **`Building self-improving tax agents with Codex`** **`May 27, 2026`**；**OpenClaw**：**`v2026.5.26-beta.2`** **`Published: 2026-05-27T05:46:50Z` → `2026-05-27 13:46:50（Asia/Shanghai）`**（捆绑 **Codex 0.134.0**）；**Hermes**：未发现 **`2026-05-27`** 新 tag（最近 **`v2026.5.16`**）；**Spring AI**：未发现 **`2026-05-27`** release（**2.0 GA 预计 2026-05-28**）；**skills**：**Claude Code v2.1.152** 新增 **`disallowed-tools` frontmatter、`/reload-skills`、SessionStart `reloadSkills`**；**MCP 当日无新 spec release**（最近 **2026-07-28 RC 公告** 为 **`2026-05-19~22`** 窗口） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Claude Code | [anthropics/claude-code `v2.1.152`](https://github.com/anthropics/claude-code/releases/tag/v2.1.152) | GitHub **`Published: 2026-05-27T01:30:59Z` → `2026-05-27 09:30:59（Asia/Shanghai）`** | 开源发布 | **`/code-review --fix`** 直接改 working tree；Skills **`disallowed-tools`**；**`/reload-skills`** + SessionStart **`reloadSkills`**；**`--fallback-model`** 会话级切换 |
+| Claude Code / 安全 | [security-guidance plugin for Claude Code（Cybersecurity News 跟进）](https://cybersecuritynews.com/free-security-plugin-for-claude-code/) | **`May 27, 2026`** | 官方插件/工程 | **`/plugin install security-guidance@claude-plugins-official`**；实时扫描 edits/commits；可扩展 **`.claude/security-patterns.yaml`** |
+| OpenClaw | [openclaw/openclaw `v2026.5.26-beta.2`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.26-beta.2) | GitHub **`Published: 2026-05-27T05:46:50Z` → `2026-05-27 13:46:50（Asia/Shanghai）`** | 开源发布 | **Gateway 启动/回复路径 perf**、**Transcript 统一路径**、**Activity tab**、**Codex CLI 0.134.0**、渠道/Talk/安全边界大批修复 |
+| Codex / 企业 Agent | [Building self-improving tax agents with Codex（OpenAI）](https://openai.com/index/building-self-improving-tax-agents-with-codex/) | **`May 27, 2026`** | 官方发布 | **Thrive/Crete Tax AI**：生产轨迹 → 结构化信号 → **Codex 有界 worktree** 自改进；准确率 **25%→97%** 样本 |
+| OpenAI / 治理 | [Election information and safeguards in 2026（OpenAI）](https://openai.com/index/election-safeguards-2026/) | **`May 27, 2026`** | 官方发布 | **AP 实时计票**、**Democracy Works 投票信息**、**SynthID+C2PA** 溯源、**Codex Security/TAC** 支持选举网络安全 |
+| OpenAI / 开源 | [Warp's big bet on building open source with GPT-5.5（OpenAI）](https://openai.com/index/warp/) | **`May 27, 2026`** | 官方案例 | Warp 终端以 **GPT-5.5** 支撑开源构建——编码 Agent 与开源生态结合样本 |
+| Anthropic / 研究 | [Coding agents in the social sciences（Anthropic）](https://www.anthropic.com/research/coding-agents-social-sciences) | **`May 27, 2026`** | 官方研究 | **1260 名量化社科研究者** 调查 + 随机实验：Coding Agent 采纳与能力自评——企业培训/治理参考 |
+| 企业合作 | [Fujitsu expands AI strategy through collaborations with OpenAI and Anthropic](https://www.finanznachrichten.de/nachrichten-2026-05/68608555-fujitsu-limited-fujitsu-expands-ai-strategy-through-collaborations-with-openai-and-anthropic-008.htm) | **`May 27, 2026`** | 企业发布 | 富士通 × **Anthropic Claude FDE** + 全集团 Claude 生产力；结合 **Kozuchi/Takane** 做 AI 选型集成 |
+| 编码 Agent / 资本 | [Cognition raises $1B at $25B pre-money valuation（TechCrunch）](https://techcrunch.com/2026/05/27/ai-coding-startup-cognition-raises-1b-at-25b-pre-money-valuation/) | **`May 27, 2026 9:00 AM PDT` → `2026-05-28 00:00（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **Devin** ARR **$492M**、MoM **+50%**；独立编码 Agent 仍获顶级 VC 背书 |
+| 金融 Agent | [Robinhood now lets your AI agents trade stocks（TechCrunch）](https://techcrunch.com/2026/05/27/robinhood-now-lets-your-ai-agents-trade-stocks/) | **`May 27, 2026 5:30 AM PDT` → `2026-05-27 20:30（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **独立 Agent 钱包 + MCP 连接**；**Agentic 虚拟信用卡**；金融场景 **MCP server** 样板 |
+| 平台 / 订阅 | [Meta launches subscriptions including AI plans（TechCrunch）](https://techcrunch.com/2026/05/27/meta-officially-launches-instagram-facebook-and-whatsapp-subscriptions-with-more-to-come-including-ai-plans/) | **`May 27, 2026 11:00 AM PDT` → `2026-05-28 02:00（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **Meta One Plus/Premium** 测试更深推理与多模态生成——消费级 **AI 订阅分层** |
+| 内容治理 | [YouTube will now automatically label AI videos（TechCrunch）](https://techcrunch.com/2026/05/27/youtube-will-now-automatically-label-ai-videos/) | **`May 27, 2026 6:00 AM PDT` → `2026-05-27 21:00（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **自动检测 photorealistic AI** 并强制标签；**C2PA 元数据** 永久绑定 |
+| 基础设施 | [Snowflake signs $6B deal with AWS for AI CPU chips（TechCrunch）](https://techcrunch.com/2026/05/27/in-more-good-news-for-amazon-snowflake-signs-6b-deal-with-aws-for-ai-cpu-chips/) | **`May 27, 2026 1:10 PM PDT` → `2026-05-28 04:10（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **Cortex AI + Agent 工作负载** 推高 **Graviton CPU** 需求——Agent 时代 **CPU 层** 与 GPU 分工 |
+| 搜索 / 产品 | [Why Google's AI can't spell Google（TechCrunch）](https://techcrunch.com/2026/05/27/why-googles-ai-cant-spell-google-or-anything-else/) | **`May 27, 2026 5:17 PM PDT` → `2026-05-28 08:17（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **AI Search 拼写/计数** 持续翻车；Google 承认 **LLM 不擅长拼写**——搜索 UX 风险样本 |
+| 企业 Agent | [Merck and Mastercard seeing real agentic AI results（VentureBeat）](https://venturebeat.com/infrastructure/merck-and-mastercard-are-seeing-real-agentic-ai-results-both-say-the-plumbing-came-first) | **`May 27, 2026 11:23 AM PT` → `2026-05-28 02:23（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **Merck** 研发周期 **-33%**、合规营销 **+70~80%**；**Mastercard** 编排化争议/欺诈流程——**plumbing first** |
+| 政策 | [EU AI Act high-risk draft guidelines follow-up（Hogan Lovells）](https://www.jdsupra.com/legalnews/european-commission-publishes-long-3230922/) | 指南发布 **`2026-05-19`**；跟进文 **`May 27, 2026`** | 政策标准 | **Article 6 高风险分类** 167 页草案解读；咨询至 **`2026-06-23`**；**Annex III 生效延至 2027-12-02** |
+| 论文 / Agent | [MUSE-Autoskill: Self-Evolving Agents via Skill Creation（HF Daily）](https://huggingface.co/papers/date/2026-05-27) | **HF Daily：`2026-05-27`** | 论文原文 | 当日 Agent Skills 论文簇：**技能创建/记忆/管理/评测** 自进化框架 |
+| 论文 / 移动 Agent | [MobileGym: Verifiable Parallel Simulation for Mobile GUI Agents（HF Daily）](https://huggingface.co/papers/date/2026-05-27) | **HF Daily：`2026-05-27`** | 论文原文 | **可验证、高并行** 移动 GUI Agent 仿真平台——Agent 评测基础设施 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Claude Code 升级 | [Claude Code v2.1.152 Release Notes](https://github.com/anthropics/claude-code/releases/tag/v2.1.152) | `/code-review --fix`、Skills reload、fallback model | 终端编码 Agent 用户 |
+| Claude Code 安全 | [security-guidance 插件安装说明](https://cybersecuritynews.com/free-security-plugin-for-claude-code/) | 插件 marketplace、patterns YAML、Agent SDK commit review | 安全左移/DevSecOps |
+| Codex 自改进 Agent | [OpenAI Tax AI 工程文](https://openai.com/index/building-self-improving-tax-agents-with-codex/) | 有界 worktree、生产 trace→eval、skills/docs 注入 | 企业 Agent 平台架构师 |
+| OpenClaw 升级 | [OpenClaw v2026.5.26-beta.2 Highlights](https://github.com/openclaw/openclaw/releases/tag/v2026.5.26-beta.2) | Transcript 路径、Activity tab、Gateway perf | 自托管个人 Agent 运维 |
+| 选举/溯源 | [OpenAI Election Safeguards 2026](https://openai.com/index/election-safeguards-2026/) | SynthID、C2PA、AP 计票、TAC/Codex Security | AI 治理/合规负责人 |
+| Spring AI 迁移 | [Spring AI 2.0 GA 倒计时（预计 5/28）](https://byteiota.com/spring-ai-2-ga-java-production-stack/) | Boot 4、Jackson 3、MCP annotations | Java AI 工程师（提前排期） |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：Agent 工程继续 **「控制面 + 工具面 + 金融/合规场景」** 三线并进——**Robinhood MCP** 把 Agent 接到 **真实资金边界**；**OpenAI Tax AI** 给出 **生产自改进** 参考架构；**Claude Code** 把 **review/fix/security/skills reload** 打成日常闭环；**OpenClaw** 维持 **高频 beta 运维 release**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 金融 MCP | Robinhood **Agent 账户 + MCP + 虚拟卡** | Agent 接外部系统时 **预充值钱包 + 审批预览 + MCP 边界** 优于全账户授权 |
+| 自改进 Agent | OpenAI **Tax AI + Codex worktree** | 用 **生产 artifact + eval + 只读上下文** 构建 **有界自改进**；避免无界 auto-patch |
+| 编码 Agent 竞争 | Cognition **$25B** vs Claude Code/Codex | 独立 Agent 仍需 **企业客户 + ARR** 证明；工具链 **review/security** 成差异化 |
+| Claude Code 工具链 | **v2.1.152** review/fix + security plugin | 把 **PR review → local fix → commit scan** 串成一条命令链 |
+| OpenClaw 运维 | **beta.2** Gateway/Transcript/Activity | 个人 Agent 平台投资 **观测性 + transcript 一致性** 先于新渠道 |
+| 企业落地 | Merck/Mastercard **plumbing first** | Agent 上线前先做 **数据/编排/治理基础设施** |
+| Agent Skills 研究 | **MUSE-Autoskill**（HF 2026-05-27） | 技能 **创建-记忆-管理-评测** 应作为平台一等公民 |
+| MCP 标准 | **2026-07-28 spec RC**（5/19~22 窗口） | **无状态 transport** 将改变 server 部署；提前规划 **stateless tools/call** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **OpenAI：Building self-improving tax agents with Codex** | 当日 **最完整的生产 Agent 自改进工程文** |
+| 必读 | **Claude Code v2.1.152 + security-guidance 插件** | 编码 Agent **review/fix/安全** 同日双升级 |
+| 推荐 | **Robinhood MCP Agent 交易（TechCrunch）** | **MCP 进入金融交易** 的首批公开产品化样本 |
+| 推荐 | **OpenClaw v2026.5.26-beta.2 Release Highlights** | 上海时区 **硬对齐** 的最大开源个人 Agent 运维包 |
+| 延伸 | **Merck/Mastercard agentic AI（VentureBeat）** | 受监管行业 **Agent 落地** 的量化效果与前提 |
+
+### 来源清单
+
+- 检索范围：2026-05-27 00:00:00 到 2026-05-27 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, openai.com, anthropic.com, techcrunch.com, venturebeat.com, finanznachrichten.de, cybersecuritynews.com, huggingface.co, jdsupra.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Claude Code v2.1.152 | 2026-05-27（Asia/Shanghai） | https://github.com/anthropics/claude-code/releases/tag/v2.1.152 |
+| 官方插件 | security-guidance for Claude Code | 2026-05-27 | https://cybersecuritynews.com/free-security-plugin-for-claude-code/ |
+| 开源发布 | OpenClaw v2026.5.26-beta.2 | 2026-05-27（Asia/Shanghai） | https://github.com/openclaw/openclaw/releases/tag/v2026.5.26-beta.2 |
+| 官方发布 | Building self-improving tax agents with Codex | 2026-05-27 | https://openai.com/index/building-self-improving-tax-agents-with-codex/ |
+| 官方发布 | Election safeguards 2026 | 2026-05-27 | https://openai.com/index/election-safeguards-2026/ |
+| 官方发布 | Warp + GPT-5.5 open source | 2026-05-27 | https://openai.com/index/warp/ |
+| 官方研究 | Coding agents in social sciences | 2026-05-27 | https://www.anthropic.com/research/coding-agents-social-sciences |
+| 企业发布 | Fujitsu × OpenAI/Anthropic | 2026-05-27 | https://www.finanznachrichten.de/nachrichten-2026-05/68608555-fujitsu-limited-fujitsu-expands-ai-strategy-through-collaborations-with-openai-and-anthropic-008.htm |
+| 技术媒体 | Cognition $1B@$25B | 2026-05-27/28（跨时区） | https://techcrunch.com/2026/05/27/ai-coding-startup-cognition-raises-1b-at-25b-pre-money-valuation/ |
+| 技术媒体 | Robinhood Agent MCP trading | 2026-05-27/28（跨时区） | https://techcrunch.com/2026/05/27/robinhood-now-lets-your-ai-agents-trade-stocks/ |
+| 技术媒体 | Meta AI subscription plans | 2026-05-27/28（跨时区） | https://techcrunch.com/2026/05/27/meta-officially-launches-instagram-facebook-and-whatsapp-subscriptions-with-more-to-come-including-ai-plans/ |
+| 技术媒体 | YouTube auto AI labels | 2026-05-27/28（跨时区） | https://techcrunch.com/2026/05/27/youtube-will-now-automatically-label-ai-videos/ |
+| 技术媒体 | Snowflake×AWS $6B Graviton | 2026-05-27/28（跨时区） | https://techcrunch.com/2026/05/27/in-more-good-news-for-amazon-snowflake-signs-6b-deal-with-aws-for-ai-cpu-chips/ |
+| 技术媒体 | Google AI spelling（TechCrunch） | 2026-05-27/28（跨时区） | https://techcrunch.com/2026/05/27/why-googles-ai-cant-spell-google-or-anything-else/ |
+| 技术媒体 | Merck/Mastercard agentic AI | 2026-05-27/28（跨时区） | https://venturebeat.com/infrastructure/merck-and-mastercard-are-seeing-real-agentic-ai-results-both-say-the-plumbing-came-first |
+| 政策标准 | EU AI Act high-risk guidelines 跟进 | 2026-05-19/27 | https://www.jdsupra.com/legalnews/european-commission-publishes-long-3230922/ |
+| 论文原文 | HF Daily 2026-05-27（MUSE-Autoskill 等） | 2026-05-27 | https://huggingface.co/papers/date/2026-05-27 |
+
 ## 2026-05-26
 
 ### 今日总览
