@@ -1,5 +1,19 @@
 # Markdown 问答分类合并日志
 
+## 2026-05-28（ChromaDB 概述与使用指南）
+
+**源文件**：`study/interview/original/template.md`（ChromaDB 概念、数据模型、Python 示例、向量库对比与选型，108 行）
+
+**说明**：源文件为 ChromaDB 技术综合指南（非 Q&A 体），按知识点语义路由至索引与存储模块；与既有「个人知识库存储介质选型」互补（本批侧重 ChromaDB 专述与生产级向量库横向对比），未重复全文。
+
+| 模块文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| 索引与存储.md | 新增 | +3（ChromaDB 概述与数据模型、ChromaDB Python 快速上手、主流向量数据库选型对比） |
+
+**路由备注**：ChromaDB 与向量库选型归入 `index-storage`；源文件代码块格式已修复为规范 fenced block；无 `.bak`；失败 0 条。
+
+**合计**：1 个文件更新，净增 3 条；全库 91 条。
+
 ## 2026-05-28（MCP 全面解析与 Spring AI 实战）
 
 **源文件**：`study/interview/original/template.md`（MCP 原理、与 Skill/Agent/Rule 区别、Spring AI MCP Server/Client 实战、Client+Server 共存，298 行）
