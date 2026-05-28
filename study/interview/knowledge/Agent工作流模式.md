@@ -1,4 +1,4 @@
-<!-- 模块：Agent 工作流模式 | 最后更新于 2026-05-28（工作流代码示例增强） -->
+<!-- 模块：Agent 工作流模式 | 最后更新于 2026-05-28（HITL 工具审批） -->
 
 # Agent 工作流模式
 
@@ -12,6 +12,7 @@
 - [Spring AI 常见工作流模式](#spring-ai-常见工作流模式)
 - [多智能体监督与交接模式](#多智能体监督与交接模式)
 - [IDE 分阶段顺序多智能体协同](#ide-分阶段顺序多智能体协同)
+- [Human-in-the-Loop 工具审批（ReactAgent + HumanInTheLoopHook）](#human-in-the-loop-工具审批reactagent--humanintheloophook)
 
 ---
 ## SequentialAgent 与 LoopAgent 工作流
@@ -417,5 +418,138 @@ test('用户能够创建新项目', async ({ page }) => {
 - [基于 Cursor Rules 的领域角色智能体](Agent架构与协同.md)
 - [SequentialAgent 与 LoopAgent 工作流](#sequentialagent-与-loopagent-工作流)
 - [Cursor 多智能体开发最佳实践](其他.md)
+
+---
+## Human-in-the-Loop 工具审批（ReactAgent + HumanInTheLoopHook）
+
+> **模块**：Agent 工作流模式 | **标签**：HITL, ReactAgent, 工具审批 | **更新**：2026-05-28
+
+### 核心概念
+
+Spring AI Alibaba 的 **Human-in-the-Loop（HITL）工具审批**采用两段式 HTTP：`invoke` 驱动 `ReactAgent` 直至 `HumanInTheLoopHook` 挂起或正常结束，`resume` 携带人工决策（APPROVED/EDITED/REJECTED）恢复图执行。审批结果通过 `RunnableConfig.HUMAN_FEEDBACK_METADATA_KEY` 传递，而非追加 `UserMessage`。
+
+### 要点
+
+**两段式 API（`/tool-feedback/*`）**
+
+| 阶段 | HTTP | 作用 |
+| :--- | :--- | :--- |
+| Step1 | `GET /tool-feedback/invoke?threadId=&question=` | 驱动 Agent 直至中断或完成 |
+| Step2 | `POST /tool-feedback/resume` | 携带人工决策恢复 Agent |
+
+**返回 status 含义**
+
+| status | 含义 |
+| :--- | :--- |
+| `INTERRUPTED_AWAITING_TOOL_APPROVAL` | 命中工具审批，等待 resume |
+| `COMPLETED_WITHOUT_TOOL_INTERRUPT` | invoke 结束但未触发审批 |
+| `COMPLETED` | resume 后 ReAct 跑完 |
+
+**中断机制**
+
+- 非 Controller 阻塞，而是 `ReactAgent` 编译为 `StateGraph`，`HumanInTheLoopHook#interrupt` 在 LLM 输出含 `toolCalls` 且工具名在 `approvalOn` 白名单内时构造 `InterruptionMetadata`（`ToolFeedback.result = null`），工具尚未执行。
+- `MemorySaver` + `threadId` 持久化 checkpoint；`releaseThread(true)` 释放 HTTP 线程，图挂起。
+- 中断时 messages 形态：`[UserMessage, AssistantMessage(toolCalls pending)]`。
+- Demo 层 `interruptionByThread`（`ConcurrentHashMap`）暂存 `InterruptionMetadata` 供 resume 构造 feedback；生产应外置 Redis/DB。
+
+**invoke 与 resume 差异**
+
+| 维度 | invoke | resume |
+| :--- | :--- | :--- |
+| 用户输入 | 完整 `question` | `""`，不新增 UserMessage |
+| RunnableConfig | 仅 `threadId` | `threadId` + `HUMAN_FEEDBACK_METADATA_KEY` |
+| Hook interrupt | 无 feedback → 可能中断 | 有有效 feedback → 不二次中断 |
+| Hook afterModel | 无 feedback → 空操作 | 消费 feedback，改写 toolCalls 或注入拒绝 TR |
+
+**approvalOn 与多工具**
+
+- 多次 `approvalOn` 仅向 `Map<String, ToolConfig>` 注册，**无审批优先级**。
+- 一次 LLM 返回多个需审批 tool → **一次 interrupt**，`InterruptionMetadata` 含多条 `ToolFeedback`；顺序按 LLM `toolCalls` 顺序。
+- 未在 `approvalOn` 的工具自动放行。
+
+**三种决策**
+
+| 决策 | afterModel 行为 | 是否执行 FunctionToolCallback | LLM 后续 |
+| :--- | :--- | :--- | :--- |
+| APPROVED | 保留原 toolCall | 是，原 arguments | 读真实 ToolResponse |
+| EDITED | 同 id/name，替换 arguments | 是，人工 JSON | 读按新参执行的结果 |
+| REJECTED | 保留 toolCall + 注入拒绝 ToolResponse | 否 | 读拒绝说明，可能改策略或再调工具 |
+
+- **EDITED 必须传 `decision=EDITED`**，传 APPROVED 即使用户改了 JSON 也会按原参执行。
+- Demo `buildFeedbackMetadata` 一次 resume 只有一个 `decision`，对**所有** pending 应用同一决策；不支持「批一个、拒一个」，需按 `toolCallId` 扩展。
+- 默认 ReAct：**拒绝 ≠ 流程结束**；拒绝后 LLM 仍可能再调工具。合规「拒即停」需显式改造。
+
+**messages 状态变迁（APPROVED 主路径）**
+
+```
+[] → [U1] invoke
+→ [U1, A1★] LLM + toolCall，interrupt
+→ [U1, A1★] resume("")，messages 不变
+→ [U1, A1'] afterModel APPROVED（RemoveByHash 删旧 Assistant + 加新）
+→ [U1, A1', TR1] Tool 执行
+→ [U1, A1', TR1, A2] LLM 最终回复
+```
+
+- REJECTED：`[U1, A1★] → [U1, A1', TR_reject]`，工具未真实执行。
+- 第二轮审批：Hook `getLastAssistantMessage` 规则——若 `AssistantMessage` 后紧跟 `ToolResponseMessage` 视为已处理，不再 interrupt。
+
+**与 Graph interruptBefore HIL 的区别**
+
+| 路径 | 机制 | 入口 |
+| :--- | :--- | :--- |
+| `/step1`、`/step2` | `StateGraph` + `interruptBefore` | `AlibabaGraphHumanLoopDemo` |
+| `/tool-feedback/*` | `ReactAgent` + `HumanInTheLoopHook` | `AlibabaGraphHumanFeedbackToolDemo` |
+
+二者都是 Human-in-the-loop，但中断点与恢复 API 不同，检查点 Bean 也相互隔离。
+
+**技术债务**
+
+1. `interruptionByThread` 进程内内存：多实例/重启丢失 → 外置 Redis。
+2. 整批单一 decision：多工具需按 `toolCallId` 拆分决策。
+3. REJECTED 后 ReAct 仍继续：合规场景可加「拒即停」策略。
+4. EDITED 多工具共用 `editedArguments`：应按 tool 分别传参。
+
+### 代码示例
+
+```java
+// AlibabaGraphHumanFeedbackAgentConfiguration
+HumanInTheLoopHook.builder()
+    .approvalOn(TOOL_SEND_EMAIL, ...)
+    .approvalOn(TOOL_WRITE_FILE, ...)
+    .build();
+
+ReactAgent.builder()
+    .tools(humanFeedbackToolCallbacks...)
+    .saver(alibabaGraphHumanFeedbackMemorySaver)
+    .hooks(humanInTheLoopHook)
+    .releaseThread(true)
+    .build();
+```
+
+```java
+// AlibabaGraphHumanFeedbackToolDemo#resumeWithHumanDecision
+humanFeedbackAgent.invokeAndGetOutput("", resumeConfig);
+// resumeConfig: threadId + RunnableConfig.HUMAN_FEEDBACK_METADATA_KEY
+```
+
+### 面试常问
+
+**问**：Spring AI ReactAgent 的 Human-in-the-Loop 工具审批如何实现 invoke/resume 两段式流程？
+
+**答**：invoke 用 question + threadId 驱动 ReAct，Hook 在 approvalOn 白名单工具 pending 时 interrupt 并返回 `INTERRUPTED_AWAITING_TOOL_APPROVAL`；resume 传空串 question、相同 threadId，并将 APPROVED/EDITED/REJECTED 写入 `HUMAN_FEEDBACK_METADATA_KEY`，Hook afterModel 处理后再执行或拒绝工具，checkpoint 由 MemorySaver 按 threadId 恢复。
+
+**问**：同一次 interrupt 两个需审批工具，Demo 能否「批准一个、拒绝一个」？
+
+**答**：当前 Demo 不支持。一次 resume 只有一个 decision，`buildFeedbackMetadata` 对所有 pending 应用同一决策；框架 Hook 支持逐条 `FeedbackResult`，需扩展请求体按 `toolCallId` 分别决策。
+
+**问**：REJECTED 后第二个 tool 还会自动执行吗？
+
+**答**：同批 REJECTED 时两个都不会执行（整批同 decision）。若模型在拒绝后改调新 tool，会触发新的 interrupt/resume，与第一批无关。
+
+### 关联知识点
+
+- [MemorySaver 检查点与 HITL resume 续聊](Agent记忆体系.md)
+- [ReactAgent 中 Tool Callback 与 HumanInTheLoopHook 协作](Agent架构与协同.md)
+- [ReAct 与 Transformer 架构的区别](Agent架构与协同.md)
 
 ---

@@ -1,4 +1,4 @@
-<!-- 模块：Agent 记忆体系 | 最后更新于 2026-05-28（记忆载体表增强） -->
+<!-- 模块：Agent 记忆体系 | 最后更新于 2026-05-28（MemorySaver HITL 续聊） -->
 
 # Agent 记忆体系
 
@@ -9,6 +9,7 @@
 - [多轮对话记忆管理（短期记忆）](#多轮对话记忆管理短期记忆)
 - [AutoMemoryTools 工具驱动型长期记忆](#automemorytools-工具驱动型长期记忆)
 - [Spring AI 记忆类型对比与选型](#spring-ai-记忆类型对比与选型)
+- [MemorySaver 检查点与 HITL resume 续聊](#memorysaver-检查点与-hitl-resume-续聊)
 
 ---
 ## 多轮对话记忆管理（短期记忆）
@@ -181,6 +182,71 @@ Spring AI 记忆按生命周期分为短期（会话内）、长期（跨会话�
 ### 关联知识点
 
 - [RAG 长期记忆](RAG长期记忆.md)
+- [多轮对话记忆管理（短期记忆）](#多轮对话记忆管理短期记忆)
+
+---
+## MemorySaver 检查点与 HITL resume 续聊
+
+> **模块**：Agent 记忆体系 | **标签**：MemorySaver, checkpoint, threadId | **更新**：2026-05-28
+
+### 核心概念
+
+`ReactAgent` 的 **MemorySaver** 负责按 `threadId` 持久化图状态（含 `messages` checkpoint），保证 HITL 中断后 resume 能加载同一对话上下文。Demo 层 `interruptionByThread` 仅暂存 HTTP 层的 `InterruptionMetadata`，与框架 checkpoint 职责分离。
+
+### 要点
+
+**同一 Agent 如何续聊**
+
+- 每次调用都是**同一个** Spring Bean `ReactAgent`（应用启动时 `@Bean` 创建，非请求时）。
+- resume 必须使用**相同** `threadId`。
+- resume 输入为 **`""` 空串**，不追加新 `UserMessage`；上下文从 `MemorySaver` 检查点加载。
+
+**AppendStrategy 与空串 resume**
+
+- `messages` 键使用 **AppendStrategy**（合并，非 Replace）。
+- 空串 `""` → `convertToMessages` 不生成 UserMessage → Append 时 **messages 不变**。
+- 非空字符串 → **追加**到 checkpoint 尾部，**不覆盖**。
+- Resume 语义是「从中断点续跑 ReAct」，非空 UserMessage 会让 LLM 看到额外用户指令，与 HITL feedback 语义冲突。
+
+**两种存储对比**
+
+| 存储 | 位置 | 作用 |
+| :--- | :--- | :--- |
+| `MemorySaver` | 框架 | **对话连续性**：同 `threadId` 恢复 messages |
+| `interruptionByThread` | Demo `ConcurrentHashMap` | **HTTP 层**暂存 `InterruptionMetadata`，供 resume 构造 feedback |
+
+生产环境应将 `interruptionByThread` 外置（Redis/DB），否则多实例或重启后无法 resume。
+
+**Bean 注入要点**
+
+| 参数 | 来源 |
+| :--- | :--- |
+| `ChatModel chatModel` | `spring-ai-starter-model-openai` 自动配置 |
+| `List<ToolCallback> humanFeedbackToolCallbacks` | 同配置类 `@Bean` |
+| `MemorySaver alibabaGraphHumanFeedbackMemorySaver` | 同配置类具名 `@Bean`（项目内多个 MemorySaver，靠**参数名**消歧） |
+
+`AlibabaGraphHumanFeedbackToolDemo` 通过 `@Qualifier(HUMAN_FEEDBACK_AGENT_BEAN_NAME)` 注入 `ReactAgent`（项目内多个 ReactAgent，必须 Qualifier）。
+
+### 代码示例
+
+```java
+// resume：空串 + threadId + HUMAN_FEEDBACK_METADATA_KEY
+humanFeedbackAgent.invokeAndGetOutput("", resumeConfig);
+```
+
+### 面试常问
+
+**问**：HITL resume 时为什么传空串而不是追加 UserMessage？
+
+**答**：messages 使用 AppendStrategy，空串不生成 UserMessage，checkpoint 保持中断点状态；审批结果走 `HUMAN_FEEDBACK_METADATA_KEY` 由 Hook afterModel 消费，追加 UserMessage 会干扰 ReAct 续跑语义。
+
+**问**：MemorySaver 与 Demo 的 interruptionByThread 分别存什么？
+
+**答**：MemorySaver 存框架级对话 checkpoint（messages 等），保证同 threadId 上下文连续；interruptionByThread 仅存 HTTP 层 InterruptionMetadata 供构造人工 feedback，生产需外置避免多实例丢失。
+
+### 关联知识点
+
+- [Human-in-the-Loop 工具审批（ReactAgent + HumanInTheLoopHook）](Agent工作流模式.md)
 - [多轮对话记忆管理（短期记忆）](#多轮对话记忆管理短期记忆)
 
 ---

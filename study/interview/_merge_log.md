@@ -1,5 +1,21 @@
 # Markdown 问答分类合并日志
 
+## 2026-05-28（Human-in-the-Loop 工具审批 /tool-feedback）
+
+**源文件**：`D:\cache\workspace\ai\src\main\java\com\yxy\deepseek\springai\controller\projectPractice\humanloop\HumanInTheLoopToolFeedback知识点总结.md`（invoke/resume、HumanInTheLoopHook、MemorySaver、approvalOn、三种决策、messages 状态变迁，382 行）
+
+**说明**：源文件为 HITL 工具审批综合知识点总结（非标准 Q&A 体），按知识点语义路由至 3 个 Agent 模块；与既有 ReAct/ChatMemory 条目互补，未重复全文；无 `.bak`。
+
+| 模块文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Agent工作流模式.md | 新增 | +1（Human-in-the-Loop 工具审批 invoke/resume 全流程） |
+| Agent记忆体系.md | 新增 | +1（MemorySaver 检查点与 HITL resume 续聊） |
+| Agent架构与协同.md | 新增 | +1（ReactAgent 中 Tool Callback 与 HumanInTheLoopHook 协作） |
+
+**路由备注**：HITL 中断/审批/决策/messages 变迁 → `agent-workflow`；MemorySaver/threadId/AppendStrategy → `agent-memory`；Tool vs Hook 分工与 ReAct 循环 → `agent-architecture`；Bean 注入要点并入记忆模块条目；失败 0 条。
+
+**合计**：3 个文件更新，净增 3 条；全库 100 条。
+
 ## 2026-05-28（多模态、工作流、记忆与向量库分片）
 
 **源文件**：`study/interview/original/template.md`（Spring AI 多模态、文件处理、Tool Calling、工作流、多语言、结构化输出 vs 切分、Re-Ranker、记忆载体、向量库分片，340 行）

@@ -1,4 +1,4 @@
-<!-- 模块：Agent 架构与协同 | 最后更新于 2026-05-28（Tool Calling 聚合） -->
+<!-- 模块：Agent 架构与协同 | 最后更新于 2026-05-28（Tool 与 HITL Hook 协作） -->
 
 # Agent 架构与协同
 
@@ -17,6 +17,7 @@
 - [Spring AI MCP Client 端与 ChatClient 集成](#spring-ai-mcp-client-端与-chatclient-集成)
 - [同一应用同时作为 MCP Client 与 Server](#同一应用同时作为-mcp-client-与-server)
 - [Tool Calling 聚合多接口业务数据](#tool-calling-聚合多接口业务数据)
+- [ReactAgent 中 Tool Callback 与 HumanInTheLoopHook 协作](#reactagent-中-tool-callback-与-humanintheloophook-协作)
 
 ---
 ## ReAct 与 Transformer 架构的区别
@@ -689,5 +690,67 @@ public String processUserRequest(String userPrompt) {
 
 - [Agent 与 RAG 协同 @Tool 动态加载](#agent-与-rag-协同-tool-动态加载)
 - [Spring AI 常见工作流模式](Agent工作流模式.md)
+
+---
+## ReactAgent 中 Tool Callback 与 HumanInTheLoopHook 协作
+
+> **模块**：Agent 架构与协同 | **标签**：ReAct, Tool, HITL Hook | **更新**：2026-05-28
+
+### 核心概念
+
+在 Spring AI Alibaba `ReactAgent` 中，**Tool Callback**（`.tools(...)`）负责工具 schema 与真实执行，**HumanInTheLoopHook**（`.hooks(...)` + `approvalOn(...)`）负责审批门禁：interrupt 挂起、afterModel 处理人工决策。二者通过工具名对齐协作，构成 ReAct 推理-行动循环中的合规闸门。
+
+### 要点
+
+**组件分工**
+
+| 组件 | 注册方式 | 职责 |
+| :--- | :--- | :--- |
+| `humanFeedbackToolCallbacks` | `.tools(...)` → `AgentToolNode` | 工具 schema、描述、**真实执行**（`FunctionToolCallback`） |
+| `humanInTheLoopHook` | `.hooks(...)` + `approvalOn(...)` | **审批门禁**：`interrupt` 挂起；`afterModel` 处理 APPROVED/EDITED/REJECTED |
+
+**协作顺序**
+
+```
+LLM toolCall → Hook.interrupt（拦）→ 人工 resume → Hook.afterModel（改/拒）→ AgentToolNode（执行）→ ToolResponse → LLM
+```
+
+- 工具名须一致：`approvalOn("sendEmailTool")` 与 `FunctionToolCallback` 名称对齐。
+- 图内节点顺序（与 approvalOn 无关）：`LLM → HITL(interrupt/afterModel) → Tool → LLM`。
+
+**ReAct 循环（Reasoning + Acting）**
+
+```
+UserMessage → LLM 推理 → toolCalls → HITL Hook → Tool 节点 → ToolResponse → LLM → … → 无 toolCalls → 最终回复
+```
+
+循环：工具结果写回 messages → 再进 LLM → 可能再调工具，直到不再调工具。在本项目中由 `ReactAgent` 实现，与底层 Transformer 架构（LLM 引擎）处于不同抽象层。
+
+### 代码示例
+
+```java
+ReactAgent.builder()
+    .tools(humanFeedbackToolCallbacks...)
+    .hooks(humanInTheLoopHook)
+    .saver(alibabaGraphHumanFeedbackMemorySaver)
+    .releaseThread(true)
+    .build();
+```
+
+### 面试常问
+
+**问**：HumanInTheLoopHook 与 Tool Callback 分别做什么？为什么都要注册？
+
+**答**：Tool Callback 定义并执行工具逻辑；Hook 在 approvalOn 白名单工具被 LLM 调用时 interrupt 挂起，resume 后 afterModel 根据 APPROVED/EDITED/REJECTED 决定放行、改参或注入拒绝 ToolResponse，再交由 AgentToolNode 执行或跳过。缺 Hook 则无法人工审批，缺 Tool 则无实际业务能力。
+
+**问**：ReAct 在本项目中如何体现？
+
+**答**：ReactAgent 驱动 LLM 与 Tool 节点交替：有 toolCalls 时经 HITL 门禁后执行工具，ToolResponse 回写 messages 再进 LLM，循环直至输出纯文本回复。
+
+### 关联知识点
+
+- [Human-in-the-Loop 工具审批（ReactAgent + HumanInTheLoopHook）](Agent工作流模式.md)
+- [ReAct 与 Transformer 架构的区别](#react-与-transformer-架构的区别)
+- [MemorySaver 检查点与 HITL resume 续聊](Agent记忆体系.md)
 
 ---
