@@ -1,78 +1,73 @@
-markdown
-# Hypothetical Document Embeddings (HyDE) 总结
+# Ragas 框架简介
 
-## 什么是 HyDE？
+Ragas 是一个开源的 Python 框架，专门用于**评估和优化检索增强生成（RAG）应用**。它将复杂 AI 系统的性能评估从主观判断转化为数据驱动的科学流程，支持无参考（reference‑free）评估，即无需人工标注标准答案。
 
-**HyDE** 是一种创新的检索增强生成（RAG）技术。核心思想：**先让大语言模型（LLM）根据用户问题“想象”一份理想答案（假想文档），再基于这份假想文档的向量去检索真实文档**。
+## 🎯 核心价值
 
-> 一句话概括：不要直接搜文档，先让 AI 帮你构思最佳答案的样子，再用这个想法去搜。
+- **无参考评估**：直接使用 LLM 作为评审员，自动评估 RAG 系统的各个环节。
+- **快速定位瓶颈**：区分是检索环节（Retrieval）还是生成环节（Generation）的问题。
+- **合成测试集生成**：根据自有文档库自动生成问答对，减少人工标注成本。
 
-## 工作流程
+## 📊 评估指标体系
 
-1. **用户提问**  
-   例如：`LangSmith 是什么？为什么需要它？`
+| 环节 | 指标 | 说明 |
+|------|------|------|
+| 检索器 | 上下文精度 (Context Precision) | 检索回文档的信噪比，衡量结果是否精准。 |
+| 检索器 | 上下文召回率 (Context Recall) | 关键信息覆盖率，判断是否遗漏重要内容。 |
+| 生成器 | 忠实度 (Faithfulness) | 回答是否完全基于检索到的上下文，**减少幻觉**。 |
+| 生成器 | 答案相关性 (Answer Relevancy) | 回答是否切题、简洁。 |
+| 端到端 | 答案正确性 (Answer Correctness) | 与标准答案（若有）比对，评估最终效果。 |
 
-2. **生成假想文档**  
-   LLM 根据问题生成一段“看起来像答案”的文本（内容可以不真实，但结构/语义要有参考价值）。
+## 🚀 快速上手（含代码示例）
 
-3. **转换为嵌入向量**  
-   使用嵌入模型（如 `text-embedding-ada-002`）将假想文档转为稠密向量。
+### 1. 安装
 
-4. **基于假想文档检索**  
-   用该向量在向量数据库中做相似性搜索，召回与“假想答案”最接近的真实文档片段。
+```bash
+pip install ragas
+2. 准备测试数据
+构造包含 question（问题）、answer（RAG 回答）、contexts（检索到的上下文列表）的数据。
 
-5. **生成最终答案**  
-   将检索到的真实文档作为上下文，交给 LLM 产生最终回答。
+python
+from datasets import Dataset
 
-## 为什么有效？
+data = {
+    "question": ["什么是 RAG？", "Ragas 框架能做什么？"],
+    "answer": [
+        "RAG 是检索增强生成，结合检索和生成模型。",
+        "Ragas 可以评估 RAG 系统的检索和生成质量。"
+    ],
+    "contexts": [
+        ["RAG 结合了信息检索和文本生成技术。"],
+        ["Ragas 提供忠实度、答案相关性等评估指标。"]
+    ]
+}
 
-- **意图理解更准**：假想文档包含比原始查询更丰富的语义信息，弥补了短查询的信息不足。
-- **零样本可用**：无需标注数据，直接利用 LLM 的通用知识。
-- **效果提升显著**：实验中，HyDE 将语义检索的 Top‑3 召回率从 78% 提升到 91%。
+dataset = Dataset.from_dict(data)
+3. 选择评估指标并运行评测
+python
+from ragas import evaluate
+from ragas.metrics import faithfulness, answer_relevancy, context_precision
 
-## 优缺点
-
-| 优点 | 缺点 |
-|------|------|
-| 无需标注数据 | 每次检索都需要调用 LLM 生成假想文档，增加延迟和成本 |
-| 理解深层意图 | 假想文档可能含有“幻觉”内容，需依赖对比编码器过滤 |
-| 易于集成（LangChain 等） | 不适合对响应延迟极其敏感的场景 |
-
-## 代码示例（LangChain 实现）
-
-以下代码展示如何使用 LangChain 快速实现 HyDE：
-
-```python
-from langchain.chat_models import ChatOpenAI
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.vectorstores import FAISS
-from langchain.retrievers import HypotheticalDocumentEmbedder
-
-# 1. 初始化 LLM 和嵌入模型
-llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
-base_embeddings = OpenAIEmbeddings()
-
-# 2. 创建 HyDE 检索器（包装普通嵌入模型）
-hyde_retriever = HypotheticalDocumentEmbedder(
-    llm=llm,
-    base_embeddings=base_embeddings,
-    prompt_key="web_search"   # 使用内置提示模板或自定义
+result = evaluate(
+    dataset,
+    metrics=[faithfulness, answer_relevancy, context_precision]
 )
 
-# 3. 准备向量数据库（示例使用 FAISS 内存存储）
-#    假设已有文档片段列表 documents
-# vectorstore = FAISS.from_documents(documents, base_embeddings)
-# retriever = vectorstore.as_retriever()
+print(result)
+输出将显示每个指标的平均得分（0~1之间），分数越高表示性能越好。
 
-# 4. 用 HyDE 检索器生成假想文档并搜索
-# query = "LangSmith 是什么？为什么需要它？"
-# relevant_docs = hyde_retriever.get_relevant_documents(query)
-# print(relevant_docs)
-注：HypotheticalDocumentEmbedder 是 LangChain 中的内置类，它会自动完成“生成假想文档 → 嵌入 → 检索”的流程。你也可以手动实现每个步骤以进行更精细的控制。
+4. 分析结果
+根据指标得分定位问题：
 
-衍生方案
-HyPE：将生成过程迁移到索引阶段，降低查询延迟。
+如果 faithfulness 低 → 生成模型产生幻觉，需优化 prompt 或检索内容。
 
-HyQE：生成假想查询，从另一角度改进检索对齐。
+如果 context_precision 低 → 检索器带回过多噪音，需调整检索策略。
 
-SL‑HyDE：引入自学习机制，迭代优化假想文档质量。
+如果 answer_relevancy 低 → 回答偏离问题，可改进生成提示词。
+
+🔧 进阶功能
+合成测试集生成：使用 from ragas.testset import TestsetGenerator 根据您的文档自动生成问答对。
+
+集成 LangChain / LlamaIndex：无缝嵌入现有 RAG 流水线。
+
+生产环境监控：通过 Ragas Cloud 实现持续评估。
