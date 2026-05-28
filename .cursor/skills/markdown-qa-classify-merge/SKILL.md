@@ -11,7 +11,7 @@ description: Classifies Markdown Q&A by topic into study/interview with summariz
 
 ## 内容原则
 
-- **只保留问 + 答**；答须**总结**，禁止复制参考答案/评价/无效「不知道」。
+- **只保留问 + 答 + 代码（若有）**；答须**总结且可读**（分段、要点列表）；源文件代码示例**须保留**并规范为 fenced code block；禁止复制参考答案/评价/无效「不知道」。
 - **分类**：按每条**实际主题**拆分多个 `{分类名}问答.md`，禁止整份塞进单一笼统分类。
 
 ## 路径
@@ -23,9 +23,10 @@ description: Classifies Markdown Q&A by topic into study/interview with summariz
 ## 格式
 
 ```markdown
-问题标题
-问：…
-答：总结后的回答
+## 问题标题
+**问**：…
+**答**：（可读总结，可用要点列表）
+**代码示例**：（源文件有则保留）
 分类标签：{分类名} | 更新日期：YYYY-MM-DD
 ```
 

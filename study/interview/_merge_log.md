@@ -1,17 +1,31 @@
-# 问答合并日志
+# Markdown 问答分类合并日志
 
-## 2026-05-28
+## 2026-05-28（修订）
 
-- 源文件：`study/interview/original/template.md`
-- 新建：`study/interview/Spring AI RAG问答.md`（34 条）
-- 合并重复：0
-- 新增：34
-- 备份：`study/interview/Spring AI RAG问答.bak.md`（覆盖前试跑 4 条版本）
+**源文件**：`study/interview/original/template.md`（Spring AI RAG 技术面试全记录，34 条问答）
 
-## 2026-05-28
+**操作**：按新规则重新生成全部 9 个分类文件（可读性 + 保留代码示例），无 `.bak` 备份。
 
-- 源文件：`study/interview/original/template.md`
-- 新建：`Agent与对话问答.md（2条）`, `RAG Advisor问答.md（2条）`, `RAG检索增强问答.md（8条）`, `Spring AI基础问答.md（4条）`, `可观测与评估问答.md（3条）`, `向量与嵌入问答.md（5条）`, `性能与高可用问答.md（3条）`, `文档与分块问答.md（5条）`, `索引与存储问答.md（2条）`
-- 更新：无
-- 处理条数：34
-- 备份：无（按规则不生成 .bak）
+**规则变更**：
+- 答须分段/要点列表，提升可读性
+- 源文件代码示例须保留并规范为 fenced code block
+
+| 分类文件 | 操作 | 条数 |
+|----------|------|------|
+| Spring AI基础问答.md | 重写 | 3 |
+| 文档与分块问答.md | 重写 | 6 |
+| 向量与嵌入问答.md | 重写 | 3 |
+| 索引与存储问答.md | 重写 | 4 |
+| RAG Advisor问答.md | 重写 | 2 |
+| RAG检索增强问答.md | 重写 | 9 |
+| 可观测与评估问答.md | 重写 | 3 |
+| 性能与高可用问答.md | 重写 | 2 |
+| Agent与对话问答.md | 重写 | 2 |
+
+**合计**：9 个分类文件，34 条问答；语义去重 0 条；失败 0 条。
+
+## 2026-05-28（初版）
+
+**源文件**：`study/interview/original/template.md`
+
+**操作**：首次直写分类文件，无 `.bak` 备份。初版未保留代码块，已由修订版覆盖。
