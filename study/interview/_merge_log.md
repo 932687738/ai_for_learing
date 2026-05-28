@@ -1,5 +1,17 @@
 # Markdown 问答分类合并日志
 
+## 2026-05-28（similaritySearch vs similarityThreshold 扩展）
+
+**源文件**：`study/interview/original/template.md`（检索方法对比全文，61 行）
+
+**操作**：合并增强 `索引与存储问答.md` 中已有相似度阈值条目；无 `.bak` 备份。
+
+| 分类文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| 索引与存储问答.md | 合并增强 | 1 条扩展（+对比表、举例、SIMILARITY_THRESHOLD_ACCEPT_ALL、补充说明） |
+
+**合计**：1 个文件更新，净增 0 条；语义去重合并 1 条；失败 0 条。
+
 ## 2026-05-28（相似度阈值检索策略）
 
 **源文件**：`study/interview/original/template.md`（similaritySearch 与阈值过滤实践，17 行）

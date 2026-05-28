@@ -241,7 +241,7 @@
       <workItem from="1779844514790" duration="10000" />
       <workItem from="1779928910843" duration="155000" />
       <workItem from="1779952184562" duration="2892000" />
-      <workItem from="1779955107336" duration="762000" />
+      <workItem from="1779955107336" duration="837000" />
     </task>
     <task id="LOCAL-00001" summary="docs(project): 更新项目配置和文档以支持 Python 开发环境&#10;&#10;- 移除 .idea 目录的 git 忽略规则，将其加入版本控制&#10;- 修正项目模块名称中的拼写错误（ai_for_learning -&gt; ai_for_learing）&#10;- 添加详细的 Python 环境配置说明和依赖安装指南&#10;- 在课程模式文档中增加 Python 依赖管理规范&#10;- 更新项目状态文件中的任务时间戳和处理目标列表&#10;- 配置 PyCharm 工作空间设置和虚拟环境排除路径">
       <option name="closed" value="true" />
