@@ -1,5 +1,44 @@
 # Markdown 问答分类合并日志
 
+## 2026-05-28（知识点体系重构）
+
+**操作**：将 9 个 `*问答.md`（73 条）迁移为 `study/interview/knowledge/` 标准知识点模块；删除旧问答文件；落地分类规范。
+
+**规范文件**：
+
+| 文件 | 用途 |
+|------|------|
+| `.cursor/knowledge-taxonomy.md` | 模块定义、路由关键词、条目格式（权威） |
+| `.cursor/agents/markdown-qa-classify-merge.md` | Agent 流程 |
+| `.cursor/skills/markdown-qa-classify-merge/SKILL.md` | Skill 触发与路径 |
+| `.cursor/rules/markdown-qa-classify-merge.mdc` | Cursor Rule |
+| `tools/migrate_qa_to_knowledge.py` | 旧问答 → 知识点批量迁移脚本 |
+
+**知识点模块**（14 文件 + `索引.md`，73 条，中文文件名）：
+
+| 模块文件 | 知识点数 |
+|----------|------:|
+| Spring AI核心组件.md | 7 |
+| 文档ETL与分块.md | 7 |
+| 向量与嵌入.md | 3 |
+| 索引与存储.md | 7 |
+| RAG Advisor.md | 3 |
+| RAG检索策略.md | 7 |
+| HyDE假设文档嵌入.md | 7 |
+| RRF混合检索融合.md | 7 |
+| RAG长期记忆.md | 1 |
+| Agent记忆体系.md | 3 |
+| Agent架构与协同.md | 4 |
+| Agent工作流模式.md | 5 |
+| 可观测与评估.md | 9 |
+| 性能与高可用.md | 3 |
+
+**路由调整**：`检索 Query 对象` → RAG检索策略；`记忆类型对比` → Agent记忆体系；RAG/Agent 大主题按子主题拆分。
+
+**2026-05-28 补充**：知识点文件命名统一为**中文**（如 `Spring AI核心组件.md`）；索引文件为 `knowledge/索引.md`；规范见 `.cursor/knowledge-taxonomy.md`。
+
+**合计**：14 模块 + `索引.md`；旧 `*问答.md` 已删除；文件名统一中文；失败 0 条。
+
 ## 2026-05-28（Spring AI 核心技术与实践指南）
 
 **源文件**：`study/interview/original/template.md`（Transformer/Advisor、检索优化、提示词、回答检测、文本补全、问题转换、多 Agent、CoT/ToT、工作流模式，382 行）

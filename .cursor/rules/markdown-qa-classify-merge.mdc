@@ -1,15 +1,15 @@
 ---
-description: @markdown-qa-classify-merge 直写 study/interview；答为总结、按内容多分类、无 bak
+description: @markdown-qa-classify-merge 直写 knowledge/ 中文文件名标准知识点；按 taxonomy 相关性分类；无 bak
 alwaysApply: false
 ---
 
-# Markdown 问答分类与合并
+# Markdown 问答 → 标准知识点
 
 用户 **@markdown-qa-classify-merge** 并附带 `.md` 时：
 
-1. **直写**，不预览、不确认。
-2. **答**：总结撰写，禁止复制参考答案/评价；须**可读**（分段、要点列表、小标题），源文件中的**代码示例须保留**并规范为 fenced code block。
-3. **分类**：按每条语义写入多个 `{分类名}问答.md`，禁止整份单文件笼统归类。
-4. **禁止** `.bak.md`；只保留最终分类文件与 `_merge_log.md`。
+1. **直写** `study/interview/knowledge/{中文文件名}.md`，不预览、不确认。
+2. **分类**：按 [`.cursor/knowledge-taxonomy.md`](../knowledge-taxonomy.md) 知识点相关性路由；**文件名一律中文**；禁止 `*问答.md` 与英文 slug 文件名。
+3. **条目格式**：核心概念 → 要点 → 代码示例 → 面试常问 → 关联知识点（链接用中文文件名）；答须总结可读，代码须保留。
+4. **禁止** `.bak.md`；更新 `knowledge/索引.md` 与 `_merge_log.md`。
 
 细则见 `.cursor/agents/markdown-qa-classify-merge.md`。
