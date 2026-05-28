@@ -1,5 +1,21 @@
 # Markdown 问答分类合并日志
 
+## 2026-05-28（RAG、知识图谱与向量图谱综合指南）
+
+**源文件**：`study/interview/original/template.md`（RAG/知识图谱/GraphRAG 概念、ANN、召回率、存储选型、Neo4j 示例，138 行）
+
+**说明**：源文件为技术综合指南（非 Q&A 体），按知识点语义路由；GraphRAG/知识图谱内容 taxonomy 无专属模块，归入 `其他.md`。
+
+| 模块文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| 索引与存储.md | 新增 | +2（ANN 近似最近邻搜索、个人知识库存储介质选型） |
+| RAG检索策略.md | 新增 | +2（召回率 Recall 与提升手段、Elasticsearch 混合检索 DSL 示例） |
+| 其他.md | 新增 | +3（RAG/知识图谱/向量库概念对比、GraphRAG 原理与会话式检索、知识图谱多跳推理示例） |
+
+**路由备注**：HyDE 在召回手段中仅作关联链接，不重复写入 HyDE 模块；ANN 与既有 HNSW 条目互补（补充 LSH/Faiss）；无 `.bak`；失败 0 条。
+
+**合计**：3 个文件更新，净增 7 条；全库 83 条。
+
 ## 2026-05-28（Cursor 多智能体协同编码指南）
 
 **源文件**：`study/interview/original/template.md`（Cursor Rules 分角色、五阶段顺序协同、Git/Composer 跨栈、最佳实践，290 行）

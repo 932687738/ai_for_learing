@@ -1,4 +1,4 @@
-<!-- 模块：RAG 检索策略 | 最后更新于 2026-05-28 -->
+<!-- 模块：RAG 检索策略 | 最后更新于 2026-05-28（召回率与 ES 混合检索） -->
 
 # RAG 检索策略
 
@@ -13,6 +13,8 @@
 - [查询改写 Query Rewriting](#查询改写-query-rewriting)
 - [metadata keywords 与混合检索](#metadata-keywords-与混合检索)
 - [检索 Query 对象 vs 直接传字符串](#检索-query-对象-vs-直接传字符串)
+- [召回率 Recall 与提升手段](#召回率-recall-与提升手段)
+- [Elasticsearch 混合检索 DSL 示例](#elasticsearch-混合检索-dsl-示例)
 
 ---
 ## 多路径检索三种召回策略
@@ -318,6 +320,88 @@ Query query = Query.builder()
 ### 关联知识点
 
 - [HyDE 假设文档嵌入](HyDE假设文档嵌入.md)
+- [RRF 混合检索融合](RRF混合检索融合.md)
+
+---
+## 召回率 Recall 与提升手段
+
+> **模块**：RAG 检索策略 | **标签**：RAG检索增强, 召回率 | **更新**：2026-05-28
+
+### 核心概念
+
+召回率衡量检索「查全」能力：**Recall = 检索到的相关文档数 / 总相关文档数**。RAG 生产优化常围绕提升召回再精排。
+
+### 要点
+
+| 手段 | 说明 |
+| :--- | :--- |
+| 混合检索 | 向量 + BM25 关键词取并集，互补语义与精确匹配 |
+| 增大 Top-K + Rerank | 先放宽召回（如 10→100），再用 CrossEncoder 精排 |
+| 查询扩展 | LLM 生成同义问句，或 HyDE 假设文档嵌入 |
+| 多路召回 | 不同 embedding 模型分别检索后合并（常配合 RRF） |
+
+- 召回与精度常需权衡：先保召回，再用阈值/Rerank 控噪声。
+- HyDE、MultiQuery、RRF 等细节见各专项模块，此处强调组合思路。
+
+### 面试常问
+
+**问**：RAG 系统中召回率如何定义？有哪些常见提升手段？
+
+**答**：Recall = 命中相关文档数 / 全部相关文档数。可混合向量与 BM25、扩大 Top-K 后 Rerank、做查询扩展（含 HyDE）或多 embedding 多路召回再融合。
+
+### 关联知识点
+
+- [HyDE 假设文档嵌入](HyDE假设文档嵌入.md)
+- [RRF 混合检索融合](RRF混合检索融合.md)
+- [重排序 Rerank 集成](#重排序-rerank-集成)
+
+---
+## Elasticsearch 混合检索 DSL 示例
+
+> **模块**：RAG 检索策略 | **标签**：Elasticsearch, 混合检索 | **更新**：2026-05-28
+
+### 核心概念
+
+在 Elasticsearch 中可用 `bool.should` 并行组合**关键词 match** 与 **script_score 向量相似度**，实现原生混合检索。
+
+### 要点
+
+- `match` 分支负责 BM25 关键词召回。
+- `script_score` + `cosineSimilarity` 负责向量语义召回。
+- 两路结果由 ES 统一打分排序；多路独立召回场景可改用 RRF 融合（见 RRF 模块）。
+
+### 代码示例
+
+```json
+{
+  "query": {
+    "bool": {
+      "should": [
+        { "match": { "content": "用户查询关键词" } },
+        {
+          "script_score": {
+            "query": { "match_all": {} },
+            "script": {
+              "source": "cosineSimilarity(params.query_vector, 'vector_field') + 1.0",
+              "params": { "query_vector": [0.1, 0.2] }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+### 面试常问
+
+**问**：不用 Spring AI 封装时，Elasticsearch 如何实现向量+关键词混合检索？
+
+**答**：在 `bool.should` 中并列 `match`（BM25）与 `script_score`（cosineSimilarity 向量分），由 ES 合并打分；若多路独立列表需更稳健融合，可后接 RRF。
+
+### 关联知识点
+
+- [多路召回向量与 BM25](#多路召回向量与-bm25)
 - [RRF 混合检索融合](RRF混合检索融合.md)
 
 ---
