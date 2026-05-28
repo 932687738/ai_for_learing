@@ -135,23 +135,37 @@ public class RerankConfig {
 **代码示例**：
 
 ```java
-ChatClient chatClient = ChatClient.builder(chatModel)
-    .defaultAdvisors(
-        RetrievalAugmentationAdvisor.builder()
-            .queryTransformers(
-                new RewriteQueryTransformer(chatClientBuilder, 
-                    new PromptTemplate("请将以下用户问题重写为更清晰、更适合检索的查询：{query}"),
-                    "vector-store"),
-                MultiQueryExpander.builder()
-                    .chatClientBuilder(chatClientBuilder)
-                    .numberOfQueries(3)
-                    .includeOriginal(true)
-                    .build()
-            )
-            .documentRetriever(vectorStoreDocumentRetriever)
-            .build()
-    )
-    .build();
+@Component
+public class QueryRewriteAdvisor implements CallAdvisor {
+    private final ChatClient rewriteClient;
+
+    public QueryRewriteAdvisor(ChatClient.Builder builder) {
+        this.rewriteClient = builder
+            .defaultSystem("Rewrite the user query into a clear, precise form. Output only the rewritten query.")
+            .build();
+    }
+
+    @Override
+    public AdvisedResponse adviseCall(AdvisedRequest request, CallAdvisorChain chain) {
+        String rewritten = rewriteClient.prompt()
+            .user("Original: " + request.userText())
+            .call()
+            .content();
+        AdvisedRequest newRequest = AdvisedRequest.from(request).withUserText(rewritten).build();
+        return chain.nextCall(newRequest);
+    }
+
+    @Override
+    public int getOrder() { return 1; }
+}
+
+// 多查询变体并行检索
+List<String> variants = List.of(
+    "How to optimize retrieval in Spring AI",
+    "Spring AI retrieval performance tuning",
+    "Boost query speed in Spring AI"
+);
+// 并行检索后合并结果
 ```
 
 分类标签：RAG检索增强 | 更新日期：2026-05-28

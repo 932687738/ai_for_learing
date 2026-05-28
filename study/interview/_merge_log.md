@@ -1,5 +1,24 @@
 # Markdown 问答分类合并日志
 
+## 2026-05-28（Spring AI 核心技术与实践指南）
+
+**源文件**：`study/interview/original/template.md`（Transformer/Advisor、检索优化、提示词、回答检测、文本补全、问题转换、多 Agent、CoT/ToT、工作流模式，382 行）
+
+**操作**：从实践指南提炼 11 条问答，按主题写入 6 个分类文件；语义去重合并增强 3 条既有问答；无 `.bak` 备份。
+
+| 分类文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Spring AI基础问答.md | 合并增强 + 新增 | 1 条 Advisor 扩展（+ResponseValidationAdvisor），+2（PromptTemplate、ChatClient 补全模式） |
+| RAG Advisor问答.md | 新增 | +1（ResponseValidationAdvisor 回答质量检测） |
+| RAG检索增强问答.md | 合并增强 | 1 条扩展（查询改写 + QueryRewriteAdvisor CallAdvisor） |
+| 索引与存储问答.md | 合并增强 + 新增 | 1 条 HNSW 扩展（+IVF/DiskANN），+2（ES 分片副本、routing 路由） |
+| 性能与高可用问答.md | 新增 | +1（ChatClient @Cacheable 缓存） |
+| Agent与对话问答.md | 新增 | +5（Sequential/Loop、共享记忆、Orchestrator/CoT/ToT、工作流模式、Handoff） |
+
+**新增/扩展条目**：PromptTemplate 设计、ChatClient 同步/结构化/流式/参数调优、回答检测三方案、QueryRewriteAdvisor、ES 分片与 routing、AI 响应缓存、SequentialAgent/LoopAgent、CoT/ToT、五种工作流模式、多 Agent 交接
+
+**合计**：6 个文件更新，净增 11 条（含 3 条语义合并增强）；失败 0 条。
+
 ## 2026-05-28（Spring AI 智能体操作数据库：组件顺序）
 
 **源文件**：`study/interview/original/template.md`（组件定义表、匹配顺序、五步流程、餐厅类比，63 行）

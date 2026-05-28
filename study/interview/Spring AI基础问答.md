@@ -154,19 +154,28 @@ String response = chatClient.prompt("Hello AI")
     .content();
 ```
 
-**代码示例（自定义 Advisor）**：
+**代码示例（自定义 CallAdvisor — 回答校验）**：
 
 ```java
-public class SafeWordAdvisor implements Advisor {
+public class ResponseValidationAdvisor implements CallAdvisor {
     @Override
-    public ChatResponse aroundCall(AdvisorChain chain, ChatRequest request) {
-        if (containsSensitiveWords(request.getUserText())) {
-            return new ChatResponse("请求包含敏感内容，已拒绝");
+    public AdvisedResponse adviseCall(AdvisedRequest request, CallAdvisorChain chain) {
+        AdvisedResponse response = chain.nextCall(request);
+        String content = response.response().getResult().getOutput().getText();
+        if (!isValid(content)) {
+            throw new RuntimeException("Invalid response");
         }
-        ChatResponse response = chain.next(request);
-        return desensitize(response);
+        return response;
     }
+
+    @Override
+    public int getOrder() { return 0; }
 }
+
+// 组合使用 Advisor
+ChatClient client = ChatClient.builder(chatModel)
+    .addAdvisors(new MessageChatMemoryAdvisor(), new QuestionAnswerAdvisor())
+    .build();
 ```
 
 分类标签：Spring AI基础 | 更新日期：2026-05-28
@@ -210,5 +219,102 @@ public class SafeWordAdvisor implements Advisor {
 - 需记住用户偏好、少量事实、零代码文件存储 → `AutoMemoryTools`
 - 大规模、语义检索型记忆 → 向量库 + RAG 检索注入
 - **混合方案**：短期 `ChatMemory` 保持对话流畅，长期记忆通过检索或 Tool 注入个性化信息
+
+分类标签：Spring AI基础 | 更新日期：2026-05-28
+
+---
+
+## PromptTemplate 与提示词设计原则
+
+**问**：Spring AI 中如何设计高质量提示词？PromptTemplate 如何使用？
+
+**答**：
+
+**设计原则**：
+
+- **清晰明确**：任务目标与约束无歧义。
+- **角色与背景**：声明模型身份与领域上下文。
+- **分隔符**：用 `# Role`、`# Task` 等区块划分结构，降低指令混淆。
+- **输出格式**：显式指定 JSON、列表等结构化输出要求。
+
+**PromptTemplate 用法**：占位符 `{lang}`、`{text}` 等由 Map 注入，生成 `Prompt` 后交给 ChatClient。
+
+**代码示例（结构化模板）**：
+
+```text
+# Role
+你是一位资深Python面试官
+
+# Task
+提出3个关于装饰器的问题
+
+# Constraints
+由浅入深，每个问题附带预期答案
+
+# Output Format
+JSON: [{"question": "", "expected_answer": ""}]
+```
+
+**代码示例（Spring AI PromptTemplate）**：
+
+```java
+PromptTemplate template = new PromptTemplate("Translate to {lang}: {text}");
+Prompt prompt = template.create(Map.of("lang", "French", "text", "Hello"));
+String response = chatClient.prompt(prompt).call().content();
+```
+
+分类标签：Spring AI基础 | 更新日期：2026-05-28
+
+---
+
+## ChatClient 文本补全模式
+
+**问**：Spring AI ChatClient 支持哪些文本补全调用方式？如何配置流式输出与生成参数？
+
+**答**：
+
+| 模式 | 说明 | 典型 API |
+| :--- | :--- | :--- |
+| **极简同步** | 单轮 prompt → 字符串 | `.prompt().user(prompt).call().content()` |
+| **结构化输出** | 直接映射 Java Record/POJO | `.call().entity(Champion.class)` |
+| **流式输出** | SSE 逐 token 推送 | `.stream().content()` 返回 `Flux<String>` |
+| **参数调优** | 控制 temperature、maxTokens 等 | `.options(ChatOptions.builder()...)` |
+
+**代码示例**：
+
+```java
+@Service
+public class CompletionService {
+    private final ChatClient chatClient;
+
+    public CompletionService(ChatClient.Builder builder) {
+        this.chatClient = builder.build();
+    }
+
+    public String complete(String prompt) {
+        return chatClient.prompt().user(prompt).call().content();
+    }
+}
+
+record Champion(String first, String last, List<Integer> years) {}
+
+Champion champion = chatClient.prompt()
+    .user("Current chess world champion and years")
+    .call()
+    .entity(Champion.class);
+
+@GetMapping(value = "/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+public Flux<String> stream(@RequestParam String prompt) {
+    return chatClient.prompt().user(prompt).stream().content();
+}
+
+ChatResponse response = chatClient.prompt()
+    .user(prompt)
+    .options(ChatOptions.builder()
+        .temperature(0.7)
+        .maxTokens(500)
+        .build())
+    .call();
+```
 
 分类标签：Spring AI基础 | 更新日期：2026-05-28

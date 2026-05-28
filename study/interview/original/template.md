@@ -1,63 +1,382 @@
-# Spring AI 智能体操作数据库：Tools、Skills、MCP 与知识库匹配顺序
+Spring AI 核心技术与实践指南
+1. 概述
+   本文档总结了 Spring AI 框架中的关键技术点，包括核心组件、检索优化、提示词设计、输出检测、文本补全、问题转换、多智能体协作及工作流模式等，并提供可复用的代码示例。
 
-在 Spring AI 构建的智能体中，`Tools`、`Skills`、`MCP` 和知识库（RAG）的协作关系遵循一套清晰的逻辑顺序，其本质是从 **意图路由 → 技能匹配 → 工具调用与知识检索并行** 再到 **结果整合** 的过程。
+2. Transformer 与 Advisor
+   2.1 Transformer
+   负责数据转换，如文档分割、内容增强、结构化输出格式化。
 
-## 📝 核心组件的定义与定位
+java
+// 文档分割示例
+TextSplitter splitter = new TokenTextSplitter();
+List<Document> chunks = splitter.split(document);
 
-为理解协作顺序，先明确各个组件在架构中的定位（角色和职责）：
+// 结构化输出转换
+BeanOutputConverter<MyPojo> converter = new BeanOutputConverter<>(MyPojo.class);
+MyPojo result = chatClient.prompt()
+.user("Extract info...")
+.call()
+.entity(MyPojo.class);
+2.2 Advisor
+实现横切关注点（记忆、RAG、日志、安全等），采用责任链模式。
 
-| 组件 | 角色与定位 |
-| :--- | :--- |
-| **知识库 (RAG)** | **静态数据源**。通过检索增强生成技术，从向量数据库中检索相关文档片段，为模型提供上下文。在智能体操作数据库的场景中，它通常存储业务知识、Schema 元数据或历史查询模板。 |
-| **Tools** | **原子动作**。代表智能体可执行的具体操作，如执行 SQL 查询、调用 API、发送邮件等。它们是可执行逻辑的最小单元。 |
-| **MCP** | **标准化的工具连接协议**。为模型与外部工具/数据源提供标准化的连接方式，解决了工具集成的适配器难题。它帮助将不同系统的工具统一为一种标准接口。 |
-| **Skills** | **可复用的任务工作流**。将完成特定业务任务所需的工具、知识和流程封装成“技能包”。例如，“查询数据库”技能可能包含一个 MCP Server 提供的 `execute_sql` 工具和相关的数据库 Schema 知识。 |
+java
+// 自定义回答验证 Advisor
+public class ResponseValidationAdvisor implements CallAdvisor {
+@Override
+public AdvisedResponse adviseCall(AdvisedRequest request, CallAdvisorChain chain) {
+AdvisedResponse response = chain.nextCall(request);
+String content = response.response().getResult().getOutput().getText();
+if (!isValid(content)) {
+throw new RuntimeException("Invalid response");
+}
+return response;
+}
 
-## ➡️ 匹配与执行顺序
+    @Override
+    public int getOrder() { return 0; }
+}
 
-下面的流程图展示了在一次用户请求中，各组件的调度匹配顺序：
+// 使用 Advisor
+ChatClient client = ChatClient.builder(chatModel)
+.addAdvisors(new MessageChatMemoryAdvisor(), new QuestionAnswerAdvisor())
+.build();
+3. 检索效率优化
+   3.1 架构与索引
+   分片与副本：合理选择分片键，控制分片大小（10GB-50GB），使用副本提升吞吐。
 
-```mermaid
-graph TD
-A[用户请求] --> B(意图识别与路由)；
-B --> C{匹配 Skills 列表}；
-C -- 命中 --> D[加载 SKILL.md 加载技能指令]；
-D --> E[技能指令调用 Tools]；
-E --> F[通过 MCP 协议执行 Tools]；
-F --> G[工具执行结果返回]；
-C -- 未命中 --> H[直接调用 Tools]；
-H --> I[通过 MCP 协议执行 Tools]；
-I --> J[工具执行结果返回]；
-subgraph R [可选：并行知识库检索]
-    K[查询重写] --> L[向量数据库检索]；
-    L --> M[上下文增强]；
-end
-B -.-> K;
-J --> N[结果整合];
-G --> N;
-M --> N;
-N --> O[生成最终答案];
-流程主要分为以下五个步骤：
+向量索引：HNSW（低延迟）、IVF（内存友好）、DiskANN（SSD平衡）。
 
-意图识别与路由：模型首先分析用户的自然语言请求（如“查询上海地区的销售数据”），判断需要调用哪些能力来完成。Skills 是此阶段的主要决策依据，模型通过其描述找到匹配的任务。
+yaml
+# Elasticsearch 索引配置示例
+settings:
+number_of_shards: 3
+number_of_replicas: 1
+index:
+refresh_interval: 30s
+3.2 查询优化
+java
+// 使用路由精确查找
+@Document(indexName = "orders", routing = "customerId")
+public class Order { ... }
 
-匹配 Skills 获取任务流：模型在 Skills 注册表中根据元数据（名称、描述）匹配合适的技能。一旦命中，就会加载该技能的完整指令文件 SKILL.md。SKILL.md 像一份指导书，明确了完成任务所需调用的工具、参数和操作步骤。
+// 查询时指定 routing
+SearchRequest request = SearchRequest.of(q -> q
+.index("orders")
+.routing("cust_123")
+.query(...)
+);
+3.3 缓存策略
+java
+@Cacheable(value = "aiResponses", key = "#prompt")
+public String getCompletion(String prompt) {
+return chatClient.prompt(prompt).call().content();
+}
+4. 提示词设计
+   4.1 核心原则
+   清晰明确、提供角色与背景、使用分隔符、指定输出格式。
 
-执行 Tools 与 MCP 实现：根据 SKILL.md 的指令或模型决策，系统开始调用具体的 Tools。这个调用过程通过 MCP 协议来标准化执行。例如，执行数据库操作的 Tool 会通过 MCP 客户端，向 MCP 服务端发起请求。同时，知识库的检索（RAG）会并行进行，通过向量检索等手段获取相关背景知识。
+4.2 结构化模板
+text
+# Role
+你是一位资深Python面试官
 
-结果整合：工具执行和知识库检索的结果返回到上下文窗口。例如，execute_sql 工具返回查询数据集，RAG 检索返回相关的数据字典说明。
+# Task
+提出3个关于装饰器的问题
 
-生成最终答案：模型综合所有信息，生成最终回答。
+# Constraints
+由浅入深，每个问题附带预期答案
 
-💎 总结
-简单来说，Skills、Tools 与 MCP、知识库之间的关系就像餐厅的标准化运作：
+# Output Format
+JSON: [{"question": "", "expected_answer": ""}]
+4.3 Spring AI 中实践
+java
+// 使用 PromptTemplate
+PromptTemplate template = new PromptTemplate("Translate to {lang}: {text}");
+Prompt prompt = template.create(Map.of("lang", "French", "text", "Hello"));
+String response = chatClient.prompt(prompt).call().content();
+5. 回答检测机制
+   5.1 检测维度
+   事实准确性、安全性、格式合规、相关性、逻辑一致性、来源可溯。
 
-知识库 (RAG) 像是菜谱和食材手册，提供静态参考知识。
+5.2 实现方案
+5.2.1 规则校验
+java
+public boolean isValidJson(String response) {
+try { new ObjectMapper().readTree(response); return true; }
+catch (Exception e) { return false; }
+}
+5.2.2 LLM-as-Judge
+java
+public String selfCorrect(String originalQuestion, String firstAnswer) {
+return chatClient.prompt()
+.user("Check the following answer for accuracy. If wrong, correct it.\n"
++ "Question: " + originalQuestion + "\nAnswer: " + firstAnswer)
+.call().content();
+}
+5.2.3 集成到 Advisor
+参见第 2.2 节 ResponseValidationAdvisor 示例。
 
-MCP 则是标准化的厨房设备接口，确保任何品牌的厨具都能即插即用。
+6. 文本补全实现
+   6.1 极简模式
+   java
+   @Service
+   public class CompletionService {
+   private final ChatClient chatClient;
 
-Tools 是具体的厨具，比如炒锅、烤箱，用来执行具体的烹饪动作。
+   public CompletionService(ChatClient.Builder builder) {
+   this.chatClient = builder.build();
+   }
 
-Skills 是一道道标准化菜品的制作流程（SOP）。
+   public String complete(String prompt) {
+   return chatClient.prompt().user(prompt).call().content();
+   }
+   }
+   6.2 结构化输出
+   java
+   record Champion(String first, String last, List<Integer> years) {}
 
-当客人点“一道宫保鸡丁”（用户请求）时，系统首先找到“宫保鸡丁”的 Skill（标准化菜谱），该菜谱会指导厨师按顺序使用 Tools（如用炒锅爆香、用锅铲翻炒），这些厨具通过标准接口（MCP）接入，并在必要时查阅菜谱（知识库）来确认配料比例。最终，厨师整合所有步骤和资源，完成一道佳肴（最终答案）。
+Champion champion = chatClient.prompt()
+.user("Current chess world champion and years")
+.call()
+.entity(Champion.class);
+6.3 流式输出
+java
+@GetMapping(value = "/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+public Flux<String> stream(@RequestParam String prompt) {
+return chatClient.prompt().user(prompt).stream().content();
+}
+6.4 参数调优
+java
+ChatResponse response = chatClient.prompt()
+.user(prompt)
+.options(ChatOptions.builder()
+.temperature(0.7)
+.maxTokens(500)
+.build())
+.call();
+7. 问题转换提高精准度
+   7.1 基于 LLM 的重写
+   java
+   @Component
+   public class QueryRewriteAdvisor implements CallAdvisor {
+   private final ChatClient rewriteClient;
+
+   public QueryRewriteAdvisor(ChatClient.Builder builder) {
+   this.rewriteClient = builder
+   .defaultSystem("Rewrite the user query into a clear, precise form. Output only the rewritten query.")
+   .build();
+   }
+
+   @Override
+   public AdvisedResponse adviseCall(AdvisedRequest request, CallAdvisorChain chain) {
+   String rewritten = rewriteClient.prompt()
+   .user("Original: " + request.userText())
+   .call()
+   .content();
+   AdvisedRequest newRequest = AdvisedRequest.from(request).withUserText(rewritten).build();
+   return chain.nextCall(newRequest);
+   }
+
+   @Override
+   public int getOrder() { return 1; }
+   }
+   7.2 多查询生成
+   java
+   List<String> variants = List.of(
+   "How to optimize retrieval in Spring AI",
+   "Spring AI retrieval performance tuning",
+   "Boost query speed in Spring AI"
+   );
+   // 并行检索后合并结果
+   7.3 HyDE（假设性文档嵌入）
+   java
+   String hypotheticalAnswer = chatClient.prompt()
+   .user("Write a detailed answer to: " + userQuestion)
+   .call()
+   .content();
+   // 用 hypotheticalAnswer 的向量进行检索
+8. 多 Agent 串行交互
+   8.1 A → B → C 顺序执行
+   使用 Spring AI Alibaba 的 SequentialAgent。
+
+java
+ReactAgent agentA = ReactAgent.builder()
+.name("writer")
+.model(chatModel)
+.instruction("Write content based on: {input}")
+.outputKey("article")
+.build();
+
+ReactAgent agentB = ReactAgent.builder()
+.name("reviewer")
+.model(chatModel)
+.instruction("Review and improve: {article}")
+.outputKey("reviewed")
+.build();
+
+ReactAgent agentC = ReactAgent.builder()
+.name("polisher")
+.model(chatModel)
+.instruction("Polish: {reviewed}")
+.outputKey("final")
+.build();
+
+SequentialAgent workflow = SequentialAgent.builder()
+.name("blogPipeline")
+.subAgents(List.of(agentA, agentB, agentC))
+.build();
+
+workflow.invoke("Spring AI basics");
+8.2 A → B → A 循环（LoopAgent）
+java
+LoopAgent loopAgent = LoopAgent.builder()
+.name("planningLoop")
+.subAgents(List.of(plannerAgent, reviewerAgent))
+.condition(state -> {
+int score = extractScore(state.get("review_result"));
+return score < 80;   // 继续循环直到评分达标
+})
+.maxIterations(5)
+.build();
+8.3 基于外部记忆的双向交互
+java
+ChatMemory memory = new InMemoryChatMemory();
+Agent a = new ReactAgent(..., memory);
+Agent b = new ReactAgent(..., memory);
+// 多轮交替调用，共享对话历史
+9. 子任务拆解与 CoT/ToT
+   9.1 任务拆解（规划→执行→聚合）
+   java
+   // 伪代码示例：协调器动态拆解任务
+   public class Orchestrator {
+   public String execute(String goal) {
+   List<String> subTasks = decompose(goal);   // LLM 分解
+   List<String> results = new ArrayList<>();
+   for (String task : subTasks) {
+   results.add(workerAgent.act(task));
+   }
+   return aggregator.merge(results);
+   }
+
+   private List<String> decompose(String goal) {
+   String response = chatClient.prompt()
+   .user("Break this goal into 3-5 subtasks: " + goal)
+   .call().content();
+   return parseSubtasks(response);
+   }
+   }
+   9.2 Chain-of-Thought (CoT)
+   java
+   String prompt = """
+   Question: Roger has 5 tennis balls. He buys 2 more cans of 3 balls each. How many does he have?
+   Let's think step by step:
+    1. Roger starts with 5 balls.
+    2. Each can has 3 balls, and he buys 2 cans → 2 * 3 = 6 balls.
+    3. Total = 5 + 6 = 11.
+       Answer: 11
+       Now answer: {question}
+       """;
+       9.3 Tree-of-Thoughts (ToT)
+       需要编程实现树的搜索。伪代码框架：
+
+java
+public class TreeOfThoughts {
+public String solve(String problem) {
+List<Node> currentLevel = List.of(new Node(problem, null));
+for (int depth = 0; depth < maxDepth; depth++) {
+List<Node> nextLevel = new ArrayList<>();
+for (Node node : currentLevel) {
+List<String> thoughts = generateThoughts(node.state);
+for (String thought : thoughts) {
+String newState = evaluate(thought);
+nextLevel.add(new Node(newState, node));
+}
+}
+currentLevel = prune(nextLevel, beamWidth);
+}
+return bestLeaf(currentLevel).getSolution();
+}
+}
+10. 工作流模式详解
+    10.1 链式工作流 (Chain)
+    java
+    public class ChainWorkflow {
+    private final ChatClient client;
+    private final List<String> prompts; // 顺序执行的角色提示词
+
+    public String execute(String input) {
+    String result = input;
+    for (String prompt : prompts) {
+    result = client.prompt(prompt + "\n" + result).call().content();
+    }
+    return result;
+    }
+    }
+    10.2 路由工作流 (Routing)
+    java
+    LlmRoutingAgent router = LlmRoutingAgent.builder()
+    .name("router")
+    .model(chatModel)
+    .subAgents(List.of(weatherAgent, newsAgent, financeAgent))
+    .build();
+
+router.invoke("What's the weather in London?"); // 自动选 weatherAgent
+10.3 并行化工作流 (Parallelization)
+java
+ParallelizationWorkflow workflow = new ParallelizationWorkflow(chatClient);
+List<String> tasks = List.of("Impact on customers", "Impact on employees", "Impact on suppliers");
+List<String> results = workflow.parallel(
+"Analyze how market change affects stakeholders",
+tasks,
+maxConcurrency = 4
+);
+10.4 编排器-工作者 (Orchestrator-Workers)
+java
+// 使用 @ParallelAgent 注解（Spring AI Alibaba）
+@ParallelAgent
+public class Orchestrator {
+@SubAgent
+public String researchAgent(String topic) { ... }
+
+    @SubAgent
+    public String writerAgent(String outline) { ... }
+    
+    @ParallelTask
+    public List<String> gatherData(String[] sources) { ... }
+}
+10.5 评估器-优化器 (Evaluator-Optimizer)
+java
+public class IterativeRefinement {
+public String refine(String initialDraft) {
+String current = initialDraft;
+for (int i = 0; i < maxIterations; i++) {
+String feedback = evaluator.evaluate(current);
+if (isAcceptable(feedback)) break;
+current = optimizer.improve(current, feedback);
+}
+return current;
+}
+}
+10.6 多智能体路由与监督模式
+工具调用模式：监督者将其他 Agent 作为工具调用。
+
+交接模式：Agent 通过 transfer_to 将控制权移交。
+
+java
+// 交接模式示例（概念）
+Agent supportAgent = new HandoffAgent("support", chatModel);
+Agent technicalAgent = new HandoffAgent("technical", chatModel);
+supportAgent.registerHandoff("technical_issue", technicalAgent);
+11. 总结
+    模式/技术	核心用途	典型组件
+    Transformer	数据格式转换、文档处理	DocumentTransformer, BeanOutputConverter
+    Advisor	横切关注点（记忆、RAG、安全）	CallAdvisor, MessageChatMemoryAdvisor
+    问题转换	提高查询精度	QueryRewriteAdvisor, HyDE
+    CoT/ToT	复杂推理	提示工程 + 树搜索算法
+    链式工作流	固定顺序流水线	SequentialAgent
+    路由工作流	智能任务分发	LlmRoutingAgent
+    并行工作流	并发独立任务	ParallelizationWorkflow
+    编排器-工作者	动态任务拆解	@ParallelAgent, Orchestrator
+    评估器-优化器	迭代改进	自定义循环
+    以上内容涵盖了 Spring AI 开发中的常见场景，可根据实际需求选择组合使用。
