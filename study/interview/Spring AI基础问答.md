@@ -1,5 +1,35 @@
 <!-- 最后更新于 2026-05-28 -->
 
+## Spring AI Transform 结构化输出
+
+**问**：Spring AI 中 Transform 如何将模型非结构化输出转为 Java 对象？
+
+**答**：
+
+- **作用**：将 LLM 生成的自由文本转换为结构化 Java 对象，充当输出「翻译官」。
+- **实现**：ChatClient 结合 `BeanOutputConverter`，通过 `.entity(Class)` 直接映射为 Record 或 POJO。
+
+**代码示例**：
+
+```java
+// 定义期望的 Java Record
+record ActorsFilms(String actor, List<String> movies) {}
+
+// 使用 ChatClient 发起请求，直接映射为对象
+ActorsFilms films = ChatClient.create(chatModel)
+    .prompt()
+    .user(u -> u.text("为{actor}生成5部电影的作品年表。").param("actor", "汤姆·汉克斯"))
+    .call()
+    .entity(ActorsFilms.class);
+
+System.out.println(films.actor());  // 输出：汤姆·汉克斯
+films.movies().forEach(System.out::println);
+```
+
+分类标签：Spring AI基础 | 更新日期：2026-05-28
+
+---
+
 ## 检索 Query 对象 vs 直接传字符串
 
 **问**：Spring AI RAG 检索中为什么使用 `Query` 对象而不是直接传 `question.trim()` 字符串？
@@ -87,29 +117,75 @@ Prompt prompt = new Prompt(
 
 ---
 
-## Advisor 的作用与执行位置
+## Spring AI Advisor 机制
 
-**问**：Advisor 接口的作用是什么？它的 around 方法在执行链路中处于什么位置？
+**问**：Spring AI 中 Advisor 是什么？有哪些内置 Advisor？如何自定义？
 
 **答**：
 
-- **作用**：类似 AOP 切面，在 ChatClient 调用链中包裹模型请求，可在调用前（检索、日志）、调用后（格式化、审计）或异常时介入。
-- **位置**：`around` 位于用户请求与最终 ChatModel 调用之间，通过 `AdvisorChain.next()` 将控制传递给下一环。
+- **定义**：Advisor 实现 AOP 风格，在 AI 模型调用前后动态插入横切逻辑（日志、重试、缓存等），无需修改业务代码。
+- **位置**：`around` 位于用户请求与 ChatModel 调用之间，通过 `AdvisorChain.next()` 传递控制。
 
-**代码示例**：
+**常见内置 Advisor**：
+
+| Advisor | 作用 |
+| :--- | :--- |
+| LoggerAdvisor | 记录请求/响应日志及耗时 |
+| RetryAdvisor | 调用失败时自动重试 |
+| CacheAdvisor | 缓存相同请求的响应 |
+| RateLimiterAdvisor | 限制调用频率 |
+| MessageHistoryAdvisor | 管理多轮对话历史 |
+| CircuitBreakerAdvisor | 熔断保护 |
+
+**代码示例（组合使用）**：
 
 ```java
-@Component
-public class LoggingAdvisor implements CallAroundAdvisor {
+ChatClient chatClient = ChatClient.create(chatModel)
+    .advisors(
+        new LoggerAdvisor(),
+        new RetryAdvisor(3),
+        new CacheAdvisor(cacheManager)
+    )
+    .build();
+
+String response = chatClient.prompt("Hello AI")
+    .advisors(anotherAdvisor)  // 单次调用可临时增加 Advisor
+    .call()
+    .content();
+```
+
+**代码示例（自定义 Advisor）**：
+
+```java
+public class SafeWordAdvisor implements Advisor {
     @Override
-    public AdvisedResponse around(AdvisedRequest request, AdvisorChain chain) {
-        long start = System.currentTimeMillis();
-        System.out.println("【前置】用户问题: " + request.userText());
-        AdvisedResponse response = chain.next(request);
-        System.out.println("【后置】耗时: " + (System.currentTimeMillis() - start) + "ms");
-        return response;
+    public ChatResponse aroundCall(AdvisorChain chain, ChatRequest request) {
+        if (containsSensitiveWords(request.getUserText())) {
+            return new ChatResponse("请求包含敏感内容，已拒绝");
+        }
+        ChatResponse response = chain.next(request);
+        return desensitize(response);
     }
 }
 ```
+
+分类标签：Spring AI基础 | 更新日期：2026-05-28
+
+---
+
+## Transformer 与 Advisor 的区别
+
+**问**：Spring AI 中 Transformer 和 Advisor 有何区别？
+
+**答**：
+
+| 维度 | Transformer | Advisor |
+| :--- | :--- | :--- |
+| 作用阶段 | ETL 管道（调用前数据准备） | 模型调用时的请求/响应拦截 |
+| 主要对象 | Document 文档块 | Prompt / ChatResponse |
+| 典型场景 | 文本切分、格式统一、元数据丰富 | 日志、重试、缓存、限流、对话历史 |
+| 是否直接调用模型 | 否 | 是（包裹模型调用过程） |
+
+**小结**：Transformer 是数据「精炼厂」，Advisor 是 AI 调用的横切拦截器。
 
 分类标签：Spring AI基础 | 更新日期：2026-05-28

@@ -1,5 +1,21 @@
 # Markdown 问答分类合并日志
 
+## 2026-05-28（Transform / Advisor / ReAct 专题）
+
+**源文件**：`study/interview/original/template.md`（Spring AI 核心概念与 ReAct/Transformer 辨析，109 行）
+
+**操作**：提炼 5 条问答，合并至 3 个分类文件；无 `.bak` 备份。
+
+| 分类文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Spring AI基础问答.md | 新增 + 合并增强 | +2 新增，1 条 Advisor 扩展替换（净 +3） |
+| 文档与分块问答.md | 新增 | +1（ETL Transform 流水线） |
+| Agent与对话问答.md | 新增 | +1（ReAct vs Transformer） |
+
+**新增/扩展条目**：Transform 结构化输出、Advisor 机制（内置表+自定义）、Transformer vs Advisor、ETL Transform、ReAct vs Transformer 架构
+
+**合计**：3 个文件更新，净增 5 条；语义去重合并 1 条（原 Advisor 条目）；失败 0 条。
+
 ## 2026-05-28（Ragas 专题合并）
 
 **源文件**：`study/interview/original/template.md`（Ragas 框架简介，含指标与 Python 代码）

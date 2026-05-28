@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="日常新闻摘要" />
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="Ragas框架介绍">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,7 +25,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/932687738/ai_for_yxy.git&quot;,
-    &quot;accountId&quot;: &quot;84950aed-b69e-44d0-a06e-aaa04fb1f43d&quot;
+    &quot;accountId&quot;: &quot;ab65b188-4631-45f8-8246-be6952ade089&quot;
   }
 }</component>
   <component name="MarkdownSettingsMigration">
@@ -50,12 +53,13 @@
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/cache/workspace/ai_for_learing/study/pdf_md&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/cache/workspace/ai_for_learing&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -64,6 +68,7 @@
       <recent name="D:\cache\workspace\ai_for_learing\study\pdf_md" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\cache\workspace\ai_for_learing\study" />
       <recent name="D:\cache\workspace\ai_for_learing\study\pdf_md\complete" />
     </key>
   </component>
@@ -207,6 +212,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="" />
+      <changelist id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="" />
       <created>1778634548353</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -217,6 +223,25 @@
       <workItem from="1778835885130" duration="1599000" />
       <workItem from="1778897455691" duration="609000" />
       <workItem from="1779060508159" duration="690000" />
+      <workItem from="1779150299342" duration="37000" />
+      <workItem from="1779238161071" duration="342000" />
+      <workItem from="1779323853011" duration="22000" />
+      <workItem from="1779422183866" duration="17000" />
+      <workItem from="1779494985546" duration="703000" />
+      <workItem from="1779582570105" duration="121000" />
+      <workItem from="1779590138502" duration="1000" />
+      <workItem from="1779631134405" duration="58000" />
+      <workItem from="1779672992454" duration="849000" />
+      <workItem from="1779680767372" duration="6000" />
+      <workItem from="1779681060112" duration="8000" />
+      <workItem from="1779683380346" duration="96000" />
+      <workItem from="1779757037160" duration="454000" />
+      <workItem from="1779757510196" duration="160000" />
+      <workItem from="1779762340847" duration="16000" />
+      <workItem from="1779844514790" duration="10000" />
+      <workItem from="1779928910843" duration="155000" />
+      <workItem from="1779952184562" duration="2892000" />
+      <workItem from="1779955107336" duration="632000" />
     </task>
     <task id="LOCAL-00001" summary="docs(project): 更新项目配置和文档以支持 Python 开发环境&#10;&#10;- 移除 .idea 目录的 git 忽略规则，将其加入版本控制&#10;- 修正项目模块名称中的拼写错误（ai_for_learning -&gt; ai_for_learing）&#10;- 添加详细的 Python 环境配置说明和依赖安装指南&#10;- 在课程模式文档中增加 Python 依赖管理规范&#10;- 更新项目状态文件中的任务时间戳和处理目标列表&#10;- 配置 PyCharm 工作空间设置和虚拟环境排除路径">
       <option name="closed" value="true" />
@@ -282,7 +307,119 @@
       <option name="project" value="LOCAL" />
       <updated>1779066425266</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="日常新闻摘要">
+      <option name="closed" value="true" />
+      <created>1779150328921</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1779150328921</updated>
+    </task>
+    <task id="LOCAL-00010" summary="日常新闻摘要">
+      <option name="closed" value="true" />
+      <created>1779238496328</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1779238496328</updated>
+    </task>
+    <task id="LOCAL-00011" summary="日常新闻摘要">
+      <option name="closed" value="true" />
+      <created>1779323860164</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1779323860164</updated>
+    </task>
+    <task id="LOCAL-00012" summary="日常新闻摘要">
+      <option name="closed" value="true" />
+      <created>1779422190424</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1779422190424</updated>
+    </task>
+    <task id="LOCAL-00013" summary="日常新闻摘要">
+      <option name="closed" value="true" />
+      <created>1779582580565</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1779582580565</updated>
+    </task>
+    <task id="LOCAL-00014" summary="日常新闻摘要">
+      <option name="closed" value="true" />
+      <created>1779683473688</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1779683473689</updated>
+    </task>
+    <task id="LOCAL-00015" summary="日常新闻摘要">
+      <option name="closed" value="true" />
+      <created>1779762349193</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1779762349193</updated>
+    </task>
+    <task id="LOCAL-00016" summary="日常新闻摘要">
+      <option name="closed" value="true" />
+      <created>1779844522336</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1779844522337</updated>
+    </task>
+    <task id="LOCAL-00017" summary="面试内容">
+      <option name="closed" value="true" />
+      <created>1779954095945</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1779954095945</updated>
+    </task>
+    <task id="LOCAL-00018" summary="面试内容">
+      <option name="closed" value="true" />
+      <created>1779954782870</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1779954782870</updated>
+    </task>
+    <task id="LOCAL-00019" summary="面试内容">
+      <option name="closed" value="true" />
+      <created>1779955197639</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1779955197639</updated>
+    </task>
+    <task id="LOCAL-00020" summary="面试内容">
+      <option name="closed" value="true" />
+      <created>1779955479121</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1779955479121</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Hypothetical Document Embeddings解释">
+      <option name="closed" value="true" />
+      <created>1779955640775</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1779955640775</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Ragas框架介绍">
+      <option name="closed" value="true" />
+      <created>1779955715480</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1779955715480</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,7 +434,10 @@
     <MESSAGE value="feat(knowledge-base): 添加 GitHub star 排行榜功能&#10;&#10;- 在知识库摘要流程中集成 GitHub 按 star 排序的前十名仓库统计&#10;- 新增 dailyReport/github-topz.md 文件用于存储排行榜数据&#10;- 添加 update_github_topz.py 工具脚本实现排行榜自动更新&#10;- 修改 dual-digest-on-pull 规则文档说明双 digest 流程变更&#10;- 在知识库摘要技能文档中添加 GitHub star 十强相关说明&#10;- 实现排行榜数据与历史数据的合并排序逻辑&#10;- 添加上海时区的时间戳记录每次更新时间" />
     <MESSAGE value="教学进度" />
     <MESSAGE value="日常新闻摘要" />
-    <option name="LAST_COMMIT_MESSAGE" value="日常新闻摘要" />
+    <MESSAGE value="面试内容" />
+    <MESSAGE value="Hypothetical Document Embeddings解释" />
+    <MESSAGE value="Ragas框架介绍" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ragas框架介绍" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ai_for_learing$vanilla_rnn_numpy_demo.coverage" NAME="vanilla_rnn_numpy_demo Coverage Results" MODIFIED="1778826911757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ai-learning/07-cnn-rnn-transformer-intro/scripts" />
