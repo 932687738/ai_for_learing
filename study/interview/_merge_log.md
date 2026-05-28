@@ -1,5 +1,19 @@
 # Markdown 问答分类合并日志
 
+## 2026-05-28（HyDE 专题合并）
+
+**源文件**：`study/interview/original/template.md`（HyDE 总结技术文章，含 LangChain 代码与衍生方案）
+
+**操作**：提炼 6 条 HyDE 问答，合并至 `RAG检索增强问答.md`；原 3 条 HyDE 条目扩展/替换为 6 条；无 `.bak` 备份。
+
+| 分类文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| RAG检索增强问答.md | 合并增强 | 3 条替换扩展为 6 条（+3 净增） |
+
+**新增/扩展条目**：HyDE 是什么、为什么有效、优缺点、Spring AI 实现、LangChain 实现、衍生方案（HyPE/HyQE/SL-HyDE）
+
+**合计**：1 个文件更新，净增 3 条（该文件共 20 条）；语义去重合并 3 条；失败 0 条。
+
 ## 2026-05-28（多路径检索与监控）
 
 **源文件**：`study/interview/original/template.md`（Spring AI RAG 多路径检索与监控最佳实践，5 个技术点）

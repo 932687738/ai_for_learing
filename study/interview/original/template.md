@@ -1,199 +1,78 @@
-Spring AI RAG 多路径检索与监控最佳实践
-本文档总结了 Spring AI 框架中构建 RAG（检索增强生成）系统的核心技术点，包括多路径检索策略、查询扩展、向量存储设计及监控埋点。
+markdown
+# Hypothetical Document Embeddings (HyDE) 总结
 
-1. 检索查询对象：为什么使用 Query 而不是直接传字符串？
-   java
-   Query originalQuery = Query.builder().text(question.trim()).build();
-   List<Document> originalDocs = searchKnowledgeDocuments(originalQuery.text(), perPathK);
-   作用
-   构建一个标准的查询对象，封装用户问题。
+## 什么是 HyDE？
 
-为后续检索提供扩展性（如携带元数据、过滤条件、TopK等）。
+**HyDE** 是一种创新的检索增强生成（RAG）技术。核心思想：**先让大语言模型（LLM）根据用户问题“想象”一份理想答案（假想文档），再基于这份假想文档的向量去检索真实文档**。
 
-为什么不直接使用 question.trim()？
-直接传字符串	使用 Query 对象
-无法携带额外参数	可携带相似度阈值、过滤表达式、用户标识等
-接口变更成本高	Query 作为参数，扩展时无需修改方法签名
-语义不明确	明确表达这是检索查询
-不利于统一日志/监控	可在 Query 中嵌入元数据（如检索类型、时间戳）
-最佳实践：
+> 一句话概括：不要直接搜文档，先让 AI 帮你构思最佳答案的样子，再用这个想法去搜。
 
-java
-// 可扩展的 Query 构建
-Query query = Query.builder()
-.text(question.trim())
-.withTopK(5)
-.withSimilarityThreshold(0.7)
-.withFilterExpression("tenant_id == '123'")
-.build();
-2. 多路径检索：三种召回策略的区别
-   java
-   // 路径1：原始问题直出 embedding
-   List<Document> originalDocs = searchKnowledgeDocuments(originalQuery.text(), perPathK);
+## 工作流程
 
-// 路径2：MultiQueryExpander 扩展查询（不含原问）
-MultiQueryExpander expander = MultiQueryExpander.builder()
-.numberOfQueries(3)
-.includeOriginal(false)
-.build();
-List<Query> expandedQueries = expander.expand(originalQuery);
+1. **用户提问**  
+   例如：`LangSmith 是什么？为什么需要它？`
 
-// 路径3：关键词扩展检索
-Query keywordQuery = keywordExpansionQueryTransformer.transform(originalQuery);
-List<Document> keywordDocs = searchKnowledgeDocuments(keywordQuery.text(), perPathK);
-核心区别
-维度	路径1（原始）	路径2（语义扩展）	路径3（关键词扩展）
-输入形式	用户原问题	多个自然语言变体	关键词组合/布尔查询
-转换方式	无	LLM 生成	规则/词典/模型扩展
-检索原理	语义相似度	多角度语义覆盖	关键词匹配 + 语义
-LLM 依赖	无	需要 LLM	可能不需要
-计算成本	低（1次检索）	高（K次检索）	中（1次检索）
-召回类型	直接相关	表述不同的间接相关文档	含关键词但语义可能偏离
-示例
-用户问："怎么用 Spring AI 做 RAG？"
+2. **生成假想文档**  
+   LLM 根据问题生成一段“看起来像答案”的文本（内容可以不真实，但结构/语义要有参考价值）。
 
-路径1 召回："Spring AI RAG 实现步骤"
+3. **转换为嵌入向量**  
+   使用嵌入模型（如 `text-embedding-ada-002`）将假想文档转为稠密向量。
 
-路径2 召回：通过 LLM 生成 "Spring AI中如何使用检索增强生成"、"基于Spring AI的RAG开发教程" 等，召回不同侧面的文档。
+4. **基于假想文档检索**  
+   用该向量在向量数据库中做相似性搜索，召回与“假想答案”最接近的真实文档片段。
 
-路径3 召回：转换为 "Spring AI RAG 检索 增强 生成 集成"，召回包含这些关键词的文档。
+5. **生成最终答案**  
+   将检索到的真实文档作为上下文，交给 LLM 产生最终回答。
 
-为什么要三路合并？
-路径1：保证精准度（Precision）
+## 为什么有效？
 
-路径2：提升召回率（Recall），覆盖不同表达
+- **意图理解更准**：假想文档包含比原始查询更丰富的语义信息，弥补了短查询的信息不足。
+- **零样本可用**：无需标注数据，直接利用 LLM 的通用知识。
+- **效果提升显著**：实验中，HyDE 将语义检索的 Top‑3 召回率从 78% 提升到 91%。
 
-路径3：弥补语义检索可能遗漏的关键词匹配
+## 优缺点
 
-合并时通常使用 RRF（倒数排名融合）或加权平均。
+| 优点 | 缺点 |
+|------|------|
+| 无需标注数据 | 每次检索都需要调用 LLM 生成假想文档，增加延迟和成本 |
+| 理解深层意图 | 假想文档可能含有“幻觉”内容，需依赖对比编码器过滤 |
+| 易于集成（LangChain 等） | 不适合对响应延迟极其敏感的场景 |
 
-3. MultiQueryExpander.expand() 的作用
-   java
-   List<Query> expandedQueries = queryExpander.expand(originalQuery);
-   核心功能
-   利用大语言模型（LLM）将一个用户查询扩展成多个语义不同但相关的查询变体。
+## 代码示例（LangChain 实现）
 
-工作流程
-接收 originalQuery。
+以下代码展示如何使用 LangChain 快速实现 HyDE：
 
-调用配置的 ChatClient，按照提示词模板生成若干个变体。
+```python
+from langchain.chat_models import ChatOpenAI
+from langchain.embeddings import OpenAIEmbeddings
+from langchain.vectorstores import FAISS
+from langchain.retrievers import HypotheticalDocumentEmbedder
 
-返回 List<Query>。
+# 1. 初始化 LLM 和嵌入模型
+llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
+base_embeddings = OpenAIEmbeddings()
 
-配置参数（通过 Builder）
-参数	作用
-numberOfQueries	生成的变体数量
-includeOriginal	是否包含原始查询（用于避免与路径1重复）
-示例
-用户查询："怎么学 Spring AI"
-扩展后可能得到：
+# 2. 创建 HyDE 检索器（包装普通嵌入模型）
+hyde_retriever = HypotheticalDocumentEmbedder(
+    llm=llm,
+    base_embeddings=base_embeddings,
+    prompt_key="web_search"   # 使用内置提示模板或自定义
+)
 
-"Spring AI 的学习步骤是什么？"
+# 3. 准备向量数据库（示例使用 FAISS 内存存储）
+#    假设已有文档片段列表 documents
+# vectorstore = FAISS.from_documents(documents, base_embeddings)
+# retriever = vectorstore.as_retriever()
 
-"Spring AI 入门教程有哪些？"
+# 4. 用 HyDE 检索器生成假想文档并搜索
+# query = "LangSmith 是什么？为什么需要它？"
+# relevant_docs = hyde_retriever.get_relevant_documents(query)
+# print(relevant_docs)
+注：HypotheticalDocumentEmbedder 是 LangChain 中的内置类，它会自动完成“生成假想文档 → 嵌入 → 检索”的流程。你也可以手动实现每个步骤以进行更精细的控制。
 
-"如何上手 Spring AI 框架？"
+衍生方案
+HyPE：将生成过程迁移到索引阶段，降低查询延迟。
 
-价值：显著提高召回率，避免因用户措辞问题而遗漏相关信息。
+HyQE：生成假想查询，从另一角度改进检索对齐。
 
-4. 监控埋点：Micrometer 指标记录
-   java
-   private static final String RECALL_PATH_HITS = "springai.rag.pgvector.recall.path.hits";
-
-// joined 阶段（合并去重后）
-Counter.builder(RECALL_PATH_HITS)
-.tag("operation", operation)
-.tag("stage", "joined")
-.register(meterRegistry)
-.increment(joinedCount);
-
-// reranked 阶段（LLM Rerank 后）
-Counter.builder(RECALL_PATH_HITS)
-.tag("operation", operation)
-.tag("stage", "reranked")
-.register(meterRegistry)
-.increment(rerankedCount);
-指标含义
-指标名称：springai.rag.pgvector.recall.path.hits
-
-类型：Counter（只增计数器）
-
-标签：
-
-operation：操作类型（如 "user_query_123"）
-
-stage：处理阶段（joined / reranked）
-
-监控价值
-问题	通过该指标回答
-检索效率	joined 阶段有多少文档进入候选池？
-Rerank 效果	reranked 阶段过滤掉了多少文档？
-异常检测	若 rerankedCount 经常为 0，说明检索质量差
-性能趋势	统计平均 joinedCount 和 rerankedCount 变化
-Prometheus 查询示例
-promql
-# 平均 joined 阶段文档数
-avg(springai_rag_pgvector_recall_path_hits_total{stage="joined"})
-
-# Rerank 保留率
-sum(springai_rag_pgvector_recall_path_hits_total{stage="reranked"}) /
-sum(springai_rag_pgvector_recall_path_hits_total{stage="joined"})
-告警规则示例
-yaml
-- alert: RAGRetrievalEmpty
-  expr: |
-  increase(springai_rag_pgvector_recall_path_hits_total{stage="reranked"}[5m]) == 0
-  annotations:
-  summary: "RAG 检索连续5分钟返回空结果"
-5. content 与 metadata 的区别及向量搜索中的应用
-   java
-   Map<String, Object> metadata = new HashMap<>(extraMetadata);
-   metadata.put("tenant_id", tenantId);
-   metadata.put("user_id", userId);
-   metadata.put("created_at", LocalDateTime.now().toString());
-
-Document doc = new Document(content, metadata);
-角色对比
-特性	content	metadata
-数据类型	String	Map<String, Object>
-存储内容	文档的主要文本	键值对描述信息
-是否参与向量计算	是（被 Embedding 模型转换为向量）	否（不参与相似度计算）
-检索时作用	与查询向量计算相似度，找到语义相近的文档	作为过滤器，在相似度计算前后筛选文档
-索引方式	向量索引	通常建立标量索引以加速过滤
-向量搜索时的协同流程
-生成查询向量。
-
-应用元数据过滤（通过 SearchRequest.withFilterExpression(...)）：
-
-预过滤：在向量搜索前先缩小候选集。
-
-后过滤：在向量搜索后再筛选。
-
-在过滤后的文档集中执行向量相似度计算。
-
-返回 TopK 个最相似的文档。
-
-java
-// 带 metadata 过滤的检索请求
-SearchRequest request = SearchRequest
-.query("用户查询的问题")
-.withTopK(5)
-.withSimilarityThreshold(0.7)
-.withFilterExpression("tenant_id == 'tenant123' && user_id == 'user456'");
-
-List<Document> results = vectorStore.similaritySearch(request);
-设计优势
-安全隔离：通过 tenant_id 等 metadata 强制多租户数据隔离。
-
-精确控制：可限定检索范围（部门、时间、类型等）。
-
-性能提升：先用 metadata 缩小范围，再计算相似度，显著减少计算量并提高结果相关性。
-
-总结
-技术点	核心要点
-Query 对象	封装检索参数，支持过滤、阈值、元数据，扩展性强
-多路径检索	原始语义 + LLM 多查询扩展 + 关键词扩展，提升召回率和鲁棒性
-MultiQueryExpander	利用 LLM 生成查询变体，弥补用户措辞差异
-Micrometer 监控	记录 joined / reranked 阶段的文档命中数，便于性能分析和告警
-content vs metadata	content 用于向量相似度计算，metadata 用于过滤，二者协同实现精准检索与隔离
-以上模式已在生产级 RAG 系统中验证，可显著提升检索质量和系统可观测性。
+SL‑HyDE：引入自学习机制，迭代优化假想文档质量。
