@@ -1,4 +1,4 @@
-<!-- 模块：Spring AI 核心组件 | 最后更新于 2026-05-28 -->
+<!-- 模块：Spring AI 核心组件 | 最后更新于 2026-05-28（多模态与多语言） -->
 
 # Spring AI 核心组件
 
@@ -13,6 +13,8 @@
 - [Transformer 与 Advisor 的区别](#transformer-与-advisor-的区别)
 - [PromptTemplate 与提示词设计原则](#prompttemplate-与提示词设计原则)
 - [ChatClient 文本补全模式](#chatclient-文本补全模式)
+- [Spring AI 多模态输入与动态模型切换](#spring-ai-多模态输入与动态模型切换)
+- [多语言 Prompt 与 Tool 回调](#多语言-prompt-与-tool-回调)
 
 ---
 ## Spring AI Transform 结构化输出
@@ -356,5 +358,164 @@ ChatResponse response = chatClient.prompt()
 
 - [RAG Advisor](RAG Advisor.md)
 - [文档 ETL 与分块](文档ETL与分块.md)
+
+---
+## Spring AI 多模态输入与动态模型切换
+
+> **模块**：Spring AI 核心组件 | **标签**：多模态, ChatClient, 模型路由 | **更新**：2026-05-28
+
+### 核心概念
+
+Spring AI 通过 `UserMessage.media` 与 `ChatClient` 的 `.media()` 支持图像等多模态输入；运行时可通过多 Bean 配置、参数化选项或路由策略在多个 LLM 客户端间动态切换。
+
+### 要点
+
+- **多模态载体**：`UserMessage` 接受 `Media` 列表（MIME + Resource）；`ChatClient` 推荐用 `.user(u -> u.text(...).media(...))` 链式构建。
+- **模型支持差异**：Gemini 支持文本/PDF/图像/音视频；OpenAI/Claude/Ollama 以文本+图像为主，具体以 Provider 文档为准。
+- **动态切换思路**：注册多个 `ChatClient` Bean（如 primary / cheap），运行时按请求参数、任务复杂度或接口职责选择实例。
+- **四种常见模式**：参数化临时改模型选项；Map 缓存已配置客户端；基于 prompt 长度/复杂度的自动路由；接口级硬编码绑定专用模型。
+
+### 代码示例
+
+```java
+var imageResource = new ClassPathResource("/multimodal.test.png");
+var userMessage = new UserMessage(
+    "Explain what do you see in this picture?",
+    new Media(MimeTypeUtils.IMAGE_PNG, imageResource)
+);
+ChatResponse response = chatModel.call(new Prompt(userMessage));
+
+String reply = ChatClient.create(chatModel).prompt()
+    .user(u -> u.text("Explain what do you see on this picture?")
+        .media(MimeTypeUtils.IMAGE_PNG, new ClassPathResource("/multimodal.test.png")))
+    .call()
+    .content();
+```
+
+```java
+@Configuration
+public class ChatClientConfig {
+    @Bean
+    @Primary
+    public ChatClient primaryChatClient(OpenAiChatModel chatModel) {
+        return ChatClient.create(chatModel);
+    }
+
+    @Bean
+    public ChatClient cheapChatClient(OpenAiChatModel chatModel) {
+        return ChatClient.builder(chatModel)
+            .defaultOptions(OpenAiChatOptions.builder()
+                .withModel("gpt-3.5-turbo")
+                .withTemperature(0.3).build())
+            .build();
+    }
+}
+
+@RestController
+public class ChatController {
+    private final Map<String, ChatClient> clientMap;
+
+    public ChatController(@Qualifier("primaryChatClient") ChatClient primary,
+                          @Qualifier("cheapChatClient") ChatClient cheap) {
+        this.clientMap = Map.of("primary", primary, "cheap", cheap);
+    }
+
+    @GetMapping("/chat")
+    public String chat(@RequestParam(defaultValue = "primary") String model,
+                       @RequestParam String prompt) {
+        ChatClient selected = clientMap.getOrDefault(model, clientMap.get("primary"));
+        return selected.prompt().user(prompt).call().content();
+    }
+
+    @GetMapping("/smart-chat")
+    public String smartChat(@RequestParam String prompt) {
+        ChatClient client = prompt.length() > 50
+            ? clientMap.get("primary") : clientMap.get("cheap");
+        return client.prompt().user(prompt).call().content();
+    }
+}
+```
+
+### 面试常问
+
+**问**：Spring AI 如何实现多模态输入？如何在运行时动态切换不同 LLM？
+
+**答**：多模态通过 `UserMessage`/`ChatClient` 的 `media` 传入图像等资源；动态切换可配置多个 `ChatClient` Bean，按请求参数、任务复杂度或接口职责从 Map 选取，或在单次调用中通过 `options()` 覆盖模型名与温度。
+
+### 关联知识点
+
+- [上传文件 PDF/Excel/图片 处理原理](文档ETL与分块.md)
+- [Agent 架构与协同](Agent架构与协同.md)
+
+---
+## 多语言 Prompt 与 Tool 回调
+
+> **模块**：Spring AI 核心组件 | **标签**：i18n, PromptTemplate, Tool | **更新**：2026-05-28
+
+### 核心概念
+
+多语言场景可结合 Spring `MessageSource` 管理提示词模板，并依赖模型自身多语言能力；Tool 的 `description` 可写双语说明，便于 LLM 跨语言触发回调。
+
+### 要点
+
+- **Prompt 国际化**：`messages_zh_CN.properties` 等存放 system/user 模板，`MessageSource.getMessage(key, args, default, locale)` 按 Locale 取词。
+- **热更新**：`ReloadableResourceBundleMessageSource` 设置 `cacheSeconds` 可在不重启时刷新提示词。
+- **语言检测路由**：可选 Apache OpenNLP 等检测入参语言后分发不同模型或模板。
+- **Tool 多语言**：`@Tool(description = "...")` 内写中英文描述，模型理解后即可用任意语言提问并触发同一工具。
+
+### 代码示例
+
+```properties
+# messages_zh_CN.properties
+system.prompt=你是一位乐于助人的中文助手。
+user.greeting=你好！有什么可以帮助你的？
+```
+
+```java
+@Autowired
+private MessageSource messageSource;
+
+String greeting = messageSource.getMessage("user.greeting", null, "Hello!", locale);
+
+@Bean
+public MessageSource messageSource() {
+    ReloadableResourceBundleMessageSource source = new ReloadableResourceBundleMessageSource();
+    source.setBasename("classpath:i18n/messages");
+    source.setCacheSeconds(10);
+    return source;
+}
+```
+
+```java
+@Component
+public class WeatherService {
+    @Tool(description = """
+        Get the current weather in a given city.
+        获取指定城市当前的天气情况。
+        """)
+    public String getWeather(String city) {
+        return "晴朗，25°C";
+    }
+}
+
+public String chatWithTool(String prompt) {
+    return ChatClient.create(chatModel)
+        .prompt(prompt)
+        .tools(weatherService)
+        .call()
+        .content();
+}
+```
+
+### 面试常问
+
+**问**：Spring AI 如何支持多语言入参与 Tool 回调？
+
+**答**：提示词用 Spring MessageSource + i18n 资源文件按 Locale 加载，可配合 Reloadable 实现热更新；Tool 描述写双语，ChatClient 注册 tools 后模型可用任意语言提问并触发回调；也可先做语言检测再路由模板或模型。
+
+### 关联知识点
+
+- [PromptTemplate 与提示词设计原则](#prompttemplate-与提示词设计原则)
+- [Agent 架构与协同](Agent架构与协同.md)
 
 ---

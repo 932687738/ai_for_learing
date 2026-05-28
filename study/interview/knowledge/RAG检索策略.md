@@ -1,4 +1,4 @@
-<!-- 模块：RAG 检索策略 | 最后更新于 2026-05-28（召回率与 ES 混合检索） -->
+<!-- 模块：RAG 检索策略 | 最后更新于 2026-05-28（Re-Ranker 手动集成） -->
 
 # RAG 检索策略
 
@@ -146,13 +146,20 @@ List<Document> results = vectorStore.similaritySearch(SearchRequest.query("我�
 
 ### 核心概念
 
-1. 添加依赖 `spring-ai-alibaba-starter`。
+多路召回后可用 CrossEncoder 类重排序模型精排；Spring AI 提供开箱即用的 `RetrievalRerankAdvisor`，也可通过 `DocumentPostProcessor` 手动接入任意 Rerank API。
 
 ### 要点
 
-1. 添加依赖 `spring-ai-alibaba-starter`。
-2. 配置重排序模型（如 dashscope 的 `gte-rerank-hybrid`）。
-3. 在 ChatClient 构建时通过 `.defaultAdvisors(new RetrievalRerankAdvisor(vectorStore, rerankModel))` 注入。
+**开箱即用（RetrievalRerankAdvisor）**
+
+1. 添加依赖（如 `spring-ai-alibaba-starter`）。
+2. 配置 `RerankModel`（如 dashscope 的 `gte-rerank-hybrid`）。
+3. ChatClient 构建时 `.defaultAdvisors(new RetrievalRerankAdvisor(vectorStore, rerankModel))`。
+
+**手动集成（DocumentPostProcessor）**
+
+- 实现 `DocumentPostProcessor`，在 `process(List<Document>)` 中调用重排序 API 对文档评分并排序。
+- 适合自定义 Rerank 服务或非 Alibaba 生态模型。
 
 ### 代码示例
 
@@ -160,23 +167,36 @@ List<Document> results = vectorStore.similaritySearch(SearchRequest.query("我�
 @Configuration
 public class RerankConfig {
     @Bean
-    public ChatClient chatClient(ChatClient.Builder builder, VectorStore vectorStore, RerankModel rerankModel) {
+    public ChatClient chatClient(ChatClient.Builder builder,
+                                 VectorStore vectorStore,
+                                 RerankModel rerankModel) {
         return builder
-                .defaultAdvisors(new RetrievalRerankAdvisor(vectorStore, rerankModel))
-                .build();
+            .defaultAdvisors(new RetrievalRerankAdvisor(vectorStore, rerankModel))
+            .build();
+    }
+}
+```
+
+```java
+@Component
+public class MyRerankProcessor implements DocumentPostProcessor {
+    @Override
+    public List<Document> process(List<Document> documents) {
+        // 调用重排序 API 对文档评分并排序
+        return rerankService.rerank(documents);
     }
 }
 ```
 
 ### 面试常问
 
-**问**：多路召回后，如何集成重排序模型（如 CrossEncoder）？请简要说明在 RetrievalAugmentationAdvisor 中添加 reranker 的步骤。
+**问**：Spring AI 中如何实现 Re-Ranker？Advisor 与 PostProcessor 两种方式有何区别？
 
-**答**：1. 添加依赖 `spring-ai-alibaba-starter`。 2. 配置重排序模型（如 dashscope 的 `gte-rerank-hybrid`）。 3. 在 ChatClient 构建时通过 `.defaultAdvisors(new RetrievalRerankAdvisor(vectorStore, rerankModel))` 注入。
+**答**：Advisor 方式用 `RetrievalRerankAdvisor` 与 VectorStore、RerankModel 一键集成；PostProcessor 方式实现 `DocumentPostProcessor` 在检索链路中自定义调用任意 Rerank API，灵活性更高。
 
 ### 关联知识点
 
-- [HyDE 假设文档嵌入](HyDE假设文档嵌入.md)
+- [多路召回向量与 BM25](#多路召回向量与-bm25)
 - [RRF 混合检索融合](RRF混合检索融合.md)
 
 ---

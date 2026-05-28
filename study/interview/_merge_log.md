@@ -1,5 +1,25 @@
 # Markdown 问答分类合并日志
 
+## 2026-05-28（多模态、工作流、记忆与向量库分片）
+
+**源文件**：`study/interview/original/template.md`（Spring AI 多模态、文件处理、Tool Calling、工作流、多语言、结构化输出 vs 切分、Re-Ranker、记忆载体、向量库分片，340 行）
+
+**说明**：源文件为技术综合指南（非标准 Q&A 体），按知识点语义路由至 7 个模块；与既有条目语义去重后合并增强 3 条，新增 6 条；无 `.bak`。
+
+| 模块文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Spring AI核心组件.md | 新增 | +2（多模态输入与动态模型切换、多语言 Prompt 与 Tool 回调） |
+| 文档ETL与分块.md | 新增 | +2（上传文件处理原理、结构化输出与文本切分职责边界） |
+| Agent架构与协同.md | 新增 | +1（Tool Calling 聚合多接口业务数据） |
+| Agent工作流模式.md | 合并增强 | 0（Spring AI 常见工作流模式：补 RoutingWorkflow、TravelOrchestrator、SequentialAgent 示例） |
+| RAG检索策略.md | 合并增强 | 0（重排序 Rerank 集成：补 DocumentPostProcessor 手动集成） |
+| Agent记忆体系.md | 合并增强 | 0（记忆类型对比：补历史记录 ChatMemoryRepository 载体表） |
+| 索引与存储.md | 新增 | +1（向量数据库推荐分片大小） |
+
+**路由备注**：多模态/动态模型/i18n → `spring-ai-core`；文件 ETL 与切分边界 → `document-etl-chunking`；Tool Calling → `agent-architecture`；工作流代码 → `agent-workflow`；Re-Ranker → `rag-retrieval-strategies`；记忆载体 → `agent-memory`；Milvus/Qdrant 分片 → `index-storage`；源文件残缺代码块已规范为 fenced block；失败 0 条。
+
+**合计**：7 个文件更新，净增 6 条；全库 97 条。
+
 ## 2026-05-28（ChromaDB 概述与使用指南）
 
 **源文件**：`study/interview/original/template.md`（ChromaDB 概念、数据模型、Python 示例、向量库对比与选型，108 行）

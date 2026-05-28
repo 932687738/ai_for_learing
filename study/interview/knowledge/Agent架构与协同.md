@@ -1,4 +1,4 @@
-<!-- 模块：Agent 架构与协同 | 最后更新于 2026-05-28 -->
+<!-- 模块：Agent 架构与协同 | 最后更新于 2026-05-28（Tool Calling 聚合） -->
 
 # Agent 架构与协同
 
@@ -16,6 +16,7 @@
 - [Spring AI MCP Server 端实现](#spring-ai-mcp-server-端实现)
 - [Spring AI MCP Client 端与 ChatClient 集成](#spring-ai-mcp-client-端与-chatclient-集成)
 - [同一应用同时作为 MCP Client 与 Server](#同一应用同时作为-mcp-client-与-server)
+- [Tool Calling 聚合多接口业务数据](#tool-calling-聚合多接口业务数据)
 
 ---
 ## ReAct 与 Transformer 架构的区别
@@ -627,5 +628,66 @@ spring:
 
 - [Spring AI MCP Server 端实现](#spring-ai-mcp-server-端实现)
 - [Spring AI MCP Client 端与 ChatClient 集成](#spring-ai-mcp-client-端与-chatclient-集成)
+
+---
+## Tool Calling 聚合多接口业务数据
+
+> **模块**：Agent 架构与协同 | **标签**：Tool, Function Calling | **更新**：2026-05-28
+
+### 核心概念
+
+根据用户自然语言提示，LLM 通过 Tool Calling 自主决定调用哪些 `@Tool` 方法（如查订单、查天气），获取结构化结果后再分析组装为最终回答。
+
+### 要点
+
+- **定义工具**：在 Service 上用 `@Tool(description = "...")` 标注业务方法，description 需清晰说明何时调用。
+- **注册调用**：`ChatClient.prompt().user(prompt).tools(businessTools).call()` 将工具暴露给模型。
+- **多接口编排**：模型可在一轮或多轮 ReAct 循环中依次调用多个 Tool，无需手写 if/else 路由。
+- **与工作流选型**：简单查询用 Tool Calling；固定步骤用链式；意图分发用路由；耗时并行用并行化；复杂分解用编排器-工作者。
+
+| 场景 | 推荐模式 |
+| :--- | :--- |
+| 简单信息查询 | Tool Calling |
+| 明确步骤的数据处理 | 链式工作流 |
+| 不确定意图的请求分发 | 路由工作流 |
+| 耗时并行分析与聚合 | 并行化工作流 |
+| 复杂多级任务分解 | 编排器-工作者 |
+| 大型系统多领域协作 | 多智能体路由 |
+
+### 代码示例
+
+```java
+@Service
+public class BusinessTools {
+    @Tool(description = "根据用户ID查询用户订单列表")
+    public List<Order> queryOrders(String userId) {
+        return orderRepository.findByUserId(userId);
+    }
+
+    @Tool(description = "查询指定城市的天气信息")
+    public String getWeather(String city) {
+        return weatherService.getWeatherByCity(city);
+    }
+}
+
+public String processUserRequest(String userPrompt) {
+    return chatClient.prompt()
+        .user(userPrompt)
+        .tools(businessTools)
+        .call()
+        .content();
+}
+```
+
+### 面试常问
+
+**问**：Spring AI 如何根据提示词调用多个业务接口并组装结果？
+
+**答**：将各业务方法声明为 `@Tool` 并注册到 ChatClient；模型根据 description 自主选择与组合调用，返回数据后由 LLM 汇总成自然语言答案，复杂场景可升级为链式/路由/并行工作流。
+
+### 关联知识点
+
+- [Agent 与 RAG 协同 @Tool 动态加载](#agent-与-rag-协同-tool-动态加载)
+- [Spring AI 常见工作流模式](Agent工作流模式.md)
 
 ---

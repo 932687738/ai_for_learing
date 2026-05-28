@@ -1,4 +1,4 @@
-<!-- 模块：Agent 工作流模式 | 最后更新于 2026-05-28 -->
+<!-- 模块：Agent 工作流模式 | 最后更新于 2026-05-28（工作流代码示例增强） -->
 
 # Agent 工作流模式
 
@@ -208,93 +208,107 @@ public class TreeOfThoughts {
 
 ### 核心概念
 
-Spring AI / Alibaba 生态中有哪些典型 Agent 工作流模式？各自适用场景是什么？
+Spring AI / Alibaba 生态提供链式、路由、并行、编排器-工作者、评估器-优化器等典型模式；轻量场景可用 `ChatClient` 手写循环，复杂多 Agent 可用 Spring AI Alibaba 的 `SequentialAgent` 等组件。
 
 ### 要点
 
 | 模式 | 核心用途 | 典型组件 |
 | :--- | :--- | :--- |
 | **链式 (Chain)** | 固定顺序流水线 | `ChainWorkflow`、顺序 Prompt 列表 |
-| **路由 (Routing)** | 按意图分发到专业 Agent | `LlmRoutingAgent` |
+| **路由 (Routing)** | 按意图分发到专业 Agent | `RoutingWorkflow`、`LlmRoutingAgent` |
 | **并行 (Parallelization)** | 并发独立子任务 | `ParallelizationWorkflow` |
-| **编排器-工作者** | 动态拆解 + 并行执行 | `@ParallelAgent`、`@SubAgent` |
+| **编排器-工作者** | 动态拆解 + 并行执行 | `TravelOrchestratorWorkflow`、`@ParallelAgent` |
 | **评估器-优化器** | 迭代改进直到达标 | Evaluator + Optimizer 循环 |
+| **多智能体顺序** | 写作→审阅等固定协作 | Alibaba `SequentialAgent` + `ReactAgent` |
 
 ### 代码示例
 
 ```java
 public class ChainWorkflow {
-    private final ChatClient client;
-    private final List<String> prompts;
+    private final ChatClient chatClient;
+    private final String[] systemPrompts;
 
-    public String execute(String input) {
-        String result = input;
-        for (String prompt : prompts) {
-            result = client.prompt(prompt + "\n" + result).call().content();
+    public String chain(String userInput) {
+        String response = userInput;
+        for (String prompt : systemPrompts) {
+            String input = String.format("{%s}\n {%s}", prompt, response);
+            response = chatClient.prompt(input).call().content();
         }
-        return result;
+        return response;
     }
 }
 ```
 
 ```java
-LlmRoutingAgent router = LlmRoutingAgent.builder()
-    .name("router")
-    .model(chatModel)
-    .subAgents(List.of(weatherAgent, newsAgent, financeAgent))
+List<String> parallelResponse = new ParallelizationWorkflow(chatClient)
+    .parallel(
+        "Analyze how market changes will impact this stakeholder group.",
+        List.of("Customers: ...", "Employees: ...", "Investors: ...", "Suppliers: ..."),
+        4
+    );
+```
+
+```java
+RoutingWorkflow workflow = new RoutingWorkflow(chatClient);
+Map<String, String> routes = Map.of(
+    "billing", "You are a billing specialist...",
+    "technical", "You are a technical support engineer...",
+    "general", "You are a customer service representative..."
+);
+String response = workflow.route(input, routes);
+```
+
+```java
+public class TravelOrchestratorWorkflow {
+    private final ChatClient chatClient;
+
+    public TravelPlan createPlan(TravelRequest request) {
+        String taskList = chatClient.prompt()
+            .user("Analyze this travel request and break it down into subtasks: " + request)
+            .call().content();
+        List<String> tasks = parseTasks(taskList);
+        List<String> results = tasks.parallelStream()
+            .map(task -> chatClient.prompt().user(task).call().content())
+            .toList();
+        String finalPlan = chatClient.prompt()
+            .user("Synthesize into a comprehensive plan: " + String.join("\n", results))
+            .call().content();
+        return parsePlan(finalPlan);
+    }
+}
+```
+
+```java
+ReactAgent writerAgent = ReactAgent.builder()
+    .name("writer_agent").model(chatModel)
+    .instruction("You are a writer. Write about: {input}.")
+    .outputKey("article")
     .build();
 
-router.invoke("What's the weather in London?");
-```
+ReactAgent reviewerAgent = ReactAgent.builder()
+    .name("reviewer_agent").model(chatModel)
+    .instruction("Review this article: {article}")
+    .outputKey("reviewed_article")
+    .build();
 
-```java
-ParallelizationWorkflow workflow = new ParallelizationWorkflow(chatClient);
-List<String> tasks = List.of("Impact on customers", "Impact on employees", "Impact on suppliers");
-List<String> results = workflow.parallel(
-    "Analyze how market change affects stakeholders",
-    tasks,
-    maxConcurrency = 4
-);
-```
+SequentialAgent blogAgent = SequentialAgent.builder()
+    .name("blog_agent")
+    .subAgents(List.of(writerAgent, reviewerAgent))
+    .build();
 
-```java
-@ParallelAgent
-public class Orchestrator {
-    @SubAgent
-    public String researchAgent(String topic) { ... }
-
-    @SubAgent
-    public String writerAgent(String outline) { ... }
-
-    @ParallelTask
-    public List<String> gatherData(String[] sources) { ... }
-}
-```
-
-```java
-public class IterativeRefinement {
-    public String refine(String initialDraft) {
-        String current = initialDraft;
-        for (int i = 0; i < maxIterations; i++) {
-            String feedback = evaluator.evaluate(current);
-            if (isAcceptable(feedback)) break;
-            current = optimizer.improve(current, feedback);
-        }
-        return current;
-    }
-}
+blogAgent.invoke("Write about Spring AI");
 ```
 
 ### 面试常问
 
-**问**：Spring AI / Alibaba 生态中有哪些典型 Agent 工作流模式？各自适用场景是什么？
+**问**：Spring AI 中链式、路由、并行与编排器工作流分别如何实现？
 
-**答**：核心用途 :--- 固定顺序流水线 按意图分发到专业 Agent 并发独立子任务 动态拆解 + 并行执行 迭代改进直到达标
+**答**：链式用 ChatClient 循环串联 Prompt；路由用 RoutingWorkflow 或 LlmRoutingAgent 按意图选专家；并行用 ParallelizationWorkflow 并发子任务；编排器先 LLM 分解任务再 parallelStream 执行后合成；Alibaba SequentialAgent 适合固定多 Agent 流水线。
 
 ### 关联知识点
 
 - [Agent 架构与协同](Agent架构与协同.md)
-- [Agent 记忆体系](Agent记忆体系.md)
+- [Tool Calling 聚合多接口业务数据](Agent架构与协同.md)
 
 ---
 ## 多智能体监督与交接模式

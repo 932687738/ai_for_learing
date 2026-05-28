@@ -1,4 +1,4 @@
-<!-- 模块：Agent 记忆体系 | 最后更新于 2026-05-28 -->
+<!-- 模块：Agent 记忆体系 | 最后更新于 2026-05-28（记忆载体表增强） -->
 
 # Agent 记忆体系
 
@@ -154,32 +154,33 @@ public ChatClient chatClient(ChatModel model, AutoMemoryTools memoryTools) {
 
 ### 核心概念
 
-仅需会话内上下文 → 短期记忆（滑动窗口 + 可选 JDBC/Redis 持久化）
+Spring AI 记忆按生命周期分为短期（会话内）、长期（跨会话）与历史记录（永久审计）；载体分别为 `ChatMemory`、`VectorStore`/`AutoMemoryTools` 与 `ChatMemoryRepository`。
 
 ### 要点
 
-| 类型 | 生命周期 | 核心技术 | 典型存储 | 代码接口 |
+| 记忆类型 | 核心载体 | 存储 | 生命周期 | 特性 |
 | :--- | :--- | :--- | :--- | :--- |
-| **短期记忆** | 单次会话 | `ChatMemory` + 滑动窗口 | Redis / 关系库 | `ChatMemoryRepository` |
-| **长期记忆（工具型）** | 永久 / 跨会话 | `AutoMemoryTools` | 本地 Markdown 文件 | `MemoryStore` |
-| **长期记忆（外部库型）** | 永久 / 跨会话 | 向量数据库 + RAG | Redis、Chroma、PGVector | `VectorStore` / `MemoryAdvisor` |
+| **短期记忆** | `ChatMemory` / `MessageWindowChatMemory` | 内存（可 JDBC/Redis 持久化） | 单次会话 | 滑动窗口，保对话连贯 |
+| **长期记忆** | `VectorStore` / `AutoMemoryTools` | 向量库 / 文件系统 | 跨会话 | 用户画像、偏好，常结合 RAG |
+| **历史记录** | `ChatMemoryRepository` | 数据库（JDBC/Redis） | 永久 | 完整对话审计日志 |
 
-**选型建议**：
+**选型建议**
 
 - 仅需会话内上下文 → 短期记忆（滑动窗口 + 可选 JDBC/Redis 持久化）
 - 需记住用户偏好、少量事实、零代码文件存储 → `AutoMemoryTools`
 - 大规模、语义检索型记忆 → 向量库 + RAG 检索注入
+- 需合规审计、全量历史回溯 → `ChatMemoryRepository` 永久存储
 - **混合方案**：短期 `ChatMemory` 保持对话流畅，长期记忆通过检索或 Tool 注入个性化信息
 
 ### 面试常问
 
-**问**：Spring AI 中短期记忆、工具型长期记忆、向量库型长期记忆有何区别？如何选型？
+**问**：Spring AI 短期、长期与历史记忆分别用什么载体存储？
 
-**答**：仅需会话内上下文 → 短期记忆（滑动窗口 + 可选 JDBC/Redis 持久化）；需记住用户偏好、少量事实、零代码文件存储 → `AutoMemoryTools`；大规模、语义检索型记忆 → 向量库 + RAG 检索注入；混合方案**：短期 `ChatMemory` 保持对话流畅，长期记忆通过检索或 Tool 注入个性化信息。
+**答**：短期用 ChatMemory/MessageWindowChatMemory 维护会话窗口；长期用 VectorStore 或 AutoMemoryTools 跨会话保留偏好与事实；历史记录用 ChatMemoryRepository 写入 JDBC/Redis 做永久审计，三者可组合使用。
 
 ### 关联知识点
 
 - [RAG 长期记忆](RAG长期记忆.md)
-- [Agent 架构与协同](Agent架构与协同.md)
+- [多轮对话记忆管理（短期记忆）](#多轮对话记忆管理短期记忆)
 
 ---
