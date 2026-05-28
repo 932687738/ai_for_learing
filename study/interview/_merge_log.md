@@ -1,5 +1,18 @@
 # Markdown 问答分类合并日志
 
+## 2026-05-28（Spring AI 智能体操作数据库：组件顺序）
+
+**源文件**：`study/interview/original/template.md`（组件定义表、匹配顺序、五步流程、餐厅类比，63 行）
+
+**操作**：语义去重后合并增强 2 条既有问答；无 `.bak` 备份。
+
+| 分类文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Agent与对话问答.md | 合并增强 | 1 条（+Spring AI 数据库场景、组件定位表、execute_sql 示例） |
+| RAG检索增强问答.md | 合并增强 | 1 条（+Schema/查询模板、数据库场景价值说明） |
+
+**合计**：2 个文件更新，净增 0 条；语义去重合并 2 条；失败 0 条。
+
 ## 2026-05-28（Skills / Tools / MCP / RAG 协同流程）
 
 **源文件**：`study/interview/original/template.md`（五步流程、Mermaid 片段、餐厅类比，41 行）

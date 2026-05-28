@@ -193,11 +193,22 @@ public ChatClient chatClient(ChatModel model, AutoMemoryTools memoryTools) {
 
 ---
 
-## Skills、Tools、MCP 与知识库协同流程
+## Skills、Tools、MCP 与知识库协同流程（含数据库场景）
 
-**问**：Agent 场景中 Skills、Tools、MCP 与知识库（RAG）如何协同？请说明从用户请求到最终答案的五步流程。
+**问**：Spring AI 智能体操作数据库时，Skills、Tools、MCP 与知识库（RAG）如何协同？匹配与执行顺序是什么？
 
 **答**：
+
+协作本质为 **意图路由 → 技能匹配 → 工具调用与知识检索并行 → 结果整合 → 生成答案**。
+
+**核心组件定位**（以操作数据库为例）：
+
+| 组件 | 角色与定位 |
+| :--- | :--- |
+| **知识库 (RAG)** | **静态数据源**。向量检索提供上下文；库中常存业务知识、Schema 元数据、历史查询模板 |
+| **Tools** | **原子动作**。可执行 SQL、调 API、发邮件等，是可执行逻辑的最小单元 |
+| **MCP** | **标准化工具连接协议**。统一模型与外部工具/数据源的接入方式，解决多系统适配 |
+| **Skills** | **可复用任务工作流**。封装完成特定业务所需的 Tools、知识与步骤；如「查询数据库」Skill 含 MCP `execute_sql` 与相关 Schema 知识 |
 
 **角色分工**（餐厅类比）：
 
@@ -210,10 +221,10 @@ public ChatClient chatClient(ChatModel model, AutoMemoryTools memoryTools) {
 
 **五步流程**：
 
-1. **意图识别与路由**：模型分析自然语言请求，判断需调用哪些能力；Skills 元数据（名称、描述）是主要决策依据。
-2. **匹配 Skills 获取任务流**：在 Skills 注册表中匹配合适技能，命中后加载 `SKILL.md`，明确所需 Tools、参数与操作顺序。
-3. **执行 Tools（经 MCP）**：按 `SKILL.md` 或模型决策调用 Tools；通过 **MCP 协议**标准化请求（如数据库 Tool 经 MCP 客户端向服务端发起）；知识库检索可**并行**进行（见 RAG 专题）。
-4. **结果整合**：Tool 返回值（如 SQL 查询结果）与 RAG 检索结果（如数据字典说明）汇入上下文窗口。
+1. **意图识别与路由**：分析自然语言请求（如「查询上海地区销售数据」），判断需调用哪些能力；以 Skills 元数据（名称、描述）为主要决策依据。
+2. **匹配 Skills 获取任务流**：在注册表中匹配合适技能，命中后加载 `SKILL.md`（明确 Tools、参数与操作步骤）。
+3. **执行 Tools（经 MCP）**：按 `SKILL.md` 或模型决策调用 Tools；数据库类 Tool 经 MCP 客户端向服务端发起；**RAG 检索与此并行**（见 RAG 专题）。
+4. **结果整合**：`execute_sql` 等 Tool 返回数据集与 RAG 返回的数据字典说明等一并进入上下文窗口。
 5. **生成最终答案**：模型综合 Tool 输出与检索上下文生成回答。
 
 **分支逻辑**：命中 Skill 时先加载指令再调 Tool；未命中则模型直接选择并调用 Tools，同样经 MCP 执行。
