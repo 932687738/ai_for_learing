@@ -2,6 +2,98 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-05-29
+
+### 今日总览
+
+**一句话结论**：`2026-05-29`（Asia/Shanghai）主线是 **「防御加速 + 评测治理 + Windows Codex 平台化 + 企业 Agent 出海」**——**OpenAI** 同日连发 **Rosalind Biodefense / GPT‑Rosalind 可信访问** 与 **第三方评测 Playbook**；**Codex v26.527** 把 **Computer Use 与移动端远程控制** 带到 **Windows**；**Anthropic** 在 **Claude Platform on AWS** 上线 **Managed Agents webhooks / 多 Agent 编排 / 自托管沙箱**；**Hermes Agent v0.15.1** 同日热修；**腾讯 Cloud Day 香港** 向全球推出 **WorkBuddy / Miora / TokenHub** 企业 Agent 栈。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenAI/Anthropic 官方；Codex/Hermes GitHub；TechCrunch/VentureBeat；arXiv/HF；Spring AI/spring.io 核验；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；中文补充 |
+| 核心趋势 | **生物防御加速（Rosalind）** 与 **评测 harness 公开化** 并行；**Codex Windows Computer Use** 补齐跨平台 Agent 桌面能力；**企业 Agent 瓶颈从模型转向权限/编排/可靠性**（Workday/VentureBeat）；**记忆/推理基础设施** 受资本关注（XCENA） |
+| 可直接关注 | 生物/公卫团队申请 **Rosalind Biodefense / GPT‑Rosalind**；安全/评测团队读 **Third-Party Eval Playbook** 对齐 harness 披露；Windows 开发者升级 **Codex 26.527** 验证 Computer Use；Java 团队仍以 **spring.io M7** 为准、勿信第三方 GA 传言 |
+| 专项检索结论 | **Claude Code**：**无 2026-05-29 新 GitHub tag**（最近 **`v2.1.154`** 为 **`2026-05-28`**）；**Codex**：**`v26.527`** **`2026-05-29`** 官方推文/Changelog——**Windows Computer Use + ChatGPT 移动端远程 Windows**；**OpenClaw**：**无 2026-05-29 新 release**（最近 **`v2026.5.27`** 为 **`2026-05-28`**）；**Hermes**：**`v2026.5.29` / v0.15.1** **`Published: 2026-05-29T01:12:15Z` → `2026-05-29 09:12:15（Asia/Shanghai）`**；**Spring AI**：**未见 2.0 GA 官方博文**（spring.io 最近 **`2.0.0-M7` 为 `2026-05-23`**，文档仍标 *in development*）；**skills**：**无独立 marketplace 发布**；Hermes 热修纳入 **19,932 条 skills.sh 全量目录** |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| OpenAI / 生物防御 | [Strengthening societal resilience with Rosalind Biodefense](https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense/) | **2026-05-29** | 官方发布 | 启动 **Rosalind Biodefense** 赞助可信开发者；向美/盟政府伙伴扩展 **GPT‑Rosalind** 访问——**防御加速（defensive acceleration）** 样板 |
+| OpenAI / 评测治理 | [A shared playbook for trustworthy third party evaluations](https://openai.com/index/trustworthy-third-party-evaluations-foundations/) | **2026-05-29** | 官方发布 | 强调 **harness 选择 + validity checks**（reward hacking/contamination/sandbagging）——第三方 frontier 评测披露模板 |
+| OpenAI / 企业落地 | [Boston Children's uses AI to unlock new diagnoses](https://openai.com/index/boston-childrens-hospital/) | **2026-05-29** | 官方案例 | 企业 **ChatGPT 层** + **50+ 自动化**；**40+ 罕见病新诊断**、**~60,000 小时** 节省——医疗 Agent 基础设施化参考 |
+| OpenAI / Codex 案例 | [How Braintrust turns customer requests into code with Codex](https://openai.com/index/braintrust/) | **2026-05-29** | 官方案例 | 客户请求→代码的 **Codex 生产闭环** 实践 |
+| Codex / Windows | [OpenAI Codex v26.527 — Windows Computer Use & mobile remote（Neowin）](https://www.neowin.net/news/openai-rolls-out-major-codex-for-windows-update-with-computer-use-and-mobile-access/) | **`May 29, 2026`**（OpenAI 官方 X **`10:41 AM · May 29, 2026`**） | 产品更新 | **Windows 前台 Computer Use**；**ChatGPT iOS/Android 或 Mac Codex 远程启动/审批 Windows 任务**；Profile 展示 token 统计 |
+| Anthropic / AWS 平台 | [Claude Platform API Release Notes — May 29, 2026](https://docs.anthropic.com/en/release-notes/api) | **2026-05-29** | 官方文档 | **Claude Managed Agents webhooks、multiagent orchestration、self-hosted sandboxes** 在 **Claude Platform on AWS** GA；新增 IAM actions 与 **`AnthropicSelfHostedEnvironmentAccess`** 策略 |
+| Hermes | [NousResearch/hermes-agent `v2026.5.29`](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.29) | GitHub **`Published: 2026-05-29T01:12:15Z` → `2026-05-29 09:12:15（Asia/Shanghai）`** | 开源发布 | **v0.15.1 热修**：修复 loopback **dashboard 401 无限 reload**；Docker **`HERMES_DASHBOARD_INSECURE=1` 显式 opt-in**；**skills.sh 全量 19,932 条** |
+| 企业 Agent / 腾讯 | [Tencent launches WorkBuddy for global users（TechNode）](https://technode.com/2026/05/29/tencent-launches-workbuddy-productivity-ai-agent-for-global-users/) | **`May 29, 2026`**（PR **`HONG KONG, May 29, 2026`**） | 官方产品/媒体 | **WorkBuddy** 全球发布：并行多 Agent、**MCP 接 GitHub/Jira/Notion**、IM 远程（Slack/Telegram/Discord/WeChat）；同场还有 **Miora** 创意工作室与 **TokenHub MaaS** |
+| 资本 / Agent | [Cognition's Scott Wu: AI coding agents shouldn't replace humans（TechCrunch）](https://techcrunch.com/2026/05/29/cognitions-scott-wu-says-ai-coding-agents-shouldnt-replace-humans/) | **`May 29, 2026 9:13 AM PDT` → `2026-05-30 00:13（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **Devin** 定位 **L3–L4 维护/迁移** 而非替代；**$1B @ $26B** 融资背景 |
+| 基础设施 / 芯片 | [XCENA $135M at $570M valuation（TechCrunch）](https://techcrunch.com/2026/05/29/xcena-secures-135m-at-570m-valuation-betting-on-memory-as-ais-real-bottleneck/) | **`May 29, 2026 5:00 AM PDT` → `2026-05-29 20:00（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **近内存计算 MX1（CXL）** 押注推理 **memory scaling** 瓶颈 |
+| 运营事件 | [OpenAI widespread outage（News9live）](https://www.news9live.com/technology/artificial-intelligence/openai-down-chatgpt-api-dall-e-sora-and-login-hit-by-widespread-outage-2975319) | **2026-05-29** | 运营 | **ChatGPT/API/Codex/Sora/Login** 同日大面积故障——与 Codex 大版本发布同日，需关注 status.openai.com |
+| 论文 / Agent RL | [Agent Explorative Policy Optimization（arXiv:2605.28774）](https://arxiv.org/pdf/2605.28774) | 提交 **2026-05-28**（相邻日期/中国时间窗口传播） | 论文原文 | **AXPO** 用 **tool-call resampling** 缓解 multimodal agentic RL 的 **Thinking-Acting Gap** |
+| 开源 / 自改进 Agent | [Hexo Labs open-sources SIA（MarkTechPost）](https://www.marktechpost.com/2026/05/29/hexo-labs-open-sources-sia-a-self-improving-agent-that-updates-both-the-harness-and-the-model-weights/) | **2026-05-29** | 开源/媒体 | **SIA** 同时更新 **harness + LoRA 权重** 的自改进闭环（MIT，`hexo-ai/sia`） |
+| 教育 / 政策合作 | [Armenia × OpenAI Education for Countries](https://edunewsletter.openai.com/p/armenias-next-step-toward-ai-native) | **2026-05-29** | 官方通讯 | **5 万** 师生/研究者获得 frontier AI 工具访问——国家级 AI-native 教育样板 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 生物防御 | [Rosalind Biodefense 公告](https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense/) | GPT‑Rosalind、trusted access、Fourth Eon/LLNL/CEPI 首批伙伴 | 公卫/生物信息/合规团队 |
+| 评测治理 | [Third-Party Eval Playbook](https://openai.com/index/trustworthy-third-party-evaluations-foundations/) | harness 文档化、validity checks、agentic 任务披露 | AI 安全/评测工程师 |
+| Codex Windows | [Neowin：Codex 26.527](https://www.neowin.net/news/openai-rolls-out-major-codex-for-windows-update-with-computer-use-and-mobile-access/) | 前台 Computer Use、移动端 remote control、Profile token stats | Windows 开发/Agent 运维 |
+| AWS Managed Agents | [Anthropic API Release Notes](https://docs.anthropic.com/en/release-notes/api) | webhooks、multiagent orchestration、self-hosted sandboxes IAM | 在 AWS 上跑 Claude Agent 的团队 |
+| Hermes 热修 | [Hermes v2026.5.29 Release](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.29) | dashboard 401 loop、Docker insecure opt-in、skills.sh 全量 | 自托管 Hermes 运维 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：Agent 工程在 **「评测可审计 + 平台跨端 + 编排可靠性」** 三线推进——OpenAI 把 **harness** 推到评测标准中心；Codex 把 **桌面 Computer Use** 扩展到 Windows 并与移动端组成 **跨设备控制面**；VentureBeat 当日两篇指出企业 Agent 进入 **rebuild era**，瓶颈是 **权限/状态恢复/编排** 而非单点模型分数。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 评测 harness | OpenAI **Third-Party Eval Playbook** | 对外 benchmark 必须披露 **工具访问、采样、重试、validity checks**；否则 scores 不可比 |
+| 跨平台 Codex | **Windows 26.527 Computer Use + mobile remote** | Agent 桌面能力需规划 **前台/后台** 差异（Windows 仅前台）；移动端作 **审批/steer 控制面** |
+| AWS Agent 平台 | Anthropic **Managed Agents on AWS** 能力包 | 生产 Agent 把 **webhook 编排 + 自托管沙箱** 与 **IAM 最小权限** 一起设计 |
+| 企业 Agent 权限 | VentureBeat：**permissions bottleneck**（Workday Sana 案例） | Agent SOR 应绑定 **组织身份/审批模型**，避免 DIY Agent **权限过宽** |
+| 可靠性重建 | VentureBeat：**rebuild era**（Temporal 观点） | 长跑 Agent 需要 ** durable workflow + 断点恢复 + 成本可观测** |
+| Agent RL 研究 | **AXPO**（arXiv 2605.28774） | multimodal agent 训练需单独优化 **tool-call 探索**，而非只调 thinking tokens |
+| 自改进 Agent | **SIA** 开源 | harness 与权重 **双杠杆** 自改进——适合研究型团队，生产需严格 gate |
+| Hermes 运维 | **v0.15.1** 热修 | loopback dashboard 与 Docker **insecure 绑定** 是常见踩坑点；升级后验证 **skills 目录完整性** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **OpenAI：Rosalind Biodefense + GPT‑Rosalind** | 当日 **防御加速** 最权威官方定义与申请路径 |
+| 必读 | **OpenAI：Third-Party Eval Playbook** | 理解 **harness = 评测结果的一部分**——影响所有 frontier 评测设计 |
+| 推荐 | **Codex 26.527 Windows + mobile** | **跨平台 Agent 桌面** 能力对齐 Mac 的关键里程碑 |
+| 推荐 | **Anthropic AWS Managed Agents Release Notes** | **webhook + 多 Agent + 自托管沙箱** 的生产组合 |
+| 延伸 | **Boston Children's 企业 AI 案例** | 医疗场景 **enterprise AI layer** 量化 ROI 参考 |
+| 延伸 | **SIA 自改进 Agent（hexo-ai/sia）** | harness/权重双更新的研究型架构 |
+
+### 来源清单
+
+- 检索范围：2026-05-29 00:00:00 到 2026-05-29 23:59:59（Asia/Shanghai）
+- 引用域名：openai.com, developers.openai.com, docs.anthropic.com, github.com, techcrunch.com, venturebeat.com, neowin.net, technode.com, arxiv.org, marktechpost.com, edunewsletter.openai.com, news9live.com, spring.io
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Rosalind Biodefense | 2026-05-29 | https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense/ |
+| 官方发布 | Third-Party Eval Playbook | 2026-05-29 | https://openai.com/index/trustworthy-third-party-evaluations-foundations/ |
+| 官方案例 | Boston Children's AI | 2026-05-29 | https://openai.com/index/boston-childrens-hospital/ |
+| 官方案例 | Braintrust × Codex | 2026-05-29 | https://openai.com/index/braintrust/ |
+| 官方文档 | Anthropic API Release Notes | 2026-05-29 | https://docs.anthropic.com/en/release-notes/api |
+| 开源发布 | Hermes Agent v2026.5.29 | 2026-05-29 | https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.29 |
+| 技术媒体 | Codex Windows 26.527 | 2026-05-29 | https://www.neowin.net/news/openai-rolls-out-major-codex-for-windows-update-with-computer-use-and-mobile-access/ |
+| 技术媒体 | Tencent WorkBuddy global | 2026-05-29 | https://technode.com/2026/05/29/tencent-launches-workbuddy-productivity-ai-agent-for-global-users/ |
+| 技术媒体 | Cognition Scott Wu | 2026-05-29（相邻日期/跨时区） | https://techcrunch.com/2026/05/29/cognitions-scott-wu-says-ai-coding-agents-shouldnt-replace-humans/ |
+| 技术媒体 | XCENA Series B | 2026-05-29（相邻日期/跨时区） | https://techcrunch.com/2026/05/29/xcena-secures-135m-at-570m-valuation-betting-on-memory-as-ais-real-bottleneck/ |
+| 技术媒体 | Agent permissions bottleneck | 2026-05-29 | https://venturebeat.com/orchestration/the-ai-agent-bottleneck-isnt-model-performance-its-permissions |
+| 技术媒体 | Agent rebuild era | 2026-05-29 | https://venturebeat.com/orchestration/ai-agents-are-entering-their-rebuild-era-as-enterprises-confront-the-reliability-problem |
+| 论文原文 | AXPO | 2026-05-28（相邻日期/中国时间窗口传播） | https://arxiv.org/pdf/2605.28774 |
+| 开源/媒体 | SIA self-improving agent | 2026-05-29 | https://www.marktechpost.com/2026/05/29/hexo-labs-open-sources-sia-a-self-improving-agent-that-updates-both-the-harness-and-the-model-weights/ |
+| 官方通讯 | Armenia Education | 2026-05-29 | https://edunewsletter.openai.com/p/armenias-next-step-toward-ai-native |
+
 ## 2026-05-28
 
 ### 今日总览

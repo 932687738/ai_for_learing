@@ -2,6 +2,66 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-05-29
+
+### 今日总览
+
+**一句话结论**：`2026-05-29` 固定来源口径下，**腾讯云** 出现 **3 条可硬对齐当日** 的 Agent/MaaS 相关内容——**首届 Tencent Cloud Day 香港** 全球发布 **WorkBuddy / Design Miora / TokenHub**，且 **TokenHub 语言模型调用概览** 文档于 **`2026-05-29 14:45:30`** 更新；**掘金** 有 **1 篇 `2026-05-29` 社区长文** 讨论 Claude Workflows 确定性编排；其余阿里/美团/字节官方 blog 等维度 **`site:` + 当日硬对齐** 未见可引用首发长文。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 阿里 102 / 阿里云开发者 / 中间件 / 语雀；腾讯云开发者 / 文档 / AlloyTeam；字节 techblog / 掘金；百度 FEX/EFE/开发者中心；美团 / 京东云 / 凹凸 / 滴滴 / 网易知乎 / 360 / 有赞 |
+| 核心趋势 | **腾讯把 Agent 办公栈全球化**（WorkBuddy + TokenHub 统一模型网关）；**TokenHub 双协议（OpenAI Chat Completions + Anthropic Messages）** 文档化；社区讨论 **Claude Workflows 确定性编排** |
+| 可直接关注 | 评估 **WorkBuddy** 的 **MCP + IM 远程** 是否纳入内部办公 Agent；用 **TokenHub** 统一 **混元/DeepSeek/GLM/Kimi 等** API 入口；阅读 **TokenHub 调用概览** 对齐 Claude Code/Codex 接入参数 |
+| 未发现更新 | 阿里官方 blog、美团 tech.meituan.com、字节 techblog、京东/滴滴/有赞/360/网易知乎、百度 FEX/EFE、AlloyTeam：本次 **`2026-05-29` 硬对齐** 下未见可引用条目 |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 企业 Agent | [Tencent Cloud Day HK：WorkBuddy / Miora / TokenHub 全球发布（PR/TechNode 转引）](https://technode.com/2026/05/29/tencent-launches-workbuddy-productivity-ai-agent-for-global-users/) | **2026-05-29**（PR **`HONG KONG, May 29, 2026`**） | 腾讯云（产品发布；社区转引） | **WorkBuddy**：并行多任务/多 Agent、**MCP 接 GitHub/Jira/Notion/Slack**、IM 远程；**Miora** 持久记忆创意工作室；**TokenHub** 统一模型网关 |
+| MaaS / API | [TokenHub 语言模型调用概览](https://cloud.tencent.com/document/product/1823/130079) | **文档更新 2026-05-29 14:45:30** | 腾讯云文档 | 聚合 **混元/DeepSeek/GLM/Kimi/MiniMax/Qwen**；兼容 **OpenAI Chat Completions** 与 **Anthropic Messages** 双协议；含 **Claude Code 接入** 说明 |
+| Agent 编排（社区） | [《织经》：Claude Workflows 重构 Agent 编排范式](https://juejin.cn/post/7644854787436986431) | **2026-05-29** | 掘金 | 梳理 **`agent()`/`parallel()`/`pipeline()`/`phase()`/`meta`** 等原语与 **parallel vs pipeline** 时延/token 对比——偏社区实践解读 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| TokenHub 接入 | [语言模型调用概览](https://cloud.tencent.com/document/product/1823/130079) | BaseURL、双协议参数表、Claude Code 接入 | 需要 **国内统一 LLM 网关** 的后端/Agent 团队 |
+| WorkBuddy 能力 | [WorkBuddy 产品文档](https://cloud.tencent.com/document/product/1823/130673) | Token 套餐、自定义模型、OpenClaw Skills 兼容 | 评估 **桌面 Agent + 企微/QQ 生态** 的团队 |
+| Workflows 编排 | [掘金：Claude Workflows 织经](https://juejin.cn/post/7644854787436986431) | 确定性编排 vs 概率调度、parallel/pipeline 选型 | Claude Code 深度用户 |
+
+### 工程实践归纳
+
+**总体判断**：固定来源当日增量仍集中在 **「云厂商 Agent 产品化 + 模型网关文档化」**——腾讯在香港把 **WorkBuddy/Miora/TokenHub** 作为 **enterprise AI stack** 推向全球，同时用 **TokenHub 双协议文档** 降低 **Claude Code/Codex/OpenClaw** 等工具的接入摩擦。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 办公 Agent 出海 | **WorkBuddy 全球发布** | 企业 Agent 需同时覆盖 **本地桌面自动化 + IM 远程 + MCP 工具目录** |
+| 模型网关 | **TokenHub 文档 2026-05-29 更新** | 统一网关应 **双协议兼容**（OpenAI + Anthropic），便于 **Coding Agent 零改造迁移** |
+| 编排范式 | 掘金 **Claude Workflows** 讨论 | 复杂 Agent 任务从 **prompt 概率调度** 转向 **`meta` 预算 + phase 断点** 的确定性骨架 |
+| 安全复盘（未硬对齐当日） | 阿里云社区 **FlowerStorm/KrakVM** 等 5 月系列 | 虚拟机混淆钓鱼需 **运行时行为检测**；若写日报须单独核验 **发布日期** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **TokenHub 语言模型调用概览（2026-05-29 更新）** | 国内 **多模型 + 双协议** 接入的权威参数表 |
+| 推荐 | **WorkBuddy / TokenHub Cloud Day 发布** | 理解腾讯 **Agent 办公 + MaaS** 一体化路线 |
+| 延伸 | **掘金：Claude Workflows 织经** | 社区视角的 **确定性 Agent 编排** 选型参考 |
+
+### 来源清单
+
+- 检索范围：2026-05-29 00:00:00 到 2026-05-29 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：已检索固定来源清单中的全部公司/组织维度；**硬对齐写入**：腾讯云文档（1 条）、腾讯云产品发布转引（1 条）、掘金（1 条）
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 腾讯 | 腾讯云文档 | 产品文档 | TokenHub 语言模型调用概览 | 2026-05-29 | https://cloud.tencent.com/document/product/1823/130079 |
+| 腾讯 | 腾讯云（Cloud Day HK） | 产品发布 | WorkBuddy / Miora / TokenHub 全球发布 | 2026-05-29 | https://technode.com/2026/05/29/tencent-launches-workbuddy-productivity-ai-agent-for-global-users/ |
+| 字节跳动 | 掘金 | 社区技术文章 | Claude Workflows 织经解析 | 2026-05-29 | https://juejin.cn/post/7644854787436986431 |
+
 ## 2026-05-28
 
 ### 今日总览
