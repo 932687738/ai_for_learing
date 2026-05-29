@@ -1,5 +1,21 @@
 # Markdown 问答分类合并日志
 
+## 2026-05-29（ToolCallback、Advisor 与 Hook 区别及执行顺序）
+
+**源文件**：`study/interview/original/template.md`（ToolCallback/Advisor/Hook 概念对比、ValidatingToolCallback 装饰器、LoggingAdvisor、HumanInTheLoopHook、八阶段执行顺序与选型指南，178 行）
+
+**说明**：源文件为 Spring AI 扩展点综合指南（非标准 Q&A 体），按知识点语义路由至 2 个模块；与既有「工具结果校验」「ReactAgent HITL 协作」「Spring AI Advisor 机制」语义去重后新增 1 条、合并增强 2 条；源文件残缺代码块已规范为 fenced block；无 `.bak`。
+
+| 模块文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Agent架构与协同.md | 新增 | +1（ToolCallback、Advisor 与 Hook 区别及执行顺序） |
+| Agent架构与协同.md | 合并增强 | 0（ReactAgent HITL 协作、工具结果校验：补交叉链接） |
+| Spring AI核心组件.md | 合并增强 | 0（Spring AI Advisor 机制：补 Ordered 链与三层嵌套说明） |
+
+**路由备注**：三者对比与执行顺序 → `agent-architecture`；Advisor Ordered 链细节 → 合并至 `spring-ai-core` 并链接主条目；ValidatingToolCallback 与既有「工具结果校验」互补（本批补 ToolConfig Bean 注册示例）；失败 0 条。
+
+**合计**：2 个文件更新，净增 1 条；全库 114 条。
+
 ## 2026-05-29（Spring AI 智能体 Tool Calling 面试专题）
 
 **源文件**：`study/interview/original/template.md`（@Tool 注册、Tool Calling 流程、FlowAgent、MessageChatMemoryAdvisor、MCP 动态发现、ReAct、HITL、可观测性、容错、RAG 边界、流式/并行/权限等 18 题，594 行）

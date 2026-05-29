@@ -1,4 +1,4 @@
-<!-- 模块：Spring AI 核心组件 | 最后更新于 2026-05-28（多模态与多语言） -->
+<!-- 模块：Spring AI 核心组件 | 最后更新于 2026-05-29（Advisor 与 Hook/ToolCallback 层级） -->
 
 # Spring AI 核心组件
 
@@ -137,16 +137,17 @@ Prompt prompt = new Prompt(
 ---
 ## Spring AI Advisor 机制
 
-> **模块**：Spring AI 核心组件 | **标签**：Spring AI基础 | **更新**：2026-05-28
+> **模块**：Spring AI 核心组件 | **标签**：Spring AI基础 | **更新**：2026-05-29
 
 ### 核心概念
 
-定义：Advisor 实现 AOP 风格，在 AI 模型调用前后动态插入横切逻辑（日志、重试、缓存等），无需修改业务代码。
+Advisor 实现 AOP 风格，在 AI 模型调用前后动态插入横切逻辑（日志、重试、缓存等），无需修改业务代码；多个 Advisor 按 `Ordered` 组成责任链——**前置升序、后置逆序**执行。
 
 ### 要点
 
 - **定义**：Advisor 实现 AOP 风格，在 AI 模型调用前后动态插入横切逻辑（日志、重试、缓存等），无需修改业务代码。
 - **位置**：`around` 位于用户请求与 ChatModel 调用之间，通过 `AdvisorChain.next()` 传递控制。
+- **与 Hook / ToolCallback 层级**：Advisor 处于 ChatClient 与 ChatModel 间的**通信拦截层**；Agent 场景下外层还有 Hook（生命周期），内层 ToolCallback 由 ToolCallAdvisor 调度——详见 [ToolCallback、Advisor 与 Hook 区别及执行顺序](Agent架构与协同.md)。
 
 **常见内置 Advisor**：
 
@@ -202,10 +203,11 @@ ChatClient client = ChatClient.builder(chatModel)
 
 **问**：Spring AI 中 Advisor 是什么？有哪些内置 Advisor？如何自定义？
 
-**答**：定义**：Advisor 实现 AOP 风格，在 AI 模型调用前后动态插入横切逻辑（日志、重试、缓存等），无需修改业务代码。；位置**：`around` 位于用户请求与 ChatModel 调用之间，通过 `AdvisorChain.next()` 传递控制。。
+**答**：Advisor 是包裹 ChatModel 调用的 AOP 拦截器，多个实例按 Order 组成链（前置升序、后置逆序），可自定义 `CallAdvisor`/`RequestResponseAdvisor` 实现日志、校验等横切逻辑；与 Hook（Agent 生命周期）、ToolCallback（工具执行）分属不同嵌套层。
 
 ### 关联知识点
 
+- [ToolCallback、Advisor 与 Hook 区别及执行顺序](Agent架构与协同.md)
 - [RAG Advisor](RAG Advisor.md)
 - [文档 ETL 与分块](文档ETL与分块.md)
 

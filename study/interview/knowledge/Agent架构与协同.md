@@ -1,4 +1,4 @@
-<!-- 模块：Agent 架构与协同 | 最后更新于 2026-05-29（Tool Calling 面试专题） -->
+<!-- 模块：Agent 架构与协同 | 最后更新于 2026-05-29（ToolCallback/Advisor/Hook 执行顺序） -->
 
 # Agent 架构与协同
 
@@ -6,6 +6,7 @@
 
 ## 目录
 
+- [ToolCallback、Advisor 与 Hook 区别及执行顺序](#toolcallbackadvisor-与-hook-区别及执行顺序)
 - [ReAct 与 Transformer 架构的区别](#react-与-transformer-架构的区别)
 - [Agent 与 RAG 协同 @Tool 动态加载](#agent-与-rag-协同-tool-动态加载)
 - [Skills、Tools、MCP 与知识库协同流程（含数据库场景）](#skillstoolsmcp-与知识库协同流程含数据库场景)
@@ -26,6 +27,142 @@
 - [流式响应中的 Tool Calling](#流式响应中的-tool-calling)
 - [基于角色的工具权限过滤](#基于角色的工具权限过滤)
 - [并行 Tool Calling](#并行-tool-calling)
+
+---
+## ToolCallback、Advisor 与 Hook 区别及执行顺序
+
+> **模块**：Agent 架构与协同 | **标签**：ToolCallback, Advisor, Hook, 执行顺序 | **更新**：2026-05-29
+
+### 核心概念
+
+Spring AI 中 **ToolCallback**（工具执行层）、**Advisor**（ChatClient 与 ChatModel 间的通信拦截层）、**Hook**（Agent 引擎生命周期层）分属三个嵌套层级；三者共存时由外到内为 Hook → Advisor → ToolCallback，ReAct 迭代中步骤 3～6 可循环多次。
+
+### 要点
+
+**三者职责对比**
+
+| 特性 | ToolCallback | Advisor | Hook |
+| :--- | :--- | :--- | :--- |
+| 核心职责 | 定义 AI 可直接执行的**具体能力**（调 API、查库） | 模型调用**前后**拦截增强（日志、RAG、记忆） | Agent **生命周期节点**流程控制与监控（HITL、限迭代） |
+| 操作对象 | 模型请求调用的函数/工具 | 用户提问（Prompt）与模型回复（Response） | Agent 完整状态（历史、规划、执行上下文） |
+| 工作层级 | 模型与外部世界的**执行层** | ChatClient 与 ChatModel 间的**拦截层** | Agent 引擎内部的**状态与生命周期层** |
+| 典型场景 | 查天气、发邮件、业务逻辑 | 对话记忆、RAG、日志、护栏 | 人工审批、消息压缩、工具重试、防无限循环 |
+
+**共存时的八阶段顺序**
+
+| 阶段 | 组件 | 说明 |
+| :--- | :--- | :--- |
+| 1 | BEFORE_AGENT Hook | 初始化上下文、锁资源 |
+| 2 | Advisor 前置链 | 按 `Ordered` **升序**（日志 → 记忆 → RAG） |
+| 3 | BEFORE_MODEL Hook | 每次 LLM 调用前（改提示词、注入系统消息） |
+| 4 | ChatModel | 发送请求并接收响应 |
+| 5 | AFTER_MODEL Hook | 检查输出，决定是否继续或中断 |
+| 6 | ToolCallback | 模型请求工具时执行（可多次） |
+| 7 | Advisor 后置链 | 按 `Ordered` **逆序** |
+| 8 | AFTER_AGENT Hook | 清理、统计、持久化 |
+
+**选型指南**
+
+| 需求 | 推荐 | 理由 |
+| :--- | :--- | :--- |
+| 查天气、调内部 API | ToolCallback | 定义具体能力 |
+| 自动注入对话历史 | Advisor | 横切关注点 |
+| 请求/响应日志 | Advisor | 标准拦截器模式 |
+| RAG 检索注入 | Advisor | 修改请求上下文 |
+| 高风险操作人工审批 | Hook（BEFORE_MODEL / TOOL_CALL） | 可中断流程 |
+| 限制推理迭代防死循环 | Hook（AFTER_MODEL） | 检查状态强制终止 |
+| 工具结果统一校验/重试 | ToolCallback 装饰器 | 工具执行层增强 |
+
+**形象类比**：ToolCallback 是「手脚」，Advisor 是「秘书」，Hook 是「监理」；Advisor 装饰 ChatClient 链，Hook 嵌入 Agent 引擎，ToolCallback 由 ToolCallAdvisor 调度执行。
+
+### 代码示例
+
+```java
+public class ValidatingToolCallback implements ToolCallback {
+    private final ToolCallback delegate;
+
+    public ValidatingToolCallback(ToolCallback delegate) {
+        this.delegate = delegate;
+    }
+
+    @Override
+    public String call(String toolInput) {
+        String result = delegate.call(toolInput);
+        if (result != null && (result.contains("error") || !isValidJson(result))) {
+            return "工具返回异常，请提示用户稍后重试";
+        }
+        return result;
+    }
+
+    @Override
+    public ToolDefinition getToolDefinition() {
+        return delegate.getToolDefinition();
+    }
+
+    private boolean isValidJson(String json) {
+        return json != null && (json.startsWith("{") || json.startsWith("["));
+    }
+}
+```
+
+```java
+@Configuration
+public class ToolConfig {
+    @Bean
+    public List<ToolCallback> myTools(MyWeatherService weatherService) {
+        List<ToolCallback> original = ToolCallbacks.from(weatherService);
+        return original.stream()
+                .map(ValidatingToolCallback::new)
+                .collect(Collectors.toList());
+    }
+}
+```
+
+```java
+public class LoggingAdvisor implements RequestResponseAdvisor, Ordered {
+    @Override
+    public int getOrder() {
+        return 0;
+    }
+
+    @Override
+    public AdviceResponse aroundCall(AdviceRequest request, AdvisorChain chain) {
+        System.out.println(">>> 前置：" + request.userText());
+        AdviceResponse response = chain.next(request);
+        System.out.println("<<< 后置：" + response.response());
+        return response;
+    }
+}
+```
+
+```java
+public class HumanInTheLoopHook implements AgentHook {
+    @Override
+    public AgentState beforeModel(AgentState state, AgentContext ctx) {
+        if (state.getLastToolRequest() != null
+                && state.getLastToolRequest().name().equals("deleteData")) {
+            System.out.println("⚠️ 高风险操作，请人工确认 (y/n)");
+        }
+        return state;
+    }
+}
+```
+
+### 面试常问
+
+**问**：Spring AI 中 ToolCallback、Advisor、Hook 分别负责什么？执行顺序如何？
+
+**答**：ToolCallback 定义并执行具体工具；Advisor 在每次模型调用前后做横切增强（记忆、RAG、日志），前置链升序、后置链逆序；Hook 在 Agent 生命周期节点做流程控制（HITL、限迭代）。三者嵌套为 Hook 最外 → Advisor 中 → ToolCallback 最内；ReAct 循环中 BEFORE_MODEL → LLM → AFTER_MODEL → ToolCallback 可重复直到无工具请求或达上限。
+
+**问**：高风险工具调用需要人工审批，该用 Advisor 还是 Hook？
+
+**答**：用 Hook（如 BEFORE_MODEL 或 TOOL_CALL），可在 Agent 状态层 interrupt 挂起等待外部输入；Advisor 适合无中断的横切逻辑，不适合阻塞式审批门禁。
+
+### 关联知识点
+
+- [ReactAgent 中 Tool Callback 与 HumanInTheLoopHook 协作](#reactagent-中-tool-callback-与-humanintheloophook-协作)
+- [工具结果校验（装饰器与 Advisor）](#工具结果校验装饰器与-advisor)
+- [Spring AI Advisor 机制](Spring AI核心组件.md)
 
 ---
 ## ReAct 与 Transformer 架构的区别
@@ -787,6 +924,7 @@ ReactAgent.builder()
 
 ### 关联知识点
 
+- [ToolCallback、Advisor 与 Hook 区别及执行顺序](#toolcallbackadvisor-与-hook-区别及执行顺序)
 - [Human-in-the-Loop 工具审批（ReactAgent + HumanInTheLoopHook）](Agent工作流模式.md)
 - [ReAct 与 Transformer 架构的区别](#react-与-transformer-架构的区别)
 - [MemorySaver 检查点与 HITL resume 续聊](Agent记忆体系.md)
@@ -925,6 +1063,7 @@ String result = agent.call("退货流程是什么？");
 
 ### 关联知识点
 
+- [ToolCallback、Advisor 与 Hook 区别及执行顺序](#toolcallbackadvisor-与-hook-区别及执行顺序)
 - [Tool Calling 内部执行流程](#tool-calling-内部执行流程)
 - [ReAct 与 Transformer 架构的区别](#react-与-transformer-架构的区别)
 - [Agent 工作流模式](Agent工作流模式.md)
@@ -1039,8 +1178,9 @@ public class ToolResultValidationAdvisor implements CallAroundAdvisor {
 
 ### 关联知识点
 
+- [ToolCallback、Advisor 与 Hook 区别及执行顺序](#toolcallbackadvisor-与-hook-区别及执行顺序)
 - [工具调用错误恢复与 Fallback 策略](#工具调用错误恢复与-fallback-策略)
-- [Spring AI 核心组件](Spring AI核心组件.md)
+- [Spring AI Advisor 机制](Spring AI核心组件.md)
 
 ---
 ## 流式响应中的 Tool Calling
