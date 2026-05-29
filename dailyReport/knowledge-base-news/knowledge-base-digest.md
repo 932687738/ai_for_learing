@@ -2,6 +2,61 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-05-28
+
+### 今日总览
+
+**一句话结论**：`2026-05-28` 在固定来源口径下，**腾讯云开发者社区** 出现 **2 条可硬对齐当日** 的 Agent/MCP 相关内容（**OpenClaw×Lighthouse 部署实践**、**TAPD MCP Server 上架**）；阿里/美团/字节官方 blog、掘金等其余维度 **`site:` + 当日硬对齐** 未见可引用首发长文（安全类阿里云社区文多为 **「2026年5月」事件复盘**，**未核验到 2026-05-28 发布日期**）。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 阿里 102 / 阿里云开发者 / 中间件 / 语雀；腾讯云开发者 / AlloyTeam；字节 techblog / 掘金；百度 FEX/EFE/开发者中心；美团 / 京东云 / 凹凸 / 滴滴 / 网易知乎 / 360 / 有赞 |
+| 核心趋势 | **云厂商把 OpenClaw 做成一键模板**（Lighthouse 5 分钟部署）；**研发协作 MCP 服务化**（TAPD MCP Server 进入腾讯云 MCP 目录） |
+| 可直接关注 | 用 **腾讯云 Lighthouse OpenClaw 模板** 快速验证 **7×24 Agent 网关**；评估 **TAPD MCP** 是否纳入内部 **需求/缺陷 Agent 工具链** |
+| 未发现更新 | 阿里官方 blog、美团 tech.meituan.com、字节 techblog、京东/滴滴/有赞/360/网易知乎、百度 FEX/EFE、AlloyTeam：本次 **`2026-05-28` 硬对齐** 下未见可引用条目 |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Agent 部署 | [OpenClaw × 腾讯云 Lighthouse：5 分钟上云](https://cloud.tencent.com/developer/article/2675828) | **2026-05-28 18:57:06** | 腾讯云+社区 | Lighthouse **OpenClaw 应用模板**、混元/DeepSeek 等 **模型 Key 配置**、IM 渠道接入与 **ClawHub Skills** 扩展路径 |
+| MCP / 研发协作 | [腾讯云 TAPD MCP Server](https://cloud.tencent.com/developer/mcp/server/11474) | **2026-05-28** | 腾讯云+社区（MCP 目录） | 通过 MCP 用自然语言操作 **TAPD 需求/任务/缺陷**，适合 **Agent 接企业研发流程** |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| OpenClaw 上云 | [OpenClaw × Lighthouse 文章](https://cloud.tencent.com/developer/article/2675828) | 模板部署、`clawdbot onboard`、WebUI、COS Skill | 需要 **自托管 Agent + 国内云** 的团队 |
+| 研发 MCP | [TAPD MCP Server 页](https://cloud.tencent.com/developer/mcp/server/11474) | TAPD API 经 MCP 暴露 | 做 **研发效能 Agent** 的架构师 |
+
+### 工程实践归纳
+
+**总体判断**：固定来源当日增量集中在 **「Agent 运行时托管」与「研发工具 MCP 化」**——云模板降低 OpenClaw 门槛，TAPD MCP 把 **敏捷协作系统** 纳入 Agent 工具目录。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Agent 托管 | Lighthouse **OpenClaw 模板** | 个人/小团队 Agent 优先 **模板化 IaaS**，再谈多通道与 Skills |
+| MCP 生态 | **TAPD MCP Server** 上架 | 企业 Agent 工具链应覆盖 **需求→任务→缺陷** 闭环，而非仅通用搜索 |
+| 安全复盘（未硬对齐当日） | 阿里云社区 **AppSheet 钓鱼** 系列 | 可信云服务滥用需 **行为语义检测**；若写日报须单独核验 **发布日期** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | **OpenClaw × 腾讯云 Lighthouse** | 国内 **OpenClaw 生产化部署** 的可操作清单 |
+| 延伸 | **TAPD MCP Server** | 把 **研发协作** 接入 Agent 工具面的国内范例 |
+
+### 来源清单
+
+- 检索范围：2026-05-28 00:00:00 到 2026-05-28 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：已检索固定来源清单中的全部公司/组织维度；**硬对齐写入**：腾讯云开发者（2 条）
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 腾讯 | 腾讯云+社区 | 技术文章 | OpenClaw × Lighthouse 5 分钟上云 | 2026-05-28 | https://cloud.tencent.com/developer/article/2675828 |
+| 腾讯 | 腾讯云+社区（MCP） | MCP 服务 | TAPD MCP Server | 2026-05-28 | https://cloud.tencent.com/developer/mcp/server/11474 |
+
 ## 2026-05-27
 
 ### 今日总览

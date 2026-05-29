@@ -2,6 +2,91 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-05-28
+
+### 今日总览
+
+**一句话结论**：`2026-05-28`（Asia/Shanghai）主线是 **「旗舰模型 + 万亿估值 + 治理框架」同日叠加强工程 release**——**Anthropic** 连发 **Claude Opus 4.8**（**Dynamic Workflows**、**Fast mode 降价 3×**）与 **$65B Series H @ $965B**；**OpenAI** 发布 **Frontier Governance Framework** 并推 **Codex CLI 0.135.0**；**OpenClaw `v2026.5.27`** 在上海晚间发布；资本与产品侧 **Asana 收购 StackAI**、**Sesame 对话 Agent iOS** 显示 **企业 Agent 平台化** 与 **消费级语音 Agent** 并进。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Anthropic/OpenAI 官方；OpenClaw/Codex GitHub & Changelog；TechCrunch/VentureBeat；HF Daily 2026-05-28；Spring AI GA 预期核验；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；中文补充 |
+| 核心趋势 | **Opus 4.8 加速迭代**（41 天 Opus 小版本、并行 subagent 工作流）；**AI 资本格局重排**（Anthropic $965B > OpenAI $840B）；**前沿治理公开化**（OpenAI Frontier Governance ↔ CA/EU 法规）；**编码 Agent 运维增强**（Codex doctor/0.135.0、OpenClaw 安全与 Codex 集成）；**企业 human-agent 并购**（Asana×StackAI） |
+| 可直接关注 | 评估 **Opus 4.8 + `/fast`** 与 **Dynamic Workflows** 对大型代码库迁移；读 **OpenAI Frontier Governance Framework** 对齐内部 AI 风险分类；升级 **Codex 0.135.0** 的 `codex doctor`/`/permissions` profile；部署 **OpenClaw 2026.5.27** 验证 Gateway/Codex 路径；Java 团队核对 **Spring AI 2.0 GA** 是否已正式发布（当日未见 spring.io GA 文） |
+| 专项检索结论 | **Claude Code**：**无新 GitHub tag**（最近 **`v2.1.152`** 为 **`2026-05-27`**）；**`2026-05-28`** 官方随 Opus 4.8 发布 **Dynamic Workflows**（research preview，数百并行 subagent）；**Codex**：**`Codex CLI 0.135.0`** 官方 Changelog **`2026-05-28`**（GitHub **无稳定 `rust-v0.135.0` tag**，仅 alpha）；**OpenClaw**：**`v2026.5.27`** **`Published: 2026-05-28T11:41:42Z` → `2026-05-28 19:41:42（Asia/Shanghai）`**；**Hermes**：未发现 **`2026-05-28`** 新 tag（最近 **`v0.13.0`** 为 **`2026-05-07`**）；**Spring AI**：**未见 `2.0.0` GA 官方博文**（spring.io 最近 **`2.0.0-M7` 为 `2026-05-23`**，文档仍标 *in development*）；**skills**：**无独立 marketplace 发布**；随 Opus 4.8 的 **effort 控制 / API system entries** 属模型与 harness 能力更新 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Anthropic / 模型 | [Introducing Claude Opus 4.8](https://www.anthropic.com/news/claude-opus-4-8) | **2026-05-28** | 官方发布 | 同价升级；**诚实度/不确定性标注** 提升；**effort 控制**；**Dynamic Workflows**；**fast mode $10/$50**（较 4.7 fast 降 3×）；API **`claude-opus-4-8`** |
+| Anthropic / 资本 | [Anthropic raises $65B Series H at $965B](https://www.anthropic.com/news/series-h) | **2026-05-28** | 官方公告 | **ARR ~$47B**；含 **$15B hyperscaler**（Amazon **$5B**）；算力协议（Amazon/Google/SpaceX）支撑 Claude 规模 |
+| Anthropic / Agent | [Opus 4.8 + Dynamic Workflows（TechCrunch）](https://techcrunch.com/2026/05/28/anthropic-releases-opus-4-8-with-new-dynamic-workflow-tool/) | **`May 28, 2026 10:00 AM PDT` → `2026-05-29 01:00（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | 代码库级迁移：**数百并行 subagent** + 输出校验；Mythos 类模型 **数周内** 可能更广开放 |
+| OpenAI / 治理 | [OpenAI’s Frontier Governance Framework](https://openai.com/index/openai-frontier-governance-framework/) | **2026-05-28** | 官方发布 | 将 **Preparedness Framework** 映射到 **加州 Transparency in Frontier AI Act**、**EU GPAI Code of Practice**；覆盖 cyber/CBRN/操纵/失控等 |
+| Codex | [Codex CLI 0.135.0（OpenAI Developers Changelog）](https://developers.openai.com/codex/changelog) | **2026-05-28** | 官方发布 | **`codex doctor`** 增强诊断；**`/status` 远程连接**；**vim 模式** 与 **`/permissions` named profiles**；**Python SDK Sandbox presets** |
+| OpenClaw | [openclaw/openclaw `v2026.5.27`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.27) | GitHub **`Published: 2026-05-28T11:41:42Z` → `2026-05-28 19:41:42（Asia/Shanghai）`** | 开源发布 | **安全边界**（群组 prompt、Tailscale no-auth 拒绝）；**Codex app-server** 稳定性；**Gateway/回复路径 perf**；**Pixverse/DeepInfra** 等 provider |
+| 企业 Agent | [Asana acquires StackAI ($75M)](https://techcrunch.com/2026/05/28/asana-acquires-no-code-agent-builder-stack-ai/) | **`May 28, 2026 1:06 PM PDT` → `2026-05-29 04:06（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **human-agent 操作系统** 定位；无代码 Agent 接入 Salesforce/Slack 等 **现有企业数据面** |
+| 语音 Agent | [Sesame launches iOS app](https://techcrunch.com/2026/05/28/sesame-the-conversational-ai-startup-from-oculus-founders-launches-its-ios-app/) | **`May 28, 2026 8:35 AM PDT` → `2026-05-28 23:35（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **四角色语音 Agent**（Maya/Miles 等）；**incognito**；面向 **2027 硬件** 路线 |
+| 硬件 Agent | [Vertu Alphafold + Hermes Agent](https://techcrunch.com/2026/05/28/vertu-wants-ceos-to-run-companies-from-an-ai-foldable-starting-at-6880/) | **`May 28, 2026 12:00 AM PDT` → `2026-05-28 15:00（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | 奢侈品折叠机预装 **Hermes Agent** 接 ERP/CRM——**开源 Agent 框架进入高端政企定制** 样本 |
+| 平台 / 产品 | [YouTube Premium 播客 AI 推荐与 Auto speed](https://techcrunch.com/2026/05/28/youtube-adds-new-podcast-features-including-an-ai-recommendation-tool-and-auto-speed/) | **`May 28, 2026 7:28 AM PDT` → `2026-05-28 22:28（Asia/Shanghai）`（相邻日期/跨时区）** | 官方产品 | **Ask Music 式播客推荐** + **智能变速**；Premium 月 **8 亿小时** 播客收听 |
+| Spring AI | [Spring AI 2.0 GA 预期（第三方，未见官方 GA）](https://byteiota.com/spring-ai-2-0-ships-may-28-java-finally-has-a-real-ai-stack/) | **计划 2026-05-28**；**官方未确认 GA** | 生态观察 | **Boot 4.0 + Java 21** 基线；**MCP annotations**；与 **Boot 3.5 EOL（2026-06-30）** 仅 **33 天** 窗口——需以 **spring.io 正式博文/Maven `2.0.0` release** 为准 |
+| 论文 / Agent | [HF Daily 2026-05-28：MemTrace / SkillGrad / Agent Explorative PO 等](https://huggingface.co/papers/date/2026-05-28) | **HF Daily：2026-05-28** | 论文社区 | **MemTrace**（LLM 记忆系统错误归因）；**SkillGrad**（技能优化）；**Gamma-World**（多智能体世界模型）等当日提交簇 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Opus 4.8 | [Claude Opus 4.8 发布公告](https://www.anthropic.com/news/claude-opus-4-8) | effort、fast mode、Dynamic Workflows、API system entries | Claude API / Claude Code 用户 |
+| 前沿治理 | [OpenAI Frontier Governance Framework](https://openai.com/index/openai-frontier-governance-framework/) | Preparedness ↔ 法规映射、风险分类、事件响应 | AI 合规/安全负责人 |
+| Codex 升级 | [Codex Changelog 0.135.0](https://developers.openai.com/codex/changelog) | doctor、permissions profile、vim、remote status | Codex CLI 运维 |
+| OpenClaw | [OpenClaw v2026.5.27 Release](https://github.com/openclaw/openclaw/releases/tag/v2026.5.27) | 安全边界、Codex 集成、Gateway perf | 自托管 Agent 运维 |
+| Spring AI 迁移 | [Spring AI 2.0 Getting Started（仍标 development）](https://docs.spring.io/spring-ai/reference/2.0/getting-started.html) | BOM `2.0.0`、Boot 4.x | Java AI 工程师（待 GA 官宣后升级） |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：Agent 工程在 **「更大规模并行编排 + 更强旗舰模型 + 更硬治理披露」** 三线同时推进——Opus 4.8 的 **Dynamic Workflows** 把 **subagent 并行** 推到代码库迁移场景；OpenClaw/Codex 继续加固 **运行时安全与诊断**；HF 当日论文簇聚焦 **记忆错误归因（MemTrace）** 与 **技能梯度优化（SkillGrad）**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 并行 Agent 编排 | Opus 4.8 **Dynamic Workflows** | 大任务用 **计划 → 数百 subagent → 校验**；以 **现有测试套件** 作 merge bar |
+| 模型性价比 | **Fast mode 3× 降价** | 延迟敏感生产流量可切 **fast**；API 需申请 waitlist |
+| 治理对齐 | OpenAI **Frontier Governance Framework** | 企业可把 **内部风险台账** 对齐 **CA/EU** 披露口径 |
+| Codex 可运维性 | **0.135.0 doctor + permissions profiles** | 支持案例先跑 **doctor**；权限用 **named profile** 而非散落 env |
+| OpenClaw 安全 | **v2026.5.27** 群组/Tailscale/命令包装拦截 | 多通道 Agent **默认拒绝高危暴露** |
+| Agent 记忆研究 | **MemTrace**（HF 2026-05-28） | 记忆系统需要 **错误 trace/归因** 而不只是检索命中率 |
+| 企业落地 | Asana×StackAI | **工作管理 OS + 无代码 Agent 构建器** = 存量 SaaS 数据上的 Agent 层 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Anthropic：Claude Opus 4.8 + Dynamic Workflows** | 当日 **最强 Agent 编码能力 + 并行工作流** 官方定义 |
+| 必读 | **Anthropic：Series H $65B @ $965B** | 理解 **2026 资本与算力军备** 对模型供给的影响 |
+| 推荐 | **OpenAI Frontier Governance Framework** | 前沿模型 **合规披露模板** 的参考实现 |
+| 推荐 | **OpenClaw v2026.5.27 Highlights** | 上海时区 **硬对齐** 的个人 Agent 安全/性能包 |
+| 延伸 | **HF Daily 2026-05-28（MemTrace / SkillGrad）** | Agent **记忆与技能** 研究前沿 |
+
+### 来源清单
+
+- 检索范围：2026-05-28 00:00:00 到 2026-05-28 23:59:59（Asia/Shanghai）
+- 引用域名：anthropic.com, openai.com, developers.openai.com, github.com, techcrunch.com, venturebeat.com, huggingface.co, byteiota.com, spring.io
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Claude Opus 4.8 | 2026-05-28 | https://www.anthropic.com/news/claude-opus-4-8 |
+| 官方公告 | Anthropic Series H $65B | 2026-05-28 | https://www.anthropic.com/news/series-h |
+| 官方发布 | OpenAI Frontier Governance Framework | 2026-05-28 | https://openai.com/index/openai-frontier-governance-framework/ |
+| 官方发布 | Codex CLI 0.135.0 | 2026-05-28 | https://developers.openai.com/codex/changelog |
+| 开源发布 | OpenClaw v2026.5.27 | 2026-05-28（Asia/Shanghai） | https://github.com/openclaw/openclaw/releases/tag/v2026.5.27 |
+| 技术媒体 | Opus 4.8 Dynamic Workflows | 2026-05-28/29（跨时区） | https://techcrunch.com/2026/05/28/anthropic-releases-opus-4-8-with-new-dynamic-workflow-tool/ |
+| 技术媒体 | Asana acquires StackAI | 2026-05-28/29（跨时区） | https://techcrunch.com/2026/05/28/asana-acquires-no-code-agent-builder-stack-ai/ |
+| 技术媒体 | Sesame iOS Agent app | 2026-05-28/29（跨时区） | https://techcrunch.com/2026/05/28/sesame-the-conversational-ai-startup-from-oculus-founders-launches-its-ios-app/ |
+| 技术媒体 | Vertu Alphafold Hermes | 2026-05-28（跨时区） | https://techcrunch.com/2026/05/28/vertu-wants-ceos-to-run-companies-from-an-ai-foldable-starting-at-6880/ |
+| 技术媒体 | YouTube podcast AI features | 2026-05-28（跨时区） | https://techcrunch.com/2026/05/28/youtube-adds-new-podcast-features-including-an-ai-recommendation-tool-and-auto-speed/ |
+| 论文社区 | HF Daily 2026-05-28 | 2026-05-28 | https://huggingface.co/papers/date/2026-05-28 |
+| 生态观察 | Spring AI 2.0 GA 预期（未官方确认） | 2026-05-28 | https://byteiota.com/spring-ai-2-0-ships-may-28-java-finally-has-a-real-ai-stack/ |
+
 ## 2026-05-27
 
 ### 今日总览
