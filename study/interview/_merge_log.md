@@ -1,5 +1,23 @@
 # Markdown 问答分类合并日志
 
+## 2026-05-29（Spring AI 智能体 Tool Calling 面试专题）
+
+**源文件**：`study/interview/original/template.md`（@Tool 注册、Tool Calling 流程、FlowAgent、MessageChatMemoryAdvisor、MCP 动态发现、ReAct、HITL、可观测性、容错、RAG 边界、流式/并行/权限等 18 题，594 行）
+
+**说明**：源文件为标准面试 Q&A 体，按知识点语义路由至 4 个模块；与既有 MCP Client、Agent-RAG 协同、HITL Hook 等条目语义去重后合并增强 2 条，新增 11 条；无 `.bak`。
+
+| 模块文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Agent架构与协同.md | 新增 | +8（@Tool/ToolParam、Tool Calling 流程、SimpleAgent vs ReactAgent、错误恢复/Fallback、结果校验、流式 Tool Calling、角色权限过滤、并行 Tool Calling） |
+| Agent架构与协同.md | 合并增强 | 0（Agent 与 RAG 协同边界、MCP Client 动态 vs 静态对比） |
+| Agent工作流模式.md | 新增 | +2（FlowAgent 顺序编排、HumanFeedbackToolCallback 装饰器审批） |
+| Agent记忆体系.md | 新增 | +2（MessageChatMemoryAdvisor 机制、分布式 Redis ChatMemory） |
+| 可观测与评估.md | 新增 | +1（智能体 Tool Calling 链路可观测性） |
+
+**路由备注**：Q1/Q2/Q6/Q10–Q17 → `agent-architecture`；Q3/Q7/Q8 → `agent-workflow`；Q4/Q18 → `agent-memory`；Q5 并入既有 MCP Client；Q11 并入 Agent-RAG 协同；Q9 → `observability-evaluation`；源文件残缺代码块已规范为 fenced block；失败 0 条。
+
+**合计**：4 个文件更新，净增 13 条；全库 113 条。
+
 ## 2026-05-28（Human-in-the-Loop 工具审批 /tool-feedback）
 
 **源文件**：`D:\cache\workspace\ai\src\main\java\com\yxy\deepseek\springai\controller\projectPractice\humanloop\HumanInTheLoopToolFeedback知识点总结.md`（invoke/resume、HumanInTheLoopHook、MemorySaver、approvalOn、三种决策、messages 状态变迁，382 行）

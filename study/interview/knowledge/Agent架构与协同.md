@@ -1,4 +1,4 @@
-<!-- 模块：Agent 架构与协同 | 最后更新于 2026-05-28（Tool 与 HITL Hook 协作） -->
+<!-- 模块：Agent 架构与协同 | 最后更新于 2026-05-29（Tool Calling 面试专题） -->
 
 # Agent 架构与协同
 
@@ -18,6 +18,14 @@
 - [同一应用同时作为 MCP Client 与 Server](#同一应用同时作为-mcp-client-与-server)
 - [Tool Calling 聚合多接口业务数据](#tool-calling-聚合多接口业务数据)
 - [ReactAgent 中 Tool Callback 与 HumanInTheLoopHook 协作](#reactagent-中-tool-callback-与-humanintheloophook-协作)
+- [@Tool 定义、注册与 ToolParam 参数约束](#tool-定义注册与-toolparam-参数约束)
+- [Tool Calling 内部执行流程](#tool-calling-内部执行流程)
+- [SimpleAgent 与 ReactAgent ReAct 规划模式](#simpleagent-与-reactagent-react-规划模式)
+- [工具调用错误恢复与 Fallback 策略](#工具调用错误恢复与-fallback-策略)
+- [工具结果校验（装饰器与 Advisor）](#工具结果校验装饰器与-advisor)
+- [流式响应中的 Tool Calling](#流式响应中的-tool-calling)
+- [基于角色的工具权限过滤](#基于角色的工具权限过滤)
+- [并行 Tool Calling](#并行-tool-calling)
 
 ---
 ## ReAct 与 Transformer 架构的区别
@@ -62,13 +70,24 @@
 
 ### 核心概念
 
-将 RAG 检索封装为 `@Tool` 方法（含 name、description），返回拼接后的 Document 文本。
+RAG 是**被动上下文注入**（请求前自动检索并写入 Prompt），工具调用是**主动决策执行**（模型动态选择何时调哪个 Tool）。两者可融合：将 RAG 检索器封装为 `@Tool`，形成「工具化 RAG」，既保留知识注入能力，又赋予调用时机自主权。
 
 ### 要点
+
+**适用边界**
+
+| 场景 | 推荐方式 | 典型示例 |
+| :--- | :--- | :--- |
+| 确定性事实查询 | RAG（QuestionAnswerAdvisor） | 「公司报销政策是什么」 |
+| 实时数据 / 执行动作 / 多步推理 | Tool Calling | 「查今日汇率并换算」 |
+| 模型自主决定何时检索 | RAG 封装为 Tool | RetrievalTool + ChatClient |
+
+**实现要点**
 
 - 将 RAG 检索封装为 `@Tool` 方法（含 name、description），返回拼接后的 Document 文本。
 - 通过 `KnowledgeToolRegistry` 收集 Spring 容器中所有 `@Tool` Bean。
 - `ChatClient.defaultTools()` 注入后，由 LLM 根据工具描述自主决定是否调用知识库。
+- **回退策略**：RAG 检索不到时可回退到 Tool 检索，可通过 ToolCallingAdvisor 组合或自定义路由实现。
 
 ### 代码示例
 
@@ -114,9 +133,13 @@ public ChatClient agentChatClient(ChatClient.Builder builder) {
 
 ### 面试常问
 
-**问**：如何让 Agent 动态决定是否调用 RAG 检索？请给出使用 @Tool 注解并动态加载工具的设计。
+**问**：智能体与 RAG 的协同边界是什么？何时用 RAG、何时用 Tool？
 
-**答**：将 RAG 检索封装为 `@Tool` 方法（含 name、description），返回拼接后的 Document 文本。；通过 `KnowledgeToolRegistry` 收集 Spring 容器中所有 `@Tool` Bean。；`ChatClient.defaultTools()` 注入后，由 LLM 根据工具描述自主决定是否调用知识库。。
+**答**：RAG 适合确定性事实查询，在请求前被动注入上下文；Tool 适合实时数据与执行动作，由模型主动决策。可将 RAG 封装为 Tool 实现「工具化 RAG」，检索不到时还可回退到 Tool 检索。
+
+**问**：如何让 Agent 动态决定是否调用 RAG 检索？
+
+**答**：将检索逻辑封装为带 name/description 的 `@Tool`，经 `KnowledgeToolRegistry` 收集后注入 `ChatClient.defaultTools()`，由 LLM 根据工具描述自主决定是否调用知识库。
 
 ### 关联知识点
 
@@ -468,9 +491,20 @@ public class WeatherService {
 
 ### 核心概念
 
-MCP Client Starter 负责连接远程 Streamable-HTTP 或 STDIO MCP Server，将远端工具注册为 `ToolCallback`，注入 `ChatClient` 后由 LLM 自主决定是否跨进程调用外部能力。
+MCP Client Starter 负责连接远程 Streamable-HTTP 或 STDIO MCP Server，将远端工具注册为 `ToolCallback`，注入 `ChatClient` 后由 LLM 自主决定是否跨进程调用外部能力。与 `@Tool` 静态注册的本质区别：**@Tool 在启动时固定**，**MCP 在运行时通过 `tools/list` 动态发现**，实现 Tool-as-a-Service。
 
 ### 要点
+
+**静态 @Tool vs 动态 MCP**
+
+| 维度 | @Tool 静态注册 | MCP 动态发现 |
+| :--- | :--- | :--- |
+| 绑定时机 | 编译/启动时固定 | 运行时连接 Server 后获取 |
+| 工具来源 | 项目内 Java 方法 | 远程 MCP Server |
+| 变更方式 | 需改代码并重启 | 远程增删工具，无需重启 |
+| 转换机制 | MethodToolCallback | McpToolCallback 包装远程元数据 |
+
+**动态发现流程**：连接 MCP Server → 调用 `tools/list` 获取元数据（名称、描述、JSON Schema）→ 包装为 `McpToolCallback` → 注册到 ChatClient → 模型调用时经 `tools/call` 远程执行。
 
 **常用 Starter**：
 
@@ -558,6 +592,10 @@ public class ChatController {
 **问**：Spring AI MCP Client 如何把远程 MCP Server 的工具交给 ChatClient 使用？
 
 **答**：启用 `toolcallback`，配置 streamable-http 或 stdio 连接；将 `ToolCallbackProvider` 注入 ChatClient 的 `defaultToolCallbacks`。模型推理时会经 MCP Client 向 Server 发 JSON‑RPC，无需手写工具调度代码。
+
+**问**：MCP 动态工具发现与 @Tool 静态注册有什么本质区别？
+
+**答**：@Tool 在应用启动时确定工具列表，能力编码在项目中；MCP 通过 `tools/list` 运行时从远程 Server 获取工具元数据并动态包装为 ToolCallback，远程可增删工具而无需重启，实现 Tool-as-a-Service。
 
 ### 关联知识点
 
@@ -752,5 +790,379 @@ ReactAgent.builder()
 - [Human-in-the-Loop 工具审批（ReactAgent + HumanInTheLoopHook）](Agent工作流模式.md)
 - [ReAct 与 Transformer 架构的区别](#react-与-transformer-架构的区别)
 - [MemorySaver 检查点与 HITL resume 续聊](Agent记忆体系.md)
+
+---
+## @Tool 定义、注册与 ToolParam 参数约束
+
+> **模块**：Agent 架构与协同 | **标签**：@Tool, ToolParam, ChatClient | **更新**：2026-05-29
+
+### 核心概念
+
+`@Tool` 声明方法的元数据（名称、描述、参数 Schema），框架将其转换为 `MethodToolCallback`；须将**工具 Bean 实例**通过 `ChatClient.Builder.defaultTools()` 注册，模型才能发现并调用。`@ToolParam` 生成 JSON Schema 约束参数，降低幻觉，但后端仍需校验兜底。
+
+### 要点
+
+**定义与注册**
+
+1. 在 Spring Bean 方法上加 `@Tool(description=...)` 与 `@ToolParam(description=..., required=...)`。
+2. 通过 `ChatClient.builder(chatModel).defaultTools(toolBeanInstance).build()` 注册；传入的是**对象实例**，框架扫描其所有 `@Tool` 方法。
+3. `defaultTools()` 接收 Bean 实例，内部转为 `MethodToolCallback` 列表。
+
+**参数约束防幻觉**
+
+- 框架根据 `@ToolParam` 类型与注解自动生成 JSON Schema，随工具定义发给大模型。
+- JSON Schema 对模型是「强烈建议」，无法完全阻止非法值；应在 Tool 方法内做参数校验，返回结构化错误供模型下一轮修正。
+- 可结合 Jackson `@JsonProperty` 等进一步约束枚举与格式。
+
+### 代码示例
+
+```java
+@Component
+public class WeatherService {
+    @Tool(description = "获取指定城市的天气")
+    public String getWeather(@ToolParam(description = "城市名称") String city) {
+        return city + " 当前晴朗，25°C";
+    }
+}
+
+@Autowired
+private WeatherService weatherService;
+
+ChatClient client = ChatClient.builder(chatModel)
+    .defaultTools(weatherService)
+    .build();
+
+@Tool(description = "查询订单")
+public Order queryOrder(
+    @ToolParam(description = "订单ID，纯数字", required = true) String orderId,
+    @ToolParam(description = "查询日期，格式yyyy-MM-dd") String date) { ... }
+```
+
+### 面试常问
+
+**问**：Spring AI 中如何定义并注册 Tool？
+
+**答**：在 Bean 方法上加 `@Tool`/`@ToolParam` 声明元数据，再将 Bean 实例传入 `ChatClient.Builder.defaultTools()`；框架扫描带注解的方法并生成 MethodToolCallback。
+
+**问**：如何避免大模型传递错误工具参数？
+
+**答**：依赖 `@ToolParam` 生成的 JSON Schema 引导模型，同时在 Tool 方法内做硬校验，非法时返回结构化错误消息让模型在 ReAct 循环中修正。
+
+### 关联知识点
+
+- [Tool Calling 内部执行流程](#tool-calling-内部执行流程)
+- [Spring AI MCP Client 端与 ChatClient 集成](#spring-ai-mcp-client-端与-chatclient-集成)
+
+---
+## Tool Calling 内部执行流程
+
+> **模块**：Agent 架构与协同 | **标签**：ToolCallback, ReAct, ToolCallingManager | **更新**：2026-05-29
+
+### 核心概念
+
+工具调用是多轮 ReAct 交互：框架将注册工具转为 OpenAI 兼容 functions 参数随请求发送；模型返回 `tool_calls` 后，框架匹配 `ToolCallback`、绑定参数并执行，结果以 `ToolResponseMessage` 追加历史并再次调用模型，直至返回纯文本。
+
+### 要点
+
+**完整流程**
+
+1. **请求构建**：已注册工具（ToolCallback 列表）转为 functions 参数（名称、描述、JSON Schema）随 Prompt 发送。
+2. **大模型决策**：根据用户消息与函数描述，返回 `tool_calls`（函数名 + JSON 参数）或普通文本。
+3. **框架拦截**：`ToolCallingChatModel` / 拦截器检测到 `tool_calls`，按名称精确匹配 `ToolCallback`。
+4. **参数绑定与执行**：JSON 反序列化为方法参数，`MethodToolCallback` 调用实际 `@Tool` 方法。
+5. **结果回传**：工具结果追加到对话历史，立即发起新一轮模型调用（ReAct 循环）。
+6. **终止**：模型返回普通文本或达到 `maxToolCallIterations` 上限。
+
+**关键类**：`DefaultToolCallingChatModel`、`ToolCallingManager`、`ToolCallback` 接口。
+
+### 面试常问
+
+**问**：用户消息触发工具调用时，Spring AI 内部如何处理？
+
+**答**：工具转 functions 参数发给模型 → 模型返回 tool_calls → 框架匹配 ToolCallback 并执行 → 结果写回历史 → 再次调模型生成最终回复；多轮直至文本响应或达迭代上限。
+
+### 关联知识点
+
+- [@Tool 定义、注册与 ToolParam 参数约束](#tool-定义注册与-toolparam-参数约束)
+- [SimpleAgent 与 ReactAgent ReAct 规划模式](#simpleagent-与-reactagent-react-规划模式)
+- [并行 Tool Calling](#并行-tool-calling)
+
+---
+## SimpleAgent 与 ReactAgent ReAct 规划模式
+
+> **模块**：Agent 架构与协同 | **标签**：SimpleAgent, ReactAgent, ReAct | **更新**：2026-05-29
+
+### 核心概念
+
+`SimpleAgent` 是单轮对话轻量封装，**不涉及 ReAct 规划**；真正的「思考-行动-观察」循环由 `ReactAgent` / `ReActAgent` 实现，通过多轮 LLM 与 Tool 节点交替直至任务完成。
+
+### 要点
+
+**SimpleAgent**：适合简单问答，一次 `call()` 即得回复，无工具循环。
+
+**ReactAgent ReAct 循环**
+
+1. **推理与决策**：向模型发送历史、提示词与可用工具，模型决定调用工具或终结。
+2. **行动与执行**：`AgentToolNode` 解析 tool_calls，执行 ToolCallback，支持顺序/并行与超时。
+3. **观察与反馈**：工具结果作为新消息加入历史，开启下一轮思考。
+4. **终止条件**：模型不再请求工具，或达到最大轮次（如 5 轮）/超时（如 5 分钟）。
+
+### 代码示例
+
+```java
+SimpleAgent agent = SimpleAgent.builder()
+    .chatModel(chatModel)
+    .systemPrompt("你是一个客服助手")
+    .build();
+String result = agent.call("退货流程是什么？");
+```
+
+### 面试常问
+
+**问**：SimpleAgent 的 ReAct 规划模式如何工作？
+
+**答**：SimpleAgent 本身不做 ReAct，仅单轮封装；ReAct 由 ReactAgent 实现——模型推理 → 工具执行 → 观察写回 → 循环直至无 tool_calls 或达上限。
+
+### 关联知识点
+
+- [Tool Calling 内部执行流程](#tool-calling-内部执行流程)
+- [ReAct 与 Transformer 架构的区别](#react-与-transformer-架构的区别)
+- [Agent 工作流模式](Agent工作流模式.md)
+
+---
+## 工具调用错误恢复与 Fallback 策略
+
+> **模块**：Agent 架构与协同 | **标签**：容错, Fallback, maxToolCallIterations | **更新**：2026-05-29
+
+### 核心概念
+
+Spring AI 通过 ReAct 循环、异常封装、装饰器 Fallback 与迭代上限多层保障工具调用鲁棒性；框架无内置 ToolBack 接口，需组合 ToolCallback 包装器与 Advisor 实现降级。
+
+### 要点
+
+**框架层容错**
+
+1. **异常封装**：ToolCallback 抛异常时，框架捕获并封装为 `ToolResponseMessage` 返回模型，模型可修正参数或换策略。
+2. **ReAct 重试**：错误消息追加历史后立即再次调模型，受 `maxToolCallIterations` 限制（默认约 5 次）。
+3. **超时**：`ToolCallingManager` 可配置单工具超时，超时错误同样回注模型决策。
+
+**自定义 Fallback**
+
+- **装饰器模式**：`FallbackToolCallback` 捕获 primary 异常后调用 fallback 工具。
+- **Advisor 全局降级**：`CallAroundAdvisor` 检测 ToolResponseMessage 错误，注入降级提示引导人工处理。
+- **人工降级**：结合 `HumanFeedbackToolCallback`，自动恢复失败时提交审批。
+
+**底层重试**：远程工具可结合 Spring Retry / Resilience4j 在 HTTP/McpClient 层设置重试。
+
+### 代码示例
+
+```java
+public class FallbackToolCallback implements ToolCallback {
+    private final ToolCallback primary;
+    private final ToolCallback fallback;
+
+    @Override
+    public String call(String toolInput) {
+        try {
+            return primary.call(toolInput);
+        } catch (Exception e) {
+            return fallback.call(toolInput);
+        }
+    }
+}
+
+Agent agent = Agent.builder()
+    .chatModel(chatModel)
+    .tools(List.of(primaryWithFallback))
+    .maxToolCallIterations(3)
+    .build();
+```
+
+### 面试常问
+
+**问**：工具调用参数无效或外部服务超时如何处理？
+
+**答**：框架将异常封装为 ToolResponseMessage 让模型在 ReAct 内重试；可设 maxToolCallIterations 防死循环；装饰器实现 Fallback 或 Advisor 引导降级/人工审批。
+
+### 关联知识点
+
+- [Tool Calling 内部执行流程](#tool-calling-内部执行流程)
+- [HumanFeedbackToolCallback 装饰器式人工审批](Agent工作流模式.md)
+- [性能与高可用](性能与高可用.md)
+
+---
+## 工具结果校验（装饰器与 Advisor）
+
+> **模块**：Agent 架构与协同 | **标签**：ToolCallback, Advisor, 校验 | **更新**：2026-05-29
+
+### 核心概念
+
+Spring AI 无现成 `ToolResultValidator` 接口；通过**装饰器包装 ToolCallback** 或 **CallAroundAdvisor 拦截 ToolResponseMessage** 对工具返回值做格式与业务校验。
+
+### 要点
+
+**装饰器模式（推荐）**：包装真实 ToolCallback，在 `call()` 返回后检查 JSON 格式、error 关键字等，不合格则返回友好错误提示。
+
+**Advisor 模式**：实现 `CallAroundAdvisor`，在 `chain.next()` 后遍历响应中的 `ToolResponseMessage` 统一校验并替换。
+
+### 代码示例
+
+```java
+public class ValidatingToolCallback implements ToolCallback {
+    private final ToolCallback delegate;
+
+    @Override
+    public String call(String toolInput) {
+        String result = delegate.call(toolInput);
+        if (result.contains("error") || !isValidJson(result)) {
+            return "工具返回异常，请提示用户稍后重试";
+        }
+        return result;
+    }
+}
+
+public class ToolResultValidationAdvisor implements CallAroundAdvisor {
+    @Override
+    public ChatResponse around(ChatClientRequest request, CallAroundAdvisorChain chain) {
+        ChatResponse response = chain.next(request);
+        // 遍历 ToolResponseMessage 校验并替换
+        return response;
+    }
+}
+```
+
+### 面试常问
+
+**问**：如何校验工具返回结果格式？有 ToolResultValidator 吗？
+
+**答**：无内置接口；常用装饰器包装 ToolCallback 在 call 后校验，或用 CallAroundAdvisor 全局拦截 ToolResponseMessage。
+
+### 关联知识点
+
+- [工具调用错误恢复与 Fallback 策略](#工具调用错误恢复与-fallback-策略)
+- [Spring AI 核心组件](Spring AI核心组件.md)
+
+---
+## 流式响应中的 Tool Calling
+
+> **模块**：Agent 架构与协同 | **标签**：Streaming, tool_calls | **更新**：2026-05-29
+
+### 核心概念
+
+流式模式下，模型在 delta 中逐步输出 `tool_calls` 分块；`ToolCallingStreamingChatModel` 累积至完整指令后**中断流**、同步/异步执行工具，再以新一轮流式请求基于工具结果生成最终答案。
+
+### 要点
+
+1. **检测**：delta 中可能先有部分文本，随后输出 `delta.tool_calls` 分块。
+2. **中断与执行**：完整 tool_calls 形成后立即终止向客户端推送，执行 ToolCallback。
+3. **二次流式**：工具结果追加历史，发起新流式请求生成最终回复。
+4. **与非流式区别**：非流式对客户端透明一次性返回；流式可能出现「先无输出、工具执行暂停、再开始流式」的体验。
+
+### 代码示例
+
+```java
+chatClient.prompt()
+    .user("查天气并穿衣建议")
+    .tools(weatherTool)
+    .stream()
+    .content();
+```
+
+### 面试常问
+
+**问**：流式响应时工具调用与非流式有何不同？
+
+**答**：流式需在 delta 中实时累积 tool_calls，完整后中断流并执行工具，再以新流式请求生成答案；客户端需处理工具执行期间的暂停。
+
+### 关联知识点
+
+- [Tool Calling 内部执行流程](#tool-calling-内部执行流程)
+- [Spring AI 核心组件](Spring AI核心组件.md)
+
+---
+## 基于角色的工具权限过滤
+
+> **模块**：Agent 架构与协同 | **标签**：权限, RBAC, Advisor | **更新**：2026-05-29
+
+### 核心概念
+
+生产环境应**按用户角色动态传入不同 ToolCallback 列表**，而非仅依赖 Prompt 约束；Tool 内部也应从 `SecurityContext` 二次校验，防止绕过。
+
+### 要点
+
+1. 维护全量工具 Map，按用户角色过滤出允许列表。
+2. 每次 `ChatClient.prompt().tools(filteredList).call()` 动态注册。
+3. Advisor 增强提示词可作为辅助，但不能替代白名单过滤。
+4. ToolCallback 内部再次校验当前用户是否有权执行该操作。
+
+### 代码示例
+
+```java
+Map<String, ToolCallback> allTools = Map.of(
+    "orderQuery", orderTool,
+    "userDelete", deleteTool
+);
+
+public List<ToolCallback> getToolsForUser(String userId) {
+    User user = userService.getById(userId);
+    if (user.hasRole("ADMIN")) {
+        return new ArrayList<>(allTools.values());
+    }
+    return List.of(allTools.get("orderQuery"));
+}
+
+client.prompt()
+    .user("删除用户123")
+    .tools(getToolsForUser(userId))
+    .call();
+```
+
+### 面试常问
+
+**问**：如何确保不同用户只能调用权限范围内的工具？
+
+**答**：按角色动态过滤 ToolCallback 列表注入每次请求，并在 Tool 实现内从 SecurityContext 二次校验；不能仅靠 Advisor 改 Prompt。
+
+### 关联知识点
+
+- [@Tool 定义、注册与 ToolParam 参数约束](#tool-定义注册与-toolparam-参数约束)
+- [HumanFeedbackToolCallback 装饰器式人工审批](Agent工作流模式.md)
+
+---
+## 并行 Tool Calling
+
+> **模块**：Agent 架构与协同 | **标签**：PARALLEL, ToolCallingManager | **更新**：2026-05-29
+
+### 核心概念
+
+当模型一次响应返回多个无依赖的 `tool_calls` 时，`ToolCallingManager` 可用线程池并行执行各 ToolCallback，汇总为多条 `ToolResponseMessage` 后再发起下一轮模型请求。
+
+### 要点
+
+- **触发**：单次响应含多个 tool_calls 且彼此无依赖。
+- **执行**：线程池并行调用，显著降低总耗时。
+- **汇总**：等待全部完成（或超时）后分别封装 ToolResponseMessage 追加历史。
+- **配置**：`Agent.builder().toolCallingMode(ToolCallingMode.PARALLEL).build()`。
+
+### 代码示例
+
+```java
+Agent agent = Agent.builder()
+    .chatModel(chatModel)
+    .tools(tools)
+    .toolCallingMode(ToolCallingMode.PARALLEL)
+    .build();
+```
+
+### 面试常问
+
+**问**：Spring AI 是否支持并行工具调用？如何实现？
+
+**答**：支持；模型一次返回多个 tool_calls 时 ToolCallingManager 线程池并行执行，结果分别写回后再次调模型；可通过 toolCallingMode(PARALLEL) 显式启用。
+
+### 关联知识点
+
+- [Tool Calling 内部执行流程](#tool-calling-内部执行流程)
+- [性能与高可用](性能与高可用.md)
 
 ---

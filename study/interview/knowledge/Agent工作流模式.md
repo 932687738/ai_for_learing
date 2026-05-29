@@ -1,4 +1,4 @@
-<!-- 模块：Agent 工作流模式 | 最后更新于 2026-05-28（HITL 工具审批） -->
+<!-- 模块：Agent 工作流模式 | 最后更新于 2026-05-29（FlowAgent / HumanFeedbackToolCallback） -->
 
 # Agent 工作流模式
 
@@ -13,6 +13,8 @@
 - [多智能体监督与交接模式](#多智能体监督与交接模式)
 - [IDE 分阶段顺序多智能体协同](#ide-分阶段顺序多智能体协同)
 - [Human-in-the-Loop 工具审批（ReactAgent + HumanInTheLoopHook）](#human-in-the-loop-工具审批reactagent--humanintheloophook)
+- [FlowAgent 顺序多智能体编排](#flowagent-顺序多智能体编排)
+- [HumanFeedbackToolCallback 装饰器式人工审批](#humanfeedbacktoolcallback-装饰器式人工审批)
 
 ---
 ## SequentialAgent 与 LoopAgent 工作流
@@ -551,5 +553,131 @@ humanFeedbackAgent.invokeAndGetOutput("", resumeConfig);
 - [MemorySaver 检查点与 HITL resume 续聊](Agent记忆体系.md)
 - [ReactAgent 中 Tool Callback 与 HumanInTheLoopHook 协作](Agent架构与协同.md)
 - [ReAct 与 Transformer 架构的区别](Agent架构与协同.md)
+
+---
+## FlowAgent 顺序多智能体编排
+
+> **模块**：Agent 工作流模式 | **标签**：FlowAgent, 顺序编排 | **更新**：2026-05-29
+
+### 核心概念
+
+`FlowAgent` 维护有序智能体列表，按序调用各 Agent 的 `call(String input)`；上一 Agent 的**完整文本输出**直接作为下一 Agent 的输入，形成线性数据流。FlowAgent 本身也实现 `Agent` 接口，可嵌套组合。
+
+### 要点
+
+1. **定义步骤**：`FlowAgent.builder().agents(agent1, agent2, ...).build()` 注册有序序列。
+2. **顺序执行**：用户输入进入后依次调用每个 Agent。
+3. **结果传递**：默认无结构化转换，纯字符串透传；前后 Agent 的 Prompt 约定须清晰。
+4. **终止**：最后一个 Agent 的输出即为 FlowAgent 最终输出。
+5. **可组合**：FlowAgent 可作为子 Agent 被更大 FlowAgent 嵌套。
+
+### 代码示例
+
+```java
+Agent analyzer = Agent.builder()
+    .model(chatModel)
+    .tool(new TextAnalysisTool())
+    .build();
+
+Agent reporter = Agent.builder()
+    .model(chatModel)
+    .tool(new ReportGenerateTool())
+    .build();
+
+FlowAgent flow = FlowAgent.builder()
+    .name("analysis-flow")
+    .agents(analyzer, reporter)
+    .build();
+
+String result = flow.call("请分析这份销售数据并生成报告");
+
+Agent extractor = Agent.builder()
+    .chatModel(chatModel)
+    .systemPrompt("从文本中提取3个核心关键词，用逗号分隔。")
+    .build();
+
+Agent summarizer = Agent.builder()
+    .chatModel(chatModel)
+    .systemPrompt("根据提供的关键词，写一段100字的摘要。")
+    .build();
+
+FlowAgent pipeline = FlowAgent.builder()
+    .agents(extractor, summarizer)
+    .build();
+```
+
+### 面试常问
+
+**问**：FlowAgent 如何实现多智能体顺序执行并传递结果？
+
+**答**：维护有序 Agent 列表，依次 call；上一 Agent 返回的完整文本直接作为下一 Agent 输入，无中间转换；全部执行完毕后返回最后一个 Agent 的输出。
+
+**问**：多智能体协作时输入输出如何传递？
+
+**答**：默认线性字符串透传，要求前一 Agent 输出格式能被后一 Agent 的 systemPrompt 理解；FlowAgent 本身也是 Agent，可嵌套形成更复杂流程。
+
+### 关联知识点
+
+- [SequentialAgent 与 LoopAgent 工作流](#sequentialagent-与-loopagent-工作流)
+- [SimpleAgent 与 ReactAgent ReAct 规划模式](Agent架构与协同.md)
+
+---
+## HumanFeedbackToolCallback 装饰器式人工审批
+
+> **模块**：Agent 工作流模式 | **标签**：HITL, HumanFeedback, 装饰器 | **更新**：2026-05-29
+
+### 核心概念
+
+`HumanFeedbackToolCallback` 通过**装饰器模式**包裹真实 `ToolCallback`，在工具执行前挂起对话、经 `HumanFeedbackService` 发送审批请求，阻塞等待批准/拒绝后再执行或返回拒绝消息。适用于转账、删数据等高风险操作。
+
+### 要点
+
+**工作流程**
+
+1. 模型决定调用关键工具 → 装饰器拦截，不立即执行。
+2. 经 `HumanFeedbackService` 向审批系统发送工具名与参数，携带唯一 `feedbackId`。
+3. 对话阻塞等待审批结果（批准 / 拒绝 / 可附带修改意见）。
+4. **批准**：调用被包装的真实 ToolCallback，结果回注模型。
+5. **拒绝**：返回预设拒绝消息，模型据此生成回复。
+
+**与 HumanInTheLoopHook 的区别**：`HumanFeedbackToolCallback` 是 Tool 层装饰器；`HumanInTheLoopHook` 是 ReactAgent 图节点级 interrupt/resume，二者可组合使用。
+
+### 代码示例
+
+```java
+@Component
+class PaymentTool {
+    @Tool(description = "执行转账操作")
+    public String transfer(String fromAccount, String toAccount, double amount) {
+        return "转账成功";
+    }
+}
+
+ToolCallback rawCallback = MethodToolCallback.builder()
+    .toolObject(new PaymentTool())
+    .methodName("transfer")
+    .build();
+
+ToolCallback approvedCallback = HumanFeedbackToolCallback.builder()
+    .toolCallback(rawCallback)
+    .humanFeedbackService(feedbackService)
+    .build();
+
+Agent agent = Agent.builder()
+    .chatModel(chatModel)
+    .tools(List.of(approvedCallback))
+    .build();
+```
+
+### 面试常问
+
+**问**：关键工具调用如何加入人工审批？HumanFeedbackToolCallback 如何工作？
+
+**答**：用 HumanFeedbackToolCallback 装饰真实 ToolCallback；模型触发调用时挂起并发送审批，批准则执行原工具，拒绝则返回拒绝消息给模型；适合转账、删数据等高风险场景。
+
+### 关联知识点
+
+- [Human-in-the-Loop 工具审批（ReactAgent + HumanInTheLoopHook）](#human-in-the-loop-工具审批reactagent--humanintheloophook)
+- [工具调用错误恢复与 Fallback 策略](Agent架构与协同.md)
 
 ---

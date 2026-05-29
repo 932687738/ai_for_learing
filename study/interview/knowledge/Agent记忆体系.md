@@ -1,4 +1,4 @@
-<!-- 模块：Agent 记忆体系 | 最后更新于 2026-05-28（MemorySaver HITL 续聊） -->
+<!-- 模块：Agent 记忆体系 | 最后更新于 2026-05-29（MessageChatMemoryAdvisor / Redis） -->
 
 # Agent 记忆体系
 
@@ -10,6 +10,8 @@
 - [AutoMemoryTools 工具驱动型长期记忆](#automemorytools-工具驱动型长期记忆)
 - [Spring AI 记忆类型对比与选型](#spring-ai-记忆类型对比与选型)
 - [MemorySaver 检查点与 HITL resume 续聊](#memorysaver-检查点与-hitl-resume-续聊)
+- [MessageChatMemoryAdvisor 工作机制](#messagechatmemoryadvisor-工作机制)
+- [分布式 Redis ChatMemory 共享](#分布式-redis-chatmemory-共享)
 
 ---
 ## 多轮对话记忆管理（短期记忆）
@@ -248,5 +250,104 @@ humanFeedbackAgent.invokeAndGetOutput("", resumeConfig);
 
 - [Human-in-the-Loop 工具审批（ReactAgent + HumanInTheLoopHook）](Agent工作流模式.md)
 - [多轮对话记忆管理（短期记忆）](#多轮对话记忆管理短期记忆)
+
+---
+## MessageChatMemoryAdvisor 工作机制
+
+> **模块**：Agent 记忆体系 | **标签**：Advisor, ChatMemory, conversationId | **更新**：2026-05-29
+
+### 核心概念
+
+`MessageChatMemoryAdvisor` 是 `RequestResponseAdvisor`，围绕 ChatClient 请求-响应生命周期工作：请求前从 `ChatMemory` 取历史注入 Prompt 头部，响应后将本轮用户消息与模型回复追加回记忆。不直接拦截 ChatModel，而是通过 Advisor 链编排。
+
+### 要点
+
+**数据结构**：依赖 `ChatMemory` 接口；默认 `InMemoryChatMemory` 内部用 `ConcurrentHashMap<String, List<Message>>`，key 为 `conversationId`。可切换 JDBC/Redis 等持久化实现。
+
+**交互流程**
+
+- **before**：按 `conversationId` 取历史，添加到当前 Prompt 消息列表头部。
+- **after**：将本轮 UserMessage 与 AssistantMessage 追加到 ChatMemory。
+
+**使用注意**：Advisor 本身不生成 conversationId，须通过 `advisors(a -> a.param("conversationId", id))` 传入，否则不同用户对话会混在一起。
+
+### 代码示例
+
+```java
+ChatMemory memory = new InMemoryChatMemory();
+ChatClient client = ChatClient.builder(chatModel)
+    .defaultAdvisors(new MessageChatMemoryAdvisor(memory))
+    .build();
+
+client.prompt().user("...")
+    .advisors(a -> a.param("conversationId", "user-123"))
+    .call();
+```
+
+### 面试常问
+
+**问**：MessageChatMemoryAdvisor 如何为智能体提供记忆？用什么数据结构？
+
+**答**：作为 RequestResponseAdvisor，请求前从 ChatMemory 取历史注入 Prompt，响应后追加本轮消息；底层由 ChatMemory 管理，默认 InMemory 用 ConcurrentHashMap 按 conversationId 存 Message 列表；每次调用须显式传 conversationId。
+
+### 关联知识点
+
+- [多轮对话记忆管理（短期记忆）](#多轮对话记忆管理短期记忆)
+- [分布式 Redis ChatMemory 共享](#分布式-redis-chatmemory-共享)
+
+---
+## 分布式 Redis ChatMemory 共享
+
+> **模块**：Agent 记忆体系 | **标签**：Redis, 分布式, conversationId | **更新**：2026-05-29
+
+### 核心概念
+
+`ChatMemory` 接口支持自定义实现；多实例部署时将 `InMemoryChatMemory` 替换为 `RedisChatMemory`（或 JDBC），以 `conversationId` 为键共享对话历史，实现无状态服务水平扩展。
+
+### 要点
+
+1. 实现 `ChatMemory` 接口的 `add` / `get` / `clear`，底层用 `RedisTemplate` 存 `List<Message>`。
+2. 注入 `MessageChatMemoryAdvisor`，所有实例对同一 `conversationId` 读写同一 Redis 键。
+3. `conversationId` 是记忆隔离键，跨实例须保持一致（通常来自用户会话或 threadId）。
+
+### 代码示例
+
+```java
+@Component
+public class RedisChatMemory implements ChatMemory {
+    @Autowired
+    private RedisTemplate<String, List<Message>> redisTemplate;
+
+    @Override
+    public void add(String conversationId, List<Message> messages) {
+        redisTemplate.opsForList().rightPushAll(conversationId, messages);
+    }
+
+    @Override
+    public List<Message> get(String conversationId, int lastN) {
+        // 从 Redis 获取并截取最近 N 条
+    }
+
+    @Override
+    public void clear(String conversationId) {
+        redisTemplate.delete(conversationId);
+    }
+}
+
+ChatClient client = ChatClient.builder(chatModel)
+    .defaultAdvisors(new MessageChatMemoryAdvisor(redisChatMemory))
+    .build();
+```
+
+### 面试常问
+
+**问**：分布式部署中多个实例如何共享对话记忆？
+
+**答**：自定义 RedisChatMemory 实现 ChatMemory 接口，以 conversationId 为键存 Message 列表，注入 MessageChatMemoryAdvisor；各实例对同一 conversationId 读写 Redis，实现无状态水平扩展。
+
+### 关联知识点
+
+- [MessageChatMemoryAdvisor 工作机制](#messagechatmemoryadvisor-工作机制)
+- [Spring AI 记忆类型对比与选型](#spring-ai-记忆类型对比与选型)
 
 ---
