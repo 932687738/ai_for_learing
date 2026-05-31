@@ -2,6 +2,88 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-05-30
+
+### 今日总览
+
+**一句话结论**：`2026-05-30`（Asia/Shanghai）主线是 **「云端常驻 Agent 产品化 + 开源 Agent 栈加固 + Copilot 计费范式切换」**——**Google Gemini Spark** 在美向 **AI Ultra** 用户开放 **24/7 云端 Agent**（**Gemini 3.5 Flash + Antigravity**）；**OpenClaw `v2026.5.28`** 同日发布并强化 **Codex/Copilot Agent 运行时**；**Claude Code `v2.1.158`** 把 **Auto mode** 带到 **Bedrock/Vertex/Foundry**；**GitHub Copilot** 因 **6 月 1 日 token 计费** 引发开发者强烈反弹；**Anthropic $65B / $965B 估值** 与 **戴尔 AI 服务器 +757%** 在当日媒体窗口持续发酵。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Google/DeepMind；OpenClaw/Claude Code GitHub；GitHub Copilot 官方博客；TechCrunch/VentureBeat；arXiv/HF；Spring AI/spring.io 核验；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；中文补充 |
+| 核心趋势 | **云端 VM Agent**（Spark）与 **本地 Gateway Agent**（OpenClaw）形成对照——前者强调 **Workspace 原生 + 关盖继续跑**；**Copilot 从 PRU 切到 AI Credits/token** 标志 coding agent 进入 **按量付费** 阶段；**OpenClaw 大版本** 集中修复 **Codex session/lock/compaction** 可靠性 |
+| 可直接关注 | 评估 **Gemini Spark Skills/Schedules** 能否替代部分 **Cron + MCP** 办公自动化；Windows/macOS **OpenClaw 2026.5.28** 升级验证 **Codex Supervisor + Copilot agent runtime**；**Copilot 用户** 在 **6/1 前** 用 Billing Preview 估算 token 账单；**Claude Code 多云** 团队启用 **`CLAUDE_CODE_ENABLE_AUTO_MODE=1`** |
+| 专项检索结论 | **Claude Code**：**`v2.1.158`** **`Published: 2026-05-30T02:42:16Z` → `2026-05-30 10:42:16（Asia/Shanghai）`**——Bedrock/Vertex/Foundry **Auto mode**（Opus 4.7/4.8）；**Codex**：**无 2026-05-30 新 release**（桌面 **v26.527** 为 **`2026-05-29`**）；**OpenClaw**：**`v2026.5.28`** **`Published: 2026-05-30T20:06:10Z` → `2026-05-31 04:06:10（Asia/Shanghai）`（相邻日期/跨时区）** + 同日 **`2026.5.30-beta.1`**；**Hermes**：**无 2026-05-30 新 release**（最近 **`v2026.5.29.2` 为 `2026-05-29`**）；**Spring AI**：**未见 2026-05-30 官方博文/release**（spring.io 最近仍为 **1.1.1 / 2.0.0-M8 预发布**）；**skills**：**无独立 marketplace 发布**；Spark 文档已出现 **Skills/Schedules** 工作流概念 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Google / Agent 产品 | [Gemini Spark 正式可用（PCMag / Google 支持文档）](https://support.google.com/gemini/answer/17094196?hl=en) | **2026-05-30**（PCMag **Updated May 30, 2026**；I/O 后 **5/29 起** 向 AI Ultra 美区 rollout） | 产品发布 | **24/7 云端 VM Agent**：Gmail/Calendar/Docs/Sheets/Slides + Connected Apps + 远程浏览器；**Gemini 3.5 Flash + Antigravity**；需 **Google AI Ultra（$100/月档）** 与美区 18+ |
+| Google / 产品评测 | [TechCrunch：Gemini Spark 实测](https://techcrunch.com/2026/05/30/i-put-googles-24-7-ai-assistant-gemini-spark-to-work-and-its-actually-pretty-useful/) | **`May 30, 2026 8:30 AM PDT` → `2026-05-30 23:30（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | 对比 **OpenClaw 需保持设备唤醒**；指出 **Keep 未集成、iPhone 无法直达 Spark** 等产品缺口 |
+| OpenClaw / 开源 | [openclaw/openclaw `v2026.5.28`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.28) | GitHub **`Published: 2026-05-30T20:06:10Z` → `2026-05-31 04:06:10（Asia/Shanghai）`（相邻日期/跨时区）** | 开源发布 | **Codex/Copilot agent runtime**、**Codex Supervisor plugin**、**Claude Opus 4.8** 支持；大量 **session lock / compaction / hook relay** 修复 |
+| Claude Code | [anthropics/claude-code `v2.1.158`](https://github.com/anthropics/claude-code/releases/tag/v2.1.158) | GitHub **`Published: 2026-05-30T02:42:16Z` → `2026-05-30 10:42:16（Asia/Shanghai）`** | 开源发布 | **`CLAUDE_CODE_ENABLE_AUTO_MODE=1`** 在 **Bedrock/Vertex/Foundry** 启用 **Auto mode**（Opus 4.7/4.8） |
+| GitHub Copilot / 计费 | [GitHub Copilot is moving to usage-based billing](https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/) | 官方 **2026-04-27** 宣布；**2026-05-30** 媒体集中讨论 **6/1 生效** | 官方政策 | **PRU → GitHub AI Credits**；按 **input/output/cached tokens** 计费；**Pro $10 / Pro+ $39** 含等额 credits；**Business/Enterprise 6–8 月促销 credits** |
+| GitHub Copilot / 社区 | [TechCrunch：Copilot token 计费引开发者不满](https://techcrunch.com/2026/05/30/what-a-joke-github-copilots-new-token-based-billing-spurs-consternation-among-devs/) | **`May 30, 2026 9:30 AM PDT` → `2026-05-30 00:30（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | 社区担心 **长时 agent 会话** 账单暴涨；反映 **「鼓励重度 agent 使用 → 按 token 收费」** 张力 |
+| Meta / 硬件 | [Meta is reportedly developing an AI pendant（TechCrunch）](https://techcrunch.com/2026/05/30/meta-is-reportedly-developing-an-ai-pendant/) | **`May 30, 2026 8:59 AM PDT` → `2026-05-30 23:59（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | 基于 **Limitless 收购** 的 **AI 吊坠** 内测计划；同步 **Wearables for Work** 订阅与 AI 眼镜扩展 |
+| 基础设施 | [SoftBank €75B 法国数据中心（TechCrunch）](https://techcrunch.com/2026/05/30/softbank-says-it-will-invest-up-to-e75-billion-to-build-french-data-centers/) | **`May 30, 2026 2:45 PM PDT` → `2026-05-31 05:45（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | 规划 **5GW** 容量、**2031 年前 3.1GW** 落地 Hauts-de-France；SoftBank 称 **欧洲最大 AI 基建投资** |
+| 资本 / Anthropic | [Anthropic Series H $65B @ $965B（官方）](https://www.anthropic.com/news/series-h) | 官方 **`2026-05-28`**；**2026-05-30** 全球媒体持续报道 | 官方发布/资本 | **Samsung/SK Hynix/Micron** 等 **存储巨头** 入局；**ARR >$47B**；估值 **首超 OpenAI（$852B）** |
+| 硬件 / 财报 | [戴尔 AI 服务器收入 +757%（5/29 财报，5/30 报道）](https://developer.aliyun.com/article/1738694) | 财报 **2026-05-29**；中文社区 **2026-05-30** 转述 | 财报/媒体 | **AI 服务器 $16.1B/季、同比 +757%**；FY 指引 **$500B→$600B**；印证 **推理/训练采购** 仍在爆发 |
+| 产业 / 中国 | [2026 世界智能产业博览会天津（5/28–31，5/30 报道）](https://developer.aliyun.com/article/1738694) | 展会 **2026-05-28 至 2026-05-31**；**2026-05-30** 中文简报 | 产业活动 | **40+ 大模型、740+ 机构** 展示 **制造/物流/座舱/鉴别** 等落地 |
+| 论文 / RAG | [LLM-Wiki: Retrieval as Reasoning（arXiv:2605.25480）](https://arxiv.org/abs/2605.25480) | arXiv **2605.25480**（相邻日期/中国时间窗口传播） | 论文原文 | **腾讯 WeChat** 提出 **Wiki 编译 + Error Book 自校正** 的 **Agent-native RAG**；HotpotQA/MuSiQue 等 **+2.0–8.1 F1** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Gemini Spark | [Find & manage Gemini Spark tasks](https://support.google.com/gemini/answer/17094196?hl=en) | Tasks/Schedules/Skills、Workspace 集成、Activity 删除策略 | 评估 **云端常驻办公 Agent** 的团队 |
+| OpenClaw 升级 | [OpenClaw v2026.5.28 Release Notes](https://github.com/openclaw/openclaw/releases/tag/v2026.5.28) | Codex Supervisor、Copilot agent runtime、session lock 修复 | 自托管 **OpenClaw + Codex** 运维 |
+| Claude Code 多云 | [Claude Code v2.1.158](https://github.com/anthropics/claude-code/releases/tag/v2.1.158) | **`CLAUDE_CODE_ENABLE_AUTO_MODE=1`** on Bedrock/Vertex/Foundry | 企业 **Claude Code 多云** 部署 |
+| Copilot 计费迁移 | [Usage-based billing 官方说明](https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/) | AI Credits、token 计价、annual plan 过渡 | Copilot **Pro/Business** 管理员 |
+| Agent-native RAG | [LLM-Wiki 论文](https://arxiv.org/abs/2605.25480) | Wiki 编译、link-following tools、Error Book | RAG/Agent 架构师 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：Agent 工程在 **「云端编排（Spark） vs 本地 Gateway（OpenClaw）」** 两线并进——Google 把 **Skills + Schedules + Workspace** 打包成 **Ultra 订阅卖点**；OpenClaw 则通过 **`2026.5.28`** 把 **Codex/Copilot runtime 可靠性** 推到生产级；与此同时 **Copilot token 计费** 迫使团队重新评估 **长时 agent 任务** 的 **成本模型**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 云端常驻 Agent | **Gemini Spark GA（美区 Ultra）** | **VM 后台执行** 可替代部分 **Cron + 本地 OpenClaw** 场景，但 **vendor lock-in** 更高 |
+| Gateway 可靠性 | **OpenClaw 2026.5.28** | **session lock / compaction / hook relay** 是 **multi-agent + Codex** 生产化的真正门槛 |
+| Coding Agent 计费 | **Copilot 6/1 token 计费** | 团队应为 **agent 会话** 设 **budget guard + model tier**；Completions/Next Edit 仍 **不扣 credits** |
+| Agent-native RAG | **LLM-Wiki 论文** | 把 KB **编译为可遍历 Wiki** 比 **flat chunk + embedding** 更适配 **ReAct 工具环** |
+| MCP 生态 | **Langfuse MCP 5/29 更新**（相邻日期） | 观测/评分/评论进 MCP——**Agent 可观测性** 继续 MCP 化 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **OpenClaw v2026.5.28 Release Notes** | 当前 **Codex + Copilot agent runtime** 最完整的变更清单 |
+| 必读 | **GitHub Copilot usage-based billing 官方文** | **6/1 前** 必须理解的 **AI Credits/token** 规则 |
+| 推荐 | **Gemini Spark Google 支持文档 + TechCrunch 实测** | 理解 **云端 Agent** 的能力边界与 **Workspace 集成深度** |
+| 推荐 | **LLM-Wiki arXiv 论文** | **Retrieval-as-Reasoning** 的可复现架构参考 |
+| 延伸 | **SoftBank 法国 5GW 数据中心公告** | **欧洲 AI 算力** 地缘布局与 **能源/电网** 约束 |
+
+### 来源清单
+
+- 检索范围：2026-05-30 00:00:00 到 2026-05-30 23:59:59（Asia/Shanghai）
+- 引用域名：support.google.com, techcrunch.com, github.com, github.blog, anthropic.com, arxiv.org, developer.aliyun.com, pcmag.com, thenextweb.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布/产品 | Gemini Spark Tasks 管理文档 | 2026-05-30（文档随 rollout 更新） | https://support.google.com/gemini/answer/17094196 |
+| 开源发布 | OpenClaw v2026.5.28 | 2026-05-30（GitHub UTC，Asia/Shanghai 跨日） | https://github.com/openclaw/openclaw/releases/tag/v2026.5.28 |
+| 开源发布 | Claude Code v2.1.158 | 2026-05-30 | https://github.com/anthropics/claude-code/releases/tag/v2.1.158 |
+| 官方政策 | GitHub Copilot usage-based billing | 2026-04-27（5/30 媒体窗口） | https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/ |
+| 技术媒体 | TechCrunch Gemini Spark 实测 | 2026-05-30 | https://techcrunch.com/2026/05/30/i-put-googles-24-7-ai-assistant-gemini-spark-to-work-and-its-actually-pretty-useful/ |
+| 技术媒体 | TechCrunch Copilot token 计费争议 | 2026-05-30 | https://techcrunch.com/2026/05/30/what-a-joke-github-copilots-new-token-based-billing-spurs-consternation-among-devs/ |
+| 技术媒体 | TechCrunch Meta AI pendant | 2026-05-30 | https://techcrunch.com/2026/05/30/meta-is-reportedly-developing-an-ai-pendant/ |
+| 技术媒体 | TechCrunch SoftBank 法国数据中心 | 2026-05-30 | https://techcrunch.com/2026/05/30/softbank-says-it-will-invest-up-to-e75-billion-to-build-french-data-centers/ |
+| 官方发布/资本 | Anthropic Series H | 2026-05-28（5/30 传播） | https://www.anthropic.com/news/series-h |
+| 论文原文 | LLM-Wiki arXiv:2605.25480 | 相邻日期/中国时间窗口传播 | https://arxiv.org/abs/2605.25480 |
+| 中文补充 | 阿里云社区 5/30 AI 简报 | 2026-05-30 | https://developer.aliyun.com/article/1738694 |
+
 ## 2026-05-29
 
 ### 今日总览
