@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="每日新闻">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="每日新闻" />
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,6 +246,7 @@
       <workItem from="1780021759951" duration="3851000" />
       <workItem from="1780096635763" duration="646000" />
       <workItem from="1780155351153" duration="372000" />
+      <workItem from="1780204303538" duration="32000" />
     </task>
     <task id="LOCAL-00001" summary="docs(project): 更新项目配置和文档以支持 Python 开发环境&#10;&#10;- 移除 .idea 目录的 git 忽略规则，将其加入版本控制&#10;- 修正项目模块名称中的拼写错误（ai_for_learning -&gt; ai_for_learing）&#10;- 添加详细的 Python 环境配置说明和依赖安装指南&#10;- 在课程模式文档中增加 Python 依赖管理规范&#10;- 更新项目状态文件中的任务时间戳和处理目标列表&#10;- 配置 PyCharm 工作空间设置和虚拟环境排除路径">
       <option name="closed" value="true" />
@@ -553,7 +552,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780097258403</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="每日新闻">
+      <option name="closed" value="true" />
+      <created>1780204311573</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1780204311573</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

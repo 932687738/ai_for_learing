@@ -2,6 +2,84 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-05-31
+
+### 今日总览
+
+**一句话结论**：`2026-05-31`（Asia/Shanghai）是 **「Coding Agent 计费范式集中切换前夜 + 欧洲 AI 基建大单 + OpenClaw Skill 治理 beta」**——**OpenAI Codex Pro 2x 用量 promo** 与 **GitHub Copilot PRU 时代** 均在 **6/1 零点** 结束/切换；**SoftBank** 在 Choose France 峰会宣布 **€75B / 5GW 法国 AI 数据中心**；**OpenClaw `v2026.5.31-beta.1`** 上线 **Skill Workshop** 治理流；**Tempus Lens** 下一代 **agentic 肿瘤研发平台** 同日发布；社会侧 **KC Green/Artisan 和解** 与 **Erin Brockovich 数据中心透明度地图** 持续发酵。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenAI Codex 官方定价；GitHub Copilot 官方博客/docs；SoftBank 新闻稿；OpenClaw GitHub；Tempus/BusinessWire；TechCrunch；Samsung HBM 产业报道；arXiv Agent 安全/RL；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；中文补充 |
+| 核心趋势 | **6/1 双切换**：Copilot **PRU→AI Credits/token**、Codex Pro **2x→标准配额** 同日生效，长时 Agent 会话 **成本模型** 成为开发者焦点；**欧洲 AI 主权基建**（SoftBank 法国 5GW）与 **HBM4E 样片** 强化 **算力/存储供给链**；**OpenClaw Skill Workshop** 把 **skills 创建/审批/回滚** 产品化 |
+| 可直接关注 | **Copilot/Codex 用户** 在 **6/1 前** 核对 Billing Preview 与 Codex Profiles 用量；评估 **OpenClaw 2026.5.31-beta.1** 的 **Skill Workshop + Codex 媒体异步** 修复；跟踪 **SoftBank×Schneider Electric×EDF** 法国集群 **2031 3.1GW** 落地节奏 |
+| 专项检索结论 | **Claude Code**：**无 2026-05-31 新 GitHub release**（最近 **`v2.1.158` 为 `2026-05-30`**）；**Codex**：**无新 release**，但 **Pro $100 2x 用量 promo 截止 `2026-05-31`**（官方 pricing FAQ）；**OpenClaw**：**`v2026.5.31-beta.1`** **`Published: 2026-05-31T17:44:50Z` → `2026-06-01 01:44:50（Asia/Shanghai）`（相邻日期/跨时区）** + 同日 **`2026.5.30-beta.1`**；**Hermes**：**无 2026-05-31 新 release**；**Spring AI**：**未见 5/31 官方博文/release**；**skills**：**OpenClaw Skill Workshop**（`skill_workshop` 工具 + 提案审批流）为当日最可核验 skills 进展 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| GitHub Copilot / 计费切换 | [GitHub Copilot usage-based billing 官方说明](https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/) | 官方 **2026-04-27**；**2026-05-31** 为 PRU 最后一日（**6/1 生效**） | 官方政策 | **PRU→AI Credits**（1 credit=$0.01）；**Completions/Next Edit 仍免费**；**Chat/Agent/Code Review 按 token**；Business/Enterprise **6–8 月促销 credits** |
+| OpenAI / Codex 配额 | [Codex Pricing — Pro 2x promo 至 2026-05-31](https://developers.openai.com/codex/pricing) | **`Ends: 2026-05-31`**（Asia/Shanghai 6/1 起恢复标准倍数） | 官方定价 | **Pro $100**：2x→标准 **5x Plus**；**Pro $200**：**25x 五小时限额** 恢复 **20x**；团队应重新评估 **长时 cloud task** 预算 |
+| SoftBank / AI 基建 | [SoftBank 法国 5GW AI 数据中心 €75B](https://group.softbank/en/news/press/20260531_0) | 新闻稿 **`May 31, 2026`**（巴黎活动 **`May 30, 2026` 当地**） | 官方发布 | **2031 年前 Hauts-de-France 3.1GW**；与 **Schneider Electric** 共建 Dunkirk **预制电力模块 + 机柜制造** 产业集群 |
+| OpenClaw / 开源 | [openclaw/openclaw `v2026.5.31-beta.1`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.31-beta.1) | GitHub **`Published: 2026-05-31T17:44:50Z` → `2026-06-01 01:44:50（Asia/Shanghai）`（相邻日期/跨时区）** | 开源预发布 | **Skill Workshop**（提案/审批/隔离/回滚）；**Codex 异步媒体** 不中断 turn；**`@openclaw/copilot` 插件** 外置 |
+| 医疗 AI / Agent | [Tempus Lens 下一代 agentic 平台（BusinessWire）](https://www.businesswire.com/news/home/20260531652876/en/) | **`05/31/2026 08:00`**（媒体转述） | 产品发布 | **肿瘤药物研发 agentic AI**：多模态 RWD + foundation models + **validated AI agents**；**19/20 顶级药企** 已采用 |
+| 硬件 / HBM | [Samsung 首批 HBM4E 样片出货（5/31 产业报道）](https://finance.biggo.com/news/yUgufZ4BtCxy99G5fQf9) | **`Published: 2026-05-31T08:37:39Z` → `2026-05-31 16:37:39（Asia/Shanghai）`** | 产业/硬件 | **7 代 HBM4E** 提前 **>半年** 送样；面向 **Nvidia Vera Rubin Ultra**；**16 Gbps / 48GB / 3.6TB/s** |
+| AI 版权 / 创业 | [TechCrunch：KC Green 与 Artisan AI 达成和解](https://techcrunch.com/2026/05/31/this-is-fine-artist-kc-green-reaches-agreement-with-ai-startup-artisan/) | **`May 31, 2026 11:28 AM PDT` → `2026-06-01 02:28（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **「This is fine」** 梗图被 AI 营销挪用引发争议；**和解后撤广告/撤帖**——Agent 创业 **IP 合规** 警示案例 |
+| 治理 / 基建透明度 | [TechCrunch：Erin Brockovich 质疑数据中心 secrecy](https://techcrunch.com/2026/05/31/erin-brockovich-takes-aim-at-data-center-secrecy/) | **`May 31, 2026 2:05 PM PDT` → `2026-06-01 05:05（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体/政策 | **4000+ 社区提交** 构建全美数据中心地图；**透明度** 成 AI 基建扩张 **首要关切**（非 blanket 反 AI） |
+| AI 安全 / 社会 | [TechCrunch：AI psychosis 辩论解读](https://techcrunch.com/2026/05/31/making-sense-of-the-debate-over-ai-psychosis/) | **`May 31, 2026 8:30 AM PDT` → `2026-05-31 23:30（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **Box CEO Aaron Levie** 指 **「CEO 层 AI psychosis」**——强调 **亲自用工具** 而非只看 slide 定战略 |
+| 论文 / Agent RL | [AXPO: Agent Explorative Policy Optimization（arXiv:2605.28774）](https://arxiv.org/abs/2605.28774) | arXiv **`Submitted 27 May 2026`**（**5/31 中国时间窗口传播**） | 论文原文 | 解决 **Thinking-Acting Gap**：工具调用 **all-wrong rollout** 时 **重采样 tool call**；8B **Pass@4 超 32B Base** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Copilot 6/1 迁移 | [Usage-based billing 官方文 + GitHub Docs](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises) | AI Credits、token 计价、**6–8 月 Business/Enterprise promo** | Copilot 管理员/重度 Agent 用户 |
+| Codex 配额切换 | [OpenAI Codex Pricing FAQ](https://developers.openai.com/codex/pricing) | **Pro 2x promo 截止 5/31**、Profiles 用量可视化 | ChatGPT Pro + Codex 用户 |
+| OpenClaw Skill Workshop | [OpenClaw v2026.5.31-beta.1 Release Notes](https://github.com/openclaw/openclaw/releases/tag/v2026.5.31-beta.1) | `skill_workshop` 工具、提案审批、support files 扫描 | 自托管 OpenClaw + Codex 团队 |
+| Agent RL 训练 | [AXPO arXiv 论文](https://arxiv.org/abs/2605.28774) | tool-call resampling、uncertainty prefix selection | 多模态 Agent 训练工程师 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：Agent 工程在 **5/31** 进入 **「计费切换 + Skill 治理」** 双线——商业侧 **Copilot/Codex 同时收紧 promo** 迫使团队建立 **token budget guard**；开源侧 **OpenClaw Skill Workshop** 把 **skills 生命周期**（创建→审批→隔离→回滚）做成 **一等公民**，与 **Claude/Cursor marketplace skills** 形成不同治理哲学。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Coding Agent 计费 | **Copilot 6/1 + Codex promo 截止 5/31** | 为 **multi-hour agent 会话** 设 **spending cap**；Completions 仍免费可作 **轻量补位** |
+| Skill 治理 | **OpenClaw Skill Workshop beta** | **提案式 skills** + **scanner/hash/rollback** 比「直接写 SKILL.md」更适合 **团队/企业 Gateway** |
+| Codex 可靠性 | **OpenClaw 2026.5.31** Codex fixes | **session lock / compaction / 异步媒体** 是 **Codex app-server 生产化** 的关键修复面 |
+| Agent RL | **AXPO 论文** | **工具调用 token** 需要 **定向探索** 而非纯 GRPO——对 **VLM+tools** 微调有参考价值 |
+| Agent 安全 | **Lacuna（arXiv:2605.28617，相邻传播）** | **typed program holes** 把 **LLM 写代码** 约束在 **编译期 capability tracking** 内 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **GitHub Copilot usage-based billing + Docs** | **6/1 起** 必须理解的 **AI Credits** 与 **无 fallback** 规则 |
+| 必读 | **OpenAI Codex Pricing（promo 截止说明）** | **Pro 用户** 6/1 起 **有效配额减半** 的直接影响 |
+| 推荐 | **OpenClaw 2026.5.31-beta.1 + Skill Workshop 文档** | 当前 **skills 治理 + Codex 集成** 最完整 changelog |
+| 推荐 | **SoftBank 法国 5GW 官方新闻稿** | **欧洲 AI 基建** 地缘布局与 **Schneider/EDF 工业配套** |
+| 延伸 | **AXPO arXiv 论文** | **Agentic RL** 中 **tool-use 探索** 的可复现方法 |
+
+### 来源清单
+
+- 检索范围：2026-05-31 00:00:00 到 2026-05-31 23:59:59（Asia/Shanghai）
+- 引用域名：github.blog, docs.github.com, developers.openai.com, group.softbank, github.com, businesswire.com, techcrunch.com, arxiv.org, finance.biggo.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方政策 | GitHub Copilot usage-based billing（6/1 生效） | 2026-04-27 宣布；5/31 窗口 | https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/ |
+| 官方定价 | OpenAI Codex Pro 2x promo 截止 | Ends 2026-05-31 | https://developers.openai.com/codex/pricing |
+| 官方发布 | SoftBank 法国 5GW AI DC | 2026-05-31（巴黎 May 30 当地） | https://group.softbank/en/news/press/20260531_0 |
+| 开源发布 | OpenClaw v2026.5.31-beta.1 | 2026-05-31（GitHub UTC，Asia/Shanghai 跨日） | https://github.com/openclaw/openclaw/releases/tag/v2026.5.31-beta.1 |
+| 产品发布 | Tempus Lens next-generation | 2026-05-31 | https://www.businesswire.com/news/home/20260531652876/en/ |
+| 技术媒体 | TechCrunch KC Green/Artisan | 2026-05-31 | https://techcrunch.com/2026/05/31/this-is-fine-artist-kc-green-reaches-agreement-with-ai-startup-artisan/ |
+| 技术媒体 | TechCrunch Erin Brockovich 数据中心 | 2026-05-31 | https://techcrunch.com/2026/05/31/erin-brockovich-takes-aim-at-data-center-secrecy/ |
+| 技术媒体 | TechCrunch AI psychosis 辩论 | 2026-05-31 | https://techcrunch.com/2026/05/31/making-sense-of-the-debate-over-ai-psychosis/ |
+| 论文原文 | AXPO arXiv:2605.28774 | 相邻日期/中国时间窗口传播 | https://arxiv.org/abs/2605.28774 |
+| 产业/硬件 | Samsung HBM4E 样片报道 | 2026-05-31 | https://finance.biggo.com/news/yUgufZ4BtCxy99G5fQf9 |
+
 ## 2026-05-30
 
 ### 今日总览
