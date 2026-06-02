@@ -2,6 +2,84 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-06-01
+
+### 今日总览
+
+**一句话结论**：`2026-06-01`（Asia/Shanghai）是 **「Anthropic 抢跑 IPO 保密申报 + Copilot/Codex 计费切换生效日 + 开源 Agent 栈小版本」**——**Anthropic** 于当日向 SEC **保密提交 Form S-1**（估值语境约 **$965B**）；**GitHub Copilot PRU→AI Credits** 与 **OpenAI Codex Pro 2x promo 截止** 均在 **6/1** 起改变开发者成本模型；**OpenAI Codex `rust-v0.136.0`** 与 **LangGraph SDK `0.4.1`** 同日发布；监管/产业侧 **佛罗里达州起诉 OpenAI**、**FTC 深化微软云/AI 反垄断调查**、**Nvidia RTX Spark** 消费级 AI PC 芯片亮相。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Anthropic/OpenAI 官方与监管；GitHub Copilot/Codex 定价；LangGraph/Codex GitHub release；The Verge/TechCrunch/CNBC；NIST/DoD 政策语境；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；中文补充 |
+| 核心趋势 | **资本侧**：Anthropic **保密 IPO** 抢在 OpenAI/SpaceX 窗口前占位；**工程侧**：**6/1 双计费切换** 迫使团队建立 **token/credits guard**；**产品侧**：**Microsoft Build** 周预热 **MAI-Thinking-1** 与 **Copilot super app**；**硬件侧**：**RTX Spark** 统一内存面向 **本地 Agent** |
+| 可直接关注 | **Copilot 管理员** 核对 **AI Credits** 与 org promo；**Codex Pro** 用户确认 **6/1 起配额倍数**；跟踪 **Anthropic S-1** 后续公开招股书时间节点；评估 **Codex 0.136.0**（OSC8 链接、rmcp 1.7.0）与 **langgraph-sdk 0.4.1**（v3 streaming）升级 |
+| 专项检索结论 | **Claude Code**：**无 2026-06-01 新 release**（最近 **`v2.1.154` 为 2026-05-28**）；**Codex**：**`rust-v0.136.0` `Published: 2026-06-01T17:49:22Z`**；**OpenClaw/Hermes**：**无 6/1 新 release**（生态报道延续 **Hermes 日 token 领先** 叙事，非当日官方发布）；**Spring AI**：**无 6/1 官方 release/博文**；**skills**：**无重大官方 skills 发布**，社区聚焦 **Agent Skills 人机交互 spec** 讨论 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Anthropic / IPO | [Anthropic confidentially submits draft S-1 to the SEC](https://www.anthropic.com/news/confidential-draft-s1-sec) | **2026-06-01** | 官方发布 | **保密申报** 开启上市路径；股数/定价未定；与 **$965B 估值**、**Claude Code** 企业叙事联动 |
+| 监管 / OpenAI | [Florida sues OpenAI over user safety（The Verge）](https://www.theverge.com/ai-artificial-intelligence/940978/florida-is-suing-openai-over-user-safety-concerns) | **2026-06-01** | 政策/诉讼 | 州 AG 指控 **ChatGPT 安全与成瘾风险**；寻求 **民事处罚与法院命令**（刑事调查进行中） |
+| GitHub Copilot / 计费 | [Copilot usage-based billing 生效（6/1）](https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/) | **2026-06-01 起** | 官方政策 | **PRU 结束** → **AI Credits（1 credit=$0.01）**；Chat/Agent/Code Review **按 token** |
+| OpenAI / Codex 配额 | [Codex Pricing — Pro 2x promo 截止 2026-05-31](https://developers.openai.com/codex/pricing) | **2026-06-01 起恢复标准倍数** | 官方定价 | **Pro $100**：有效 **5h 限额从 2x→标准**；长时 cloud task 需重算预算 |
+| 开源 / Codex CLI | [openai/codex `rust-v0.136.0`](https://github.com/openai/codex/releases/tag/rust-v0.136.0) | **`Published: 2026-06-01T17:49:22Z`** | 开源发布 | **OSC 8 超链接**、markdown 表格 KV 渲染、**rmcp 1.7.0**、远程 exec-server **API-key 注册** |
+| LangGraph / SDK | [langgraph-sdk==0.4.1](https://github.com/langchain-ai/langgraph/releases/tag/sdk%3D%3D0.4.1) | **`Published: 2026-06-01T15:23:38Z`** | 开源发布 | **v3 streaming** 解码器、`RemoteGraph` v3、**tools_agent** 无状态修复 |
+| Microsoft / Build 预热 | [Microsoft Build：MAI-Thinking-1 与 Copilot super app（The Verge）](https://www.theverge.com/report/940861/microsoft-build-ai-models-windows-dev-mode-what-to-expect) | **2026-06-01** 报道 | 技术媒体 | **首个自研 reasoning 模型**（非蒸馏）；**Windows 11 开发者优化体验**；Copilot **super app 仍为 mockup** |
+| 反垄断 / 云+AI | [FTC 深化微软云与 AI 竞争调查（The Verge）](https://www.theverge.com/policy/940220/microsoft-ftc-antitrust-investigation-cloud-ai) | **2026-06-01** | 政策监管 | CID 聚焦 **Azure 排他**、**AI 捆绑** 与 **M365+AI 搭售** 潜在违法风险 |
+| 硬件 / 边缘 AI | [Nvidia RTX Spark 消费级 AI PC 芯片（The Verge）](https://www.theverge.com/tech/940589/nvidia-rtx-spark-n1-n1x-laptop-desktop-pc-cpu-gpu-ai-release-date) | **2026-06-01** | 产品发布 | **GB10 家族** 进笔记本/迷你 PC；**128GB 统一内存** 支撑 **120B 级本地 Agent**；Build 周将演示 **OpenShell + Windows 安全 containment** |
+| 媒体 / IPO 语境 | [Anthropic files to go public（TechCrunch）](https://techcrunch.com/2026/06/01/anthropic-files-to-go-public/) | **2026-06-01** | 技术媒体 | 与 OpenAI **IPO 竞速**、SpaceX **6/12** 窗口形成 **2026 超级上市季** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Copilot 6/1 迁移 | [Usage-based billing 官方文 + Docs](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises) | AI Credits、token 计价、Business/Enterprise **6–8 月 promo credits** | Copilot 管理员 |
+| Codex 配额与升级 | [OpenAI Codex Pricing](https://developers.openai.com/codex/pricing) + [v0.136.0 changelog](https://github.com/openai/codex/releases/tag/rust-v0.136.0) | **6/1 配额恢复**、MCP/rmcp、TUI 渲染 | Codex CLI 重度用户 |
+| LangGraph 流式 | [langgraph-sdk 0.4.1 release](https://github.com/langchain-ai/langgraph/releases/tag/sdk%3D%3D0.4.1) | **stream v3**、`interleave_projections` | LangGraph 平台/SDK 集成方 |
+| Anthropic 上市文件 | [Anthropic S-1 保密申报公告](https://www.anthropic.com/news/confidential-draft-s1-sec) | Rule 135、SEC 审查流程 | 关注 **AI 上市公司治理** 的研发/投资读者 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：Agent 工程在 **6/1** 呈现 **「商业计费落地 + 开源 SDK 跟进」**——Copilot/Codex **同日切换** 把 **长时 Agent 会话** 推入 **可计量成本** 时代；LangGraph **SDK 0.4.1** 继续铺 **v3 事件流** 基建，与 **Google Antigravity / Gemini Spark**（Build 周）的 **常驻 Agent** 叙事形成对照。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 计费范式 | **Copilot credits + Codex 标准配额 6/1 生效** | 为 **multi-agent 并行** 设 **per-session cap**；Completions 仍免费可作 **轻量补位** |
+| Codex 运行时 | **0.136.0** 强化 TUI/MCP | **OSC8** 与 **表格 KV 渲染** 改善 **终端 Agent UX**；升级前测 **rmcp 1.7.0** 兼容性 |
+| LangGraph SDK | **0.4.1 + v3 streaming** | 迁移 **`astream_events(version="v3")`** 前对齐 **RemoteGraph** 与 **messages 投影** |
+| OpenClaw vs Hermes | **无 6/1 release**；生态 **token 用量榜** 持续发酵 | 选型看 **Skill 治理（OpenClaw）** vs **自进化 skills（Hermes）** 与 **CVE/审计** 风险，非单日版本 |
+| Spring AI | **无 6/1 官方更新** | 继续关注 **2.0.0-M6+ MCP 注解** 与 **1.1.7** 稳定线，勿将社区博文当作官方 release |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Anthropic 保密 S-1 官方公告** | 理解 **2026 AI 超级 IPO 季** 的第一张多米诺 |
+| 必读 | **GitHub Copilot + OpenAI Codex 6/1 计费文档** | 直接影响 **团队 Agent 预算与选型** |
+| 推荐 | **Codex 0.136.0 + langgraph-sdk 0.4.1** | 当日 **可核验** 的两条 **开源工程 changelog** |
+| 推荐 | **The Verge：Microsoft Build / FTC Microsoft** | **企业 reasoning 模型** 与 **云+AI 反垄断** 并行升温 |
+| 延伸 | **Nvidia RTX Spark** | **本地 120B Agent** 与 **Windows containment** 的硬件前提 |
+
+### 来源清单
+
+- 检索范围：2026-06-01 00:00:00 到 2026-06-01 23:59:59（Asia/Shanghai）
+- 引用域名：anthropic.com, theverge.com, techcrunch.com, cnbc.com, github.blog, docs.github.com, developers.openai.com, github.com, nist.gov（相邻）, meritalk.com（相邻）
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Anthropic 保密提交 S-1 | 2026-06-01 | https://www.anthropic.com/news/confidential-draft-s1-sec |
+| 技术媒体 | Florida 起诉 OpenAI | 2026-06-01 | https://www.theverge.com/ai-artificial-intelligence/940978/florida-is-suing-openai-over-user-safety-concerns |
+| 技术媒体 | Anthropic IPO（TechCrunch） | 2026-06-01 | https://techcrunch.com/2026/06/01/anthropic-files-to-go-public/ |
+| 官方政策 | GitHub Copilot usage-based billing 生效 | 2026-06-01 | https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/ |
+| 官方定价 | OpenAI Codex promo 截止后配额 | 2026-06-01 起 | https://developers.openai.com/codex/pricing |
+| 开源发布 | openai/codex rust-v0.136.0 | 2026-06-01 | https://github.com/openai/codex/releases/tag/rust-v0.136.0 |
+| 开源发布 | langgraph-sdk 0.4.1 | 2026-06-01 | https://github.com/langchain-ai/langgraph/releases/tag/sdk%3D%3D0.4.1 |
+| 技术媒体 | Microsoft Build 预热 | 2026-06-01 | https://www.theverge.com/report/940861/microsoft-build-ai-models-windows-dev-mode-what-to-expect |
+| 技术媒体 | FTC 微软云/AI 调查 | 2026-06-01 | https://www.theverge.com/policy/940220/microsoft-ftc-antitrust-investigation-cloud-ai |
+| 技术媒体 | Nvidia RTX Spark | 2026-06-01 | https://www.theverge.com/tech/940589/nvidia-rtx-spark-n1-n1x-laptop-desktop-pc-cpu-gpu-ai-release-date |
+
 ## 2026-05-31
 
 ### 今日总览
