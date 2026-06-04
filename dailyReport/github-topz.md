@@ -14,20 +14,20 @@
 - **与 Trending 区别**：本节为全局累计 Star 排序快照；文末 Trending 为 GitHub「今日 / 本周 / 本月热度」榜单，数据源与口径均不同。
 - **标记**列：相对**本次拉取前**磁盘上 `github-topz.md` 中本节表格已存在的 `owner/repo`，不存在的行标为 **新增**；下次拉取会重新计算并清空上一次的「新增」（仅保留新一轮相对上一轮新增）。
 
-**最近一次更新时间**（Asia/Shanghai）： 2026-06-01 08:55:56
+**最近一次更新时间**（Asia/Shanghai）： 2026-06-04 09:05:55
 
 | 序号 | 仓库 | Stars | 仓库简介（中文） | 链接 | 标记 |
 | --- | --- | ---:| --- | --- | --- |
-| 1 | `codecrafters-io/build-your-own-x` | 509410 | 通过从零重写各类代表性技术来学习编程与设计，加深对底层原理的理解。 | https://github.com/codecrafters-io/build-your-own-x |  |
-| 2 | `sindresorhus/awesome` | 471819 | 围绕多种主题整理的「Awesome」精品清单合集。 | https://github.com/sindresorhus/awesome |  |
-| 3 | `freeCodeCamp/freeCodeCamp` | 445721 | freeCodeCamp 官网开源代码与学习课程：可免费学习编程、数学与计算机科学。 | https://github.com/freeCodeCamp/freeCodeCamp |  |
-| 4 | `public-apis/public-apis` | 438232 | 免费可用的公共 API 资源汇总清单。 | https://github.com/public-apis/public-apis |  |
-| 5 | `EbookFoundation/free-programming-books` | 389310 | 可免费获取的编程与计算机类书籍书单汇总。 | https://github.com/EbookFoundation/free-programming-books |  |
-| 6 | `openclaw/openclaw` | 375882 | 可在多系统运行的个人 AI 助手（吉祥物为龙虾图标）。 | https://github.com/openclaw/openclaw |  |
-| 7 | `nilbuild/developer-roadmap` | 355816 | 交互式开发者路线图、入门与进阶教程等学习资料合集。 | https://github.com/nilbuild/developer-roadmap |  |
-| 8 | `donnemartin/system-design-primer` | 351188 | 大厂级系统设计学习与面试备战材料（含 Anki 卡片范例）。 | https://github.com/donnemartin/system-design-primer |  |
-| 9 | `jwasham/coding-interview-university` | 347914 | 面向软件工程师岗位的系统化计算机科学与面试自学路线图。 | https://github.com/jwasham/coding-interview-university |  |
-| 10 | `vinta/awesome-python` | 300624 | 带选型倾向的 Python 框架、扩展库、工具与学习资源合集。 | https://github.com/vinta/awesome-python |  |
+| 1 | `codecrafters-io/build-your-own-x` | 511570 | 通过从零重写各类代表性技术来学习编程与设计，加深对底层原理的理解。 | https://github.com/codecrafters-io/build-your-own-x |  |
+| 2 | `sindresorhus/awesome` | 472674 | 围绕多种主题整理的「Awesome」精品清单合集。 | https://github.com/sindresorhus/awesome |  |
+| 3 | `freeCodeCamp/freeCodeCamp` | 445988 | freeCodeCamp 官网开源代码与学习课程：可免费学习编程、数学与计算机科学。 | https://github.com/freeCodeCamp/freeCodeCamp |  |
+| 4 | `public-apis/public-apis` | 439142 | 免费可用的公共 API 资源汇总清单。 | https://github.com/public-apis/public-apis |  |
+| 5 | `EbookFoundation/free-programming-books` | 389613 | 可免费获取的编程与计算机类书籍书单汇总。 | https://github.com/EbookFoundation/free-programming-books |  |
+| 6 | `openclaw/openclaw` | 376590 | 可在多系统运行的个人 AI 助手（吉祥物为龙虾图标）。 | https://github.com/openclaw/openclaw |  |
+| 7 | `nilbuild/developer-roadmap` | 356181 | 交互式开发者路线图、入门与进阶教程等学习资料合集。 | https://github.com/nilbuild/developer-roadmap |  |
+| 8 | `donnemartin/system-design-primer` | 351635 | 大厂级系统设计学习与面试备战材料（含 Anki 卡片范例）。 | https://github.com/donnemartin/system-design-primer |  |
+| 9 | `jwasham/coding-interview-university` | 349016 | 面向软件工程师岗位的系统化计算机科学与面试自学路线图。 | https://github.com/jwasham/coding-interview-university |  |
+| 10 | `vinta/awesome-python` | 301105 | 带选型倾向的 Python 框架、扩展库、工具与学习资源合集。 | https://github.com/vinta/awesome-python |  |
 | 11 | `awesome-selfhosted/awesome-selfhosted` | 295209 | 可自行部署的各类自由软件网络服务与 Web 应用清单。 | https://github.com/awesome-selfhosted/awesome-selfhosted |  |
 | 12 | `practical-tutorials/project-based-learning` | 266609 | 基于项目的教程精选列表 | https://github.com/practical-tutorials/project-based-learning |  |
 | 13 | `facebook/react` | 245279 | 用于构建 Web 与原生用户界面的 React 视图库（含多端生态）。 | https://github.com/facebook/react |  |
@@ -45,21 +45,20 @@
 
 | # | 仓库 | Stars | Forks | 语言 | 周期动向 | 仓库简介（中文） | 链接 | 标记 |
 | ---: | --- | ---:| ---:| --- | --- | --- | --- | --- |
-| 1 | `harry0703/MoneyPrinterTurbo` | 74193 | 10586 | Python | 1,937 stars today | 利用AI大模型，一键生成高清短视频 Generate short videos with one click using AI LLM. | https://github.com/harry0703/MoneyPrinterTurbo |  |
-| 2 | `microsoft/markitdown` | 134977 | 9230 | Python | 2,798 stars today | 用于将文件和Office文档转换为Markdown的Python工具。 | https://github.com/microsoft/markitdown |  |
-| 3 | `D4Vinci/Scrapling` | 56629 | 5491 | Python | 606 stars today | 🕷️ 一个自适应Web抓取框架，可处理从单个请求到全面爬网的所有内容！ | https://github.com/D4Vinci/Scrapling | 新增 |
-| 4 | `nesquena/hermes-webui` | 9973 | 1371 | Python | 357 stars today | Hermes WebUI ：通过网络或手机使用Hermes Agent的最佳方式！ | https://github.com/nesquena/hermes-webui | 新增 |
-| 5 | `EveryInc/compound-engineering-plugin` | 18704 | 1408 | TypeScript | 251 stars today | Claude Code、Codex、Cursor等的官方复合工程插件 | https://github.com/EveryInc/compound-engineering-plugin |  |
-| 6 | `github/docs` | 19732 | 67287 | TypeScript | 27 stars today | Docs.github.com的开源存储库 | https://github.com/github/docs | 新增 |
-| 7 | `OpenBMB/VoxCPM` | 23531 | 2718 | Python | 635 stars today | VoxCPM2 ：用于多语言语音生成、创意语音设计和真实克隆的无标记TTS | https://github.com/OpenBMB/VoxCPM |  |
-| 8 | `revfactory/harness` | 4597 | 650 | HTML | 323 stars today | 一种元技能，用于设计特定领域的座席团队，定义专业座席，并生成他们使用的技能。 | https://github.com/revfactory/harness |  |
-| 9 | `FareedKhan-dev/train-llm-from-scratch` | 2959 | 443 | Jupyter Notebook | 626 stars today | 从下载数据到生成文本，这是培训LLM的简单方法。 | https://github.com/FareedKhan-dev/train-llm-from-scratch |  |
-| 10 | `supermemoryai/supermemory` | 23339 | 2107 | TypeScript | 264 stars today | 内存引擎和应用程序，速度极快，可扩展。人工智能时代的内存API。 | https://github.com/supermemoryai/supermemory | 新增 |
-| 11 | `Crosstalk-Solutions/project-nomad` | 27732 | 2712 | TypeScript | 374 stars today | Project N.O.M.A.D是一款独立的离线生存计算机，配备了关键工具、知识和人工智能，可随时随地让您随时了解情况并获得授权。 | https://github.com/Crosstalk-Solutions/project-nomad |  |
-| 12 | `anthropics/claude-code` | 128911 | 20999 | Python | 489 stars today | Claude Code是一个代理编码工具，它位于您的终端中，了解您的代码库，并通过执行日常任务、解释复杂代码和处理git工作流程（所有这些都通过自然语言命令）来帮助您更快地进行编码。 | https://github.com/anthropics/claude-code |  |
-| 13 | `nicobailon/pi-subagents` | 1845 | 256 | TypeScript | 69 stars today | 具有截断、工件和会话共享的异步子代理委派的Pi扩展 | https://github.com/nicobailon/pi-subagents | 新增 |
-| 14 | `emmabostian/developer-portfolios` | 23370 | 4611 | Python | 73 stars today | 为您提供灵感的开发者作品集列表 | https://github.com/emmabostian/developer-portfolios | 新增 |
-| 15 | `codecrafters-io/build-your-own-x` | 509410 | 48317 | Markdown | 1,158 stars today | 通过从零重写各类代表性技术来学习编程与设计，加深对底层原理的理解。 | https://github.com/codecrafters-io/build-your-own-x |  |
+| 1 | `chopratejas/headroom` | 9755 | 645 | Python | 3,530 stars today | 在工具输出、日志、文件和RAG块到达LLM之前对其进行压缩。令牌减少60-95% ，答案相同。库、代理、MCP服务器。 | https://github.com/chopratejas/headroom | 新增 |
+| 2 | `affaan-m/ECC` | 205751 | 31591 | JavaScript | 2,141 stars today | 座席线束性能优化系统。Claude Code、Codex、Opencode、Cursor等的技能、本能、记忆、安全和研究优先开发。 | https://github.com/affaan-m/ECC | 新增 |
+| 3 | `aquasecurity/trivy` | 35404 | 416 | Go | 24 stars today | 查找漏洞、错误配置、秘密、容器中的SBOM、Kubernetes、代码仓库、云等 | https://github.com/aquasecurity/trivy | 新增 |
+| 4 | `NousResearch/hermes-agent` | 179136 | 30689 | Python | 1,735 stars today | 与您一起成长的客服代表 | https://github.com/NousResearch/hermes-agent | 新增 |
+| 5 | `microsoft/markitdown` | 142876 | 9764 | Python | 1,984 stars today | 用于将文件和Office文档转换为Markdown的Python工具。 | https://github.com/microsoft/markitdown |  |
+| 6 | `nesquena/hermes-webui` | 13103 | 1593 | Python | 719 stars today | Hermes WebUI ：通过网络或手机使用Hermes Agent的最佳方式！ | https://github.com/nesquena/hermes-webui |  |
+| 7 | `D4Vinci/Scrapling` | 60249 | 5808 | Python | 1,067 stars today | 🕷️ 一个自适应Web抓取框架，可处理从单个请求到全面爬网的所有内容！ | https://github.com/D4Vinci/Scrapling |  |
+| 8 | `opendataloader-project/opendataloader-pdf` | 23277 | 2183 | Java | 570 stars today | 适用于人工智能就绪数据的PDF解析器。自动化PDF辅助功能。开源。 | https://github.com/opendataloader-project/opendataloader-pdf | 新增 |
+| 9 | `odoo/odoo` | 51935 | 32642 | Python | 29 stars today | Odoo。开源应用助您拓展业务。 | https://github.com/odoo/odoo | 新增 |
+| 10 | `Open-LLM-VTuber/Open-LLM-VTuber` | 8963 | 1106 | Python | 693 stars today | 通过免提语音交互、语音中断和跨平台本地运行的Live2D与任何LLM交谈 | https://github.com/Open-LLM-VTuber/Open-LLM-VTuber | 新增 |
+| 11 | `jwasham/coding-interview-university` | 349016 | 83155 | — | 330 stars today | 面向软件工程师岗位的系统化计算机科学与面试自学路线图。 | https://github.com/jwasham/coding-interview-university | 新增 |
+| 12 | `lyogavin/airllm` | 18904 | 2071 | Jupyter Notebook | 208 stars today | 使用单个4GB GPU的AirLLM 70B推理 | https://github.com/lyogavin/airllm | 新增 |
+| 13 | `supermemoryai/supermemory` | 25177 | 2213 | TypeScript | 600 stars today | 内存引擎和应用程序，速度极快，可扩展。人工智能时代的内存API。 | https://github.com/supermemoryai/supermemory |  |
+| 14 | `HKUDS/Vibe-Trading` | 9923 | 2005 | Python | 197 stars today | “Vibe-Trading ：您的个人交易代理” | https://github.com/HKUDS/Vibe-Trading | 新增 |
 
 
 ### 本周 trending（since=weekly）
@@ -68,25 +67,28 @@
 
 | # | 仓库 | Stars | Forks | 语言 | 周期动向 | 仓库简介（中文） | 链接 | 标记 |
 | ---: | --- | ---:| ---:| --- | --- | --- | --- | --- |
-| 1 | `harry0703/MoneyPrinterTurbo` | 74195 | 10586 | Python | 15,955 stars this week | 利用AI大模型，一键生成高清短视频 Generate short videos with one click using AI LLM. | https://github.com/harry0703/MoneyPrinterTurbo |  |
-| 2 | `Lum1104/Understand-Anything` | 47210 | 3832 | TypeScript | 22,750 stars this week | 教学图表&gt;令人印象深刻的图表。将任何代码转换为交互式知识图表，您可以对其进行探索、搜索和提出问题。适用于Claude Code、Codex、Cursor、Copilot、Gemini CLI等。 | https://github.com/Lum1104/Understand-Anything |  |
-| 3 | `anthropics/knowledge-work-plugins` | 18435 | 2169 | Python | 4,944 stars this week | 主要供知识工作者在Claude Cowork中使用的插件的开源存储库 | https://github.com/anthropics/knowledge-work-plugins |  |
-| 4 | `rohitg00/ai-engineering-from-scratch` | 25793 | 4184 | Python | 10,586 stars this week | 学习它，构建它。为其他人运送。 | https://github.com/rohitg00/ai-engineering-from-scratch |  |
-| 5 | `hardikpandya/stop-slop` | 7740 | 550 | — | 3,770 stars this week | 从散文中删除AI TELLS的技能文件 | https://github.com/hardikpandya/stop-slop |  |
-| 6 | `microsoft/markitdown` | 134978 | 9230 | Python | 9,353 stars this week | 用于将文件和Office文档转换为Markdown的Python工具。 | https://github.com/microsoft/markitdown |  |
-| 7 | `Leonxlnx/taste-skill` | 29903 | 2218 | Shell | 10,813 stars this week | 品味技能-让您的人工智能有良好的品味。阻止人工智能产生无聊的通用斜坡 | https://github.com/Leonxlnx/taste-skill |  |
-| 8 | `colbymchenry/codegraph` | 35348 | 2189 | TypeScript | 13,925 stars this week | Claude Code、Codex、Gemini、Cursor、OpenCode、AntiGravity、Kiro和Hermes Agent的预索引代码知识图—代币更少，工具调用更少， 100%本地化 | https://github.com/colbymchenry/codegraph |  |
-| 9 | `mukul975/Anthropic-Cybersecurity-Skills` | 12942 | 1513 | Python | 4,896 stars this week | 人工智能代理的754种结构化网络安全技能·映射到5个框架： MITRE ATT&amp;CK、NIST CSF 2.0、MITRE ATLAS、D3FEND和NIST AI RMF · agentskills.io标准·适用于Claude Code、GitHub Copilot、Codex CLI、Cursor、Gemini CLI和20多个平台· 26个安全数据…… | https://github.com/mukul975/Anthropic-Cybersecurity-Skills |  |
-| 10 | `affaan-m/ECC` | 200611 | 30783 | JavaScript | 10,473 stars this week | 座席线束性能优化系统。Claude Code、Codex、Opencode、Cursor等的技能、本能、记忆、安全和研究优先开发。 | https://github.com/affaan-m/ECC |  |
-| 11 | `cursor/plugins` | 1611 | 128 | TypeScript | 882 stars this week | 光标插件规范和官方插件 | https://github.com/cursor/plugins |  |
-| 12 | `revfactory/harness` | 4597 | 650 | HTML | 957 stars this week | 一种元技能，用于设计特定领域的座席团队，定义专业座席，并生成他们使用的技能。 | https://github.com/revfactory/harness |  |
-| 13 | `p-e-w/heretic` | 22758 | 2433 | Python | 1,417 stars this week | 语言模型的全自动审查删除 | https://github.com/p-e-w/heretic |  |
-| 14 | `microsoft/agent-governance-toolkit` | 3564 | 509 | Python | 1,657 stars this week | AI代理治理工具包—针对自主AI代理的策略实施、零信任身份、执行沙盒和可靠性工程。涵盖10/10 OWASP Agentic Top 10。 | https://github.com/microsoft/agent-governance-toolkit |  |
-| 15 | `Chachamaru127/claude-code-harness` | 2381 | 237 | Shell | 997 stars this week | Claude Code Dedicated Development Harness -通过自主计划→工作→审核周期实现高质量发展 | https://github.com/Chachamaru127/claude-code-harness |  |
-| 16 | `dograh-hq/dograh` | 3982 | 797 | Python | 1,329 stars this week | 开源语音AI平台。Vapi和Retell的自托管替代品。在PREM上， BYOK跨语音到语音或LLM/STT/TTS ，具有可视化工作流程构建器、MCP本机和电话支持。 | https://github.com/dograh-hq/dograh |  |
-| 17 | `ogulcancelik/herdr` | 3413 | 223 | Rust | 1,058 stars this week | 位于您终端中的座席多路复用器。 | https://github.com/ogulcancelik/herdr |  |
-| 18 | `run-llama/liteparse` | 8325 | 493 | Rust | 3,006 stars this week | 快速、实用、开源的文档解析器 | https://github.com/run-llama/liteparse | 新增 |
-| 19 | `iii-hq/iii` | 17372 | 1140 | Rust | 1,394 stars this week | 首次实时轻松编写、扩展和观察每项服务。 | https://github.com/iii-hq/iii | 新增 |
+| 1 | `harry0703/MoneyPrinterTurbo` | 78843 | 11211 | Python | 18,553 stars this week | 利用AI大模型，一键生成高清短视频 Generate short videos with one click using AI LLM. | https://github.com/harry0703/MoneyPrinterTurbo |  |
+| 2 | `chopratejas/headroom` | 9758 | 645 | Python | 6,245 stars this week | 在工具输出、日志、文件和RAG块到达LLM之前对其进行压缩。令牌减少60-95% ，答案相同。库、代理、MCP服务器。 | https://github.com/chopratejas/headroom | 新增 |
+| 3 | `microsoft/markitdown` | 142876 | 9764 | Python | 17,108 stars this week | 用于将文件和Office文档转换为Markdown的Python工具。 | https://github.com/microsoft/markitdown |  |
+| 4 | `Lum1104/Understand-Anything` | 51133 | 4175 | TypeScript | 12,726 stars this week | 教学图表&gt;令人印象深刻的图表。将任何代码转换为交互式知识图表，您可以对其进行探索、搜索和提出问题。适用于Claude Code、Codex、Cursor、Copilot、Gemini CLI等。 | https://github.com/Lum1104/Understand-Anything |  |
+| 5 | `revfactory/harness` | 5696 | 761 | HTML | 2,005 stars this week | 一种元技能，用于设计特定领域的座席团队，定义专业座席，并生成他们使用的技能。 | https://github.com/revfactory/harness |  |
+| 6 | `hardikpandya/stop-slop` | 8537 | 596 | — | 3,103 stars this week | 从散文中删除AI TELLS的技能文件 | https://github.com/hardikpandya/stop-slop |  |
+| 7 | `EveryInc/compound-engineering-plugin` | 19603 | 1455 | TypeScript | 2,116 stars this week | Claude Code、Codex、Cursor等的官方复合工程插件 | https://github.com/EveryInc/compound-engineering-plugin | 新增 |
+| 8 | `Leonxlnx/taste-skill` | 32516 | 2390 | Shell | 9,084 stars this week | 品味技能-让您的人工智能有良好的品味。阻止人工智能产生无聊的通用斜坡 | https://github.com/Leonxlnx/taste-skill |  |
+| 9 | `supermemoryai/supermemory` | 25177 | 2213 | TypeScript | 2,260 stars this week | 内存引擎和应用程序，速度极快，可扩展。人工智能时代的内存API。 | https://github.com/supermemoryai/supermemory | 新增 |
+| 10 | `colbymchenry/codegraph` | 39337 | 2442 | TypeScript | 9,796 stars this week | Claude Code、Codex、Gemini、Cursor、OpenCode、AntiGravity、Kiro和Hermes Agent的预索引代码知识图—代币更少，工具调用更少， 100%本地化 | https://github.com/colbymchenry/codegraph |  |
+| 11 | `affaan-m/ECC` | 205751 | 31591 | JavaScript | 10,008 stars this week | 座席线束性能优化系统。Claude Code、Codex、Opencode、Cursor等的技能、本能、记忆、安全和研究优先开发。 | https://github.com/affaan-m/ECC |  |
+| 12 | `OpenMOSS/MOSS-TTS` | 2962 | 265 | Python | 974 stars this week | MOSS ‑ TTS家族是来自MOSI.AI和OpenMOSS团队的开源语音和声音生成模型家族。它专为高保真、高表现力和复杂的现实世界场景而设计，涵盖稳定的长篇语音、多扬声器对话、语音/字符设计…… | https://github.com/OpenMOSS/MOSS-TTS | 新增 |
+| 13 | `mukul975/Anthropic-Cybersecurity-Skills` | 13900 | 1629 | Python | 3,247 stars this week | 人工智能代理的754种结构化网络安全技能·映射到5个框架： MITRE ATT&amp;CK、NIST CSF 2.0、MITRE ATLAS、D3FEND和NIST AI RMF · agentskills.io标准·适用于Claude Code、GitHub Copilot、Codex CLI、Cursor、Gemini CLI和20多个平台· 26个安全数据…… | https://github.com/mukul975/Anthropic-Cybersecurity-Skills |  |
+| 14 | `rohitg00/ai-engineering-from-scratch` | 27903 | 4544 | Python | 6,161 stars this week | 学习它，构建它。为其他人运送。 | https://github.com/rohitg00/ai-engineering-from-scratch |  |
+| 15 | `cursor/plugins` | 1784 | 144 | TypeScript | 820 stars this week | 光标插件规范和官方插件 | https://github.com/cursor/plugins |  |
+| 16 | `can1357/oh-my-pi` | 10310 | 856 | TypeScript | 2,521 stars this week | 终端的AI编码代理—哈希锚定编辑、优化工具线束、LSP、Python、浏览器、子代理等 | https://github.com/can1357/oh-my-pi | 新增 |
+| 17 | `microsoft/agent-governance-toolkit` | 3925 | 539 | Python | 1,000 stars this week | AI代理治理工具包—针对自主AI代理的策略实施、零信任身份、执行沙盒和可靠性工程。涵盖10/10 OWASP Agentic Top 10。 | https://github.com/microsoft/agent-governance-toolkit |  |
+| 18 | `ogulcancelik/herdr` | 4108 | 259 | Rust | 1,410 stars this week | 位于您终端中的座席多路复用器。 | https://github.com/ogulcancelik/herdr |  |
+| 19 | `p-e-w/heretic` | 23423 | 2500 | Python | 1,595 stars this week | 语言模型的全自动审查删除 | https://github.com/p-e-w/heretic |  |
+| 20 | `OpenBMB/VoxCPM` | 25597 | 2913 | Python | 5,640 stars this week | VoxCPM2 ：用于多语言语音生成、创意语音设计和真实克隆的无标记TTS | https://github.com/OpenBMB/VoxCPM | 新增 |
+| 21 | `anthropics/claude-code` | 129865 | 21110 | Python | 3,009 stars this week | Claude Code是一个代理编码工具，它位于您的终端中，了解您的代码库，并通过执行日常任务、解释复杂代码和处理git工作流程（所有这些都通过自然语言命令）来帮助您更快地进行编码。 | https://github.com/anthropics/claude-code | 新增 |
+| 22 | `iii-hq/iii` | 17612 | 1159 | Rust | 1,054 stars this week | 首次实时轻松编写、扩展和观察每项服务。 | https://github.com/iii-hq/iii |  |
 
 
 ### 本月 trending（since=monthly）
@@ -95,21 +97,23 @@
 
 | # | 仓库 | Stars | Forks | 语言 | 周期动向 | 仓库简介（中文） | 链接 | 标记 |
 | ---: | --- | ---:| ---:| --- | --- | --- | --- | --- |
-| 1 | `colbymchenry/codegraph` | 35349 | 2189 | TypeScript | 34,446 stars this month | Claude Code、Codex、Gemini、Cursor、OpenCode、AntiGravity、Kiro和Hermes Agent的预索引代码知识图—代币更少，工具调用更少， 100%本地化 | https://github.com/colbymchenry/codegraph |  |
-| 2 | `anthropics/financial-services` | 29080 | 4073 | Python | 21,308 stars this month | — | https://github.com/anthropics/financial-services |  |
-| 3 | `CloakHQ/CloakBrowser` | 22878 | 1820 | Python | 21,400 stars this month | Stealth Chromium可通过每次机器人检测测试。插入式剧作家更换源级指纹补丁，通过30/30测试 | https://github.com/CloakHQ/CloakBrowser |  |
-| 4 | `rohitg00/agentmemory` | 20219 | 1672 | TypeScript | 18,071 stars this month | # 1基于真实世界基准的AI编码代理持久内存 | https://github.com/rohitg00/agentmemory |  |
-| 5 | `Lum1104/Understand-Anything` | 47210 | 3832 | TypeScript | 37,390 stars this month | 教学图表&gt;令人印象深刻的图表。将任何代码转换为交互式知识图表，您可以对其进行探索、搜索和提出问题。适用于Claude Code、Codex、Cursor、Copilot、Gemini CLI等。 | https://github.com/Lum1104/Understand-Anything |  |
-| 6 | `Imbad0202/academic-research-skills` | 25112 | 2070 | Python | 21,119 stars this month | Claude Code的学术研究技能：研究→撰写→评审→修订→最终确定 | https://github.com/Imbad0202/academic-research-skills |  |
-| 7 | `HKUDS/ViMax` | 8449 | 1297 | Python | 5,721 stars this month | "ViMax ： Agentic Video Generation （导演、编剧、制片人和视频生成器一体机）" | https://github.com/HKUDS/ViMax | 新增 |
-| 8 | `mattpocock/skills` | 113127 | 9925 | Shell | 65,737 stars this month | 真正工程师的技能。直接来自我的.claude目录。 | https://github.com/mattpocock/skills |  |
-| 9 | `rohitg00/ai-engineering-from-scratch` | 25793 | 4184 | Python | 19,640 stars this month | 学习它，构建它。为其他人运送。 | https://github.com/rohitg00/ai-engineering-from-scratch |  |
-| 10 | `decolua/9router` | 15415 | 2310 | JavaScript | 12,051 stars this month | 无限免费AI编码。通过40多家供应商将Claude Code、Codex、Cursor、Cline、Copilot、Antigravity连接到免费的Claude/GPT/Gemini。自动回退， RTK -40%代币，从未达到限制。 | https://github.com/decolua/9router |  |
-| 11 | `harry0703/MoneyPrinterTurbo` | 74195 | 10586 | Python | 16,993 stars this month | 利用AI大模型，一键生成高清短视频 Generate short videos with one click using AI LLM. | https://github.com/harry0703/MoneyPrinterTurbo | 新增 |
-| 12 | `yikart/AiToEarn` | 17225 | 2739 | TypeScript | 8,241 stars this month | 让我们使用人工智能来赚取收入！ | https://github.com/yikart/AiToEarn |  |
-| 13 | `bytedance/UI-TARS-desktop` | 35809 | 3604 | TypeScript | 6,370 stars this month | 开源多模态人工智能代理堆栈：连接尖端人工智能模型和代理基础设施 | https://github.com/bytedance/UI-TARS-desktop |  |
-| 14 | `ruvnet/ruflo` | 56962 | 6487 | TypeScript | 23,191 stars this month | 🌊 Claude的领先代理编排平台。部署智能多智能体群，协调自主工作流程，构建对话式人工智能系统。具有企业级架构、自学群体智能、RAG集成和本地Claude Code/… | https://github.com/ruvnet/ruflo |  |
-| 15 | `AIDC-AI/Pixelle-Video` | 20720 | 2903 | Python | 12,581 stars this month | 🚀 AI 全自动短视频引擎 · AI Fully Automated Short Video Engine | https://github.com/AIDC-AI/Pixelle-Video |  |
-| 16 | `multica-ai/andrej-karpathy-skills` | 163428 | 16740 | — | 62,506 stars this month | 一个用于改进Claude Code行为的CLAUDE.md文件，源自Andrej Karpathy对LLM编码陷阱的观察。 | https://github.com/multica-ai/andrej-karpathy-skills |  |
-| 17 | `ruvnet/RuView` | 69531 | 9281 | Rust | 18,955 stars this month | π RuView将商用WiFi信号转化为实时空间智能、生命体征监测和存在检测--所有这些都无需一个像素的视频。 | https://github.com/ruvnet/RuView | 新增 |
+| 1 | `colbymchenry/codegraph` | 39337 | 2442 | TypeScript | 38,467 stars this month | Claude Code、Codex、Gemini、Cursor、OpenCode、AntiGravity、Kiro和Hermes Agent的预索引代码知识图—代币更少，工具调用更少， 100%本地化 | https://github.com/colbymchenry/codegraph |  |
+| 2 | `anthropics/financial-services` | 29787 | 4183 | Python | 21,999 stars this month | — | https://github.com/anthropics/financial-services |  |
+| 3 | `CloakHQ/CloakBrowser` | 23655 | 1876 | Python | 22,190 stars this month | Stealth Chromium可通过每次机器人检测测试。插入式剧作家更换源级指纹补丁，通过30/30测试 | https://github.com/CloakHQ/CloakBrowser |  |
+| 4 | `Hmbown/CodeWhale` | 36898 | 3174 | Rust | 35,225 stars this month | 终端中的DeepSeek + MiMo编码代理 | https://github.com/Hmbown/CodeWhale | 新增 |
+| 5 | `rohitg00/agentmemory` | 20991 | 1732 | TypeScript | 18,882 stars this month | # 1基于真实世界基准的AI编码代理持久内存 | https://github.com/rohitg00/agentmemory |  |
+| 6 | `Lum1104/Understand-Anything` | 51134 | 4175 | TypeScript | 40,416 stars this month | 教学图表&gt;令人印象深刻的图表。将任何代码转换为交互式知识图表，您可以对其进行探索、搜索和提出问题。适用于Claude Code、Codex、Cursor、Copilot、Gemini CLI等。 | https://github.com/Lum1104/Understand-Anything |  |
+| 7 | `HKUDS/ViMax` | 8634 | 1325 | Python | 5,930 stars this month | "ViMax ： Agentic Video Generation （导演、编剧、制片人和视频生成器一体机）" | https://github.com/HKUDS/ViMax |  |
+| 8 | `Imbad0202/academic-research-skills` | 26727 | 2201 | Python | 22,608 stars this month | Claude Code的学术研究技能：研究→撰写→评审→修订→最终确定 | https://github.com/Imbad0202/academic-research-skills |  |
+| 9 | `fathah/hermes-desktop` | 9948 | 1184 | TypeScript | 8,951 stars this month | Hermès Agent桌面配套 | https://github.com/fathah/hermes-desktop | 新增 |
+| 10 | `harry0703/MoneyPrinterTurbo` | 78843 | 11211 | Python | 22,441 stars this month | 利用AI大模型，一键生成高清短视频 Generate short videos with one click using AI LLM. | https://github.com/harry0703/MoneyPrinterTurbo |  |
+| 11 | `rohitg00/ai-engineering-from-scratch` | 27903 | 4544 | Python | 21,631 stars this month | 学习它，构建它。为其他人运送。 | https://github.com/rohitg00/ai-engineering-from-scratch |  |
+| 12 | `mattpocock/skills` | 116458 | 10201 | Shell | 60,443 stars this month | 真正工程师的技能。直接来自我的.claude目录。 | https://github.com/mattpocock/skills |  |
+| 13 | `yikart/AiToEarn` | 17849 | 2812 | TypeScript | 8,794 stars this month | 让我们使用人工智能来赚取收入！ | https://github.com/yikart/AiToEarn |  |
+| 14 | `decolua/9router` | 16132 | 2414 | JavaScript | 12,585 stars this month | 无限免费AI编码。通过40多家供应商将Claude Code、Codex、Cursor、Cline、Copilot、Antigravity连接到免费的Claude/GPT/Gemini。自动回退， RTK -40%代币，从未达到限制。 | https://github.com/decolua/9router |  |
+| 15 | `bytedance/UI-TARS-desktop` | 36006 | 3623 | TypeScript | 6,551 stars this month | 开源多模态人工智能代理堆栈：连接尖端人工智能模型和代理基础设施 | https://github.com/bytedance/UI-TARS-desktop |  |
+| 16 | `ruvnet/RuView` | 70536 | 9437 | Rust | 19,584 stars this month | π RuView将商用WiFi信号转化为实时空间智能、生命体征监测和存在检测--所有这些都无需一个像素的视频。 | https://github.com/ruvnet/RuView |  |
+| 17 | `chopratejas/headroom` | 9759 | 645 | Python | 7,349 stars this month | 在工具输出、日志、文件和RAG块到达LLM之前对其进行压缩。令牌减少60-95% ，答案相同。库、代理、MCP服务器。 | https://github.com/chopratejas/headroom | 新增 |
+| 18 | `can1357/oh-my-pi` | 10310 | 856 | TypeScript | 6,443 stars this month | 终端的AI编码代理—哈希锚定编辑、优化工具线束、LSP、Python、浏览器、子代理等 | https://github.com/can1357/oh-my-pi | 新增 |
+| 19 | `datawhalechina/easy-vibe` | 15856 | 1502 | JavaScript | 8,411 stars this month | 💻 vibe coding 2026 ·您的第一个现代编程课程，供初学者一步一步掌握。 | https://github.com/datawhalechina/easy-vibe | 新增 |
 

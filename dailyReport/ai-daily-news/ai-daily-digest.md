@@ -2,6 +2,167 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-06-03
+
+### 今日总览
+
+**一句话结论**：`2026-06-03` 是 **「Microsoft Build 第二日竞争叙事 + OpenAI 前沿治理蓝图 + Anthropic 伙伴网络分层」**——The Verge 解读 **Microsoft 与 OpenAI 竞合**；OpenAI 发布 **frontier AI 治理蓝图** 并升级 **GPT-Rosalind** 能力；Anthropic 推出 **Claude Partner Network Services Track / Partner Hub** 与 **LLM ATT&CK Navigator**；当日 **OpenAI API/ChatGPT/Codex 曾短暂 5xx  outage 后修复**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenAI/Anthropic 官方；Microsoft Build 延续；TechCrunch/The Verge；arXiv agent 论文；专项工具链 |
+| 核心趋势 | **平台竞合**：Microsoft 自研 MAI + Scout(OpenClaw) vs OpenAI Codex 知识工作者化；**治理**：联邦 frontier 安全框架 + 州法协同；**生态**：Anthropic 伙伴分级与 ATT&CK 映射 |
+| 可直接关注 | 跟踪 **GPT-Rosalind** 企业 Trusted Access 边界；评估 **Partner Hub MCP** 对 SI 交付流程；**API outage** 后重跑关键 batch |
+| 专项检索结论 | **Claude Code**：无 6/3 新 release（最近 **v2.1.161 为 2026-06-02**）；**Codex**：**无 6/3 GitHub release**（**0.137.0-alpha.4 为 2026-06-03 UTC 凌晨**）；**OpenClaw/Hermes**：Build 周 **Scout/NemoClaw** 生态报道延续，无新 tag；**Spring AI**：无 6/3 官方 release；**skills**：Anthropic **Partner Hub MCP** 与 Codex **Life Sciences plugin** 生态延续 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 政策 / 治理 | [A blueprint for democratic governance of frontier AI](https://openai.com/index/frontier-safety-blueprint/) | **2026-06-03** | 官方发布 | 三件套：联邦框架 + 强化 CAISI + 跨部门韧性计划；衔接 CA SB 53 / NY RAISE / IL SB 315 |
+| 生命科学 AI | [Introducing GPT-Rosalind（6/3 能力更新）](https://openai.com/index/introducing-gpt-rosalind/) | **2026-06-03** | 官方产品 | 融合 **GPT-5.5 agentic coding/tool use** 加速药物发现/实验工作流；Trusted Access 限定 |
+| Anthropic / 生态 | [Services Track and Partner Hub — Claude Partner Network](https://www.anthropic.com/news/services-track-partner-hub) | **2026-06-03** | 官方发布 | **Select/Preferred/Global Premier** 三级 + **Partner Hub MCP**；40k+ 申请、10k+ 认证 |
+| 安全研究 | [LLM ATT&CK Navigator](https://red.anthropic.com/2026/attack-navigator/) | **2026-06-03** | 官方发布 | 将 LLM 攻击技术映射 MITRE ATT&CK；结合 Verizon DBIR 2026 语境 |
+| Microsoft / 竞合 | [Microsoft and OpenAI broke up — now they're ready to fight（The Verge）](https://www.theverge.com/ai-artificial-intelligence/942242/microsoft-build-ai-agents-openai-competition) | **2026-06-03** | 技术媒体 | Build 第二日：MAI 自研 + Copilot super app vs OpenAI Codex/Atlas 超级应用 |
+| Meta / Agent | [Meta Business Agent globally on WhatsApp（TechCrunch）](https://techcrunch.com/2026/06/03/metas-ai-agent-for-whatsapp-business-is-now-available-globally/) | **2026-06-03** | 产品发布 | WhatsApp/Instagram DM **客服 Agent** 全球可用；token 计费 + Shopify/Zendesk 集成路线 |
+| Google / 产品 | [Google Dreambeans lifestyle AI app（TechCrunch）](https://techcrunch.com/2026/06/03/googles-dreambeans-its-weirdest-named-ai-tool-to-date-will-turn-your-life-into-a-cartoon/) | **2026-06-03** | 产品发布 | **Personal Intelligence** 聚合 Gmail/Calendar/Photos 生成限量每日「故事」；AI Ultra 限定 |
+| 监管 / 搜索 | [UK publishers opt-out of AI Search（TechCrunch）](https://techcrunch.com/2026/06/03/publishers-will-be-able-to-opt-out-of-ai-search-thanks-to-new-regulation/) | **2026-06-03** | 政策监管 | Google Search Console **toggle** 退出 AI Overviews/AI Mode；CMA 合规 |
+| 可靠性 | [OpenAI API, ChatGPT and Codex outage（Community）](https://community.openai.com/t/openai-api-chatgpt-and-codex-currently-down/1382514) | **2026-06-03** | 运维事件 | 当日 **5xx**；官方 **15:16 UTC 左右** 称已修复——Agent 流水线需幂等重试 |
+| 论文 | [D2MDT: Department-aware MDT Consultation（arXiv:2606.03543）](https://arxiv.org/html/2606.03543v1) | **2026-06-03** | 论文原文 | 临床预测 **residual deliberation** 多 Agent；降低冗余交互 |
+| 论文 | [MeDxAgent + MeDxBench（arXiv:2606.03416）](https://arxiv.org/html/2606.03416v1) | **2026-06-03** | 论文原文 | **交互式诊断** 基准 + 多 Agent 会诊；+10.3pp vs baseline |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Frontier 治理 | [OpenAI frontier safety blueprint PDF](https://openai.com/index/frontier-safety-blueprint/) | CAISI、州法 harmonization、resilience plan | 合规/平台架构 |
+| 伙伴交付 | [Claude Partner Hub + MCP](https://www.anthropic.com/news/services-track-partner-hub) | Select/Preferred/Premier 指标、MCP 查询 tier | SI/企业 AI 负责人 |
+| 威胁建模 | [LLM ATT&CK Navigator](https://red.anthropic.com/2026/attack-navigator/) | LLM 攻击面 × ATT&CK 矩阵 | 安全工程/红队 |
+| 多 Agent 临床 | D2MDT / MeDxAgent 论文 | residual deliberation、交互式诊断 flow | 医疗 AI 研发 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/3 呈现 **「巨头平台化 Agent 入口 + 治理/安全基建同步上架」**——Meta **WhatsApp Business Agent** 与 Google **Dreambeans** 争夺「日常入口」，Anthropic 用 **Partner Hub MCP** 把交付状态机器化；工程侧应把 **outage 重试** 与 **publisher opt-out** 纳入 RAG/搜索 Agent 设计。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 平台 Agent | Meta WhatsApp **Business Agent** GA | 客服/预约/lead 场景可对照 **human handoff** 与 **token 预算** |
+| 个人 Agent | Google **Dreambeans**（限量故事） | 「少即是多」UX vs 24/7 Agent；Personal Intelligence 权限最小化 |
+| 交付生态 | Anthropic **Partner Hub MCP** | SI 可在 Claude 内查询 tier/deal/cert 状态——可复制到内部 Agent ops |
+| 多 Agent 论文 | D2MDT **residual deliberation** | 长时 Agent 会话只传递 **未决共识** 降 token |
+| Codex CLI | **0.137.0-alpha.4**（UTC 6/3 凌晨） | alpha 线跟进前先在 staging 验证 MCP/rmcp |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **OpenAI frontier governance blueprint** | 2026 联邦 AI 安全制度设计的一手框架 |
+| 必读 | **Anthropic Partner Network + ATT&CK Navigator** | 企业落地分级 + LLM 威胁建模同日发布 |
+| 推荐 | **The Verge：Microsoft vs OpenAI** | 理解 Build 周 **双超级应用** 竞争结构 |
+| 推荐 | **D2MDT / MeDxAgent 论文** | 多 Agent **deliberation** 与交互式 eval 的可复现参考 |
+| 延伸 | **TechCrunch：UK AI Search opt-out** | 影响 RAG/搜索 Agent 的内容授权策略 |
+
+### 来源清单
+
+- 检索范围：2026-06-03 00:00:00 到 2026-06-03 23:59:59（Asia/Shanghai）
+- 引用域名：openai.com, anthropic.com, red.anthropic.com, theverge.com, techcrunch.com, community.openai.com, arxiv.org
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Frontier AI governance blueprint | 2026-06-03 | https://openai.com/index/frontier-safety-blueprint/ |
+| 官方发布 | Claude Partner Network Services Track | 2026-06-03 | https://www.anthropic.com/news/services-track-partner-hub |
+| 官方发布 | LLM ATT&CK Navigator | 2026-06-03 | https://red.anthropic.com/2026/attack-navigator/ |
+| 技术媒体 | Microsoft vs OpenAI at Build | 2026-06-03 | https://www.theverge.com/ai-artificial-intelligence/942242/microsoft-build-ai-agents-openai-competition |
+| 技术媒体 | Meta WhatsApp Business Agent | 2026-06-03 | https://techcrunch.com/2026/06/03/metas-ai-agent-for-whatsapp-business-is-now-available-globally/ |
+| 技术媒体 | Google Dreambeans | 2026-06-03 | https://techcrunch.com/2026/06/03/googles-dreambeans-its-weirdest-named-ai-tool-to-date-will-turn-your-life-into-a-cartoon/ |
+| 技术媒体 | UK AI Search publisher opt-out | 2026-06-03 | https://techcrunch.com/2026/06/03/publishers-will-be-able-to-opt-out-of-ai-search-thanks-to-new-regulation/ |
+| 运维 | OpenAI API outage thread | 2026-06-03 | https://community.openai.com/t/openai-api-chatgpt-and-codex-currently-down/1382514 |
+| 论文原文 | D2MDT | 2026-06-03 | https://arxiv.org/html/2606.03543v1 |
+| 论文原文 | MeDxAgent | 2026-06-03 | https://arxiv.org/html/2606.03416v1 |
+
+## 2026-06-02
+
+### 今日总览
+
+**一句话结论**：`2026-06-02` 是 **「OpenAI Codex 白领化 + Microsoft Build 自研推理/Scout + Trump AI 安全 EO」** 三足鼎立——OpenAI 发布 **Plugins/Sites/Annotations** 并 **下线 ChatGPT 登录下的 GPT-5.2/5.3-Codex**；Microsoft 推出 **MAI-Thinking-1** 与 **Scout（OpenClaw）**；Trump 签署 **自愿 30 天 前沿模型安全审查** 行政令；Anthropic **Glasswing 扩至 ~150 组织** 且 **Claude Code 连发 v2.1.160/161**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenAI/Anthropic/Microsoft 官方；The Verge/TechCrunch/Bloomberg；GitHub release；政策监管 |
+| 核心趋势 | **Codex 从编码工具→知识工作平台**（20% 非开发者、3× 增速）；**Microsoft 自研推理 + OpenClaw Scout**；**网络安全 EO 自愿送审** |
+| 可直接关注 | 企业评估 **Codex Sites** 权限与 **6 角色插件**；升级 **Claude Code 2.1.160+** 注意 **`workflow`→`ultracode` breaking**；Copilot/Codex **模型 sunset** 后重算配额 |
+| 专项检索结论 | **Claude Code**：**`v2.1.160` `Published: 2026-06-02T02:10:25Z`** + **`v2.1.161` `21:58:22Z`**；**Codex**：**无 6/2 release**（**0.136.0 为 6/1**）；**OpenClaw**：**Scout/NemoClaw/Build MXC** 官方叙事（非 OpenClaw 新 tag）；**Hermes**：无 6/2 release；**Spring AI**：无 6/2 官方 release（最近 **2.0.0-M8 为 5/27**）；**skills**：Codex **6 角色插件 110 skills**；Claude API **advisor max_tokens** |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| OpenAI / Codex | [Codex for every role, tool, and workflow](https://openai.com/index/codex-for-every-role-tool-workflow/) | **2026-06-02** | 官方发布 | **6 角色插件**（销售/数据分析/投行等）+ **Sites** 托管交互应用 + **Annotations** 局部精修 |
+| OpenAI / 模型 | [GPT-5.2 & GPT-5.3-Codex sunset in Codex（ChatGPT 登录）](https://community.openai.com/t/gpt-5-2-and-gpt-5-3-codex-have-been-sunset-in-codex-with-chatgpt-subscriptions/1382273) | **2026-06-02 起** | 官方政策 | ChatGPT 账号登录 Codex **不再可用** 5.2/5.3；免费档默认 **GPT-5.5**；API 路径仍可用 |
+| Microsoft / Build | [Introducing MAI-Thinking-1](https://microsoft.ai/news/introducing-mai-thinking-1/) | **2026-06-02** | 官方发布 | **35B active MoE**、**256K** 上下文；**53% SWE-Bench Pro**；无蒸馏、商用授权数据 |
+| Microsoft / Agent | [Microsoft Scout built on OpenClaw（The Verge Build 汇总）](https://www.theverge.com/tech/941668/microsoft-build-may-2026-live-news-updates) | **2026-06-02** | 产品发布 | **365 常驻 Autopilot**；**Project Solara** Android Agent OS；**MXC** 容器隔离 OpenClaw |
+| 政策 / AI 安全 | [Trump signs AI safety order（Ideastream）](https://www.ideastream.org/2026-06-02/trump-signs-ai-safety-order-seeking-voluntary-review-of-new-models) | **2026-06-02** | 政策监管 | **自愿** 提前 ≤30 天提交前沿模型供政府网络安全测试；非强制许可 |
+| Anthropic / 安全 | [Expanding Project Glasswing](https://www.anthropic.com/news/expanding-project-glasswing) | **2026-06-02** | 官方发布 | **~150** 新组织、**15+** 国家；电力/水务/医疗等 **Mythos Preview** 漏洞扫描 |
+| Anthropic / API | [Claude API release notes — June 2](https://docs.anthropic.com/en/release-notes/api) | **2026-06-02** | 官方文档 | **advisor max_tokens**；**stop_reason=refusal 且无输出不计费** |
+| Claude Code | [anthropics/claude-code `v2.1.160`](https://github.com/anthropics/claude-code/releases/tag/v2.1.160) | **`Published: 2026-06-02T02:10:25Z`** | 开源发布 | shell 启动文件写入确认；**`workflow`→`ultracode`**；grep 后可直接 edit |
+| Claude Code | [anthropics/claude-code `v2.1.161`](https://github.com/anthropics/claude-code/releases/tag/v2.1.161) | **`Published: 2026-06-02T21:58:22Z`** | 开源发布 | OTEL resource labels；并行 tool/MCP 修复 |
+| LangGraph | [langgraph==1.2.4](https://github.com/langchain-ai/langgraph/releases/tag/1.2.4) | **`Published: 2026-06-02T17:07:49Z`** | 开源发布 | `_on_started` 向后兼容；server factory 集成测试 |
+| Google / Agent | [Gemini Spark hands-on（The Verge）](https://www.theverge.com/ai-artificial-intelligence/941388/gemini-spark-ai-agent-trip-planning) | **2026-06-02** | 技术媒体 | **24/7 个人 Agent** 实测：Gmail/Docs 任务 + 行程规划；隐私/成本权衡 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Codex 知识工作 | [Codex plugins/Sites/Annotations 官方文](https://openai.com/index/codex-for-every-role-tool-workflow/) | 62 apps、110 skills、Sites URL 分享 | 非研发知识工作者/管理员 |
+| Codex 模型迁移 | [Community: GPT-5.2/5.3 sunset](https://community.openai.com/t/gpt-5-2-and-gpt-5-3-codex-have-been-sunset-in-codex-with-chatgpt-subscriptions/1382273) | ChatGPT 登录 vs API key 路径 | Codex 重度用户 |
+| MAI 推理 | [MAI-Thinking-1 model card](https://microsoft.ai/models/mai-thinking-1/) | Foundry 私有预览、AIME/SWE 指标 | 平台/数据科学 |
+| Claude Code | [v2.1.160 release notes](https://github.com/anthropics/claude-code/releases/tag/v2.1.160) | ultracode、acceptEdits 安全 | 终端 Agent 用户 |
+| Dynamic workflows | [Claude Code workflows docs](https://code.claude.com/docs/en/workflows) | **`ultracode` 触发**、research preview | 多 Agent 编排 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/2 是 **「白领 Agent 产品化 + 自研推理模型 + 开源 Agent 运行时双更」** 同日碰撞——OpenAI 把 Codex 推向 **Sites/插件目录**，Microsoft 用 **OpenClaw Scout** 对标 Google **Gemini Spark**，Anthropic 用 **Glasswing + Claude Code 连更** 巩固安全/终端栈。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Codex 产品 | **Plugins + Sites + Annotations** | 内部工具从「文件输出」→「可分享 URL」；Annotations 降低全量重写 |
+| 模型生命周期 | **GPT-5.2/5.3 Codex sunset** | CI 固定 model id；ChatGPT 登录与 API key **两条配额线** |
+| Microsoft Agent | **Scout + Solara + MXC** | 企业 OpenClaw 需 **Execution Container** 沙箱策略 |
+| Claude Code | **2.1.160/161** | 迁移 **`/effort ultracode`**；OTEL labels 做 **per-team 用量切片** |
+| LangGraph | **1.2.4** | 升级前跑 **factory-graph** 集成测试 |
+| OpenClaw vs 商业 | **Scout 基于 OpenClaw** | 选型：自托管 OpenClaw vs 365 托管 Scout 的 **数据驻留** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **OpenAI Codex 6/2 官方发布** | 知识工作者 Agent 栈（插件/Sites/Annotations）一手定义 |
+| 必读 | **MAI-Thinking-1 + Build Scout 汇总** | 微软「第四 lab」叙事与 OpenClaw 企业化路径 |
+| 推荐 | **Claude Code v2.1.160/161** | 当日可核验 **breaking + 安全** 变更 |
+| 推荐 | **Trump AI safety EO 报道** | 自愿送审框架对 frontier 发布节奏的影响 |
+| 延伸 | **Gemini Spark 实测** | 对照 Codex Sites / Claude dynamic workflows 的「常驻 Agent」UX |
+
+### 来源清单
+
+- 检索范围：2026-06-02 00:00:00 到 2026-06-02 23:59:59（Asia/Shanghai）
+- 引用域名：openai.com, community.openai.com, microsoft.ai, theverge.com, techcrunch.com, anthropic.com, docs.anthropic.com, github.com, ideastream.org
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Codex for every role | 2026-06-02 | https://openai.com/index/codex-for-every-role-tool-workflow/ |
+| 官方政策 | GPT-5.2/5.3 Codex sunset | 2026-06-02 | https://community.openai.com/t/gpt-5-2-and-gpt-5-3-codex-have-been-sunset-in-codex-with-chatgpt-subscriptions/1382273 |
+| 官方发布 | MAI-Thinking-1 | 2026-06-02 | https://microsoft.ai/news/introducing-mai-thinking-1/ |
+| 技术媒体 | Microsoft Build 汇总 | 2026-06-02 | https://www.theverge.com/tech/941668/microsoft-build-may-2026-live-news-updates |
+| 政策监管 | Trump AI safety EO | 2026-06-02 | https://www.ideastream.org/2026-06-02/trump-signs-ai-safety-order-seeking-voluntary-review-of-new-models |
+| 官方发布 | Expanding Project Glasswing | 2026-06-02 | https://www.anthropic.com/news/expanding-project-glasswing |
+| 官方文档 | Claude API June 2 notes | 2026-06-02 | https://docs.anthropic.com/en/release-notes/api |
+| 开源发布 | Claude Code v2.1.160 | 2026-06-02 | https://github.com/anthropics/claude-code/releases/tag/v2.1.160 |
+| 开源发布 | Claude Code v2.1.161 | 2026-06-02 | https://github.com/anthropics/claude-code/releases/tag/v2.1.161 |
+| 开源发布 | langgraph 1.2.4 | 2026-06-02 | https://github.com/langchain-ai/langgraph/releases/tag/1.2.4 |
+| 技术媒体 | Gemini Spark review | 2026-06-02 | https://www.theverge.com/ai-artificial-intelligence/941388/gemini-spark-ai-agent-trip-planning |
+
 ## 2026-06-01
 
 ### 今日总览
@@ -1959,7 +2120,6 @@
 | 中文媒体（相邻）       | ChatGPT 免费模型升级量子位稿件                                 | 2026-05-05                  | [https://www.qbitai.com/2026/05/412995.html](https://www.qbitai.com/2026/05/412995.html)                                                                                                                                   |
 | 论文相邻           | arXiv:2605.05873 CITE                               | 2026-05-07                  | [https://arxiv.org/abs/2605.05873](https://arxiv.org/abs/2605.05873)                                                                                                                                                       |
 
-
 ## 2026-05-07
 
 ### 今日总览
@@ -2085,7 +2245,6 @@
 | 技术媒体       | Sakana RL Conductor / Fugu multi-agent orchestration                             | 2026-05-07                   | [https://venturebeat.com/orchestration/how-sakana-trained-a-7b-model-to-orchestrate-gpt-5-claude-sonnet-4-and-gemini-2-5-pro](https://venturebeat.com/orchestration/how-sakana-trained-a-7b-model-to-orchestrate-gpt-5-claude-sonnet-4-and-gemini-2-5-pro)                                                                 |
 | 政策与标准      | AI Act: deal on simplification measures, ban on “nudifier” apps                  | 2026-05-07                   | [https://www.europarl.europa.eu/news/en/press-room/20260427IPR42011/ai-act-deal-on-simplification-measures-ban-on-nudifier-apps](https://www.europarl.europa.eu/news/en/press-room/20260427IPR42011/ai-act-deal-on-simplification-measures-ban-on-nudifier-apps)                                                           |
 
-
 ## 2026-05-06
 
 ### 今日总览
@@ -2167,5 +2326,3 @@
 | 开源发布  | Hermes Agent v0.12.0                                          | 2026-04-30（相邻日期/中国时间窗口传播） | [https://github.com/NousResearch/hermes-agent/releases/tag/v2026.4.30](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.4.30)                                                   |
 | 开源发布  | Spring AI 2.0.0-M5                                            | 2026-04-27（相邻日期/中国时间窗口传播） | [https://github.com/spring-projects/spring-ai/releases/tag/v2.0.0-M5](https://github.com/spring-projects/spring-ai/releases/tag/v2.0.0-M5)                                                     |
 | 论文聚合  | Hugging Face Daily Papers                                     | 2026-05-06                | [https://huggingface.co/papers/date/2026-05-06](https://huggingface.co/papers/date/2026-05-06)                                                                                                 |
-
-
