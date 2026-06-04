@@ -1,0 +1,225 @@
+## 项目背景与技术栈
+
+- 基础框架：Spring AI（ChatClient、@Tool、MessageChatMemoryAdvisor 等）
+- 数据库：PostgreSQL（关系与事务） + pgvector（向量检索）
+- 缓存：先用内存缓存，后续随时替换为redis
+- 消息/流：SSE 用于流式响应
+- 外部服务：MCP 协议优先，兼 REST
+
+## 核心架构要求
+
+### 1. 四层架构与执行模式分配
+
+实现四层分层架构，并在各层中合理混合三种执行模式：`ChatClient`、`ReActAgent`、`CompileGraph`。
+
+**层级定义**：
+
+- **第一层（总路由 Agent）**：轻量 ChatClient + 工具调用模式。只暴露子 Agent 工具（从 AgentRegistry 动态发现），绝不直接持有底层 Tool。职责：意图识别、任务拆分（支持无关混合任务并发拆解）、回复合并。
+- **第二层（子 Agent / Domain Agent）**：所有子 Agent 实现统一 `Agent` 接口。内部可封装：
+  - 简单查询 → ChatClient 直调原子 Tool。
+  - 复杂动态推理 → ReActAgent（思考-行动-观察循环）。
+  - 确定性多步流程 → CompileGraph（有状态图，含条件分支、循环、补偿、审批挂起）。
+    子 Agent 的工具集可包含：原子 Tool、CompileGraph Skill、数据库提示词 Skill。
+- **第三层（工具层）**：
+  - 原子 Tool：@Tool 注解的函数，返回标准 `ToolResult` 结构（字段：success, data, errorCode, errorMessage）。
+  - 代码 Skill：首选 CompileGraph 实现，可被 ReActAgent 当作普通 Tool 调用。
+  - 数据库提示词 Skill：存储于 PostgreSQL，通过 skill_router 动态获取步骤，在 ReAct 循环内执行。
+- **第四层（服务/资源层）**：所有外部服务和数据通过 Tool 接口统一接入，MCP 协议优先。
+
+### 2. 模型提供商抽象与多模型支持
+
+- 定义 LLM 适配器接口 `ModelProvider`，解耦具体厂商（OpenAI、Azure、本地模型等）。
+- 实现模型路由器，根据任务复杂度、成本、延迟动态选择模型：简单意图识别/路由用小模型，复杂推理用大模型。
+- 模型配置可动态切换，支持版本和灰度。
+
+### 3. 统一 Agent 抽象与动态注册
+
+- 定义标准接口：
+
+  ```java
+  public interface Agent {
+      AgentResponse run(AgentInput input);
+  }
+  AgentInput 和 AgentResponse 必须标准化，包含字段：sessionId, tenantId, intent, payload, contextSnapshot, metadata, statusCode, errorInfo。
+  ```
+
+实现 AgentRegistry（基于 PostgreSQL），存储 Agent 元数据（能力描述、权限、版本、健康检查地址），支持运行时注册、发现与健康检查。
+
+总路由通过 Registry 获取可用子 Agent 列表并转化为工具暴露。
+
+4. Skill 机制与混合策略
+   代码 Skill：用 CompileGraph 实现，图内节点支持重试、超时、补偿回滚、审批挂起。
+
+数据库提示词 Skill：
+
+存储于 skills 表（字段：id, tenant_id, name, description, version, status, steps_json, tool_whitelist, created_by, updated_at）。
+
+修改后必须生成新版本，支持灰度发布（按租户或用户百分比）和即时回滚。
+
+skill_router 工具：接受技能名，从数据库取完整步骤并在 ReAct 循环内执行。技能名唯一主键，查不到时返回可用列表；提供 listAllSkills 工具。
+
+子 Agent 决策优先级：匹配 Skill → 调用（CompileGraph 或 skill_router）；简单查询 → 原子 Tool；复杂无 Skill → ReAct 自主组合。
+
+5. 知识库/RAG 原生集成
+   内置 RAG 工具，使用 pgvector 存储文档向量，提供余弦相似度检索。
+
+支持非结构化企业知识的索引、检索和引用回源。
+
+检索结果可注入子 Agent 的 System Prompt 或工作记忆中。
+
+提供知识库管理工具：新增、更新、删除文档，重建索引。如果项目中已存在可直接复用
+
+6. 多 Agent 协作与上下文管理
+   总路由仅绑定子 Agent 工具分发，同类连续请求保持在当前子 Agent 会话，不同类重新路由。
+
+全局 ChatMemory 持久化到 agent_memory 表，利用 pgvector 存储记忆向量用于长效检索。
+
+分层记忆：短期对话记忆、长期用户画像、会话级工作记忆（Skill 执行中间状态）分别管理。
+
+上下文防膨胀策略：摘要压缩、关键信息持久化、滑动窗口。
+
+单请求多 Agent：路由拆解并发/串行调用；高频固定流程封装为跨 Agent 的 CompileGraph Skill。
+
+支持跨会话恢复未完成流程（工作状态持久化到 DB）。
+
+7. 安全与权限控制
+   统一鉴权切面：Tool、Skill、子 Agent 需声明权限，调用前校验租户和用户角色。
+
+防提示词注入：
+
+数据库 Skill 内容入库时清洗，禁止可执行代码。
+
+每个 Skill 强制绑定工具白名单 tool_whitelist，执行时严格过滤。
+
+MCP 安全：强制认证、传输加密、能力声明校验。
+
+高危操作（支付、删除等）：必须在 CompileGraph 中内建人工确认/审批节点。
+
+沙箱执行：若 Skill 需要动态脚本，必须在隔离沙箱运行，默认禁用，开启需审批。
+
+8. 速率限制与流量控制
+   内置速率限制器，支持按 tenantId, userId, IP, API 工具等多维度限流。
+
+超阈值返回 429 错误码，Agent 生成友好频率提示。
+
+限流策略可动态配置，支持突发缓冲和排队等待。
+
+9. 异步事件与外部回调
+   框架内建 EventBus 或回调机制。
+
+长时间运行 Skill 可挂起，将状态写入 PostgreSQL；外部 Webhook 或消息到达后通过 sessionId 唤醒对应 Agent 继续执行。
+
+10. 流式响应与实时反馈
+    Agent 执行管道支持推送中间状态 AgentProgress，包含当前步骤、思考链、工具调用结果。
+
+前端通过 SSE  接收。
+
+11. 错误处理与回退
+    工具调用失败：指数退避重试、降级逻辑，错误信息通过 ToolResult 的 errorCode 和 errorMessage 清晰传递。
+
+CompileGraph 中断：图内节点支持 Saga 补偿事务，自动回滚已完成步骤。
+
+数据库 Skill 中断：解释器维护状态机，支持回退或重试。
+
+意图识别兜底：引导改写、记录未覆盖意图、转人工。
+
+12. 可观测性与合规审计
+    全链路 Trace：每次请求生成唯一 trace_id，覆盖 路由→子Agent→Skill→Tool，存储于 trace_spans 表。
+
+决策日志：记录模型工具选择的依据、参数、返回值。
+
+审计日志：不可篡改的完整记录，存储在 audit_log 表，包含用户ID、操作时间、数据变更前后快照（JSONB）。
+
+Skill 评估：统计完成率、平均步数、用户反馈，支持 A/B 测试和灰度对比。
+
+13. 成本归因与计费
+    在 Trace 记录中附加 token 消耗和 API 费用字段。
+
+按 tenant_id, agent, skill 聚合日成本（cost_records 表），支持预算限额告警。
+
+14. 性能与延迟控制
+    子任务并发使用线程池隔离、超时熔断。
+
+Skill 菜单缓存于 Redis 或本地；当 Skill 数量大时，用 pgvector 对 Skill 描述向量相似度检索，只将 Top-K 注入提示词。
+
+MCP 工具列表变更通过事件通知动态刷新，无需重启。
+
+15. Skill 生命周期与治理
+    版本管理：skills 表 version 字段，修改后插入新版本，旧版本保留。
+
+灰度发布：按租户或百分比配置活跃版本，实时调整。
+
+冲突检测：上线前使用 pgvector 计算新 Skill 与已有 Skill 描述的余弦相似度，超过阈值记录到 skill_conflicts 表。
+
+废弃流程：状态字段 (active, deprecated, observed, deleted)，观察期内监测调用量，安全下线。
+
+16. 多租户与数据隔离
+    所有核心表必须包含 tenant_id。
+
+数据访问层强制过滤，缓存 Key 加租户前缀。
+
+pgvector 检索必须按租户过滤或使用分区索引，保证隔离。
+
+17. 自适应与持续优化
+    离线分析管道定期扫描决策日志，识别高频 ReAct 流程，生成“固化建议报告”（推荐创建 CompileGraph Skill）。
+
+自动化工具描述优化建议（通过比较成功/失败 Trace 中的工具选择相关性）。
+
+18. 异常兜底与用户体验
+    实现 LastResortHandler：当所有意图识别和 Skill 失败时，基于 FAQ（pgvector 检索）或热门问题推荐给出保底回复，避免死循环。
+
+19. 灾难恢复与高可用
+    无状态扩展：Agent 运行时状态与逻辑分离，会话、工作记忆、挂起流程持久化至 PostgreSQL，服务实例可水平扩展。
+
+数据库高可用：PostgreSQL 主从复制或 Patroni 集群，支持自动故障转移和读写分离（pgvector 也可利用只读副本）。
+
+缓存冗余：所有缓存逻辑提供统一的方法，暂时在内存中处理，后续切换为redis
+
+会话恢复：任何实例故障后，新实例通过 sessionId 从 DB 重建完整上下文和中间流程状态。
+
+降级机制：依赖服务（MCP、LLM）不可用时返回明确降级提示，核心流程可重试或进入人工队列。
+
+定期备份与灾备演练：数据库和配置定期备份，支持跨区域恢复。
+
+20. 开发者体验与扩展 SDK
+    提供 CLI/Maven 插件快速生成 Agent、Tool、Skill 模板。
+
+本地调试环境支持模拟工具和 Trace 回放。
+
+自动生成 OpenAPI 文档和工具描述摘要。
+
+数据库设计 (PostgreSQL + pgvector)
+至少创建以下核心表：
+
+agent_registry：子 Agent 元数据，能力描述，权限，健康检查 URL。
+
+skills：id, tenant_id, name, description, version, status, steps (JSONB), tool_whitelist (TEXT[]), created_at, updated_at。
+
+agent_memory：session_id, tenant_id, user_id, memory_type (short/long/working), content, embedding (vector(1536)), created_at。
+
+audit_log：trace_id, tenant_id, user_id, action, tool_name, request, response, changes_snapshot (JSONB), cost, timestamp。
+
+documents (RAG)：id, tenant_id, title, chunk_text, embedding (vector(1536)), metadata (JSONB)。
+
+skill_conflicts：记录相似度高于阈值的 Skill 对。
+
+trace_spans：span_id, parent_id, trace_id, agent, tool, duration, tokens, error, timestamp 等。
+
+cost_records：tenant_id, agent, skill, date, total_tokens, cost。
+
+rate_limit_config：tenant_id, user_id, api_key, max_requests, window_seconds 等。
+
+实现要求
+所有组件必须支持配置化、动态加载、热更新，并暴露 Prometheus 指标。
+
+封装统一 Agent 接口，集成 ReActAgent 和自研 CompileGraph 执行器。
+
+实现 ModelProvider 适配层和模型路由器。
+
+ChatClient 用于路由和简单 Agent；所有工具返回标准 ToolResult。
+
+MessageChatMemoryAdvisor 扩展为分层记忆管理器。
+
+集成速率限制器（令牌桶或滑动窗口），策略通过配置中心动态生效。
+
+严格遵循高可用设计（第十九节），确保会话和流程状态可恢复。

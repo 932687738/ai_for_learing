@@ -1,0 +1,358 @@
+# Markdown 问答分类合并日志
+
+## 2026-05-29（ToolCallback、Advisor 与 Hook 区别及执行顺序）
+
+**源文件**：`study/interview/original/template.md`（ToolCallback/Advisor/Hook 概念对比、ValidatingToolCallback 装饰器、LoggingAdvisor、HumanInTheLoopHook、八阶段执行顺序与选型指南，178 行）
+
+**说明**：源文件为 Spring AI 扩展点综合指南（非标准 Q&A 体），按知识点语义路由至 2 个模块；与既有「工具结果校验」「ReactAgent HITL 协作」「Spring AI Advisor 机制」语义去重后新增 1 条、合并增强 2 条；源文件残缺代码块已规范为 fenced block；无 `.bak`。
+
+| 模块文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Agent架构与协同.md | 新增 | +1（ToolCallback、Advisor 与 Hook 区别及执行顺序） |
+| Agent架构与协同.md | 合并增强 | 0（ReactAgent HITL 协作、工具结果校验：补交叉链接） |
+| Spring AI核心组件.md | 合并增强 | 0（Spring AI Advisor 机制：补 Ordered 链与三层嵌套说明） |
+
+**路由备注**：三者对比与执行顺序 → `agent-architecture`；Advisor Ordered 链细节 → 合并至 `spring-ai-core` 并链接主条目；ValidatingToolCallback 与既有「工具结果校验」互补（本批补 ToolConfig Bean 注册示例）；失败 0 条。
+
+**合计**：2 个文件更新，净增 1 条；全库 114 条。
+
+## 2026-05-29（Spring AI 智能体 Tool Calling 面试专题）
+
+**源文件**：`study/interview/original/template.md`（@Tool 注册、Tool Calling 流程、FlowAgent、MessageChatMemoryAdvisor、MCP 动态发现、ReAct、HITL、可观测性、容错、RAG 边界、流式/并行/权限等 18 题，594 行）
+
+**说明**：源文件为标准面试 Q&A 体，按知识点语义路由至 4 个模块；与既有 MCP Client、Agent-RAG 协同、HITL Hook 等条目语义去重后合并增强 2 条，新增 11 条；无 `.bak`。
+
+| 模块文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Agent架构与协同.md | 新增 | +8（@Tool/ToolParam、Tool Calling 流程、SimpleAgent vs ReactAgent、错误恢复/Fallback、结果校验、流式 Tool Calling、角色权限过滤、并行 Tool Calling） |
+| Agent架构与协同.md | 合并增强 | 0（Agent 与 RAG 协同边界、MCP Client 动态 vs 静态对比） |
+| Agent工作流模式.md | 新增 | +2（FlowAgent 顺序编排、HumanFeedbackToolCallback 装饰器审批） |
+| Agent记忆体系.md | 新增 | +2（MessageChatMemoryAdvisor 机制、分布式 Redis ChatMemory） |
+| 可观测与评估.md | 新增 | +1（智能体 Tool Calling 链路可观测性） |
+
+**路由备注**：Q1/Q2/Q6/Q10–Q17 → `agent-architecture`；Q3/Q7/Q8 → `agent-workflow`；Q4/Q18 → `agent-memory`；Q5 并入既有 MCP Client；Q11 并入 Agent-RAG 协同；Q9 → `observability-evaluation`；源文件残缺代码块已规范为 fenced block；失败 0 条。
+
+**合计**：4 个文件更新，净增 13 条；全库 113 条。
+
+## 2026-05-28（Human-in-the-Loop 工具审批 /tool-feedback）
+
+**源文件**：`D:\cache\workspace\ai\src\main\java\com\yxy\deepseek\springai\controller\projectPractice\humanloop\HumanInTheLoopToolFeedback知识点总结.md`（invoke/resume、HumanInTheLoopHook、MemorySaver、approvalOn、三种决策、messages 状态变迁，382 行）
+
+**说明**：源文件为 HITL 工具审批综合知识点总结（非标准 Q&A 体），按知识点语义路由至 3 个 Agent 模块；与既有 ReAct/ChatMemory 条目互补，未重复全文；无 `.bak`。
+
+| 模块文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Agent工作流模式.md | 新增 | +1（Human-in-the-Loop 工具审批 invoke/resume 全流程） |
+| Agent记忆体系.md | 新增 | +1（MemorySaver 检查点与 HITL resume 续聊） |
+| Agent架构与协同.md | 新增 | +1（ReactAgent 中 Tool Callback 与 HumanInTheLoopHook 协作） |
+
+**路由备注**：HITL 中断/审批/决策/messages 变迁 → `agent-workflow`；MemorySaver/threadId/AppendStrategy → `agent-memory`；Tool vs Hook 分工与 ReAct 循环 → `agent-architecture`；Bean 注入要点并入记忆模块条目；失败 0 条。
+
+**合计**：3 个文件更新，净增 3 条；全库 100 条。
+
+## 2026-05-28（多模态、工作流、记忆与向量库分片）
+
+**源文件**：`study/interview/original/template.md`（Spring AI 多模态、文件处理、Tool Calling、工作流、多语言、结构化输出 vs 切分、Re-Ranker、记忆载体、向量库分片，340 行）
+
+**说明**：源文件为技术综合指南（非标准 Q&A 体），按知识点语义路由至 7 个模块；与既有条目语义去重后合并增强 3 条，新增 6 条；无 `.bak`。
+
+| 模块文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Spring AI核心组件.md | 新增 | +2（多模态输入与动态模型切换、多语言 Prompt 与 Tool 回调） |
+| 文档ETL与分块.md | 新增 | +2（上传文件处理原理、结构化输出与文本切分职责边界） |
+| Agent架构与协同.md | 新增 | +1（Tool Calling 聚合多接口业务数据） |
+| Agent工作流模式.md | 合并增强 | 0（Spring AI 常见工作流模式：补 RoutingWorkflow、TravelOrchestrator、SequentialAgent 示例） |
+| RAG检索策略.md | 合并增强 | 0（重排序 Rerank 集成：补 DocumentPostProcessor 手动集成） |
+| Agent记忆体系.md | 合并增强 | 0（记忆类型对比：补历史记录 ChatMemoryRepository 载体表） |
+| 索引与存储.md | 新增 | +1（向量数据库推荐分片大小） |
+
+**路由备注**：多模态/动态模型/i18n → `spring-ai-core`；文件 ETL 与切分边界 → `document-etl-chunking`；Tool Calling → `agent-architecture`；工作流代码 → `agent-workflow`；Re-Ranker → `rag-retrieval-strategies`；记忆载体 → `agent-memory`；Milvus/Qdrant 分片 → `index-storage`；源文件残缺代码块已规范为 fenced block；失败 0 条。
+
+**合计**：7 个文件更新，净增 6 条；全库 97 条。
+
+## 2026-05-28（ChromaDB 概述与使用指南）
+
+**源文件**：`study/interview/original/template.md`（ChromaDB 概念、数据模型、Python 示例、向量库对比与选型，108 行）
+
+**说明**：源文件为 ChromaDB 技术综合指南（非 Q&A 体），按知识点语义路由至索引与存储模块；与既有「个人知识库存储介质选型」互补（本批侧重 ChromaDB 专述与生产级向量库横向对比），未重复全文。
+
+| 模块文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| 索引与存储.md | 新增 | +3（ChromaDB 概述与数据模型、ChromaDB Python 快速上手、主流向量数据库选型对比） |
+
+**路由备注**：ChromaDB 与向量库选型归入 `index-storage`；源文件代码块格式已修复为规范 fenced block；无 `.bak`；失败 0 条。
+
+**合计**：1 个文件更新，净增 3 条；全库 91 条。
+
+## 2026-05-28（MCP 全面解析与 Spring AI 实战）
+
+**源文件**：`study/interview/original/template.md`（MCP 原理、与 Skill/Agent/Rule 区别、Spring AI MCP Server/Client 实战、Client+Server 共存，298 行）
+
+**说明**：源文件为 MCP 技术综合指南（非 Q&A 体），按知识点语义路由至 Agent 架构模块；与既有「Skills/Tools/MCP 协同流程」互补（本批侧重协议原理与 Spring AI 落地），未重复全文。
+
+| 模块文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Agent架构与协同.md | 新增 | +5（MCP 协议原理与架构、MCP 与 Skill/Agent/Rule 定位对比、Spring AI MCP Server/Client 实现、同一应用 Client+Server 共存） |
+
+**路由备注**：MCP 协议与 Spring AI 实现归入 `agent-architecture`；代码块（xml/yaml/java/json）已规范为 fenced block；无 `.bak`；失败 0 条。
+
+**合计**：1 个文件更新，净增 5 条；全库 88 条。
+
+## 2026-05-28（RAG、知识图谱与向量图谱综合指南）
+
+**源文件**：`study/interview/original/template.md`（RAG/知识图谱/GraphRAG 概念、ANN、召回率、存储选型、Neo4j 示例，138 行）
+
+**说明**：源文件为技术综合指南（非 Q&A 体），按知识点语义路由；GraphRAG/知识图谱内容 taxonomy 无专属模块，归入 `其他.md`。
+
+| 模块文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| 索引与存储.md | 新增 | +2（ANN 近似最近邻搜索、个人知识库存储介质选型） |
+| RAG检索策略.md | 新增 | +2（召回率 Recall 与提升手段、Elasticsearch 混合检索 DSL 示例） |
+| 其他.md | 新增 | +3（RAG/知识图谱/向量库概念对比、GraphRAG 原理与会话式检索、知识图谱多跳推理示例） |
+
+**路由备注**：HyDE 在召回手段中仅作关联链接，不重复写入 HyDE 模块；ANN 与既有 HNSW 条目互补（补充 LSH/Faiss）；无 `.bak`；失败 0 条。
+
+**合计**：3 个文件更新，净增 7 条；全库 83 条。
+
+## 2026-05-28（Cursor 多智能体协同编码指南）
+
+**源文件**：`study/interview/original/template.md`（Cursor Rules 分角色、五阶段顺序协同、Git/Composer 跨栈、最佳实践，290 行）
+
+**说明**：源文件为 IDE 实践指南（非 Spring AI 问答体），按知识点相关性路由；Cursor 专属实践归入 `其他.md`。
+
+| 模块文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Agent架构与协同.md | 新增 | +1（基于 Cursor Rules 的领域角色智能体） |
+| Agent工作流模式.md | 新增 | +1（IDE 分阶段顺序多智能体协同） |
+| 其他.md | 新建 | +1（Cursor 多智能体开发最佳实践） |
+
+**路由备注**：与 Spring AI Agent 概念对照写入条目；无 `.bak`；失败 0 条。
+
+**合计**：3 个文件更新/新建，净增 3 条；全库 76 条。
+
+## 2026-05-28（知识点体系重构）
+
+**操作**：将 9 个 `*问答.md`（73 条）迁移为 `study/interview/knowledge/` 标准知识点模块；删除旧问答文件；落地分类规范。
+
+**规范文件**：
+
+| 文件 | 用途 |
+|------|------|
+| `.cursor/knowledge-taxonomy.md` | 模块定义、路由关键词、条目格式（权威） |
+| `.cursor/agents/markdown-qa-classify-merge.md` | Agent 流程 |
+| `.cursor/skills/markdown-qa-classify-merge/SKILL.md` | Skill 触发与路径 |
+| `.cursor/rules/markdown-qa-classify-merge.mdc` | Cursor Rule |
+| `tools/migrate_qa_to_knowledge.py` | 旧问答 → 知识点批量迁移脚本 |
+
+**知识点模块**（14 文件 + `索引.md`，73 条，中文文件名）：
+
+| 模块文件 | 知识点数 |
+|----------|------:|
+| Spring AI核心组件.md | 7 |
+| 文档ETL与分块.md | 7 |
+| 向量与嵌入.md | 3 |
+| 索引与存储.md | 7 |
+| RAG Advisor.md | 3 |
+| RAG检索策略.md | 7 |
+| HyDE假设文档嵌入.md | 7 |
+| RRF混合检索融合.md | 7 |
+| RAG长期记忆.md | 1 |
+| Agent记忆体系.md | 3 |
+| Agent架构与协同.md | 4 |
+| Agent工作流模式.md | 5 |
+| 可观测与评估.md | 9 |
+| 性能与高可用.md | 3 |
+
+**路由调整**：`检索 Query 对象` → RAG检索策略；`记忆类型对比` → Agent记忆体系；RAG/Agent 大主题按子主题拆分。
+
+**2026-05-28 补充**：知识点文件命名统一为**中文**（如 `Spring AI核心组件.md`）；索引文件为 `knowledge/索引.md`；规范见 `.cursor/knowledge-taxonomy.md`。
+
+**合计**：14 模块 + `索引.md`；旧 `*问答.md` 已删除；文件名统一中文；失败 0 条。
+
+## 2026-05-28（Spring AI 核心技术与实践指南）
+
+**源文件**：`study/interview/original/template.md`（Transformer/Advisor、检索优化、提示词、回答检测、文本补全、问题转换、多 Agent、CoT/ToT、工作流模式，382 行）
+
+**操作**：从实践指南提炼 11 条问答，按主题写入 6 个分类文件；语义去重合并增强 3 条既有问答；无 `.bak` 备份。
+
+| 分类文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Spring AI基础问答.md | 合并增强 + 新增 | 1 条 Advisor 扩展（+ResponseValidationAdvisor），+2（PromptTemplate、ChatClient 补全模式） |
+| RAG Advisor问答.md | 新增 | +1（ResponseValidationAdvisor 回答质量检测） |
+| RAG检索增强问答.md | 合并增强 | 1 条扩展（查询改写 + QueryRewriteAdvisor CallAdvisor） |
+| 索引与存储问答.md | 合并增强 + 新增 | 1 条 HNSW 扩展（+IVF/DiskANN），+2（ES 分片副本、routing 路由） |
+| 性能与高可用问答.md | 新增 | +1（ChatClient @Cacheable 缓存） |
+| Agent与对话问答.md | 新增 | +5（Sequential/Loop、共享记忆、Orchestrator/CoT/ToT、工作流模式、Handoff） |
+
+**新增/扩展条目**：PromptTemplate 设计、ChatClient 同步/结构化/流式/参数调优、回答检测三方案、QueryRewriteAdvisor、ES 分片与 routing、AI 响应缓存、SequentialAgent/LoopAgent、CoT/ToT、五种工作流模式、多 Agent 交接
+
+**合计**：6 个文件更新，净增 11 条（含 3 条语义合并增强）；失败 0 条。
+
+## 2026-05-28（Spring AI 智能体操作数据库：组件顺序）
+
+**源文件**：`study/interview/original/template.md`（组件定义表、匹配顺序、五步流程、餐厅类比，63 行）
+
+**操作**：语义去重后合并增强 2 条既有问答；无 `.bak` 备份。
+
+| 分类文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Agent与对话问答.md | 合并增强 | 1 条（+Spring AI 数据库场景、组件定位表、execute_sql 示例） |
+| RAG检索增强问答.md | 合并增强 | 1 条（+Schema/查询模板、数据库场景价值说明） |
+
+**合计**：2 个文件更新，净增 0 条；语义去重合并 2 条；失败 0 条。
+
+## 2026-05-28（Skills / Tools / MCP / RAG 协同流程）
+
+**源文件**：`study/interview/original/template.md`（五步流程、Mermaid 片段、餐厅类比，41 行）
+
+**操作**：提炼 2 条问答，按主题写入 2 个分类文件；补全源文件残缺流程图为完整 Mermaid；无 `.bak` 备份。
+
+| 分类文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Agent与对话问答.md | 新增 | +1（Skills/Tools/MCP/知识库五步协同） |
+| RAG检索增强问答.md | 新增 | +1（Agent 流水线并行知识库检索） |
+
+**新增条目**：Skills+Tools+MCP 协同流程与类比表、并行 RAG 子流程（查询重写→向量检索→上下文增强）
+
+**合计**：2 个文件更新，净增 2 条；失败 0 条。
+
+## 2026-05-28（Spring AI 记忆存储专题）
+
+**源文件**：`study/interview/original/template.md`（短期/长期/永久记忆与代码示例，171 行）
+
+**操作**：提炼 4 条问答，按主题写入 3 个分类文件；扩展合并 `Agent与对话` 既有短期记忆条目；无 `.bak` 备份。
+
+| 分类文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Agent与对话问答.md | 合并增强 + 新增 | 1 条扩展（短期记忆），+1（AutoMemoryTools） |
+| RAG检索增强问答.md | 新增 | +1（向量库跨会话长期记忆） |
+| Spring AI基础问答.md | 新增 | +1（记忆类型对比与选型） |
+
+**新增/扩展条目**：短期 ChatMemory 配置与用法、AutoMemoryTools、向量库长期记忆 RAG 注入、三种记忆对比选型表
+
+**合计**：3 个文件更新，净增 3 条（含 1 条语义合并增强）；失败 0 条。
+
+## 2026-05-28（similaritySearch vs similarityThreshold 扩展）
+
+**源文件**：`study/interview/original/template.md`（检索方法对比全文，61 行）
+
+**操作**：合并增强 `索引与存储问答.md` 中已有相似度阈值条目；无 `.bak` 备份。
+
+| 分类文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| 索引与存储问答.md | 合并增强 | 1 条扩展（+对比表、举例、SIMILARITY_THRESHOLD_ACCEPT_ALL、补充说明） |
+
+**合计**：1 个文件更新，净增 0 条；语义去重合并 1 条；失败 0 条。
+
+## 2026-05-28（相似度阈值检索策略）
+
+**源文件**：`study/interview/original/template.md`（similaritySearch 与阈值过滤实践，17 行）
+
+**操作**：提炼 1 条问答，合并至 `索引与存储问答.md`；无 `.bak` 备份。
+
+| 分类文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| 索引与存储问答.md | 新增 | +1（similaritySearch 与相似度阈值策略） |
+
+**合计**：1 个文件更新，净增 1 条（该文件共 5 条）；失败 0 条。
+
+## 2026-05-28（Transform / Advisor / ReAct 专题）
+
+**源文件**：`study/interview/original/template.md`（Spring AI 核心概念与 ReAct/Transformer 辨析，109 行）
+
+**操作**：提炼 5 条问答，合并至 3 个分类文件；无 `.bak` 备份。
+
+| 分类文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Spring AI基础问答.md | 新增 + 合并增强 | +2 新增，1 条 Advisor 扩展替换（净 +3） |
+| 文档与分块问答.md | 新增 | +1（ETL Transform 流水线） |
+| Agent与对话问答.md | 新增 | +1（ReAct vs Transformer） |
+
+**新增/扩展条目**：Transform 结构化输出、Advisor 机制（内置表+自定义）、Transformer vs Advisor、ETL Transform、ReAct vs Transformer 架构
+
+**合计**：3 个文件更新，净增 5 条；语义去重合并 1 条（原 Advisor 条目）；失败 0 条。
+
+## 2026-05-28（Ragas 专题合并）
+
+**源文件**：`study/interview/original/template.md`（Ragas 框架简介，含指标与 Python 代码）
+
+**操作**：提炼 6 条 Ragas 问答，合并至 `可观测与评估问答.md`；原 1 条 Ragas CI 条目扩展为 6 条；无 `.bak` 备份。
+
+| 分类文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| 可观测与评估问答.md | 合并增强 | 1 条替换扩展为 6 条（+5 净增） |
+
+**新增/扩展条目**：Ragas 是什么、评估指标体系、快速上手、结果分析、进阶功能、Spring AI CI 集成
+
+**合计**：1 个文件更新，净增 5 条（该文件共 9 条）；语义去重合并 1 条；失败 0 条。
+
+## 2026-05-28（HyDE 专题合并）
+
+**源文件**：`study/interview/original/template.md`（HyDE 总结技术文章，含 LangChain 代码与衍生方案）
+
+**操作**：提炼 6 条 HyDE 问答，合并至 `RAG检索增强问答.md`；原 3 条 HyDE 条目扩展/替换为 6 条；无 `.bak` 备份。
+
+| 分类文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| RAG检索增强问答.md | 合并增强 | 3 条替换扩展为 6 条（+3 净增） |
+
+**新增/扩展条目**：HyDE 是什么、为什么有效、优缺点、Spring AI 实现、LangChain 实现、衍生方案（HyPE/HyQE/SL-HyDE）
+
+**合计**：1 个文件更新，净增 3 条（该文件共 20 条）；语义去重合并 3 条；失败 0 条。
+
+## 2026-05-28（多路径检索与监控）
+
+**源文件**：`study/interview/original/template.md`（Spring AI RAG 多路径检索与监控最佳实践，5 个技术点）
+
+**操作**：提炼 5 条问答，合并至 4 个分类文件；无 `.bak` 备份。
+
+| 分类文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Spring AI基础问答.md | 新增 | +1（Query 对象） |
+| RAG检索增强问答.md | 新增 | +2（三路检索、MultiQueryExpander） |
+| 可观测与评估问答.md | 新增 | +1（joined/reranked 埋点） |
+| 文档与分块问答.md | 合并增强 | 1 条扩展（content vs metadata） |
+
+**合计**：4 个文件更新，净增 4 条；语义去重合并 1 条；失败 0 条。
+
+## 2026-05-28（RRF 专题合并）
+
+**源文件**：`study/interview/original/template.md`（RRF 详解技术文章，非标准问答格式）
+
+**操作**：从文章提炼 7 条问答，合并至 `RAG检索增强问答.md`；原「RRF 多路召回融合」单条扩展替换为 7 条完整条目；无 `.bak` 备份。
+
+| 分类文件 | 操作 | 新增/更新条数 |
+|----------|------|---------------|
+| RAG检索增强问答.md | 更新 | +6 新增，1 条替换扩展 |
+
+**合计**：1 个文件更新，净增 6 条（该文件共 15 条）；语义去重合并 1 条（原 RRF 伪代码并入「RRF 公式与融合计算」）；失败 0 条。
+
+## 2026-05-28（修订）
+
+**源文件**：`study/interview/original/template.md`（Spring AI RAG 技术面试全记录，34 条问答）
+
+**操作**：按新规则重新生成全部 9 个分类文件（可读性 + 保留代码示例），无 `.bak` 备份。
+
+**规则变更**：
+- 答须分段/要点列表，提升可读性
+- 源文件代码示例须保留并规范为 fenced code block
+
+| 分类文件 | 操作 | 条数 |
+|----------|------|------|
+| Spring AI基础问答.md | 重写 | 3 |
+| 文档与分块问答.md | 重写 | 6 |
+| 向量与嵌入问答.md | 重写 | 3 |
+| 索引与存储问答.md | 重写 | 4 |
+| RAG Advisor问答.md | 重写 | 2 |
+| RAG检索增强问答.md | 重写 | 9 |
+| 可观测与评估问答.md | 重写 | 3 |
+| 性能与高可用问答.md | 重写 | 2 |
+| Agent与对话问答.md | 重写 | 2 |
+
+**合计**：9 个分类文件，34 条问答；语义去重 0 条；失败 0 条。
+
+## 2026-05-28（初版）
+
+**源文件**：`study/interview/original/template.md`
+
+**操作**：首次直写分类文件，无 `.bak` 备份。初版未保留代码块，已由修订版覆盖。

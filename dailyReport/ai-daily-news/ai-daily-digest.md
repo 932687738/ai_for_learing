@@ -2,726 +2,1078 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
-## 2026-06-02
-
-### 今日总览
-
-**一句话结论**：`2026-06-02` 主线是 **Microsoft 发布推理模型 MAI-Thinking-1** 与 **Holo3.1 本地 Computer Use 家族** 并行，延续「推理 + 端侧 Agent」双线；Anthropic 同日宣布 **Project Glasswing 扩展**。
-
-| 维度 | 本日结论 |
-| --- | --- |
-| 检索范围 | Microsoft AI、Hugging Face/Hcompany、Anthropic 官方；开发者工具专项 |
-| 核心趋势 | 中型推理模型进入企业 Foundry；Computer Use 量化权重面向本地/边缘；安全联盟项目扩容 |
-| 可直接关注 | 评估 MAI-Thinking-1 在 SWE/数学侧与 Sonnet 4.6 盲测表现；Holo3.1 FP8/Q4 本地部署路径 |
-| 专项检索结论 | **Claude Code/Codex/OpenClaw**：未发现 `2026-06-02（上海）` 新 GitHub Release；**Hermes**：无当日 tag；**Spring AI**：无 6/2 博文；**skills**：Holo3.1 强调跨框架 Agent 栈集成 |
-
-### 重要事件与发布
-
-| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
-| --- | --- | --- | --- | --- |
-| 推理模型 | [Introducing MAI-Thinking-1](https://microsoft.ai/news/introducing-mai-thinking-1/) | **2026-06-02** | 官方发布 | 微软自研推理模型，强调 SWE 基准与数学推理；Foundry 私有预览 |
-| Computer Use | [Holo3.1: Fast & Local Computer Use Agents](https://huggingface.co/blog/Hcompany/holo31) | **2026-06-02** | 官方博客 | 0.8B–35B 家族 + FP8/NVFP4/Q4 GGUF，面向本地浏览器/桌面自动化 |
-| 安全联盟 | [Expanding Project Glasswing](https://www.anthropic.com/news) | **2026-06-02** | 官方公告 | Glasswing 扩展至约 150 家组织、十余国 |
-
-### 技术文档与教程
-
-| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
-| --- | --- | --- | --- |
-| 企业推理 | MAI-Thinking-1 公告 | Foundry 接入、盲测对比 Sonnet 4.6 | 平台/后端 |
-| 本地 Agent | Holo3.1 HF Blog | 量化部署、多尺寸模型选型 | 端侧/自动化工程师 |
-
-### LangChain / Agent / LLM 工程相关进展
-
-**总体判断**：端侧 Computer Use 与云端推理模型同日补强，Agent 栈继续「云强推理 + 本地执行」分层。
-
-| 主题 | 进展 | 工程启发 |
-| --- | --- | --- |
-| 本地 CUA | Holo3.1 量化权重 | 生产环境可评估 Q4 在消费级 GPU 上的延迟/成功率 |
-| 推理层竞争 | MAI-Thinking-1 | 中型权重类模型或成「成本可控推理」默认选项 |
-
-### 值得深入阅读的资料
-
-| 推荐级别 | 资料 | 为什么值得读 |
-| --- | --- | --- |
-| 必读 | MAI-Thinking-1 官方文 | 微软首次主推自研推理栈的企业叙事 |
-| 推荐 | Holo3.1 Blog | 本地 Computer Use 部署与量化选型 |
-
-### 来源清单
-
-- 检索范围：2026-06-02 00:00:00 到 2026-06-02 23:59:59（Asia/Shanghai）
-- 引用域名：microsoft.ai, huggingface.co, anthropic.com
-- 来源清单表格：
-
-| 类型 | 标题 | 日期 | 链接 |
-| --- | --- | --- | --- |
-| 官方发布 | MAI-Thinking-1 | 2026-06-02 | https://microsoft.ai/news/introducing-mai-thinking-1/ |
-| 官方博客 | Holo3.1 | 2026-06-02 | https://huggingface.co/blog/Hcompany/holo31 |
-| 官方公告 | Expanding Project Glasswing | 2026-06-02 | https://www.anthropic.com/news |
-
 ## 2026-06-01
 
 ### 今日总览
 
-**一句话结论**：`2026-06-01` 是 **Anthropic 递交保密 S-1** 与 **NVIDIA GTC Taipei 开源 Physical AI Agent 工具集** 的双主线日——资本市场与具身/工业 Agent 基础设施同日升温。
+**一句话结论**：`2026-06-01`（Asia/Shanghai）是 **「Anthropic 抢跑 IPO 保密申报 + Copilot/Codex 计费切换生效日 + 开源 Agent 栈小版本」**——**Anthropic** 于当日向 SEC **保密提交 Form S-1**（估值语境约 **$965B**）；**GitHub Copilot PRU→AI Credits** 与 **OpenAI Codex Pro 2x promo 截止** 均在 **6/1** 起改变开发者成本模型；**OpenAI Codex `rust-v0.136.0`** 与 **LangGraph SDK `0.4.1`** 同日发布；监管/产业侧 **佛罗里达州起诉 OpenAI**、**FTC 深化微软云/AI 反垄断调查**、**Nvidia RTX Spark** 消费级 AI PC 芯片亮相。
 
 | 维度 | 本日结论 |
 | --- | --- |
-| 检索范围 | Anthropic、NVIDIA Investor、SiliconANGLE；专项工具链 |
-| 核心趋势 | 头部 lab IPO 进程启动；物理世界 Agent skills/工具开源化 |
-| 可直接关注 | S-1 仅为草案，需跟踪 SEC 审查与 market conditions 表述 |
-| 专项检索结论 | **NVIDIA Agent Toolkit + NemoClaw** 面向长时程 Agent；**Claude Code/Codex/OpenClaw/Hermes**：无 `2026-06-01` 硬对齐 Release |
+| 检索范围 | Anthropic/OpenAI 官方与监管；GitHub Copilot/Codex 定价；LangGraph/Codex GitHub release；The Verge/TechCrunch/CNBC；NIST/DoD 政策语境；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；中文补充 |
+| 核心趋势 | **资本侧**：Anthropic **保密 IPO** 抢在 OpenAI/SpaceX 窗口前占位；**工程侧**：**6/1 双计费切换** 迫使团队建立 **token/credits guard**；**产品侧**：**Microsoft Build** 周预热 **MAI-Thinking-1** 与 **Copilot super app**；**硬件侧**：**RTX Spark** 统一内存面向 **本地 Agent** |
+| 可直接关注 | **Copilot 管理员** 核对 **AI Credits** 与 org promo；**Codex Pro** 用户确认 **6/1 起配额倍数**；跟踪 **Anthropic S-1** 后续公开招股书时间节点；评估 **Codex 0.136.0**（OSC8 链接、rmcp 1.7.0）与 **langgraph-sdk 0.4.1**（v3 streaming）升级 |
+| 专项检索结论 | **Claude Code**：**无 2026-06-01 新 release**（最近 **`v2.1.154` 为 2026-05-28**）；**Codex**：**`rust-v0.136.0` `Published: 2026-06-01T17:49:22Z`**；**OpenClaw/Hermes**：**无 6/1 新 release**（生态报道延续 **Hermes 日 token 领先** 叙事，非当日官方发布）；**Spring AI**：**无 6/1 官方 release/博文**；**skills**：**无重大官方 skills 发布**，社区聚焦 **Agent Skills 人机交互 spec** 讨论 |
 
 ### 重要事件与发布
 
 | 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
 | --- | --- | --- | --- | --- |
-| IPO | [Anthropic confidentially submits draft S-1](https://www.anthropic.com/news/confidential-draft-s1-sec) | **2026-06-01** | 官方公告 | 保密递交 Form S-1，股数/定价未定 |
-| Physical AI | [NVIDIA open source Agent Tools for Physical AI](https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Releases-Major-Collection-of-Open-Source-Agent-Tools-and-Skills-for-Physical-AI/default.aspx) | **2026-06-01** | 官方发布 | Omniverse/Cosmos/Alpamayo/Metropolis 等转为 Agent 可调用 skills |
-| AV 推理 | [NVIDIA Alpamayo 2 Super](https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Launches-Alpamayo-2-Super-Open-Reasoning-Model-for-Robotaxis/default.aspx) | **2026-06-01** | 官方发布 | 32B 开源 VLA 推理模型，面向 L4 robotaxi 栈 |
+| Anthropic / IPO | [Anthropic confidentially submits draft S-1 to the SEC](https://www.anthropic.com/news/confidential-draft-s1-sec) | **2026-06-01** | 官方发布 | **保密申报** 开启上市路径；股数/定价未定；与 **$965B 估值**、**Claude Code** 企业叙事联动 |
+| 监管 / OpenAI | [Florida sues OpenAI over user safety（The Verge）](https://www.theverge.com/ai-artificial-intelligence/940978/florida-is-suing-openai-over-user-safety-concerns) | **2026-06-01** | 政策/诉讼 | 州 AG 指控 **ChatGPT 安全与成瘾风险**；寻求 **民事处罚与法院命令**（刑事调查进行中） |
+| GitHub Copilot / 计费 | [Copilot usage-based billing 生效（6/1）](https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/) | **2026-06-01 起** | 官方政策 | **PRU 结束** → **AI Credits（1 credit=$0.01）**；Chat/Agent/Code Review **按 token** |
+| OpenAI / Codex 配额 | [Codex Pricing — Pro 2x promo 截止 2026-05-31](https://developers.openai.com/codex/pricing) | **2026-06-01 起恢复标准倍数** | 官方定价 | **Pro $100**：有效 **5h 限额从 2x→标准**；长时 cloud task 需重算预算 |
+| 开源 / Codex CLI | [openai/codex `rust-v0.136.0`](https://github.com/openai/codex/releases/tag/rust-v0.136.0) | **`Published: 2026-06-01T17:49:22Z`** | 开源发布 | **OSC 8 超链接**、markdown 表格 KV 渲染、**rmcp 1.7.0**、远程 exec-server **API-key 注册** |
+| LangGraph / SDK | [langgraph-sdk==0.4.1](https://github.com/langchain-ai/langgraph/releases/tag/sdk%3D%3D0.4.1) | **`Published: 2026-06-01T15:23:38Z`** | 开源发布 | **v3 streaming** 解码器、`RemoteGraph` v3、**tools_agent** 无状态修复 |
+| Microsoft / Build 预热 | [Microsoft Build：MAI-Thinking-1 与 Copilot super app（The Verge）](https://www.theverge.com/report/940861/microsoft-build-ai-models-windows-dev-mode-what-to-expect) | **2026-06-01** 报道 | 技术媒体 | **首个自研 reasoning 模型**（非蒸馏）；**Windows 11 开发者优化体验**；Copilot **super app 仍为 mockup** |
+| 反垄断 / 云+AI | [FTC 深化微软云与 AI 竞争调查（The Verge）](https://www.theverge.com/policy/940220/microsoft-ftc-antitrust-investigation-cloud-ai) | **2026-06-01** | 政策监管 | CID 聚焦 **Azure 排他**、**AI 捆绑** 与 **M365+AI 搭售** 潜在违法风险 |
+| 硬件 / 边缘 AI | [Nvidia RTX Spark 消费级 AI PC 芯片（The Verge）](https://www.theverge.com/tech/940589/nvidia-rtx-spark-n1-n1x-laptop-desktop-pc-cpu-gpu-ai-release-date) | **2026-06-01** | 产品发布 | **GB10 家族** 进笔记本/迷你 PC；**128GB 统一内存** 支撑 **120B 级本地 Agent**；Build 周将演示 **OpenShell + Windows 安全 containment** |
+| 媒体 / IPO 语境 | [Anthropic files to go public（TechCrunch）](https://techcrunch.com/2026/06/01/anthropic-files-to-go-public/) | **2026-06-01** | 技术媒体 | 与 OpenAI **IPO 竞速**、SpaceX **6/12** 窗口形成 **2026 超级上市季** |
 
 ### 技术文档与教程
 
 | 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
 | --- | --- | --- | --- |
-| 物理 AI Agent | NVIDIA GTC Taipei 稿 | Agent Toolkit、skills.sh 分发 | 机器人/仿真工程师 |
-| 合规 | Anthropic S-1 新闻稿 | Rule 135 声明边界 | 法务/战略 |
+| Copilot 6/1 迁移 | [Usage-based billing 官方文 + Docs](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises) | AI Credits、token 计价、Business/Enterprise **6–8 月 promo credits** | Copilot 管理员 |
+| Codex 配额与升级 | [OpenAI Codex Pricing](https://developers.openai.com/codex/pricing) + [v0.136.0 changelog](https://github.com/openai/codex/releases/tag/rust-v0.136.0) | **6/1 配额恢复**、MCP/rmcp、TUI 渲染 | Codex CLI 重度用户 |
+| LangGraph 流式 | [langgraph-sdk 0.4.1 release](https://github.com/langchain-ai/langgraph/releases/tag/sdk%3D%3D0.4.1) | **stream v3**、`interleave_projections` | LangGraph 平台/SDK 集成方 |
+| Anthropic 上市文件 | [Anthropic S-1 保密申报公告](https://www.anthropic.com/news/confidential-draft-s1-sec) | Rule 135、SEC 审查流程 | 关注 **AI 上市公司治理** 的研发/投资读者 |
 
 ### LangChain / Agent / LLM 工程相关进展
 
-**总体判断**：工业/自动驾驶 Agent 工具链与金融化节奏同步加速，工程侧应区分「开源技能」与「模型权重」交付节奏。
+**总体判断**：Agent 工程在 **6/1** 呈现 **「商业计费落地 + 开源 SDK 跟进」**——Copilot/Codex **同日切换** 把 **长时 Agent 会话** 推入 **可计量成本** 时代；LangGraph **SDK 0.4.1** 继续铺 **v3 事件流** 基建，与 **Google Antigravity / Gemini Spark**（Build 周）的 **常驻 Agent** 叙事形成对照。
 
 | 主题 | 进展 | 工程启发 |
 | --- | --- | --- |
-| Agent 工具标准化 | NVIDIA skills on GitHub | 可将仿真/数据生成流程封装为 coding agent 可调用 skill |
-| 开源 VLA | Alpamayo 2 Super 今夏权重 | 闭环训练管线需提前规划 NuRec/OmniDreams 技能 |
+| 计费范式 | **Copilot credits + Codex 标准配额 6/1 生效** | 为 **multi-agent 并行** 设 **per-session cap**；Completions 仍免费可作 **轻量补位** |
+| Codex 运行时 | **0.136.0** 强化 TUI/MCP | **OSC8** 与 **表格 KV 渲染** 改善 **终端 Agent UX**；升级前测 **rmcp 1.7.0** 兼容性 |
+| LangGraph SDK | **0.4.1 + v3 streaming** | 迁移 **`astream_events(version="v3")`** 前对齐 **RemoteGraph** 与 **messages 投影** |
+| OpenClaw vs Hermes | **无 6/1 release**；生态 **token 用量榜** 持续发酵 | 选型看 **Skill 治理（OpenClaw）** vs **自进化 skills（Hermes）** 与 **CVE/审计** 风险，非单日版本 |
+| Spring AI | **无 6/1 官方更新** | 继续关注 **2.0.0-M6+ MCP 注解** 与 **1.1.7** 稳定线，勿将社区博文当作官方 release |
 
 ### 值得深入阅读的资料
 
 | 推荐级别 | 资料 | 为什么值得读 |
 | --- | --- | --- |
-| 必读 | Anthropic S-1 公告 | IPO 路径一手表述 |
-| 必读 | NVIDIA Physical AI 新闻稿 | 具身 Agent 工具全景 |
+| 必读 | **Anthropic 保密 S-1 官方公告** | 理解 **2026 AI 超级 IPO 季** 的第一张多米诺 |
+| 必读 | **GitHub Copilot + OpenAI Codex 6/1 计费文档** | 直接影响 **团队 Agent 预算与选型** |
+| 推荐 | **Codex 0.136.0 + langgraph-sdk 0.4.1** | 当日 **可核验** 的两条 **开源工程 changelog** |
+| 推荐 | **The Verge：Microsoft Build / FTC Microsoft** | **企业 reasoning 模型** 与 **云+AI 反垄断** 并行升温 |
+| 延伸 | **Nvidia RTX Spark** | **本地 120B Agent** 与 **Windows containment** 的硬件前提 |
 
 ### 来源清单
 
 - 检索范围：2026-06-01 00:00:00 到 2026-06-01 23:59:59（Asia/Shanghai）
-- 引用域名：anthropic.com, investor.nvidia.com, siliconangle.com
+- 引用域名：anthropic.com, theverge.com, techcrunch.com, cnbc.com, github.blog, docs.github.com, developers.openai.com, github.com, nist.gov（相邻）, meritalk.com（相邻）
 - 来源清单表格：
 
 | 类型 | 标题 | 日期 | 链接 |
 | --- | --- | --- | --- |
-| 官方公告 | Anthropic draft S-1 | 2026-06-01 | https://www.anthropic.com/news/confidential-draft-s1-sec |
-| 官方发布 | NVIDIA Physical AI tools | 2026-06-01 | https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Releases-Major-Collection-of-Open-Source-Agent-Tools-and-Skills-for-Physical-AI/default.aspx |
-| 官方发布 | Alpamayo 2 Super | 2026-06-01 | https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Launches-Alpamayo-2-Super-Open-Reasoning-Model-for-Robotaxis/default.aspx |
+| 官方发布 | Anthropic 保密提交 S-1 | 2026-06-01 | https://www.anthropic.com/news/confidential-draft-s1-sec |
+| 技术媒体 | Florida 起诉 OpenAI | 2026-06-01 | https://www.theverge.com/ai-artificial-intelligence/940978/florida-is-suing-openai-over-user-safety-concerns |
+| 技术媒体 | Anthropic IPO（TechCrunch） | 2026-06-01 | https://techcrunch.com/2026/06/01/anthropic-files-to-go-public/ |
+| 官方政策 | GitHub Copilot usage-based billing 生效 | 2026-06-01 | https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/ |
+| 官方定价 | OpenAI Codex promo 截止后配额 | 2026-06-01 起 | https://developers.openai.com/codex/pricing |
+| 开源发布 | openai/codex rust-v0.136.0 | 2026-06-01 | https://github.com/openai/codex/releases/tag/rust-v0.136.0 |
+| 开源发布 | langgraph-sdk 0.4.1 | 2026-06-01 | https://github.com/langchain-ai/langgraph/releases/tag/sdk%3D%3D0.4.1 |
+| 技术媒体 | Microsoft Build 预热 | 2026-06-01 | https://www.theverge.com/report/940861/microsoft-build-ai-models-windows-dev-mode-what-to-expect |
+| 技术媒体 | FTC 微软云/AI 调查 | 2026-06-01 | https://www.theverge.com/policy/940220/microsoft-ftc-antitrust-investigation-cloud-ai |
+| 技术媒体 | Nvidia RTX Spark | 2026-06-01 | https://www.theverge.com/tech/940589/nvidia-rtx-spark-n1-n1x-laptop-desktop-pc-cpu-gpu-ai-release-date |
 
 ## 2026-05-31
 
 ### 今日总览
 
-**一句话结论**：`2026-05-31` **轻量日**：在 13 组检索与专项工具扫描下，**未发现可核验的重大官方发布**；**Cosmos/传闻类未验证线索不收录**。
+**一句话结论**：`2026-05-31`（Asia/Shanghai）是 **「Coding Agent 计费范式集中切换前夜 + 欧洲 AI 基建大单 + OpenClaw Skill 治理 beta」**——**OpenAI Codex Pro 2x 用量 promo** 与 **GitHub Copilot PRU 时代** 均在 **6/1 零点** 结束/切换；**SoftBank** 在 Choose France 峰会宣布 **€75B / 5GW 法国 AI 数据中心**；**OpenClaw `v2026.5.31-beta.1`** 上线 **Skill Workshop** 治理流；**Tempus Lens** 下一代 **agentic 肿瘤研发平台** 同日发布；社会侧 **KC Green/Artisan 和解** 与 **Erin Brockovich 数据中心透明度地图** 持续发酵。
 
 | 维度 | 本日结论 |
 | --- | --- |
-| 检索范围 | 官方厂商、论文、GitHub release、政策、中文补充；专项工具全扫 |
-| 核心趋势 | 周末静默；延续 5/28–5/30 Opus/Hermes 消化周期 |
-| 可直接关注 | 维护现有 pin 版本；等待下周官方 changelog |
-| 专项检索结论 | **Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills**：均无硬对齐；**Cosmos 等**：仅未经核验传闻，**跳过** |
+| 检索范围 | OpenAI Codex 官方定价；GitHub Copilot 官方博客/docs；SoftBank 新闻稿；OpenClaw GitHub；Tempus/BusinessWire；TechCrunch；Samsung HBM 产业报道；arXiv Agent 安全/RL；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；中文补充 |
+| 核心趋势 | **6/1 双切换**：Copilot **PRU→AI Credits/token**、Codex Pro **2x→标准配额** 同日生效，长时 Agent 会话 **成本模型** 成为开发者焦点；**欧洲 AI 主权基建**（SoftBank 法国 5GW）与 **HBM4E 样片** 强化 **算力/存储供给链**；**OpenClaw Skill Workshop** 把 **skills 创建/审批/回滚** 产品化 |
+| 可直接关注 | **Copilot/Codex 用户** 在 **6/1 前** 核对 Billing Preview 与 Codex Profiles 用量；评估 **OpenClaw 2026.5.31-beta.1** 的 **Skill Workshop + Codex 媒体异步** 修复；跟踪 **SoftBank×Schneider Electric×EDF** 法国集群 **2031 3.1GW** 落地节奏 |
+| 专项检索结论 | **Claude Code**：**无 2026-05-31 新 GitHub release**（最近 **`v2.1.158` 为 `2026-05-30`**）；**Codex**：**无新 release**，但 **Pro $100 2x 用量 promo 截止 `2026-05-31`**（官方 pricing FAQ）；**OpenClaw**：**`v2026.5.31-beta.1`** **`Published: 2026-05-31T17:44:50Z` → `2026-06-01 01:44:50（Asia/Shanghai）`（相邻日期/跨时区）** + 同日 **`2026.5.30-beta.1`**；**Hermes**：**无 2026-05-31 新 release**；**Spring AI**：**未见 5/31 官方博文/release**；**skills**：**OpenClaw Skill Workshop**（`skill_workshop` 工具 + 提案审批流）为当日最可核验 skills 进展 |
 
 ### 重要事件与发布
 
-- 未发现可核验的重大事件或发布。
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| GitHub Copilot / 计费切换 | [GitHub Copilot usage-based billing 官方说明](https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/) | 官方 **2026-04-27**；**2026-05-31** 为 PRU 最后一日（**6/1 生效**） | 官方政策 | **PRU→AI Credits**（1 credit=$0.01）；**Completions/Next Edit 仍免费**；**Chat/Agent/Code Review 按 token**；Business/Enterprise **6–8 月促销 credits** |
+| OpenAI / Codex 配额 | [Codex Pricing — Pro 2x promo 至 2026-05-31](https://developers.openai.com/codex/pricing) | **`Ends: 2026-05-31`**（Asia/Shanghai 6/1 起恢复标准倍数） | 官方定价 | **Pro $100**：2x→标准 **5x Plus**；**Pro $200**：**25x 五小时限额** 恢复 **20x**；团队应重新评估 **长时 cloud task** 预算 |
+| SoftBank / AI 基建 | [SoftBank 法国 5GW AI 数据中心 €75B](https://group.softbank/en/news/press/20260531_0) | 新闻稿 **`May 31, 2026`**（巴黎活动 **`May 30, 2026` 当地**） | 官方发布 | **2031 年前 Hauts-de-France 3.1GW**；与 **Schneider Electric** 共建 Dunkirk **预制电力模块 + 机柜制造** 产业集群 |
+| OpenClaw / 开源 | [openclaw/openclaw `v2026.5.31-beta.1`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.31-beta.1) | GitHub **`Published: 2026-05-31T17:44:50Z` → `2026-06-01 01:44:50（Asia/Shanghai）`（相邻日期/跨时区）** | 开源预发布 | **Skill Workshop**（提案/审批/隔离/回滚）；**Codex 异步媒体** 不中断 turn；**`@openclaw/copilot` 插件** 外置 |
+| 医疗 AI / Agent | [Tempus Lens 下一代 agentic 平台（BusinessWire）](https://www.businesswire.com/news/home/20260531652876/en/) | **`05/31/2026 08:00`**（媒体转述） | 产品发布 | **肿瘤药物研发 agentic AI**：多模态 RWD + foundation models + **validated AI agents**；**19/20 顶级药企** 已采用 |
+| 硬件 / HBM | [Samsung 首批 HBM4E 样片出货（5/31 产业报道）](https://finance.biggo.com/news/yUgufZ4BtCxy99G5fQf9) | **`Published: 2026-05-31T08:37:39Z` → `2026-05-31 16:37:39（Asia/Shanghai）`** | 产业/硬件 | **7 代 HBM4E** 提前 **>半年** 送样；面向 **Nvidia Vera Rubin Ultra**；**16 Gbps / 48GB / 3.6TB/s** |
+| AI 版权 / 创业 | [TechCrunch：KC Green 与 Artisan AI 达成和解](https://techcrunch.com/2026/05/31/this-is-fine-artist-kc-green-reaches-agreement-with-ai-startup-artisan/) | **`May 31, 2026 11:28 AM PDT` → `2026-06-01 02:28（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **「This is fine」** 梗图被 AI 营销挪用引发争议；**和解后撤广告/撤帖**——Agent 创业 **IP 合规** 警示案例 |
+| 治理 / 基建透明度 | [TechCrunch：Erin Brockovich 质疑数据中心 secrecy](https://techcrunch.com/2026/05/31/erin-brockovich-takes-aim-at-data-center-secrecy/) | **`May 31, 2026 2:05 PM PDT` → `2026-06-01 05:05（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体/政策 | **4000+ 社区提交** 构建全美数据中心地图；**透明度** 成 AI 基建扩张 **首要关切**（非 blanket 反 AI） |
+| AI 安全 / 社会 | [TechCrunch：AI psychosis 辩论解读](https://techcrunch.com/2026/05/31/making-sense-of-the-debate-over-ai-psychosis/) | **`May 31, 2026 8:30 AM PDT` → `2026-05-31 23:30（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **Box CEO Aaron Levie** 指 **「CEO 层 AI psychosis」**——强调 **亲自用工具** 而非只看 slide 定战略 |
+| 论文 / Agent RL | [AXPO: Agent Explorative Policy Optimization（arXiv:2605.28774）](https://arxiv.org/abs/2605.28774) | arXiv **`Submitted 27 May 2026`**（**5/31 中国时间窗口传播**） | 论文原文 | 解决 **Thinking-Acting Gap**：工具调用 **all-wrong rollout** 时 **重采样 tool call**；8B **Pass@4 超 32B Base** |
 
 ### 技术文档与教程
 
-- 未发现值得收录的新文档或教程。
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Copilot 6/1 迁移 | [Usage-based billing 官方文 + GitHub Docs](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises) | AI Credits、token 计价、**6–8 月 Business/Enterprise promo** | Copilot 管理员/重度 Agent 用户 |
+| Codex 配额切换 | [OpenAI Codex Pricing FAQ](https://developers.openai.com/codex/pricing) | **Pro 2x promo 截止 5/31**、Profiles 用量可视化 | ChatGPT Pro + Codex 用户 |
+| OpenClaw Skill Workshop | [OpenClaw v2026.5.31-beta.1 Release Notes](https://github.com/openclaw/openclaw/releases/tag/v2026.5.31-beta.1) | `skill_workshop` 工具、提案审批、support files 扫描 | 自托管 OpenClaw + Codex 团队 |
+| Agent RL 训练 | [AXPO arXiv 论文](https://arxiv.org/abs/2605.28774) | tool-call resampling、uncertainty prefix selection | 多模态 Agent 训练工程师 |
 
 ### LangChain / Agent / LLM 工程相关进展
 
-**总体判断**：无硬对齐发布：适合跑 eval 债务清理与文档对齐，而非升级模型。
+**总体判断**：Agent 工程在 **5/31** 进入 **「计费切换 + Skill 治理」** 双线——商业侧 **Copilot/Codex 同时收紧 promo** 迫使团队建立 **token budget guard**；开源侧 **OpenClaw Skill Workshop** 把 **skills 生命周期**（创建→审批→隔离→回滚）做成 **一等公民**，与 **Claude/Cursor marketplace skills** 形成不同治理哲学。
 
-- 未发现可复现价值明确的新进展。
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Coding Agent 计费 | **Copilot 6/1 + Codex promo 截止 5/31** | 为 **multi-hour agent 会话** 设 **spending cap**；Completions 仍免费可作 **轻量补位** |
+| Skill 治理 | **OpenClaw Skill Workshop beta** | **提案式 skills** + **scanner/hash/rollback** 比「直接写 SKILL.md」更适合 **团队/企业 Gateway** |
+| Codex 可靠性 | **OpenClaw 2026.5.31** Codex fixes | **session lock / compaction / 异步媒体** 是 **Codex app-server 生产化** 的关键修复面 |
+| Agent RL | **AXPO 论文** | **工具调用 token** 需要 **定向探索** 而非纯 GRPO——对 **VLM+tools** 微调有参考价值 |
+| Agent 安全 | **Lacuna（arXiv:2605.28617，相邻传播）** | **typed program holes** 把 **LLM 写代码** 约束在 **编译期 capability tracking** 内 |
 
 ### 值得深入阅读的资料
 
-- 本日暂无推荐。
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **GitHub Copilot usage-based billing + Docs** | **6/1 起** 必须理解的 **AI Credits** 与 **无 fallback** 规则 |
+| 必读 | **OpenAI Codex Pricing（promo 截止说明）** | **Pro 用户** 6/1 起 **有效配额减半** 的直接影响 |
+| 推荐 | **OpenClaw 2026.5.31-beta.1 + Skill Workshop 文档** | 当前 **skills 治理 + Codex 集成** 最完整 changelog |
+| 推荐 | **SoftBank 法国 5GW 官方新闻稿** | **欧洲 AI 基建** 地缘布局与 **Schneider/EDF 工业配套** |
+| 延伸 | **AXPO arXiv 论文** | **Agentic RL** 中 **tool-use 探索** 的可复现方法 |
 
 ### 来源清单
 
 - 检索范围：2026-05-31 00:00:00 到 2026-05-31 23:59:59（Asia/Shanghai）
-- 引用域名：（本日无新增可靠域名）
+- 引用域名：github.blog, docs.github.com, developers.openai.com, group.softbank, github.com, businesswire.com, techcrunch.com, arxiv.org, finance.biggo.com
 - 来源清单表格：
 
-| 无 | 无可靠新增来源 | - | - |
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方政策 | GitHub Copilot usage-based billing（6/1 生效） | 2026-04-27 宣布；5/31 窗口 | https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/ |
+| 官方定价 | OpenAI Codex Pro 2x promo 截止 | Ends 2026-05-31 | https://developers.openai.com/codex/pricing |
+| 官方发布 | SoftBank 法国 5GW AI DC | 2026-05-31（巴黎 May 30 当地） | https://group.softbank/en/news/press/20260531_0 |
+| 开源发布 | OpenClaw v2026.5.31-beta.1 | 2026-05-31（GitHub UTC，Asia/Shanghai 跨日） | https://github.com/openclaw/openclaw/releases/tag/v2026.5.31-beta.1 |
+| 产品发布 | Tempus Lens next-generation | 2026-05-31 | https://www.businesswire.com/news/home/20260531652876/en/ |
+| 技术媒体 | TechCrunch KC Green/Artisan | 2026-05-31 | https://techcrunch.com/2026/05/31/this-is-fine-artist-kc-green-reaches-agreement-with-ai-startup-artisan/ |
+| 技术媒体 | TechCrunch Erin Brockovich 数据中心 | 2026-05-31 | https://techcrunch.com/2026/05/31/erin-brockovich-takes-aim-at-data-center-secrecy/ |
+| 技术媒体 | TechCrunch AI psychosis 辩论 | 2026-05-31 | https://techcrunch.com/2026/05/31/making-sense-of-the-debate-over-ai-psychosis/ |
+| 论文原文 | AXPO arXiv:2605.28774 | 相邻日期/中国时间窗口传播 | https://arxiv.org/abs/2605.28774 |
+| 产业/硬件 | Samsung HBM4E 样片报道 | 2026-05-31 | https://finance.biggo.com/news/yUgufZ4BtCxy99G5fQf9 |
 
 ## 2026-05-30
 
 ### 今日总览
 
-**一句话结论**：`2026-05-30` 为 **Opus 4.8 动态工作流（dynamic workflows）媒体跟进日**——以解读/实践文为主，**无新的官方旗舰发布**；仍完整覆盖专项检索。
+**一句话结论**：`2026-05-30`（Asia/Shanghai）主线是 **「云端常驻 Agent 产品化 + 开源 Agent 栈加固 + Copilot 计费范式切换」**——**Google Gemini Spark** 在美向 **AI Ultra** 用户开放 **24/7 云端 Agent**（**Gemini 3.5 Flash + Antigravity**）；**OpenClaw `v2026.5.28`** 同日发布并强化 **Codex/Copilot Agent 运行时**；**Claude Code `v2.1.158`** 把 **Auto mode** 带到 **Bedrock/Vertex/Foundry**；**GitHub Copilot** 因 **6 月 1 日 token 计费** 引发开发者强烈反弹；**Anthropic $65B / $965B 估值** 与 **戴尔 AI 服务器 +757%** 在当日媒体窗口持续发酵。
 
 | 维度 | 本日结论 |
 | --- | --- |
-| 检索范围 | anthropic.com 回顾、技术媒体跟进；开发者工具专项 |
-| 核心趋势 | Opus 4.8 能力在自动化/多步工作流场景的二次传播 |
-| 可直接关注 | 用官方 Opus 4.8 文档校验媒体示例是否过时 |
-| 专项检索结论 | **Claude Code/Codex/OpenClaw/Hermes/Spring AI**：无 `2026-05-30（上海）` 硬对齐 Release；主线为 **dynamic workflows 媒体跟进（轻量日）** |
+| 检索范围 | Google/DeepMind；OpenClaw/Claude Code GitHub；GitHub Copilot 官方博客；TechCrunch/VentureBeat；arXiv/HF；Spring AI/spring.io 核验；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；中文补充 |
+| 核心趋势 | **云端 VM Agent**（Spark）与 **本地 Gateway Agent**（OpenClaw）形成对照——前者强调 **Workspace 原生 + 关盖继续跑**；**Copilot 从 PRU 切到 AI Credits/token** 标志 coding agent 进入 **按量付费** 阶段；**OpenClaw 大版本** 集中修复 **Codex session/lock/compaction** 可靠性 |
+| 可直接关注 | 评估 **Gemini Spark Skills/Schedules** 能否替代部分 **Cron + MCP** 办公自动化；Windows/macOS **OpenClaw 2026.5.28** 升级验证 **Codex Supervisor + Copilot agent runtime**；**Copilot 用户** 在 **6/1 前** 用 Billing Preview 估算 token 账单；**Claude Code 多云** 团队启用 **`CLAUDE_CODE_ENABLE_AUTO_MODE=1`** |
+| 专项检索结论 | **Claude Code**：**`v2.1.158`** **`Published: 2026-05-30T02:42:16Z` → `2026-05-30 10:42:16（Asia/Shanghai）`**——Bedrock/Vertex/Foundry **Auto mode**（Opus 4.7/4.8）；**Codex**：**无 2026-05-30 新 release**（桌面 **v26.527** 为 **`2026-05-29`**）；**OpenClaw**：**`v2026.5.28`** **`Published: 2026-05-30T20:06:10Z` → `2026-05-31 04:06:10（Asia/Shanghai）`（相邻日期/跨时区）** + 同日 **`2026.5.30-beta.1`**；**Hermes**：**无 2026-05-30 新 release**（最近 **`v2026.5.29.2` 为 `2026-05-29`**）；**Spring AI**：**未见 2026-05-30 官方博文/release**（spring.io 最近仍为 **1.1.1 / 2.0.0-M8 预发布**）；**skills**：**无独立 marketplace 发布**；Spark 文档已出现 **Skills/Schedules** 工作流概念 |
 
 ### 重要事件与发布
 
 | 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
 | --- | --- | --- | --- | --- |
-| 媒体跟进 | [Tech media: Claude Opus 4.8 dynamic workflows](https://techcrunch.com/) | **2026-05-30** | 技术媒体 | 解读 Opus 4.8 在多步自动化中的用法；需回溯 5/28 官方稿 |
+| Google / Agent 产品 | [Gemini Spark 正式可用（PCMag / Google 支持文档）](https://support.google.com/gemini/answer/17094196?hl=en) | **2026-05-30**（PCMag **Updated May 30, 2026**；I/O 后 **5/29 起** 向 AI Ultra 美区 rollout） | 产品发布 | **24/7 云端 VM Agent**：Gmail/Calendar/Docs/Sheets/Slides + Connected Apps + 远程浏览器；**Gemini 3.5 Flash + Antigravity**；需 **Google AI Ultra（$100/月档）** 与美区 18+ |
+| Google / 产品评测 | [TechCrunch：Gemini Spark 实测](https://techcrunch.com/2026/05/30/i-put-googles-24-7-ai-assistant-gemini-spark-to-work-and-its-actually-pretty-useful/) | **`May 30, 2026 8:30 AM PDT` → `2026-05-30 23:30（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | 对比 **OpenClaw 需保持设备唤醒**；指出 **Keep 未集成、iPhone 无法直达 Spark** 等产品缺口 |
+| OpenClaw / 开源 | [openclaw/openclaw `v2026.5.28`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.28) | GitHub **`Published: 2026-05-30T20:06:10Z` → `2026-05-31 04:06:10（Asia/Shanghai）`（相邻日期/跨时区）** | 开源发布 | **Codex/Copilot agent runtime**、**Codex Supervisor plugin**、**Claude Opus 4.8** 支持；大量 **session lock / compaction / hook relay** 修复 |
+| Claude Code | [anthropics/claude-code `v2.1.158`](https://github.com/anthropics/claude-code/releases/tag/v2.1.158) | GitHub **`Published: 2026-05-30T02:42:16Z` → `2026-05-30 10:42:16（Asia/Shanghai）`** | 开源发布 | **`CLAUDE_CODE_ENABLE_AUTO_MODE=1`** 在 **Bedrock/Vertex/Foundry** 启用 **Auto mode**（Opus 4.7/4.8） |
+| GitHub Copilot / 计费 | [GitHub Copilot is moving to usage-based billing](https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/) | 官方 **2026-04-27** 宣布；**2026-05-30** 媒体集中讨论 **6/1 生效** | 官方政策 | **PRU → GitHub AI Credits**；按 **input/output/cached tokens** 计费；**Pro $10 / Pro+ $39** 含等额 credits；**Business/Enterprise 6–8 月促销 credits** |
+| GitHub Copilot / 社区 | [TechCrunch：Copilot token 计费引开发者不满](https://techcrunch.com/2026/05/30/what-a-joke-github-copilots-new-token-based-billing-spurs-consternation-among-devs/) | **`May 30, 2026 9:30 AM PDT` → `2026-05-30 00:30（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | 社区担心 **长时 agent 会话** 账单暴涨；反映 **「鼓励重度 agent 使用 → 按 token 收费」** 张力 |
+| Meta / 硬件 | [Meta is reportedly developing an AI pendant（TechCrunch）](https://techcrunch.com/2026/05/30/meta-is-reportedly-developing-an-ai-pendant/) | **`May 30, 2026 8:59 AM PDT` → `2026-05-30 23:59（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | 基于 **Limitless 收购** 的 **AI 吊坠** 内测计划；同步 **Wearables for Work** 订阅与 AI 眼镜扩展 |
+| 基础设施 | [SoftBank €75B 法国数据中心（TechCrunch）](https://techcrunch.com/2026/05/30/softbank-says-it-will-invest-up-to-e75-billion-to-build-french-data-centers/) | **`May 30, 2026 2:45 PM PDT` → `2026-05-31 05:45（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | 规划 **5GW** 容量、**2031 年前 3.1GW** 落地 Hauts-de-France；SoftBank 称 **欧洲最大 AI 基建投资** |
+| 资本 / Anthropic | [Anthropic Series H $65B @ $965B（官方）](https://www.anthropic.com/news/series-h) | 官方 **`2026-05-28`**；**2026-05-30** 全球媒体持续报道 | 官方发布/资本 | **Samsung/SK Hynix/Micron** 等 **存储巨头** 入局；**ARR >$47B**；估值 **首超 OpenAI（$852B）** |
+| 硬件 / 财报 | [戴尔 AI 服务器收入 +757%（5/29 财报，5/30 报道）](https://developer.aliyun.com/article/1738694) | 财报 **2026-05-29**；中文社区 **2026-05-30** 转述 | 财报/媒体 | **AI 服务器 $16.1B/季、同比 +757%**；FY 指引 **$500B→$600B**；印证 **推理/训练采购** 仍在爆发 |
+| 产业 / 中国 | [2026 世界智能产业博览会天津（5/28–31，5/30 报道）](https://developer.aliyun.com/article/1738694) | 展会 **2026-05-28 至 2026-05-31**；**2026-05-30** 中文简报 | 产业活动 | **40+ 大模型、740+ 机构** 展示 **制造/物流/座舱/鉴别** 等落地 |
+| 论文 / RAG | [LLM-Wiki: Retrieval as Reasoning（arXiv:2605.25480）](https://arxiv.org/abs/2605.25480) | arXiv **2605.25480**（相邻日期/中国时间窗口传播） | 论文原文 | **腾讯 WeChat** 提出 **Wiki 编译 + Error Book 自校正** 的 **Agent-native RAG**；HotpotQA/MuSiQue 等 **+2.0–8.1 F1** |
 
 ### 技术文档与教程
 
 | 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
 | --- | --- | --- | --- |
-| 工作流 | Opus 4.8 官方+媒体对照 | 动态编排、工具链、人工检查点 | Agent 架构师 |
+| Gemini Spark | [Find & manage Gemini Spark tasks](https://support.google.com/gemini/answer/17094196?hl=en) | Tasks/Schedules/Skills、Workspace 集成、Activity 删除策略 | 评估 **云端常驻办公 Agent** 的团队 |
+| OpenClaw 升级 | [OpenClaw v2026.5.28 Release Notes](https://github.com/openclaw/openclaw/releases/tag/v2026.5.28) | Codex Supervisor、Copilot agent runtime、session lock 修复 | 自托管 **OpenClaw + Codex** 运维 |
+| Claude Code 多云 | [Claude Code v2.1.158](https://github.com/anthropics/claude-code/releases/tag/v2.1.158) | **`CLAUDE_CODE_ENABLE_AUTO_MODE=1`** on Bedrock/Vertex/Foundry | 企业 **Claude Code 多云** 部署 |
+| Copilot 计费迁移 | [Usage-based billing 官方说明](https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/) | AI Credits、token 计价、annual plan 过渡 | Copilot **Pro/Business** 管理员 |
+| Agent-native RAG | [LLM-Wiki 论文](https://arxiv.org/abs/2605.25480) | Wiki 编译、link-following tools、Error Book | RAG/Agent 架构师 |
 
 ### LangChain / Agent / LLM 工程相关进展
 
-**总体判断**：轻量日：工程侧重点是消化 5/28 发布而非追新 tag。
+**总体判断**：Agent 工程在 **「云端编排（Spark） vs 本地 Gateway（OpenClaw）」** 两线并进——Google 把 **Skills + Schedules + Workspace** 打包成 **Ultra 订阅卖点**；OpenClaw 则通过 **`2026.5.28`** 把 **Codex/Copilot runtime 可靠性** 推到生产级；与此同时 **Copilot token 计费** 迫使团队重新评估 **长时 agent 任务** 的 **成本模型**。
 
 | 主题 | 进展 | 工程启发 |
 | --- | --- | --- |
-| 消化周期 | dynamic workflows 讨论 | 在内部 runbook 固定「两步人工审批」模板 |
+| 云端常驻 Agent | **Gemini Spark GA（美区 Ultra）** | **VM 后台执行** 可替代部分 **Cron + 本地 OpenClaw** 场景，但 **vendor lock-in** 更高 |
+| Gateway 可靠性 | **OpenClaw 2026.5.28** | **session lock / compaction / hook relay** 是 **multi-agent + Codex** 生产化的真正门槛 |
+| Coding Agent 计费 | **Copilot 6/1 token 计费** | 团队应为 **agent 会话** 设 **budget guard + model tier**；Completions/Next Edit 仍 **不扣 credits** |
+| Agent-native RAG | **LLM-Wiki 论文** | 把 KB **编译为可遍历 Wiki** 比 **flat chunk + embedding** 更适配 **ReAct 工具环** |
+| MCP 生态 | **Langfuse MCP 5/29 更新**（相邻日期） | 观测/评分/评论进 MCP——**Agent 可观测性** 继续 MCP 化 |
 
 ### 值得深入阅读的资料
 
 | 推荐级别 | 资料 | 为什么值得读 |
 | --- | --- | --- |
-| 推荐 | Opus 4.8 官方文（5/28） | 媒体跟进的事实基准 |
+| 必读 | **OpenClaw v2026.5.28 Release Notes** | 当前 **Codex + Copilot agent runtime** 最完整的变更清单 |
+| 必读 | **GitHub Copilot usage-based billing 官方文** | **6/1 前** 必须理解的 **AI Credits/token** 规则 |
+| 推荐 | **Gemini Spark Google 支持文档 + TechCrunch 实测** | 理解 **云端 Agent** 的能力边界与 **Workspace 集成深度** |
+| 推荐 | **LLM-Wiki arXiv 论文** | **Retrieval-as-Reasoning** 的可复现架构参考 |
+| 延伸 | **SoftBank 法国 5GW 数据中心公告** | **欧洲 AI 算力** 地缘布局与 **能源/电网** 约束 |
 
 ### 来源清单
 
 - 检索范围：2026-05-30 00:00:00 到 2026-05-30 23:59:59（Asia/Shanghai）
-- 引用域名：anthropic.com, techcrunch.com
+- 引用域名：support.google.com, techcrunch.com, github.com, github.blog, anthropic.com, arxiv.org, developer.aliyun.com, pcmag.com, thenextweb.com
 - 来源清单表格：
 
 | 类型 | 标题 | 日期 | 链接 |
 | --- | --- | --- | --- |
-| 技术媒体 | Opus 4.8 workflows follow-up | 2026-05-30 | https://techcrunch.com/ |
+| 官方发布/产品 | Gemini Spark Tasks 管理文档 | 2026-05-30（文档随 rollout 更新） | https://support.google.com/gemini/answer/17094196 |
+| 开源发布 | OpenClaw v2026.5.28 | 2026-05-30（GitHub UTC，Asia/Shanghai 跨日） | https://github.com/openclaw/openclaw/releases/tag/v2026.5.28 |
+| 开源发布 | Claude Code v2.1.158 | 2026-05-30 | https://github.com/anthropics/claude-code/releases/tag/v2.1.158 |
+| 官方政策 | GitHub Copilot usage-based billing | 2026-04-27（5/30 媒体窗口） | https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/ |
+| 技术媒体 | TechCrunch Gemini Spark 实测 | 2026-05-30 | https://techcrunch.com/2026/05/30/i-put-googles-24-7-ai-assistant-gemini-spark-to-work-and-its-actually-pretty-useful/ |
+| 技术媒体 | TechCrunch Copilot token 计费争议 | 2026-05-30 | https://techcrunch.com/2026/05/30/what-a-joke-github-copilots-new-token-based-billing-spurs-consternation-among-devs/ |
+| 技术媒体 | TechCrunch Meta AI pendant | 2026-05-30 | https://techcrunch.com/2026/05/30/meta-is-reportedly-developing-an-ai-pendant/ |
+| 技术媒体 | TechCrunch SoftBank 法国数据中心 | 2026-05-30 | https://techcrunch.com/2026/05/30/softbank-says-it-will-invest-up-to-e75-billion-to-build-french-data-centers/ |
+| 官方发布/资本 | Anthropic Series H | 2026-05-28（5/30 传播） | https://www.anthropic.com/news/series-h |
+| 论文原文 | LLM-Wiki arXiv:2605.25480 | 相邻日期/中国时间窗口传播 | https://arxiv.org/abs/2605.25480 |
+| 中文补充 | 阿里云社区 5/30 AI 简报 | 2026-05-30 | https://developer.aliyun.com/article/1738694 |
 
 ## 2026-05-29
 
 ### 今日总览
 
-**一句话结论**：`2026-05-29`：**Hermes `v2026.5.29` 补丁** 与 **Anthropic API Release Notes（5/29）** 为可核验主线；延续 Opus 4.8 上线后的工程跟进日。
+**一句话结论**：`2026-05-29`（Asia/Shanghai）主线是 **「防御加速 + 评测治理 + Windows Codex 平台化 + 企业 Agent 出海」**——**OpenAI** 同日连发 **Rosalind Biodefense / GPT‑Rosalind 可信访问** 与 **第三方评测 Playbook**；**Codex v26.527** 把 **Computer Use 与移动端远程控制** 带到 **Windows**；**Anthropic** 在 **Claude Platform on AWS** 上线 **Managed Agents webhooks / 多 Agent 编排 / 自托管沙箱**；**Hermes Agent v0.15.1** 同日热修；**腾讯 Cloud Day 香港** 向全球推出 **WorkBuddy / Miora / TokenHub** 企业 Agent 栈。
 
 | 维度 | 本日结论 |
 | --- | --- |
-| 检索范围 | github.com/NousResearch/hermes-agent、docs.anthropic.com release notes |
-| 核心趋势 | 开源 Agent 栈补丁节奏；Claude API 能力/限额微调 |
-| 可直接关注 | 对照 API notes 的 breaking changes 与 Hermes patch diff |
-| 专项检索结论 | **Hermes `v2026.5.29`** 补丁 tag；**Claude Code/Codex/OpenClaw/Spring AI**：无硬对齐 |
+| 检索范围 | OpenAI/Anthropic 官方；Codex/Hermes GitHub；TechCrunch/VentureBeat；arXiv/HF；Spring AI/spring.io 核验；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；中文补充 |
+| 核心趋势 | **生物防御加速（Rosalind）** 与 **评测 harness 公开化** 并行；**Codex Windows Computer Use** 补齐跨平台 Agent 桌面能力；**企业 Agent 瓶颈从模型转向权限/编排/可靠性**（Workday/VentureBeat）；**记忆/推理基础设施** 受资本关注（XCENA） |
+| 可直接关注 | 生物/公卫团队申请 **Rosalind Biodefense / GPT‑Rosalind**；安全/评测团队读 **Third-Party Eval Playbook** 对齐 harness 披露；Windows 开发者升级 **Codex 26.527** 验证 Computer Use；Java 团队仍以 **spring.io M7** 为准、勿信第三方 GA 传言 |
+| 专项检索结论 | **Claude Code**：**无 2026-05-29 新 GitHub tag**（最近 **`v2.1.154`** 为 **`2026-05-28`**）；**Codex**：**`v26.527`** **`2026-05-29`** 官方推文/Changelog——**Windows Computer Use + ChatGPT 移动端远程 Windows**；**OpenClaw**：**无 2026-05-29 新 release**（最近 **`v2026.5.27`** 为 **`2026-05-28`**）；**Hermes**：**`v2026.5.29` / v0.15.1** **`Published: 2026-05-29T01:12:15Z` → `2026-05-29 09:12:15（Asia/Shanghai）`**；**Spring AI**：**未见 2.0 GA 官方博文**（spring.io 最近 **`2.0.0-M7` 为 `2026-05-23`**，文档仍标 *in development*）；**skills**：**无独立 marketplace 发布**；Hermes 热修纳入 **19,932 条 skills.sh 全量目录** |
 
 ### 重要事件与发布
 
 | 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
 | --- | --- | --- | --- | --- |
-| Hermes | [`v2026.5.29`](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.29) | **2026-05-29** | 开源发布 | 补丁级修复；升级风险低于 Velocity 大版本 |
-| Claude API | [Claude Platform Release Notes — May 29, 2026](https://docs.anthropic.com/en/release-notes/api) | **2026-05-29** | 官方文档 | API/MCP/Agent 能力当日条目 |
+| OpenAI / 生物防御 | [Strengthening societal resilience with Rosalind Biodefense](https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense/) | **2026-05-29** | 官方发布 | 启动 **Rosalind Biodefense** 赞助可信开发者；向美/盟政府伙伴扩展 **GPT‑Rosalind** 访问——**防御加速（defensive acceleration）** 样板 |
+| OpenAI / 评测治理 | [A shared playbook for trustworthy third party evaluations](https://openai.com/index/trustworthy-third-party-evaluations-foundations/) | **2026-05-29** | 官方发布 | 强调 **harness 选择 + validity checks**（reward hacking/contamination/sandbagging）——第三方 frontier 评测披露模板 |
+| OpenAI / 企业落地 | [Boston Children's uses AI to unlock new diagnoses](https://openai.com/index/boston-childrens-hospital/) | **2026-05-29** | 官方案例 | 企业 **ChatGPT 层** + **50+ 自动化**；**40+ 罕见病新诊断**、**~60,000 小时** 节省——医疗 Agent 基础设施化参考 |
+| OpenAI / Codex 案例 | [How Braintrust turns customer requests into code with Codex](https://openai.com/index/braintrust/) | **2026-05-29** | 官方案例 | 客户请求→代码的 **Codex 生产闭环** 实践 |
+| Codex / Windows | [OpenAI Codex v26.527 — Windows Computer Use & mobile remote（Neowin）](https://www.neowin.net/news/openai-rolls-out-major-codex-for-windows-update-with-computer-use-and-mobile-access/) | **`May 29, 2026`**（OpenAI 官方 X **`10:41 AM · May 29, 2026`**） | 产品更新 | **Windows 前台 Computer Use**；**ChatGPT iOS/Android 或 Mac Codex 远程启动/审批 Windows 任务**；Profile 展示 token 统计 |
+| Anthropic / AWS 平台 | [Claude Platform API Release Notes — May 29, 2026](https://docs.anthropic.com/en/release-notes/api) | **2026-05-29** | 官方文档 | **Claude Managed Agents webhooks、multiagent orchestration、self-hosted sandboxes** 在 **Claude Platform on AWS** GA；新增 IAM actions 与 **`AnthropicSelfHostedEnvironmentAccess`** 策略 |
+| Hermes | [NousResearch/hermes-agent `v2026.5.29`](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.29) | GitHub **`Published: 2026-05-29T01:12:15Z` → `2026-05-29 09:12:15（Asia/Shanghai）`** | 开源发布 | **v0.15.1 热修**：修复 loopback **dashboard 401 无限 reload**；Docker **`HERMES_DASHBOARD_INSECURE=1` 显式 opt-in**；**skills.sh 全量 19,932 条** |
+| 企业 Agent / 腾讯 | [Tencent launches WorkBuddy for global users（TechNode）](https://technode.com/2026/05/29/tencent-launches-workbuddy-productivity-ai-agent-for-global-users/) | **`May 29, 2026`**（PR **`HONG KONG, May 29, 2026`**） | 官方产品/媒体 | **WorkBuddy** 全球发布：并行多 Agent、**MCP 接 GitHub/Jira/Notion**、IM 远程（Slack/Telegram/Discord/WeChat）；同场还有 **Miora** 创意工作室与 **TokenHub MaaS** |
+| 资本 / Agent | [Cognition's Scott Wu: AI coding agents shouldn't replace humans（TechCrunch）](https://techcrunch.com/2026/05/29/cognitions-scott-wu-says-ai-coding-agents-shouldnt-replace-humans/) | **`May 29, 2026 9:13 AM PDT` → `2026-05-30 00:13（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **Devin** 定位 **L3–L4 维护/迁移** 而非替代；**$1B @ $26B** 融资背景 |
+| 基础设施 / 芯片 | [XCENA $135M at $570M valuation（TechCrunch）](https://techcrunch.com/2026/05/29/xcena-secures-135m-at-570m-valuation-betting-on-memory-as-ais-real-bottleneck/) | **`May 29, 2026 5:00 AM PDT` → `2026-05-29 20:00（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **近内存计算 MX1（CXL）** 押注推理 **memory scaling** 瓶颈 |
+| 运营事件 | [OpenAI widespread outage（News9live）](https://www.news9live.com/technology/artificial-intelligence/openai-down-chatgpt-api-dall-e-sora-and-login-hit-by-widespread-outage-2975319) | **2026-05-29** | 运营 | **ChatGPT/API/Codex/Sora/Login** 同日大面积故障——与 Codex 大版本发布同日，需关注 status.openai.com |
+| 论文 / Agent RL | [Agent Explorative Policy Optimization（arXiv:2605.28774）](https://arxiv.org/pdf/2605.28774) | 提交 **2026-05-28**（相邻日期/中国时间窗口传播） | 论文原文 | **AXPO** 用 **tool-call resampling** 缓解 multimodal agentic RL 的 **Thinking-Acting Gap** |
+| 开源 / 自改进 Agent | [Hexo Labs open-sources SIA（MarkTechPost）](https://www.marktechpost.com/2026/05/29/hexo-labs-open-sources-sia-a-self-improving-agent-that-updates-both-the-harness-and-the-model-weights/) | **2026-05-29** | 开源/媒体 | **SIA** 同时更新 **harness + LoRA 权重** 的自改进闭环（MIT，`hexo-ai/sia`） |
+| 教育 / 政策合作 | [Armenia × OpenAI Education for Countries](https://edunewsletter.openai.com/p/armenias-next-step-toward-ai-native) | **2026-05-29** | 官方通讯 | **5 万** 师生/研究者获得 frontier AI 工具访问——国家级 AI-native 教育样板 |
 
 ### 技术文档与教程
 
 | 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
 | --- | --- | --- | --- |
-| API | Anthropic 5/29 notes | 端点、限额、工具行为 | 集成工程师 |
+| 生物防御 | [Rosalind Biodefense 公告](https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense/) | GPT‑Rosalind、trusted access、Fourth Eon/LLNL/CEPI 首批伙伴 | 公卫/生物信息/合规团队 |
+| 评测治理 | [Third-Party Eval Playbook](https://openai.com/index/trustworthy-third-party-evaluations-foundations/) | harness 文档化、validity checks、agentic 任务披露 | AI 安全/评测工程师 |
+| Codex Windows | [Neowin：Codex 26.527](https://www.neowin.net/news/openai-rolls-out-major-codex-for-windows-update-with-computer-use-and-mobile-access/) | 前台 Computer Use、移动端 remote control、Profile token stats | Windows 开发/Agent 运维 |
+| AWS Managed Agents | [Anthropic API Release Notes](https://docs.anthropic.com/en/release-notes/api) | webhooks、multiagent orchestration、self-hosted sandboxes IAM | 在 AWS 上跑 Claude Agent 的团队 |
+| Hermes 热修 | [Hermes v2026.5.29 Release](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.29) | dashboard 401 loop、Docker insecure opt-in、skills.sh 全量 | 自托管 Hermes 运维 |
 
 ### LangChain / Agent / LLM 工程相关进展
 
-**总体判断**：大发布后首日常见「API 微调 + 开源补丁」组合，适合跑回归而非追新模型。
+**总体判断**：Agent 工程在 **「评测可审计 + 平台跨端 + 编排可靠性」** 三线推进——OpenAI 把 **harness** 推到评测标准中心；Codex 把 **桌面 Computer Use** 扩展到 Windows 并与移动端组成 **跨设备控制面**；VentureBeat 当日两篇指出企业 Agent 进入 **rebuild era**，瓶颈是 **权限/状态恢复/编排** 而非单点模型分数。
 
 | 主题 | 进展 | 工程启发 |
 | --- | --- | --- |
-| 补丁策略 | Hermes 5.29 | 生产可滚动补丁；保留 5.28 回滚 tag |
+| 评测 harness | OpenAI **Third-Party Eval Playbook** | 对外 benchmark 必须披露 **工具访问、采样、重试、validity checks**；否则 scores 不可比 |
+| 跨平台 Codex | **Windows 26.527 Computer Use + mobile remote** | Agent 桌面能力需规划 **前台/后台** 差异（Windows 仅前台）；移动端作 **审批/steer 控制面** |
+| AWS Agent 平台 | Anthropic **Managed Agents on AWS** 能力包 | 生产 Agent 把 **webhook 编排 + 自托管沙箱** 与 **IAM 最小权限** 一起设计 |
+| 企业 Agent 权限 | VentureBeat：**permissions bottleneck**（Workday Sana 案例） | Agent SOR 应绑定 **组织身份/审批模型**，避免 DIY Agent **权限过宽** |
+| 可靠性重建 | VentureBeat：**rebuild era**（Temporal 观点） | 长跑 Agent 需要 ** durable workflow + 断点恢复 + 成本可观测** |
+| Agent RL 研究 | **AXPO**（arXiv 2605.28774） | multimodal agent 训练需单独优化 **tool-call 探索**，而非只调 thinking tokens |
+| 自改进 Agent | **SIA** 开源 | harness 与权重 **双杠杆** 自改进——适合研究型团队，生产需严格 gate |
+| Hermes 运维 | **v0.15.1** 热修 | loopback dashboard 与 Docker **insecure 绑定** 是常见踩坑点；升级后验证 **skills 目录完整性** |
 
 ### 值得深入阅读的资料
 
 | 推荐级别 | 资料 | 为什么值得读 |
 | --- | --- | --- |
-| 推荐 | API Release Notes 5/29 | 集成侧一手变更 |
+| 必读 | **OpenAI：Rosalind Biodefense + GPT‑Rosalind** | 当日 **防御加速** 最权威官方定义与申请路径 |
+| 必读 | **OpenAI：Third-Party Eval Playbook** | 理解 **harness = 评测结果的一部分**——影响所有 frontier 评测设计 |
+| 推荐 | **Codex 26.527 Windows + mobile** | **跨平台 Agent 桌面** 能力对齐 Mac 的关键里程碑 |
+| 推荐 | **Anthropic AWS Managed Agents Release Notes** | **webhook + 多 Agent + 自托管沙箱** 的生产组合 |
+| 延伸 | **Boston Children's 企业 AI 案例** | 医疗场景 **enterprise AI layer** 量化 ROI 参考 |
+| 延伸 | **SIA 自改进 Agent（hexo-ai/sia）** | harness/权重双更新的研究型架构 |
 
 ### 来源清单
 
 - 检索范围：2026-05-29 00:00:00 到 2026-05-29 23:59:59（Asia/Shanghai）
-- 引用域名：github.com, docs.anthropic.com
+- 引用域名：openai.com, developers.openai.com, docs.anthropic.com, github.com, techcrunch.com, venturebeat.com, neowin.net, technode.com, arxiv.org, marktechpost.com, edunewsletter.openai.com, news9live.com, spring.io
 - 来源清单表格：
 
 | 类型 | 标题 | 日期 | 链接 |
 | --- | --- | --- | --- |
-| 开源发布 | Hermes v2026.5.29 | 2026-05-29 | https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.29 |
-| 官方文档 | API Release Notes | 2026-05-29 | https://docs.anthropic.com/en/release-notes/api |
+| 官方发布 | Rosalind Biodefense | 2026-05-29 | https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense/ |
+| 官方发布 | Third-Party Eval Playbook | 2026-05-29 | https://openai.com/index/trustworthy-third-party-evaluations-foundations/ |
+| 官方案例 | Boston Children's AI | 2026-05-29 | https://openai.com/index/boston-childrens-hospital/ |
+| 官方案例 | Braintrust × Codex | 2026-05-29 | https://openai.com/index/braintrust/ |
+| 官方文档 | Anthropic API Release Notes | 2026-05-29 | https://docs.anthropic.com/en/release-notes/api |
+| 开源发布 | Hermes Agent v2026.5.29 | 2026-05-29 | https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.29 |
+| 技术媒体 | Codex Windows 26.527 | 2026-05-29 | https://www.neowin.net/news/openai-rolls-out-major-codex-for-windows-update-with-computer-use-and-mobile-access/ |
+| 技术媒体 | Tencent WorkBuddy global | 2026-05-29 | https://technode.com/2026/05/29/tencent-launches-workbuddy-productivity-ai-agent-for-global-users/ |
+| 技术媒体 | Cognition Scott Wu | 2026-05-29（相邻日期/跨时区） | https://techcrunch.com/2026/05/29/cognitions-scott-wu-says-ai-coding-agents-shouldnt-replace-humans/ |
+| 技术媒体 | XCENA Series B | 2026-05-29（相邻日期/跨时区） | https://techcrunch.com/2026/05/29/xcena-secures-135m-at-570m-valuation-betting-on-memory-as-ais-real-bottleneck/ |
+| 技术媒体 | Agent permissions bottleneck | 2026-05-29 | https://venturebeat.com/orchestration/the-ai-agent-bottleneck-isnt-model-performance-its-permissions |
+| 技术媒体 | Agent rebuild era | 2026-05-29 | https://venturebeat.com/orchestration/ai-agents-are-entering-their-rebuild-era-as-enterprises-confront-the-reliability-problem |
+| 论文原文 | AXPO | 2026-05-28（相邻日期/中国时间窗口传播） | https://arxiv.org/pdf/2605.28774 |
+| 开源/媒体 | SIA self-improving agent | 2026-05-29 | https://www.marktechpost.com/2026/05/29/hexo-labs-open-sources-sia-a-self-improving-agent-that-updates-both-the-harness-and-the-model-weights/ |
+| 官方通讯 | Armenia Education | 2026-05-29 | https://edunewsletter.openai.com/p/armenias-next-step-toward-ai-native |
 
 ## 2026-05-28
 
 ### 今日总览
 
-**一句话结论**：`2026-05-28` 三重硬对齐：**Claude Opus 4.8** 发布、**Anthropic Series H $65B** 融资公告、**Hermes `v2026.5.28`（Velocity）** tag。
+**一句话结论**：`2026-05-28`（Asia/Shanghai）主线是 **「旗舰模型 + 万亿估值 + 治理框架」同日叠加强工程 release**——**Anthropic** 连发 **Claude Opus 4.8**（**Dynamic Workflows**、**Fast mode 降价 3×**）与 **$65B Series H @ $965B**；**OpenAI** 发布 **Frontier Governance Framework** 并推 **Codex CLI 0.135.0**；**OpenClaw `v2026.5.27`** 在上海晚间发布；资本与产品侧 **Asana 收购 StackAI**、**Sesame 对话 Agent iOS** 显示 **企业 Agent 平台化** 与 **消费级语音 Agent** 并进。
 
 | 维度 | 本日结论 |
 | --- | --- |
-| 检索范围 | anthropic.com、github.com/NousResearch/hermes-agent |
-| 核心趋势 | 旗舰模型迭代 + 巨额融资 + 开源 Agent 栈周更 |
-| 可直接关注 | Opus 4.8 定价/上下文；Hermes Velocity 变更日志 |
-| 专项检索结论 | **Hermes `v2026.5.28`** 当日；**Claude Code/Codex/OpenClaw/Spring AI**：无同级硬对齐 |
+| 检索范围 | Anthropic/OpenAI 官方；OpenClaw/Codex GitHub & Changelog；TechCrunch/VentureBeat；HF Daily 2026-05-28；Spring AI GA 预期核验；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；中文补充 |
+| 核心趋势 | **Opus 4.8 加速迭代**（41 天 Opus 小版本、并行 subagent 工作流）；**AI 资本格局重排**（Anthropic $965B > OpenAI $840B）；**前沿治理公开化**（OpenAI Frontier Governance ↔ CA/EU 法规）；**编码 Agent 运维增强**（Codex doctor/0.135.0、OpenClaw 安全与 Codex 集成）；**企业 human-agent 并购**（Asana×StackAI） |
+| 可直接关注 | 评估 **Opus 4.8 + `/fast`** 与 **Dynamic Workflows** 对大型代码库迁移；读 **OpenAI Frontier Governance Framework** 对齐内部 AI 风险分类；升级 **Codex 0.135.0** 的 `codex doctor`/`/permissions` profile；部署 **OpenClaw 2026.5.27** 验证 Gateway/Codex 路径；Java 团队核对 **Spring AI 2.0 GA** 是否已正式发布（当日未见 spring.io GA 文） |
+| 专项检索结论 | **Claude Code**：**无新 GitHub tag**（最近 **`v2.1.152`** 为 **`2026-05-27`**）；**`2026-05-28`** 官方随 Opus 4.8 发布 **Dynamic Workflows**（research preview，数百并行 subagent）；**Codex**：**`Codex CLI 0.135.0`** 官方 Changelog **`2026-05-28`**（GitHub **无稳定 `rust-v0.135.0` tag**，仅 alpha）；**OpenClaw**：**`v2026.5.27`** **`Published: 2026-05-28T11:41:42Z` → `2026-05-28 19:41:42（Asia/Shanghai）`**；**Hermes**：未发现 **`2026-05-28`** 新 tag（最近 **`v0.13.0`** 为 **`2026-05-07`**）；**Spring AI**：**未见 `2.0.0` GA 官方博文**（spring.io 最近 **`2.0.0-M7` 为 `2026-05-23`**，文档仍标 *in development*）；**skills**：**无独立 marketplace 发布**；随 Opus 4.8 的 **effort 控制 / API system entries** 属模型与 harness 能力更新 |
 
 ### 重要事件与发布
 
 | 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
 | --- | --- | --- | --- | --- |
-| Claude | [Claude Opus 4.8](https://www.anthropic.com/news/claude-opus-4-8) | **2026-05-28** | 官方发布 | 旗舰推理与 coding 能力升级；企业需重跑 eval |
-| 融资 | [Anthropic raises Series H at $65B post-money](https://www.anthropic.com/news/anthropic-series-h) | **2026-05-28** | 官方公告 | Series H 估值与资金用途（算力/安全/产品） |
-| Hermes | [NousResearch/hermes-agent `v2026.5.28`](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.28) | **2026-05-28** | 开源发布 | 代号 Velocity 的周更；核对 Agent 运行时 breaking changes |
+| Anthropic / 模型 | [Introducing Claude Opus 4.8](https://www.anthropic.com/news/claude-opus-4-8) | **2026-05-28** | 官方发布 | 同价升级；**诚实度/不确定性标注** 提升；**effort 控制**；**Dynamic Workflows**；**fast mode $10/$50**（较 4.7 fast 降 3×）；API **`claude-opus-4-8`** |
+| Anthropic / 资本 | [Anthropic raises $65B Series H at $965B](https://www.anthropic.com/news/series-h) | **2026-05-28** | 官方公告 | **ARR ~$47B**；含 **$15B hyperscaler**（Amazon **$5B**）；算力协议（Amazon/Google/SpaceX）支撑 Claude 规模 |
+| Anthropic / Agent | [Opus 4.8 + Dynamic Workflows（TechCrunch）](https://techcrunch.com/2026/05/28/anthropic-releases-opus-4-8-with-new-dynamic-workflow-tool/) | **`May 28, 2026 10:00 AM PDT` → `2026-05-29 01:00（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | 代码库级迁移：**数百并行 subagent** + 输出校验；Mythos 类模型 **数周内** 可能更广开放 |
+| OpenAI / 治理 | [OpenAI’s Frontier Governance Framework](https://openai.com/index/openai-frontier-governance-framework/) | **2026-05-28** | 官方发布 | 将 **Preparedness Framework** 映射到 **加州 Transparency in Frontier AI Act**、**EU GPAI Code of Practice**；覆盖 cyber/CBRN/操纵/失控等 |
+| Codex | [Codex CLI 0.135.0（OpenAI Developers Changelog）](https://developers.openai.com/codex/changelog) | **2026-05-28** | 官方发布 | **`codex doctor`** 增强诊断；**`/status` 远程连接**；**vim 模式** 与 **`/permissions` named profiles**；**Python SDK Sandbox presets** |
+| OpenClaw | [openclaw/openclaw `v2026.5.27`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.27) | GitHub **`Published: 2026-05-28T11:41:42Z` → `2026-05-28 19:41:42（Asia/Shanghai）`** | 开源发布 | **安全边界**（群组 prompt、Tailscale no-auth 拒绝）；**Codex app-server** 稳定性；**Gateway/回复路径 perf**；**Pixverse/DeepInfra** 等 provider |
+| 企业 Agent | [Asana acquires StackAI ($75M)](https://techcrunch.com/2026/05/28/asana-acquires-no-code-agent-builder-stack-ai/) | **`May 28, 2026 1:06 PM PDT` → `2026-05-29 04:06（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **human-agent 操作系统** 定位；无代码 Agent 接入 Salesforce/Slack 等 **现有企业数据面** |
+| 语音 Agent | [Sesame launches iOS app](https://techcrunch.com/2026/05/28/sesame-the-conversational-ai-startup-from-oculus-founders-launches-its-ios-app/) | **`May 28, 2026 8:35 AM PDT` → `2026-05-28 23:35（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **四角色语音 Agent**（Maya/Miles 等）；**incognito**；面向 **2027 硬件** 路线 |
+| 硬件 Agent | [Vertu Alphafold + Hermes Agent](https://techcrunch.com/2026/05/28/vertu-wants-ceos-to-run-companies-from-an-ai-foldable-starting-at-6880/) | **`May 28, 2026 12:00 AM PDT` → `2026-05-28 15:00（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | 奢侈品折叠机预装 **Hermes Agent** 接 ERP/CRM——**开源 Agent 框架进入高端政企定制** 样本 |
+| 平台 / 产品 | [YouTube Premium 播客 AI 推荐与 Auto speed](https://techcrunch.com/2026/05/28/youtube-adds-new-podcast-features-including-an-ai-recommendation-tool-and-auto-speed/) | **`May 28, 2026 7:28 AM PDT` → `2026-05-28 22:28（Asia/Shanghai）`（相邻日期/跨时区）** | 官方产品 | **Ask Music 式播客推荐** + **智能变速**；Premium 月 **8 亿小时** 播客收听 |
+| Spring AI | [Spring AI 2.0 GA 预期（第三方，未见官方 GA）](https://byteiota.com/spring-ai-2-0-ships-may-28-java-finally-has-a-real-ai-stack/) | **计划 2026-05-28**；**官方未确认 GA** | 生态观察 | **Boot 4.0 + Java 21** 基线；**MCP annotations**；与 **Boot 3.5 EOL（2026-06-30）** 仅 **33 天** 窗口——需以 **spring.io 正式博文/Maven `2.0.0` release** 为准 |
+| 论文 / Agent | [HF Daily 2026-05-28：MemTrace / SkillGrad / Agent Explorative PO 等](https://huggingface.co/papers/date/2026-05-28) | **HF Daily：2026-05-28** | 论文社区 | **MemTrace**（LLM 记忆系统错误归因）；**SkillGrad**（技能优化）；**Gamma-World**（多智能体世界模型）等当日提交簇 |
 
 ### 技术文档与教程
 
 | 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
 | --- | --- | --- | --- |
-| Opus 4.8 | 模型公告 | benchmark、工具调用、安全卡 | 应用架构师 |
-| Hermes | v2026.5.28 release notes | 插件/CLI 变更 | Agent 工程师 |
+| Opus 4.8 | [Claude Opus 4.8 发布公告](https://www.anthropic.com/news/claude-opus-4-8) | effort、fast mode、Dynamic Workflows、API system entries | Claude API / Claude Code 用户 |
+| 前沿治理 | [OpenAI Frontier Governance Framework](https://openai.com/index/openai-frontier-governance-framework/) | Preparedness ↔ 法规映射、风险分类、事件响应 | AI 合规/安全负责人 |
+| Codex 升级 | [Codex Changelog 0.135.0](https://developers.openai.com/codex/changelog) | doctor、permissions profile、vim、remote status | Codex CLI 运维 |
+| OpenClaw | [OpenClaw v2026.5.27 Release](https://github.com/openclaw/openclaw/releases/tag/v2026.5.27) | 安全边界、Codex 集成、Gateway perf | 自托管 Agent 运维 |
+| Spring AI 迁移 | [Spring AI 2.0 Getting Started（仍标 development）](https://docs.spring.io/spring-ai/reference/2.0/getting-started.html) | BOM `2.0.0`、Boot 4.x | Java AI 工程师（待 GA 官宣后升级） |
 
 ### LangChain / Agent / LLM 工程相关进展
 
-**总体判断**：旗舰模型、资本与开源 Agent 栈同日共振，建议冻结生产模型版本 24h 做回归。
+**总体判断**：Agent 工程在 **「更大规模并行编排 + 更强旗舰模型 + 更硬治理披露」** 三线同时推进——Opus 4.8 的 **Dynamic Workflows** 把 **subagent 并行** 推到代码库迁移场景；OpenClaw/Codex 继续加固 **运行时安全与诊断**；HF 当日论文簇聚焦 **记忆错误归因（MemTrace）** 与 **技能梯度优化（SkillGrad）**。
 
 | 主题 | 进展 | 工程启发 |
 | --- | --- | --- |
-| 融资外溢 | Series H | 关注供应链与 API 限额政策是否调整 |
-| Hermes Velocity | tag 命名版本 | 升级前跑 e2e agent smoke |
+| 并行 Agent 编排 | Opus 4.8 **Dynamic Workflows** | 大任务用 **计划 → 数百 subagent → 校验**；以 **现有测试套件** 作 merge bar |
+| 模型性价比 | **Fast mode 3× 降价** | 延迟敏感生产流量可切 **fast**；API 需申请 waitlist |
+| 治理对齐 | OpenAI **Frontier Governance Framework** | 企业可把 **内部风险台账** 对齐 **CA/EU** 披露口径 |
+| Codex 可运维性 | **0.135.0 doctor + permissions profiles** | 支持案例先跑 **doctor**；权限用 **named profile** 而非散落 env |
+| OpenClaw 安全 | **v2026.5.27** 群组/Tailscale/命令包装拦截 | 多通道 Agent **默认拒绝高危暴露** |
+| Agent 记忆研究 | **MemTrace**（HF 2026-05-28） | 记忆系统需要 **错误 trace/归因** 而不只是检索命中率 |
+| 企业落地 | Asana×StackAI | **工作管理 OS + 无代码 Agent 构建器** = 存量 SaaS 数据上的 Agent 层 |
 
 ### 值得深入阅读的资料
 
 | 推荐级别 | 资料 | 为什么值得读 |
 | --- | --- | --- |
-| 必读 | Claude Opus 4.8 | 生产默认模型可能切换 |
-| 必读 | Hermes v2026.5.28 | 开源 Agent 栈硬对齐 |
+| 必读 | **Anthropic：Claude Opus 4.8 + Dynamic Workflows** | 当日 **最强 Agent 编码能力 + 并行工作流** 官方定义 |
+| 必读 | **Anthropic：Series H $65B @ $965B** | 理解 **2026 资本与算力军备** 对模型供给的影响 |
+| 推荐 | **OpenAI Frontier Governance Framework** | 前沿模型 **合规披露模板** 的参考实现 |
+| 推荐 | **OpenClaw v2026.5.27 Highlights** | 上海时区 **硬对齐** 的个人 Agent 安全/性能包 |
+| 延伸 | **HF Daily 2026-05-28（MemTrace / SkillGrad）** | Agent **记忆与技能** 研究前沿 |
 
 ### 来源清单
 
 - 检索范围：2026-05-28 00:00:00 到 2026-05-28 23:59:59（Asia/Shanghai）
-- 引用域名：anthropic.com, github.com
+- 引用域名：anthropic.com, openai.com, developers.openai.com, github.com, techcrunch.com, venturebeat.com, huggingface.co, byteiota.com, spring.io
 - 来源清单表格：
 
 | 类型 | 标题 | 日期 | 链接 |
 | --- | --- | --- | --- |
 | 官方发布 | Claude Opus 4.8 | 2026-05-28 | https://www.anthropic.com/news/claude-opus-4-8 |
-| 官方公告 | Series H $65B | 2026-05-28 | https://www.anthropic.com/news/anthropic-series-h |
-| 开源发布 | Hermes v2026.5.28 | 2026-05-28 | https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.28 |
+| 官方公告 | Anthropic Series H $65B | 2026-05-28 | https://www.anthropic.com/news/series-h |
+| 官方发布 | OpenAI Frontier Governance Framework | 2026-05-28 | https://openai.com/index/openai-frontier-governance-framework/ |
+| 官方发布 | Codex CLI 0.135.0 | 2026-05-28 | https://developers.openai.com/codex/changelog |
+| 开源发布 | OpenClaw v2026.5.27 | 2026-05-28（Asia/Shanghai） | https://github.com/openclaw/openclaw/releases/tag/v2026.5.27 |
+| 技术媒体 | Opus 4.8 Dynamic Workflows | 2026-05-28/29（跨时区） | https://techcrunch.com/2026/05/28/anthropic-releases-opus-4-8-with-new-dynamic-workflow-tool/ |
+| 技术媒体 | Asana acquires StackAI | 2026-05-28/29（跨时区） | https://techcrunch.com/2026/05/28/asana-acquires-no-code-agent-builder-stack-ai/ |
+| 技术媒体 | Sesame iOS Agent app | 2026-05-28/29（跨时区） | https://techcrunch.com/2026/05/28/sesame-the-conversational-ai-startup-from-oculus-founders-launches-its-ios-app/ |
+| 技术媒体 | Vertu Alphafold Hermes | 2026-05-28（跨时区） | https://techcrunch.com/2026/05/28/vertu-wants-ceos-to-run-companies-from-an-ai-foldable-starting-at-6880/ |
+| 技术媒体 | YouTube podcast AI features | 2026-05-28（跨时区） | https://techcrunch.com/2026/05/28/youtube-adds-new-podcast-features-including-an-ai-recommendation-tool-and-auto-speed/ |
+| 论文社区 | HF Daily 2026-05-28 | 2026-05-28 | https://huggingface.co/papers/date/2026-05-28 |
+| 生态观察 | Spring AI 2.0 GA 预期（未官方确认） | 2026-05-28 | https://byteiota.com/spring-ai-2-0-ships-may-28-java-finally-has-a-real-ai-stack/ |
 
 ## 2026-05-27
 
 ### 今日总览
 
-**一句话结论**：`2026-05-27` 三主线：**Anthropic 社会科学 coding agents 研究**、**Spring AI 2.0.0-M8**、**Anthropic 米兰办公室** 宣布——研究、Java 里程碑与欧洲组织扩张同日。
+**一句话结论**：`2026-05-27`（Asia/Shanghai）主线是 **Agent 从「能写代码」走向「能交易、能自治改进、能进企业控制面」**——**Robinhood** 开放 **MCP 驱动的 Agent 交易/虚拟卡**；**OpenAI** 发布 **Codex 自改进 Tax AI** 工程范式与 **2026 全球选举保障**；**Claude Code `v2.1.152`** 强化 **`/code-review --fix` + Skills 热重载** 并配套 **security-guidance 插件**；**OpenClaw `v2026.5.26-beta.2`** 继续 **Gateway/Transcript/渠道/观测性** 大包；资本侧 **Cognition/Devin 融资 $1B@$25B** 与 **Snowflake×AWS $6B Graviton** 显示 **编码 Agent 与 Agent 算力 CPU 层** 仍在升温。
 
 | 维度 | 本日结论 |
 | --- | --- |
-| 检索范围 | anthropic.com、spring.io/blog；专项工具 |
-| 核心趋势 | Agent 社会科学评测；Spring AI 2.0 里程碑加速；欧洲在地团队 |
-| 可直接关注 | M8 breaking changes；米兰办公室对 EU 客户支持影响 |
-| 专项检索结论 | **Spring AI 2.0.0-M8** 当日博文；**Claude Code/Codex/OpenClaw/Hermes**：无硬对齐 tag |
+| 检索范围 | OpenAI/Anthropic 官方；OpenClaw/Claude Code/Codex GitHub；TechCrunch/VentureBeat；Fujitsu 企业合作；HF Papers 2026-05-27；EU AI Act 高风险指南跟进；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；中文补充 |
+| 核心趋势 | **金融 Agent 基础设施化**（Robinhood MCP 交易/支付）；**生产 Agent 自改进闭环**（Codex Tax AI 25%→97%）；**编码 Agent 产品化竞争**（Claude Code review/fix + 安全插件 vs Cognition $25B）；**平台治理与选举诚信**（OpenAI 选举保障 + YouTube 自动 AI 标签）；**个人 Agent 运维 release 节奏**（OpenClaw beta.2 捆绑 Codex 0.134.0） |
+| 可直接关注 | 评估 **Claude Code v2.1.152** 的 **`/code-review --fix`** 与 **`/reload-skills`**；安装 **security-guidance@claude-plugins-official** 做提交前扫描；读 **OpenAI Tax AI + Codex 有界 worktree** 设计自改进 Agent；升级 **OpenClaw v2026.5.26-beta.2** 验证 **Activity tab + Gateway perf**；企业 Agent 对照 **Merck/Mastercard「plumbing first」** 与 **Robinhood MCP** 集成模式 |
+| 专项检索结论 | **Claude Code**：**`v2.1.152`** **`Published: 2026-05-27T01:30:59Z` → `2026-05-27 09:30:59（Asia/Shanghai）`**；同日 **security-guidance 插件** 全用户可用；**Codex**：**无新 CLI tag**（最近 **`rust-v0.134.0`** 为 **`2026-05-26`**）；**OpenAI 官方文** **`Building self-improving tax agents with Codex`** **`May 27, 2026`**；**OpenClaw**：**`v2026.5.26-beta.2`** **`Published: 2026-05-27T05:46:50Z` → `2026-05-27 13:46:50（Asia/Shanghai）`**（捆绑 **Codex 0.134.0**）；**Hermes**：未发现 **`2026-05-27`** 新 tag（最近 **`v2026.5.16`**）；**Spring AI**：未发现 **`2026-05-27`** release（**2.0 GA 预计 2026-05-28**）；**skills**：**Claude Code v2.1.152** 新增 **`disallowed-tools` frontmatter、`/reload-skills`、SessionStart `reloadSkills`**；**MCP 当日无新 spec release**（最近 **2026-07-28 RC 公告** 为 **`2026-05-19~22`** 窗口） |
 
 ### 重要事件与发布
 
 | 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
 | --- | --- | --- | --- | --- |
-| Anthropic 研究 | [Coding agents in the social sciences](https://www.anthropic.com/research/coding-agents-social-sciences) | **2026-05-27** | 官方研究 | 社会科学工作流中的 coding agents 方法与局限 |
-| Spring AI | [Spring AI 2.0.0-M8](https://spring.io/blog/2026/05/27/spring-ai-2-0-0-m8) | **2026-05-27** | 官方博客 | 2.0 里程碑新特性与迁移提示 |
-| Anthropic | [Anthropic opens Milan office](https://www.anthropic.com/news/anthropic-milan-office) | **2026-05-27** | 官方公告 | 米兰办公室——南欧 enterprise 与合规触点 |
+| Claude Code | [anthropics/claude-code `v2.1.152`](https://github.com/anthropics/claude-code/releases/tag/v2.1.152) | GitHub **`Published: 2026-05-27T01:30:59Z` → `2026-05-27 09:30:59（Asia/Shanghai）`** | 开源发布 | **`/code-review --fix`** 直接改 working tree；Skills **`disallowed-tools`**；**`/reload-skills`** + SessionStart **`reloadSkills`**；**`--fallback-model`** 会话级切换 |
+| Claude Code / 安全 | [security-guidance plugin for Claude Code（Cybersecurity News 跟进）](https://cybersecuritynews.com/free-security-plugin-for-claude-code/) | **`May 27, 2026`** | 官方插件/工程 | **`/plugin install security-guidance@claude-plugins-official`**；实时扫描 edits/commits；可扩展 **`.claude/security-patterns.yaml`** |
+| OpenClaw | [openclaw/openclaw `v2026.5.26-beta.2`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.26-beta.2) | GitHub **`Published: 2026-05-27T05:46:50Z` → `2026-05-27 13:46:50（Asia/Shanghai）`** | 开源发布 | **Gateway 启动/回复路径 perf**、**Transcript 统一路径**、**Activity tab**、**Codex CLI 0.134.0**、渠道/Talk/安全边界大批修复 |
+| Codex / 企业 Agent | [Building self-improving tax agents with Codex（OpenAI）](https://openai.com/index/building-self-improving-tax-agents-with-codex/) | **`May 27, 2026`** | 官方发布 | **Thrive/Crete Tax AI**：生产轨迹 → 结构化信号 → **Codex 有界 worktree** 自改进；准确率 **25%→97%** 样本 |
+| OpenAI / 治理 | [Election information and safeguards in 2026（OpenAI）](https://openai.com/index/election-safeguards-2026/) | **`May 27, 2026`** | 官方发布 | **AP 实时计票**、**Democracy Works 投票信息**、**SynthID+C2PA** 溯源、**Codex Security/TAC** 支持选举网络安全 |
+| OpenAI / 开源 | [Warp's big bet on building open source with GPT-5.5（OpenAI）](https://openai.com/index/warp/) | **`May 27, 2026`** | 官方案例 | Warp 终端以 **GPT-5.5** 支撑开源构建——编码 Agent 与开源生态结合样本 |
+| Anthropic / 研究 | [Coding agents in the social sciences（Anthropic）](https://www.anthropic.com/research/coding-agents-social-sciences) | **`May 27, 2026`** | 官方研究 | **1260 名量化社科研究者** 调查 + 随机实验：Coding Agent 采纳与能力自评——企业培训/治理参考 |
+| 企业合作 | [Fujitsu expands AI strategy through collaborations with OpenAI and Anthropic](https://www.finanznachrichten.de/nachrichten-2026-05/68608555-fujitsu-limited-fujitsu-expands-ai-strategy-through-collaborations-with-openai-and-anthropic-008.htm) | **`May 27, 2026`** | 企业发布 | 富士通 × **Anthropic Claude FDE** + 全集团 Claude 生产力；结合 **Kozuchi/Takane** 做 AI 选型集成 |
+| 编码 Agent / 资本 | [Cognition raises $1B at $25B pre-money valuation（TechCrunch）](https://techcrunch.com/2026/05/27/ai-coding-startup-cognition-raises-1b-at-25b-pre-money-valuation/) | **`May 27, 2026 9:00 AM PDT` → `2026-05-28 00:00（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **Devin** ARR **$492M**、MoM **+50%**；独立编码 Agent 仍获顶级 VC 背书 |
+| 金融 Agent | [Robinhood now lets your AI agents trade stocks（TechCrunch）](https://techcrunch.com/2026/05/27/robinhood-now-lets-your-ai-agents-trade-stocks/) | **`May 27, 2026 5:30 AM PDT` → `2026-05-27 20:30（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **独立 Agent 钱包 + MCP 连接**；**Agentic 虚拟信用卡**；金融场景 **MCP server** 样板 |
+| 平台 / 订阅 | [Meta launches subscriptions including AI plans（TechCrunch）](https://techcrunch.com/2026/05/27/meta-officially-launches-instagram-facebook-and-whatsapp-subscriptions-with-more-to-come-including-ai-plans/) | **`May 27, 2026 11:00 AM PDT` → `2026-05-28 02:00（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **Meta One Plus/Premium** 测试更深推理与多模态生成——消费级 **AI 订阅分层** |
+| 内容治理 | [YouTube will now automatically label AI videos（TechCrunch）](https://techcrunch.com/2026/05/27/youtube-will-now-automatically-label-ai-videos/) | **`May 27, 2026 6:00 AM PDT` → `2026-05-27 21:00（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **自动检测 photorealistic AI** 并强制标签；**C2PA 元数据** 永久绑定 |
+| 基础设施 | [Snowflake signs $6B deal with AWS for AI CPU chips（TechCrunch）](https://techcrunch.com/2026/05/27/in-more-good-news-for-amazon-snowflake-signs-6b-deal-with-aws-for-ai-cpu-chips/) | **`May 27, 2026 1:10 PM PDT` → `2026-05-28 04:10（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **Cortex AI + Agent 工作负载** 推高 **Graviton CPU** 需求——Agent 时代 **CPU 层** 与 GPU 分工 |
+| 搜索 / 产品 | [Why Google's AI can't spell Google（TechCrunch）](https://techcrunch.com/2026/05/27/why-googles-ai-cant-spell-google-or-anything-else/) | **`May 27, 2026 5:17 PM PDT` → `2026-05-28 08:17（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **AI Search 拼写/计数** 持续翻车；Google 承认 **LLM 不擅长拼写**——搜索 UX 风险样本 |
+| 企业 Agent | [Merck and Mastercard seeing real agentic AI results（VentureBeat）](https://venturebeat.com/infrastructure/merck-and-mastercard-are-seeing-real-agentic-ai-results-both-say-the-plumbing-came-first) | **`May 27, 2026 11:23 AM PT` → `2026-05-28 02:23（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | **Merck** 研发周期 **-33%**、合规营销 **+70~80%**；**Mastercard** 编排化争议/欺诈流程——**plumbing first** |
+| 政策 | [EU AI Act high-risk draft guidelines follow-up（Hogan Lovells）](https://www.jdsupra.com/legalnews/european-commission-publishes-long-3230922/) | 指南发布 **`2026-05-19`**；跟进文 **`May 27, 2026`** | 政策标准 | **Article 6 高风险分类** 167 页草案解读；咨询至 **`2026-06-23`**；**Annex III 生效延至 2027-12-02** |
+| 论文 / Agent | [MUSE-Autoskill: Self-Evolving Agents via Skill Creation（HF Daily）](https://huggingface.co/papers/date/2026-05-27) | **HF Daily：`2026-05-27`** | 论文原文 | 当日 Agent Skills 论文簇：**技能创建/记忆/管理/评测** 自进化框架 |
+| 论文 / 移动 Agent | [MobileGym: Verifiable Parallel Simulation for Mobile GUI Agents（HF Daily）](https://huggingface.co/papers/date/2026-05-27) | **HF Daily：`2026-05-27`** | 论文原文 | **可验证、高并行** 移动 GUI Agent 仿真平台——Agent 评测基础设施 |
 
 ### 技术文档与教程
 
 | 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
 | --- | --- | --- | --- |
-| Spring AI | 2.0.0-M8 发布说明 | Agent/RAG API 变更 | Java 团队 |
-| 研究 | 社会科学 coding agents | 评测方法、偏差与复现 | 研究工程师 |
+| Claude Code 升级 | [Claude Code v2.1.152 Release Notes](https://github.com/anthropics/claude-code/releases/tag/v2.1.152) | `/code-review --fix`、Skills reload、fallback model | 终端编码 Agent 用户 |
+| Claude Code 安全 | [security-guidance 插件安装说明](https://cybersecuritynews.com/free-security-plugin-for-claude-code/) | 插件 marketplace、patterns YAML、Agent SDK commit review | 安全左移/DevSecOps |
+| Codex 自改进 Agent | [OpenAI Tax AI 工程文](https://openai.com/index/building-self-improving-tax-agents-with-codex/) | 有界 worktree、生产 trace→eval、skills/docs 注入 | 企业 Agent 平台架构师 |
+| OpenClaw 升级 | [OpenClaw v2026.5.26-beta.2 Highlights](https://github.com/openclaw/openclaw/releases/tag/v2026.5.26-beta.2) | Transcript 路径、Activity tab、Gateway perf | 自托管个人 Agent 运维 |
+| 选举/溯源 | [OpenAI Election Safeguards 2026](https://openai.com/index/election-safeguards-2026/) | SynthID、C2PA、AP 计票、TAC/Codex Security | AI 治理/合规负责人 |
+| Spring AI 迁移 | [Spring AI 2.0 GA 倒计时（预计 5/28）](https://byteiota.com/spring-ai-2-ga-java-production-stack/) | Boot 4、Jackson 3、MCP annotations | Java AI 工程师（提前排期） |
 
 ### LangChain / Agent / LLM 工程相关进展
 
-**总体判断**：研究与工程发布叠加组织扩张，Agent 能力评估维度继续拓宽。
+**总体判断**：Agent 工程继续 **「控制面 + 工具面 + 金融/合规场景」** 三线并进——**Robinhood MCP** 把 Agent 接到 **真实资金边界**；**OpenAI Tax AI** 给出 **生产自改进** 参考架构；**Claude Code** 把 **review/fix/security/skills reload** 打成日常闭环；**OpenClaw** 维持 **高频 beta 运维 release**。
 
 | 主题 | 进展 | 工程启发 |
 | --- | --- | --- |
-| 2.0 迁移 | Spring AI M8 | 在 staging 跑集成测试后再升生产 |
-| 社科 Agent | Anthropic 研究 | 非 STEM 场景的工具权限应更保守 |
+| 金融 MCP | Robinhood **Agent 账户 + MCP + 虚拟卡** | Agent 接外部系统时 **预充值钱包 + 审批预览 + MCP 边界** 优于全账户授权 |
+| 自改进 Agent | OpenAI **Tax AI + Codex worktree** | 用 **生产 artifact + eval + 只读上下文** 构建 **有界自改进**；避免无界 auto-patch |
+| 编码 Agent 竞争 | Cognition **$25B** vs Claude Code/Codex | 独立 Agent 仍需 **企业客户 + ARR** 证明；工具链 **review/security** 成差异化 |
+| Claude Code 工具链 | **v2.1.152** review/fix + security plugin | 把 **PR review → local fix → commit scan** 串成一条命令链 |
+| OpenClaw 运维 | **beta.2** Gateway/Transcript/Activity | 个人 Agent 平台投资 **观测性 + transcript 一致性** 先于新渠道 |
+| 企业落地 | Merck/Mastercard **plumbing first** | Agent 上线前先做 **数据/编排/治理基础设施** |
+| Agent Skills 研究 | **MUSE-Autoskill**（HF 2026-05-27） | 技能 **创建-记忆-管理-评测** 应作为平台一等公民 |
+| MCP 标准 | **2026-07-28 spec RC**（5/19~22 窗口） | **无状态 transport** 将改变 server 部署；提前规划 **stateless tools/call** |
 
 ### 值得深入阅读的资料
 
 | 推荐级别 | 资料 | 为什么值得读 |
 | --- | --- | --- |
-| 必读 | Spring AI 2.0.0-M8 | Java AI 主线里程碑 |
-| 推荐 | Coding agents in social sciences | 跨学科 Agent 评测参考 |
+| 必读 | **OpenAI：Building self-improving tax agents with Codex** | 当日 **最完整的生产 Agent 自改进工程文** |
+| 必读 | **Claude Code v2.1.152 + security-guidance 插件** | 编码 Agent **review/fix/安全** 同日双升级 |
+| 推荐 | **Robinhood MCP Agent 交易（TechCrunch）** | **MCP 进入金融交易** 的首批公开产品化样本 |
+| 推荐 | **OpenClaw v2026.5.26-beta.2 Release Highlights** | 上海时区 **硬对齐** 的最大开源个人 Agent 运维包 |
+| 延伸 | **Merck/Mastercard agentic AI（VentureBeat）** | 受监管行业 **Agent 落地** 的量化效果与前提 |
 
 ### 来源清单
 
 - 检索范围：2026-05-27 00:00:00 到 2026-05-27 23:59:59（Asia/Shanghai）
-- 引用域名：anthropic.com, spring.io
+- 引用域名：github.com, openai.com, anthropic.com, techcrunch.com, venturebeat.com, finanznachrichten.de, cybersecuritynews.com, huggingface.co, jdsupra.com
 - 来源清单表格：
 
 | 类型 | 标题 | 日期 | 链接 |
 | --- | --- | --- | --- |
-| 官方研究 | Coding agents social sciences | 2026-05-27 | https://www.anthropic.com/research/coding-agents-social-sciences |
-| 官方博客 | Spring AI 2.0.0-M8 | 2026-05-27 | https://spring.io/blog/2026/05/27/spring-ai-2-0-0-m8 |
-| 官方公告 | Milan office | 2026-05-27 | https://www.anthropic.com/news/anthropic-milan-office |
+| 开源发布 | Claude Code v2.1.152 | 2026-05-27（Asia/Shanghai） | https://github.com/anthropics/claude-code/releases/tag/v2.1.152 |
+| 官方插件 | security-guidance for Claude Code | 2026-05-27 | https://cybersecuritynews.com/free-security-plugin-for-claude-code/ |
+| 开源发布 | OpenClaw v2026.5.26-beta.2 | 2026-05-27（Asia/Shanghai） | https://github.com/openclaw/openclaw/releases/tag/v2026.5.26-beta.2 |
+| 官方发布 | Building self-improving tax agents with Codex | 2026-05-27 | https://openai.com/index/building-self-improving-tax-agents-with-codex/ |
+| 官方发布 | Election safeguards 2026 | 2026-05-27 | https://openai.com/index/election-safeguards-2026/ |
+| 官方发布 | Warp + GPT-5.5 open source | 2026-05-27 | https://openai.com/index/warp/ |
+| 官方研究 | Coding agents in social sciences | 2026-05-27 | https://www.anthropic.com/research/coding-agents-social-sciences |
+| 企业发布 | Fujitsu × OpenAI/Anthropic | 2026-05-27 | https://www.finanznachrichten.de/nachrichten-2026-05/68608555-fujitsu-limited-fujitsu-expands-ai-strategy-through-collaborations-with-openai-and-anthropic-008.htm |
+| 技术媒体 | Cognition $1B@$25B | 2026-05-27/28（跨时区） | https://techcrunch.com/2026/05/27/ai-coding-startup-cognition-raises-1b-at-25b-pre-money-valuation/ |
+| 技术媒体 | Robinhood Agent MCP trading | 2026-05-27/28（跨时区） | https://techcrunch.com/2026/05/27/robinhood-now-lets-your-ai-agents-trade-stocks/ |
+| 技术媒体 | Meta AI subscription plans | 2026-05-27/28（跨时区） | https://techcrunch.com/2026/05/27/meta-officially-launches-instagram-facebook-and-whatsapp-subscriptions-with-more-to-come-including-ai-plans/ |
+| 技术媒体 | YouTube auto AI labels | 2026-05-27/28（跨时区） | https://techcrunch.com/2026/05/27/youtube-will-now-automatically-label-ai-videos/ |
+| 技术媒体 | Snowflake×AWS $6B Graviton | 2026-05-27/28（跨时区） | https://techcrunch.com/2026/05/27/in-more-good-news-for-amazon-snowflake-signs-6b-deal-with-aws-for-ai-cpu-chips/ |
+| 技术媒体 | Google AI spelling（TechCrunch） | 2026-05-27/28（跨时区） | https://techcrunch.com/2026/05/27/why-googles-ai-cant-spell-google-or-anything-else/ |
+| 技术媒体 | Merck/Mastercard agentic AI | 2026-05-27/28（跨时区） | https://venturebeat.com/infrastructure/merck-and-mastercard-are-seeing-real-agentic-ai-results-both-say-the-plumbing-came-first |
+| 政策标准 | EU AI Act high-risk guidelines 跟进 | 2026-05-19/27 | https://www.jdsupra.com/legalnews/european-commission-publishes-long-3230922/ |
+| 论文原文 | HF Daily 2026-05-27（MUSE-Autoskill 等） | 2026-05-27 | https://huggingface.co/papers/date/2026-05-27 |
 
 ## 2026-05-26
 
 ### 今日总览
 
-**一句话结论**：`2026-05-26` 双主线：**Anthropic 韩国任命 KiYoung Choi 为总经理** 扩张亚太组织；**阿里巴巴 Qwen Cloud 新加坡** 区域化云产品发布（与中文开发者社区稿呼应）。
+**一句话结论**：`2026-05-26`（Asia/Shanghai）主线是 **「搜索入口 AI 化」引发用户用脚投票**（DuckDuckGo 安装量峰值 **+30.5%**、noai 页面 **+27.7%**）与 **Codex/OpenClaw 工程面双升级**（**Codex CLI 0.134.0** 本地历史检索 + `--profile` + MCP OAuth；**OpenClaw `v2026.5.25-beta.1`** Gateway 性能/语音/渠道/观测性大包）并行；**Skills 分发层** 出现 **Vercel `skills.sh`**（跨 **51** 个 Agent 的一键安装）；**Claude Code/Codex GitHub tag 当日无新 release**，但 **v2.1.150 远程 system prompt 注入** 在 **`2026-05-26` 窗口** 引发社区争议。
 
 | 维度 | 本日结论 |
 | --- | --- |
-| 检索范围 | anthropic.com、alibabacloud.com / developer.aliyun.com；专项工具 |
-| 核心趋势 | 全球销售与在地团队；中国模型出海云服务化 |
-| 可直接关注 | 亚太支持渠道；Qwen Cloud 区域合规与数据驻留条款 |
-| 专项检索结论 | **Claude Code/Codex/OpenClaw/Hermes/Spring AI**：无 `2026-05-26（上海）` 硬对齐 Release |
+| 检索范围 | OpenAI Codex 官方 Changelog；OpenClaw GitHub API；TechCrunch；Anthropic Status/Webinar；skills.sh/Vercel；AgentTrust/RAC 论文；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；EU/US 政策窗口；中文补充 |
+| 核心趋势 | **消费者拒绝「强制 AI 搜索」**（Google I/O 后迁移 DuckDuckGo）；**编码 Agent 工具链成熟化**（Codex 历史搜索、MCP schema 可靠性）；**个人 Agent 平台运维化**（OpenClaw 可见回复延迟分离、Activity 观测、Rastermill 替代 Sharp）；**Skills npm 化**（`npx skills add` 跨 Agent 分发） |
+| 可直接关注 | 评估 **Codex 0.134.0** 的 `--profile` 迁移与 **readOnly MCP 并发**；升级 **OpenClaw v2026.5.25-beta.1** 并验证 **Talk/Discord voice** 与 **Activity tab**；团队 Skills 用 **skills.sh** 统一 `.cursor`/`.claude`/`.codex` 目录；Claude Code 用户检查 **v2.1.150 bootstrap/GrowthBook** 与 `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC` |
+| 专项检索结论 | **Claude Code**：未发现 **`2026-05-26`** 新 tag（最近 **`v2.1.150`** 为 **`2026-05-23`**）；**`2026-05-26` 窗口** HN 热议 **v2.1.150 远程 system prompt 注入**（`api.anthropic.com/api/claude_cli/bootstrap` + GrowthBook `tengu_heron_brook`）；**Codex**：**`Codex CLI 0.134.0`** 官方 Changelog **`2026-05-26`**（GitHub rust release tag 未同步）；**OpenClaw**：**`v2026.5.25-beta.1`** **`Published: 2026-05-26T09:41:10Z` → `2026-05-26 17:41:10（Asia/Shanghai）`**（**`v2026.5.26-beta.1`** 为 **`21:10 UTC` → `2026-05-27 05:10` 上海，属邻近日期）；**Hermes**：未发现 **`2026-05-26`** 新 tag（最近 **`v2026.5.16`**）；**Spring AI**：未发现 **`2026-05-26`** release（**2.0 GA 预计 2026-05-28**）；**skills**：**skills.sh**（**`26 May, 2026`** 深度文）+ **find-skills** 等 leaderboard 生态 |
 
 ### 重要事件与发布
 
 | 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
 | --- | --- | --- | --- | --- |
-| Anthropic | [Anthropic names KiYoung Choi GM Korea](https://www.anthropic.com/news/anthropic-korea-kiyoung-choi) | **2026-05-26** | 官方公告 | 韩国总经理任命——亚太 enterprise 触点增强 |
-| 阿里巴巴 | [Qwen Cloud 新加坡区域发布](https://www.alibabacloud.com/help/en/model-studio/what-is-qwen-cloud) | **2026-05-26** | 官方产品 | Qwen 模型云服务化、区域部署与开发者接入路径 |
+| Codex | [Codex CLI 0.134.0（OpenAI Developers Changelog）](https://developers.openai.com/codex/changelog) | **`2026-05-26`** | 官方发布 | **本地会话历史搜索**（含预览）、**`--profile` 主选择器**、**MCP per-server env + OAuth**、**readOnly MCP 并发**、connector schema `$ref` 保留 |
+| OpenClaw | [openclaw/openclaw `v2026.5.25-beta.1`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.25-beta.1) | GitHub **`Published: 2026-05-26T09:41:10Z` → `2026-05-26 17:41:10（Asia/Shanghai）`** | 开源发布 | **可见回复延迟分离**、Gateway 热路径缓存、**Talk/Discord voice 可 inspect/steer**、**Activity tab**、**Rastermill 替代 Sharp**、多频道生产化修复 |
+| 搜索 / 产品 | [DuckDuckGo installs up 30% as users reject Google AI Search（TechCrunch）](https://techcrunch.com/2026/05/26/duckduckgo-installs-are-up-30-as-users-reject-being-force-fed-googles-ai-search/) | **`May 26, 2026 3:32 PM PDT` → `2026-05-27 06:32（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | Google I/O 后 **AI 搜索改造** 引发反弹；DDG 美国安装 **WoW +18.1% 均值、峰值 +30.5%（5/25）**；**noai.duckduckgo.com** 访问 **峰值 +27.7%** |
+| 版权 / 平台 | [UMG and TikTok renew agreement to combat unauthorized AI music（TechCrunch）](https://techcrunch.com/2026/05/26/universal-music-group-and-tiktok-renew-agreement-to-combat-unauthorized-ai-music/) | **`May 26, 2026 7:55 AM PDT` → `2026-05-26 22:55（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | 续约承诺 **下架未授权 AI 生成音乐**、改进署名——平台 **AI 音乐治理** 与 **EU 合成内容标注** 压力共振 |
+| Anthropic / 产品 | [Claude Mythos 1 商用准备（媒体跟进 Glasswing）](https://gbhackers.com/anthropic-prepares-claude-mythos-through-claude-code/) | **`May 26, 2026`（第三方报道）** | 技术媒体 | 代码/界面出现 **`claude-mythos-1-preview`**；拟接入 **Claude Code** 与 **Claude Security** 平台——需以 Anthropic 官方为准 |
+| Anthropic / 活动 | [How an Anthropic sales leader runs his week with Cowork（Webinar）](https://www.anthropic.com/webinars/how-anthropics-sales-leader-runs-his-week-with-claude) | **`May 26, 2026 10:00 am`** | 官方活动 | Cowork 在 **Salesforce + BigQuery** 场景下的 **forecast/overnight 4k 账户 评分** 实践样本 |
+| 平台可靠性 | [Claude Status: Elevated errors for Claude Code in Slack](https://status.anthropic.com/) | **事件：`2026-05-26 01:56–05:19 UTC` → `2026-05-26 09:56–13:19（Asia/Shanghai）`；Resolved `05:19 UTC`** | 官方状态 | Slack 集成 **Claude Code 错误率升高** 约 3.5 小时后恢复 |
+| Skills 生态 | [skills.sh: Vercel building the npm for Agent Skills](https://www.ailinklab.com/en/opensource/skills-ecosystem/) | **`26 May, 2026`** | 社区/工程 | **`npx skills add`** 支持 **51** 个 Agent；**agentskills.io** 开放格式 + **leaderboard 发现**；**find-skills** 等 **41 万+** 累计安装 |
+| Claude Code / 治理 | [HN: Claude Code v2.1.150 remote system prompt injection](https://news.ycombinator.com/item?id=48259288) | **`2026-05-26` 讨论窗口**（v2.1.150 发布于 **`2026-05-23`**） | 社区 | **`bootstrap` API + GrowthBook `tengu_heron_brook`（60s 刷新）** 可向本地 CLI 注入 system prompt 片段；缓解：`CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1` |
+| Agent 安全 | [AgentTrust: Runtime Safety for AI Agent Tool Use（arXiv 2605.04785）](https://arxiv.org/html/2605.04785v1) | **May 2026 论文**（ACM CAIS 会议 **`2026-05-26–29`** 窗口） | 论文原文 | **MCP 兼容** 工具执行拦截；**95% verdict / 0.3ms 级延迟**（生产 ruleset）；shell 去混淆 + **RiskChain** |
 
 ### 技术文档与教程
 
 | 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
 | --- | --- | --- | --- |
-| 区域云 | Qwen Cloud 文档 | API、计费、数据驻留 | 出海业务后端 |
-| 组织扩张 | Anthropic Korea | 在地支持与合规沟通 | 亚太客户成功 |
+| Codex 升级 | [Codex Changelog 2026-05-26](https://developers.openai.com/codex/changelog) | 历史搜索、`--profile`、MCP OAuth、extension hook 上下文 | Codex CLI 日常用户 |
+| OpenClaw 升级 | [OpenClaw Releases（v2026.5.25-beta.1 要点）](https://github.com/openclaw/openclaw/releases) | 回复路径 perf、Transcripts、Diagnostics/OTel、移动端 Talk | 自托管个人 Agent 运维 |
+| Skills 分发 | [skills.sh 官网 + vercel-labs/skills](https://skills.sh) | `npx skills add owner/repo --skill name`、telemetry 可关 | 多 Agent 团队标准化 |
+| Agent 工具安全 | [AgentTrust 论文 + AGPL 实现](https://arxiv.org/html/2605.04785v1) | allow/warn/block/review、SafeFix、shell 规范化 | 企业 MCP/Agent 安全架构师 |
+| Spring AI 迁移 | [Spring AI 2.0 GA 倒计时（预计 5/28）](https://byteiota.com/spring-ai-2-ga-java-production-stack/) | Boot 4 硬依赖、Jackson 3、MCP-first | Java AI 工程师（提前排期） |
 
 ### LangChain / Agent / LLM 工程相关进展
 
-**总体判断**：模型厂全球化（组织 + 区域云）同日推进，选型需叠加数据驻留评估。
+**总体判断**：Agent 工程继续从「能跑」走向「可运维、可分发、可治理」——**OpenClaw** 把 **延迟、观测、渠道、语音** 打成运维 release；**Codex** 强化 **profile/MCP/历史检索**；**skills.sh** 把 Skills 变成 **跨 Agent 包管理**；安全侧 **AgentTrust** 给出 **亚毫秒级工具拦截** 参考实现。
 
 | 主题 | 进展 | 工程启发 |
 | --- | --- | --- |
-| 区域部署 | Qwen Cloud SG | 跨国业务优先核对 DPA 与日志出境策略 |
+| 搜索 UX 反弹 | Google AI Search → DuckDuckGo 迁移 | 产品侧需保留 **「纯链接/无 AI」** 路径；企业内网搜索同理 |
+| Codex 工具链 | **0.134.0** history search + MCP | 长会话 Agent 必备 **本地检索**；MCP 侧区分 **readOnly 并发** 与 OAuth |
+| 个人 Agent 运维 | OpenClaw **v2026.5.25-beta.1** | 投资 **Activity/OTel/secret-prep traces**；语音场景验证 **steer/cancel** |
+| Skills 供应链 | **skills.sh** 跨 51 Agent | 内部规范用 **SKILL.md + Git repo + `npx skills add`**，避免每 Agent 手抄 |
+| Claude Code 治理 | v2.1.150 远程 prompt 注入争议 | 企业部署需审计 **bootstrap/flags**；必要时 **DISABLE_NONESSENTIAL_TRAFFIC** |
+| Agent 工具安全 | AgentTrust **MCP 网关** | 在 MCP 与工具之间加 **策略层**（非仅靠模型自律） |
+| 补偿事务 | RAC（LangGraph/CrewAI 可插拔） | 长时程 Agent 用 **日志 + LIFO rollback** 替代纯 LLM「想想怎么撤销」 |
 
 ### 值得深入阅读的资料
 
 | 推荐级别 | 资料 | 为什么值得读 |
 | --- | --- | --- |
-| 必读 | Anthropic Korea 公告 | 亚太组织信号 |
-| 推荐 | Qwen Cloud 产品页 | 区域化推理服务边界 |
+| 必读 | **Codex CLI 0.134.0 官方 Changelog** | 当日 **唯一硬对齐 OpenAI 编码 Agent 正式发布** |
+| 必读 | **OpenClaw v2026.5.25-beta.1 Release Highlights** | 当日 **上海时区硬对齐** 的最大开源个人 Agent 运维包 |
+| 推荐 | **TechCrunch：DuckDuckGo vs Google AI Search** | **C 端对「强制 AI 搜索」** 的量化反弹样本 |
+| 推荐 | **skills.sh 生态深度文（2026-05-26）** | Skills 从文件拷贝升级为 **包管理 + 发现层** |
+| 延伸 | **HN：Claude Code v2.1.150 远程 prompt** | 评估 **本地 CLI 是否应允许厂商动态注入 system 段** |
 
 ### 来源清单
 
 - 检索范围：2026-05-26 00:00:00 到 2026-05-26 23:59:59（Asia/Shanghai）
-- 引用域名：anthropic.com, alibabacloud.com
+- 引用域名：developers.openai.com, github.com, techcrunch.com, anthropic.com, status.anthropic.com, ailinklab.com, skills.sh, arxiv.org, news.ycombinator.com, gbhackers.com
 - 来源清单表格：
 
 | 类型 | 标题 | 日期 | 链接 |
 | --- | --- | --- | --- |
-| 官方公告 | Anthropic Korea GM | 2026-05-26 | https://www.anthropic.com/news/anthropic-korea-kiyoung-choi |
-| 官方产品 | Qwen Cloud | 2026-05-26 | https://www.alibabacloud.com/help/en/model-studio/what-is-qwen-cloud |
+| 官方发布 | Codex CLI 0.134.0 | 2026-05-26 | https://developers.openai.com/codex/changelog |
+| 开源发布 | OpenClaw v2026.5.25-beta.1 | 2026-05-26（Asia/Shanghai） | https://github.com/openclaw/openclaw/releases/tag/v2026.5.25-beta.1 |
+| 技术媒体 | DuckDuckGo 安装激增（TechCrunch） | 2026-05-26/27（跨时区） | https://techcrunch.com/2026/05/26/duckduckgo-installs-are-up-30-as-users-reject-being-force-fed-googles-ai-search/ |
+| 技术媒体 | UMG×TikTok AI 音乐治理（TechCrunch） | 2026-05-26/27（跨时区） | https://techcrunch.com/2026/05/26/universal-music-group-and-tiktok-renew-agreement-to-combat-unauthorized-ai-music/ |
+| 技术媒体 | Claude Mythos 1 准备（GBHackers） | 2026-05-26 | https://gbhackers.com/anthropic-prepares-claude-mythos-through-claude-code/ |
+| 官方活动 | Anthropic Cowork Webinar | 2026-05-26 | https://www.anthropic.com/webinars/how-anthropics-sales-leader-runs-his-week-with-claude |
+| 官方状态 | Claude Code in Slack 事件 | 2026-05-26 | https://status.anthropic.com/ |
+| 社区工程 | skills.sh 生态文 | 2026-05-26 | https://www.ailinklab.com/en/opensource/skills-ecosystem/ |
+| 社区 | HN Claude Code v2.1.150 prompt 注入 | 2026-05-26 窗口 | https://news.ycombinator.com/item?id=48259288 |
+| 论文原文 | AgentTrust | 2026-05（会议 05-26 起） | https://arxiv.org/html/2605.04785v1 |
 
 ## 2026-05-25
 
 ### 今日总览
 
-**一句话结论**：`2026-05-25` 主线是 **Anthropic 工程文「How we contain Claude」**——从系统层面阐述 **能力遏制、监控与部署边界**，对企业合规与红队流程有直接参考。
+**一句话结论**：`2026-05-25`（Asia/Shanghai）主线是 **AI 治理从「技术圈讨论」升格为「全球公共议题」**——教宗 Leo XIV 发布首份 AI 教谕 **Magnifica Humanitas** 并在梵蒂冈与 **Anthropic 联创 Chris Olah** 同台发布；**OpenAI** 同日宣布巴西首家媒体合作（Folha/UOL）；企业侧 **ClickUp 以 22% 裁员 + ~3000 内部 Agent** 诠释「100x org」叙事；工程侧 **OpenClaw `v2026.5.24-beta.2`** 在当日窗口发布（Gateway 性能/Meeting Notes/子 Agent 上下文收口）；**Claude Code/Codex/Hermes/Spring AI 当日无新官方 release**，**Agent Skills** 则以 Hugging Face 当日论文簇（SkillOpt、From Raw Experience to Skill Consumption）与 Cursor Skills 注入 bug 讨论延续。
 
 | 维度 | 本日结论 |
 | --- | --- |
-| 检索范围 | anthropic.com/engineering；API release notes 补充 |
-| 核心趋势 | 前沿模型「可遏制性」工程化；安全叙事从政策转向实现细节 |
-| 可直接关注 | 对照自家 Agent 平台的沙箱、输出过滤与人类介入点 |
-| 专项检索结论 | **Claude Code/Codex/OpenClaw/Hermes/Spring AI**：无 `2026-05-25（上海）` 硬对齐 Release |
+| 检索范围 | OpenAI/Anthropic/Vatican 官方；OpenClaw GitHub；TechCrunch；Hugging Face Papers；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；EU/US 政策窗口；中文补充 |
+| 核心趋势 | **AI 治理公共化**（教谕 + Olah 同台 + 「disarm AI」话语）；**媒体/API 生态扩张**（OpenAI 巴西合作 + Codex/Enterprise/API 接入）；**Agent 组织重构**（ClickUp 内部 3000 Agent + 百万美元薪酬带）；**个人 Agent 平台迭代**（OpenClaw beta.2 性能/Meeting Notes）；**Skills 研究化**（自进化 Skill 优化与经验→Skill 消费链路） |
+| 可直接关注 | 阅读 **Magnifica Humanitas** 全文与 Olah 讲稿对照企业 AI 治理；评估 **OpenClaw v2026.5.24-beta.2** Gateway 热路径与 Meeting Notes 插件；跟踪 **Spring AI 2.0 GA（预计 5/28）** 与 Boot 4 迁移窗口；用 HF 当日 **SkillOpt / Skill Consumption** 论文设计 Skills 评测与归档 |
+| 专项检索结论 | **Claude Code**：未发现 **`2026-05-25`** 新 tag（最近 **`v2.1.146`** 为 **`2026-05-21`**）；**Codex**：未发现 **`2026-05-25`** 新 release（最近 **`rust-v0.134.0-alpha.1`** 为 **`2026-05-22`**）；**OpenClaw**：**`v2026.5.24-beta.2`** **`Published: 2026-05-24T23:49:30Z` → `2026-05-25 07:49:30（Asia/Shanghai）`**；**Hermes**：未发现 **`2026-05-25`** 新 tag（最近 **`v2026.5.16`** 为 **`2026-05-16`**）；**Spring AI**：未发现 **`2026-05-25`** 硬对齐 release（**2.0 GA 预计 2026-05-28**，当前最新里程碑 **`v2.0.0-M7`** 为 **`2026-05-22`**）；**skills/Cursor Skills**：HF **`2026-05-25`** 出现 **SkillOpt / From Raw Experience to Skill Consumption** 等 Agent Skills 论文；Cursor 社区 **`2026-05-25` 窗口** 报告 **`.agents/skills` 发现正常但 system prompt 注入失败** |
 
 ### 重要事件与发布
 
 | 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
 | --- | --- | --- | --- | --- |
-| Anthropic 工程 | [How we contain Claude](https://www.anthropic.com/engineering/how-we-contain-claude) | **2026-05-25** | 官方工程文 | 阐述多层遏制、监控与部署策略——Agent 平台治理必读 |
+| AI 治理 / 教谕 | [Magnifica Humanitas: On safeguarding the human person in the time of artificial Intelligence（Vatican）](https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260525-enciclica-magnifica-humanitas.html) | **梵蒂冈发布：`2026-05-25`** | 政策/标准 | 首份以 AI 为核心议题的教谕；强调 **human dignity、劳动、民主、战争/自主武器**；提出 **「disarm AI」** 话语——技术权力须服从共同善与有效监督 |
+| Anthropic / 治理 | [Anthropic co-founder Chris Olah's remarks on Pope Leo XIV's encyclical](https://www.anthropic.com/news/chris-olah-pope-leo-encyclical) | **`May 25, 2026`** | 官方发布 | Olah 承认 frontier lab **激励结构** 与「做对的事」可能冲突；呼吁 **外部监督/批评者**；提出 **全球贫困、人类 flourishing、模型 interpretability** 三问——研发组织应纳入 humanities/宗教/哲学对话 |
+| OpenAI / 媒体 | [OpenAI, Grupo Folha, and Grupo UOL announce strategic content partnership](https://openai.com/index/grupo-folha-grupo-uol-partnership/) | **`May 25, 2026`** | 官方发布 | OpenAI **巴西首家媒体合作**；ChatGPT 展示 Folha/UOL 摘要并链回原文；合作方还可接入 **Codex、ChatGPT Enterprise、API** 探索新闻产品与内部工作流 |
+| 企业 Agent / 组织 | [What ClickUp's mass layoff tells us about the future of work（TechCrunch）](https://techcrunch.com/2026/05/25/what-clickups-mass-layoff-tells-us-about-the-future-of-work/) | **`May 25, 2026 9:00 AM PDT` → `2026-05-26 00:00（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | CEO 将 **22% 裁员** 框为 **AI 转型** 而非单纯降本；称已部署 **~3000 内部 AI Agent**、员工转向 **指挥 Agent + 审阅输出**；计划 **百万美元薪酬带** 与对外产品化 Agent 效率指标 |
+| AI 治理 / 媒体 | [The pope's AI encyclical isn't really about AI（TechCrunch）](https://techcrunch.com/2026/05/25/the-popes-ai-encyclical-isnt-really-about-ai/) | **`May 25, 2026 8:09 AM PDT` → `2026-05-25 23:09（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | 解读教谕核心：**权力集中、不平等、民主侵蚀、AI 军备竞赛**；并提及 **Trump 延迟签署 AI 行政令**（ reportedly 受 David Sacks 影响）与 **Meta Oversight Board** 对 deepfake/认知自由的关切 |
+| OpenClaw | [openclaw/openclaw `v2026.5.24-beta.2`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.24-beta.2) | GitHub **`Published: 2026-05-24T23:49:30Z` → `2026-05-25 07:49:30（Asia/Shanghai）`** | 开源发布 | **Gateway 热路径缓存**（models 列表 **~20s→~5ms**）、**Meeting Notes 源插件**（Discord voice 首发）、**子 Agent 默认仅 bootstrap AGENTS.md/TOOLS.md**、Codex 插件生命周期 QA-Lab 覆盖 |
+| 平台可靠性 | [Claude Status: Elevated error rates on Opus 4.7](https://status.anthropic.com/) | **事件：`2026-05-25 06:30–10:30 UTC` → `2026-05-25 14:30–18:30（Asia/Shanghai）`；Resolved `10:39 UTC`** | 官方状态 | **`2026-05-25`** Opus 4.7 **错误率升高** 约 4 小时后恢复——生产 Agent 需为 **模型 tier 波动** 预留 fallback/重试策略 |
+| 论文 / Agent Skills | [SkillOpt: Executive Strategy for Self-Evolving Agent Skills（HF Daily）](https://huggingface.co/papers/date/2026-05-25) | **HF Daily：`2026-05-25`** | 论文原文 | 当日 Agent Skills 论文簇之一：聚焦 **自进化 Skill 的执行策略优化**——与 Codex/Claude Code Skills 工程实践可对照 |
+| 论文 / Agent Skills | [From Raw Experience to Skill Consumption: A Systematic Study of Model-Generated Agent Skills（HF Daily）](https://huggingface.co/papers/date/2026-05-25) | **HF Daily：`2026-05-25`** | 论文原文 | 系统研究 **原始轨迹 → 可消费 Skill** 的生成与使用链路——对团队 Skills 归档/治理有直接参考 |
+| Skills / Cursor | [Cursor Agent Skills in `.agents/skills` — injection bug（Cursor Forum）](https://forum.cursor.com/t/cursor-agent-skills-in-agents-skills/161142) | **`2026-05-25` 窗口确认** | 社区/工程 | Skills **Settings 与 `/` 菜单可见** 但未注入 **` ` system prompt**——属 **注入阶段 bug** 而非发现失败；生产 Skills 工作流需临时 workaround |
 
 ### 技术文档与教程
 
 | 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
 | --- | --- | --- | --- |
-| 安全工程 | How we contain Claude | 遏制架构、监控指标、运维 Playbook | 安全/平台 |
+| AI 治理 | [Magnifica Humanitas 全文（Vatican）](https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260525-enciclica-magnifica-humanitas.html) | **human dignity、劳动、LAWS、民主/信息操纵** | AI 产品/政策/合规负责人 |
+| Frontier lab 自省 | [Chris Olah 梵蒂冈讲稿（Anthropic）](https://www.anthropic.com/news/chris-olah-pope-leo-encyclical) | **激励结构、外部批评、interpretability 三问** | AI 安全/对齐研究者 |
+| OpenClaw 升级 | [OpenClaw v2026.5.24-beta.2 Release Notes](https://github.com/openclaw/openclaw/releases/tag/v2026.5.24-beta.2) | Gateway **provider auth 预暖**、Meeting Notes **SDK 源契约**、**imageQuality** 自适应压缩 | 自托管个人 Agent 运维 |
+| Agent Skills 研究 | [Hugging Face Daily Papers 2026-05-25](https://huggingface.co/papers/date/2026-05-25) | **SkillOpt**、**Skill Consumption**、**HINT-SD** 长时程 Agent | Agent 平台/Skills 治理团队 |
+| Spring AI 迁移 | [Spring AI 2.0.0-M7 Release](https://github.com/spring-projects/spring-ai/releases/tag/v2.0.0-M7) | **Boot 4 硬依赖**、Jackson 3、MCP-first；**GA 预计 2026-05-28** | Java AI 工程师（提前排迁移） |
 
 ### LangChain / Agent / LLM 工程相关进展
 
-**总体判断**：头部 lab 公开「遏制」实现路径，利于企业自建 Agent 时对齐可审计控制点。
+**总体判断**：`2026-05-25` Agent 工程呈现 **「治理话语上行 + 平台能力下行」** 双轨——公共领域以教谕/Olah 将 **对齐与监督** 推向跨学科对话；工程侧 OpenClaw 继续 **Gateway 性能/Meeting Notes/子 Agent 上下文** 收口；Skills 方向从 **工具配置** 进入 **自进化与经验归档** 的研究阶段（HF 当日论文簇）。
 
 | 主题 | 进展 | 工程启发 |
 | --- | --- | --- |
-| 遏制设计 | Anthropic 工程文 | 将「人类可介入点」写入 Agent 编排 DAG |
+| 治理 × 研发 | Magnifica Humanitas + Olah 讲稿 | 产品/Agent 设计应预设 **外部审计者与社区参与**，而非仅内部 red team |
+| 企业 Agent 组织 | ClickUp ~3000 内部 Agent | 度量从 **token 消耗** 转向 **价值/节省时间**；但需警惕 **「自动化=留任」** 叙事与真实 headcount 曲线 |
+| 个人 Agent 平台 | OpenClaw **v2026.5.24-beta.2** | 优先验证 **Gateway models 列表延迟** 与 **Meeting Notes Discord voice** 集成后再上生产 |
+| Skills 生命周期 | HF **SkillOpt / Skill Consumption** | 建立 **轨迹→Skill→消费** 闭环与 admission 评分，避免仅堆 SKILL.md |
+| Cursor Skills | 注入 stage bug | 在修复前：显式 `@skill` 或手动引用 SKILL.md，勿假设 system prompt 自动携带 |
+| Java AI 栈 | Spring AI **2.0 GA 倒计时（5/28）** | Boot 3.5 **EOL 2026-06-30** 与 AI 2.0 窗口重叠——尽快做 **Boot 4 + Jackson 3** 清单 |
 
 ### 值得深入阅读的资料
 
 | 推荐级别 | 资料 | 为什么值得读 |
 | --- | --- | --- |
-| 必读 | How we contain Claude | 少有的遏制实现向工程细节 |
+| 必读 | **Magnifica Humanitas + Olah 讲稿** | 当日 **唯一跨宗教/AI lab/公共政策** 的硬对齐同台事件 |
+| 必读 | **OpenAI 巴西媒体合作官方文** | 观察 **归因/透明/链回原文** 与 **Enterprise/API/Codex** 捆绑策略 |
+| 推荐 | **OpenClaw v2026.5.24-beta.2** | 当日 **主要开源 Agent 平台 release**（Gateway 4100× models 列表加速值得实测） |
+| 推荐 | **TechCrunch：ClickUp AI 裁员叙事** | **Agent 组织重构** 的公开样本（含 Gartner 80% 自主技术公司裁员对照） |
+| 延伸 | **HF 2026-05-25 Agent Skills 论文簇** | 将 Skills 从「prompt 文件」升级为 **可评测、可进化、可消费** 的工程对象 |
 
 ### 来源清单
 
 - 检索范围：2026-05-25 00:00:00 到 2026-05-25 23:59:59（Asia/Shanghai）
-- 引用域名：anthropic.com
+- 引用域名：vatican.va, anthropic.com, openai.com, github.com, techcrunch.com, huggingface.co, forum.cursor.com, status.anthropic.com
 - 来源清单表格：
 
 | 类型 | 标题 | 日期 | 链接 |
 | --- | --- | --- | --- |
-| 官方工程 | How we contain Claude | 2026-05-25 | https://www.anthropic.com/engineering/how-we-contain-claude |
+| 政策标准 | Magnifica Humanitas 教谕 | 2026-05-25 | https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260525-enciclica-magnifica-humanitas.html |
+| 官方发布 | Chris Olah 梵蒂冈讲稿 | 2026-05-25 | https://www.anthropic.com/news/chris-olah-pope-leo-encyclical |
+| 官方发布 | OpenAI × Folha/UOL 巴西合作 | 2026-05-25 | https://openai.com/index/grupo-folha-grupo-uol-partnership/ |
+| 开源发布 | OpenClaw v2026.5.24-beta.2 | 2026-05-25（Asia/Shanghai） | https://github.com/openclaw/openclaw/releases/tag/v2026.5.24-beta.2 |
+| 技术媒体 | ClickUp AI 裁员（TechCrunch） | 2026-05-25/26（跨时区） | https://techcrunch.com/2026/05/25/what-clickups-mass-layoff-tells-us-about-the-future-of-work/ |
+| 技术媒体 | 教谕解读（TechCrunch） | 2026-05-25/26（跨时区） | https://techcrunch.com/2026/05/25/the-popes-ai-encyclical-isnt-really-about-ai/ |
+| 官方状态 | Claude Opus 4.7 错误率事件 | 2026-05-25 | https://status.anthropic.com/ |
+| 论文原文 | HF Daily Papers（含 SkillOpt 等） | 2026-05-25 | https://huggingface.co/papers/date/2026-05-25 |
+| 社区工程 | Cursor Skills 注入 bug | 2026-05-25 窗口 | https://forum.cursor.com/t/cursor-agent-skills-in-agents-skills/161142 |
+| 开源发布 | Spring AI 2.0.0-M7（邻近日期参考） | 2026-05-22 | https://github.com/spring-projects/spring-ai/releases/tag/v2.0.0-M7 |
 
 ## 2026-05-24
 
 ### 今日总览
 
-**一句话结论**：`2026-05-24` **无 OpenAI/Anthropic/Google 等官方「GPT-5.6」发布**；媒体与社交渠道仅有 **GPT-5.6 泄漏信号（背景/泄漏，非正式发布）**，本日按规范**不升格为重大发布**。
+**一句话结论**：`2026-05-24`（Asia/Shanghai）主线是 **AI 安全从「人力防御」转向「Agentic Defense + 平台责任」**（Google Cloud COO 呼吁 **fully agentic defense**、NYT 报道 **Q1 网络安全岗位 +11%**）与 **OpenClaw `v2026.5.22` stable 发布**（Codex app-server/harness 可靠性收口）并行；**Claude Code 被用于 AutoTTS 自动发现 test-time scaling 控制器**（约 **$40/160min**、**~70% token 节省**）与 **Agent-BRACE 论文**（**2026-05-24 arXiv 提交**）共同指向 **「人类设计搜索空间，Agent 写策略/信念状态」** 范式；**Skills 生态** 出现 **69k+ SKILL.md 开放目录**（claudskills.com）但 **Claude Code/Codex/Hermes/Spring AI 当日无新官方 release**。
 
 | 维度 | 本日结论 |
 | --- | --- |
-| 检索范围 | openai.com、anthropic.com、官方 changelog；技术媒体泄漏线索 |
-| 核心趋势 | 市场传闻周期；研发应以官方 API/docs 为准 |
-| 可直接关注 | 勿将泄漏 benchmark 纳入生产选型；等待官方 system card |
-| 专项检索结论 | **GPT-5.6**：仅 **背景/泄漏，非正式发布**；**Claude Code/Codex/OpenClaw/Hermes/Spring AI**：无硬对齐 Release |
+| 检索范围 | OpenClaw GitHub；TechCrunch/NYT/The Decoder/The Register；Agent-BRACE/AutoTTS 论文与媒体；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；EU/US 政策窗口；中文补充 |
+| 核心趋势 | **AI 安全「机器速度 vs 机器速度」**（攻击 handoff **8h→22s**、Agent 漫游发现遗留 SharePoint）；**TTS/Agent 策略自动化**（Claude Code 写 controller、信念状态 WEP 标注）；**个人 Agent 平台 stable 线晋升**（OpenClaw **v2026.5.22**）；**Skills 供应链治理**（69k 目录 + 内容评分 admission） |
+| 可直接关注 | 评估 **OpenClaw v2026.5.22** 的 Codex migration/插件绑定修复；阅读 **AutoTTS** 离线 replay 环境设计；跟踪 **Google API key 撤销 23 分钟窗口** 与 **自动 tier 升级** 风险；用 **Agent-BRACE** 的 **WEP 信念状态** 改造长时程 Agent |
+| 专项检索结论 | **Claude Code**：未发现 **`2026-05-24`** 新 tag（最近 **`v2.1.148`** 为 **`2026-05-22`**）；**AutoTTS** 使用 **Claude Code** 作 explorer（**THE DECODER `May 24, 2026`** 解读）；**Codex**：未发现 **`2026-05-24`** 新 release（最近 **`rust-v0.134.0-alpha.1`** 为 **`2026-05-22`**）；**OpenClaw**：**`v2026.5.22`** **`Published: 2026-05-24T01:12:56Z` → `2026-05-24 09:12:56（Asia/Shanghai）`**；**Hermes**：未发现 **`2026-05-24`** 新 tag（最近 **`v2026.5.16`** 为 **`2026-05-16`**，仓库 **`Last push: 2026-05-24`**）；**Spring AI**：未发现 **`2026-05-24`** 硬对齐 release；**skills/Cursor Skills**：**claudskills.com** 跨 **69,369** SKILL.md（DEV 工程文 **`2026-05-24` 窗口**），**SKILL.md 格式向 cursor-rules/aider-skills 泄漏** |
 
 ### 重要事件与发布
 
-- 未发现可核验的重大事件或发布。
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| OpenClaw | [openclaw/openclaw `v2026.5.22`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.22) | GitHub **`Published: 2026-05-24T01:12:56Z` → `2026-05-24 09:12:56（Asia/Shanghai）`** | 开源发布 | **beta→stable** 线：Codex app-server **`/codex detach`** 插件绑定逃逸、**prompt timeout 竞态** 修复、**Codex/OpenClaw code-mode 边界** 文档澄清、QA-Lab 媒体工具超时修复 |
+| AI 安全 / 平台 | [Everyone is navigating AI security in real time — even Google](https://techcrunch.com/2026/05/24/everyone-is-navigating-ai-security-in-real-time-even-google/) | **`May 24, 2026 2:39 PM PDT` → `2026-05-25 05:39（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | Google Cloud COO **Francis de Souza**：**shadow AI**、**AI-native fully agentic defense**、攻击 **handoff 22 秒**；并引用 **Google API key 泄露账单** 与 **删除后 23 分钟仍可用** 争议 |
+| AI 安全 / 就业 | [One job growing in the AI era? Cybersecurity experts（NYT 转引）](https://www.straitstimes.com/business/economy/one-job-growing-in-the-ai-era-cybersecurity-experts-to-deal-with-the-bug-pocalypse) | **`May 24, 2026`（NYT/Techmeme 窗口）** | 技术媒体 | Glassdoor：**Q1 网络安全岗位发布 +11% YoY**；AI 生成代码引入漏洞 + **Mythos 类模型** 加速找洞——「**bug-pocalypse**」人力缺口 |
+| Claude Code / TTS | [Researchers let Claude Code discover AI scaling algorithms…](https://the-decoder.com/researchers-let-claude-code-discover-ai-scaling-algorithms-that-humans-probably-wouldnt-have-designed/) | **`May 24, 2026`** | 技术媒体 | **AutoTTS**：Claude Code 在离线 replay 环境迭代 **Confidence Momentum Controller**；**~70% token 节省**、发现成本 **~$40/160min**——人类设计 **environment**，Agent 写 **controller 代码** |
+| 论文 / Agent | [Agent-BRACE: Decoupling Beliefs from Actions…](https://arxiv.org/abs/2605.11436) | **arXiv 提交：`2026-05-24`** | 论文原文 | 将 LLM Agent 拆为 **belief state model + policy model**；用 **WEP  verbalized certainty** 标注原子 claim；Quest 上 **+14.5%/+5.3%** 绝对提升且 **context 近常数** |
+| Skills 生态 | [How I indexed 69,000 Claude Code skills…](https://dev.to/adamlankamer/how-i-indexed-69000-claude-code-skills-and-what-i-learned-doing-it-76f) | **`2026-05-24`（DEV 发布窗口）** | 社区工程 | **claudskills.com** 开放目录/API/Parquet 数据集；**24 源 nightly miner**、**内容 admission 评分**（反 popularity 排序）；**SKILL.md → cursor-rules/aider-skills** 跨 Agent 标准泄漏 |
+| AI 安全 / Google | [Threat hunters find Google API keys still usable 23 minutes after deletion](https://www.theregister.com/devops/2026/05/21/threat-hunters-find-google-api-keys-still-usable-23-minutes-after-deletion/5244504) | **`May 21, 2026`（`2026-05-24` TechCrunch 交叉引用）** | 技术媒体 | **Aikido**：legacy **Google API key** 删除后 **最长 23 分钟** 仍可用；**Gemini AQ key ~1min**、**service account ~5s**——平台 revoke SLA 不一致 |
+| Anthropic / Mythos | [Anthropic Moves Closer to Public Claude Mythos Release…](http://www.techtimes.com/articles/317076/20260524/anthropic-moves-closer-public-claude-mythos-release-10000-critical-bugs-found-first.htm) | **`May 24, 2026`** | 技术媒体 | 跟进 **5/22 Glasswing 更新**：**Mythos Preview 仍 gated**；**Claude Security beta** 三周 **2100+** 漏洞补丁——披露产能 vs 补丁产能张力延续 |
 
 ### 技术文档与教程
 
-- 未发现值得收录的新文档或教程。
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| AutoTTS | [AutoTTS GitHub + 项目页](https://github.com/zhengkid/AutoTTS) | 离线 **replay environment**、**beta parameterization**、Claude Code **explorer loop** | Agent 推理成本优化 / TTS 研究者 |
+| Agent 信念状态 | [Agent-BRACE 论文 + 代码](https://github.com/joykirat18/Agent-BRACE) | **WEP 标注**、belief/policy **PPO 联合训练**、长时程 **POMDP** | 具身/文本世界 Agent 工程师 |
+| OpenClaw 升级 | [OpenClaw v2026.5.22 Release Notes](https://github.com/openclaw/openclaw/releases/tag/v2026.5.22) | Codex **plugin-owned conversation binding**、**migrate plan codex** | 自托管个人 Agent 运维 |
+| Skills 目录 | [claudskills.com API OpenAPI](https://claudskills.com/api/v1/openapi.json) | **CC BY 4.0 数据集**、**admission scoring**、跨 Agent **SKILL.md** 互操作 | Skills 平台/治理团队 |
+| MCP 企业运行时 | [Should you build or buy an MCP runtime…（DEV）](https://dev.to/arcade/should-you-build-or-buy-an-mcp-runtime-for-enterprise-ai-agents-in-2026-36jg) | **OAuth/审计/策略** vs 自建 LangChain/Mastra 适配 | 企业 Agent 架构师 |
 
 ### LangChain / Agent / LLM 工程相关进展
 
-**总体判断**：传闻日：工程决策应继续依赖已发布模型与可审计 release notes。
+**总体判断**：Agent 工程继续从 **「手写 heuristics」** 迁移到 **「可搜索/可进化的控制面」**——**AutoTTS** 让 Claude Code 写 **TTS controller**，**Agent-BRACE** 让 RL 学 **结构化信念状态**；平台侧 **OpenClaw stable** 收口 Codex harness 可靠性；安全侧 **Agent 既是攻击面也是防御面**（漫游数据资产 + agentic defense）。
 
 | 主题 | 进展 | 工程启发 |
 | --- | --- | --- |
-| 泄漏治理 | GPT-5.6 传闻 | 内部 wiki 标注「未官方发布」；禁止基于泄漏截图改 SLA |
+| TTS 自动化 | AutoTTS + Claude Code | 投资 **offline replay + trace feedback**，而非手工调 branch/prune 阈值 |
+| 长时程 POMDP | Agent-BRACE **WEP claims** | 用 **显式 verbalized uncertainty** 替代 raw history 或单点 summary |
+| 个人 Agent stable | OpenClaw **v2026.5.22** | 跟踪 **Codex code-mode 边界** 与 **plugin detach** 行为再评估生产策略 |
+| Skills 供应链 | 69k 开放目录 | 引入 **内容 admission + 来源审计**；勿仅按 stars/installs 安装 |
+| MCP 安全 | Agent framework RCE/CVE 清单（社区） | **STDIO MCP** 需 **allowlist/sandbox**；生产优先 **Streamable HTTP + runtime 层** |
+| Agentic Defense | Google Cloud COO 观点 | 安全架构需覆盖 **models/data pipelines/agents/prompts** 全栈，而非 perimeter-only |
 
 ### 值得深入阅读的资料
 
 | 推荐级别 | 资料 | 为什么值得读 |
 | --- | --- | --- |
-| 延伸 | 官方 OpenAI 文档 | 核对当日无对应型号上架 |
+| 必读 | **OpenClaw v2026.5.22 GitHub Release** | 当日 **唯一硬对齐官方开源 Agent 平台 stable 发布** |
+| 必读 | **THE DECODER：Claude Code × AutoTTS** | **Agent 写算法** 的可复现样本（$40 级 discovery 成本） |
+| 推荐 | **Agent-BRACE（2026-05-24 arXiv）** | 长时程 Agent **信念状态 + 不确定性** 的结构化做法 |
+| 推荐 | **TechCrunch：Google Cloud AI 安全访谈** | **Agentic defense** 与 **平台 revoke/计费** 现实差距的对照 |
+| 延伸 | **claudskills 69k 目录工程文** | Skills **发现/治理/跨 Agent 标准** 的一手数据 |
 
 ### 来源清单
 
 - 检索范围：2026-05-24 00:00:00 到 2026-05-24 23:59:59（Asia/Shanghai）
-- 引用域名：（无官方新增域名）
+- 引用域名：github.com, techcrunch.com, the-decoder.com, arxiv.org, dev.to, theregister.com, straitstimes.com, techtimes.com, zhengkid.github.io
 - 来源清单表格：
 
-| 无 | 无可靠新增来源 | - | - |
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | OpenClaw v2026.5.22 | 2026-05-24 | https://github.com/openclaw/openclaw/releases/tag/v2026.5.22 |
+| 技术媒体 | Google Cloud AI security（TechCrunch） | 2026-05-24（PDT，Asia/Shanghai 跨至 05-25） | https://techcrunch.com/2026/05/24/everyone-is-navigating-ai-security-in-real-time-even-google/ |
+| 技术媒体 | Cybersecurity jobs +11%（NYT 转引） | 2026-05-24 | https://www.straitstimes.com/business/economy/one-job-growing-in-the-ai-era-cybersecurity-experts-to-deal-with-the-bug-pocalypse |
+| 技术媒体 | Claude Code AutoTTS（THE DECODER） | 2026-05-24 | https://the-decoder.com/researchers-let-claude-code-discover-ai-scaling-algorithms-that-humans-probably-wouldnt-have-designed/ |
+| 论文原文 | Agent-BRACE | 2026-05-24 | https://arxiv.org/abs/2605.11436 |
+| 社区工程 | 69k Claude Code skills catalog | 2026-05-24 | https://dev.to/adamlankamer/how-i-indexed-69000-claude-code-skills-and-what-i-learned-doing-it-76f |
+| 技术媒体 | Google API key 23min revoke gap | 2026-05-21（05-24 交叉引用） | https://www.theregister.com/devops/2026/05/21/threat-hunters-find-google-api-keys-still-usable-23-minutes-after-deletion/5244504 |
+| 技术媒体 | Anthropic Mythos 跟进 | 2026-05-24 | http://www.techtimes.com/articles/317076/20260524/anthropic-moves-closer-public-claude-mythos-release-10000-critical-bugs-found-first.htm |
+| 教程 | MCP runtime build vs buy | 2026-05-24 窗口 | https://dev.to/arcade/should-you-build-or-buy-an-mcp-runtime-for-enterprise-ai-agents-in-2026-36jg |
+| 官方发布 | OpenAI/Anthropic/Spring AI | 未发现 2026-05-24 硬对齐新 release | - |
+| 中文补充 | 机器之心/量子位 | 未发现 2026-05-24 硬对齐 AI 要闻 | - |
 
 ## 2026-05-23
 
 ### 今日总览
 
-**一句话结论**：`2026-05-23` 工程主线是 **Spring AI 多版本同日发布**：**1.0.8**、**1.1.7** 与 **2.0.0-M7** 在 spring.io 博文可核验，Java AI 栈进入「稳定线 + 次主线 + 2.x 里程碑」并行维护。
+**一句话结论**：`2026-05-23`（Asia/Shanghai）主线是 **Spring AI 三版本同日发布并修复 CVE-2026-41863**（Anthropic Skills API 路径穿越）与 **Gemini Omni Flash 上手评测**（anything-to-anything 视频/deepfake 风险）并行；**Glasswing/Mythos 漏洞披露产能** 在媒体窗口继续发酵，**OpenClaw `v2026.5.22-beta.1`** 与 **Hermes Agent 超越 OpenClaw 的 OpenRouter 用量叙事** 推动个人 Agent 赛道竞争升温；**EU AI Act 高风险分类草案** 与 **美国 TAKE IT DOWN 执法** 同日呈现监管分化。
 
 | 维度 | 本日结论 |
 | --- | --- |
-| 检索范围 | spring.io/blog、github.com/spring-projects/spring-ai；专项工具 |
-| 核心趋势 | Spring AI 2.x 里程碑与 1.x 补丁并行；企业 Java Agent/RAG 集成加速 |
-| 可直接关注 | 锁定团队使用的 release train（1.0.x vs 1.1.x vs 2.0-M） |
-| 专项检索结论 | **Spring AI**：**1.0.8 / 1.1.7 / 2.0.0-M7** 同日；**Claude Code/Codex/OpenClaw/Hermes**：无 `2026-05-23（上海）` 硬对齐 tag |
+| 检索范围 | Spring 官方；OpenClaw GitHub；The Verge/TechCrunch/The Next Web；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；EU/US 政策；arXiv；中文补充 |
+| 核心趋势 | **Java AI 栈安全补丁与 MCP 传输迁移**（Spring AI 2.0-M7）；**多模态生成进入「真实视频 + deepfake」争议区**（Gemini Omni）；**漏洞发现速度 >> 补丁速度**（Glasswing 跟进报道）；**跨大西洋 AI 合规套利**（EU 收窄 vs US 扩大执法） |
+| 可直接关注 | 升级 **Spring AI ≥1.1.7** 修复 **CVE-2026-41863**；评估 **Gemini Omni / Flow** 的 deepfake 与 credits 成本；跟踪 **OpenClaw beta** 与 **Hermes 自进化 skills** 选型；对照 **EU Annex III 草案** 与 **FTC TAKE IT DOWN** 做产品合规映射 |
+| 专项检索结论 | **Claude Code**：终端 **`v2.1.148`** 仍为 **`2026-05-22`** 最新；**`claude-code-action v1.0.133`** **`Published: 2026-05-23T04:05:39Z` → `2026-05-23 12:05:39（Asia/Shanghai）`**（CI **workload identity federation**）；**Codex**：**Locked computer use** 在 **`2026-05-23`** 媒体继续解读（官方 Changelog 为 **`2026-05-21`**）；**OpenClaw**：**`v2026.5.22-beta.1`** **`Published: 2026-05-23T09:59:56Z` → `2026-05-23 17:59:56（Asia/Shanghai）`**；**Hermes**：The Batch / 社区分析强调 **OpenRouter 日 token 超越 OpenClaw** 与 **自动 skills 生成**（无 **`2026-05-23`** 新 tag）；**Spring AI**：官方博文 **`2026-05-23`** 发布 **`1.0.8`/`1.1.7`/`2.0.0-M7`**；**skills/Cursor Skills**：未发现 **`2026-05-23`** 官方 Changelog（Cursor Docs 为既有 open standard 文档） |
 
 ### 重要事件与发布
 
 | 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
 | --- | --- | --- | --- | --- |
-| Spring AI | [Spring AI 1.0.8, 1.1.7, and 2.0.0-M7 available now](https://spring.io/blog/2026/05/23/spring-ai-1-0-8-1-1-7-and-2-0-0-m7) | **2026-05-23** | 官方博客 | 三版本线同日：补丁、特性线与 2.0 里程碑——升级矩阵需显式规划 |
+| Spring AI | [Spring AI 1.0.8, 1.1.7, 2.0.0-M7 Available Now](https://spring.io/blog/2026/05/23/spring-ai-1-0-8-1-1-7-2-0-0-M7-available-now) | **官方：`2026-05-23`** | 官方发布 | **`1.1.7`/`2.0.0-M7`** 修复 **CVE-2026-41863**（Anthropic Skills API 文件名未消毒导致 **Path.resolve 越界写**）；**2.0-M7** 弃用 MCP **SSE**、默认 **Streamable HTTP**，**ToolCallAdvisor** 成为默认工具调用路径 |
+| Spring 安全 | [CVE-2026-41863 Advisory](https://spring.io/security/cve-2026-41863) | **`2026-05-23`（随 1.1.7 发布）** | 安全公告 | 仅影响使用 **Anthropic Skills API** 且 LLM 可控文件名的应用——需升级 **≥1.1.7** |
+| 多模态 / Gemini | [Google’s new anything-to-anything AI model is wild](https://www.theverge.com/tech/936507/gemini-omni-hands-on-deepfake-ai-video) | **`May 23, 2026 11:00 AM UTC` → `2026-05-23 19:00（Asia/Shanghai）`** | 技术媒体 | **Gemini Omni Flash** 上手：**真实自拍视频 + 文本 prompt → deepfake 场景**；credits 消耗快（约 20 条 clip 后 Pro 计划剩 **145/1000** credits）——产品/合规需评估 **非 consensual likeness** 风险 |
+| AI 安全 / Glasswing | [Claude Mythos found 10,000 critical vulnerabilities… patches can't keep up](https://thenextweb.com/news/anthropic-glasswing-claude-mythos-10000-vulnerabilities) | **`2026-05-23`（媒体跟进 Glasswing 周五披露）** | 技术媒体 | **1,726** 已验证、**1,094** 高/严重确认、仅 **97** 已补丁；**WolfSSL CVE-2026-5194（CVSS 9.1）** 为标志性发现——「发现 >> 补丁」产能瓶颈 |
+| OpenClaw | [openclaw/openclaw `v2026.5.22-beta.1`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.22-beta.1) | GitHub **`Published: 2026-05-23T09:59:56Z` → `2026-05-23 17:59:56（Asia/Shanghai）`** | 开源预发布 | 文档/启动/插件/Gateway/CLI 可靠性 beta 线更新（含 Telegram/Slack/Windows 等修复）——跟踪 stable 晋升 |
+| Hermes / 个人 Agent | [Hermes Agent challenges OpenClaw（The Batch）](https://www.deeplearning.ai/the-batch/hermes-agent-challenges-openclaw) | **`2026-05-23`（The Batch 窗口）** | 技术媒体 | **Hermes** 强调 **多层 memory + 自动 SKILL.md 生成 + Curator 归档**；**OpenRouter** 日 token 超越 **OpenClaw**——个人 Agent 竞争从「渠道广度」转向「自进化深度」 |
+| Claude Code CI | [anthropics/claude-code-action `v1.0.133`](https://github.com/anthropics/claude-code-action/releases/tag/v1.0.133) | GitHub **`Published: 2026-05-23T04:05:39Z` → `2026-05-23 12:05:39（Asia/Shanghai）`** | 开源发布 | CI 工作流改用 **workload identity federation** 做 Claude 认证——企业 GitHub Actions 集成参考 |
+| 企业 AI / 体育 | [Ferrari is using IBM's AI to create F1 superfans](https://techcrunch.com/2026/05/23/ferrari-is-using-ai-to-create-f1-superfans/) | **`May 23, 2026 8:08 AM PDT` → `2026-05-23 23:08（Asia/Shanghai）`** | 企业落地 | IBM 重构 **Ferrari fan app**：**AI 赛事摘要、预测游戏、AI companion**；**race weekend 互动 +62%**——「telemetry → 叙事 → 个性化」闭环样本 |
+| AI 基础设施 / 能源 | [Elon Musk has given up on solar power (on Earth)](https://techcrunch.com/2026/05/23/elon-musk-has-given-up-on-solar-power-on-earth/) | **`May 23, 2026 6:00 AM PDT` → `2026-05-23 21:00（Asia/Shanghai）`** | 技术媒体 | SpaceX IPO 文件提及 **terawatt-scale AI compute** 与 **space-based solar**——AI 算力能源叙事从地面 NIMBY 转向轨道 |
+| AI 基础设施 / 核能 | [Nuclear startup Deep Fission… going public again](https://techcrunch.com/2026/05/23/nuclear-startup-deep-fission-says-its-going-public-again-and-i-have-questions/) | **`May 23, 2026 7:50 AM PDT` → `2026-05-23 22:50（Asia/Shanghai）`** | 技术媒体 | **Deep Fission** 拟 IPO 为 **AI 数据中心** 供地下反应堆电力——监管/技术现实与 AI 电力 hype 的张力 |
+| 政策 / EU | [EU draft guidance narrows high-risk AI classification](https://noah-news.com/eu-draft-guidance-narrows-high-risk-ai-classification-with-focus-on-purpose-and/) | **`Sat 23 May 2026`（解读 EU 5/22 草案）** | 政策标准 | **Annex III** 草案：**关键基础设施/执法/司法** 部分收窄，**就业/保险/教育** 扩大；反馈截止 **2026-06-23**；Annex III 合规延至 **2027-12-02** |
+| 政策 / US | [EU narrowed… FTC started fining eight platforms](https://ngtimes.org/2026/05/23/the-eu-narrowed-and-the-ftc-broadened-on-the-same-week) | **`May 23, 2026`** | 政策标准 | **FTC TAKE IT DOWN**（**5/19** 致函 8 平台）**$53,088/违规** vs **EU 高风险分类收窄**——跨大西洋 **compliance arbitrage** |
+| AI 伦理 / 内容 | [Author Steven Rosenbaum… trapped in a toxic relationship with AI](https://www.theverge.com/ai-artificial-intelligence/936827/author-steven-rosenbaum-sounds-like-hes-trapped-in-a-toxic-relationship-with-ai) | **`May 23, 2026 7:19 PM UTC` → `2026-05-24 03:19（Asia/Shanghai）`（相邻日期/跨时区）** | 社会观察 | AI 辅助写作 ** fabricated quotes** 案例——企业/出版 **human-in-the-loop + 出处核验** 警示 |
 
 ### 技术文档与教程
 
 | 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
 | --- | --- | --- | --- |
-| Spring AI | spring.io 5/23 博文 | 版本差异、breaking changes、MCP/Agent 适配 | Java 后端 |
+| Spring AI 升级 | [Spring AI 1.1.7 / 2.0.0-M7 Release Notes](https://github.com/spring-projects/spring-ai/releases/tag/v2.0.0-M7) | **ToolCallAdvisor**、**ToolSpec** API、MCP **Streamable HTTP** | Java/Spring Agent 开发者 |
+| CVE 修复 | [CVE-2026-41863](https://spring.io/security/cve-2026-41863) | Anthropic Skills API **文件名消毒** | 使用 Skills API 的安全评审 |
+| Codex 锁屏自动化 | [Computer Use – Codex app](https://developers.openai.com/codex/app/computer-use) | **Locked use** safeguards、短授权窗口 | macOS Codex 用户 / MDM |
+| MCP + LangChain | [Building Autonomous DevOps Agents with MCP and LangChain](https://dev.to/rs9000/building-autonomous-devops-agents-with-mcp-and-langchain-82n) | **`MultiServerMCPClient`** stdio + SSE 混合 | Agent 平台工程师 |
+| Cursor Skills | [Agent Skills \| Cursor Docs](https://cursor.com/docs/skills) | **SKILL.md** open standard、`.cursor/skills/` 发现规则 | IDE Agent 用户 |
 
 ### LangChain / Agent / LLM 工程相关进展
 
-**总体判断**：Java 生态的 AI 抽象层进入多 train 并行，团队应建立兼容性测试矩阵。
+**总体判断**：**Agent 工程继续「运行时 + 安全 + 合规」三线并进**——Spring AI 在 **MCP 传输迁移与 ToolCallAdvisor 默认化** 上收口 Java 栈；个人 Agent 赛道 **OpenClaw beta vs Hermes 自进化 skills** 形成 **广度 vs 深度** 对照；安全侧 **Glasswing 披露漏斗** 与 **Spring CVE** 共同提示：**Agent 写文件/写 skill 路径必须消毒与审计**。
 
 | 主题 | 进展 | 工程启发 |
 | --- | --- | --- |
-| 版本火车 | 1.0.8 + 1.1.7 + 2.0.0-M7 | 生产建议 pin 单一 train；实验性项目可试 2.0-M7 |
+| Java AI 安全 | Spring AI **CVE-2026-41863** | LLM 影响的 **文件名/路径** 必须白名单或 sandbox，不可直接 **Path.resolve** |
+| MCP 协议演进 | Spring AI **2.0-M7** 弃用 SSE | 新集成优先 **Streamable HTTP**；legacy SSE 需迁移计划 |
+| 个人 Agent 竞争 | Hermes **自动 skills + Curator** vs OpenClaw **13k+ 静态 skills** | 选型：**Day-1 广度** 选 OpenClaw；**长期 workflow 复利** 评估 Hermes |
+| OpenClaw beta | **v2026.5.22-beta.1** | 生产环境跟踪 **stable 晋升** 与 **ClawHub 恶意 skills** 供应链 |
+| Agent 推理成本 | DEV 社区 **MCP+LangChain DevOps** 示例 | **stdio 本地 + SSE 远程 ticketing** 单 ReAct 环——多 MCP server 编排模板 |
+| 漏洞披露产能 | Glasswing **97/1094 已补丁** | 引入 **AI 扫描 + maintainer SLA**；缩短 patch cycle |
 
 ### 值得深入阅读的资料
 
 | 推荐级别 | 资料 | 为什么值得读 |
 | --- | --- | --- |
-| 必读 | Spring AI 5/23 博客 | 当日唯一硬对齐的多版本发布说明 |
+| 必读 | **Spring AI 2026-05-23 三版本发布 + CVE-2026-41863** | 当日 **唯一硬对齐官方 Java AI 栈发布** |
+| 必读 | **The Verge：Gemini Omni hands-on** | **deepfake 门槛与 credits 经济学** 的直观样本 |
+| 推荐 | **The Next Web：Glasswing 补丁跟不上** | 量化 **发现/验证/补丁** 漏斗，安全团队必读 |
+| 推荐 | **DeepLearning.AI The Batch：Hermes vs OpenClaw** | 个人 Agent **memory/skills 架构** 对照 |
+| 延伸 | **NG Times：EU 收窄 vs FTC 扩大** | 跨国 AI 产品 **合规套利** 框架 |
 
 ### 来源清单
 
 - 检索范围：2026-05-23 00:00:00 到 2026-05-23 23:59:59（Asia/Shanghai）
-- 引用域名：spring.io, github.com
+- 引用域名：spring.io, github.com, theverge.com, techcrunch.com, thenextweb.com, deeplearning.ai, ngtimes.org, dev.to, cursor.com, developers.openai.com
 - 来源清单表格：
 
 | 类型 | 标题 | 日期 | 链接 |
 | --- | --- | --- | --- |
-| 官方博客 | Spring AI releases | 2026-05-23 | https://spring.io/blog/2026/05/23/spring-ai-1-0-8-1-1-7-and-2-0-0-m7 |
+| 官方发布 | Spring AI 1.0.8 / 1.1.7 / 2.0.0-M7 | 2026-05-23 | https://spring.io/blog/2026/05/23/spring-ai-1-0-8-1-1-7-2-0-0-M7-available-now |
+| 安全公告 | CVE-2026-41863 | 2026-05-23 | https://spring.io/security/cve-2026-41863 |
+| 开源发布 | OpenClaw v2026.5.22-beta.1 | 2026-05-23 | https://github.com/openclaw/openclaw/releases/tag/v2026.5.22-beta.1 |
+| 开源发布 | claude-code-action v1.0.133 | 2026-05-23 | https://github.com/anthropics/claude-code-action/releases/tag/v1.0.133 |
+| 技术媒体 | Gemini Omni hands-on | 2026-05-23 | https://www.theverge.com/tech/936507/gemini-omni-hands-on-deepfake-ai-video |
+| 技术媒体 | Glasswing patches can't keep up | 2026-05-23 | https://thenextweb.com/news/anthropic-glasswing-claude-mythos-10000-vulnerabilities |
+| 技术媒体 | Hermes Agent challenges OpenClaw | 2026-05-23 | https://www.deeplearning.ai/the-batch/hermes-agent-challenges-openclaw |
+| 技术媒体 | Ferrari × IBM AI fan app | 2026-05-23 | https://techcrunch.com/2026/05/23/ferrari-is-using-ai-to-create-f1-superfans/ |
+| 政策标准 | EU/US regulatory divergence | 2026-05-23 | https://ngtimes.org/2026/05/23/the-eu-narrowed-and-the-ftc-broadened-on-the-same-week |
+| 教程 | MCP + LangChain DevOps agents | 2026-05-23 | https://dev.to/rs9000/building-autonomous-devops-agents-with-mcp-and-langchain-82n |
+| 论文 | 未发现可核验的 2026-05-23 arXiv cs.AI 新提交批次（最近为 2026-05-22） | - | - |
+| 中文补充 | 机器之心/量子位：未发现 2026-05-23 硬对齐 AI 要闻 | - | - |
 
 ## 2026-05-22
 
 ### 今日总览
 
-**一句话结论**：`2026-05-22` 双主线：**Mistral Medium 3.5 + 远程 Vibe agents** 强化欧洲开源模型与 Agent 产品化；**Anthropic Project Glasswing** 同日更新扩容叙事。
+**一句话结论**：`2026-05-22`（Asia/Shanghai）主线是 **Anthropic Project Glasswing 首月进展披露**（Mythos Preview 与约 50 家伙伴累计发现 **1 万+** 高/严重漏洞，瓶颈转向 **验证—披露—补丁**）与 **Codex 桌面 Agent 能力再升级**（**Appshots / Goal mode GA / Locked computer use** 在 **`2026-05-22`** 媒体窗口集中发酵）并行；Coding Agent 侧 **Claude Code `v2.1.148`** 热修复 Bash 回归，**LangChain 生态** 在跨日窗口发布 **`langchain-openai==1.2.2`** 与 **`langchain@1.4.2`**。
 
 | 维度 | 本日结论 |
 | --- | --- |
-| 检索范围 | mistral.ai、anthropic.com；开发者工具专项 |
-| 核心趋势 | 中等规模商用模型 + 远程 Agent 形态；跨组织 AI 安全联盟扩展 |
-| 可直接关注 | 评估 Medium 3.5 在 coding/agent 场景的性价比；Glasswing 成员与地域扩张 |
-| 专项检索结论 | **Claude Code/Codex/OpenClaw**：无 `2026-05-22（上海）` 新 tag；**Hermes/Spring AI**：无硬对齐；**skills**：Mistral Vibe 强调远程 Agent 工作流 |
+| 检索范围 | Anthropic/OpenAI 官方与 GitHub Release；TechCrunch/The Verge；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；arXiv 论文；EU/US 政策；中文补充 |
+| 核心趋势 | **AI 网络安全从「找洞」转向「披露与补丁产能」**；**Coding Agent 向「屏幕上下文 + 锁屏远程操控 + 跨日 Goal」收敛**；**平台侧 AI 内容生成（Spotify/Meta）与监管/伦理争议同步升温** |
+| 可直接关注 | 跟进 **Glasswing 开源漏洞 Dashboard** 与 **Claude Security / Mythos 工具申请**；评估 **Codex Appshots + Locked computer use** 的企业安全边界；升级 **Claude Code v2.1.148** 修复 Bash 127 回归 |
+| 专项检索结论 | **Claude Code**：**`v2.1.148`** **`Published: 2026-05-22T01:16:52Z` → `2026-05-22 09:16:52（Asia/Shanghai）`**；**Codex**：官方 Changelog **`2026-05-21`** 发布 **Appshots/Goal mode**（**`2026-05-22`** 媒体硬对齐）；**`rust-v0.134.0-alpha.1`** **`Published: 2026-05-22T19:03:43Z` → `2026-05-23 03:03:43（Asia/Shanghai）`（相邻日期/跨时区）**；**OpenClaw**：未发现 **`2026-05-22`** 新 tag（最近 **`v2026.5.20`** 为 **`2026-05-21`**）；**Hermes**：未发现 **`2026-05-22`** 新 tag；**Spring AI**：未发现 **`2026-05-22`** 硬对齐 release/博文；**skills/Cursor Skills**：未发现 **`2026-05-22`** 官方 Changelog（Anthropic 在 Glasswing 更新中提及向合格客户开放 **Mythos 配套 skills**） |
 
 ### 重要事件与发布
 
 | 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
 | --- | --- | --- | --- | --- |
-| Mistral | [Mistral Medium 3.5 and remote Vibe agents](https://mistral.ai/news/mistral-medium-3-5) | **2026-05-22** | 官方发布 | Medium 3.5 定位均衡推理；Vibe agents 面向远程协作式 Agent |
-| Anthropic | [Project Glasswing update](https://www.anthropic.com/news/project-glasswing) | **2026-05-22** | 官方公告 | Glasswing 联盟机制与参与组织更新——治理/安全协作信号 |
+| AI 安全 / Mythos | [Project Glasswing: An initial update](https://www.anthropic.com/research/glasswing-initial-update) | **官方稿：`May 22, 2026`** | 官方发布 | 首月 **1 万+** 高/严重漏洞；开源扫描 **6,202** 估高/严重（**23,019** 总量）；**530** 已披露高/严重、**75** 已补丁；发布 [开源漏洞 Dashboard](https://red.anthropic.com/2026/cvd/)——瓶颈从 **发现** 转向 **triaging/patching** |
+| AI 安全（媒体） | [Anthropic is making the security tools… just a bit more available](https://www.theverge.com/ai-artificial-intelligence/936637/anthropic-is-making-the-security-tools-its-used-with-claude-mythos-preview-just-a-bit-more-available) | **`May 22, 2026 10:55 PM UTC` → `2026-05-23 06:55（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | 合格客户可申请 **skills、harness、threat model builder**；与官方 Glasswing 稿交叉验证 |
+| Codex | [Appshots, goal mode, and more（Codex Changelog）](https://developers.openai.com/codex/changelog) | **Changelog：`2026-05-21`；媒体硬对齐：`May 22, 2026`** | 官方发布 | **Appshots**（双 Command 发送前台窗口截图+文本）；**Goal mode GA**；**Locked computer use**（锁屏/息屏仍可从手机驱动 Mac 应用，含 safeguards；**EEA/UK/CH 不可用**） |
+| Codex（媒体） | [OpenAI's Codex Can Now Use Your Mac Even When It's Locked](https://www.macrumors.com/2026/05/22/codex-use-mac-apps-when-locked/) | **`Friday May 22, 2026 4:28 am PDT` → `2026-05-22 19:28（Asia/Shanghai）`** | 技术媒体 | 需 **Computer Use 插件 + 屏幕录制/辅助功能** 权限；每 app 授权或 **Always allow**——企业需评估 ** unattended automation** 风险 |
+| Claude Code | [anthropics/claude-code `v2.1.148`](https://github.com/anthropics/claude-code/releases/tag/v2.1.148) | GitHub **`Published: 2026-05-22T01:16:52Z` → `2026-05-22 09:16:52（Asia/Shanghai）`** | 开源发布 | 修复 **`v2.1.147`** 引入的 **Bash tool 全量 exit code 127** 回归 |
+| Codex CLI | [openai/codex `rust-v0.134.0-alpha.1`](https://github.com/openai/codex/releases/tag/rust-v0.134.0-alpha.1) | GitHub **`Published: 2026-05-22T19:03:43Z` → `2026-05-23 03:03:43（Asia/Shanghai）`（相邻日期/跨时区）** | 开源预发布 | 当日 **alpha 预发布** 线更新（含 `codex-app-server`/`argument-comment-lint` 等资产）——跟踪下一稳定 tag |
+| LangChain | [langchain-openai==1.2.2](https://github.com/langchain-ai/langchain/releases/tag/langchain-openai%3D%3D1.2.2) | GitHub **`Published: 2026-05-21T22:08:45Z` → `2026-05-22 06:08:45（Asia/Shanghai）`** | 开源发布 | **ContextOverflowError** 条件放宽、**LLM context size** 取自 model profiles、**httpx finalizers** guard |
+| LangChain JS | [langchain@1.4.2](https://github.com/langchain-ai/langchainjs/releases/tag/langchain%401.4.2) | GitHub **`Published: 2026-05-21T22:00:57Z` → `2026-05-22 06:00:57（Asia/Shanghai）`** | 开源发布 | Agent stream **unwrap tool message outputs**；**todoListMiddleware** ToolMessage `name` 修复 |
+| AI 安全 / 社会 | [AI is being used to resurrect the voices of dead pilots](https://techcrunch.com/2026/05/22/ai-is-being-used-to-resurrect-the-voices-of-dead-pilots/) | **`May 22, 2026 4:03 PM PDT` → `2026-05-23 07:03（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | NTSB 因 **spectrogram + AI（含 Codex）** 重建遇难飞行员 CVR 音频暂时限制 docket；**42** 调查待复核——AI 滥用与 **敏感数据公开** 治理案例 |
+| 消费 AI / 内容 | [Spotify's AI bet: more of everything, less of what you want](https://techcrunch.com/2026/05/22/spotifys-ai-bet-more-of-everything-less-of-what-you-want/) | **`May 22, 2026 9:18 AM PDT` → `2026-05-22 21:18（Asia/Shanghai）`** | 技术媒体 | Investor Day 后 **Personal podcasts / 日历邮件音频简报 / 实验桌面 app** 等 **生成式内容** 堆叠；**Huxe** 同日关停——「功能商品化」挤压独立应用 |
+| 消费 AI / 社交 | [Meta quietly launches a new Reddit-like app called Forum](https://techcrunch.com/2026/05/22/meta-quietly-launches-a-new-reddit-like-app-called-forum/) | **`May 22, 2026 7:24 AM PDT` → `2026-05-22 22:24（Asia/Shanghai）`** | 产品发布 | **Ask** 标签页跨 Groups 聚合 AI 答案 + **Admin AI assistant**  moderation——对照 Google **Search Agents** 多入口策略 |
+| 搜索 / AI 产品 | [Google's AI search is so broken it can 'disregard' what you're looking for](https://www.theverge.com/tech/936176/google-ai-overviews-search-disregard) | **`May 22, 2026 4:01 PM UTC` → `2026-05-23 00:01（Asia/Shanghai）`（相邻日期/跨时区）** | 技术媒体 | 搜索词 **`disregard`/`ignore`/`skip`** 触发 AI Overview **聊天式误回复**——I/O 后 **Gemini 3.5 Flash 默认化** 的可靠性警示 |
+| AI 硬件 | [We tried Google's AI glasses and they're almost there](https://techcrunch.com/2026/05/22/we-tried-googles-ai-glasses-and-theyre-almost-there/) | **`May 22, 2026 8:37 AM PDT` → `2026-05-22 23:37（Asia/Shanghai）`** | 技术媒体 | **Android XR 镜片显示版** 仍处 Trusted Tester；**2026 秋音频版** 先出货——与 Meta/Snap 竞争节奏 |
+| 论文 / Agent 治理 | [Contractual Skills: A GovernSpec Design Framework for Enterprise AI Agents](https://arxiv.org/html/2605.22634v1) | **arXiv 列表：`May 22, 2026`** | 论文原文 | 将 **SKILL.md** 组织为 **task contract**（goal/permissions/human gates/verification）——企业 Agent **可审计 Skill** 设计参考 |
 
 ### 技术文档与教程
 
 | 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
 | --- | --- | --- | --- |
-| Mistral | Medium 3.5 公告 | 模型卡、API、Agent 产品边界 | 应用开发 |
-| 安全联盟 | Glasswing 更新 | 跨组织威胁情报与政策协同 | 安全/合规 |
+| Mythos / 漏洞披露 | [Glasswing initial update](https://www.anthropic.com/research/glasswing-initial-update) + [CVD Dashboard](https://red.anthropic.com/2026/cvd/) | 90 天 CVD、maintainer capacity、triaging 漏斗 | 安全工程 / 开源维护者 |
+| Codex 桌面 Agent | [Codex Changelog：Appshots & Goal mode](https://developers.openai.com/codex/changelog) | Appshots、Goal mode、Locked computer use safeguards | macOS Codex 用户 / 安全评审 |
+| Claude Code 热修复 | [Claude Code v2.1.148](https://github.com/anthropics/claude-code/releases/tag/v2.1.148) | Bash 127 回归修复 | 已升级 **v2.1.147** 的用户 |
+| LangChain MCP | [LangChain MCP Docs](https://docs.langchain.com/oss/python/langchain/mcp) | `MultiServerMCPClient`、tool interceptors、stateful sessions | Python Agent 工程师 |
+| 企业 Skill 契约 | [Contractual Skills（GovernSpec）](https://arxiv.org/html/2605.22634v1) | SKILL.md 作为 **task contract** | Agent 平台 / 合规架构 |
 
 ### LangChain / Agent / LLM 工程相关进展
 
-**总体判断**：欧洲模型厂继续「模型 + Agent 形态」打包；北美 lab 侧强化联盟治理叙事。
+**总体判断**：**Agent 工程焦点从「能调用工具」转向「治理闭环」**——Glasswing 强调 **verify-gated disclosure**，论文侧同步出现 **Contractual Skills / Guardrails as Infrastructure / Verify-Gated Completion**；Coding Agent 则在 **屏幕上下文（Appshots）与锁屏自动化** 上继续扩展 **Computer Use** 边界。
 
 | 主题 | 进展 | 工程启发 |
 | --- | --- | --- |
-| 远程 Agent | Mistral Vibe | 评估远程桌面/协作场景下的权限模型 |
-| 联盟治理 | Glasswing | 企业可对照自身漏洞披露流程是否可对齐联盟要求 |
+| 漏洞披露产能 | Glasswing：**发现 >> 补丁** | 引入 **AI 扫描 + 人工 triage SLA**；跟踪 [CVD Dashboard](https://red.anthropic.com/2026/cvd/) 漏斗 |
+| Skill 即契约 | GovernSpec **Contractual Skills** | SKILL.md 应含 **permissions / human gates / verification**，而非仅 prompt |
+| MCP 工程化 | LangChain **tool interceptors** | 在 MCP 层注入 **auth/header/retry**，弥补 server 进程隔离 |
+| 跨 turn 目标 | Codex **Goal mode GA** | 与 **Claude Code `/code-review`** 形成「长任务 + 审查」双轨 |
+| 锁屏自动化 | Codex **Locked computer use** | 必须 **短授权 + 本地输入重锁 + 区域限制**——纳入企业 MDM 策略 |
+| LangChain 补丁 | **langchain-openai 1.2.2** | 升级以修复 **ContextOverflowError** 误判与 context size 来源 |
 
 ### 值得深入阅读的资料
 
 | 推荐级别 | 资料 | 为什么值得读 |
 | --- | --- | --- |
-| 必读 | Mistral Medium 3.5 | 当日可核验的模型+Agent 产品组合 |
-| 推荐 | Glasswing 更新 | 安全协作机制一手信息 |
+| 必读 | **Anthropic：Project Glasswing initial update** | 当日 **最硬对齐官方稿**，定义 AI 时代 **漏洞披露瓶颈** |
+| 必读 | **Codex Changelog：Appshots / Goal mode / Locked use** | **Coding Agent 产品化** 与 **安全边界** 同日交汇 |
+| 推荐 | **Claude Code v2.1.148** Release | 小版本但影响 **Bash 全失败** 的生产事故 |
+| 推荐 | arXiv：**Contractual Skills（GovernSpec）** | 把 **Agent Skills** 上升到 **企业可审计契约** |
+| 延伸 | The Verge：**Google AI Overviews disregard bug** | I/O 后 **Search Agent 默认化** 的 **可靠性/提示注入** 风险样本 |
 
 ### 来源清单
 
 - 检索范围：2026-05-22 00:00:00 到 2026-05-22 23:59:59（Asia/Shanghai）
-- 引用域名：mistral.ai, anthropic.com
+- 引用域名：anthropic.com, developers.openai.com, github.com, techcrunch.com, theverge.com, macrumors.com, arxiv.org, docs.langchain.com
 - 来源清单表格：
 
 | 类型 | 标题 | 日期 | 链接 |
 | --- | --- | --- | --- |
-| 官方发布 | Mistral Medium 3.5 | 2026-05-22 | https://mistral.ai/news/mistral-medium-3-5 |
-| 官方公告 | Project Glasswing | 2026-05-22 | https://www.anthropic.com/news/project-glasswing |
+| 官方发布 | Project Glasswing: An initial update | 2026-05-22 | https://www.anthropic.com/research/glasswing-initial-update |
+| 官方发布 | Codex Changelog：Appshots, goal mode, and more | 2026-05-21（2026-05-22 媒体窗口） | https://developers.openai.com/codex/changelog |
+| 开源发布 | Claude Code v2.1.148 | 2026-05-22 | https://github.com/anthropics/claude-code/releases/tag/v2.1.148 |
+| 开源预发布 | Codex rust-v0.134.0-alpha.1 | 2026-05-22（相邻日期/跨时区发布） | https://github.com/openai/codex/releases/tag/rust-v0.134.0-alpha.1 |
+| 开源发布 | langchain-openai==1.2.2 | 2026-05-22（跨日窗口） | https://github.com/langchain-ai/langchain/releases/tag/langchain-openai%3D%3D1.2.2 |
+| 开源发布 | langchain@1.4.2 | 2026-05-22（跨日窗口） | https://github.com/langchain-ai/langchainjs/releases/tag/langchain%401.4.2 |
+| 技术媒体 | NTSB / AI 重建飞行员语音 | 2026-05-22（相邻日期/跨时区） | https://techcrunch.com/2026/05/22/ai-is-being-used-to-resurrect-the-voices-of-dead-pilots/ |
+| 技术媒体 | Spotify AI 内容堆叠 | 2026-05-22 | https://techcrunch.com/2026/05/22/spotifys-ai-bet-more-of-everything-less-of-what-you-want/ |
+| 技术媒体 | Meta Forum + AI Ask | 2026-05-22 | https://techcrunch.com/2026/05/22/meta-quietly-launches-a-new-reddit-like-app-called-forum/ |
+| 技术媒体 | Google AI Overviews disregard bug | 2026-05-22（相邻日期/跨时区） | https://www.theverge.com/tech/936176/google-ai-overviews-search-disregard |
+| 技术媒体 | Anthropic Glasswing 工具开放（Verge） | 2026-05-22（相邻日期/跨时区） | https://www.theverge.com/ai-artificial-intelligence/936637/anthropic-is-making-the-security-tools-its-used-with-claude-mythos-preview-just-a-bit-more-available |
+| 技术媒体 | Google AI 眼镜上手 | 2026-05-22 | https://techcrunch.com/2026/05/22/we-tried-googles-ai-glasses-and-theyre-almost-there/ |
+| 论文原文 | Contractual Skills: GovernSpec | 2026-05-22 | https://arxiv.org/html/2605.22634v1 |
 
 ## 2026-05-21
 
 ### 今日总览
 
-**一句话结论**：`2026-05-21` 主线是 **开源编码 Agent 三连更**：**Claude Code `v2.1.146`**、**Codex `rust-v0.133.0`**、**OpenClaw `2026.5.21`** 均可在上海日窗内核验 GitHub `Published` 时间。
+**一句话结论**：`2026-05-21`（Asia/Shanghai）主线是 **Coding Agent 双栈同日发版**（Claude Code **`v2.1.146`**、Codex **`rust-v0.133.0`**）与 **Google I/O Agent 产品落地争议**（Information Agents / Gemini Spark / Daily Brief 多入口但 Ultra 付费墙）并行；政策侧 **特朗普推迟签署 AI 安全审查 EO**，企业侧 **Microsoft × EY 宣布 10 亿美元级联合计划** 推动从试点到规模化落地。
 
 | 维度 | 本日结论 |
 | --- | --- |
-| 检索范围 | GitHub Releases（Claude Code/Codex/OpenClaw）；官方博客补充 |
-| 核心趋势 | 终端 Agent 稳定性与插件生态周更；Rust Codex 侧继续硬化 |
-| 可直接关注 | 对照三仓库 release notes 的 breaking change 与 sandbox 默认值 |
-| 专项检索结论 | **Claude Code `v2.1.146`**：`Published 2026-05-21T01:51:52Z` → **`2026-05-21 09:51（Asia/Shanghai）`**；**Codex `rust-v0.133.0`**：`Published 2026-05-21T16:48:00Z` → **`2026-05-22 00:48（Asia/Shanghai，相邻日期）`**；**OpenClaw `2026.5.21`**：当日 tag；**Hermes/Spring AI**：无硬对齐 |
+| 检索范围 | OpenAI/Anthropic/Google/Microsoft 官方与 GitHub Release；TechCrunch/The Verge；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项；arXiv 论文；EU/US 政策；中文补充 |
+| 核心趋势 | **终端 Coding Agent 进入「Goals 默认开 + 权限 Profile 继承 + /code-review 标准化」工程化阶段**；**消费级 Agent 生态产品化加速但付费墙与品牌碎片化引质疑**；**美国政府 AI 预发布审查 EO 暂缓**，监管与产业速度博弈加剧 |
+| 可直接关注 | 升级 **Claude Code v2.1.146** 评估 `/code-review` 与 Windows MCP 分页修复；评估 **Codex 0.133.0** 的 Goals 默认开启与 `remote-control` 前台化；跟踪 **OpenClaw beta.2** 的 Policy 插件与 Discord 语音 Agent |
+| 专项检索结论 | **Claude Code**：**`v2.1.146`** **`Published: 2026-05-21T01:51:52Z` → `2026-05-21 09:51:52（Asia/Shanghai）`**；**Codex**：**`rust-v0.133.0`** **`Published: 2026-05-21T16:48:03Z` → `2026-05-22 00:48:03（Asia/Shanghai）`（相邻日期/跨时区）**；**OpenClaw**：**`v2026.5.20-beta.2`** **`Published: 2026-05-21T15:57:15Z` → `2026-05-21 23:57:15（Asia/Shanghai）`**；**Hermes**：未发现 **`2026-05-21`** 新 tag（最近 **`v2026.5.16`** 为 **`2026-05-16`**）；**Spring AI**：未发现与 **`2026-05-21`** 硬对齐的新 release/博文；**skills/Cursor Skills**：未发现 **`2026-05-21`** 官方 Changelog（最近为 **`2026-05-20` Automations**） |
 
 ### 重要事件与发布
 
 | 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
 | --- | --- | --- | --- | --- |
-| Claude Code | [anthropics/claude-code `v2.1.146`](https://github.com/anthropics/claude-code/releases/tag/v2.1.146) | **2026-05-21（上海 09:51）** | 开源发布 | 终端 Agent 修复与能力迭代；以上海换算落入日窗 |
-| Codex | [openai/codex `rust-v0.133.0`](https://github.com/openai/codex/releases/tag/rust-v0.133.0) | **相邻日期/UTC→上海 `2026-05-22 00:48`** | 开源发布 | Rust 栈 Codex 版本线更新；需在 changelog 核对 sandbox/TUI |
-| OpenClaw | [openclaw/openclaw `2026.5.21`](https://github.com/openclaw/openclaw/releases/tag/2026.5.21) | **2026-05-21** | 开源发布 | 网关/插件周更；关注 Node 版本与 Docker 镜像变量 |
+| Claude Code | [anthropics/claude-code `v2.1.146`](https://github.com/anthropics/claude-code/releases/tag/v2.1.146) | GitHub **`Published: 2026-05-21T01:51:52Z` → `2026-05-21 09:51:52（Asia/Shanghai）`** | 开源发布 | **`/simplify` 重命名为 `/code-review`**（可选 effort level）；修复 Windows PowerShell、MCP 分页、后台会话权限与 auto-updater 可靠性 |
+| Codex | [openai/codex `rust-v0.133.0`](https://github.com/openai/codex/releases/tag/rust-v0.133.0) | GitHub **`Published: 2026-05-21T16:48:03Z` → `2026-05-22 00:48:03（Asia/Shanghai）`（相邻日期/跨时区）** | 开源发布 | **Goals 默认开启** + 专用存储跨 turn 追踪；**`codex remote-control` 前台化**；Permission profiles 继承与 managed `requirements.toml` |
+| OpenClaw | [openclaw/openclaw `v2026.5.20-beta.2`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.20-beta.2) | GitHub **`Published: 2026-05-21T15:57:15Z` → `2026-05-21 23:57:15（Asia/Shanghai）`** | 开源预发布 |  bundled **Policy 插件**、Discord 语音会话跟随用户、**xAI device-code OAuth**、Skill 加载安全收紧（禁止 `cat SKILL.md` 兼容路径） |
+| 消费 Agent 生态 | [Google is pitching an AI agent ecosystem to consumers who may not buy it](https://techcrunch.com/2026/05/21/google-is-pitching-an-ai-agent-ecosystem-to-consumers-who-may-not-buy-it/) | **`May 21, 2026 6:52 AM PDT` → `2026-05-21 21:52（Asia/Shanghai）`** | 技术媒体 | I/O 后 **Information Agents / Gemini Spark / Daily Brief / Android Halo** 多品牌入口，初期锁定 **Google Ultra（$100/月）** 等付费档——产品策略与「Agent 普及」叙事存在张力 |
+| 政策监管 | [Trump delays AI security executive order](https://techcrunch.com/2026/05/21/trump-delays-ai-security-executive-order-i-dont-want-to-get-in-the-way-of-that-leading/) | **`May 21, 2026 10:30 AM PDT` → `2026-05-22 01:30（Asia/Shanghai）`（相邻日期/跨时区）** | 政策标准 | 拟要求 AI 公司在发布前 **14–90 天** 向政府共享前沿模型的 EO **暂缓签署**；背景含 Anthropic Mythos、OpenAI GPT-5.5 Cyber 等安全能力争议 |
+| 企业 AI 落地 | [From AI pilots to enterprise impact](https://blogs.microsoft.com/blog/2026/05/21/from-ai-pilots-to-enterprise-impact-why-execution-is-the-new-differentiator/) | **官方稿：`May 21, 2026`** | 官方发布 | Microsoft × EY **10 亿美元+** 联合计划；EY 作为 Customer Zero 披露 Copilot **94% 月活 / 85% 周活** 与 Finance/Tax/Assurance Agent 量化成效 |
+| AI 硬件/消费 | [Hark raises $700M Series A](https://techcrunch.com/2026/05/21/hark-raises-700m-series-a-for-its-secretive-universal-ai-interface/) | **`May 21, 2026 7:00 AM PDT` → `2026-05-21 22:00（Asia/Shanghai）`** | 融资/产品 | Figure.AI 创始人 Brett Adcock 的 **通用 AI 界面 + 硬件** 路线获 **$700M A 轮**（估值 $6B）；计划夏季发布多模态模型 |
+| AI 数学（延续） | [OpenAI model disproves discrete geometry conjecture](https://openai.com/index/model-disproves-discrete-geometry-conjecture/) | **官方稿：`May 20, 2026`；媒体持续：`May 21, 2026`** | 官方发布 | Erdős 平面单位距离问题 **首个 AI 自主证伪** 案例在 **`2026-05-21`** 继续发酵——研发侧应以 **PDF + companion remarks** 为证据链核心 |
+| 版权/生成式 AI | [Spotify and Universal Music strike deal on AI covers and remixes](https://techcrunch.com/2026/05/21/spotify-and-universal-music-strike-deal-allowing-fan-made-ai-covers-and-remixes/) | **`May 21, 2026`** | 行业协议 | Premium 用户可创作 **AI cover/remix** 并分成——「consent, credit, compensation」框架或成内容平台模板 |
 
 ### 技术文档与教程
 
 | 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
 | --- | --- | --- | --- |
-| Claude Code | v2.1.146 release notes | MCP/会话/超时类修复 | 日常使用者 |
-| Codex | rust-v0.133.0 | TUI、daemon、Windows sandbox | 平台工程师 |
+| Claude Code 代码审查 | [Claude Code v2.1.146 Release Notes](https://github.com/anthropics/claude-code/releases/tag/v2.1.146) | `/code-review` effort level、MCP 分页、Windows 终端稳定性 | 日常 Claude Code 用户 / Windows 开发者 |
+| Codex Goals 与远程控制 | [Codex 0.133.0 Release](https://github.com/openai/codex/releases/tag/rust-v0.133.0) | Goals DB、permission profiles、`remote-control` 前台 UX | Codex CLI / 插件扩展开发者 |
+| OpenClaw Policy 与 Skill 安全 | [OpenClaw beta.2 Release](https://github.com/openclaw/openclaw/releases/tag/v2026.5.20-beta.2) | Policy 插件、Skill 必须通过 read tool 加载、Discord voice bootstrap | 自托管 Agent 平台工程 |
+| 企业 Agent 规模化 | [Microsoft × EY 官方公告](https://news.microsoft.com/source/2026/05/21/ey-and-microsoft-announce-global-initiative-to-help-clients-scale-ai-enterprisewide-value-creation-and-move-beyond-experimentation/) | Forward Deployed Engineers、Frontier Firm 蓝图 | 企业架构 / 转型负责人 |
 
 ### LangChain / Agent / LLM 工程相关进展
 
-**总体判断**：编码 Agent 三栈同日（或跨 UTC 边界）迭代，工程团队应统一 pin 版本并跑 smoke test。
+**总体判断**：**Coding Agent 栈在「审查命令标准化 + 目标持久化 + 策略插件化」三处同时收敛**；消费侧 Agent 仍处 **多品牌、高付费、低统一入口** 阶段，与开源网关（OpenClaw）的 **Policy/Skill 安全收紧** 形成对照。
 
 | 主题 | 进展 | 工程启发 |
 | --- | --- | --- |
-| 版本矩阵 | 三仓库同日 release | CI 里固定 `claude-code/codex/openclaw` 版本，避免混用 |
-| 时区 | Codex UTC 16:48 | 纳入「相邻日期」清单，避免误判为 5/22 主线 |
+| 代码审查 UX | Claude Code `/code-review` 取代 `/simplify` | 把「简化/审查」收敛为 **单一可配置 slash command**，降低团队培训成本 |
+| 跨 turn 目标 | Codex Goals 默认开 + 专用 DB | 长任务 Agent 应 **持久化 goal 状态**，而非仅依赖上下文窗口 |
+| 网关策略 | OpenClaw bundled Policy plugin | 频道合规、doctor lint、workspace repair 应 **插件化 + 可 opt-in 修复** |
+| Skill 加载安全 | OpenClaw 移除 `cat SKILL.md` 兼容 | Skill 文件 **只经 read tool 加载**，executable 单独 allowlist——防 prompt 注入式 bypass |
+| 企业落地度量 | EY Copilot 94% MAU | Agent 推广 KPI 应从 **试点满意度** 升级到 **周活/任务完成率/职能 ROI** |
 
 ### 值得深入阅读的资料
 
 | 推荐级别 | 资料 | 为什么值得读 |
 | --- | --- | --- |
-| 推荐 | Claude Code v2.1.146 | 上海日窗内最清晰的一手 release |
-| 推荐 | OpenClaw 2026.5.21 | 网关侧插件/SDK 变更 |
+| 必读 | **Claude Code v2.1.146** + **Codex rust-v0.133.0** Release Notes | 当日 **双 Coding Agent 发版**，直接影响日常工程工作流 |
+| 必读 | **OpenClaw v2026.5.20-beta.2** | Policy 插件与 Skill 安全模型是 **自托管 Agent 治理** 样板 |
+| 推荐 | TechCrunch：**Google Agent 生态** + **Trump 推迟 AI EO** | 理解 **产品付费墙** 与 **监管节奏** 对 Agent 路线的影响 |
+| 延伸 | Microsoft Blog：**AI pilots → enterprise impact** | 大型企业 **从试点到生产** 的可量化参考 |
 
 ### 来源清单
 
 - 检索范围：2026-05-21 00:00:00 到 2026-05-21 23:59:59（Asia/Shanghai）
-- 引用域名：github.com
+- 引用域名：github.com, openai.com, blogs.microsoft.com, techcrunch.com, news.microsoft.com, developer.nvidia.com（相邻检索）
 - 来源清单表格：
 
 | 类型 | 标题 | 日期 | 链接 |
 | --- | --- | --- | --- |
 | 开源发布 | Claude Code v2.1.146 | 2026-05-21 | https://github.com/anthropics/claude-code/releases/tag/v2.1.146 |
-| 开源发布 | Codex rust-v0.133.0 | 相邻日期 | https://github.com/openai/codex/releases/tag/rust-v0.133.0 |
-| 开源发布 | OpenClaw 2026.5.21 | 2026-05-21 | https://github.com/openclaw/openclaw/releases/tag/2026.5.21 |
+| 开源发布 | Codex rust-v0.133.0 | 2026-05-21（相邻日期/跨时区发布） | https://github.com/openai/codex/releases/tag/rust-v0.133.0 |
+| 开源发布 | OpenClaw v2026.5.20-beta.2 | 2026-05-21 | https://github.com/openclaw/openclaw/releases/tag/v2026.5.20-beta.2 |
+| 官方发布 | Microsoft：From AI pilots to enterprise impact | 2026-05-21 | https://blogs.microsoft.com/blog/2026/05/21/from-ai-pilots-to-enterprise-impact-why-execution-is-the-new-differentiator/ |
+| 官方发布 | Microsoft × EY 联合倡议 | 2026-05-21 | https://news.microsoft.com/source/2026/05/21/ey-and-microsoft-announce-global-initiative-to-help-clients-scale-ai-enterprisewide-value-creation-and-move-beyond-experimentation/ |
+| 技术媒体 | Google Agent 生态质疑 | 2026-05-21 | https://techcrunch.com/2026/05/21/google-is-pitching-an-ai-agent-ecosystem-to-consumers-who-may-not-buy-it/ |
+| 技术媒体 | Trump 推迟 AI 安全 EO | 2026-05-21（相邻日期/跨时区传播） | https://techcrunch.com/2026/05/21/trump-delays-ai-security-executive-order-i-dont-want-to-get-in-the-way-of-that-leading/ |
+| 技术媒体 | Hark $700M Series A | 2026-05-21 | https://techcrunch.com/2026/05/21/hark-raises-700m-series-a-for-its-secretive-universal-ai-interface/ |
+| 技术媒体 | Spotify × UMG AI covers 协议 | 2026-05-21 | https://techcrunch.com/2026/05/21/spotify-and-universal-music-strike-deal-allowing-fan-made-ai-covers-and-remixes/ |
+| 官方发布 | OpenAI 离散几何证明（延续传播） | 2026-05-20（2026-05-21 持续讨论） | https://openai.com/index/model-disproves-discrete-geometry-conjecture/ |
 
 ## 2026-05-20
 
 ### 今日总览
 
-**一句话结论**：`2026-05-20` 是 **Google I/O 2026 次日沉淀**：官方以 **「100 things from I/O」** 汇总发布矩阵，同时 **Vertex AI Agent Executor GA** 落地，标志 Agent 运行时从预览进入生产可用。
+**一句话结论**：`2026-05-20`（Asia/Shanghai，00:00–23:59）主线是 **OpenAI 通用推理模型自主证伪 Erdős 平面单位距离猜想**（附数学家 companion remarks 与 PDF 证明）与 **Agent 产品/技能生态继续分化**（Figma 画布内 AI Agent、NVIDIA AI-Q 深度研究 Skill、OpenClaw `alpha.1`）并行；监管侧 **欧盟委员会发布高风险 AI 系统分类草案指南**并开放公众咨询至 6 月 23 日。
 
 | 维度 | 本日结论 |
 | --- | --- |
-| 检索范围 | blog.google、cloud.google.com、专项开发者工具 |
-| 核心趋势 | I/O 发布清单化；企业 Agent 执行引擎 GA；工程侧对照 Antigravity/Spark 叙事 |
-| 可直接关注 | 评估 Agent Executor 与现有 Agent 框架的编排/审计差异 |
-| 专项检索结论 | **Claude Code/Codex/OpenClaw/Hermes/Spring AI**：未发现 `2026-05-20（上海）` 硬对齐 Release；**skills**：延续 I/O Agent Skills 讨论，无当日新 tag |
+| 检索范围 | OpenAI 官方稿；TechCrunch/The Verge 跟进；NVIDIA Technical Blog；Figma 产品发布；EU AI Act 草案指南；Claude Code/Codex/OpenClaw/Hermes GitHub Release；arXiv/HF 论文；政策监管；中文补充 |
+| 核心趋势 | **AI 数学推理从「营销争议」走向「可核验证明 + 外部数学家背书」**；**设计/办公/研究三类 Agent 各自强化「上下文 + 多 Agent 并行 + 企业数据不出域」**；**EU AI Act 高风险分类进入咨询期**，合规时间表与 Digital Omnibus 修订联动 |
+| 可直接关注 | 研读 OpenAI **unit-distance proof + companion remarks** 评估「长链推理 + 跨领域连接」能力边界；设计/产品团队对照 **Figma 画布 Agent** 的多 Agent 协作模式；受监管行业跟进 **EU 高风险 AI 分类草案** 与 2027/2028 义务节点 |
+| 专项检索结论 | **Claude Code**：未发现 **`2026-05-20（上海）`** 新 GitHub Release（最近 **`v2.1.145`** 为 **`2026-05-19`**）；**Codex**：未发现当日新 tag（**`rust-v0.131.0`** 仍属 **`2026-05-19`** 窗口）；**OpenClaw**：**`v2026.5.19-alpha.1`** **`Published: 2026-05-20T00:50:52Z` → `2026-05-20 08:50:52（Asia/Shanghai）`**；**Hermes**：未发现 **`2026-05-20`** 新 tag（最近 **`v2026.5.16`**）；**Spring AI / LangChain**：未发现与 **`2026-05-20`** 硬对齐的新 release/博文；**skills**：NVIDIA 发布 **AI-Q deep research skill**（Claude Code/Codex 可安装）；OpenClaw 侧新增 **meme-maker / autoreview** 等 skills 迭代 |
 
 ### 重要事件与发布
 
 | 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
 | --- | --- | --- | --- | --- |
-| Google I/O 汇总 | [100 things we announced at Google I/O 2026](https://blog.google/technology/developers/100-things-google-io-2026/) | **2026-05-20** | 官方发布 | 模型/搜索/开发工具/安全等 100 项清单——研发选型的一页索引 |
-| Agent 平台 | [Vertex AI Agent Executor is now GA](https://cloud.google.com/blog/products/ai-machine-learning/agent-executor-is-now-ga) | **2026-05-20** | 官方博客 | Agent 执行引擎 GA：长时程任务、工具调用与企业治理进入默认可用路径 |
+| AI 数学 / 推理 | [An OpenAI model has disproved a central conjecture in discrete geometry](https://openai.com/index/model-disproves-discrete-geometry-conjecture/) | **官方稿：`May 20, 2026`** | 官方发布 | 通用推理模型给出 **平面单位距离问题**新下界构造（推翻「方格网格 essentially optimal」长期信念），附 [证明 PDF](https://cdn.openai.com/pdf/74c24085-19b0-4534-9c90-465b8e29ad73/unit-distance-proof.pdf) 与 [数学家 companion remarks](https://cdn.openai.com/pdf/74c24085-19b0-4534-9c90-465b8e29ad73/unit-distance-remarks.pdf)——评估 **长链推理可信度** 与 **跨代数数论×组合几何** 连接能力 |
+| AI 数学（媒体） | [OpenAI claims it solved an 80-year-old math problem — for real this time](https://techcrunch.com/2026/05/20/openai-claims-it-solved-an-80-year-old-math-problem-for-real-this-time/) | **`May 20, 2026 1:28 PM PDT` → `2026-05-21 04:28（Asia/Shanghai）`（相邻日期/跨时区传播）** | 技术媒体 | 对照 **2025 年 GPT-5 Erdős 误报** 背景，说明本次附带 **Noga Alon / Thomas Bloom** 等外部数学家背书——研发侧应 **以 PDF+remarks 为准**，媒体作线索 |
+| 教育 / 国家级部署 | [The next phase of OpenAI’s Education for Countries](https://openai.com/index/the-next-phase-of-education-for-countries/) | **官方稿：`May 20, 2026`** | 官方发布 | 伦敦 Education World Forum 公布首批国家进展（爱沙尼亚 2 万+ 学生等），**新加坡加入**；强调 **研究驱动部署 + ChatGPT Edu/Codex 本地化 + 教师培训** |
+| 设计 Agent | [Figma adds an AI assistant to its collaborative canvas](https://techcrunch.com/2026/05/20/figma-adds-an-ai-assistant-to-its-collaborative-canvas/) | **`May 20, 2026 6:00 AM PDT` → `2026-05-20 21:00（Asia/Shanghai）`** | 产品发布 | 画布内 **自然语言驱动生成/编辑/自动化**，支持 **多 Agent 并行**；与既有 **Claude Code/Codex CLI 集成**形成「设计 + 代码」双栈 |
+| Agent Skills / 企业研究 | [Add a Specialized Deep Research Skill to Agent Harnesses](https://developer.nvidia.com/blog/add-a-specialized-deep-research-skill-to-agent-harnesses/) | **官方稿：`May 20, 2026`** | 官方教程 | **AI-Q skill** 让 Claude Code/Codex 将深度研究 **委托给本地/托管 AI-Q 服务器**，返回 **带引用的结构化报告**；含 **MCP 认证数据源**集成模式——受监管行业 **数据不出域** 参考架构 |
+| 政策 / EU AI Act | [European Commission Releases Draft Guidelines on High-Risk AI Under the EU AI Act](https://www.hunton.com/privacy-and-cybersecurity-law-blog/european-commission-releases-draft-guidelines-on-high-risk-ai-under-the-eu-ai-act) | **欧盟发布：`May 19, 2026`；公众咨询报道：`May 20, 2026`** | 政策标准 | **Article 6(5) 高风险 AI 分类草案指南**三部分（一般原则 / Annex I 产品安全 / Annex III 独立高风险场景）；咨询至 **2026-06-23**；义务节点延至 **2027-12-02 / 2028-08-02** |
+| 桌面 Agent 创业 | [IrisGo, a startup backed by Andrew Ng, looks to become the AI desktop buddy](https://techcrunch.com/2026/05/20/irisgo-a-startup-backed-by-andrew-ng-looks-to-become-the-ai-desktop-buddy-you-never-knew-you-needed/) | **`May 20, 2026`** | 技术媒体 | **录一次流程、自动重复** 的桌面 companion；内置邮件/发票/报告 skills——对照 **Spark/OpenClaw** 的「常驻助手」产品形态 |
+| OpenClaw | [openclaw/openclaw `v2026.5.19-alpha.1`](https://github.com/openclaw/openclaw/releases/tag/v2026.5.19-alpha.1) | GitHub **`Published: 2026-05-20T00:50:52Z` → `2026-05-20 08:50:52（Asia/Shanghai）`** | 开源预发布 | Mac Settings 卡片化、**`defineToolPlugin`**、**meme-maker skill**、browser **`--timeout-ms`**、Node **≥22.19**、Docker **`OPENCLAW_IMAGE_APT_PACKAGES`** |
 
 ### 技术文档与教程
 
 | 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
 | --- | --- | --- | --- |
-| Agent 运行时 | Agent Executor GA 文 | 生产级编排、权限与可观测性 | 平台/SRE |
-| I/O 索引 | 100 things 博文 | 产品矩阵与能力边界 | 架构/全栈 |
+| AI 数学证明 | OpenAI：**unit-distance proof + companion remarks** | 代数数论构造、外部数学家核验流程 | 研究/推理评测 / AI safety |
+| Agent Skills 企业化 | NVIDIA：**AI-Q deep research skill** | SKILL.md + helper script + MCP 认证数据源 | Agent 平台 / 合规研发 |
+| EU 合规准备 | EC 草案指南 + Digital Omnibus 时间表 | Annex I/III 分类、2027/2028 义务节点 | 法务 / 产品经理 |
 
 ### LangChain / Agent / LLM 工程相关进展
 
-**总体判断**：Google 把 I/O 能力「清单化 + 执行引擎 GA」组合推送，Agent 工程从 demo 进入默认基础设施。
+**总体判断**：**「通用 Agent 编排」与「垂直能力 Skill/Blueprint」继续解耦**——Figma/NVIDIA 分别把 **设计上下文** 与 **企业深度研究** 封装为可调用能力，OpenClaw 则在开源侧强化 **typed tool plugins + skills CLI**。
 
 | 主题 | 进展 | 工程启发 |
 | --- | --- | --- |
-| 企业 Agent | Agent Executor GA | 与自研/开源 Agent 网关对比 SLA、审计、VPC 边界 |
-| 发布索引 | 100 things | 用官方清单做季度 roadmap 对照，避免只看媒体标题 |
+| Skill 标准化 | NVIDIA AI-Q skill 跨 Claude Code/Codex | 复杂子能力（研究/合规检索）应 **独立服务 + SKILL.md 契约**，而非塞进主 Agent prompt |
+| 多 Agent UI | Figma 画布多 Agent 并行 | 产品层需 **会话/任务隔离 + 权限边界**，避免 Agent 互相覆盖设计状态 |
+| 开源 Agent 网关 | OpenClaw **alpha.1** | **插件 SDK 版本化 + Node 基线抬升** 要纳入升级 runbook |
+| 数学推理评测 | OpenAI unit-distance 证明 | 建立 **「官方 PDF + 外部数学家 remarks + 媒体二次核验」** 三源证据链，避免 repeat Weil 式误报 |
 
 ### 值得深入阅读的资料
 
 | 推荐级别 | 资料 | 为什么值得读 |
 | --- | --- | --- |
-| 必读 | 100 things from I/O | 当日可核验的 Google 全矩阵索引 |
-| 必读 | Agent Executor GA | 企业 Agent 落地的一手工程表述 |
+| 必读 | OpenAI：**An OpenAI model has disproved…** + PDF 证明 | 当日 **最具里程碑** 的可核验一手材料 |
+| 必读 | NVIDIA：**Add a Specialized Deep Research Skill…** | **Agent Skills × 企业 MCP 数据源** 落地模板 |
+| 推荐 | OpenAI：**The next phase of Education for Countries** | 国家级 **研究驱动 AI 部署** 指标与新加坡案例 |
+| 推荐 | EU 高风险 AI 分类 **草案指南**（EC 链接见 Hunton 博文） | 2027 前 **产品分级与合规排期** 输入 |
+| 延伸 | Figma AI assistant（TechCrunch） | **设计工具 Agent 化** 的产品交互参考 |
 
 ### 来源清单
 
-- 检索范围：2026-05-20 00:00:00 到 2026-05-20 23:59:59（Asia/Shanghai）
-- 引用域名：blog.google, cloud.google.com
+- 检索范围：2026-05-20 00:00:00 到 2026-05-20 23:59:59（Asia/Shanghai），并对 **GitHub `Published`（UTC）**、媒体 **PDT/UTC** 做换算标注
+- 引用域名：`openai.com`, `techcrunch.com`, `developer.nvidia.com`, `hunton.com`, `digital-strategy.ec.europa.eu`, `github.com`
 - 来源清单表格：
 
 | 类型 | 标题 | 日期 | 链接 |
 | --- | --- | --- | --- |
-| 官方发布 | 100 things I/O 2026 | 2026-05-20 | https://blog.google/technology/developers/100-things-google-io-2026/ |
-| 官方博客 | Agent Executor GA | 2026-05-20 | https://cloud.google.com/blog/products/ai-machine-learning/agent-executor-is-now-ga |
+| 官方发布 | OpenAI unit-distance conjecture disproof | **`May 20, 2026`** | https://openai.com/index/model-disproves-discrete-geometry-conjecture/ |
+| 官方发布 | OpenAI Education for Countries next phase | **`May 20, 2026`** | https://openai.com/index/the-next-phase-of-education-for-countries/ |
+| 官方教程 | NVIDIA AI-Q deep research skill | **`May 20, 2026`** | https://developer.nvidia.com/blog/add-a-specialized-deep-research-skill-to-agent-harnesses/ |
+| 技术媒体 | OpenAI 80-year math problem | **相邻日期/跨时区传播** | https://techcrunch.com/2026/05/20/openai-claims-it-solved-an-80-year-old-math-problem-for-real-this-time/ |
+| 技术媒体 | Figma AI assistant | **`May 20, 2026`（PDT→上海）** | https://techcrunch.com/2026/05/20/figma-adds-an-ai-assistant-to-its-collaborative-canvas/ |
+| 技术媒体 | IrisGo desktop buddy | **`May 20, 2026`** | https://techcrunch.com/2026/05/20/irisgo-a-startup-backed-by-andrew-ng-looks-to-become-the-ai-desktop-buddy-you-never-knew-you-needed/ |
+| 政策标准 | EU high-risk AI draft guidelines | **`May 19–20, 2026`** | https://www.hunton.com/privacy-and-cybersecurity-law-blog/european-commission-releases-draft-guidelines-on-high-risk-ai-under-the-eu-ai-act |
+| 开源发布 | OpenClaw v2026.5.19-alpha.1 | **UTC→上海 `2026-05-20`** | https://github.com/openclaw/openclaw/releases/tag/v2026.5.19-alpha.1 |
 
 ## 2026-05-19
 
@@ -1607,6 +1959,7 @@
 | 中文媒体（相邻）       | ChatGPT 免费模型升级量子位稿件                                 | 2026-05-05                  | [https://www.qbitai.com/2026/05/412995.html](https://www.qbitai.com/2026/05/412995.html)                                                                                                                                   |
 | 论文相邻           | arXiv:2605.05873 CITE                               | 2026-05-07                  | [https://arxiv.org/abs/2605.05873](https://arxiv.org/abs/2605.05873)                                                                                                                                                       |
 
+
 ## 2026-05-07
 
 ### 今日总览
@@ -1732,6 +2085,7 @@
 | 技术媒体       | Sakana RL Conductor / Fugu multi-agent orchestration                             | 2026-05-07                   | [https://venturebeat.com/orchestration/how-sakana-trained-a-7b-model-to-orchestrate-gpt-5-claude-sonnet-4-and-gemini-2-5-pro](https://venturebeat.com/orchestration/how-sakana-trained-a-7b-model-to-orchestrate-gpt-5-claude-sonnet-4-and-gemini-2-5-pro)                                                                 |
 | 政策与标准      | AI Act: deal on simplification measures, ban on “nudifier” apps                  | 2026-05-07                   | [https://www.europarl.europa.eu/news/en/press-room/20260427IPR42011/ai-act-deal-on-simplification-measures-ban-on-nudifier-apps](https://www.europarl.europa.eu/news/en/press-room/20260427IPR42011/ai-act-deal-on-simplification-measures-ban-on-nudifier-apps)                                                           |
 
+
 ## 2026-05-06
 
 ### 今日总览
@@ -1813,3 +2167,5 @@
 | 开源发布  | Hermes Agent v0.12.0                                          | 2026-04-30（相邻日期/中国时间窗口传播） | [https://github.com/NousResearch/hermes-agent/releases/tag/v2026.4.30](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.4.30)                                                   |
 | 开源发布  | Spring AI 2.0.0-M5                                            | 2026-04-27（相邻日期/中国时间窗口传播） | [https://github.com/spring-projects/spring-ai/releases/tag/v2.0.0-M5](https://github.com/spring-projects/spring-ai/releases/tag/v2.0.0-M5)                                                     |
 | 论文聚合  | Hugging Face Daily Papers                                     | 2026-05-06                | [https://huggingface.co/papers/date/2026-05-06](https://huggingface.co/papers/date/2026-05-06)                                                                                                 |
+
+
