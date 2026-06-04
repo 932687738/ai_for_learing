@@ -2,6 +2,727 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-06-02
+
+### 今日总览
+
+**一句话结论**：`2026-06-02` 主线是 **Microsoft 发布推理模型 MAI-Thinking-1** 与 **Holo3.1 本地 Computer Use 家族** 并行，延续「推理 + 端侧 Agent」双线；Anthropic 同日宣布 **Project Glasswing 扩展**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Microsoft AI、Hugging Face/Hcompany、Anthropic 官方；开发者工具专项 |
+| 核心趋势 | 中型推理模型进入企业 Foundry；Computer Use 量化权重面向本地/边缘；安全联盟项目扩容 |
+| 可直接关注 | 评估 MAI-Thinking-1 在 SWE/数学侧与 Sonnet 4.6 盲测表现；Holo3.1 FP8/Q4 本地部署路径 |
+| 专项检索结论 | **Claude Code/Codex/OpenClaw**：未发现 `2026-06-02（上海）` 新 GitHub Release；**Hermes**：无当日 tag；**Spring AI**：无 6/2 博文；**skills**：Holo3.1 强调跨框架 Agent 栈集成 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 推理模型 | [Introducing MAI-Thinking-1](https://microsoft.ai/news/introducing-mai-thinking-1/) | **2026-06-02** | 官方发布 | 微软自研推理模型，强调 SWE 基准与数学推理；Foundry 私有预览 |
+| Computer Use | [Holo3.1: Fast & Local Computer Use Agents](https://huggingface.co/blog/Hcompany/holo31) | **2026-06-02** | 官方博客 | 0.8B–35B 家族 + FP8/NVFP4/Q4 GGUF，面向本地浏览器/桌面自动化 |
+| 安全联盟 | [Expanding Project Glasswing](https://www.anthropic.com/news) | **2026-06-02** | 官方公告 | Glasswing 扩展至约 150 家组织、十余国 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 企业推理 | MAI-Thinking-1 公告 | Foundry 接入、盲测对比 Sonnet 4.6 | 平台/后端 |
+| 本地 Agent | Holo3.1 HF Blog | 量化部署、多尺寸模型选型 | 端侧/自动化工程师 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：端侧 Computer Use 与云端推理模型同日补强，Agent 栈继续「云强推理 + 本地执行」分层。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 本地 CUA | Holo3.1 量化权重 | 生产环境可评估 Q4 在消费级 GPU 上的延迟/成功率 |
+| 推理层竞争 | MAI-Thinking-1 | 中型权重类模型或成「成本可控推理」默认选项 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | MAI-Thinking-1 官方文 | 微软首次主推自研推理栈的企业叙事 |
+| 推荐 | Holo3.1 Blog | 本地 Computer Use 部署与量化选型 |
+
+### 来源清单
+
+- 检索范围：2026-06-02 00:00:00 到 2026-06-02 23:59:59（Asia/Shanghai）
+- 引用域名：microsoft.ai, huggingface.co, anthropic.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | MAI-Thinking-1 | 2026-06-02 | https://microsoft.ai/news/introducing-mai-thinking-1/ |
+| 官方博客 | Holo3.1 | 2026-06-02 | https://huggingface.co/blog/Hcompany/holo31 |
+| 官方公告 | Expanding Project Glasswing | 2026-06-02 | https://www.anthropic.com/news |
+
+## 2026-06-01
+
+### 今日总览
+
+**一句话结论**：`2026-06-01` 是 **Anthropic 递交保密 S-1** 与 **NVIDIA GTC Taipei 开源 Physical AI Agent 工具集** 的双主线日——资本市场与具身/工业 Agent 基础设施同日升温。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Anthropic、NVIDIA Investor、SiliconANGLE；专项工具链 |
+| 核心趋势 | 头部 lab IPO 进程启动；物理世界 Agent skills/工具开源化 |
+| 可直接关注 | S-1 仅为草案，需跟踪 SEC 审查与 market conditions 表述 |
+| 专项检索结论 | **NVIDIA Agent Toolkit + NemoClaw** 面向长时程 Agent；**Claude Code/Codex/OpenClaw/Hermes**：无 `2026-06-01` 硬对齐 Release |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| IPO | [Anthropic confidentially submits draft S-1](https://www.anthropic.com/news/confidential-draft-s1-sec) | **2026-06-01** | 官方公告 | 保密递交 Form S-1，股数/定价未定 |
+| Physical AI | [NVIDIA open source Agent Tools for Physical AI](https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Releases-Major-Collection-of-Open-Source-Agent-Tools-and-Skills-for-Physical-AI/default.aspx) | **2026-06-01** | 官方发布 | Omniverse/Cosmos/Alpamayo/Metropolis 等转为 Agent 可调用 skills |
+| AV 推理 | [NVIDIA Alpamayo 2 Super](https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Launches-Alpamayo-2-Super-Open-Reasoning-Model-for-Robotaxis/default.aspx) | **2026-06-01** | 官方发布 | 32B 开源 VLA 推理模型，面向 L4 robotaxi 栈 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 物理 AI Agent | NVIDIA GTC Taipei 稿 | Agent Toolkit、skills.sh 分发 | 机器人/仿真工程师 |
+| 合规 | Anthropic S-1 新闻稿 | Rule 135 声明边界 | 法务/战略 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：工业/自动驾驶 Agent 工具链与金融化节奏同步加速，工程侧应区分「开源技能」与「模型权重」交付节奏。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Agent 工具标准化 | NVIDIA skills on GitHub | 可将仿真/数据生成流程封装为 coding agent 可调用 skill |
+| 开源 VLA | Alpamayo 2 Super 今夏权重 | 闭环训练管线需提前规划 NuRec/OmniDreams 技能 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | Anthropic S-1 公告 | IPO 路径一手表述 |
+| 必读 | NVIDIA Physical AI 新闻稿 | 具身 Agent 工具全景 |
+
+### 来源清单
+
+- 检索范围：2026-06-01 00:00:00 到 2026-06-01 23:59:59（Asia/Shanghai）
+- 引用域名：anthropic.com, investor.nvidia.com, siliconangle.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方公告 | Anthropic draft S-1 | 2026-06-01 | https://www.anthropic.com/news/confidential-draft-s1-sec |
+| 官方发布 | NVIDIA Physical AI tools | 2026-06-01 | https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Releases-Major-Collection-of-Open-Source-Agent-Tools-and-Skills-for-Physical-AI/default.aspx |
+| 官方发布 | Alpamayo 2 Super | 2026-06-01 | https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Launches-Alpamayo-2-Super-Open-Reasoning-Model-for-Robotaxis/default.aspx |
+
+## 2026-05-31
+
+### 今日总览
+
+**一句话结论**：`2026-05-31` **轻量日**：在 13 组检索与专项工具扫描下，**未发现可核验的重大官方发布**；**Cosmos/传闻类未验证线索不收录**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、论文、GitHub release、政策、中文补充；专项工具全扫 |
+| 核心趋势 | 周末静默；延续 5/28–5/30 Opus/Hermes 消化周期 |
+| 可直接关注 | 维护现有 pin 版本；等待下周官方 changelog |
+| 专项检索结论 | **Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills**：均无硬对齐；**Cosmos 等**：仅未经核验传闻，**跳过** |
+
+### 重要事件与发布
+
+- 未发现可核验的重大事件或发布。
+
+### 技术文档与教程
+
+- 未发现值得收录的新文档或教程。
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：无硬对齐发布：适合跑 eval 债务清理与文档对齐，而非升级模型。
+
+- 未发现可复现价值明确的新进展。
+
+### 值得深入阅读的资料
+
+- 本日暂无推荐。
+
+### 来源清单
+
+- 检索范围：2026-05-31 00:00:00 到 2026-05-31 23:59:59（Asia/Shanghai）
+- 引用域名：（本日无新增可靠域名）
+- 来源清单表格：
+
+| 无 | 无可靠新增来源 | - | - |
+
+## 2026-05-30
+
+### 今日总览
+
+**一句话结论**：`2026-05-30` 为 **Opus 4.8 动态工作流（dynamic workflows）媒体跟进日**——以解读/实践文为主，**无新的官方旗舰发布**；仍完整覆盖专项检索。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | anthropic.com 回顾、技术媒体跟进；开发者工具专项 |
+| 核心趋势 | Opus 4.8 能力在自动化/多步工作流场景的二次传播 |
+| 可直接关注 | 用官方 Opus 4.8 文档校验媒体示例是否过时 |
+| 专项检索结论 | **Claude Code/Codex/OpenClaw/Hermes/Spring AI**：无 `2026-05-30（上海）` 硬对齐 Release；主线为 **dynamic workflows 媒体跟进（轻量日）** |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 媒体跟进 | [Tech media: Claude Opus 4.8 dynamic workflows](https://techcrunch.com/) | **2026-05-30** | 技术媒体 | 解读 Opus 4.8 在多步自动化中的用法；需回溯 5/28 官方稿 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 工作流 | Opus 4.8 官方+媒体对照 | 动态编排、工具链、人工检查点 | Agent 架构师 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：轻量日：工程侧重点是消化 5/28 发布而非追新 tag。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 消化周期 | dynamic workflows 讨论 | 在内部 runbook 固定「两步人工审批」模板 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | Opus 4.8 官方文（5/28） | 媒体跟进的事实基准 |
+
+### 来源清单
+
+- 检索范围：2026-05-30 00:00:00 到 2026-05-30 23:59:59（Asia/Shanghai）
+- 引用域名：anthropic.com, techcrunch.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 技术媒体 | Opus 4.8 workflows follow-up | 2026-05-30 | https://techcrunch.com/ |
+
+## 2026-05-29
+
+### 今日总览
+
+**一句话结论**：`2026-05-29`：**Hermes `v2026.5.29` 补丁** 与 **Anthropic API Release Notes（5/29）** 为可核验主线；延续 Opus 4.8 上线后的工程跟进日。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | github.com/NousResearch/hermes-agent、docs.anthropic.com release notes |
+| 核心趋势 | 开源 Agent 栈补丁节奏；Claude API 能力/限额微调 |
+| 可直接关注 | 对照 API notes 的 breaking changes 与 Hermes patch diff |
+| 专项检索结论 | **Hermes `v2026.5.29`** 补丁 tag；**Claude Code/Codex/OpenClaw/Spring AI**：无硬对齐 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Hermes | [`v2026.5.29`](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.29) | **2026-05-29** | 开源发布 | 补丁级修复；升级风险低于 Velocity 大版本 |
+| Claude API | [Claude Platform Release Notes — May 29, 2026](https://docs.anthropic.com/en/release-notes/api) | **2026-05-29** | 官方文档 | API/MCP/Agent 能力当日条目 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| API | Anthropic 5/29 notes | 端点、限额、工具行为 | 集成工程师 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：大发布后首日常见「API 微调 + 开源补丁」组合，适合跑回归而非追新模型。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 补丁策略 | Hermes 5.29 | 生产可滚动补丁；保留 5.28 回滚 tag |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | API Release Notes 5/29 | 集成侧一手变更 |
+
+### 来源清单
+
+- 检索范围：2026-05-29 00:00:00 到 2026-05-29 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, docs.anthropic.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Hermes v2026.5.29 | 2026-05-29 | https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.29 |
+| 官方文档 | API Release Notes | 2026-05-29 | https://docs.anthropic.com/en/release-notes/api |
+
+## 2026-05-28
+
+### 今日总览
+
+**一句话结论**：`2026-05-28` 三重硬对齐：**Claude Opus 4.8** 发布、**Anthropic Series H $65B** 融资公告、**Hermes `v2026.5.28`（Velocity）** tag。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | anthropic.com、github.com/NousResearch/hermes-agent |
+| 核心趋势 | 旗舰模型迭代 + 巨额融资 + 开源 Agent 栈周更 |
+| 可直接关注 | Opus 4.8 定价/上下文；Hermes Velocity 变更日志 |
+| 专项检索结论 | **Hermes `v2026.5.28`** 当日；**Claude Code/Codex/OpenClaw/Spring AI**：无同级硬对齐 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Claude | [Claude Opus 4.8](https://www.anthropic.com/news/claude-opus-4-8) | **2026-05-28** | 官方发布 | 旗舰推理与 coding 能力升级；企业需重跑 eval |
+| 融资 | [Anthropic raises Series H at $65B post-money](https://www.anthropic.com/news/anthropic-series-h) | **2026-05-28** | 官方公告 | Series H 估值与资金用途（算力/安全/产品） |
+| Hermes | [NousResearch/hermes-agent `v2026.5.28`](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.28) | **2026-05-28** | 开源发布 | 代号 Velocity 的周更；核对 Agent 运行时 breaking changes |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Opus 4.8 | 模型公告 | benchmark、工具调用、安全卡 | 应用架构师 |
+| Hermes | v2026.5.28 release notes | 插件/CLI 变更 | Agent 工程师 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：旗舰模型、资本与开源 Agent 栈同日共振，建议冻结生产模型版本 24h 做回归。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 融资外溢 | Series H | 关注供应链与 API 限额政策是否调整 |
+| Hermes Velocity | tag 命名版本 | 升级前跑 e2e agent smoke |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | Claude Opus 4.8 | 生产默认模型可能切换 |
+| 必读 | Hermes v2026.5.28 | 开源 Agent 栈硬对齐 |
+
+### 来源清单
+
+- 检索范围：2026-05-28 00:00:00 到 2026-05-28 23:59:59（Asia/Shanghai）
+- 引用域名：anthropic.com, github.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Claude Opus 4.8 | 2026-05-28 | https://www.anthropic.com/news/claude-opus-4-8 |
+| 官方公告 | Series H $65B | 2026-05-28 | https://www.anthropic.com/news/anthropic-series-h |
+| 开源发布 | Hermes v2026.5.28 | 2026-05-28 | https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.28 |
+
+## 2026-05-27
+
+### 今日总览
+
+**一句话结论**：`2026-05-27` 三主线：**Anthropic 社会科学 coding agents 研究**、**Spring AI 2.0.0-M8**、**Anthropic 米兰办公室** 宣布——研究、Java 里程碑与欧洲组织扩张同日。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | anthropic.com、spring.io/blog；专项工具 |
+| 核心趋势 | Agent 社会科学评测；Spring AI 2.0 里程碑加速；欧洲在地团队 |
+| 可直接关注 | M8 breaking changes；米兰办公室对 EU 客户支持影响 |
+| 专项检索结论 | **Spring AI 2.0.0-M8** 当日博文；**Claude Code/Codex/OpenClaw/Hermes**：无硬对齐 tag |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Anthropic 研究 | [Coding agents in the social sciences](https://www.anthropic.com/research/coding-agents-social-sciences) | **2026-05-27** | 官方研究 | 社会科学工作流中的 coding agents 方法与局限 |
+| Spring AI | [Spring AI 2.0.0-M8](https://spring.io/blog/2026/05/27/spring-ai-2-0-0-m8) | **2026-05-27** | 官方博客 | 2.0 里程碑新特性与迁移提示 |
+| Anthropic | [Anthropic opens Milan office](https://www.anthropic.com/news/anthropic-milan-office) | **2026-05-27** | 官方公告 | 米兰办公室——南欧 enterprise 与合规触点 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Spring AI | 2.0.0-M8 发布说明 | Agent/RAG API 变更 | Java 团队 |
+| 研究 | 社会科学 coding agents | 评测方法、偏差与复现 | 研究工程师 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：研究与工程发布叠加组织扩张，Agent 能力评估维度继续拓宽。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 2.0 迁移 | Spring AI M8 | 在 staging 跑集成测试后再升生产 |
+| 社科 Agent | Anthropic 研究 | 非 STEM 场景的工具权限应更保守 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | Spring AI 2.0.0-M8 | Java AI 主线里程碑 |
+| 推荐 | Coding agents in social sciences | 跨学科 Agent 评测参考 |
+
+### 来源清单
+
+- 检索范围：2026-05-27 00:00:00 到 2026-05-27 23:59:59（Asia/Shanghai）
+- 引用域名：anthropic.com, spring.io
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方研究 | Coding agents social sciences | 2026-05-27 | https://www.anthropic.com/research/coding-agents-social-sciences |
+| 官方博客 | Spring AI 2.0.0-M8 | 2026-05-27 | https://spring.io/blog/2026/05/27/spring-ai-2-0-0-m8 |
+| 官方公告 | Milan office | 2026-05-27 | https://www.anthropic.com/news/anthropic-milan-office |
+
+## 2026-05-26
+
+### 今日总览
+
+**一句话结论**：`2026-05-26` 双主线：**Anthropic 韩国任命 KiYoung Choi 为总经理** 扩张亚太组织；**阿里巴巴 Qwen Cloud 新加坡** 区域化云产品发布（与中文开发者社区稿呼应）。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | anthropic.com、alibabacloud.com / developer.aliyun.com；专项工具 |
+| 核心趋势 | 全球销售与在地团队；中国模型出海云服务化 |
+| 可直接关注 | 亚太支持渠道；Qwen Cloud 区域合规与数据驻留条款 |
+| 专项检索结论 | **Claude Code/Codex/OpenClaw/Hermes/Spring AI**：无 `2026-05-26（上海）` 硬对齐 Release |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Anthropic | [Anthropic names KiYoung Choi GM Korea](https://www.anthropic.com/news/anthropic-korea-kiyoung-choi) | **2026-05-26** | 官方公告 | 韩国总经理任命——亚太 enterprise 触点增强 |
+| 阿里巴巴 | [Qwen Cloud 新加坡区域发布](https://www.alibabacloud.com/help/en/model-studio/what-is-qwen-cloud) | **2026-05-26** | 官方产品 | Qwen 模型云服务化、区域部署与开发者接入路径 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 区域云 | Qwen Cloud 文档 | API、计费、数据驻留 | 出海业务后端 |
+| 组织扩张 | Anthropic Korea | 在地支持与合规沟通 | 亚太客户成功 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：模型厂全球化（组织 + 区域云）同日推进，选型需叠加数据驻留评估。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 区域部署 | Qwen Cloud SG | 跨国业务优先核对 DPA 与日志出境策略 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | Anthropic Korea 公告 | 亚太组织信号 |
+| 推荐 | Qwen Cloud 产品页 | 区域化推理服务边界 |
+
+### 来源清单
+
+- 检索范围：2026-05-26 00:00:00 到 2026-05-26 23:59:59（Asia/Shanghai）
+- 引用域名：anthropic.com, alibabacloud.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方公告 | Anthropic Korea GM | 2026-05-26 | https://www.anthropic.com/news/anthropic-korea-kiyoung-choi |
+| 官方产品 | Qwen Cloud | 2026-05-26 | https://www.alibabacloud.com/help/en/model-studio/what-is-qwen-cloud |
+
+## 2026-05-25
+
+### 今日总览
+
+**一句话结论**：`2026-05-25` 主线是 **Anthropic 工程文「How we contain Claude」**——从系统层面阐述 **能力遏制、监控与部署边界**，对企业合规与红队流程有直接参考。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | anthropic.com/engineering；API release notes 补充 |
+| 核心趋势 | 前沿模型「可遏制性」工程化；安全叙事从政策转向实现细节 |
+| 可直接关注 | 对照自家 Agent 平台的沙箱、输出过滤与人类介入点 |
+| 专项检索结论 | **Claude Code/Codex/OpenClaw/Hermes/Spring AI**：无 `2026-05-25（上海）` 硬对齐 Release |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Anthropic 工程 | [How we contain Claude](https://www.anthropic.com/engineering/how-we-contain-claude) | **2026-05-25** | 官方工程文 | 阐述多层遏制、监控与部署策略——Agent 平台治理必读 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 安全工程 | How we contain Claude | 遏制架构、监控指标、运维 Playbook | 安全/平台 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：头部 lab 公开「遏制」实现路径，利于企业自建 Agent 时对齐可审计控制点。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 遏制设计 | Anthropic 工程文 | 将「人类可介入点」写入 Agent 编排 DAG |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | How we contain Claude | 少有的遏制实现向工程细节 |
+
+### 来源清单
+
+- 检索范围：2026-05-25 00:00:00 到 2026-05-25 23:59:59（Asia/Shanghai）
+- 引用域名：anthropic.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方工程 | How we contain Claude | 2026-05-25 | https://www.anthropic.com/engineering/how-we-contain-claude |
+
+## 2026-05-24
+
+### 今日总览
+
+**一句话结论**：`2026-05-24` **无 OpenAI/Anthropic/Google 等官方「GPT-5.6」发布**；媒体与社交渠道仅有 **GPT-5.6 泄漏信号（背景/泄漏，非正式发布）**，本日按规范**不升格为重大发布**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | openai.com、anthropic.com、官方 changelog；技术媒体泄漏线索 |
+| 核心趋势 | 市场传闻周期；研发应以官方 API/docs 为准 |
+| 可直接关注 | 勿将泄漏 benchmark 纳入生产选型；等待官方 system card |
+| 专项检索结论 | **GPT-5.6**：仅 **背景/泄漏，非正式发布**；**Claude Code/Codex/OpenClaw/Hermes/Spring AI**：无硬对齐 Release |
+
+### 重要事件与发布
+
+- 未发现可核验的重大事件或发布。
+
+### 技术文档与教程
+
+- 未发现值得收录的新文档或教程。
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：传闻日：工程决策应继续依赖已发布模型与可审计 release notes。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 泄漏治理 | GPT-5.6 传闻 | 内部 wiki 标注「未官方发布」；禁止基于泄漏截图改 SLA |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 延伸 | 官方 OpenAI 文档 | 核对当日无对应型号上架 |
+
+### 来源清单
+
+- 检索范围：2026-05-24 00:00:00 到 2026-05-24 23:59:59（Asia/Shanghai）
+- 引用域名：（无官方新增域名）
+- 来源清单表格：
+
+| 无 | 无可靠新增来源 | - | - |
+
+## 2026-05-23
+
+### 今日总览
+
+**一句话结论**：`2026-05-23` 工程主线是 **Spring AI 多版本同日发布**：**1.0.8**、**1.1.7** 与 **2.0.0-M7** 在 spring.io 博文可核验，Java AI 栈进入「稳定线 + 次主线 + 2.x 里程碑」并行维护。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | spring.io/blog、github.com/spring-projects/spring-ai；专项工具 |
+| 核心趋势 | Spring AI 2.x 里程碑与 1.x 补丁并行；企业 Java Agent/RAG 集成加速 |
+| 可直接关注 | 锁定团队使用的 release train（1.0.x vs 1.1.x vs 2.0-M） |
+| 专项检索结论 | **Spring AI**：**1.0.8 / 1.1.7 / 2.0.0-M7** 同日；**Claude Code/Codex/OpenClaw/Hermes**：无 `2026-05-23（上海）` 硬对齐 tag |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Spring AI | [Spring AI 1.0.8, 1.1.7, and 2.0.0-M7 available now](https://spring.io/blog/2026/05/23/spring-ai-1-0-8-1-1-7-and-2-0-0-m7) | **2026-05-23** | 官方博客 | 三版本线同日：补丁、特性线与 2.0 里程碑——升级矩阵需显式规划 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Spring AI | spring.io 5/23 博文 | 版本差异、breaking changes、MCP/Agent 适配 | Java 后端 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：Java 生态的 AI 抽象层进入多 train 并行，团队应建立兼容性测试矩阵。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 版本火车 | 1.0.8 + 1.1.7 + 2.0.0-M7 | 生产建议 pin 单一 train；实验性项目可试 2.0-M7 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | Spring AI 5/23 博客 | 当日唯一硬对齐的多版本发布说明 |
+
+### 来源清单
+
+- 检索范围：2026-05-23 00:00:00 到 2026-05-23 23:59:59（Asia/Shanghai）
+- 引用域名：spring.io, github.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方博客 | Spring AI releases | 2026-05-23 | https://spring.io/blog/2026/05/23/spring-ai-1-0-8-1-1-7-and-2-0-0-m7 |
+
+## 2026-05-22
+
+### 今日总览
+
+**一句话结论**：`2026-05-22` 双主线：**Mistral Medium 3.5 + 远程 Vibe agents** 强化欧洲开源模型与 Agent 产品化；**Anthropic Project Glasswing** 同日更新扩容叙事。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | mistral.ai、anthropic.com；开发者工具专项 |
+| 核心趋势 | 中等规模商用模型 + 远程 Agent 形态；跨组织 AI 安全联盟扩展 |
+| 可直接关注 | 评估 Medium 3.5 在 coding/agent 场景的性价比；Glasswing 成员与地域扩张 |
+| 专项检索结论 | **Claude Code/Codex/OpenClaw**：无 `2026-05-22（上海）` 新 tag；**Hermes/Spring AI**：无硬对齐；**skills**：Mistral Vibe 强调远程 Agent 工作流 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Mistral | [Mistral Medium 3.5 and remote Vibe agents](https://mistral.ai/news/mistral-medium-3-5) | **2026-05-22** | 官方发布 | Medium 3.5 定位均衡推理；Vibe agents 面向远程协作式 Agent |
+| Anthropic | [Project Glasswing update](https://www.anthropic.com/news/project-glasswing) | **2026-05-22** | 官方公告 | Glasswing 联盟机制与参与组织更新——治理/安全协作信号 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Mistral | Medium 3.5 公告 | 模型卡、API、Agent 产品边界 | 应用开发 |
+| 安全联盟 | Glasswing 更新 | 跨组织威胁情报与政策协同 | 安全/合规 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：欧洲模型厂继续「模型 + Agent 形态」打包；北美 lab 侧强化联盟治理叙事。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 远程 Agent | Mistral Vibe | 评估远程桌面/协作场景下的权限模型 |
+| 联盟治理 | Glasswing | 企业可对照自身漏洞披露流程是否可对齐联盟要求 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | Mistral Medium 3.5 | 当日可核验的模型+Agent 产品组合 |
+| 推荐 | Glasswing 更新 | 安全协作机制一手信息 |
+
+### 来源清单
+
+- 检索范围：2026-05-22 00:00:00 到 2026-05-22 23:59:59（Asia/Shanghai）
+- 引用域名：mistral.ai, anthropic.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Mistral Medium 3.5 | 2026-05-22 | https://mistral.ai/news/mistral-medium-3-5 |
+| 官方公告 | Project Glasswing | 2026-05-22 | https://www.anthropic.com/news/project-glasswing |
+
+## 2026-05-21
+
+### 今日总览
+
+**一句话结论**：`2026-05-21` 主线是 **开源编码 Agent 三连更**：**Claude Code `v2.1.146`**、**Codex `rust-v0.133.0`**、**OpenClaw `2026.5.21`** 均可在上海日窗内核验 GitHub `Published` 时间。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | GitHub Releases（Claude Code/Codex/OpenClaw）；官方博客补充 |
+| 核心趋势 | 终端 Agent 稳定性与插件生态周更；Rust Codex 侧继续硬化 |
+| 可直接关注 | 对照三仓库 release notes 的 breaking change 与 sandbox 默认值 |
+| 专项检索结论 | **Claude Code `v2.1.146`**：`Published 2026-05-21T01:51:52Z` → **`2026-05-21 09:51（Asia/Shanghai）`**；**Codex `rust-v0.133.0`**：`Published 2026-05-21T16:48:00Z` → **`2026-05-22 00:48（Asia/Shanghai，相邻日期）`**；**OpenClaw `2026.5.21`**：当日 tag；**Hermes/Spring AI**：无硬对齐 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Claude Code | [anthropics/claude-code `v2.1.146`](https://github.com/anthropics/claude-code/releases/tag/v2.1.146) | **2026-05-21（上海 09:51）** | 开源发布 | 终端 Agent 修复与能力迭代；以上海换算落入日窗 |
+| Codex | [openai/codex `rust-v0.133.0`](https://github.com/openai/codex/releases/tag/rust-v0.133.0) | **相邻日期/UTC→上海 `2026-05-22 00:48`** | 开源发布 | Rust 栈 Codex 版本线更新；需在 changelog 核对 sandbox/TUI |
+| OpenClaw | [openclaw/openclaw `2026.5.21`](https://github.com/openclaw/openclaw/releases/tag/2026.5.21) | **2026-05-21** | 开源发布 | 网关/插件周更；关注 Node 版本与 Docker 镜像变量 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Claude Code | v2.1.146 release notes | MCP/会话/超时类修复 | 日常使用者 |
+| Codex | rust-v0.133.0 | TUI、daemon、Windows sandbox | 平台工程师 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：编码 Agent 三栈同日（或跨 UTC 边界）迭代，工程团队应统一 pin 版本并跑 smoke test。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 版本矩阵 | 三仓库同日 release | CI 里固定 `claude-code/codex/openclaw` 版本，避免混用 |
+| 时区 | Codex UTC 16:48 | 纳入「相邻日期」清单，避免误判为 5/22 主线 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | Claude Code v2.1.146 | 上海日窗内最清晰的一手 release |
+| 推荐 | OpenClaw 2026.5.21 | 网关侧插件/SDK 变更 |
+
+### 来源清单
+
+- 检索范围：2026-05-21 00:00:00 到 2026-05-21 23:59:59（Asia/Shanghai）
+- 引用域名：github.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Claude Code v2.1.146 | 2026-05-21 | https://github.com/anthropics/claude-code/releases/tag/v2.1.146 |
+| 开源发布 | Codex rust-v0.133.0 | 相邻日期 | https://github.com/openai/codex/releases/tag/rust-v0.133.0 |
+| 开源发布 | OpenClaw 2026.5.21 | 2026-05-21 | https://github.com/openclaw/openclaw/releases/tag/2026.5.21 |
+
+## 2026-05-20
+
+### 今日总览
+
+**一句话结论**：`2026-05-20` 是 **Google I/O 2026 次日沉淀**：官方以 **「100 things from I/O」** 汇总发布矩阵，同时 **Vertex AI Agent Executor GA** 落地，标志 Agent 运行时从预览进入生产可用。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | blog.google、cloud.google.com、专项开发者工具 |
+| 核心趋势 | I/O 发布清单化；企业 Agent 执行引擎 GA；工程侧对照 Antigravity/Spark 叙事 |
+| 可直接关注 | 评估 Agent Executor 与现有 Agent 框架的编排/审计差异 |
+| 专项检索结论 | **Claude Code/Codex/OpenClaw/Hermes/Spring AI**：未发现 `2026-05-20（上海）` 硬对齐 Release；**skills**：延续 I/O Agent Skills 讨论，无当日新 tag |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Google I/O 汇总 | [100 things we announced at Google I/O 2026](https://blog.google/technology/developers/100-things-google-io-2026/) | **2026-05-20** | 官方发布 | 模型/搜索/开发工具/安全等 100 项清单——研发选型的一页索引 |
+| Agent 平台 | [Vertex AI Agent Executor is now GA](https://cloud.google.com/blog/products/ai-machine-learning/agent-executor-is-now-ga) | **2026-05-20** | 官方博客 | Agent 执行引擎 GA：长时程任务、工具调用与企业治理进入默认可用路径 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Agent 运行时 | Agent Executor GA 文 | 生产级编排、权限与可观测性 | 平台/SRE |
+| I/O 索引 | 100 things 博文 | 产品矩阵与能力边界 | 架构/全栈 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：Google 把 I/O 能力「清单化 + 执行引擎 GA」组合推送，Agent 工程从 demo 进入默认基础设施。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 企业 Agent | Agent Executor GA | 与自研/开源 Agent 网关对比 SLA、审计、VPC 边界 |
+| 发布索引 | 100 things | 用官方清单做季度 roadmap 对照，避免只看媒体标题 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | 100 things from I/O | 当日可核验的 Google 全矩阵索引 |
+| 必读 | Agent Executor GA | 企业 Agent 落地的一手工程表述 |
+
+### 来源清单
+
+- 检索范围：2026-05-20 00:00:00 到 2026-05-20 23:59:59（Asia/Shanghai）
+- 引用域名：blog.google, cloud.google.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | 100 things I/O 2026 | 2026-05-20 | https://blog.google/technology/developers/100-things-google-io-2026/ |
+| 官方博客 | Agent Executor GA | 2026-05-20 | https://cloud.google.com/blog/products/ai-machine-learning/agent-executor-is-now-ga |
+
 ## 2026-05-19
 
 ### 今日总览
@@ -886,7 +1607,6 @@
 | 中文媒体（相邻）       | ChatGPT 免费模型升级量子位稿件                                 | 2026-05-05                  | [https://www.qbitai.com/2026/05/412995.html](https://www.qbitai.com/2026/05/412995.html)                                                                                                                                   |
 | 论文相邻           | arXiv:2605.05873 CITE                               | 2026-05-07                  | [https://arxiv.org/abs/2605.05873](https://arxiv.org/abs/2605.05873)                                                                                                                                                       |
 
-
 ## 2026-05-07
 
 ### 今日总览
@@ -1012,7 +1732,6 @@
 | 技术媒体       | Sakana RL Conductor / Fugu multi-agent orchestration                             | 2026-05-07                   | [https://venturebeat.com/orchestration/how-sakana-trained-a-7b-model-to-orchestrate-gpt-5-claude-sonnet-4-and-gemini-2-5-pro](https://venturebeat.com/orchestration/how-sakana-trained-a-7b-model-to-orchestrate-gpt-5-claude-sonnet-4-and-gemini-2-5-pro)                                                                 |
 | 政策与标准      | AI Act: deal on simplification measures, ban on “nudifier” apps                  | 2026-05-07                   | [https://www.europarl.europa.eu/news/en/press-room/20260427IPR42011/ai-act-deal-on-simplification-measures-ban-on-nudifier-apps](https://www.europarl.europa.eu/news/en/press-room/20260427IPR42011/ai-act-deal-on-simplification-measures-ban-on-nudifier-apps)                                                           |
 
-
 ## 2026-05-06
 
 ### 今日总览
@@ -1094,5 +1813,3 @@
 | 开源发布  | Hermes Agent v0.12.0                                          | 2026-04-30（相邻日期/中国时间窗口传播） | [https://github.com/NousResearch/hermes-agent/releases/tag/v2026.4.30](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.4.30)                                                   |
 | 开源发布  | Spring AI 2.0.0-M5                                            | 2026-04-27（相邻日期/中国时间窗口传播） | [https://github.com/spring-projects/spring-ai/releases/tag/v2.0.0-M5](https://github.com/spring-projects/spring-ai/releases/tag/v2.0.0-M5)                                                     |
 | 论文聚合  | Hugging Face Daily Papers                                     | 2026-05-06                | [https://huggingface.co/papers/date/2026-05-06](https://huggingface.co/papers/date/2026-05-06)                                                                                                 |
-
-
