@@ -2,6 +2,66 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-06-04
+
+### 今日总览
+
+**一句话结论**：`2026-06-04` 固定来源口径下，**腾讯云开发者社区** 首发 **Marvis 桌面多 Agent 实测**（操作系统级 API 调度）；**腾讯云快讯** 转载 **Kimi Work Beta** 本地 Agent 内测（原文 **6/3**）；美团/阿里官方 team blog、字节 techblog、京东/滴滴/有赞等 **`site:` 硬对齐 6/4** 未见可引用首发长文。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 阿里 102 / 阿里云开发者 / 中间件 / 语雀；腾讯云开发者 / AlloyTeam；字节 techblog / 掘金；百度 FEX/EFE/开发者中心；美团 / 京东云 / 凹凸 / 滴滴 / 网易知乎 / 360 / 有赞 |
+| 核心趋势 | **桌面 Agent 三足鼎立（腾讯）**：Marvis（系统级）vs WorkBuddy（职场交付）vs QClaw（微信遥控）社区讨论升温；**本地 Agent（月之暗面）**：Kimi Work Beta 强调 **Skill/子 Agent 集群** 与 **Kimi Code 自举开发** |
+| 可直接关注 | 评估 **Marvis** 在 Windows/Mac 的文件整理、系统诊断与多 Agent 协同；跟踪 **Kimi Work** 本地 **WebBridge + 300 子 Agent** 对长任务吞吐的影响 |
+| 未发现更新 | 阿里 102/中间件/语雀、tech.meituan.com、techblog.toutiao.com、developer.aliyun.com（6/4 硬对齐长文）、京东云/凹凸/滴滴/有赞/360/网易知乎、百度 FEX/EFE、AlloyTeam、Tencent_TEG 公众号：本次未见 6/4 硬对齐首发长文 |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 桌面 Agent | [探秘 Marvis：能「接管」电脑的 AI 多智能体系统](https://cloud.tencent.com/developer/article/2682111) | **2026-06-04 07:27:40** | 腾讯云开发者社区 | 腾讯 **Marvis** 调用系统 API、调度本地模型、多专业 Agent 协同；下载 https://marvis.qq.com/ |
+| 本地 Agent（快讯） | [月之暗面 Kimi Work Beta 版开启内测](https://cloud.tencent.com/developer/news/4025059) | **2026-06-03 21:15**（相邻日期/中国时间窗口传播） | 腾讯云开发者社区（企鹅号转载） | **Kimi Code** 内核 + **Skill/定时任务** + **WebBridge**；最高 **300 子 Agent**；Beta 客户端 **92% 代码 AI 生成** |
+| Agent 产品矩阵（社区） | [我该选择谁？Marvis vs WorkBuddy 技术选型](https://cloud.tencent.com/developer/article/2679986) | **2026-06-01**（相邻日期/中国时间窗口传播） | 腾讯云开发者社区 | 对照 **Marvis（系统）/ WorkBuddy（职场）/ QClaw（IM 遥控）** 定位，辅助 6/4 Marvis 文选型 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 桌面多 Agent | [腾讯云：Marvis 探秘](https://cloud.tencent.com/developer/article/2682111) | OS 级权限、本地模型、跨 Win/Mac/手机任务 | 客户端/效率工具研发 |
+| 本地通用 Agent | [腾讯云快讯：Kimi Work Beta](https://cloud.tencent.com/developer/news/4025059) | Skill、子 Agent 集群、自然语言交付文档/PPT | 知识工作者/Agent 平台 |
+| 选型 | [Marvis vs WorkBuddy](https://cloud.tencent.com/developer/article/2679986) | 腾讯三款 Agent 边界划分 | 产品/架构评审 |
+
+### 工程实践归纳
+
+**总体判断**：固定来源当日以 **「腾讯系桌面 Agent 实践文 + 月之暗面本地 Agent 传播」** 为主——**6/4 唯一硬时间戳长文** 为腾讯云 **Marvis**；官方 team blog 仍空窗，但 **操作系统级 Agent** 与 **本地子 Agent 集群** 形成可对照的工程样本。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Marvis | **系统 API + 多 Agent** 实测文 | 「接管电脑」需明确 **权限沙箱** 与 **可回滚操作** |
+| Kimi Work | Beta 本地 Agent + **300 子 Agent** | 长任务应设计 **并行子任务配额** 与 **产物目录规范** |
+| 官方 blog 空窗 | 多维度 **6/4 无硬对齐** | 重大发布常先出现在 **开发者社区/快讯**，滞后 team blog |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **腾讯云 6/4 Marvis 文** | 当日固定来源 **唯一 6/4 硬时间戳** 技术长文 |
+| 推荐 | **Kimi Work Beta 快讯** | 理解 **本地 Agent + Skill 集群** 产品边界（对照 OpenAI/Codex 合体） |
+| 延伸 | **Marvis vs WorkBuddy 选型** | 在同一厂商 Agent 矩阵中选型 |
+
+### 来源清单
+
+- 检索范围：2026-06-04 00:00:00 到 2026-06-04 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：腾讯（腾讯云开发者社区 ✓、快讯转载 ✓）；其余维度已检索未见 6/4 硬对齐首发长文
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 腾讯 | 腾讯云开发者社区 | 技术文章 | 探秘 Marvis 多智能体 | 2026-06-04 | https://cloud.tencent.com/developer/article/2682111 |
+| 字节跳动 | 腾讯云开发者社区（企鹅号） | 快讯转载 | Kimi Work Beta 内测 | 2026-06-03（相邻日期/中国时间窗口传播） | https://cloud.tencent.com/developer/news/4025059 |
+| 腾讯 | 腾讯云开发者社区 | 选型解读 | Marvis vs WorkBuddy | 2026-06-01（相邻日期/中国时间窗口传播） | https://cloud.tencent.com/developer/article/2679986 |
+| 美团/阿里/京东/滴滴/百度/360/有赞/网易 | 固定来源清单 | 无新增 | 无可靠新增来源 | - | - |
+
 ## 2026-06-03
 
 ### 今日总览

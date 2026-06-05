@@ -2,6 +2,90 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-06-04
+
+### 今日总览
+
+**一句话结论**：`2026-06-04` 是 **「ChatGPT 记忆 Dreaming 架构升级 + 生物防御行动纲领 + 入口级 Agent 平台化」**——OpenAI 推出可自动刷新记忆的 **Dreaming** 与 **Biodefense** 计划；**ChatGPT App MAU 破 10 亿**（Sensor Tower，5 月达成、6/4 密集报道）；**Apple Messages for Business** 批准首个第三方 AI Agent **Poke**；**Meta** 帐篷式数据中心加速基建；工程侧 **Codex rust-v0.137.0** 发布、付费用户获 **配额补偿重置**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenAI 官方/API Changelog；TechCrunch/The Verge；Sensor Tower/Reuters；arXiv/Hugging Face 6/4；专项工具链 |
+| 核心趋势 | **个性化记忆工程化**：Dreaming 从「保存笔记」走向后台合成、可审阅摘要；**平台入口争夺**：Poke×iMessage、Chesky 新 AI Lab、Amazon 自然语言 Proteus；**基建与资本**：Meta 帐篷 DC、SpaceX IPO 路演、Anthropic IPO 舆论延续 |
+| 可直接关注 | Plus/Pro 用户评估 **Dreaming** 对长期项目记忆的时效性；Agent 产品对照 **Poke/Messages for Business** 交互范式；多 Agent 流水线可试验 **StreamMA** 流式步进传递 |
+| 专项检索结论 | **Claude Code**：无 6/4 新 release（最近 **v2.1.160 为 2026-06-02**）；**Codex**：**rust-v0.137.0**（**Published 2026-06-04T01:17:20Z**）；**OpenClaw**：稳定线仍为 **v2026.5.12**（2026-05-14），无 6/4 tag；**Hermes**：无 6/4 官方 release；**Spring AI**：无 6/4 官方 release（最近 **2.0.0-M7 为 2026-05-22**）；**skills**：OpenAI **Dreaming/记忆摘要** 与社区 **Skills 自进化** 讨论延续，无 6/4 官方 Skills marketplace 新公告 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| OpenAI / 记忆 | [Dreaming: Better memory for a more helpful ChatGPT](https://openai.com/index/chatgpt-memory-dreaming/) | **2026-06-04** | 官方产品 | **Dreaming V3** 后台合成记忆，解决陈旧/矛盾 saved memories；Plus/Pro 美国首发 |
+| OpenAI / 治理 | [Biodefense in the Intelligence Age](https://openai.com/index/biodefense-in-the-intelligence-age/) | **2026-06-04** | 官方发布 | 衔接 **GPT-Rosalind** 与 **Rosalind Biodefense**，强调防御方能力与治理 |
+| OpenAI / API | [API Changelog — moderation scores](https://developers.openai.com/api/docs/changelog) | **2026-06-04** | 开发者文档 | **Responses/Chat Completions** 同请求返回输入与输出 moderation 分数 |
+| OpenAI / ChatGPT | [ChatGPT Release Notes — Memory upgrade](https://help.openai.com/en/articles/6825453-chatgpt-release-notes) | **2026-06-04** | 产品说明 | 自动更新记忆、Plus/Pro **双倍记忆容量**；可回退 legacy saved memories |
+| 用户规模 | [ChatGPT app crosses 1B MAUs（The Hindu BusinessLine / Sensor Tower）](https://www.thehindubusinessline.com/news/chatgpt-app-crosses-1-billion-monthly-active-users-in-3-years-of-launch-india-20-of-this-user-base/article71061550.ece) | **2026-06-04**（报道）/ **2026-05**（MAU 达成） | 市场数据 | App MAU **10 亿**创纪录增速；印度占 **20%**；Claude App **~5600 万 MAU、YoY +640%** |
+| Apple / Agent | [Apple approves Poke as first AI agent on Messages for Business（TechCrunch）](https://techcrunch.com/2026/06/04/apple-approves-poke-as-the-first-ai-agent-on-its-messages-for-business-platform/) | **2026-06-04** | 产品发布 | 第三方 **AI Agent** 首次进入 **iMessage 商业通道**；WWDC 前信号 |
+| 创业 / 实验室 | [Airbnb's Brian Chesky plans to launch a new AI lab（TechCrunch）](https://techcrunch.com/2026/06/04/airbnbs-brian-chesky-plans-to-launch-a-new-ai-lab/) | **2026-06-04** | 行业动态 | Chesky 另立 AI Lab（交互/设计向），本人仍任 Airbnb CEO |
+| Meta / 基建 | [Meta builds data centers in tents（TechCrunch）](https://techcrunch.com/2026/06/04/meta-steals-a-tactic-from-tesla-and-builds-data-centers-in-tents/) | **2026-06-04** | 基础设施 | **Rapid deployment structures** 缩短建设周期；Ohio 六座帐篷 + 模块化燃气轮机 |
+| Amazon / 机器人 | [Amazon warehouse robot Proteus speaks natural language（The Verge）](https://www.theverge.com/ai-artificial-intelligence/942884/amazon-next-generation-warehouse-robot-proteus) | **2026-06-04** | 产品发布 | 员工自然语言派工，机器人自主排优先级/路径；**2027 H1** 欧洲部署 |
+| Codex / 发布 | [Codex rust-v0.137.0](https://github.com/openai/codex/releases/tag/rust-v0.137.0) | **2026-06-04** | 开源发布 | TUI 键位、**parent_thread_id**、multi-agent v2 dogfood、插件与云配置层 |
+| Codex / 运维 | [Codex usage reset for paid subscribers（Community）](https://community.openai.com/t/questions-about-an-unexpected-codex-usage-reset-and-new-quota-period/1382610) | **2026-06-04** | 运维补偿 | 6/3 服务异常后 **手动重置 100% 配额**；重置日变更非计划周期 |
+| 论文 | [StreamMA: Streaming Communication in Multi-Agent Reasoning（arXiv:2606.05158）](https://arxiv.org/abs/2606.05158) | **2026-06-03**（提交）/ **HF 2026-06-04** 收录 | 论文原文 | 流式步进传递降延迟并提升准确率；**step-level scaling law** |
+| Google / 路线 | [Alphabet investor presentation: June 2026](https://blog.google/alphabet/investor-presentation-june-2026/) | **2026-06-03**（相邻日期/中国时间窗口传播） | 官方投资者材料 | **Gemini 3.5 Pro** 预计 **6 月**落地；Flash 已 GA；**~900M** 月活 Gemini 用户 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| ChatGPT 记忆 | [Dreaming 官方文](https://openai.com/index/chatgpt-memory-dreaming/) | V0→V3 演进、memory summary 可审阅/可编辑 | 产品/对话 Agent 设计 |
+| API 安全 | [OpenAI Moderation guide + Changelog](https://developers.openai.com/api/docs/changelog) | 生成请求内嵌 **moderation** 对象 | 平台合规工程 |
+| 多 Agent | [StreamMA 论文](https://arxiv.org/abs/2606.05158) | 流水线相邻 Agent **步级流式**、早步可靠性 | Agent 编排研发 |
+| Codex CLI | [v0.137.0 release notes](https://github.com/openai/codex/releases/tag/rust-v0.137.0) | 线程父子关系、压缩 rollout、企业用量展示 | Codex/终端 Agent 用户 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/4 呈现 **「超级应用记忆层升级 + 商业消息渠道开放 Agent + 多 Agent 通信范式创新」**——OpenAI 用 Dreaming 把个性化从「显式记住」推进到「后台策展」；Apple/Poke 验证 **消息即 Agent 运行时**；论文侧 **StreamMA** 证明多 Agent 不必等完整 CoT 链结束再传递。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 记忆架构 | **Dreaming V3** 独立可扩展合成 | 长周期 Agent 应区分 **episodic log** vs **curated memory state** |
+| 入口整合 | **Poke** on **Messages for Business** | B2C Agent 可优先适配 **iMessage/SMS** 而非独立 App |
+| 多 Agent | **StreamMA** 步级 streaming | 下游 Agent 只吃 **高置信 early steps** 可降 token 与错误传播 |
+| Codex | **0.137.0** + 配额重置 | outage 后 batch 需 **幂等**；关注 **parent_thread_id** 做会话树 |
+| 专项空窗 | Claude Code/OpenClaw/Hermes/Spring AI 无 6/4 官方 release | 跟进 **6/2–6/3** Build/OpenAI 周发布即可 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **OpenAI Dreaming** | 2026 大规模个性化记忆的官方架构叙事 |
+| 必读 | **StreamMA（2606.05158）** | 多 Agent **延迟与准确率**同时优化的可形式化框架 |
+| 推荐 | **TechCrunch：Poke × Apple Messages** | 理解 **WWDC 前** 商业 Agent 通道策略 |
+| 推荐 | **The Verge：Amazon Proteus NL** | 具身/物流 Agent 从 **专用软件** 到 **自然语言派工** |
+| 延伸 | **Biodefense action plan** | 生命科学 AI 的 **防御方能力** 与治理边界 |
+
+### 来源清单
+
+- 检索范围：2026-06-04 00:00:00 到 2026-06-04 23:59:59（Asia/Shanghai）
+- 引用域名：openai.com, help.openai.com, developers.openai.com, techcrunch.com, theverge.com, community.openai.com, github.com, arxiv.org, huggingface.co, blog.google, thehindubusinessline.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Dreaming memory | 2026-06-04 | https://openai.com/index/chatgpt-memory-dreaming/ |
+| 官方发布 | Biodefense in the Intelligence Age | 2026-06-04 | https://openai.com/index/biodefense-in-the-intelligence-age/ |
+| 开发者文档 | API Changelog Jun 4 moderation | 2026-06-04 | https://developers.openai.com/api/docs/changelog |
+| 产品说明 | ChatGPT Release Notes Jun 4 | 2026-06-04 | https://help.openai.com/en/articles/6825453-chatgpt-release-notes |
+| 技术媒体 | Apple approves Poke agent | 2026-06-04 | https://techcrunch.com/2026/06/04/apple-approves-poke-as-the-first-ai-agent-on-its-messages-for-business-platform/ |
+| 技术媒体 | Chesky AI lab | 2026-06-04 | https://techcrunch.com/2026/06/04/airbnbs-brian-chesky-plans-to-launch-a-new-ai-lab/ |
+| 技术媒体 | Meta tent data centers | 2026-06-04 | https://techcrunch.com/2026/06/04/meta-steals-a-tactic-from-tesla-and-builds-data-centers-in-tents/ |
+| 技术媒体 | Amazon Proteus NL | 2026-06-04 | https://www.theverge.com/ai-artificial-intelligence/942884/amazon-next-generation-warehouse-robot-proteus |
+| 市场数据 | ChatGPT 1B MAU report | 2026-06-04 | https://www.thehindubusinessline.com/news/chatgpt-app-crosses-1-billion-monthly-active-users-in-3-years-of-launch-india-20-of-this-user-base/article71061550.ece |
+| 开源发布 | Codex rust-v0.137.0 | 2026-06-04 | https://github.com/openai/codex/releases/tag/rust-v0.137.0 |
+| 运维 | Codex quota reset thread | 2026-06-04 | https://community.openai.com/t/questions-about-an-unexpected-codex-usage-reset-and-new-quota-period/1382610 |
+| 论文原文 | StreamMA | 2026-06-03（提交） | https://arxiv.org/abs/2606.05158 |
+| 官方投资者材料 | Alphabet June 2026 presentation | 2026-06-03（相邻日期/中国时间窗口传播） | https://blog.google/alphabet/investor-presentation-june-2026/ |
+
 ## 2026-06-03
 
 ### 今日总览
