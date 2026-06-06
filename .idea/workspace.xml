@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="```&#10;feat(tools): 添加 AI 和知识库新闻摘要生成工具&#10;&#10;- 实现增量摘要写入功能，支持 2026-06-02 和 2026-06-03 日期&#10;- 创建 AI Daily News Digest 和 Knowledge Base Digest 文件路径配置&#10;- 添加摘要头部信息和日期正则匹配功能&#10;- 实现摘要内容分割和合并逻辑，按日期排序处理&#10;- 集成状态跟踪功能，记录已处理日期和最后同步时间&#10;- 支持批量日期处理和增量更新机制&#10;```">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="智能体架构">
       <change beforePath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-digest.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-digest.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-state.json" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-state.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dailyReport/github-topz.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/github-topz.md" afterDir="false" />
@@ -28,12 +27,12 @@
     &quot;assignee&quot;: &quot;932687738&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/932687738/ai_for_learing.git",
-    "accountId": "bfd8cec1-f587-4317-8f13-c69f1a6e56b6"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/932687738/ai_for_learing.git&quot;,
+    &quot;accountId&quot;: &quot;bfd8cec1-f587-4317-8f13-c69f1a6e56b6&quot;
   }
-}]]></component>
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>

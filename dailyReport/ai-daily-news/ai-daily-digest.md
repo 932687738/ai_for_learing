@@ -2,6 +2,91 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-06-05
+
+### 今日总览
+
+**一句话结论**：`2026-06-05` 是 **「端侧 Gemma 4 QAT 落地 + 前沿 AI 协调暂停倡议 + Token 经济学危机显性化」**——Google 发布 **Gemma 4 QAT** 将 E2B 压至 **1GB** 级端侧内存；Anthropic 呼吁行业建立 **可验证协调暂停** 机制并披露 **Claude 已写 80%+ 合并代码**；产业侧 **Google×SpaceX 9.2 亿美元/月算力桥接**、**Tokenomics Foundation** 与 **Uber/Cursor 预算失控** 报道同日密集出现；工程侧 **GPT-5.2 Thinking 退役**、**Claude Code Workflows 预览** 与 **Agent Memory 系统表征论文** 形成对照。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Google 官方；Anthropic API/治理；OpenAI 退役/运维；TechCrunch/The Next Web；arXiv 6/5；NVIDIA 相邻；专项工具链 |
+| 核心趋势 | **端侧效率**：QAT 把 Gemma 4 推向手机/笔电本地推理；**治理前置**：递归自改进触发下的行业级刹车讨论升温；**Token 账单**：订阅→按量后企业 FinOps/Tokenomics 标准化需求爆发 |
+| 可直接关注 | 评估 **Gemma 4 QAT**（Q4_0 + mobile schema）在 llama.cpp/Ollama/LiteRT-LM 的部署路径；长周期 Agent 对照 **Agent Memory** 论文的 write/read 成本拆分；企业侧启动 **token 可观测 + 路由/配额** 治理 |
+| 专项检索结论 | **Claude Code**：**Workflows 研究预览**、**Auto mode** 扩面、**Opus 4.1 弃用公告**（API 文档 **2026-06-05** 条目）；**Codex**：**rusty-v8-v149.2.0** 预发布（**Published 2026-06-05**），社区反馈 **指令遵循退化/不安全 patch**；**OpenClaw/Hermes**：无 **6/5** 官方 release（生态讨论延续）；**Spring AI**：无 **6/5** 官方 release（最近 **2.0.0-M8 为 2026-05-27**）；**skills**：无 **6/5** 官方 marketplace 新公告，**Agent Skills 安全实证**（arXiv:2602.06547）持续被引用 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Google / 端侧 | [Gemma 4 QAT models: Optimizing model compression for mobile and laptop efficiency](https://blog.google/innovation-and-ai/technology/developers-tools/quantization-aware-training-gemma-4/) | **2026-06-05** | 官方发布 | **QAT** 训练内嵌量化；**E2B 文本版 <1GB**；Q4_0 + mobile 专用 schema；Hugging Face/llama.cpp/Ollama/LiteRT-LM 生态同步 |
+| Anthropic / 治理 | [Anthropic urges a coordinated, verifiable pause for frontier AI（The Next Web）](https://thenextweb.com/news/anthropic-urges-a-coordinated-verifiable-pause-for-frontier-ai) | **2026-06-05** | 政策/治理 | 针对 **递归自改进** 提出 **多实验室可验证暂停**；披露 **5 月 Claude 写 80%+ 合并代码** |
+| Anthropic / 企业 | [Securing & Governing Claude: Compliance API webinar](https://www.anthropic.com/webinars/securing-governing-claude-the-compliance-api-and-security-integrations) | **2026-06-05** | 官方活动 | **Compliance API** 暴露活动/聊天/文件/项目用量，对接企业安全栈 |
+| Anthropic / API | [Claude Platform Release Notes — Opus 4.1 deprecation](https://platform.claude.com/docs/en/release-notes/overview) | **2026-06-05** | 开发者文档 | **claude-opus-4-1-20250805** 将于 **2026-08-05** 退役；建议迁移 **Opus 4.8** |
+| Claude Code | [Claude Code — Workflows research preview（API release notes）](https://platform.claude.com/docs/en/release-notes/overview) | **2026-06-05** | 产品/工程 | **Workflows** 多步 agentic 计划；**Auto mode** 扩面长任务；Max 默认 **Opus 4.8 fast mode** |
+| OpenAI / 产品 | [Introducing GPT-5.4 — GPT-5.2 Thinking retirement note](https://openai.com/index/introducing-gpt-5-4/) | **2026-06-05** | 产品生命周期 | **GPT-5.2 Thinking** 在模型选择器中 **2026-06-05 退役**（付费用户 Legacy 区保留 3 个月） |
+| OpenAI / 运维 | [Some users may experience issues accessing OpenAI accounts（Status）](https://status.openai.com/incidents/01KTBZDS20E3PZ53DH2SCKXN49) | **2026-06-05** | 运维事件 | 部分账号被 **误封/暂停**，团队恢复访问并处理订阅/额度 |
+| 算力 / 云 | [Google will pay SpaceX $920M per month for compute（TechCrunch）](https://techcrunch.com/2026/06/05/google-will-pay-spacex-920m-per-month-for-compute/) | **2026-06-05** | 基础设施 | **2026-10 至 2029-06** 桥接容量；约 **11 万 NVIDIA GPU**；满足 **Gemini Enterprise** 超预期需求 |
+| 成本治理 | [The token bill comes due（TechCrunch）](https://techcrunch.com/2026/06/05/the-token-bill-comes-due-inside-the-industry-scramble-to-manage-ais-runaway-costs/) | **2026-06-05** | 行业分析 | **Uber 4 月烧完全年 AI 预算**；**Cursor 续费 4–5×**；Linux Foundation **Tokenomics Foundation** 7 月启动 |
+| 基建 / 区域 | [AirTrunk commits $30B to build 5GW of AI data centers in India（TechCrunch）](https://techcrunch.com/2026/06/05/airtrunk-commits-30b-to-build-5gw-of-ai-data-centers-in-india/) | **2026-06-05** | 基础设施 | **2030 年前 5GW** 印度 AI DC；Maharashtra **3GW** 意向 |
+| 安全 / 政策 | [NSA said to be readying Anthropic's Mythos for cyber operations（TechCrunch）](https://techcrunch.com/2026/06/05/nsa-said-to-be-readying-anthropics-mythos-for-use-in-cyber-operations/) | **2026-06-05** | 政策/安全 | 报道称 NSA 部署工程师协助使用 **Mythos**；与联邦 **供应链风险** 禁令背景交织 |
+| 论文 | [Agent Memory: Characterization and System Implications（arXiv:2606.06448）](https://arxiv.org/abs/2606.06448) | **2026-06**（arXiv 编号） | 论文原文 | 首次 **Agent Memory 系统级表征**；write/read 成本不对称；10 条部署建议 |
+| Codex / 发布 | [Codex rusty-v8-v149.2.0（prerelease）](https://github.com/openai/codex/releases/tag/rusty-v8-v149.2.0) | **2026-06-05** | 开源预发布 | V8 绑定层更新；非应用层 feature release |
+| 生命科学（传播） | [OpenAI updates GPT-Rosalind（媒体报道）](https://cfotech.co.uk/story/openai-updates-gpt-rosalind-for-life-sciences-research) | **2026-06-03**（官方）/ **2026-06-05**（传播） | 相邻日期/中国时间窗口传播 | **GeneBench** 等评测 **31% 更少 token**；全球 **trusted-access** 扩展 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 端侧推理 | [Gemma 4 QAT 官方文](https://blog.google/innovation-and-ai/technology/developers-tools/quantization-aware-training-gemma-4/) | QAT vs PTQ、mobile 2-bit 策略、MTP QAT 权重 | 边缘/本地 Agent 研发 |
+| Agent 记忆系统 | [Agent Memory 论文](https://arxiv.org/abs/2606.06448) | 四轴分类、construction/retrieval/generation 成本归因 | 平台/infra 工程师 |
+| 企业治理 | [Anthropic Compliance API 研讨会](https://www.anthropic.com/webinars/securing-governing-claude-the-compliance-api-and-security-integrations) | 程序化审计、活动事件导出 | 安全/合规团队 |
+| Token 经济学 | [TechCrunch：Token bill comes due](https://techcrunch.com/2026/06/05/the-token-bill-comes-due-inside-the-industry-scramble-to-manage-ais-runaway-costs/) | cost-per-intelligence、模型路由、配额分层 | FinOps/工程管理者 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/5 呈现 **「端侧模型压缩成熟 + Agent 记忆系统工程化 + 企业 Token 治理刚需」** 三线并进——Gemma 4 QAT 让本地 Agent 更接近消费硬件；Agent Memory 论文把 RAG 之后的 **可变状态层** 成本模型化；产业报道则把 **agentic 多步/多子 Agent** 的账单问题推到台前。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 端侧 Agent | **Gemma 4 QAT** E2B **<1GB** | 本地助手应优先评估 **QAT + 模态裁剪**（去 audio/vision encoder） |
+| 记忆架构 | **Agent Memory** 系统表征 | 区分 **construction-heavy** vs **query-heavy** 设计；异步写入带来 **staleness** |
+| Claude Code | **Workflows** 研究预览 | 多步计划应版本化并可审计，避免与 **ultracode** 触发词混淆 |
+| Token 治理 | **Tokenomics Foundation** | 尽快建立 **per-team token budget + model router + 审计对账** |
+| 专项空窗 | OpenClaw/Hermes/Spring AI/MCP 无 6/5 官方 release | 跟进 **5 月 OpenRouter 排行** 与 **6/2 Build/COMPUTEX** 发布即可 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Gemma 4 QAT 官方发布** | 2026 端侧开源模型的 **量化训练** 官方配方与工具链 |
+| 必读 | **Agent Memory（2606.06448）** | 长周期 Agent **记忆层** 的首个系统级成本画像 |
+| 推荐 | **Anthropic 协调暂停倡议** | 理解 **递归自改进** 触发下的行业协调难题 |
+| 推荐 | **TechCrunch：Token bill** | 企业 **Agent 规模化** 后的 FinOps 范式转移 |
+| 延伸 | **Google×SpaceX 算力桥接** | 超大规模 **推理容量** 的短期合约与风险条款 |
+
+### 来源清单
+
+- 检索范围：2026-06-05 00:00:00 到 2026-06-05 23:59:59（Asia/Shanghai）
+- 引用域名：blog.google, thenextweb.com, anthropic.com, platform.claude.com, openai.com, status.openai.com, techcrunch.com, arxiv.org, github.com, cfotech.co.uk, developer.nvidia.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Gemma 4 QAT | 2026-06-05 | https://blog.google/innovation-and-ai/technology/developers-tools/quantization-aware-training-gemma-4/ |
+| 政策/治理 | Anthropic coordinated pause | 2026-06-05 | https://thenextweb.com/news/anthropic-urges-a-coordinated-verifiable-pause-for-frontier-ai |
+| 官方活动 | Compliance API webinar | 2026-06-05 | https://www.anthropic.com/webinars/securing-governing-claude-the-compliance-api-and-security-integrations |
+| 开发者文档 | Claude API Jun 5 notes | 2026-06-05 | https://platform.claude.com/docs/en/release-notes/overview |
+| 产品生命周期 | GPT-5.2 Thinking retirement | 2026-06-05 | https://openai.com/index/introducing-gpt-5-4/ |
+| 运维 | OpenAI account access incident | 2026-06-05 | https://status.openai.com/incidents/01KTBZDS20E3PZ53DH2SCKXN49 |
+| 技术媒体 | Google SpaceX compute deal | 2026-06-05 | https://techcrunch.com/2026/06/05/google-will-pay-spacex-920m-per-month-for-compute/ |
+| 技术媒体 | Token bill comes due | 2026-06-05 | https://techcrunch.com/2026/06/05/the-token-bill-comes-due-inside-the-industry-scramble-to-manage-ais-runaway-costs/ |
+| 技术媒体 | AirTrunk India 5GW | 2026-06-05 | https://techcrunch.com/2026/06/05/airtrunk-commits-30b-to-build-5gw-of-ai-data-centers-in-india/ |
+| 技术媒体 | NSA Mythos report | 2026-06-05 | https://techcrunch.com/2026/06/05/nsa-said-to-be-readying-anthropics-mythos-for-use-in-cyber-operations/ |
+| 论文原文 | Agent Memory characterization | 2026-06（arXiv 编号） | https://arxiv.org/abs/2606.06448 |
+| 开源预发布 | Codex rusty-v8-v149.2.0 | 2026-06-05 | https://github.com/openai/codex/releases/tag/rusty-v8-v149.2.0 |
+| 相邻传播 | GPT-Rosalind update coverage | 2026-06-03（官方）/ 2026-06-05（传播） | https://cfotech.co.uk/story/openai-updates-gpt-rosalind-for-life-sciences-research |
+
 ## 2026-06-04
 
 ### 今日总览
