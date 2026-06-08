@@ -1,4 +1,4 @@
-<!-- 模块：Agent 记忆体系 | 最后更新于 2026-05-29（MessageChatMemoryAdvisor / Redis） -->
+<!-- 模块：Agent 记忆体系 | 最后更新于 2026-06-06（记忆三分类）） -->
 
 # Agent 记忆体系
 
@@ -13,6 +13,7 @@
 - [MessageChatMemoryAdvisor 工作机制](#messagechatmemoryadvisor-工作机制)
 - [分布式 Redis ChatMemory 共享](#分布式-redis-chatmemory-共享)
 
+- [工作记忆、情景记忆与语义记忆三分类](#工作记忆情景记忆与语义记忆三分类)
 ---
 ## 多轮对话记忆管理（短期记忆）
 
@@ -351,3 +352,37 @@ ChatClient client = ChatClient.builder(chatModel)
 - [Spring AI 记忆类型对比与选型](#spring-ai-记忆类型对比与选型)
 
 ---
+
+## 工作记忆、情景记忆与语义记忆三分类
+
+> **模块**：Agent 记忆体系 | **标签**：工作记忆, 情景记忆, 语义记忆 | **更新**：2026-06-06
+
+### 核心概念
+
+借鉴认知科学：工作记忆是上下文窗口内的短期工作台；情景记忆记录带时空标签的具体事件；语义记忆是从事件中抽象的可复用结构化知识（常存知识图谱）。
+
+### 要点
+
+| 类型 | 载体 | 特点 | 典型实现 |
+| :--- | :--- | :--- | :--- |
+| 工作记忆 | 上下文窗口 / State | 当前任务临时信息 | ConversationBufferWindowMemory, LangGraph State+Checkpointer |
+| 情景记忆 | 向量库 | 时间敏感的具体交互事件 | 事件向量化存入 Milvus/Pinecone |
+| 语义记忆 | 图数据库 | 实体关系、可多跳推理 | Neo4j + GraphRAG |
+
+- **协同**：子查询任务中，情景检索「郭帆」→ 语义图谱关联「导演」→ 工作记忆暂存中间答案。
+- **压缩**：ConversationSummaryMemory 压缩历史；WorldDB/MemoriesDB 等融合向量+关系+时序。
+- 与 Spring AI：MessageChatMemoryAdvisor 管短期；向量库/图库需自定义 Repository。
+
+### 面试常问
+
+**问**：工作记忆、情景记忆、语义记忆有何区别？
+
+**答**：工作记忆在上下文里处理当前对话；情景记忆持久化具体发生过的事件供检索；语义记忆存抽象事实与关系支持推理。三者协同：短期暂存、长期记经历、图谱建世界观。
+
+### 关联知识点
+
+- [Spring AI 记忆类型对比与选型](#spring-ai-记忆类型对比与选型)
+- [RAG 长期记忆](RAG长期记忆.md)
+
+---
+

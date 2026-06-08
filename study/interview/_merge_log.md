@@ -1,5 +1,27 @@
 # Markdown 问答分类合并日志
 
+## 2026-06-06（Agent 工程化综合专题：沙盒/记忆/CRAG/容错/Text2SQL 等）
+
+**源文件**：`study/interview/original/template.md`（沙盒、检查点、Agent/Skill/Tool、Actor-Critic、Few-shot、重试、CRAG、子查询、ReAct/Reflexion、路由降级、微调、容错架构、记忆三分类、知识图谱、状态持久化、调试、数据联邦、Text2SQL、冷启动/长尾等，约 3507 行）
+
+**说明**：源文件为 AI 问答综合指南（非标准 Q&A 体），按知识点语义路由至 8 个模块；与既有 Skills/MCP、ReAct、记忆、RAG 等条目互补，语义去重后新增 25 条；源文件代码块已规范为 fenced block；无 `.bak`。
+
+| 模块文件 | 操作 | 条数变化 |
+|----------|------|----------|
+| Agent架构与协同.md | 新增 | +10（三层体系、Spring AI 映射、Actor-Critic、ReAct/Reflexion、角色、容错架构、Observation、错误矩阵、数据联邦、Text2SQL） |
+| RAG检索策略.md | 新增 | +3（CRAG、子查询、DIN-SQL 对比） |
+| Spring AI核心组件.md | 新增 | +3（Few-shot、Few-shot 评估、重试自修正） |
+| Agent工作流模式.md | 新增 | +2（检查点、增量/分布式状态） |
+| Agent记忆体系.md | 新增 | +1（工作/情景/语义记忆） |
+| 性能与高可用.md | 新增 | +1（路由降级） |
+| 可观测与评估.md | 新增 | +1（重放与逐步调试） |
+| 其他.md | 新增 | +4（沙盒、微调、知识图谱存储、冷启动/长尾） |
+
+**路由备注**：沙盒/微调/冷启动 → `other`；CRAG/子查询/DIN-SQL → `rag-retrieval-strategies`；检查点/分布式状态 → `agent-workflow`；记忆三分类 → `agent-memory`；路由降级 → `performance-reliability`；调试工具 → `observability-evaluation`；其余 Agent 架构类 → `agent-architecture`；失败 0 条。
+
+**合计**：8 个文件更新，净增 25 条；全库 139 条。
+
+
 ## 2026-05-29（ToolCallback、Advisor 与 Hook 区别及执行顺序）
 
 **源文件**：`study/interview/original/template.md`（ToolCallback/Advisor/Hook 概念对比、ValidatingToolCallback 装饰器、LoggingAdvisor、HumanInTheLoopHook、八阶段执行顺序与选型指南，178 行）

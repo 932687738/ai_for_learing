@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="智能体架构">
-      <change beforePath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-digest.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-digest.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-state.json" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-state.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/github-topz.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/github-topz.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-digest.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-digest.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-state.json" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-state.json" afterDir="false" />
-    </list>
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="每日新闻" />
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,12 +21,12 @@
     &quot;assignee&quot;: &quot;932687738&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/932687738/ai_for_learing.git&quot;,
-    &quot;accountId&quot;: &quot;bfd8cec1-f587-4317-8f13-c69f1a6e56b6&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/932687738/ai_for_yxy.git",
+    "accountId": "ab65b188-4631-45f8-8246-be6952ade089"
   }
-}</component>
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -255,6 +249,7 @@
       <workItem from="1780155351153" duration="372000" />
       <workItem from="1780204303538" duration="32000" />
       <workItem from="1780620133688" duration="965000" />
+      <workItem from="1780710493658" duration="22000" />
     </task>
     <task id="LOCAL-00001" summary="docs(project): 更新项目配置和文档以支持 Python 开发环境&#10;&#10;- 移除 .idea 目录的 git 忽略规则，将其加入版本控制&#10;- 修正项目模块名称中的拼写错误（ai_for_learning -&gt; ai_for_learing）&#10;- 添加详细的 Python 环境配置说明和依赖安装指南&#10;- 在课程模式文档中增加 Python 依赖管理规范&#10;- 更新项目状态文件中的任务时间戳和处理目标列表&#10;- 配置 PyCharm 工作空间设置和虚拟环境排除路径">
       <option name="closed" value="true" />
@@ -576,7 +571,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780535269433</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="每日新闻">
+      <option name="closed" value="true" />
+      <created>1780710503806</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1780710503808</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -617,9 +620,9 @@
     <MESSAGE value="README.md文件回填" />
     <MESSAGE value="更新2026-05-29的智能体面试知识库，新增Tool Calling、FlowAgent顺序执行、MessageChatMemoryAdvisor记忆机制等内容，增强了Agent架构与协同模块的文档，确保知识点的完整性与可读性。" />
     <MESSAGE value="更新2026-05-29的Agent架构与协同模块，新增ToolCallback、Advisor与Hook的区别及执行顺序的详细说明，增强了文档的结构与可读性，同时更新了知识库中的相关条目，确保知识点的准确性与完整性。" />
-    <MESSAGE value="每日新闻" />
     <MESSAGE value="```&#10;feat(tools): 添加 AI 和知识库新闻摘要生成工具&#10;&#10;- 实现增量摘要写入功能，支持 2026-06-02 和 2026-06-03 日期&#10;- 创建 AI Daily News Digest 和 Knowledge Base Digest 文件路径配置&#10;- 添加摘要头部信息和日期正则匹配功能&#10;- 实现摘要内容分割和合并逻辑，按日期排序处理&#10;- 集成状态跟踪功能，记录已处理日期和最后同步时间&#10;- 支持批量日期处理和增量更新机制&#10;```" />
-    <option name="LAST_COMMIT_MESSAGE" value="```&#10;feat(tools): 添加 AI 和知识库新闻摘要生成工具&#10;&#10;- 实现增量摘要写入功能，支持 2026-06-02 和 2026-06-03 日期&#10;- 创建 AI Daily News Digest 和 Knowledge Base Digest 文件路径配置&#10;- 添加摘要头部信息和日期正则匹配功能&#10;- 实现摘要内容分割和合并逻辑，按日期排序处理&#10;- 集成状态跟踪功能，记录已处理日期和最后同步时间&#10;- 支持批量日期处理和增量更新机制&#10;```" />
+    <MESSAGE value="每日新闻" />
+    <option name="LAST_COMMIT_MESSAGE" value="每日新闻" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ai_for_learing$vanilla_rnn_numpy_demo.coverage" NAME="vanilla_rnn_numpy_demo Coverage Results" MODIFIED="1778826911757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ai-learning/07-cnn-rnn-transformer-intro/scripts" />

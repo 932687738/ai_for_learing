@@ -1,4 +1,4 @@
-<!-- 模块：Spring AI 核心组件 | 最后更新于 2026-05-29（Advisor 与 Hook/ToolCallback 层级） -->
+<!-- 模块：Spring AI 核心组件 | 最后更新于 2026-06-06（Few-shot 与重试）） -->
 
 # Spring AI 核心组件
 
@@ -16,6 +16,9 @@
 - [Spring AI 多模态输入与动态模型切换](#spring-ai-多模态输入与动态模型切换)
 - [多语言 Prompt 与 Tool 回调](#多语言-prompt-与-tool-回调)
 
+- [Few-shot 少样本学习与 Prompt 关系](#few-shot-少样本学习与-prompt-关系)
+- [Few-shot 示例质量评估与代码生成设计](#few-shot-示例质量评估与代码生成设计)
+- [Spring AI 重试与智能化自修正](#spring-ai-重试与智能化自修正)
 ---
 ## Spring AI Transform 结构化输出
 
@@ -521,3 +524,123 @@ public String chatWithTool(String prompt) {
 - [Agent 架构与协同](Agent架构与协同.md)
 
 ---
+
+## Few-shot 少样本学习与 Prompt 关系
+
+> **模块**：Spring AI 核心组件 | **标签**：Few-shot, Prompt, In-Context Learning | **更新**：2026-06-06
+
+### 核心概念
+
+Few-shot 是 Prompt Engineering 中在提示内放 2–10 个输入-输出示例、让模型模仿任务模式的技术；Prompt 是包含指令、角色、上下文与示例的完整输入。
+
+### 要点
+
+| 类型 | 示例数 | 是否更新参数 |
+| :--- | :--- | :--- |
+| Zero-shot | 0 | 否 |
+| One-shot | 1 | 否 |
+| Few-shot | 2–10 | 否 |
+| Fine-tuning | 数百+ | 是 |
+
+- **有效原因**：格式对齐、任务模式暗示、减少歧义。
+- **与 RAG**：RAG 供事实，Few-shot 定格式与推理模式，常组合使用。
+- **Agent 技巧**：动态检索相似示例、CoT 示例、自我校正示例（含修正过程）。
+- **正例 vs 负例**：以正确示例为主（80%+）；高风险场景可附「错误+纠正」对比，勿只用负例。
+
+### 面试常问
+
+**问**：Few-shot 和 Prompt 有什么区别？
+
+**答**：Prompt 是发给模型的全部文本；Few-shot 是 Prompt 中嵌入多个示例的那部分，属于上下文学习，不更新模型权重。
+
+### 关联知识点
+
+- [PromptTemplate 与提示词设计原则](#prompttemplate-与提示词设计原则)
+- [Fine-tuning 微调模型选型](其他.md)
+
+---
+## Few-shot 示例质量评估与代码生成设计
+
+> **模块**：Spring AI 核心组件 | **标签**：Few-shot, 代码生成, 评估 | **更新**：2026-06-06
+
+### 核心概念
+
+高质量 Few-shot 需相关性、正确性、多样性、清晰度与顺序稳定性；代码生成场景还需完整签名、边缘案例与复杂度递增。
+
+### 要点
+
+**评估维度**：相关性、正确性、清晰度、代表性、简洁性、顺序鲁棒性。
+
+**量化方法**：留一法测示例重要性、打乱顺序测一致性、交叉验证准确率。
+
+**代码 Few-shot 设计**：
+- 展示完整函数签名与类型
+- 含空输入、异常、边界条件
+- 命名与风格一致
+- 复杂度从简单到递归/嵌套递增
+- 单元测试驱动评估生成代码通过率
+
+### 代码示例
+
+```python
+def sum_of_even_squares(numbers: List[int]) -> int:
+    return sum(x * x for x in numbers if x % 2 == 0)
+```
+
+### 面试常问
+
+**问**：如何评估 Few-shot 质量？代码生成如何设计示例？
+
+**答**：从相关性、正确性、多样性等维度评估，并用留一法/顺序打乱实验；代码场景展示完整签名、边界处理、风格一致与递增复杂度，用单元测试验证生成结果。
+
+### 关联知识点
+
+- [Few-shot 少样本学习与 Prompt 关系](#few-shot-少样本学习与-prompt-关系)
+- [Text2SQL 核心流程与高级技术](Agent架构与协同.md)
+
+---
+## Spring AI 重试与智能化自修正
+
+> **模块**：Spring AI 核心组件 | **标签**：Retry, StructuredOutputValidationAdvisor, @Retryable | **更新**：2026-06-06
+
+### 核心概念
+
+Spring AI 提供三层容错：配置式 API 重试、StructuredOutputValidationAdvisor 内容自修正、Spring Retry 对任意 Bean 方法精细化重试。
+
+### 要点
+
+| 方案 | 机制 | 场景 |
+| :--- | :--- | :--- |
+| 声明式重试 | `spring.ai.retry.*` | 网络抖动、429 限流 |
+| 递归顾问 | `StructuredOutputValidationAdvisor` | 输出格式/逻辑错误，错误喂回 LLM 自修正 |
+| Spring Retry | `@Retryable` + `@Recover` | 外部 API（如 Dify）精细控制 |
+
+### 代码示例
+
+```properties
+spring.ai.retry.max-attempts=3
+spring.ai.retry.backoff.initial-interval=2s
+spring.ai.retry.backoff.multiplier=2
+spring.ai.retry.on-client-errors=false
+```
+
+```java
+var validationAdvisor = StructuredOutputValidationAdvisor.builder()
+    .outputType(MyResponseType.class)
+    .maxRepeatAttempts(3)
+    .build();
+```
+
+### 面试常问
+
+**问**：Spring AI 如何实现错误重试与自修正？
+
+**答**：application.properties 配声明式重试处理瞬时故障；StructuredOutputValidationAdvisor 校验结构化输出并将错误反馈给模型循环修正；@Retryable 对 Service 层外部调用做指数退避与 @Recover 兜底。
+
+### 关联知识点
+
+- [Spring AI Advisor 机制](#spring-ai-advisor-机制)
+- [Agent 分级错误处理矩阵](Agent架构与协同.md)
+
+---
+

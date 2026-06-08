@@ -1,4 +1,4 @@
-<!-- 模块：Agent 架构与协同 | 最后更新于 2026-05-29（ToolCallback/Advisor/Hook 执行顺序） -->
+<!-- 模块：Agent 架构与协同 | 最后更新于 2026-06-06（Agent 工程化综合专题）） -->
 
 # Agent 架构与协同
 
@@ -28,6 +28,16 @@
 - [基于角色的工具权限过滤](#基于角色的工具权限过滤)
 - [并行 Tool Calling](#并行-tool-calling)
 
+- [Agent、Skill 与 Tool 三层体系对比](#agentskill-与-tool-三层体系对比)
+- [Spring AI 中 Agent、Skill 与 Tool 实现映射](#spring-ai-中-agentskill-与-tool-实现映射)
+- [Actor-Critic 自我反思与 Reflection Agent](#actor-critic-自我反思与-reflection-agent)
+- [ReAct 与 Reflexion 范式对比](#react-与-reflexion-范式对比)
+- [Agent 角色与 Skill 角色区别](#agent-角色与-skill-角色区别)
+- [Agent 容错三层防御架构](#agent-容错三层防御架构)
+- [Observation 在 ReAct 中的作用](#observation-在-react-中的作用)
+- [Agent 分级错误处理矩阵](#agent-分级错误处理矩阵)
+- [Spring AI 数据联邦与多源查询](#spring-ai-数据联邦与多源查询)
+- [Text2SQL 核心流程与高级技术](#text2sql-核心流程与高级技术)
 ---
 ## ToolCallback、Advisor 与 Hook 区别及执行顺序
 
@@ -1306,3 +1316,384 @@ Agent agent = Agent.builder()
 - [性能与高可用](性能与高可用.md)
 
 ---
+
+## Agent、Skill 与 Tool 三层体系对比
+
+> **模块**：Agent 架构与协同 | **标签**：Agent, Skill, Tool, 分层 | **更新**：2026-06-06
+
+### 核心概念
+
+Agent、Skill、Tool 构成「决策—协调—执行」纵轴：Tool 是原子操作，Skill 是封装 SOP 的能力模块，Agent 是自主调度的大脑；三者互补而非互斥。
+
+### 要点
+
+| 对比 | Agent | Skill | Tool |
+| :--- | :--- | :--- | :--- |
+| 定位 | 顶层决策者 | 可插拔专业能力模块 | 原子执行单元 |
+| 决策 | 全自主，动态选策略 | 流程内分支判断 | 无自主 |
+| 状态 | 长期跨会话记忆 | 任务级状态 | 无状态 |
+| 复杂度 | O(2^n) 组合爆炸风险 | O(n) 流程 | O(1) |
+
+- Skill 让 Agent 变「轻」：Agent 只需说「执行订单处理 Skill」，不必掌握全部细节。
+- Skill vs Tool：Skill 含意图、SOP、异常处理与质量标准；Tool 仅单一 API/函数（通常 3–5 行）。
+- 协同链：Agent 定目标 → Skill 定方法 → Tool 做动作。
+
+### 面试常问
+
+**问**：Agent、Skill、Tool 三者如何区分与协作？
+
+**答**：Tool 是「手」，Skill 是「专业手册」，Agent 是「大脑」。Agent 自主决策调用哪些 Skill/Tool 及顺序；Skill 封装完整业务流程并可组合多个 Tool；Tool 只执行单一动作。
+
+### 关联知识点
+
+- [Skills、Tools、MCP 与知识库协同流程（含数据库场景）](#skillstoolsmcp-与知识库协同流程含数据库场景)
+- [Agent 角色与 Skill 角色区别](#agent-角色与-skill-角色区别)
+
+---
+## Spring AI 中 Agent、Skill 与 Tool 实现映射
+
+> **模块**：Agent 架构与协同 | **标签**：Spring AI, @Tool, SKILL.md, ReactAgent | **更新**：2026-06-06
+
+### 核心概念
+
+Spring AI 用 @Tool/ToolCallback 实现 Tool、SKILL.md 技能包实现 Skill、ReactAgent/图编排实现 Agent，与通用三层抽象一一对应。
+
+### 要点
+
+| 通用概念 | Spring AI 体现 | 核心抽象 |
+| :--- | :--- | :--- |
+| Tool | Tool Calling | `@Tool` / `ToolCallback` |
+| Skill | Agent Skills | `SKILL.md` 文件夹（渐进式披露） |
+| Agent | 智能体 | `ReactAgent` / Graph 编排 |
+
+- **Tool**：`@Tool(description=...)` 暴露 Bean 方法，`ChatClient.defaultTools()` 注册；MCP 扩展外部工具生态。
+- **Skill**：`SKILL.md` + YAML 元数据；发现阶段只加载名称/描述，激活时完整加载指令，执行阶段按 SOP 调 Tool。
+- **Agent**：自主规划或人工编排；支持 Subagent 委派与 Task 工具做层级协作。
+
+### 代码示例
+
+```java
+@Tool(description = "获取指定城市的实时天气")
+public String getWeather(String city) {
+    return city + " 晴朗 24°C";
+}
+
+@Configuration
+class AppConfig {
+    @Bean
+    ChatClient chatClient(ChatModel model, WeatherTools tools) {
+        return ChatClient.builder(model).defaultTools(tools).build();
+    }
+}
+```
+
+### 面试常问
+
+**问**：Spring AI 如何实现 Agent、Skill、Tool？
+
+**答**：@Tool 注册原子工具；Skill 以 SKILL.md 目录封装 SOP 并渐进式加载；Agent 用 ReactAgent 或 Alibaba Graph 做自主调度与子任务委派，三者通过 ChatClient 统一接入。
+
+### 关联知识点
+
+- [@Tool 定义、注册与 ToolParam 参数约束](#tool-定义注册与-toolparam-参数约束)
+- [SimpleAgent 与 ReactAgent ReAct 规划模式](#simpleagent-与-reactagent-react-规划模式)
+
+---
+## Actor-Critic 自我反思与 Reflection Agent
+
+> **模块**：Agent 架构与协同 | **标签**：Actor-Critic, Reflection, 自我反思 | **更新**：2026-06-06
+
+### 核心概念
+
+Actor-Critic 自我反思在 Actor 执行、Critic 评估基础上，增加语言层反思模块，将失败经验显式写入记忆供后续遵循，加速少样本学习与可解释性。
+
+### 要点
+
+| 层级 | 机制 | 输出 |
+| :--- | :--- | :--- |
+| 环境反馈 | 奖励 r | 数值标量 |
+| Critic 评估 | TD 误差 / 优势函数 | 数值梯度 |
+| 自我反思 | LLM 分析轨迹 | 结构化文本（原因+修正策略） |
+
+- **Spring AI Alibaba**：ReflectAgent + Graph（生成节点=Actor，评判节点=Critic）；Recursive Advisor 在评估不通过时携带反馈重调 Actor。
+- **AgentScope**：ReActAgent 作 Actor；Judge Function / 多 Agent 辩论作 Critic；tuner 模块支持 PPO/GRPO 长期进化。
+- 与标准 Actor-Critic 区别：更新信号含自然语言反思，可从少数失败抽象规则。
+
+### 面试常问
+
+**问**：Actor-Critic 自我反思是什么？在 Spring AI 中如何体现？
+
+**答**：Actor 执行、Critic 评估后再由反思模块生成可读的改进建议并注入后续决策。Spring AI 用 ReflectAgent 图或 Recursive Advisor 实现生成—评估—改进循环；AgentScope 侧重 ReAct 实时调整 + RL 长期优化。
+
+### 关联知识点
+
+- [ReAct 与 Reflexion 范式对比](#react-与-reflexion-范式对比)
+- [Agent 容错三层防御架构](#agent-容错三层防御架构)
+
+---
+## ReAct 与 Reflexion 范式对比
+
+> **模块**：Agent 架构与协同 | **标签**：ReAct, Reflexion, Thought-Action-Observation | **更新**：2026-06-06
+
+### 核心概念
+
+ReAct 在单轮任务内交替 Thought→Action→Observation 即时纠错；Reflexion 在多次尝试间用评估+反思写入长期记忆，实现跨任务经验积累。
+
+### 要点
+
+| 维度 | ReAct | Reflexion |
+| :--- | :--- | :--- |
+| 核心循环 | Thought → Action → Observation | Actor → Evaluator → Reflection → Memory |
+| 记忆 | 工作记忆（上下文窗口） | 情景/长期记忆（反思文本持久化） |
+| 错误处理 | 根据当前 Observation 调整下一步 | 任务失败后生成反思日志，避免重复犯错 |
+| 适用 | 动态实时交互（浏览、游戏） | 高质量输出（代码、证明、文书） |
+| 关系 | ReAct 可充当 Reflexion 的 Actor | Reflexion 是 ReAct 的升级版 |
+
+### 代码示例
+
+```python
+# ReAct 基本循环（伪代码）
+while not task_complete:
+    thought = llm.generate(thought_prompt)
+    action = execute_action(thought)
+    observation = get_observation(action)
+
+# Reflexion 核心（伪代码）
+for trial in range(max_trials):
+    answer = actor.run(question, memory)
+    if evaluator.evaluate(answer) >= THRESHOLD:
+        return answer
+    memory.add_reflection(generate_reflection(question, answer))
+```
+
+### 面试常问
+
+**问**：ReAct 和 Reflexion 有何区别？如何选型？
+
+**答**：ReAct 边想边做、单会话内循环；Reflexion 跨轮次复盘并持久化反思。动态交互先用 ReAct；对准确率要求高且允许试错时叠加 Reflexion 记忆模块。
+
+### 关联知识点
+
+- [SimpleAgent 与 ReactAgent ReAct 规划模式](#simpleagent-与-reactagent-react-规划模式)
+- [Observation 在 ReAct 中的作用](#observation-在-react-中的作用)
+
+---
+## Agent 角色与 Skill 角色区别
+
+> **模块**：Agent 架构与协同 | **标签**：角色设定, System Prompt, SKILL.md | **更新**：2026-06-06
+
+### 核心概念
+
+Agent 角色定义全局人格与决策风格（「我是谁」）；Skill 角色是激活特定任务时的专业身份与 SOP（「此刻扮演谁」），Skill 优先级更高。
+
+### 要点
+
+| 维度 | Agent 角色 | Skill 角色 |
+| :--- | :--- | :--- |
+| 范围 | 全局、持久 | 局部、临时 |
+| 内容 | 沟通风格、价值观、通用目标 | 领域 SOP、输出格式、质量标准 |
+| 实现 | system prompt / 全局 Advisor | SKILL.md 指令部分 |
+| 设计原则 | 宜宽、通用 | 宜窄、聚焦单职责 |
+
+- 调用 Skill 时两者叠加：Agent 基调 + Skill 覆盖（如从「热情助手」临时切到「严格审查员」），结束后恢复 Agent 角色。
+- 多 Skill 共享的专业视角（如「安全第一」）可提升为 Agent 全局角色。
+
+### 面试常问
+
+**问**：Agent 和 Skill 都可以设定角色，区别是什么？
+
+**答**：Agent 角色是贯穿生命周期的全局人格；Skill 角色仅在技能执行期生效，定义该任务的专业规范与输出格式，且可临时覆盖 Agent 的部分风格。
+
+### 关联知识点
+
+- [Spring AI 中 Agent、Skill 与 Tool 实现映射](#spring-ai-中-agentskill-与-tool-实现映射)
+- [基于 Cursor Rules 的领域角色智能体](#基于-cursor-rules-的领域角色智能体)
+
+---
+## Agent 容错三层防御架构
+
+> **模块**：Agent 架构与协同 | **标签**：容错, 事前防御, HITL, Reflexion | **更新**：2026-06-06
+
+### 核心概念
+
+生产级 Agent 容错按事前防御、事中拦截与闭环重试、事后进化三层组织，并贯穿六层权限护栏（目标→工具→参数→环境→决策→结果）。
+
+### 要点
+
+**事前防御**：Schema/Prompt 强约束、Few-shot 边界正例、目标收口（任务边界、工作目录）。
+
+**事中拦截**：try-catch 结构化错误、沙箱+HITL 高危确认、降级路由；错误回传为 Observation → ReAct 重构 → max_iteration 限次。
+
+**事后进化**：Reflexion 审查日志、高频错误写入向量库避坑、failed case 用于微调。
+
+**工具设计四维度**：清晰描述+负向边界、参数化（query 重写/metadata 过滤）、结果反馈（相关性分数/查无引导）、粒度拆分（多租户/路由）。
+
+**刹车口诀**：目标收口、工具放权、执行护栏、结果可追。
+
+### 面试常问
+
+**问**：如何设计 Agent 容错架构？
+
+**答**：事前用 schema+prompt+few-shot 减错；事中 try-catch、沙箱、降级与 Observation 驱动 ReAct 重试；事后 Reflexion+记忆库+错题本微调；全链路叠加六层权限护栏。
+
+### 关联知识点
+
+- [Agent 分级错误处理矩阵](#agent-分级错误处理矩阵)
+- [工具调用错误恢复与 Fallback 策略](#工具调用错误恢复与-fallback-策略)
+
+---
+## Observation 在 ReAct 中的作用
+
+> **模块**：Agent 架构与协同 | **标签**：Observation, ReAct, 错误回传 | **更新**：2026-06-06
+
+### 核心概念
+
+Observation 是环境对 Agent Action 的反馈，作为下一轮 Thought 的输入，构成 ReAct 闭环；设计为结构化、可读的错误提示可触发自动修正。
+
+### 要点
+
+- 典型形式：工具成功 JSON、错误码+说明、搜索无结果提示、权限拒绝信息。
+- 设计要点：结构化（JSON/状态码）、人类可读、信息充分、控制长度防撑爆上下文。
+- 错误处理：将堆栈转为「除数不能为零，请检查输入」等 Observation，驱动下一轮 Thought 修正 Action。
+
+### 代码示例
+
+```
+Thought: 用户问天气，应调用天气 API
+Action: get_weather(city="北京")
+Observation: {"city":"北京","temp":25,"condition":"晴"}
+Thought: 已获数据，可回答用户
+```
+
+### 面试常问
+
+**问**：ReAct 中 Observation 是什么？在错误处理中如何用？
+
+**答**：Observation 是 Action 执行后环境返回的反馈，进入下一轮推理。工具失败时应返回可读错误而非裸堆栈，让模型据此修正参数或换工具，实现动态重试闭环。
+
+### 关联知识点
+
+- [ReAct 与 Reflexion 范式对比](#react-与-reflexion-范式对比)
+- [工具调用错误恢复与 Fallback 策略](#工具调用错误恢复与-fallback-策略)
+
+---
+## Agent 分级错误处理矩阵
+
+> **模块**：Agent 架构与协同 | **标签**：错误处理, 重试, 降级, HITL | **更新**：2026-06-06
+
+### 核心概念
+
+Agent 错误按严重程度分级处理：轻微自动重试，中度自我修正，重度路由降级，致命人工介入；配合检查点回滚与监控闭环。
+
+### 要点
+
+| 严重程度 | 典型错误 | 策略 | 人工 |
+| :--- | :--- | :--- | :--- |
+| 轻微 | 格式错误、网络抖动 | 自动重试 ≤3 次 | 否 |
+| 中度 | 工具参数错、推理步骤错 | ReAct/Reflexion 自修正 | 否 |
+| 重度 | 主模型超时、关键工具全挂 | 模型/工具降级 | 否 |
+| 致命 | 权限拒绝、状态不可恢复 | 中断 + HITL | 是 |
+
+- **预防**：输入校验、工具契约（输入/输出 schema）、沙箱超时、结构化输出。
+- **检测**：Validation Advisor、死循环检测（同工具 N 次无进展）、耗时/token 阈值。
+- **恢复**：Spring AI 声明式重试、`StructuredOutputValidationAdvisor`、Resilience4j fallback、检查点 restore。
+
+### 面试常问
+
+**问**：生产环境如何处理 Agent 各类错误？
+
+**答**：分类后分级响应——瞬时故障重试，内容/逻辑错误 Observation 驱动自修正，路径失效走降级链，不可恢复则 HITL 并保留轨迹；全链路可观测与错题回流优化。
+
+### 关联知识点
+
+- [Agent 容错三层防御架构](#agent-容错三层防御架构)
+- [路由降级与高可用机制](性能与高可用.md)
+
+---
+## Spring AI 数据联邦与多源查询
+
+> **模块**：Agent 架构与协同 | **标签**：数据联邦, Tool Calling, DocumentJoiner | **更新**：2026-06-06
+
+### 核心概念
+
+Spring AI 数据联邦将数据库、搜索引擎、API 等异构源封装为 @Tool，由 Agent 通过 Tool Calling 路由、并行/串行执行，再经 Advisor 或 DocumentJoiner 融合结果。
+
+### 要点
+
+- **架构**：用户 → Agent（路由编排）→ Tool 注册中心 → 各数据源；融合层去重、排序、冲突解决后注入 LLM。
+- **落地**：`FederalTools` 用多个 `@Tool` 封装 DB/Web/API；`ChatClient.defaultTools()` 注册；`DataFusionAdvisor` 拦截工具返回值做合并。
+- **进阶**：模块化 RAG 的 QueryExpander、多 DocumentRetriever、DocumentJoiner/Ranker/Compressor；Alibaba DataAgent 提供规划—查询—分析—报告企业闭环。
+
+### 代码示例
+
+```java
+@Component
+public class FederalTools {
+    @Tool(description = "从数据库查询业务数据")
+    public List<Map<String, Object>> queryFromDatabase(String entityId) { /* ... */ }
+
+    @Tool(description = "搜索引擎全文检索")
+    public String searchFromWebEngine(String keyword) { /* ... */ }
+}
+```
+
+### 面试常问
+
+**问**：Spring AI 如何实现 Agent 同时查多数据源并整合？
+
+**答**：每类数据源封装为 @Tool，ChatClient 统一调度；复杂场景用 Advisor 做结果融合，或模块化 RAG 的 DocumentRetriever+Joiner 做检索侧联邦；注意权限、并行策略与可观测性。
+
+### 关联知识点
+
+- [Tool Calling 聚合多接口业务数据](#tool-calling-聚合多接口业务数据)
+- [RAG 检索策略](RAG检索策略.md)
+
+---
+## Text2SQL 核心流程与高级技术
+
+> **模块**：Agent 架构与协同 | **标签**：Text2SQL, Schema Linking, DIN-SQL | **更新**：2026-06-06
+
+### 核心概念
+
+Text2SQL 将自然语言转为可执行 SQL，常作为 Agent 的 @Tool；高级实践含 Schema Linking、动态 Few-shot、Observation 驱动错误自修复及六层安全护栏。
+
+### 要点
+
+**流程**：语义解析 → Schema 链接 → SQL 生成 → 执行 → 结果返回。
+
+**Schema Linking**：问题词与表/列对齐；prompt 注入 DDL 或 `get_database_schema()` 工具动态获取。
+
+**动态 Few-shot**：向量库检索相似 (问题, SQL) 对注入 prompt（情景记忆应用）。
+
+**错误自修复**：`runSQL` 捕获异常转为 Observation，循环修正直至成功或超 maxRetries。
+
+**DIN-SQL vs 子查询**：DIN-SQL 分解 SQL 结构（SELECT/JOIN/WHERE）；子查询模式分解独立子问题再合并答案（见 RAG 模块）。
+
+**安全**：只读账户、禁止 DML、SQL 白名单、敏感列过滤、大数据量人工审批。
+
+### 代码示例
+
+```java
+@Tool(description = "执行 SQL 并返回结果或可读错误")
+public String runSQL(String sql) {
+    try {
+        return jdbcTemplate.queryForList(sql).toString();
+    } catch (SQLException e) {
+        return "错误：" + translateError(e);
+    }
+}
+```
+
+### 面试常问
+
+**问**：如何构建生产级 Text2SQL Agent？
+
+**答**：DDL 动态链接 + 向量库动态 Few-shot 提高首轮准确率；执行失败用 Observation 闭环自修复；叠加 SQL 白名单与六层护栏；复杂查询用 DIN-SQL 分步生成，多跳问答用子查询模式。
+
+### 关联知识点
+
+- [子查询 Sub-Query 模式](RAG检索策略.md)
+- [冷启动与长尾问题](其他.md)
+
+---
+

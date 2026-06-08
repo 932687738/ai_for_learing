@@ -1,4 +1,4 @@
-<!-- 模块：Agent 工作流模式 | 最后更新于 2026-05-29（FlowAgent / HumanFeedbackToolCallback） -->
+<!-- 模块：Agent 工作流模式 | 最后更新于 2026-06-06（检查点与分布式状态）） -->
 
 # Agent 工作流模式
 
@@ -16,6 +16,8 @@
 - [FlowAgent 顺序多智能体编排](#flowagent-顺序多智能体编排)
 - [HumanFeedbackToolCallback 装饰器式人工审批](#humanfeedbacktoolcallback-装饰器式人工审批)
 
+- [Agent 检查点机制与持久执行](#agent-检查点机制与持久执行)
+- [增量状态同步与分布式 Agent 状态管理](#增量状态同步与分布式-agent-状态管理)
 ---
 ## SequentialAgent 与 LoopAgent 工作流
 
@@ -681,3 +683,66 @@ Agent agent = Agent.builder()
 - [工具调用错误恢复与 Fallback 策略](Agent架构与协同.md)
 
 ---
+
+## Agent 检查点机制与持久执行
+
+> **模块**：Agent 工作流模式 | **标签**：Checkpoint, 持久执行, LangGraph | **更新**：2026-06-06
+
+### 核心概念
+
+检查点是 Agent 执行关键节点的状态快照持久化，支持故障恢复、人工审批暂停与历史回溯，是生产级「持久执行」的基础。
+
+### 要点
+
+- **保存内容**：消息历史、当前图节点、自定义状态键、元数据（时间戳、操作员）；高级可含副作用回滚信息。
+- **保存策略**：自动（每步/每 N 轮）、手动（高风险前）、条件（风险分数阈值）。
+- **存储**：MemorySaver、SQLite、Postgres、Redis 等；LangGraph/Spring AI Alibaba 均提供实现。
+- **权衡**：保存频率 vs 性能；状态大小 vs 恢复精度；LLM 调用需 Task 封装保证重放确定性。
+- **与沙箱**：未来可原生集成检查点接口做安全审批流转。
+
+### 面试常问
+
+**问**：AI Agent 检查点机制是什么？保存什么？
+
+**答**：在关键节点持久化完整上下文（消息、节点、状态元数据），故障或 HITL 后可从最近检查点恢复而非从头执行；需平衡保存频率与存储开销，并处理 LLM 非确定性重放问题。
+
+### 关联知识点
+
+- [MemorySaver 检查点与 HITL resume 续聊](Agent记忆体系.md)
+- [Human-in-the-Loop 工具审批（ReactAgent + HumanInTheLoopHook）](#human-in-the-loop-工具审批reactagent--humanintheloophook)
+
+---
+## 增量状态同步与分布式 Agent 状态管理
+
+> **模块**：Agent 工作流模式 | **标签**：增量同步, Ray, Dapr, 分布式 | **更新**：2026-06-06
+
+### 核心概念
+
+检查点全量快照之外，增量同步只传变更集（CDC/增量 CRDT/Flink Changelog）；分布式场景需 Leader 协调、Raft 日志复制或中心化变更集上报保证一致性。
+
+### 要点
+
+| 方式 | 思想 | 适用 |
+| :--- | :--- | :--- |
+| 全量检查点 | 定期完整快照 | 状态小、逻辑简单 |
+| 增量同步 | 只传 delta | 频繁变更、TB 级状态 |
+| Raft/多数派 | 强一致日志复制 | 集群共识 |
+| 变更集上报 | 乐观并发+中心存储 | 多 Agent 协作 |
+
+- **Ray**：Actor 有状态 Worker，`max_restarts` 自动重启但需手动 S3 检查点或 get_state/load_state。
+- **Dapr Workflow**：事件溯源，持久化 TaskScheduled/TaskCompleted 等事件，重放重建状态；代码须确定性（禁直接 random/now）。
+- **演进路径**：检查点 → 增量同步 → 分布式框架选型（Ray 偏 AI 计算，Dapr 偏可靠编排）。
+
+### 面试常问
+
+**问**：检查点之外如何做增量状态同步？Ray 和 Dapr 如何管理 Agent 状态？
+
+**答**：用 CDC/Binlog、增量 CRDT 或 Changelog 只同步变更；Ray Actor 需外置检查点恢复状态；Dapr Workflow 用事件溯源重放历史事件，要求工作流逻辑确定性。
+
+### 关联知识点
+
+- [Agent 检查点机制与持久执行](#agent-检查点机制与持久执行)
+- [分布式 Redis ChatMemory 共享](Agent记忆体系.md)
+
+---
+
