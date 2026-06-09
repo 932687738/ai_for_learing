@@ -2,6 +2,85 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-06-09
+
+### 今日总览
+
+**一句话结论**：`2026-06-09` 是 **「Mythos 首次公众化（Fable 5）+ WWDC 次日 Apple×Google 联合声明 + 前沿模型安全与成本双线」**——Anthropic 发布 **Claude Fable 5 / Mythos 5**（Mythos-class 首次 GA，含 cyber/bio 护栏与 **Opus 4.8 fallback**）；Apple 与 Google 发布 **Gemini 驱动的 AFM 下一代** 联合声明，并因 **DMA** 宣布 **欧盟 iOS/iPadOS 暂不提供 Siri AI**；产业侧 **SpaceX AI1 卫星 + 6/12 IPO**、**Miasma 蠕虫** 持续发酵、**Apify MCP Connectors** 上线。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Anthropic 官方；Apple/Google 官方；TechCrunch/Axios/CNBC；arXiv 6/9；Apify；专项工具链 |
+| 核心趋势 | **Mythos 产品化**：Fable 5 **$10/$50 per Mtok**、**6/22 前** 订阅含免费窗口；**端侧 Agent 监管分化**：Siri AI 在 **EU/中国** 受阻；**Agent 供应链安全**：Miasma 针对 **Claude Code/Gemini CLI/Cursor** 配置触发 |
+| 可直接关注 | 评估 **claude-fable-5** API 与 **30 天 retention** 企业条款；EU/中国产品路线对照 **Private Cloud Compute + Gemini** 架构；CI 扫描 **`.claude/settings.json` + `[skip ci]`** 恶意 commit |
+| 专项检索结论 | **Claude Code**：无 **6/9** 新版本（Fable 5 驱动 API/CLI 后端升级）；**Codex**：无 **6/9** 新 release；**OpenClaw**：无 **6/9** 官方 release（**2026.6.5 MCP hardening 为 6/6**）；**Hermes**：无 **6/9** 官方 release；**Spring AI**：无 **6/9** 官方 release；**skills**：无 **6/9** marketplace 新公告（Fable 5 能力外溢至 **Agent/Deep Research** 场景） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Anthropic / 模型 | [Claude Fable 5 and Claude Mythos 5](https://www.anthropic.com/news/claude-fable-5-mythos-5) | **2026-06-09** | 官方发布 | **Mythos-class 首次 GA**；cyber/bio/chemistry/distillation 高风险查询 **fallback Opus 4.8**（<5% sessions）；**Mythos 5** 限 Glasswing/可信访问 |
+| Anthropic / 定价 | [Claude API Pricing — Fable 5](https://docs.anthropic.com/en/docs/about-claude/pricing) | **2026-06-09** | 开发者文档 | **$10/$50 per Mtok**（Opus 4.8 的 2×）；**6/22 前** Pro/Max/Team/Enterprise 含 Fable 5 |
+| 媒体 / Anthropic | [Anthropic's Claude Fable 5（TechCrunch）](https://techcrunch.com/2026/06/09/anthropics-claude-fable-5-is-a-version-of-mythos-the-public-can-access-today/) | **2026-06-09** | 技术媒体 | 披露 **30 天 traffic retention** 防 jailbreak；**6/23** 起需 usage credits |
+| Apple / Google | [Joint statement from Google and Apple](https://blog.google/company-news/inside-google/company-announcements/joint-statement-google-apple/) | **2026-06-09**（WWDC 期间传播） | 官方声明 | **AFM 下一代基于 Gemini**；仍跑 **Apple 设备 + Private Cloud Compute** |
+| Apple / 监管 | [Due to DMA, Siri AI delayed in EU](https://www.apple.com/newsroom/2026/06/due-to-dma-siri-ai-delayed-in-eu-for-ios-27-and-ipados-27/) | **2026-06-09** | 政策/产品 | **欧盟 iOS/iPadOS/watchOS** 暂无 Siri AI；**macOS/visionOS** 仍可用 |
+| 算力 / IPO | [SpaceX AI1 satellite + IPO（TradingKey）](https://www.tradingkey.com/analysis/stocks/us-stocks/261954234-elonmusk-spacex-ipo-ai1-tradingkey) | **2026-06-09** | 基础设施 | **AI1** 轨道数据中心设计；**6/12** 目标 IPO **~$1.77T** |
+| Agent 安全 | [Microsoft repos disabled — Miasma worm（StepSecurity）](https://www.stepsecurity.io/blog/miasma-worm-hits-microsoft-again-azure-functions-action-and-72-other-repositories-disabled-after-supply-chain-attack-targeting-ai-coding-agents) | **2026-06-05**（攻击）/ **6/9**（持续报道） | 安全事件 | **73 仓库** 被禁；**Claude Code/Gemini CLI/Cursor/VS Code** 配置触发凭证收割 |
+| MCP / 工具 | [Apify announces MCP connectors（AP News）](https://uat.apnews.com/press-release/ein-presswire-newsmatics/press-release-b667f2f5cefd4818b3a5785a0e38855c) | **2026-06-09** | 开源/平台 | Actor 经 **MCP** 连接 Notion/GitHub/Slack；用户 OAuth、Actor 不见凭证 |
+| 成本治理 | [Can tech companies learn to love cheaper models?（TechCrunch）](https://techcrunch.com/2026/06/09/can-tech-companies-learn-to-love-cheaper-models/) | **2026-06-09** | 行业分析 | Harvey×Fireworks **3× 推理成本下降** 案例；大/小模型路由成 FinOps 焦点 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Mythos 产品化 | **Anthropic Fable 5 公告** | 护栏+fallback、Glasswing/Mythos 5、定价窗口 | 平台/安全/研发 |
+| 端侧 AI 监管 | **Apple DMA 说明** | Trusted System Agent 提案被拒；EU 功能缺口 | 移动端/合规 |
+| Agent 供应链 | **StepSecurity Miasma 分析** | `.github/setup.js`、多 IDE 配置触发 | DevSecOps |
+| MCP 集成 | **Apify MCP Connectors 文档** | 用户 OAuth、工具级 ACL | Agent 平台工程师 |
+| 模型路由 | **TechCrunch：cheaper models** | Opus+GLM 混合、mini 模型替代 | FinOps/架构 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/9 呈现 **「最强 cyber-capable 模型 cautiously GA + OS 级 Agent 地缘/regulatory 分叉 + coding agent 供应链攻击常态化」**——Fable 5 把 Mythos 能力带入订阅/API，但用 **fallback + retention** 换安全；Apple/Google 联合声明确立 **Gemini×Private Cloud Compute** 模板；Miasma 则证明 **Agent IDE 配置即攻击面**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Mythos GA | **Fable 5 / Mythos 5** | 高风险域应 **模型路由+fallback** 而非单一 frontier |
+| 端侧 Agent | **Siri AI EU 延迟** | 全球产品需 **regional feature matrix** 与 **DMA/本地化** 预案 |
+| MCP 生态 | **Apify Connectors** | 第三方 Actor + 用户 OAuth = 新 **工具链 ACL** 模式 |
+| Agent 安全 | **Miasma** | 仓库打开即执行：**CI 强制扫描 agent 配置变更** |
+| 成本 | **小模型路由** | 长任务应用 **effort tier + 模型 cascade** 降 bill |
+| 专项空窗 | Codex/OpenClaw/Hermes/Spring AI/skills 无 6/9 release | 跟进 **6/6 OpenClaw MCP fix** 与 **6/2 dynamic workflows** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Anthropic Fable 5 官方文** | 2026 **Mythos-class 公众化** 的护栏/定价/访问分层样板 |
+| 必读 | **Apple DMA + Siri AI 公告** | 理解 **OS Agent 在欧盟为何停摆** |
+| 推荐 | **Google×Apple 联合声明** | **Gemini AFM** 官方口径与隐私边界 |
+| 推荐 | **Miasma 供应链分析** | **AI coding agent** 时代的新型 worm 模式 |
+| 延伸 | **DuMate-DeepResearch 论文** | 可审计 **multi-agent deep research** 工程框架 |
+
+### 来源清单
+
+- 检索范围：2026-06-09 00:00:00 到 2026-06-09 23:59:59（Asia/Shanghai）
+- 引用域名：anthropic.com, docs.anthropic.com, techcrunch.com, blog.google, apple.com, tradingkey.com, stepsecurity.io, apnews.com, arxiv.org, axios.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Claude Fable 5 and Mythos 5 | 2026-06-09 | https://www.anthropic.com/news/claude-fable-5-mythos-5 |
+| 开发者文档 | Claude Fable 5 pricing | 2026-06-09 | https://docs.anthropic.com/en/docs/about-claude/pricing |
+| 技术媒体 | TechCrunch Fable 5 | 2026-06-09 | https://techcrunch.com/2026/06/09/anthropics-claude-fable-5-is-a-version-of-mythos-the-public-can-access-today/ |
+| 官方声明 | Google×Apple joint statement | 2026-06-09 | https://blog.google/company-news/inside-google/company-announcements/joint-statement-google-apple/ |
+| 政策/产品 | Apple DMA Siri delay | 2026-06-09 | https://www.apple.com/newsroom/2026/06/due-to-dma-siri-ai-delayed-in-eu-for-ios-27-and-ipados-27/ |
+| 基础设施 | SpaceX AI1 / IPO | 2026-06-09 | https://www.tradingkey.com/analysis/stocks/us-stocks/261954234-elonmusk-spacex-ipo-ai1-tradingkey |
+| 安全事件 | Miasma worm | 2026-06-05/6/9 传播 | https://www.stepsecurity.io/blog/miasma-worm-hits-microsoft-again-azure-functions-action-and-72-other-repositories-disabled-after-supply-chain-attack-targeting-ai-coding-agents |
+| 开源/平台 | Apify MCP connectors | 2026-06-09 | https://uat.apnews.com/press-release/ein-presswire-newsmatics/press-release-b667f2f5cefd4818b3a5785a0e38855c |
+| 行业分析 | Cheaper models | 2026-06-09 | https://techcrunch.com/2026/06/09/can-tech-companies-learn-to-love-cheaper-models/ |
+| 论文 | DuMate-DeepResearch | 2026-06（arXiv） | https://arxiv.org/html/2606.07299v1 |
+
 ## 2026-06-08
 
 ### 今日总览
