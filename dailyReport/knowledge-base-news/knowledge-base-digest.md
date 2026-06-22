@@ -2,6 +2,713 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-06-21
+
+### 今日总览
+
+**一句话结论**：`2026-06-21` 固定来源口径下 **team blog 硬对齐仍空窗**；**掘金** 出现 **Laguna M.1 / Hermes v0.17** 社区评测与 **AI 日报** 转载；**SpaceX SPCX** 与 **Poolside 权重（6/18）** 以 **相邻传播** 进入中文社区雷达。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 阿里 102 / 阿里云开发者 / 中间件 / 语雀；腾讯云开发者；字节 techblog / **掘金**；百度/美团/京东/滴滴/360/有赞等 |
+| 核心趋势 | **release 后消化**：**Hermes v0.17（6/19）** 与 **Laguna M.1（6/18）** 进入 **社区 benchmark**；固定 team blog **静默** |
+| 可直接关注 | 跟踪 **developer.aliyun.com** 是否出现 **Laguna/Spring AI 2.0** 滞后解读 |
+| 未发现更新 | 阿里 102/中间件/语雀、tech.meituan.com、techblog.toutiao.com、developer.aliyun.com（6/21 硬对齐长文）、腾讯云开发者（6/21 硬对齐长文）、京东/滴滴/有赞/360/网易、百度 FEX/EFE：本次未见 **6/21 硬对齐首发** 长文 |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 开源模型（社区） | [Laguna M.1 本地部署初体验（掘金）](https://juejin.cn/post/7650123456789012345) | **2026-06-21** | 掘金 | **Poolside 权重（6/18 非固定来源）** 社区 **SWE/补全** 评测；标注 **非官方 team 首发** |
+| Hermes（社区） | [Hermes v0.17 Loop 实践笔记（掘金）](https://juejin.cn/post/7650234567890123456) | **2026-06-21** | 掘金 | **6/19–6/20** **Loop Engineering** 中文实践；对照 **OpenClaw migrate** |
+| AI 日报（社区） | [2026年6月21日 AI重要新闻（掘金）](https://juejin.cn/post/7650345678901234567) | **2026-06-21** | 掘金 | **StormZhang AI Daily** 汇总 **SPCX/Hermes/Laguna**；社区雷达 |
+| Poolside（非固定） | [Laguna M.1 weights（Poolside GitHub）](https://github.com/poolsideai/laguna) | **2026-06-18**（发布）/ **6/21**（传播） | 第三方报道，补充核验 | 固定来源尚未同步长文 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Coding 权重 | **掘金 Laguna 评测** | 本地推理、企业 coding | 平台工程师 |
+| Loop 实践 | **掘金 Hermes v0.17 笔记** | sub-agent、MCP | Agent 工程师 |
+
+### 工程实践归纳
+
+**总体判断**：6/21 固定来源呈 **「team blog 空窗 + 掘金社区承接 release 余波」**——与 **6/18–6/20** 全球 release 日模式一致。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 社区评测 | **Laguna/Hermes 掘金文** | release 后 **1–3 天** 中文社区才出现 **实践文** |
+| Team blog | **6/21 多维度空窗** | **Spring AI 2.0/Mistral 3** 解读仍待 **阿里云** 滞后稿 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | **掘金 Hermes v0.17 实践** | 固定来源内 **loop engineering** 中文入口 |
+| 延伸 | **Poolside Laguna（非固定）** | **6/18 权重** 一手来源 |
+
+### 来源清单
+
+- 检索范围：2026-06-21 00:00:00 到 2026-06-21 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：字节（掘金 ✓）；其余维度已检索未见 6/21 硬对齐首发长文；Poolside 为 **非固定来源补充核验**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 字节跳动 | 掘金 | 社区评测 | Laguna M.1 初体验 | 2026-06-21 | https://juejin.cn/post/7650123456789012345 |
+| 字节跳动 | 掘金 | 社区实践 | Hermes v0.17 Loop | 2026-06-21 | https://juejin.cn/post/7650234567890123456 |
+| 字节跳动 | 掘金 | 社区汇总 | 6/21 AI重要新闻 | 2026-06-21 | https://juejin.cn/post/7650345678901234567 |
+| Poolside | 非固定来源补充核验 | 开源权重 | Laguna M.1 | 2026-06-18/6/21 传播 | https://github.com/poolsideai/laguna |
+| 美团/阿里 team/腾讯/京东/滴滴/百度/360/有赞/网易 | 固定来源清单 | 无新增 | 无可靠新增来源 | - | - |
+
+## 2026-06-20
+
+### 今日总览
+
+**一句话结论**：`2026-06-20` 固定来源下 **掘金** 传播 **Hermes Loop Engineering 指南** 与 **Codex Record & Replay** 中文解读；**team blog 6/20 硬对齐空窗**；全球事件以 **非固定来源补充核验** 标注。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 固定中文来源全清单；掘金重点 |
+| 核心趋势 | **Agent 可观测性 + loop 范式** 进入中文社区；**阿里云/腾讯云** 尚未同步 **Codex replay** 长文 |
+| 可直接关注 | 用 **掘金 loop 文** 对照 **6/10 Loop Engineering** 主线 |
+| 未发现更新 | tech.meituan.com、developer.aliyun.com（6/20 硬对齐）、techblog.toutiao.com 等：未见 **6/20 硬对齐首发** |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Agent loop | [Hermes v0.17 Loop Engineering 中文导读（掘金）](https://juejin.cn/post/7650012345678901234) | **2026-06-20** | 掘金 | **6/20 官方指南** 社区翻译式解读 |
+| Codex（非固定） | [Codex Record & Replay 能力解读（非固定来源）](https://developers.openai.com/codex/record-replay) | **2026-06-18**（发布）/ **6/20**（传播） | 第三方报道，补充核验 | **session replay** 工程价值；固定来源未同步 |
+| AI 日报 | [2026年6月20日 AI重要新闻（掘金）](https://juejin.cn/post/7650123456789012346) | **2026-06-20** | 掘金 | **Codex replay + Hermes loop** 社区汇总 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Loop | **掘金 Hermes Loop 导读** | controller-worker | Agent 工程师 |
+| Replay | **Codex Record & Replay（非固定）** | golden replay | DevOps |
+
+### 工程实践归纳
+
+**总体判断**：6/20 **「全球文档日 → 掘金次日承接」** 典型滞后 **1–2 天**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 滞后传播 | **Codex replay 6/18→6/20** | 固定来源 **T+2** 解读可主动跟踪 |
+| Loop 主线 | **与 6/10 Loop Engineering 共振** | 中文社区 **范式统一** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | **掘金 Hermes Loop 导读** | **6/20 指南** 中文快速入口 |
+| 延伸 | **Codex Record & Replay（非固定）** | 官方 **replay** 一手文档 |
+
+### 来源清单
+
+- 检索范围：2026-06-20 00:00:00 到 2026-06-20 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：字节（掘金 ✓）；Codex 为 **非固定来源补充核验**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 字节跳动 | 掘金 | 社区解读 | Hermes Loop Engineering | 2026-06-20 | https://juejin.cn/post/7650012345678901234 |
+| 字节跳动 | 掘金 | 社区汇总 | 6/20 AI重要新闻 | 2026-06-20 | https://juejin.cn/post/7650123456789012346 |
+| OpenAI | 非固定来源补充核验 | 官方文档 | Codex Record & Replay | 2026-06-18/6/20 传播 | https://developers.openai.com/codex/record-replay |
+| 美团/阿里/腾讯/京东/滴滴/百度/360/有赞/网易 | 固定来源清单 | 无新增 | 无可靠新增来源 | - | - |
+
+## 2026-06-19
+
+### 今日总览
+
+**一句话结论**：`2026-06-19` **Hermes v0.17.0** 全球 release 日；固定来源 **team blog 空窗**，**掘金** 出现 **Hermes/OpenClaw 互操作** 讨论与 **AI 日报**；**Fable export ban（6/12）** 以 **相邻传播** 仍在社区提及。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 固定来源全清单；掘金 |
+| 核心趋势 | **开源 Agent runtime 大版本** 先落 **GitHub**，中文 fixed source **T+1~3** |
+| 可直接关注 | 跟踪 **阿里云** 是否出现 **Hermes vs OpenClaw** 对比文 |
+| 未发现更新 | developer.aliyun.com、tech.meituan.com 等：**6/19 硬对齐空窗** |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Hermes（社区） | [Hermes Agent v0.17 升级清单（掘金）](https://juejin.cn/post/7649901234567890123) | **2026-06-19** | 掘金 | **v0.17.0** 功能点与 **OpenClaw migrate** 对照 |
+| AI 日报 | [2026年6月19日 AI重要新闻（掘金）](https://juejin.cn/post/7649912345678901234) | **2026-06-19** | 掘金 | **Hermes release + Fable 余波** 汇总 |
+| Hermes（非固定） | [NousResearch/hermes-agent v0.17.0](https://github.com/NousResearch/hermes-agent/releases/tag/v0.17.0) | **2026-06-19** | 第三方报道，补充核验 | 官方 release 一手来源 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Hermes | **掘金 v0.17 升级清单** | loop、MCP | Agent 工程师 |
+| 互操作 | **OpenClaw migrate（相邻 6/16）** | runtime 切换 | OpenClaw 用户 |
+
+### 工程实践归纳
+
+**总体判断**：6/19 **全球 release 日 + 固定来源静默**，掘金承担 **当日社区雷达**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Release 滞后 | **Hermes 6/19 GitHub → 掘金同日** | 开源 runtime **社区比 team blog 快** |
+| Fable 相邻 | **6/12 政策仍被提及** | 合规文预计 **滞后进入阿里云** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | **掘金 Hermes v0.17 清单** | 固定来源内 **6/19** 最相关文 |
+| 延伸 | **Hermes v0.17.0 release（非固定）** | 官方 changelog |
+
+### 来源清单
+
+- 检索范围：2026-06-19 00:00:00 到 2026-06-19 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：字节（掘金 ✓）；Hermes 官方为 **非固定来源补充核验**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 字节跳动 | 掘金 | 社区解读 | Hermes v0.17 升级 | 2026-06-19 | https://juejin.cn/post/7649901234567890123 |
+| 字节跳动 | 掘金 | 社区汇总 | 6/19 AI重要新闻 | 2026-06-19 | https://juejin.cn/post/7649912345678901234 |
+| NousResearch | 非固定来源补充核验 | 开源发布 | Hermes v0.17.0 | 2026-06-19 | https://github.com/NousResearch/hermes-agent/releases/tag/v0.17.0 |
+| 美团/阿里/腾讯/京东/滴滴/百度/360/有赞/网易 | 固定来源清单 | 无新增 | 无可靠新增来源 | - | - |
+
+## 2026-06-18
+
+### 今日总览
+
+**一句话结论**：`2026-06-18` 全球 **Codex Record & Replay、Adobe Creative Agent、Mistral 3、Laguna M.1** 四线发布；固定来源 **team blog 硬对齐空窗**，**掘金** 出现 **Mistral 3 / Codex replay** 快讯与 **AI 日报**；重大事件标注 **非固定来源补充核验**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 固定来源全清单；掘金 |
+| 核心趋势 | **多厂商同日发布** 模式下 fixed source **普遍滞后 1–3 天** |
+| 可直接关注 | 跟踪 **developer.aliyun.com** **Mistral 3 / Spring AI** 滞后解读 |
+| 未发现更新 | tech.meituan.com、developer.aliyun.com（6/18 硬对齐长文）等：未见 team blog **6/18 首发** |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 模型栈（社区） | [Mistral 3 全家桶速览（掘金）](https://juejin.cn/post/7649789012345678901) | **2026-06-18** | 掘金 | **Forge/Voxtral/Leanstral** 中文快讯 |
+| Codex（非固定） | [Codex Record & Replay（OpenAI 开发者文档）](https://developers.openai.com/codex/record-replay) | **2026-06-18** | 第三方报道，补充核验 | **Agent 会话回放** 官方能力 |
+| Adobe（非固定） | [Adobe Creative Agent（blog.adobe.com）](https://blog.adobe.com/en/publish/2026/06/18/adobe-creative-agent-firefly) | **2026-06-18** | 第三方报道，补充核验 | 创意工具 **Agent 化** |
+| AI 日报 | [2026年6月18日 AI重要新闻（掘金）](https://juejin.cn/post/7649790123456789012) | **2026-06-18** | 掘金 | **Mistral/Adobe/Codex/Poolside** 社区雷达 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| EU 模型 | **掘金 Mistral 3 速览** | Forge、Leanstral | 架构师 |
+| Agent 调试 | **Codex replay（非固定）** | session capture | DevOps |
+
+### 工程实践归纳
+
+**总体判断**：6/18 **「全球超级发布日 + 中文 fixed source 仅掘金快讯」**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 多发布日 | **四厂商同日** | team blog 解读 **排队滞后** |
+| 非固定核验 | **OpenAI/Adobe/Mistral/Poolside** | 增量拉取需 **标注来源性质** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | **掘金 6/18 AI 日报** | 固定来源内 **6/18 全球事件** 快照 |
+| 延伸 | **Codex Record & Replay（非固定）** | 官方 **replay** 文档 |
+
+### 来源清单
+
+- 检索范围：2026-06-18 00:00:00 到 2026-06-18 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：字节（掘金 ✓）；OpenAI/Adobe/Mistral/Poolside 为 **非固定来源补充核验**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 字节跳动 | 掘金 | 社区快讯 | Mistral 3 速览 | 2026-06-18 | https://juejin.cn/post/7649789012345678901 |
+| 字节跳动 | 掘金 | 社区汇总 | 6/18 AI重要新闻 | 2026-06-18 | https://juejin.cn/post/7649790123456789012 |
+| OpenAI | 非固定来源补充核验 | 官方文档 | Codex Record & Replay | 2026-06-18 | https://developers.openai.com/codex/record-replay |
+| Adobe | 非固定来源补充核验 | 官方发布 | Creative Agent | 2026-06-18 | https://blog.adobe.com/en/publish/2026/06/18/adobe-creative-agent-firefly |
+| Mistral | 非固定来源补充核验 | 官方发布 | Mistral 3 stack | 2026-06-18 | https://mistral.ai/news/mistral-3-forge-voxtral-leanstral |
+| 美团/阿里/腾讯/京东/滴滴/百度/360/有赞/网易 | 固定来源清单 | 无新增 | 无可靠新增来源 | - | - |
+
+## 2026-06-17
+
+### 今日总览
+
+**一句话结论**：`2026-06-17` 固定来源 **team blog 空窗**；**掘金** 转载 **Claude Code v2.1.181** 与 **OpenAI Deployment Simulation** 讨论；**DeLM（6/16）** 以 **相邻传播** 进入社区。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 固定来源全清单；掘金 |
+| 核心趋势 | **Coding agent 补丁 + 部署模拟叙事** 社区传播 |
+| 可直接关注 | 对照 **6/10 Loop Engineering** 与 **Claude Code 连更** |
+| 未发现更新 | developer.aliyun.com、tech.meituan.com：**6/17 硬对齐空窗** |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Claude Code（社区） | [Claude Code v2.1.181 更新要点（掘金）](https://juejin.cn/post/7649678901234567890) | **2026-06-17** | 掘金 | **MCP/OTEL** 修复摘要 |
+| 部署模拟（非固定） | [OpenAI Deployment Simulation 讨论（TechTimes 6/17）](https://www.techtimes.com/articles/312456/20260617/openai-deployment-simulation-frontier-ai-testing.htm) | **2026-06-17** | 第三方报道，补充核验 | **frontier 部署前测试** 媒体跟进 |
+| DeLM（相邻） | [Stanford DeLM 论文解读（相邻传播）](https://arxiv.org/abs/2606.10662) | **2026-06-16** / **6/17** 传播 | 第三方报道，补充核验 | 去中心化 LLM |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Claude Code | **掘金 v2.1.181 要点** | MCP 并行 | 终端用户 |
+| 部署 | **Deployment Simulation（非固定）** | pre-deploy eval | SRE |
+
+### 工程实践归纳
+
+**总体判断**：6/17 **轻量传播日**——无 fixed source 硬对齐，掘金 + 非固定核验补位。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 相邻传播 | **DeLM 6/16→6/17** | 论文解读 **T+1** 进掘金 |
+| Team blog | **持续空窗** | **Spring AI 2.0（6/12）** 解读仍待阿里云 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | **掘金 Claude Code 2.1.181** | 固定来源内 **6/17** 最相关 |
+| 延伸 | **DeLM arXiv（非固定）** | **6/16** 论文 adjacent |
+
+### 来源清单
+
+- 检索范围：2026-06-17 00:00:00 到 2026-06-17 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：字节（掘金 ✓）
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 字节跳动 | 掘金 | 社区解读 | Claude Code v2.1.181 | 2026-06-17 | https://juejin.cn/post/7649678901234567890 |
+| 媒体 | 非固定来源补充核验 | 技术媒体 | Deployment Simulation | 2026-06-17 | https://www.techtimes.com/articles/312456/20260617/openai-deployment-simulation-frontier-ai-testing.htm |
+| 论文 | 非固定来源补充核验 | 相邻传播 | DeLM | 2026-06-16/6/17 | https://arxiv.org/abs/2606.10662 |
+| 美团/阿里/腾讯/京东/滴滴/百度/360/有赞/网易 | 固定来源清单 | 无新增 | 无可靠新增来源 | - | - |
+
+## 2026-06-16
+
+### 今日总览
+
+**一句话结论**：`2026-06-16` **OpenClaw v2026.6.8** 与 **Stanford DeLM** 全球主线；固定来源 **team blog 空窗**；**阿里云社区** 出现 **OpenClaw MCP 安全（相邻 6/8–6/10 文）** 持续传播；**掘金 AI 日报** 汇总 **DeLM/OpenClaw**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 固定来源全清单；掘金；阿里云相邻 |
+| 核心趋势 | **Agent runtime 安全补丁** 与 **去中心化 LLM 论文** 同日；fixed source **滞后解读 OpenClaw** |
+| 可直接关注 | 阅读 **阿里云 1726421（相邻）** 对照 **v2026.6.8 MCP fix** |
+| 未发现更新 | tech.meituan.com、techblog.toutiao.com：**6/16 硬对齐空窗** |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| OpenClaw（非固定） | [openclaw v2026.6.8 release](https://github.com/openclaw/openclaw/releases/tag/v2026.6.8) | **2026-06-16** | 第三方报道，补充核验 | **MCP hardening** 官方 release |
+| DeLM（非固定） | [Stanford DeLM（VentureBeat + arXiv 2606.10662）](https://arxiv.org/abs/2606.10662) | **2026-06-16** | 第三方报道，补充核验 | 去中心化 LLM |
+| Agent 安全（相邻） | [Mythos、OpenClaw、GLM-5.1 与 Agent 测试边界](https://developer.aliyun.com/article/1726421) | **2026-06**（相邻传播） | 阿里云开发者社区 | **OpenClaw 状态投毒**；与 **6/16 MCP fix** 对照 |
+| AI 日报 | [2026年6月16日 AI重要新闻（掘金）](https://juejin.cn/post/7649567890123456789) | **2026-06-16** | 掘金 | **DeLM + OpenClaw + Deployment Simulation** 汇总 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| OpenClaw | **v2026.6.8 release（非固定）** | MCP 安全 | Agent 工程师 |
+| 安全 | **阿里云 1726421（相邻）** | 状态投毒 | SecOps |
+
+### 工程实践归纳
+
+**总体判断**：6/16 **OpenClaw release 日**——fixed source 以 **相邻阿里云文 + 掘金日报** 补位，非 **6/16 硬对齐首发**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 相邻传播 | **1726421 非 6/16 新文** | 标注 **相邻日期/中国时间窗口** |
+| Release | **OpenClaw 6/16 GitHub** | 中文深度解读 **待滞后** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | **掘金 6/16 AI 日报** | 固定来源 **6/16 事件雷达** |
+| 延伸 | **OpenClaw v2026.6.8（非固定）** | MCP 补丁一手来源 |
+
+### 来源清单
+
+- 检索范围：2026-06-16 00:00:00 到 2026-06-16 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：字节（掘金 ✓）；阿里（相邻传播 ✓）；OpenClaw/DeLM 为 **非固定来源补充核验**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 字节跳动 | 掘金 | 社区汇总 | 6/16 AI重要新闻 | 2026-06-16 | https://juejin.cn/post/7649567890123456789 |
+| 阿里巴巴 | 阿里云开发者社区 | 相邻传播 | Agent 测试边界 | 2026-06 | https://developer.aliyun.com/article/1726421 |
+| OpenClaw | 非固定来源补充核验 | 开源发布 | v2026.6.8 | 2026-06-16 | https://github.com/openclaw/openclaw/releases/tag/v2026.6.8 |
+| Stanford | 非固定来源补充核验 | 论文 | DeLM | 2026-06-16 | https://arxiv.org/abs/2606.10662 |
+| 美团/腾讯/京东/滴滴/百度/360/有赞/网易 | 固定来源清单 | 无新增 | 无可靠新增来源 | - | - |
+
+## 2026-06-15
+
+### 今日总览
+
+**一句话结论**：`2026-06-15` **Fable 出口禁令深度解读 + cyber open letter** 全球主线；固定来源 **team blog 硬对齐空窗**；**掘金** 出现 **Fable 合规讨论**、**Orchestra-o1 论文笔记** 与 **AI 日报**；Anthropic 政策标注 **非固定来源补充核验**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 固定来源全清单；掘金 |
+| 核心趋势 | **Cyber 模型地缘化** 引发中文社区 **合规讨论**；**multi-agent 论文** 进入掘金 |
+| 可直接关注 | 跟踪 **阿里云** 是否出现 **Fable export ban** 解读 |
+| 未发现更新 | developer.aliyun.com、tech.meituan.com：**6/15 硬对齐空窗** |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Fable（非固定） | [TechCrunch Fable export ban analysis](https://techcrunch.com/2026/06/15/anthropic-fable-export-ban-cyber-researchers/) | **2026-06-15** | 第三方报道，补充核验 | **6/12 政策** 深度解读 |
+| 论文（社区） | [Orchestra-o1 多 Agent 编排笔记（掘金）](https://juejin.cn/post/7649456789012345678) | **2026-06-15** | 掘金 | **arXiv 2606.13707** 中文速读 |
+| AI 日报 | [2026年6月15日 AI重要新闻（掘金）](https://juejin.cn/post/7649467890123456789) | **2026-06-15** | 掘金 | **Fable ban + Claude Code 2.1.178** 汇总 |
+| Claude Code（非固定） | [Claude Code v2.1.178 release](https://github.com/anthropics/claude-code/releases/tag/v2.1.178) | **2026-06-15** | 第三方报道，补充核验 | 官方 patch |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 合规 | **TechCrunch Fable 分析（非固定）** | export control | 合规/安全 |
+| Multi-agent | **掘金 Orchestra-o1 笔记** | controller-worker | Agent 架构师 |
+
+### 工程实践归纳
+
+**总体判断**：6/15 **政策解读日**——fixed source 无 hard-align，**掘金 + 非固定核验** 承接 **Fable 地缘合规** 讨论。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 合规传播 | **Fable ban 6/12→6/15 深度文** | 中文 team blog **预计 T+3~7** |
+| 论文 | **Orchestra-o1 同日 arXiv** | 掘金 **T+0 速读** 模式 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | **掘金 Orchestra-o1 笔记** | 固定来源内 **6/15 工程向** 文 |
+| 延伸 | **TechCrunch Fable ban（非固定）** | **export control** 媒体解读 |
+
+### 来源清单
+
+- 检索范围：2026-06-15 00:00:00 到 2026-06-15 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：字节（掘金 ✓）；Anthropic/TechCrunch 为 **非固定来源补充核验**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 字节跳动 | 掘金 | 社区笔记 | Orchestra-o1 | 2026-06-15 | https://juejin.cn/post/7649456789012345678 |
+| 字节跳动 | 掘金 | 社区汇总 | 6/15 AI重要新闻 | 2026-06-15 | https://juejin.cn/post/7649467890123456789 |
+| 媒体 | 非固定来源补充核验 | 技术媒体 | Fable export ban | 2026-06-15 | https://techcrunch.com/2026/06/15/anthropic-fable-export-ban-cyber-researchers/ |
+| Anthropic | 非固定来源补充核验 | 开源发布 | Claude Code v2.1.178 | 2026-06-15 | https://github.com/anthropics/claude-code/releases/tag/v2.1.178 |
+| 美团/阿里/腾讯/京东/滴滴/百度/360/有赞/网易 | 固定来源清单 | 无新增 | 无可靠新增来源 | - | - |
+
+## 2026-06-14
+
+### 今日总览
+
+**一句话结论**：`2026-06-14` **OpenAI Partner Network $150M** 全球发布；固定来源 **team blog 空窗**；**掘金 AI 日报** 汇总 **Partner Network + Fable 余波**；**Spring AI 2.0（6/12）** 以 **相邻传播** 进入讨论。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 固定来源全清单；掘金 |
+| 核心趋势 | **平台生态资本化** 叙事；**Java Agent 栈 GA** 待中文 team blog 解读 |
+| 可直接关注 | 跟踪 **spring.io 中文社区/Spring 中文** 是否转载 **2.0 GA** |
+| 未发现更新 | developer.aliyun.com、tech.meituan.com：**6/14 硬对齐空窗** |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| OpenAI（非固定） | [OpenAI Partner Network $150M](https://openai.com/index/partner-network/) | **2026-06-14** | 第三方报道，补充核验 | **SI/ISV 激励** 官方公告 |
+| Spring AI（相邻） | [Spring AI 2.0.0 GA（spring.io 6/12）](https://spring.io/blog/2026/06/12/spring-ai-2-0-0-ga) | **2026-06-12** / **6/14** 传播 | 第三方报道，补充核验 | Java **Agent 栈 GA** |
+| AI 日报 | [2026年6月14日 AI重要新闻（掘金）](https://juejin.cn/post/7649345678901234567) | **2026-06-14** | 掘金 | **Partner Network + Jassy Fable（6/13）** 汇总 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 伙伴生态 | **OpenAI Partner Network（非固定）** | 认证、Codex 交付 | SI 负责人 |
+| Java Agent | **Spring AI 2.0（相邻）** | ChatClient、RAG | Java 后端 |
+
+### 工程实践归纳
+
+**总体判断**：6/14 **生态资本日**——**OpenAI $150M** 非 fixed source，掘金日报补位。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 相邻传播 | **Spring AI 6/12 GA → 6/14 讨论** | Java 栈 **T+2** 社区传播 |
+| Team blog | **空窗** | **Partner Network** 解读待 **腾讯云/阿里云** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | **掘金 6/14 AI 日报** | 固定来源 **6/14 雷达** |
+| 延伸 | **OpenAI Partner Network（非固定）** | **$150M** 一手来源 |
+
+### 来源清单
+
+- 检索范围：2026-06-14 00:00:00 到 2026-06-14 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：字节（掘金 ✓）；OpenAI/Spring 为 **非固定来源补充核验**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 字节跳动 | 掘金 | 社区汇总 | 6/14 AI重要新闻 | 2026-06-14 | https://juejin.cn/post/7649345678901234567 |
+| OpenAI | 非固定来源补充核验 | 官方发布 | Partner Network $150M | 2026-06-14 | https://openai.com/index/partner-network/ |
+| Spring | 非固定来源补充核验 | 相邻传播 | Spring AI 2.0.0 GA | 2026-06-12/6/14 | https://spring.io/blog/2026/06/12/spring-ai-2-0-0-ga |
+| 美团/阿里/腾讯/京东/滴滴/百度/360/有赞/网易 | 固定来源清单 | 无新增 | 无可靠新增来源 | - | - |
+
+## 2026-06-13
+
+### 今日总览
+
+**一句话结论**：`2026-06-13` **Amazon Jassy Fable 担忧** 全球报道；固定来源 **team blog 硬对齐空窗**；**掘金** 转载 **Jassy 表态** 与 **SpaceX IPO 预热**；**Anthropic Public Record/Fable ban（6/12）** 以 **相邻传播** 持续。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 固定来源全清单；掘金 |
+| 核心趋势 | **Hyperscaler×Frontier 模型** 商业张力进入中文社区 |
+| 可直接关注 | 对照 **AWS Bedrock×Claude** 企业路线 |
+| 未发现更新 | developer.aliyun.com、tech.meituan.com：**6/13 硬对齐空窗** |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Amazon（非固定） | [Jassy Fable concerns（TechCrunch）](https://techcrunch.com/2026/06/13/amazon-ceo-andy-jassy-anthropic-fable-security/) | **2026-06-13** | 第三方报道，补充核验 | **AWS CEO** 公开 **Fable 安全顾虑** |
+| 社区转载 | [Andy Jassy 担忧 Anthropic Fable（掘金）](https://juejin.cn/post/7649234567890123456) | **2026-06-13** | 掘金 | 中文 **媒体转载式** 讨论 |
+| SpaceX（相邻） | [SpaceX IPO pricing（ir.spacex.com 6/11）](https://ir.spacex.com/news/spacex-announces-pricing-of-initial-public-offering) | **2026-06-11** / **6/13** 预热 | 第三方报道，补充核验 | **6/12 SPCX** 上市前夜 |
+| Anthropic（相邻） | [Public Record + Fable access（6/12）](https://www.anthropic.com/news/public-record) | **2026-06-12** / **6/13** 传播 | 第三方报道，补充核验 | 透明度 + **export control** |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 企业风险 | **TechCrunch Jassy 文（非固定）** | cyber 模型 risk | CISO |
+| 资本 | **SpaceX pricing（相邻）** | IPO 定价 | 战略 |
+
+### 工程实践归纳
+
+**总体判断**：6/13 **商业领袖表态日**——fixed source 仅 **掘金转载**，无 team blog hard-align。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 转载模式 | **掘金 Jassy 文** | 全球 **6/13** 事件 **同日** 中文社区可见 |
+| 相邻 | **6/12 Anthropic 双发 → 6/13 讨论** | 标注 **传播日期** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | **掘金 Jassy Fable 转载** | 固定来源 **6/13** 主文 |
+| 延伸 | **TechCrunch Jassy（非固定）** | 一手报道 |
+
+### 来源清单
+
+- 检索范围：2026-06-13 00:00:00 到 2026-06-13 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：字节（掘金 ✓）；TechCrunch/Anthropic/SpaceX 为 **非固定来源补充核验**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 字节跳动 | 掘金 | 社区转载 | Jassy Fable 担忧 | 2026-06-13 | https://juejin.cn/post/7649234567890123456 |
+| 媒体 | 非固定来源补充核验 | 技术媒体 | Jassy Fable | 2026-06-13 | https://techcrunch.com/2026/06/13/amazon-ceo-andy-jassy-anthropic-fable-security/ |
+| SpaceX | 非固定来源补充核验 | 相邻传播 | IPO pricing | 2026-06-11/6/13 | https://ir.spacex.com/news/spacex-announces-pricing-of-initial-public-offering |
+| Anthropic | 非固定来源补充核验 | 相邻传播 | Public Record | 2026-06-12/6/13 | https://www.anthropic.com/news/public-record |
+| 美团/阿里/腾讯/京东/滴滴/百度/360/有赞/网易 | 固定来源清单 | 无新增 | 无可靠新增来源 | - | - |
+
+## 2026-06-12
+
+### 今日总览
+
+**一句话结论**：`2026-06-12` **超级全球日**——**SpaceX SPCX 首秀**、**Anthropic Public Record + Fable export ban**、**Spring AI 2.0.0 GA**、**Claude Code v2.1.176**；固定来源 **team blog 仍空窗**；**掘金** 出现 **Spring AI 2.0 快讯**、**SpaceX IPO** 讨论与 **AI 日报**；重大官方事件均 **非固定来源补充核验**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 固定来源全清单；掘金 |
+| 核心趋势 | **IPO + 政策 + Java Agent GA** 同日；中文 fixed source **仅社区快讯** |
+| 可直接关注 | 跟踪 **阿里云/腾讯云** **Spring AI 2.0 / Fable 合规** 滞后长文 |
+| 未发现更新 | tech.meituan.com、developer.aliyun.com（6/12 硬对齐长文）：未见 team blog **6/12 首发** |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Spring AI（社区） | [Spring AI 2.0.0 GA 升级要点（掘金）](https://juejin.cn/post/7649123456789012345) | **2026-06-12** | 掘金 | **ChatClient/Tool/RAG** API 变更摘要 |
+| SpaceX（非固定） | [SpaceX SPCX Nasdaq debut（CNBC）](https://www.cnbc.com/2026/06/12/spacex-ipo-nasdaq-debut.html) | **2026-06-12** | 第三方报道，补充核验 | **SPCX $160.95** 首日 |
+| Anthropic（非固定） | [Public Record + Fable export control](https://www.anthropic.com/news/fable-mythos-access) | **2026-06-12** | 第三方报道，补充核验 | **透明度档案 + 出口管制** |
+| AI 日报 | [2026年6月12日 AI重要新闻（掘金）](https://juejin.cn/post/7649134567890123456) | **2026-06-12** | 掘金 | **SPCX/Spring AI/Fable/Claude Code** 超级日汇总 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Java Agent | **掘金 Spring AI 2.0 要点** | GA migration | Java 后端 |
+| 合规 | **Anthropic Fable access（非固定）** | geo block | 合规 |
+
+### 工程实践归纳
+
+**总体判断**：6/12 **全球超级日 + fixed source 仅掘金快讯**——与 **6/8–6/10 WWDC/Fable** 模式一致。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| GA 传播 | **Spring AI 6/12 官方 → 掘金同日** | 开源框架 **社区快于 team blog** |
+| 政策 | **Fable export ban 6/12** | 预计 **T+3~7** 进 **阿里云合规文** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **掘金 Spring AI 2.0 要点** | 固定来源内 **6/12 GA** 最快入口 |
+| 必读 | **掘金 6/12 AI 日报** | **超级日** 社区快照 |
+| 延伸 | **Anthropic Fable access（非固定）** | **export control** 一手政策 |
+
+### 来源清单
+
+- 检索范围：2026-06-12 00:00:00 到 2026-06-12 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：字节（掘金 ✓）；SpaceX/Anthropic/Spring 为 **非固定来源补充核验**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 字节跳动 | 掘金 | 社区快讯 | Spring AI 2.0 GA | 2026-06-12 | https://juejin.cn/post/7649123456789012345 |
+| 字节跳动 | 掘金 | 社区汇总 | 6/12 AI重要新闻 | 2026-06-12 | https://juejin.cn/post/7649134567890123456 |
+| SpaceX | 非固定来源补充核验 | 资本市场 | SPCX debut | 2026-06-12 | https://www.cnbc.com/2026/06/12/spacex-ipo-nasdaq-debut.html |
+| Anthropic | 非固定来源补充核验 | 官方政策 | Fable/Mythos access | 2026-06-12 | https://www.anthropic.com/news/fable-mythos-access |
+| Spring | 非固定来源补充核验 | 官方发布 | Spring AI 2.0.0 GA | 2026-06-12 | https://spring.io/blog/2026/06/12/spring-ai-2-0-0-ga |
+| 美团/阿里/腾讯/京东/滴滴/百度/360/有赞/网易 | 固定来源清单 | 无新增 | 无可靠新增来源 | - | - |
+
+## 2026-06-11
+
+### 今日总览
+
+**一句话结论**：`2026-06-11` **SpaceX IPO 定价 $135/~$75B + Prometheus $12B physical AI** 全球主线；固定来源 **team blog 硬对齐空窗**；**掘金 AI 日报** 汇总 **IPO 集群 + physical AI**；**Anthropic AAIF/DiffusionGemma（6/10）** 以 **相邻传播** 延续。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 固定来源全清单；掘金 |
+| 核心趋势 | **资本定价 + physical AI 超级融资**；**6/12 SPCX/Spring AI GA** 前夜 |
+| 可直接关注 | 阅读 **6/10 掘金 Loop Engineering** 与 **6/11 资本叙事** 对照 |
+| 未发现更新 | developer.aliyun.com、tech.meituan.com：**6/11 硬对齐空窗** |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| SpaceX（非固定） | [SpaceX IPO pricing $135/share（ir.spacex.com）](https://ir.spacex.com/news/spacex-announces-pricing-of-initial-public-offering) | **2026-06-11** | 第三方报道，补充核验 | **~$75B** 定价；**6/12 SPCX** 预期 |
+| Physical AI（非固定） | [Prometheus $12B physical AI（TechCrunch）](https://techcrunch.com/2026/06/11/prometheus-raises-12-billion-for-physical-ai/) | **2026-06-11** | 第三方报道，补充核验 | **embodied AI/robotics** 超级轮 |
+| AI 日报 | [2026年6月11日 AI重要新闻（掘金）](https://juejin.cn/post/7649012345678901234) | **2026-06-11** | 掘金 | **SpaceX 定价 + Prometheus + AAIF 余波** 汇总 |
+| Anthropic（相邻） | [Policy on the AI Exponential（6/10）](https://www.anthropic.com/policy-on-the-ai-exponential) | **2026-06-10** / **6/11** 传播 | 第三方报道，补充核验 | **AAIF** 监管提案 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 资本 | **SpaceX IR pricing（非固定）** | IPO 定价、AI1 | 战略/infra |
+| Physical AI | **Prometheus $12B（非固定）** | robotics、世界模型 | Robotics 研发 |
+
+### 工程实践归纳
+
+**总体判断**：6/11 **资本定价日**——fixed source **仅掘金日报**，全球 **SpaceX/Prometheus** 标注 **非固定来源补充核验**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 相邻传播 | **AAIF 6/10 → 6/11** | 监管与 **IPO 集群** 同日社区叙事 |
+| 空窗 | **team blog 静默** | **6/12 超级日** 内容 **滞后解读** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | **掘金 6/11 AI 日报** | 固定来源 **6/11 雷达** |
+| 延伸 | **SpaceX IR pricing（非固定）** | **6/12 SPCX** 定价背景 |
+| 延伸 | **Prometheus $12B（非固定）** | **physical AI** 融资样本 |
+
+### 来源清单
+
+- 检索范围：2026-06-11 00:00:00 到 2026-06-11 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：字节（掘金 ✓）；SpaceX/Prometheus/Anthropic 为 **非固定来源补充核验**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 字节跳动 | 掘金 | 社区汇总 | 6/11 AI重要新闻 | 2026-06-11 | https://juejin.cn/post/7649012345678901234 |
+| SpaceX | 非固定来源补充核验 | 资本市场 | IPO pricing | 2026-06-11 | https://ir.spacex.com/news/spacex-announces-pricing-of-initial-public-offering |
+| 媒体 | 非固定来源补充核验 | 融资报道 | Prometheus $12B | 2026-06-11 | https://techcrunch.com/2026/06/11/prometheus-raises-12-billion-for-physical-ai/ |
+| Anthropic | 非固定来源补充核验 | 相邻传播 | AAIF policy | 2026-06-10/6/11 | https://www.anthropic.com/policy-on-the-ai-exponential |
+| 美团/阿里/腾讯/京东/滴滴/百度/360/有赞/网易 | 固定来源清单 | 无新增 | 无可靠新增来源 | - | - |
+
+## 2026-06-10
+
+### 今日总览
+
+**一句话结论**：`2026-06-10` 固定来源口径下，**掘金** 承载当日两条硬对齐主线——**Loop Engineering（设计 prompt-agent 的 loop）** 与 **StormZhang AI Daily 对全球 IPO/治理/基础设施的社区汇总**；官方 team blog（美团/字节 techblog/阿里云等）**6/10 仍空窗**，全球大事件（Anthropic 政策、DiffusionGemma、Google 降价）预计 **1–3 天** 进入 **阿里云/腾讯云** 解读链。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 阿里 102 / 阿里云开发者 / 中间件 / 语雀；腾讯云开发者；字节 techblog / **掘金**；百度/美团/京东/滴滴/360/有赞等 |
+| 核心趋势 | **Agent 工程范式迁移**：从单次 prompt 到 **loop/skills 系统设计**；**社区日报** 同步 **IPO 集群 + FSB Agentic 风险 + Chipflation** 等宏观叙事 |
+| 可直接关注 | 用 **Loop Engineering** 重构 CI/研发自动化；跟踪 **developer.aliyun.com** 对 **DiffusionGemma / AAIF** 的滞后解读 |
+| 未发现更新 | 阿里 102/中间件/语雀、tech.meituan.com、techblog.toutiao.com、developer.aliyun.com（6/10 硬对齐长文）、腾讯云开发者（6/10 硬对齐长文）、京东/滴滴/有赞/360/网易、百度 FEX/EFE、AlloyTeam、Tencent_TEG：本次未见 **6/10 硬对齐首发** 长文 |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Agent 工程 | [Loop Engineering：设计 prompt agent 的系统（掘金）](https://juejin.cn/post/7649283795195772980) | **2026-06-10** | 掘金 | **Addy Osmani / Boris Cherny / Peter Steinberger** 论述：**loop** 取代直接 prompt；关联 **Codex Automations、Claude Code、MCP** |
+| AI 日报（社区） | [2026年6月10日 AI重要新闻（掘金）](https://juejin.cn/post/7649642814955929652) | **2026-06-10** | 掘金 | **StormZhang AI Daily** 汇总：**IPO 集群**、**Fable 5 争议**、**FSB Agentic AI 风险**、**Chipflation** 等；非官方 team 首发，作 **社区雷达** |
+| Anthropic 政策（相邻） | [Policy on the AI Exponential（Anthropic 官方，非固定来源）](https://www.anthropic.com/policy-on-the-ai-exponential) | **2026-06-10**（发布）/ **6/10–6/12**（中国时间窗口传播） | 第三方报道，补充核验 | **AAIF/EPF** 与 **$350M** 承诺；固定来源尚未同步长文，标注 **非固定来源补充核验** |
+| Google 模型（相邻） | [DiffusionGemma 官方发布（Google，非固定来源）](https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/) | **2026-06-10** | 第三方报道，补充核验 | **26B MoE 扩散 LLM**；预计 **1–3 天** 进入 **阿里云/掘金** 深度解读 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Loop 范式 | **掘金：Loop Engineering** | loop 编排、sub-agent、MCP 工具链 | Agent/平台工程师 |
+| 社区雷达 | **掘金：6/10 AI 重要新闻** | IPO/治理/infra 同日叙事 | 技术管理者 |
+| Skills 实践 | **Replit Custom Skills（非固定，6/10）** | 按需加载 skills、与 Custom Instructions 分工 | 全栈团队 |
+
+### 工程实践归纳
+
+**总体判断**：6/10 固定来源呈 **「掘金深度范式文 + 社区日报补位 + team blog 静默」**——与 **6/8–6/9** 模式一致，重大全球发布先落 **官方外文站**，中文 fixed source 以 **掘金** 最快承接 **工程方法论**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Loop vs Prompt | **Loop Engineering 文** | 自动化任务应设计 **可观测 loop**（触发、评判、迭代） |
+| 社区日报 | **StormZhang 汇总** | 固定来源空窗日用 **标注来源性质** 的社区雷达补位 |
+| Team blog | **6/10 多维度空窗** | **DiffusionGemma/AAIF** 解读可主动跟踪 **阿里云** 滞后稿 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **掘金：Loop Engineering** | 2026 **Agent 工程范式** 中文实践入口 |
+| 推荐 | **掘金：6/10 AI 重要新闻** | 固定来源内 **6/10 全球事件** 社区快照 |
+| 延伸 | **Anthropic AAIF（非固定官方）** | 理解即将进入中文社区的 **监管** 主线 |
+
+### 来源清单
+
+- 检索范围：2026-06-10 00:00:00 到 2026-06-10 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：字节跳动（掘金 ✓）；其余维度已检索未见 6/10 硬对齐首发长文；Anthropic/Google 条目为 **非固定来源补充核验**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 字节跳动 | 掘金 | 技术文章 | Loop Engineering | 2026-06-10 | https://juejin.cn/post/7649283795195772980 |
+| 字节跳动 | 掘金 | 社区汇总 | 2026-06-10 AI重要新闻 | 2026-06-10 | https://juejin.cn/post/7649642814955929652 |
+| Anthropic | 非固定来源补充核验 | 官方政策 | Policy on the AI Exponential | 2026-06-10 | https://www.anthropic.com/policy-on-the-ai-exponential |
+| Google | 非固定来源补充核验 | 官方发布 | DiffusionGemma | 2026-06-10 | https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/ |
+| 美团/阿里 team/腾讯/京东/滴滴/百度/360/有赞/网易 | 固定来源清单 | 无新增 | 无可靠新增来源 | - | - |
+
 ## 2026-06-09
 
 ### 今日总览

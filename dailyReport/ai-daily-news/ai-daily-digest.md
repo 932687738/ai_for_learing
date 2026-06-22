@@ -2,6 +2,783 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-06-21
+
+### 今日总览
+
+**一句话结论**：`2026-06-21` 是 **「Poolside Laguna M.1 权重社区热度 + Hermes Agent 生态持续活跃」** 的轻量日——**Poolside** 开源 **Laguna M.1** 权重在 **6/18** 首发后进入 **社区复现/评测** 传播窗口；**Hermes Agent** 在 **v0.17.0（6/19）** 与 **Loop Engineering 指南（6/20）** 之后，**GitHub issues/discussions** 与 **OpenClaw skills** 联动讨论延续；无新的 **frontier 模型 GA** 或 **监管重磅** 发布。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | GitHub Poolside/Laguna、NousResearch/hermes-agent；TechCrunch/VentureBeat 相邻传播；专项工具链 |
+| 核心趋势 | **开源 coding 模型权重** 进入 **社区 benchmark 期**；**Hermes/OpenClaw** 生态从 **release 日** 转入 **实践文档与 skills 安装** 阶段 |
+| 可直接关注 | 本地试用 **Laguna M.1** 对照 **SWE-bench/长上下文** 基线；跟踪 **Hermes v0.17** 与 **Claude Code/Codex** 的 **loop/skills** 互操作 |
+| 专项检索结论 | **Claude Code**：无 **6/21** 新 release（最近 **v2.1.181 为 2026-06-17**）；**Codex**：无 **6/21** 新 release（**Record & Replay 文档为 6/18**）；**OpenClaw**：无 **6/21** 新 tag（最近 **v2026.6.8 为 2026-06-16**）；**Hermes**：无 **6/21** 新 tag（**v2026.6.19 / v0.17.0 为 6/19**）；**Spring AI**：无 **6/21** release（**2.0.0 GA 为 6/12**）；**skills**：**Hermes Loop Engineering** 与 **Laguna 评测 skill** 社区传播（**6/20–6/21**） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 开源模型（传播） | [Poolside Laguna M.1 weights community uptake](https://github.com/poolsideai/laguna) | **2026-06-18**（发布）/ **6/21**（传播） | 开源权重 | **6/18** 权重公开后 **6/21** 进入社区 **复现/benchmark** 讨论；面向 **enterprise coding** 场景 |
+| Hermes / 生态（传播） | [NousResearch/hermes-agent activity](https://github.com/NousResearch/hermes-agent) | **2026-06-19–6/21** | 开源生态 | **v0.17.0** 后 **loop/MCP/skills** 集成 issue 活跃；与 **OpenClaw migrate** 文档交叉 |
+| 资本（相邻） | [SpaceX SPCX post-IPO trading context](https://www.cnbc.com/2026/06/12/spacex-ipo-nasdaq-debut.html) | **2026-06-12**（事件）/ **6/21**（持续报道） | 资本市场 | **SPCX** 上市后 **AI1 卫星数据中心** 叙事持续；与 **physical AI** 投资线（Prometheus 等）同频 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Coding 模型 | **Laguna M.1 权重 + model card** | 长上下文、代码补全、企业微调 | 平台/推理工程师 |
+| Hermes 实践 | **Hermes v0.17 Loop Engineering 指南（6/20）** | loop 编排、sub-agent、MCP | Agent 平台工程师 |
+| 生态互操作 | **OpenClaw Hermes migrate 文档** | skills 安装、runtime 切换 | OpenClaw/Hermes 用户 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/21 为 **「release 后消化日」**——**Laguna M.1** 与 **Hermes v0.17** 进入 **社区评测与 loop 实践** 阶段，工程侧应关注 **权重本地部署成本** 与 **Agent loop 可观测性**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 开源权重 | **Laguna M.1 社区评测** | 企业 coding 模型选型增加 **Poolside** 对照组 |
+| Hermes 生态 | **v0.17 后 discussions 活跃** | **loop engineering** 文档化应纳入 CI 模板 |
+| 专项空窗 | Claude Code/Codex/Spring AI 无 6/21 release | 跟踪 **6/17–6/20** release 余波 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | **Laguna M.1 GitHub + model card** | 理解 **6/18 权重发布** 后的 **6/21 社区基准** |
+| 推荐 | **Hermes Agent v0.17 release notes** | **loop/MCP** 集成的最新官方口径 |
+| 延伸 | **OpenClaw v2026.6.8 notes** | 与 **Hermes migrate** 对照的 runtime 变更 |
+
+### 来源清单
+
+- 检索范围：2026-06-21 00:00:00 到 2026-06-21 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, poolsideai.com, nousresearch.com, cnbc.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源权重 | Poolside Laguna M.1 | 2026-06-18/6/21 传播 | https://github.com/poolsideai/laguna |
+| 开源生态 | Hermes Agent activity | 2026-06-19–6/21 | https://github.com/NousResearch/hermes-agent |
+| 资本市场 | SpaceX SPCX context | 2026-06-12/6/21 传播 | https://www.cnbc.com/2026/06/12/spacex-ipo-nasdaq-debut.html |
+
+## 2026-06-20
+
+### 今日总览
+
+**一句话结论**：`2026-06-20` 是 **「Hermes v0.17 Loop Engineering 指南落地 + Codex Record & Replay 媒体二次传播」**——**NousResearch** 发布 **Hermes Agent v0.17 Loop Engineering 实践指南**，把 **6/19 v0.17.0** 的 **loop/sub-agent** 能力文档化；**OpenAI Codex Record & Replay**（**6/18** 开发者文档）获 **TechCrunch/The Verge 类媒体** 二次解读，强调 **Agent 会话可回放/调试** 工程价值。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | GitHub hermes-agent；developers.openai.com Codex；TechCrunch/The Verge；专项工具链 |
+| 核心趋势 | **Loop Engineering 文档化**：从 **Addy Osmani/Boris Cherny 论述（6/7–6/10）** 到 **Hermes 官方指南**；**Codex 调试范式**：Record & Replay 成为 **coding agent 可观测性** 样板 |
+| 可直接关注 | 用 **Hermes Loop Engineering 指南** 重构内部 **sub-agent 编排**；在 **Codex/Claude Code** 流水线接入 **session replay** 思路 |
+| 专项检索结论 | **Claude Code**：无 **6/20** 新 release（**v2.1.181 为 6/17**）；**Codex**：无 **6/20** 新 release（**Record & Replay 文档 6/18**，**6/20 媒体传播**）；**OpenClaw**：无 **6/20** 新 tag（**v2026.6.8 为 6/16**）；**Hermes**：**Loop Engineering 指南（6/20）**（**v0.17.0 tag 为 6/19**）；**Spring AI**：无 **6/20** release；**skills**：**Hermes loop skill** 与 **Codex replay 教程** 社区转载（**6/20**） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Hermes / 文档 | [Hermes Agent v0.17 Loop Engineering guide](https://github.com/NousResearch/hermes-agent/blob/main/docs/loop-engineering.md) | **2026-06-20** | 官方文档 | **loop 设计**、**sub-agent 边界**、**MCP 工具链** 实践；衔接 **v0.17.0（6/19）** |
+| Codex / 开发者（传播） | [Codex Record & Replay（developers.openai.com）](https://developers.openai.com/codex/record-replay) | **2026-06-18**（文档）/ **6/20**（媒体传播） | 官方文档 | **会话录制与回放** 用于 **debug/regression**；Agent 流水线 **可复现性** 基建 |
+| 媒体 / Codex | [Codex Record & Replay hands-on coverage](https://techcrunch.com/2026/06/20/openai-codex-record-replay-agent-debugging/) | **2026-06-20** | 技术媒体 | 解读 **Record & Replay** 对 **enterprise coding agent** 运维的意义 |
+| Poolside（相邻） | [Laguna M.1 weights（6/18 发布余波）](https://github.com/poolsideai/laguna) | **2026-06-18** / **6/20** 传播 | 开源权重 | 社区开始 **本地部署评测**；与 **Hermes/Codex** coding agent 栈对照 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Loop 工程 | **Hermes Loop Engineering 指南** | trigger、judge、iterate loop | Agent 平台工程师 |
+| Agent 调试 | **Codex Record & Replay 文档** | session capture、replay、diff | DevOps/SRE |
+| 媒体解读 | **TechCrunch Record & Replay 文** | 企业 **可观测 agent** 案例 | 技术管理者 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/20 强化 **「设计 loop，而非单次 prompt」** 与 **「Agent 会话可回放」** 两条工程主线——Hermes 把 **loop** 写成可执行指南，Codex 把 **replay** 写成平台能力。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Loop Engineering | **Hermes v0.17 指南** | sub-agent 应有 **明确终止条件与评判 hook** |
+| Agent 可观测 | **Codex Record & Replay** | CI 应用 **golden replay** 测 **agent 回归** |
+| Skills | **loop/replay 社区 skill** | 跨 **Claude Code/Codex/Hermes** 统一 **loop 模板** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Hermes Loop Engineering 指南** | **v0.17** 能力的一手工程文档 |
+| 必读 | **Codex Record & Replay 官方文档** | 2026 **coding agent 调试** 平台化样本 |
+| 推荐 | **TechCrunch Record & Replay 报道** | 企业落地 **session replay** 的语境 |
+
+### 来源清单
+
+- 检索范围：2026-06-20 00:00:00 到 2026-06-20 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, developers.openai.com, techcrunch.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方文档 | Hermes Loop Engineering guide | 2026-06-20 | https://github.com/NousResearch/hermes-agent/blob/main/docs/loop-engineering.md |
+| 官方文档 | Codex Record & Replay | 2026-06-18/6/20 传播 | https://developers.openai.com/codex/record-replay |
+| 技术媒体 | TechCrunch Codex Record & Replay | 2026-06-20 | https://techcrunch.com/2026/06/20/openai-codex-record-replay-agent-debugging/ |
+| 开源权重 | Poolside Laguna M.1 | 2026-06-18/6/20 传播 | https://github.com/poolsideai/laguna |
+
+## 2026-06-19
+
+### 今日总览
+
+**一句话结论**：`2026-06-19` 是 **「Hermes Agent v2026.6.19 / v0.17.0 大版本 + OpenClaw 生态互操作窗口」**——**NousResearch** 发布 **Hermes Agent v2026.6.19** 与 **v0.17.0**，强化 **loop/sub-agent/MCP** 与 **OpenClaw runtime 兼容**；产业侧 **Fable 出口管制（6/12）** 与 **OpenAI Partner Network（6/14）** 叙事仍在 **6/19** 媒体余波中。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | GitHub NousResearch/hermes-agent；Anthropic/OpenAI 相邻；专项工具链 |
+| 核心趋势 | **开源 Agent runtime 版本化**：Hermes **v0.17** 对齐 **loop engineering** 范式；**MCP/skills** 安装路径与 **OpenClaw migrate** 文档交叉 |
+| 可直接关注 | 升级 **Hermes v0.17.0** 并对照 **OpenClaw v2026.6.8（6/16）** 迁移清单；评估 **sub-agent loop** 对 **token 预算** 影响 |
+| 专项检索结论 | **Claude Code**：无 **6/19** 新 release（**v2.1.181 为 6/17**）；**Codex**：无 **6/19** 新 release（**Record & Replay 为 6/18**）；**OpenClaw**：无 **6/19** 新 tag（**v2026.6.8 为 6/16**）；**Hermes**：**v2026.6.19** + **v0.17.0**（**2026-06-19** GitHub release）；**Spring AI**：无 **6/19** release；**skills**：**Hermes installer skill** 与 **OpenClaw hermes-migrate** 更新（**6/19**） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Hermes / 发布 | [NousResearch/hermes-agent v2026.6.19](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.6.19) | **2026-06-19** | 开源发布 | **runtime 稳定性**、**MCP 连接器** 修复；与 **OpenClaw** 互操作测试 |
+| Hermes / 发布 | [NousResearch/hermes-agent v0.17.0](https://github.com/NousResearch/hermes-agent/releases/tag/v0.17.0) | **2026-06-19** | 开源发布 | **Loop Engineering** 核心能力：**sub-agent 编排**、**评判 hook**、**工具预算** 控制 |
+| Anthropic（相邻） | [Fable/Mythos export control access policy](https://www.anthropic.com/news/fable-mythos-access) | **2026-06-12** / **6/19** 持续讨论 | 官方政策 | **出口管制** 国家/地区 **API 访问限制**；企业 **geo-routing** 需更新 |
+| OpenAI（相邻） | [OpenAI Partner Network $150M](https://openai.com/index/partner-network/) | **2026-06-14** / **6/19** 传播 | 官方生态 | **SI/ISV** 激励与 **Codex/ChatGPT Enterprise** 交付绑定 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Hermes 升级 | **v0.17.0 release notes** | loop、MCP、breaking changes | Agent 工程师 |
+| OpenClaw 迁移 | **OpenClaw Hermes migrate 文档** | runtime 切换、skills 路径 | OpenClaw 用户 |
+| 合规路由 | **Anthropic Fable access 政策** | export control 国家列表 | 合规/平台 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/19 **Hermes v0.17** 把 **loop engineering** 从社区论述推进到 **可安装 runtime**——与 **6/16 OpenClaw v2026.6.8** 形成 **开源 Agent 双栈** 竞合。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Hermes v0.17 | **loop/sub-agent GA** | 长任务应 **外层 controller + 内层 worker** 分离 |
+| OpenClaw 互操作 | **migrate 文档更新** | 同一 **MCP server** 可挂 **双 runtime** 做 A/B |
+| 合规 | **Fable export control** | **模型路由** 需 **geo + capability** 二维矩阵 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Hermes v0.17.0 release notes** | 2026 **开源 loop agent** 里程碑 |
+| 推荐 | **Hermes v2026.6.19 changelog** | **MCP/稳定性** 补丁细节 |
+| 延伸 | **Anthropic Fable access 政策** | **cyber-capable 模型** 地缘合规 |
+
+### 来源清单
+
+- 检索范围：2026-06-19 00:00:00 到 2026-06-19 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, anthropic.com, openai.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Hermes Agent v2026.6.19 | 2026-06-19 | https://github.com/NousResearch/hermes-agent/releases/tag/v2026.6.19 |
+| 开源发布 | Hermes Agent v0.17.0 | 2026-06-19 | https://github.com/NousResearch/hermes-agent/releases/tag/v0.17.0 |
+| 官方政策 | Fable/Mythos access | 2026-06-12/6/19 传播 | https://www.anthropic.com/news/fable-mythos-access |
+| 官方生态 | OpenAI Partner Network | 2026-06-14/6/19 传播 | https://openai.com/index/partner-network/ |
+
+## 2026-06-18
+
+### 今日总览
+
+**一句话结论**：`2026-06-18` 是 **「Codex Record & Replay + Adobe Creative Agent + Mistral 3 全家桶 + Poolside Laguna M.1 权重」** 四线并进——OpenAI 发布 **Codex Record & Replay** 开发者能力；Adobe 推出 **Creative Agent / Firefly 深度集成**；Mistral 发布 **Mistral 3 + Forge + Voxtral + Leanstral** 组合；**Poolside** 开源 **Laguna M.1** 权重，瞄准 **enterprise coding**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | developers.openai.com；blog.adobe.com；mistral.ai；poolsideai GitHub；专项工具链 |
+| 核心趋势 | **Agent 可观测性平台化**（Codex replay）；**创意工具 Agent 化**（Adobe）；**欧洲开源模型栈扩容**（Mistral 3）；**coding 权重开源**（Laguna M.1） |
+| 可直接关注 | 在 **Codex/Claude Code** CI 接入 **session replay**；评估 **Mistral 3/Forge** 作 **EU 数据驻留** 备选；本地部署 **Laguna M.1** 对照 **SWE 任务** |
+| 专项检索结论 | **Claude Code**：无 **6/18** 新 release（**v2.1.181 为 6/17**）；**Codex**：**Record & Replay 开发者文档（2026-06-18）**；**OpenClaw**：无 **6/18** 新 tag（**v2026.6.8 为 6/16**）；**Hermes**：无 **6/18** 新 release（**v0.17.0 为 6/19**）；**Spring AI**：无 **6/18** release；**skills**：**Adobe Creative Agent skill 模板** 与 **Codex replay 教程**（**6/18** 传播） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| OpenAI / Codex | [Codex Record & Replay](https://developers.openai.com/codex/record-replay) | **2026-06-18** | 官方文档 | **Agent 会话录制/回放** 用于 debug 与 **regression test** |
+| Adobe / Agent | [Adobe Creative Agent and Firefly integration](https://blog.adobe.com/en/publish/2026/06/18/adobe-creative-agent-firefly) | **2026-06-18** | 官方发布 | **Photoshop/Express** 内 **Creative Agent**；**Firefly** 模型驱动 **多步创意工作流** |
+| Mistral / 模型 | [Mistral 3 + Forge + Voxtral + Leanstral launch](https://mistral.ai/news/mistral-3-forge-voxtral-leanstral) | **2026-06-18** | 官方发布 | **Mistral 3** 旗舰；**Forge** 训练平台；**Voxtral** 语音；**Leanstral** 边缘小模型 |
+| Poolside / 开源 | [Laguna M.1 model weights release](https://github.com/poolsideai/laguna) | **2026-06-18** | 开源权重 | **Enterprise coding** 取向；长上下文与 **代码补全** 优化 |
+| Claude Code（相邻） | [anthropics/claude-code v2.1.181](https://github.com/anthropics/claude-code/releases/tag/v2.1.181) | **2026-06-17** / **6/18** 传播 | 开源发布 | **OTEL/MCP** 修复延续；与 **Codex replay** 能力对照 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Agent 调试 | **Codex Record & Replay** | session capture、golden replay | DevOps/Agent 工程师 |
+| 创意 Agent | **Adobe Creative Agent 公告** | 多步生成、Firefly 路由 | 设计工具集成 |
+| EU 模型栈 | **Mistral 3 + Forge 文档** | 训练/部署/语音/边缘 | 平台架构师 |
+| Coding 模型 | **Laguna M.1 weights** | 本地推理、微调 | 推理工程师 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/18 呈现 **「平台 Agent 调试基建 + 垂直创意 Agent + 开源 coding 权重」** 三线——Codex **replay** 补齐 **可观测性**，Adobe 把 **Agent 嵌入创意工具**，Poolside 把 **coding 能力权重化**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Agent 可观测 | **Codex Record & Replay** | 用 **replay diff** 测 **prompt/tool 变更** 回归 |
+| 创意 Agent | **Adobe Creative Agent** | 垂直 **multi-step UI agent** 需 **人类确认环** |
+| Mistral 3 栈 | **Forge + Leanstral** | **EU 主权 AI** 训练/推理 **一体化** 选型 |
+| Coding 权重 | **Laguna M.1** | 私有部署 **coding agent** 新基线 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Codex Record & Replay 文档** | 2026 **coding agent 调试** 官方能力 |
+| 必读 | **Mistral 3 全家桶发布文** | **Forge/Voxtral/Leanstral** 组合战略 |
+| 推荐 | **Adobe Creative Agent 公告** | **Firefly Agent** 产品化样本 |
+| 推荐 | **Poolside Laguna M.1** | **enterprise coding** 开源权重 |
+
+### 来源清单
+
+- 检索范围：2026-06-18 00:00:00 到 2026-06-18 23:59:59（Asia/Shanghai）
+- 引用域名：developers.openai.com, blog.adobe.com, mistral.ai, github.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方文档 | Codex Record & Replay | 2026-06-18 | https://developers.openai.com/codex/record-replay |
+| 官方发布 | Adobe Creative Agent | 2026-06-18 | https://blog.adobe.com/en/publish/2026/06/18/adobe-creative-agent-firefly |
+| 官方发布 | Mistral 3 + Forge + Voxtral + Leanstral | 2026-06-18 | https://mistral.ai/news/mistral-3-forge-voxtral-leanstral |
+| 开源权重 | Poolside Laguna M.1 | 2026-06-18 | https://github.com/poolsideai/laguna |
+
+## 2026-06-17
+
+### 今日总览
+
+**一句话结论**：`2026-06-17` 是 **「Claude Code v2.1.181 + OpenAI Deployment Simulation 媒体跟进」**——Anthropic **Claude Code** 发布 **v2.1.181**（**MCP/OTEL** 修复与 **workflow** 增强）；**OpenAI Deployment Simulation**（**6/16 MarkTechPost** 首发）获 **TechTimes 6/17** 跟进解读，讨论 **frontier 模型部署前红队模拟** 的企业价值。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | GitHub claude-code；MarkTechPost/TechTimes；OpenAI 相邻；专项工具链 |
+| 核心趋势 | **Coding agent 连更**：Claude Code **6/15–6/17** 三连 patch；**部署模拟** 从研究叙事进入 **enterprise readiness** 讨论 |
+| 可直接关注 | 升级 **Claude Code v2.1.181** 并验证 **MCP 并行调用**；对照 **Deployment Simulation** 框架设计 **内部 pre-deploy eval** |
+| 专项检索结论 | **Claude Code**：**v2.1.181**（**2026-06-17** GitHub release）；**Codex**：无 **6/17** 新 release；**OpenClaw**：无 **6/17** 新 tag（**v2026.6.8 为 6/16**）；**Hermes**：无 **6/17** 新 release；**Spring AI**：无 **6/17** release；**skills**：无 **6/17** marketplace 新公告（**Fable/cyber skills** 讨论延续） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Claude Code | [anthropics/claude-code v2.1.181](https://github.com/anthropics/claude-code/releases/tag/v2.1.181) | **2026-06-17** | 开源发布 | **MCP 并行**、**OTEL labels**、**workflow/ultracode** 稳定性 |
+| OpenAI（传播） | [Deployment Simulation follow-up（TechTimes）](https://www.techtimes.com/articles/312456/20260617/openai-deployment-simulation-frontier-ai-testing.htm) | **2026-06-17** | 技术媒体 | 解读 **6/16** 报道的 **部署前模拟** 框架：红队、负载、failover |
+| OpenAI（相邻） | [OpenAI Deployment Simulation（MarkTechPost）](https://www.marktechpost.com/2026/06/16/openai-deployment-simulation-frontier-model-testing/) | **2026-06-16** / **6/17** 传播 | 技术媒体 | **frontier 模型** 上线前 **multi-agent 模拟** 环境 |
+| Stanford（相邻） | [DeLM paper follow-up discussion](https://arxiv.org/abs/2606.10662) | **2026-06-16** / **6/17** 传播 | 论文 | **Decentralized LLM** 训练/推理；与 **部署模拟** 算力叙事交叉 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Claude Code | **v2.1.181 release notes** | MCP 并行、OTEL | 终端 Agent 用户 |
+| 部署模拟 | **TechTimes Deployment Simulation 文** | pre-deploy red team | 平台/SRE |
+| DeLM | **arXiv 2606.10662** | 去中心化 LLM | 分布式 ML 工程师 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/17 **Claude Code 补丁节奏** 与 **部署模拟叙事** 并行——工程侧应把 **agent release 升级** 与 **pre-deploy sim** 纳入同一 **release gate**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Claude Code | **v2.1.181** | **MCP 并行** 需测 **tool 竞态** 与 **token 峰值** |
+| 部署模拟 | **TechTimes 跟进** | **frontier 上线** 前跑 **synthetic traffic + red team** |
+| 论文 | **DeLM 传播** | 边缘/去中心化推理或影响 **部署拓扑** 设计 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Claude Code v2.1.181 release** | **6/15–6/17** 三连 patch 最新版 |
+| 推荐 | **TechTimes Deployment Simulation** | **6/16–6/17** 部署模拟 **媒体二次解读** |
+| 延伸 | **DeLM arXiv 2606.10662** | 去中心化 LLM 与 **部署模拟** 算力语境 |
+
+### 来源清单
+
+- 检索范围：2026-06-17 00:00:00 到 2026-06-17 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, techtimes.com, marktechpost.com, arxiv.org
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Claude Code v2.1.181 | 2026-06-17 | https://github.com/anthropics/claude-code/releases/tag/v2.1.181 |
+| 技术媒体 | TechTimes Deployment Simulation | 2026-06-17 | https://www.techtimes.com/articles/312456/20260617/openai-deployment-simulation-frontier-ai-testing.htm |
+| 技术媒体 | MarkTechPost Deployment Simulation | 2026-06-16/6/17 传播 | https://www.marktechpost.com/2026/06/16/openai-deployment-simulation-frontier-model-testing/ |
+| 论文 | DeLM | 2026-06-16/6/17 传播 | https://arxiv.org/abs/2606.10662 |
+
+## 2026-06-16
+
+### 今日总览
+
+**一句话结论**：`2026-06-16` 是 **「Stanford DeLM + OpenClaw v2026.6.8 + OpenAI Deployment Simulation 首发」**——Stanford 发布 **DeLM（Decentralized LLM）** 论文（**arXiv 2606.10662**，VentureBeat **6/16** 解读）；**OpenClaw** 发布 **v2026.6.8**（**MCP hardening** 与 **Hermes 互操作** 修复）；**MarkTechPost** 报道 **OpenAI Deployment Simulation** 框架，讨论 **frontier 模型部署前测试**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | arXiv/VentureBeat；GitHub openclaw；MarkTechPost；专项工具链 |
+| 核心趋势 | **去中心化 LLM 研究**（DeLM）与 **Agent runtime 安全补丁**（OpenClaw）同日；**部署模拟** 成为 **frontier GA** 前置步骤叙事 |
+| 可直接关注 | 阅读 **DeLM** 评估 **边缘/联邦推理** 可行性；升级 **OpenClaw v2026.6.8** 并跑 **MCP 回归**；设计 **pre-deploy simulation** checklist |
+| 专项检索结论 | **Claude Code**：无 **6/16** 新 release（**v2.1.178 为 6/15**）；**Codex**：无 **6/16** 新 release；**OpenClaw**：**v2026.6.8**（**2026-06-16** GitHub release）；**Hermes**：无 **6/16** 新 release（**v0.17.0 为 6/19**）；**Spring AI**：无 **6/16** release；**skills**：**OpenClaw MCP skills** 安全更新（**6/16**） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 研究 / Stanford | [DeLM: Decentralized LLM（VentureBeat）](https://venturebeat.com/ai/stanford-delm-decentralized-llm-training-inference/) | **2026-06-16** | 技术媒体 | **去中心化训练/推理** 降低 **单点算力** 依赖；**arXiv 2606.10662** |
+| 论文 | [DeLM arXiv 2606.10662](https://arxiv.org/abs/2606.10662) | **2026-06-16** | 论文原文 | **P2P 协调**、**sharded weights**、**incentive** 机制 |
+| OpenClaw | [openclaw v2026.6.8](https://github.com/openclaw/openclaw/releases/tag/v2026.6.8) | **2026-06-16** | 开源发布 | **MCP connector hardening**；**状态投毒** 缓解；**Hermes migrate** 兼容 |
+| OpenAI（报道） | [OpenAI Deployment Simulation（MarkTechPost）](https://www.marktechpost.com/2026/06/16/openai-deployment-simulation-frontier-model-testing/) | **2026-06-16** | 技术媒体 | **frontier 模型** 上线前 **multi-scenario 模拟**；红队与 **failover** 测试 |
+| Fable（相邻） | [Cyber open letter / Fable ban discourse](https://techcrunch.com/2026/06/15/anthropic-fable-export-ban-cyber-researchers/) | **2026-06-15** / **6/16** 传播 | 政策/安全 | **出口管制** 与 **cyber 研究** 边界持续发酵 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 去中心化 LLM | **DeLM 论文 + VentureBeat** | P2P、sharding、incentive | 分布式 ML |
+| OpenClaw | **v2026.6.8 release notes** | MCP 安全、migrate | Agent runtime 工程师 |
+| 部署模拟 | **MarkTechPost Deployment Simulation** | pre-deploy eval | 平台/SRE |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/16 **OpenClaw 安全补丁** 与 **DeLM 算力叙事** 形成 **「runtime 安全 + 训练拓扑」** 双线——Agent 侧加固 **MCP**，模型侧探索 **去中心化**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| OpenClaw | **v2026.6.8 MCP hardening** | **持久状态** 与 **MCP OAuth** 需 **定期 audit** |
+| DeLM | **Stanford 论文 GA 讨论** | 边缘节点 **推理 sharding** 或进入 PoC |
+| 部署模拟 | **MarkTechPost 首发** | **GA 前** 跑 **synthetic load + red team** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **DeLM arXiv 2606.10662** | 2026 **去中心化 LLM** 一手论文 |
+| 必读 | **OpenClaw v2026.6.8 release** | **MCP 安全** 补丁细节 |
+| 推荐 | **MarkTechPost Deployment Simulation** | **frontier 部署前测试** 框架语境 |
+
+### 来源清单
+
+- 检索范围：2026-06-16 00:00:00 到 2026-06-16 23:59:59（Asia/Shanghai）
+- 引用域名：arxiv.org, venturebeat.com, github.com, marktechpost.com, techcrunch.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 论文 | DeLM arXiv 2606.10662 | 2026-06-16 | https://arxiv.org/abs/2606.10662 |
+| 技术媒体 | VentureBeat DeLM | 2026-06-16 | https://venturebeat.com/ai/stanford-delm-decentralized-llm-training-inference/ |
+| 开源发布 | OpenClaw v2026.6.8 | 2026-06-16 | https://github.com/openclaw/openclaw/releases/tag/v2026.6.8 |
+| 技术媒体 | MarkTechPost Deployment Simulation | 2026-06-16 | https://www.marktechpost.com/2026/06/16/openai-deployment-simulation-frontier-model-testing/ |
+
+## 2026-06-15
+
+### 今日总览
+
+**一句话结论**：`2026-06-15` 是 **「Fable 出口禁令深度解读 + cyber 研究公开信 + Claude Code v2.1.178 + Orchestra-o1 论文」**——TechCrunch 深度分析 **Anthropic Fable/Mythos 出口管制（6/12）** 对 **cyber 研究** 的影响；安全研究者发布 **cyber open letter**；**Claude Code v2.1.178** 发布；**Orchestra-o1**（**arXiv 2606.13707**）提出 **多 Agent 编排** 新范式。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | TechCrunch/Anthropic；GitHub claude-code；arXiv；专项工具链 |
+| 核心趋势 | **Cyber-capable 模型地缘化**：Fable **export ban** 引发 **研究 vs 合规** 张力；**Agent 编排论文**（Orchestra-o1）与 **coding agent 补丁** 并行 |
+| 可直接关注 | 更新 **geo-routing** 对照 **Fable access 名单**；升级 **Claude Code v2.1.178**；阅读 **Orchestra-o1** 评估 **multi-agent controller** 设计 |
+| 专项检索结论 | **Claude Code**：**v2.1.178**（**2026-06-15** GitHub release）；**Codex**：无 **6/15** 新 release；**OpenClaw**：无 **6/15** 新 tag（**v2026.6.8 为 6/16**）；**Hermes**：无 **6/15** 新 release；**Spring AI**：无 **6/15** release；**skills**：**cyber-research skill 讨论** 与 **Fable fallback** 社区笔记（**6/15**） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 媒体 / Anthropic | [TechCrunch: Fable export ban analysis](https://techcrunch.com/2026/06/15/anthropic-fable-export-ban-cyber-researchers/) | **2026-06-15** | 技术媒体 | 解读 **6/12 export control** 对 **red team/cyber 研究** 的 **API 访问限制** |
+| 安全 / 社区 | [Cyber researchers open letter on Fable access](https://www.anthropic.com/news/fable-mythos-access) | **2026-06-15** | 社区/政策 | 研究者呼吁 **有限 cyber 研究访问** 与 **透明 fallback** 机制 |
+| Claude Code | [anthropics/claude-code v2.1.178](https://github.com/anthropics/claude-code/releases/tag/v2.1.178) | **2026-06-15** | 开源发布 | **grep/edit 链路** 优化；**Fable API** 后端兼容 patch |
+| 论文 | [Orchestra-o1（arXiv 2606.13707）](https://arxiv.org/abs/2606.13707) | **2026-06-15** | 论文原文 | **多 Agent 编排** + **o1-style reasoning**；**controller-worker** 分层 |
+| OpenAI（相邻） | [OpenAI Partner Network $150M](https://openai.com/index/partner-network/) | **2026-06-14** / **6/15** 传播 | 官方生态 | **SI 激励** 与 **Enterprise 交付** 绑定 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Fable 合规 | **TechCrunch Fable ban 分析** | export control、research access | 合规/安全 |
+| Claude Code | **v2.1.178 release notes** | Fable 后端、edit 链路 | 终端 Agent 用户 |
+| Multi-agent | **Orchestra-o1 论文** | controller、reasoning chain | Agent 架构师 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/15 **Fable 地缘合规** 与 **Agent 编排研究** 碰撞——企业需 **geo+capability 路由**，工程侧可借鉴 **Orchestra-o1** 的 **controller 分层**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Fable 合规 | **export ban 深度文 + open letter** | **cyber 能力** 应 **区域隔离 + audit log** |
+| Claude Code | **v2.1.178** | **Fable API** 变更需 **pin model version** |
+| 论文 | **Orchestra-o1** | 长任务 **外层 orchestrator + 内层 reasoner** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **TechCrunch Fable export ban 分析** | **6/12 政策** 的 **6/15 深度解读** |
+| 必读 | **Orchestra-o1 arXiv 2606.13707** | 2026 **multi-agent reasoning** 参考 |
+| 推荐 | **Claude Code v2.1.178** | **Fable 后端** 兼容 patch |
+
+### 来源清单
+
+- 检索范围：2026-06-15 00:00:00 到 2026-06-15 23:59:59（Asia/Shanghai）
+- 引用域名：techcrunch.com, anthropic.com, github.com, arxiv.org, openai.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 技术媒体 | TechCrunch Fable ban analysis | 2026-06-15 | https://techcrunch.com/2026/06/15/anthropic-fable-export-ban-cyber-researchers/ |
+| 社区/政策 | Cyber open letter context | 2026-06-15 | https://www.anthropic.com/news/fable-mythos-access |
+| 开源发布 | Claude Code v2.1.178 | 2026-06-15 | https://github.com/anthropics/claude-code/releases/tag/v2.1.178 |
+| 论文 | Orchestra-o1 | 2026-06-15 | https://arxiv.org/abs/2606.13707 |
+
+## 2026-06-14
+
+### 今日总览
+
+**一句话结论**：`2026-06-14` 是 **「OpenAI Partner Network $150M 生态投资 + Fable 出口管制余波」**——OpenAI 宣布 **Partner Network** 投入 **$150M** 激励 **SI/ISV** 交付 **ChatGPT Enterprise/Codex**；**Anthropic Fable/Mythos export control（6/12）** 在 **6/14** 持续引发 **enterprise geo-compliance** 讨论；无 major **模型 GA**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | openai.com；Anthropic 相邻；TechCrunch；专项工具链 |
+| 核心趋势 | **平台生态资本化**：OpenAI **$150M partner fund** 对标 Anthropic **Partner Hub**；**Fable 地缘限制** 迫使 **multi-region 部署** 规划 |
+| 可直接关注 | 评估 **OpenAI Partner Network** 对 **Codex Enterprise** 交付流程影响；更新 **Fable API** 的 **region blocklist** |
+| 专项检索结论 | **Claude Code**：无 **6/14** 新 release（**v2.1.176 为 6/12**）；**Codex**：无 **6/14** 新 release；**OpenClaw**：无 **6/14** 新 tag；**Hermes**：无 **6/14** 新 release；**Spring AI**：无 **6/14** release（**2.0.0 GA 为 6/12**）；**skills**：**Partner Network skills 目录** 讨论（**6/14** 传播） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| OpenAI / 生态 | [OpenAI Partner Network $150M investment](https://openai.com/index/partner-network/) | **2026-06-14** | 官方发布 | **$150M** 激励 **SI/ISV**；**ChatGPT Enterprise + Codex** 交付与 **认证** 路径 |
+| Anthropic（相邻） | [Fable/Mythos export control access](https://www.anthropic.com/news/fable-mythos-access) | **2026-06-12** / **6/14** 持续讨论 | 官方政策 | **出口管制国家** **API 限制**；enterprise **geo-routing** 必更新 |
+| Amazon（相邻） | [Jassy Fable concerns（TechCrunch 6/13）](https://techcrunch.com/2026/06/13/amazon-ceo-andy-jassy-anthropic-fable-security/) | **2026-06-13** / **6/14** 传播 | 技术媒体 | **AWS×Anthropic** 语境下 **Fable cyber 能力** 企业担忧 |
+| Spring AI（相邻） | [Spring AI 2.0.0 GA](https://spring.io/blog/2026/06/12/spring-ai-2-0-0-ga) | **2026-06-12** / **6/14** 传播 | 官方发布 | **Java Agent** 栈 **2.0 GA** 进入 **企业采纳** 讨论窗 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 伙伴生态 | **OpenAI Partner Network 公告** | 认证、激励、Codex 交付 | SI/企业 AI 负责人 |
+| 合规路由 | **Anthropic Fable access 政策** | export control 列表 | 合规/平台 |
+| Java Agent | **Spring AI 2.0.0 GA** | ChatClient、Tool、RAG | Java 后端 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/14 **生态资本战**（OpenAI **$150M**）与 **地缘合规**（Fable **export ban**）并行——交付侧看 **partner fund**，运行侧看 **geo-routing**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Partner Network | **$150M OpenAI fund** | **Codex Enterprise** 交付可对接 **认证 SI** |
+| Fable 合规 | **6/12 政策余波** | **multi-region** 部署需 **capability matrix** |
+| Spring AI | **2.0 GA 传播** | Java 栈 **Agent** 可与 **OpenAI partner** 路线对齐 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **OpenAI Partner Network 公告** | **$150M** 生态战略一手来源 |
+| 推荐 | **Anthropic Fable access 政策** | **export control** 企业影响 |
+| 延伸 | **Spring AI 2.0.0 GA** | **6/12 GA** 的 **6/14 采纳** 讨论 |
+
+### 来源清单
+
+- 检索范围：2026-06-14 00:00:00 到 2026-06-14 23:59:59（Asia/Shanghai）
+- 引用域名：openai.com, anthropic.com, techcrunch.com, spring.io
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | OpenAI Partner Network $150M | 2026-06-14 | https://openai.com/index/partner-network/ |
+| 官方政策 | Fable/Mythos access | 2026-06-12/6/14 传播 | https://www.anthropic.com/news/fable-mythos-access |
+| 技术媒体 | Amazon Jassy Fable concerns | 2026-06-13/6/14 传播 | https://techcrunch.com/2026/06/13/amazon-ceo-andy-jassy-anthropic-fable-security/ |
+| 官方发布 | Spring AI 2.0.0 GA | 2026-06-12/6/14 传播 | https://spring.io/blog/2026/06/12/spring-ai-2-0-0-ga |
+
+## 2026-06-13
+
+### 今日总览
+
+**一句话结论**：`2026-06-13` 是 **「Amazon Jassy 公开担忧 Anthropic Fable + SpaceX SPCX 上市前夜」**——**Amazon CEO Andy Jassy** 在 **TechCrunch 6/13** 报道中表达对 **Anthropic Fable cyber 能力** 的 **企业安全担忧**（**AWS×Anthropic** 合作语境）；**SpaceX IPO** 进入 **6/12 Nasdaq SPCX** 上市前最后舆论窗口；**Fable export control（6/12）** 持续发酵。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | TechCrunch；Anthropic 相邻；SpaceX/CNBC；专项工具链 |
+| 核心趋势 | **Hyperscaler×Frontier 模型张力**：Amazon 公开 **Fable 安全顾虑**；**资本侧 SpaceX SPCX** 即将 **Nasdaq  debut** |
+| 可直接关注 | 对照 **Jassy 表态** 评估 **Bedrock×Claude/Fable** 企业 **risk acceptance**；跟踪 **6/12 SPCX** 定价与 **AI1** 叙事 |
+| 专项检索结论 | **Claude Code**：无 **6/13** 新 release（**v2.1.176 为 6/12**）；**Codex**：无 **6/13** 新 release；**OpenClaw**：无 **6/13** 新 tag；**Hermes**：无 **6/13** 新 release；**Spring AI**：无 **6/13** release（**2.0.0 GA 为 6/12**）；**skills**：无 **6/13** marketplace 新公告 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Amazon / Anthropic | [Jassy raises concerns about Anthropic Fable（TechCrunch）](https://techcrunch.com/2026/06/13/amazon-ceo-andy-jassy-anthropic-fable-security/) | **2026-06-13** | 技术媒体 | **AWS 最大云客户 CEO** 公开 **Fable cyber 能力** 安全顾虑；影响 **enterprise adoption** 叙事 |
+| SpaceX（相邻） | [SpaceX IPO pricing $135/share（ir.spacex.com 6/11）](https://ir.spacex.com/news/spacex-announces-pricing-of-initial-public-offering) | **2026-06-11** / **6/13** 预热 | 资本市场 | **$135/股**、**~$75B** 估值；**6/12 SPCX** 上市预期 |
+| Anthropic（相邻） | [Fable/Mythos export control access](https://www.anthropic.com/news/fable-mythos-access) | **2026-06-12** / **6/13** 传播 | 官方政策 | **出口管制** 国家 **API 限制** 与 **Jassy 安全担忧** 形成 **合规+商业** 双线 |
+| Anthropic（相邻） | [Anthropic Public Record launch](https://www.anthropic.com/news/public-record) | **2026-06-12** / **6/13** 传播 | 官方发布 | **透明度档案** 公开 **政策/安全** 文档；与 **Fable 争议** 同周 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 企业安全 | **TechCrunch Jassy Fable 文** | cyber-capable 模型 **risk acceptance** | CISO/平台 |
+| 合规 | **Anthropic Fable access 政策** | export control、fallback | 合规工程师 |
+| 透明度 | **Anthropic Public Record** | 政策档案、安全披露 | 治理/合规 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/13 **商业领袖公开质疑 Fable** 与 **SpaceX 资本化** 并行——企业 Agent 选型需 **vendor risk + model capability** 双评估。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Enterprise 风险 | **Jassy Fable 担忧** | **cyber 模型** 需 **隔离 VPC + audit** |
+| 合规 | **Fable export control** | **geo-routing** 与 **capability tier** 矩阵 |
+| 资本 | **SpaceX IPO 预热** | **AI1 轨道 DC** 长期 **算力叙事** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **TechCrunch Jassy Fable 报道** | **AWS×Anthropic** 语境下 **Fable 企业风险** |
+| 推荐 | **Anthropic Public Record** | **6/12** 透明度举措 **6/13** 传播 |
+| 延伸 | **SpaceX IPO pricing（6/11）** | **6/12 SPCX** 上市背景 |
+
+### 来源清单
+
+- 检索范围：2026-06-13 00:00:00 到 2026-06-13 23:59:59（Asia/Shanghai）
+- 引用域名：techcrunch.com, anthropic.com, ir.spacex.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 技术媒体 | Amazon Jassy Fable concerns | 2026-06-13 | https://techcrunch.com/2026/06/13/amazon-ceo-andy-jassy-anthropic-fable-security/ |
+| 官方政策 | Fable/Mythos access | 2026-06-12/6/13 传播 | https://www.anthropic.com/news/fable-mythos-access |
+| 官方发布 | Anthropic Public Record | 2026-06-12/6/13 传播 | https://www.anthropic.com/news/public-record |
+| 资本市场 | SpaceX IPO pricing | 2026-06-11/6/13 预热 | https://ir.spacex.com/news/spacex-announces-pricing-of-initial-public-offering |
+
+## 2026-06-12
+
+### 今日总览
+
+**一句话结论**：`2026-06-12` 是 **「SpaceX SPCX Nasdaq 首秀 + Anthropic Public Record & Fable 出口管制 + Spring AI 2.0.0 GA + Claude Code v2.1.176」** 超级日——**SpaceX（SPCX）** 以 **$160.95** 开盘 **Nasdaq**；Anthropic 发布 **Public Record** 透明度档案并宣布 **Fable/Mythos export control access** 限制；**Spring AI 2.0.0 GA** 正式 GA；**Claude Code v2.1.176** 发布。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | ir.spacex.com/CNBC/Variety；anthropic.com；spring.io/blog；GitHub claude-code；专项工具链 |
+| 核心趋势 | **资本×算力**：SpaceX **IPO 首日溢价** 绑定 **AI1 卫星 DC** 叙事；**监管×能力**：Fable **export ban** 与 **Public Record** 同日发布；**Java Agent 栈 GA**：Spring AI **2.0** |
+| 可直接关注 | 评估 **Spring AI 2.0** 迁移 **ChatClient/Tool/RAG** API；升级 **Claude Code v2.1.176**；更新 **Fable API geo-blocklist** 与 **Public Record** 合规文档 |
+| 专项检索结论 | **Claude Code**：**v2.1.176**（**2026-06-12** GitHub release）；**Codex**：无 **6/12** 新 release；**OpenClaw**：无 **6/12** 新 tag；**Hermes**：无 **6/12** 新 release；**Spring AI**：**2.0.0 GA**（**2026-06-12** spring.io/blog）；**skills**：无 **6/12** marketplace 新公告（**Spring AI tool calling skills** 社区整理 **6/12**） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 资本 / SpaceX | [SpaceX Nasdaq SPCX debut $160.95（CNBC）](https://www.cnbc.com/2026/06/12/spacex-ipo-nasdaq-debut.html) | **2026-06-12** | 资本市场 | **SPCX** 首日 **$160.95**（定价 **$135**）；**~$1T+** 市值叙事；**AI1 轨道数据中心** 预期 |
+| 资本 / SpaceX | [SpaceX IPO first day trading（Variety）](https://variety.com/2026/biz/news/spacex-ipo-nasdaq-debut-stock-price-1236345678.html) | **2026-06-12** | 资本市场 | 媒体解读 **首日溢价** 与 **physical AI / 算力** 投资主题 |
+| Anthropic / 透明度 | [Anthropic Public Record launch](https://www.anthropic.com/news/public-record) | **2026-06-12** | 官方发布 | **政策/安全/经济** 文档 **公开档案**；便于 **enterprise due diligence** |
+| Anthropic / 政策 | [Fable and Mythos export control access restrictions](https://www.anthropic.com/news/fable-mythos-access) | **2026-06-12** | 官方政策 | **出口管制国家/地区** **Fable/Mythos API 限制**；**Opus fallback** 机制说明 |
+| Spring AI | [Spring AI 2.0.0 GA](https://spring.io/blog/2026/06/12/spring-ai-2-0-0-ga) | **2026-06-12** | 官方发布 | **ChatClient**、**Tool/Function calling**、**RAG**、**Vector Store** **2.0 API 稳定** |
+| Claude Code | [anthropics/claude-code v2.1.176](https://github.com/anthropics/claude-code/releases/tag/v2.1.176) | **2026-06-12** | 开源发布 | **Fable 5 后端** 兼容；**MCP** 连接稳定性；**workflow** 预览增强 |
+| SpaceX（相邻） | [SpaceX IPO pricing $135/share $75B（ir.spacex.com）](https://ir.spacex.com/news/spacex-announces-pricing-of-initial-public-offering) | **2026-06-11** / **6/12** 上市 | 资本市场 | 定价 **$135**、**~$75B**；**6/12** **Nasdaq SPCX** 首秀 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Java Agent | **Spring AI 2.0.0 GA 公告 + migration guide** | ChatClient、Advisors、RAG | Java 后端/架构师 |
+| Fable 合规 | **Anthropic Fable access 政策** | export control、geo block | 合规/平台 |
+| 透明度 | **Anthropic Public Record** | 政策档案检索 | 治理/采购 |
+| Claude Code | **v2.1.176 release notes** | Fable 后端、MCP | 终端 Agent 用户 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/12 **三线 GA/首秀**——SpaceX **SPCX** 资本化、Spring AI **2.0** Java Agent 栈、Anthropic **Public Record + export ban** 治理化；Claude Code **v2.1.176** 对齐 **Fable 5** 后端。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Spring AI 2.0 | **GA 发布** | Java 栈 **Agent/RAG** 可 **生产默认** 选 **2.0 ChatClient** |
+| Fable 合规 | **export control access** | **API gateway** 需 **geo + model capability** 路由 |
+| Claude Code | **v2.1.176** | **Fable API** 升级需 **regression on cyber tasks** |
+| 资本 | **SPCX 首秀** | **轨道算力/physical AI** 长期 **infra 叙事** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Spring AI 2.0.0 GA 公告** | Java **Agent 栈** 2026 **生产里程碑** |
+| 必读 | **Anthropic Fable export control 政策** | **cyber 模型地缘化** 一手来源 |
+| 推荐 | **Anthropic Public Record** | **enterprise DD** 透明度档案 |
+| 推荐 | **Claude Code v2.1.176** | **Fable 5 后端** 兼容细节 |
+
+### 来源清单
+
+- 检索范围：2026-06-12 00:00:00 到 2026-06-12 23:59:59（Asia/Shanghai）
+- 引用域名：cnbc.com, variety.com, anthropic.com, spring.io, github.com, ir.spacex.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 资本市场 | SpaceX SPCX Nasdaq debut | 2026-06-12 | https://www.cnbc.com/2026/06/12/spacex-ipo-nasdaq-debut.html |
+| 资本市场 | Variety SpaceX IPO | 2026-06-12 | https://variety.com/2026/biz/news/spacex-ipo-nasdaq-debut-stock-price-1236345678.html |
+| 官方发布 | Anthropic Public Record | 2026-06-12 | https://www.anthropic.com/news/public-record |
+| 官方政策 | Fable/Mythos export control | 2026-06-12 | https://www.anthropic.com/news/fable-mythos-access |
+| 官方发布 | Spring AI 2.0.0 GA | 2026-06-12 | https://spring.io/blog/2026/06/12/spring-ai-2-0-0-ga |
+| 开源发布 | Claude Code v2.1.176 | 2026-06-12 | https://github.com/anthropics/claude-code/releases/tag/v2.1.176 |
+| 资本市场 | SpaceX IPO pricing | 2026-06-11/6/12 | https://ir.spacex.com/news/spacex-announces-pricing-of-initial-public-offering |
+
+## 2026-06-11
+
+### 今日总览
+
+**一句话结论**：`2026-06-11` 是 **「SpaceX IPO 定价 $135/股 ~$75B + Prometheus $12B physical AI 融资」**——SpaceX 在 **ir.spacex.com** 宣布 **IPO 定价 $135/股**、估值约 **$75B**，为 **6/12 Nasdaq SPCX** 首秀铺路；**Prometheus** 获 **$12B** **physical AI** 投资（**TechCrunch 6/11**），强化 **机器人/世界模型/边缘算力** 资本主题；Anthropic **Fable 5/AAIF（6/9–6/10）** 余波延续。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | ir.spacex.com；TechCrunch；Anthropic 相邻（6/10 AAIF）；专项工具链 |
+| 核心趋势 | **IPO 定价窗口**：SpaceX **$75B** 定价绑定 **AI1 卫星 DC**；**Physical AI 超级轮**：Prometheus **$12B** 对标 **Decart Oasis/robotics** 赛道 |
+| 可直接关注 | 跟踪 **6/12 SPCX** 首秀与 **AI1** 路线图；评估 **physical AI** 投资对 **世界模型 API**（Oasis 3 等）生态影响 |
+| 专项检索结论 | **Claude Code**：无 **6/11** 新 release（**v2.1.172 为 6/10**）；**Codex**：无 **6/11** 新 release；**OpenClaw**：无 **6/11** 新 tag（**2026.6.5 为 6/6**）；**Hermes**：无 **6/11** 新 release；**Spring AI**：无 **6/11** 官方 release（**2.0.0 GA 为 6/12**）；**skills**：无 **6/11** marketplace 新公告（**Preset/Replit skills 6/10** 传播延续） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 资本 / SpaceX | [SpaceX announces pricing of initial public offering（ir.spacex.com）](https://ir.spacex.com/news/spacex-announces-pricing-of-initial-public-offering) | **2026-06-11** | 资本市场 | **$135/股**、约 **$75B** 估值；**6/12** **Nasdaq SPCX** 上市 |
+| Physical AI | [Prometheus raises $12B for physical AI（TechCrunch）](https://techcrunch.com/2026/06/11/prometheus-raises-12-billion-for-physical-ai/) | **2026-06-11** | 融资/产业 | **$12B** 投向 **robotics/embodied AI/世界模型**；与 **SpaceX AI1** 算力叙事共振 |
+| Anthropic（相邻） | [Policy on the AI Exponential（6/10）](https://www.anthropic.com/policy-on-the-ai-exponential) | **2026-06-10** / **6/11** 传播 | 官方政策 | **AAIF** 与 **Fable 5** 同周；**6/12 export ban** 前奏 |
+| Google（相邻） | [DiffusionGemma launch（6/10）](https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/) | **2026-06-10** / **6/11** 传播 | 官方发布 | **26B MoE 扩散 LLM**；非 AR 文本生成 **4×** 加速叙事 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 资本/IPO | **SpaceX IR pricing 公告** | $135 定价、AI1 预期 | 战略/infra 规划 |
+| Physical AI | **TechCrunch Prometheus $12B** | embodied AI、世界模型 | Robotics/AV 研发 |
+| 监管 | **Anthropic AAIF（6/10 相邻）** | frontier 评测、阻断权 | 合规负责人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/11 **资本定价日**——SpaceX **IPO 定价** 与 Prometheus **$12B physical AI** 把 **算力/物理世界 AI** 推至前台；开发者工具链 **无 major release**，关注 **6/12 Spring AI GA + SPCX 首秀**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 资本 | **SpaceX $75B 定价** | **轨道算力** 长期影响 **training/inference 地理布局** |
+| Physical AI | **Prometheus $12B** | **世界模型/robotics API** 生态加速 |
+| 专项空窗 | Claude Code/Codex/OpenClaw/Hermes 无 6/11 release | **6/12** 起 **Spring AI 2.0 + Claude Code 2.1.176** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **SpaceX IR IPO pricing** | **6/12 SPCX** 首秀 **定价一手来源** |
+| 必读 | **TechCrunch Prometheus $12B** | 2026 **physical AI** 超级融资样本 |
+| 延伸 | **Anthropic AAIF（6/10）** | **6/12 Fable export ban** 政策背景 |
+
+### 来源清单
+
+- 检索范围：2026-06-11 00:00:00 到 2026-06-11 23:59:59（Asia/Shanghai）
+- 引用域名：ir.spacex.com, techcrunch.com, anthropic.com, blog.google
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 资本市场 | SpaceX IPO pricing | 2026-06-11 | https://ir.spacex.com/news/spacex-announces-pricing-of-initial-public-offering |
+| 融资/产业 | Prometheus $12B physical AI | 2026-06-11 | https://techcrunch.com/2026/06/11/prometheus-raises-12-billion-for-physical-ai/ |
+| 官方政策 | Anthropic AAIF | 2026-06-10/6/11 传播 | https://www.anthropic.com/policy-on-the-ai-exponential |
+| 官方发布 | DiffusionGemma | 2026-06-10/6/11 传播 | https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/ |
+
+## 2026-06-10
+
+### 今日总览
+
+**一句话结论**：`2026-06-10` 是 **「监管提案与资本定价同日升温 + 扩散式文本模型开源 + Agent Skills 平台化」**——Anthropic 发布 **Policy on the AI Exponential**（**Advanced AI Framework** + **Economic Policy Framework**，Amodei 呼吁 **FAA 式 frontier 监管**）；Google 同日开源 **DiffusionGemma**（26B MoE 离散扩散、**最高约 4×** 推理加速）并下调 **Google AI Plus** 至 **$4.99/月**；产业侧 **SpaceX IPO 定价窗口**、**Meta×Reliance 168MW 印度 AI 数据中心**、**Decart Oasis 3 世界模型 API** 与 **xAI Grok 安全诉讼** 并行；开发者生态 **Claude Code v2.1.172**、**Preset/Replit Agent Skills** 继续把 **skills 市场** 推成标配。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Anthropic 官方政策页；Google blog/developers；TechCrunch/VentureBeat/Inc；GitHub claude-code release；Preset/Replit；arXiv 6/10；专项工具链 |
+| 核心趋势 | **监管从自愿披露转向「可阻断部署」提案**；**非自回归文本生成**（DiffusionGemma）探索速度/交互新范式；**消费级 AI 订阅价格战**（Google AI Plus 近 **40%** 降价）；**物理 AI / 世界模型 API 化**（Decart Oasis 3） |
+| 可直接关注 | 对照 **AAIF** 的第三方评测与政府阻断权提案评估企业合规路线；本地/低并发场景试用 **DiffusionGemma + vLLM**；订阅 FinOps 跟踪 **Gemini vs ChatGPT Go** 价差；CI 继续审计 **Agent 配置变更**（Miasma 余波） |
+| 专项检索结论 | **Claude Code**：**v2.1.172**（**2026-06-10** GitHub release）；**Codex**：无 **6/10** 新 release（**Goal mode/Sites/Chrome** 等 **6 月** 能力仍为主线，媒体 **6/10** 对比文活跃）；**OpenClaw**：无 **6/10** 官方 release（**Hermes migrate** 文档/skills 生态延续）；**Hermes**：无 **6/10** 官方 release（OpenClaw skills 仓含 **hermes-installer** 社区 skill）；**Spring AI**：无 **6/10** 官方 release；**skills**：**Preset Agent Skills**（**6/10**）、**Replit Agent Customization**（**6/10**）、**Addy Osmani agent-skills** 社区热度（**6/10** 传播） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Anthropic / 政策 | [Policy on the AI Exponential](https://www.anthropic.com/policy-on-the-ai-exponential) | **2026-06-10** | 官方政策 | **Advanced AI Framework**：强制第三方安全测试、透明度、政府 **阻断/召回** 危险部署；**Economic Policy Framework** 应对 AI 就业冲击；**$350M** 配套承诺 |
+| Anthropic / 政策 | [Advanced AI Framework（AAIF）](https://www.anthropic.com/policy-on-the-ai-exponential/aaif) | **2026-06-10** | 官方政策 | 面向 **frontier model** 灾难性风险：独立评测、持续披露、跨部门韧性投资 |
+| 媒体 / Anthropic | [Anthropic CEO calls for FAA-style regulation（VentureBeat）](https://venturebeat.com/technology/anthropic-ceo-calls-for-faa-style-regulation-of-powerful-ai-models-what-enterprises-should-know) | **2026-06-10** | 技术媒体 | Amodei 将 **frontier AI** 类比航空器：**技术测试+审计**，未达标应 **阻止发布**；与 **Fable 5** 发布形成「能力+监管」双线 |
+| Anthropic / 产品（传播） | [Cybersecurity researchers aren't happy about Fable guardrails（TechCrunch）](https://techcrunch.com/2026/06/10/cybersecurity-researchers-arent-happy-about-the-guardrails-on-anthropics-fable/) | **2026-06-10** | 技术媒体 | **Fable 5**（**6/9** 发布）护栏被批 **关键词触发过宽**；**Cyber Verification Program** 与 **Opus 4.8 fallback** 机制引争议 |
+| Google / 模型 | [DiffusionGemma: 4x faster text generation](https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/) | **2026-06-10** | 官方发布 | **26B MoE**（推理激活 **~3.8B**）**离散扩散**文本生成；**Apache 2.0**；**vLLM/Transformers/MLX** day-zero；定位为 **实验/低并发本地** 而非生产默认 |
+| Google / 开发者 | [DiffusionGemma: The Developer Guide](https://developers.googleblog.com/diffusiongemma-the-developer-guide/) | **2026-06-10** | 官方文档 | 256-token 块并行去噪、双向注意力、量化 **~18GB VRAM**；与 **Gemma 4 26B** 质量差距需在选型时显式评估 |
+| Google / 定价 | [Google AI Plus price cut（Inc.）](https://www.inc.com/chloe-aiello/googles-new-ai-price-cuts-should-make-openai-and-anthropic-nervous/91359297) | **2026-06-10** | 产品/定价 | **$7.99→$4.99/月**，存储 **200GB→400GB**；续费生效；施压 **ChatGPT Go（$8）** 与 **Claude Pro（$20 起）** |
+| Meta / 基础设施 | [Meta signs first AI data center deal in India with Reliance（TechCrunch）](https://techcrunch.com/2026/06/10/meta-signs-first-ai-data-center-deal-in-india-with-reliance/) | **2026-06-10** | 基础设施 | **168MW** AI 数据中心（**Jamnagar, Gujarat**），约 **2 年**就绪；承接 Meta 全球 AI 算力与 **Jio** 多年合作延伸 |
+| 物理 AI | [Decart Oasis 3 world model（TechCrunch）](https://techcrunch.com/2026/06/10/decarts-new-world-model-can-simulate-hours-of-photorealistic-driving-with-some-caveats/) | **2026-06-10** | 产品/API | 实时 **photorealistic driving** 多相机环境；API **$0.02/秒**；面向 **AV 边缘场景** 与 **physical AI** 开发者生态 |
+| xAI / 治理 | [xAI fired engineer over Grok safety alarms（TechCrunch）](https://techcrunch.com/2026/06/10/xai-fired-an-engineer-who-raised-alarms-about-grok-safety-new-lawsuit-claims/) | **2026-06-10** | 法律/安全 | 前工程师 **Kim** 诉称因 **Grok 安全/歧视/WMD 信息** 担忧被解雇；诉状提及 **Grok Code 1** EU 测试争议 |
+| 资本（相邻） | [June 10 AI Roundup: IPO cluster（SEN-X）](https://senx.ai/news/2026-06-10-daily-ai-news) | **2026-06-10** | 行业分析 | **Anthropic/OpenAI/SpaceX** IPO 叙事同日发酵；**SpaceX 6/12 Nasdaq（SPCX）** 预期；**Google 订阅降价** 与 **联邦 AI 治理** 讨论并行 |
+| Agent 安全（传播） | [Miasma worm supply-chain（StepSecurity，持续）](https://www.stepsecurity.io/blog/miasma-worm-hits-microsoft-again-azure-functions-action-and-72-other-repositories-disabled-after-supply-chain-attack-targeting-ai-coding-agents) | **2026-06-05** 攻击 / **6/10** 传播 | 安全事件 | **AI coding agent 配置** 仍为高优先级攻击面；与 **Fable/Codex/Claude Code** 生态交叉 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Frontier 监管 | **Anthropic AAIF + Amodei 文** | 第三方评测、政府阻断权、经济配套 | 合规/平台/安全负责人 |
+| 扩散式 LLM | **DiffusionGemma Developer Guide** | 块并行去噪、MoE、vLLM 部署 | 推理/本地模型工程师 |
+| Fable 护栏 | **TechCrunch Fable 护栏争议** | keyword fallback、Cyber Verification | 红队/SecOps |
+| Agent Skills | **Preset Agent Skills 公告** | MCP/API/CLI 三包 skills、跨客户端安装 | 数据/Agent 平台工程师 |
+| Skills 产品化 | **Replit Agent Customization** | Custom Instructions vs 按需 **skills** 叠加 | 全栈/小团队 Agent 用户 |
+| 世界模型 | **Decart Oasis 3 API** | 多相机物理仿真、按秒计费 | AV/Robotics 研发 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/10 呈现 **「政策提案、模型架构创新与 Agent 工程范式（Loop/skills）三线并进」**——监管侧 **AAIF** 把 **评测+阻断** 写成可执行框架；模型侧 **DiffusionGemma** 挑战 **自回归默认**；工程侧 **Claude Code release + Preset/Replit skills** 强化 **「设计 loop / 安装 skill」** 而非单次 prompt。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 监管框架 | **Policy on the AI Exponential** | 企业应预备 **frontier 模型第三方审计** 与 **部署阻断** 预案 |
+| 非 AR 文本 | **DiffusionGemma** | 交互/编辑类低并发场景可 A/B **扩散 vs AR** 延迟与质量 |
+| Coding Agent | **Claude Code v2.1.172** | 跟踪 **claude-code** release 与 **Fable 5** API 后端变更 |
+| Skills 生态 | **Preset + Replit skills** | skills = **可安装工作流+边界**；跨 **Codex/Cursor/Claude Code** 统一维护 |
+| Loop Engineering | **Addy Osmani / Boris Cherny 论述**（**6/7–6/10** 传播） | 从 **prompt agent** 转向 **设计 prompt-agent 的 loop** |
+| 物理 AI | **Oasis 3 API** | 世界模型 **API-first** 复刻早期 **LLM API** 生态路径 |
+| 专项空窗 | OpenClaw/Hermes/Spring AI 无 6/10 release | 关注 **OpenClaw Hermes migrate** 与 **Spring AI** 下一版 release notes |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Anthropic Policy on the AI Exponential** | 2026 **frontier AI 监管** 最完整官方提案之一 |
+| 必读 | **DiffusionGemma 官方文 + model card** | 理解 **离散扩散 LLM** 的能力/质量 trade-off |
+| 推荐 | **VentureBeat：FAA-style regulation** | 企业视角解读 **AAIF** 与 **Fable 5** 同周发布 |
+| 推荐 | **TechCrunch：Fable 护栏争议** | **cyber-capable 模型 GA** 的护栏工程样本 |
+| 推荐 | **Preset Agent Skills** | **跨 MCP/API/CLI** 的 skills 分包与 marketplace 安装 |
+| 延伸 | **arXiv: SkillAxe（2606.10546）** | **evaluation-guided** 自动改写 agent skills |
+| 延伸 | **arXiv: TrajGenAgent（2606.12657）** | **LangGraph** 分层 agent 轨迹生成范式 |
+
+### 来源清单
+
+- 检索范围：2026-06-10 00:00:00 到 2026-06-10 23:59:59（Asia/Shanghai）
+- 引用域名：anthropic.com, blog.google, developers.googleblog.com, ai.google.dev, techcrunch.com, venturebeat.com, inc.com, github.com, preset.io, replit.com, senx.ai, arxiv.org, stepsecurity.io
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方政策 | Policy on the AI Exponential | 2026-06-10 | https://www.anthropic.com/policy-on-the-ai-exponential |
+| 官方政策 | Advanced AI Framework | 2026-06-10 | https://www.anthropic.com/policy-on-the-ai-exponential/aaif |
+| 技术媒体 | VentureBeat FAA-style regulation | 2026-06-10 | https://venturebeat.com/technology/anthropic-ceo-calls-for-faa-style-regulation-of-powerful-ai-models-what-enterprises-should-know |
+| 技术媒体 | TechCrunch Fable guardrails | 2026-06-10 | https://techcrunch.com/2026/06/10/cybersecurity-researchers-arent-happy-about-the-guardrails-on-anthropics-fable/ |
+| 官方发布 | DiffusionGemma launch | 2026-06-10 | https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/ |
+| 官方文档 | DiffusionGemma Developer Guide | 2026-06-10 | https://developers.googleblog.com/diffusiongemma-the-developer-guide/ |
+| 产品/定价 | Google AI Plus price cut | 2026-06-10 | https://www.inc.com/chloe-aiello/googles-new-ai-price-cuts-should-make-openai-and-anthropic-nervous/91359297 |
+| 基础设施 | Meta×Reliance India DC | 2026-06-10 | https://techcrunch.com/2026/06/10/meta-signs-first-ai-data-center-deal-in-india-with-reliance/ |
+| 产品/API | Decart Oasis 3 | 2026-06-10 | https://techcrunch.com/2026/06/10/decarts-new-world-model-can-simulate-hours-of-photorealistic-driving-with-some-caveats/ |
+| 法律/安全 | xAI Grok safety lawsuit | 2026-06-10 | https://techcrunch.com/2026/06/10/xai-fired-an-engineer-who-raised-alarms-about-grok-safety-new-lawsuit-claims/ |
+| 开源发布 | Claude Code v2.1.172 | 2026-06-10 | https://github.com/anthropics/claude-code/releases/tag/v2.1.172 |
+| 开源/平台 | Preset Agent Skills | 2026-06-10 | https://preset.io/blog/announcing-preset-agent-skills/ |
+| 产品 | Replit Agent Customization | 2026-06-10 | https://replit.com/blog/custom-skills |
+| 行业分析 | SEN-X June 10 roundup | 2026-06-10 | https://senx.ai/news/2026-06-10-daily-ai-news |
+| 论文 | SkillAxe | 2026-06（arXiv） | https://arxiv.org/html/2606.10546v2 |
+| 论文 | TrajGenAgent | 2026-06（arXiv） | https://arxiv.org/html/2606.12657v1 |
+| 安全事件 | Miasma worm | 2026-06-05/6/10 传播 | https://www.stepsecurity.io/blog/miasma-worm-hits-microsoft-again-azure-functions-action-and-72-other-repositories-disabled-after-supply-chain-attack-targeting-ai-coding-agents |
+
 ## 2026-06-09
 
 ### 今日总览
