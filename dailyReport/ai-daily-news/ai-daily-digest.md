@@ -2,6 +2,90 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-06-22
+
+### 今日总览
+
+**一句话结论**：`2026-06-22` 是 **「OpenAI 防御性 cyber 模型全面 GA + Anthropic 全球宕机 + Loop Engineering 进入主流叙事 + 算力/资本密集日」**——OpenAI 扩展 **Daybreak**，**GPT-5.5-Cyber** 正式替换 preview 并发布 **Patch the Planet** 开源补丁计划；Anthropic 遭遇 **~90 分钟** 多模型全球 outage（**Claude API/Code/Cowork** 受影响），同日 **Fable 5 订阅免费窗口截止**（**6/23 起** 需 credits，且 **Fable/Mythos 仍因出口管制离线**）；产业侧 **Groq $650M**、**Google×A24 $75M**、**Reflection×SpaceX $6.3B 算力**、**Microsoft×Chevron 2.67GW 气电数据中心** 并行；工程文化侧 **Loop Engineering** 获 **TechCrunch/Boris Cherny @Scale** 背书。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenAI Daybreak；Anthropic status/outage；TechCrunch/SiliconANGLE；Search Engine Journal；专项工具链 |
+| 核心趋势 | **Cyber 模型产品化**：OpenAI **GPT-5.5-Cyber GA** 对标 Anthropic **Fable/Mythos 下架** 后的市场空窗；**Loop 范式 mainstream**：从 **prompt agent** 到 **agent 提示 agent**；**算力租赁链**：SpaceX **Colossus** 向 **Reflection** 等开放 |
+| 可直接关注 | 评估 **Trusted Access for Cyber** 与 **GPT-5.5-Cyber** 在 **SWE/红队** 流水线中的位置；为 **Claude Code sub-agent/loop** 设计 **SLO 与 outage 降级**；跟踪 **Fable 5 6/23 credits 切换** 对 FinOps 的影响 |
+| 专项检索结论 | **Claude Code**：**v2.1.186**（**2026-06-22** GitHub release）；**Codex**：无 **6/22** 新 tag（**GPT-5.5-Cyber + Daybreak 为 6/22 主线**）；**OpenClaw**：无 **6/22** 新 release（**v2026.6.8 为 6/16**）；**Hermes**：无 **6/22** 新 tag（**v2026.6.19 为 6/19**）；**Spring AI**：无 **6/22** release（**2.0.0 GA 为 6/12**）；**skills**：**Loop Engineering + Codex skills 文档** 二次传播（**6/22**）；**GPT-5.6**：**Polymarket/媒体猜测 6/22–28 窗口**，**OpenAI 未官方发布** |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| OpenAI / Cyber | [OpenAI expands Daybreak with Patch the Planet and GPT-5.5-Cyber（SiliconANGLE）](https://siliconangle.com/2026/06/22/openai-expands-daybreak-patch-planet-full-gpt-5-5-cyber-release/) | **2026-06-22** | 官方/产品 | **GPT-5.5-Cyber GA**（**CyberGym 85.6%**）；**Patch the Planet** 开源补丁；**Trusted Access for Cyber** 受限访问 |
+| OpenAI / 生态 | [Patch the Planet + Codex Security plugin（Daybreak）](https://siliconangle.com/2026/06/22/openai-expands-daybreak-patch-planet-full-gpt-5-5-cyber-release/) | **2026-06-22** | 安全/开源 | 与 **Fable/Mythos 出口管制下架** 形成 **defensive cyber** 对比叙事 |
+| Anthropic / 可用性 | [Claude AI 90-minute global outage（CybersecurityNews）](https://cybersecuritynews.com/anthropic-claude-ai-outage/) | **2026-06-22** | 运维事件 | **00:37–02:06 UTC** 影响 **Opus 4.6–4.8/Sonnet 4.6/Haiku 4.5**；**API/Code/Cowork** 分级恢复 |
+| Anthropic / 产品（里程碑） | [Fable 5 subscription window through June 22（Anthropic）](https://www.anthropic.com/news/claude-fable-5-mythos-5) | **2026-06-22** | 定价/产品 | **Pro/Max/Team/Enterprise** 含 **Fable 5** 免费窗口 **截止 6/22**；**6/23 起** 需 **usage credits**（**Fable 仍 offline** 因 **6/12 出口管制**） |
+| Anthropic / 政策 | [Anthropic says Claude may want to see your ID（TechCrunch）](https://techcrunch.com/2026/06/22/anthropic-says-claude-may-want-to-see-your-id/) | **2026-06-22** | 隐私/合规 | 新隐私政策 **7/8 生效**；**Persona** 身份核验；与 **政府关系** 背景下的 **平台完整性** 措施 |
+| 算力 / 开源 | [SpaceX compute deal with Reflection AI（TechCrunch）](https://techcrunch.com/2026/06/22/spacex-inks-compute-deal-with-reflection-ai-an-open-source-ai-lab/) | **2026-06-22** | 基础设施 | **$150M/月**（**7/1 起**）租用 **Colossus 2 GB300**；合同最高 **$6.3B**；**open-weight** 战略信号 |
+| 芯片 / 资本 | [Groq confirms $650M raise（TechCrunch）](https://techcrunch.com/2026/06/22/ai-chipmaker-groq-confirms-650m-raise-re-staffs-after-nvidias-20b-not-acqui-hire-deal/) | **2026-06-22** | 资本/infra | **Nvidia $20B 非收购** 后 **Groq** 转向 **neocloud**；新 **COO/CTO/CPO** 到位 |
+| Google / 多模态产业 | [Google DeepMind $75M A24 deal（TechCrunch）](https://techcrunch.com/2026/06/22/google-deepmind-bets-75m-on-ais-future-in-hollywood-with-a24-deal/) | **2026-06-22** | 产业合作 | **AI  filmmaking 工具** 与 **艺术家共创**；Hollywood **AI 争议** 背景下的 **studio×lab** 模式 |
+| 算力 / 能源 | [Microsoft and Chevron 2.67GW gas data center（TechCrunch）](https://techcrunch.com/2026/06/22/microsoft-and-chevron-plan-one-of-the-largest-gas-powered-data-center-projects-in-us/) | **2026-06-22** | 基础设施 | **德州** 气电 **共址** AI 数据中心；**2030 碳中和** 目标与 **AI 算力** 张力 |
+| 人才 | [Google loses Shazeer & Jumper to OpenAI/Anthropic（Search Engine Journal）](https://www.searchenginejournal.com/google-loses-two-top-ai-researchers-to-openai-anthropic/580201/) | **2026-06-18–6/22** | 人才/资本 | **Transformer 共同作者 Shazeer→OpenAI**；**AlphaFold Jumper→Anthropic**；**Alphabet 股价 6/22** 波动 |
+| Agent 范式 | [The AI world is getting loopy（TechCrunch）](https://techcrunch.com/2026/06/22/the-ai-world-is-getting-loopy/) | **2026-06-22** | 工程文化 | **Boris Cherny @Scale**：**loops 与 source→agent 同等重要**；**架构/去重 PR** 持续 loop |
+| 模型（未证实） | [GPT-5.6 launch speculation（TechTimes/Polymarket）](https://www.techtimes.com/articles/318799/20260621/gpt-56-launch-window-starts-monday-alignment-fix-15m-token-context-inside.htm) | **2026-06-21–22**（猜测） | 市场传闻 | **OpenAI 未官宣**；**Polymarket 6/22–28 窗口** 高概率合约定价；**勿当作已发布** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Defensive cyber | **OpenAI Daybreak + GPT-5.5-Cyber** | Trusted Access、CyberGym、Patch the Planet | SecOps/平台 |
+| Outage 工程 | **Anthropic 6/22 status 时间线** | 多模型分级恢复、API/Code 依赖 | SRE/Agent 平台 |
+| Loop 范式 | **TechCrunch：getting loopy** | `/loop`、`/goal`、Ralph Loop、sub-agent PR | Agent 工程师 |
+| Sub-agent | **Claude Code sub-agents 文档** | 独立上下文、噪声隔离 | Claude Code 用户 |
+| Codex skills | **OpenAI Codex skills 文档** | progressive disclosure、`$skill` 显式调用 | Codex 用户 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/22 呈现 **「防御性 cyber GA + 可用性事故 + Loop 成为产品/文化默认选项」**——OpenAI 用 **GPT-5.5-Cyber** 填补 **Fable 下架** 后的 **defender 空窗**；Anthropic **outage** 提醒 **Agent 流水线** 需 **多模型/多 region 降级**；**Loop Engineering** 从 **社区术语** 进入 **Cherny 公开演讲** 与 **TechCrunch 封面叙事**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Cyber 模型 | **GPT-5.5-Cyber GA** | 红队/补丁流水线应评估 **Trusted Access** 与 **开源 Patch the Planet** |
+| 可用性 | **Anthropic 90min outage** | **Claude Code/API** 依赖方需 **circuit breaker + 备用模型** |
+| Loop | **Cherny @Scale + TechCrunch** | 用 **verifier/goal** 约束 unattended loop，控制 **token 成本** |
+| Claude Code | **v2.1.186** | 跟踪 **sub-agent/loop** 相关 release notes |
+| Fable 里程碑 | **6/22 订阅窗口截止** | **6/23 起** FinOps 按 **credits** 计费；**Fable 仍不可用** |
+| 专项空窗 | OpenClaw/Hermes/Spring AI 无 6/22 release | 关注 **Reflection×SpaceX** 对 **open-weight** 生态影响 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **SiliconANGLE：Daybreak + GPT-5.5-Cyber** | **6/22 最可核验官方级 cyber 发布** |
+| 必读 | **Anthropic outage 报告** | **多模型 Agent 平台 SLO** 设计样本 |
+| 推荐 | **TechCrunch：getting loopy** | **Loop Engineering** 进入主流叙事的 **一手演讲引用** |
+| 推荐 | **Reflection×SpaceX 算力协议** | **open-weight + Colossus** 商业模式 |
+| 延伸 | **Anthropic ID 隐私政策** | **平台完整性 vs 隐私** 权衡 |
+
+### 来源清单
+
+- 检索范围：2026-06-22 00:00:00 到 2026-06-22 23:59:59（Asia/Shanghai）
+- 引用域名：siliconangle.com, techcrunch.com, cybersecuritynews.com, anthropic.com, searchenginejournal.com, github.com, openai.com, techtimes.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方/产品 | OpenAI Daybreak GPT-5.5-Cyber | 2026-06-22 | https://siliconangle.com/2026/06/22/openai-expands-daybreak-patch-planet-full-gpt-5-5-cyber-release/ |
+| 运维事件 | Anthropic Claude outage | 2026-06-22 | https://cybersecuritynews.com/anthropic-claude-ai-outage/ |
+| 定价里程碑 | Fable 5 through June 22 | 2026-06-09 发布/6/22 截止 | https://www.anthropic.com/news/claude-fable-5-mythos-5 |
+| 隐私/合规 | Anthropic ID verification | 2026-06-22 | https://techcrunch.com/2026/06/22/anthropic-says-claude-may-want-to-see-your-id/ |
+| 基础设施 | Reflection×SpaceX compute | 2026-06-22 | https://techcrunch.com/2026/06/22/spacex-inks-compute-deal-with-reflection-ai-an-open-source-ai-lab/ |
+| 资本 | Groq $650M | 2026-06-22 | https://techcrunch.com/2026/06/22/ai-chipmaker-groq-confirms-650m-raise-re-staffs-after-nvidias-20b-not-acqui-hire-deal/ |
+| 产业 | Google×A24 $75M | 2026-06-22 | https://techcrunch.com/2026/06/22/google-deepmind-bets-75m-on-ais-future-in-hollywood-with-a24-deal/ |
+| 基础设施 | Microsoft×Chevron gas DC | 2026-06-22 | https://techcrunch.com/2026/06/22/microsoft-and-chevron-plan-one-of-the-largest-gas-powered-data-center-projects-in-us/ |
+| 人才 | Google Shazeer/Jumper | 2026-06-18–22 | https://www.searchenginejournal.com/google-loses-two-top-ai-researchers-to-openai-anthropic/580201/ |
+| 工程文化 | AI world getting loopy | 2026-06-22 | https://techcrunch.com/2026/06/22/the-ai-world-is-getting-loopy/ |
+| 开源发布 | Claude Code v2.1.186 | 2026-06-22 | https://github.com/anthropics/claude-code/releases |
+| 市场传闻 | GPT-5.6 speculation | 2026-06-21–22 | https://www.techtimes.com/articles/318799/20260621/gpt-56-launch-window-starts-monday-alignment-fix-15m-token-context-inside.htm |
+
 ## 2026-06-21
 
 ### 今日总览

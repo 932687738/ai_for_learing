@@ -2,6 +2,68 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-06-22
+
+### 今日总览
+
+**一句话结论**：`2026-06-22` 固定来源口径下，**掘金** 出现当日硬对齐长文——**Claude Code Sub-Agents 上下文污染解法**；全球主线 **GPT-5.5-Cyber GA、Anthropic outage、Loop Engineering、Reflection×SpaceX 算力** 均来自 **非固定来源**（OpenAI/Anthropic/TechCrunch），以 **相邻日期/中国时间窗口传播** 标注补位；**美团/阿里 team blog 6/22 仍空窗**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 掘金；阿里/美团/字节 techblog / 腾讯云等 **site: 6/22**；非固定来源补充核验 |
+| 核心趋势 | **Agent 工程中文深度文**：**Sub-Agents 隔离上下文噪声**；**全球 cyber/outage/loop** 预计 **1–3 天** 进入 **阿里云/腾讯云** 解读链 |
+| 可直接关注 | 用 **掘金 Sub-Agents 文** 对照 **Claude Code v2.1.186** 与 **loop 范式** 实践 |
+| 未发现更新 | 阿里 102/中间件/语雀、tech.meituan.com、techblog.toutiao.com、developer.aliyun.com（6/22 硬对齐长文）、腾讯云开发者（6/22 硬对齐）、京东/滴滴/有赞/360/网易、百度 FEX/EFE、AlloyTeam、Tencent_TEG：本次未见 **6/22 team 首发** 长文 |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Claude Code | [Claude Code 越用越乱？Sub-Agents 才是上下文污染的解法（掘金）](https://juejin.cn/post/7653720174984822811) | **2026-06-22** | 掘金 | **Sub-Agents** 独立上下文窗口隔离 **测试日志/grep 噪声**；与 **Loop Engineering** 同日传播形成 **Agent 工程** 中文对照 |
+| OpenAI Cyber（相邻） | [GPT-5.5-Cyber GA + Daybreak（SiliconANGLE，非固定来源补充核验）](https://siliconangle.com/2026/06/22/openai-expands-daybreak-patch-planet-full-gpt-5-5-cyber-release/) | **2026-06-22** | 第三方报道，补充核验 | **Patch the Planet** 与 **Trusted Access**；预计滞后进入 **developer.aliyun.com** 社区 |
+| Anthropic（相邻） | [Claude 全球 outage + Fable 窗口截止（非固定来源）](https://cybersecuritynews.com/anthropic-claude-ai-outage/) | **2026-06-22** | 第三方报道，补充核验 | **SRE/Agent 降级** 与 **Fable credits 切换** 双事件同日 |
+| Loop 范式（相邻） | [The AI world is getting loopy（TechCrunch，非固定来源）](https://techcrunch.com/2026/06/22/the-ai-world-is-getting-loopy/) | **2026-06-22** | 第三方报道，补充核验 | **Boris Cherny @Scale** 论述；与掘金 **Sub-Agents** 文可对照阅读 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Sub-Agents | **掘金：Sub-Agents 上下文污染** | 独立 context、主对话只收结论 | Claude Code 工程师 |
+| Loop | **TechCrunch loopy 文（非固定）** | 持续 background loop、Ralph Loop | Agent 平台 |
+| Outage | **Anthropic status 时间线（非固定）** | 分级恢复、多模型 blast radius | SRE |
+
+### 工程实践归纳
+
+**总体判断**：6/22 固定来源呈 **「掘金 Agent 工程深文 + team blog 静默 + 全球 cyber/outage 外溢」**——中文社区在 **Sub-Agents/Loop** 方向跟进的密度高于 **官方 team 博客**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 上下文治理 | **掘金 Sub-Agents 文** | 长任务应 **sub-agent 执行 + 主线程摘要** |
+| 来源空窗 | **6/22 多维度 team blog 空窗** | 重大 **outage/cyber GA** 先落 **TechCrunch/掘金** |
+| 传播滞后 | **GPT-5.5-Cyber/outage** | 跟踪 **阿里云** 是否 **1–3 天内** 出解读 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **掘金：Sub-Agents 解法** | 固定来源内 **6/22 唯一硬对齐** 深度工程文 |
+| 推荐 | **TechCrunch：getting loopy** | 理解 **Loop** 与 **Sub-Agents** 的产品层关系 |
+| 延伸 | **Daybreak/GPT-5.5-Cyber（非固定）** | **Fable 下架** 后的 **defensive cyber** 对照 |
+
+### 来源清单
+
+- 检索范围：2026-06-22 00:00:00 到 2026-06-22 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：字节跳动（掘金 ✓）；其余维度未见 6/22 硬对齐首发；OpenAI/Anthropic/TechCrunch 为 **非固定来源补充核验**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 字节跳动 | 掘金 | 技术文章 | Sub-Agents 上下文污染解法 | 2026-06-22 | https://juejin.cn/post/7653720174984822811 |
+| OpenAI | 非固定来源补充核验 | 官方/产品 | GPT-5.5-Cyber Daybreak | 2026-06-22 | https://siliconangle.com/2026/06/22/openai-expands-daybreak-patch-planet-full-gpt-5-5-cyber-release/ |
+| Anthropic | 非固定来源补充核验 | 运维/产品 | Claude outage + Fable 窗口 | 2026-06-22 | https://cybersecuritynews.com/anthropic-claude-ai-outage/ |
+| 媒体 | 非固定来源补充核验 | 工程文化 | AI world getting loopy | 2026-06-22 | https://techcrunch.com/2026/06/22/the-ai-world-is-getting-loopy/ |
+| 美团/阿里/腾讯/京东/滴滴/百度/360/有赞/网易 | 固定来源清单 | 无新增 | 无可靠新增来源 | - | - |
+
 ## 2026-06-21
 
 ### 今日总览
