@@ -5,7 +5,67 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="更新每日新闻摘要，包含2026-06-23的AI相关资讯和知识库动态，新增AI Daily News Digest和Knowledge Base Digest文件，修正项目配置，优化工作空间设置。">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/大纲/分章详细大纲.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/大纲/大纲.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/大纲/细纲_第001章.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/大纲/细纲_第002章.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第001章_铁锈与蜂蜜.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第002章_褪色之名.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第003章_档案里的空白.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第004章_第七张脸.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第005章_不存在的邻居.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第006章_黄金线.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第007章_镜中的停顿.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第008章_回声听见.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第009章_死者的颜色.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第010章_褪色教室.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第011章_被删掉的毕业照.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第012章_求生.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第013章_姓名牌.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第014章_饲养槽.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第015章_猎与被猎.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第016章_名字的重量.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第017章_赦免还是清除.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第018章_也在逃命.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第019章_假面邀请.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第020章_茧之声.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第021章_无垢的证词.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第022章_羽化小镇.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第023章_集体褪色.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第024章_进化的谎言.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第025章_五十七的锈.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第026章_收割场.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第027章_镜中的亿次死亡.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第028章_囚笼里的黄金.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第029章_回声断裂.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第030章_小镇第三日.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第031章_羽化前夜.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第032章_叛逃者的价.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第033章_假进化真吞噬.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第034章_锈钉的锁.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第035章_不入茧.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第036章_巨镜之门.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第037章_镜面行政区.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第038章_认知熵.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第039章_宇宙的最后观众.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第040章_人皮之下.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第041章_无垢的终局.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第042章_茧的九十七.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第043章_复刻之痛.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第044章_缓冲区计划.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第045章_全球羽化.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第046章_镜鬼扩散.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第047章_我仍存在.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第048章_无处不在.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/设定/世界观/力量体系.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/设定/角色/沈渡.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/设定/题材定位.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/追踪/记忆碎片记录.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/story/人皮契约/追踪/鬼种成熟进度.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/count_chapter_body.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/count_chapters_batch.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/expand_short_chapters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/extract_chapter_status.py" afterDir="false" />
     </list>
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
@@ -258,6 +318,7 @@
       <workItem from="1782100747425" duration="624000" />
       <workItem from="1782182971514" duration="3800000" />
       <workItem from="1782195741320" duration="1288000" />
+      <workItem from="1782283607650" duration="1240000" />
     </task>
     <task id="LOCAL-00001" summary="docs(project): 更新项目配置和文档以支持 Python 开发环境&#10;&#10;- 移除 .idea 目录的 git 忽略规则，将其加入版本控制&#10;- 修正项目模块名称中的拼写错误（ai_for_learning -&gt; ai_for_learing）&#10;- 添加详细的 Python 环境配置说明和依赖安装指南&#10;- 在课程模式文档中增加 Python 依赖管理规范&#10;- 更新项目状态文件中的任务时间戳和处理目标列表&#10;- 配置 PyCharm 工作空间设置和虚拟环境排除路径">
       <option name="closed" value="true" />
@@ -627,7 +688,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782182988484</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="更新每日新闻摘要，包含2026-06-23的AI相关资讯和知识库动态，新增AI Daily News Digest和Knowledge Base Digest文件，修正项目配置，优化工作空间设置。">
+      <option name="closed" value="true" />
+      <created>1782283634409</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1782283634409</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
