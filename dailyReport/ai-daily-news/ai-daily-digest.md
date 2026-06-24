@@ -2,6 +2,92 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-06-23
+
+### 今日总览
+
+**一句话结论**：`2026-06-23` 是 **「Anthropic 企业 Agent 进 Slack + Claude Code 安全/治理加固 + GPT-5.6 传闻落空 + AI 检测/营销 Agent M&A」**——Anthropic 发布 **Claude Tag**（Slack **常驻 AI 同事**，含 **ambient 主动介入**）；**Claude Code v2.1.187** 强化 **sandbox.credentials**、**组织模型限制** 与 **MCP 超时**；**Fable 5 订阅免费窗口已过期** 但 **模型仍因出口管制离线**；**GPT-5.6 未官宣**（市场传闻 **推迟至 7 月中旬**）；产业侧 **Superhuman 收购 GPTZero**、**MoEngage 收购 Aampe**、**Menlo $3B 基金**（**Anthropic 持股 ~$14B**）；**OpenClaw** 延续 **Check Point 6/22 安全报告** 传播窗口。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Anthropic Claude Tag；TechCrunch；GitHub claude-code releases；arXiv agent 论文；OpenClaw 安全；中文补充 |
+| 核心趋势 | **Slack-native 企业 Agent**：从 **@mention 工具** 到 **跨频道记忆 + ambient 协作**；**Coding Agent 治理**：sandbox/组织策略/MCP 超时进入 **默认配置**；**GPT-5.6 空窗**：Polymarket/媒体窗口 **未兑现** |
+| 可直接关注 | 评估 **Claude Tag** 与 **Microsoft Graph/Copilot** 的 **权限边界** 设计；升级 **Claude Code v2.1.187** 并审计 **MCP/StructuredOutput** 行为；**Fable 5 offline** 下的 **Opus 4.8 降级** 与 FinOps |
+| 专项检索结论 | **Claude Code**：**v2.1.187**（**2026-06-23** GitHub release）；**Codex**：无 **6/23** 新 tag（**Daybreak/Patch the Planet 主线为 6/22**）；**OpenClaw**：无 **6/23** 新 release（**ClawHub 恶意 skills/Check Point 报告为 6/22–23 传播**）；**Hermes**：无 **6/23** 新 tag（**v2026.6.19 为 6/19**）；**Spring AI**：无 **6/23** release（**2.0.0 GA 为 6/12**）；**skills**：**agentskills.io 网络安全 skills 包** 在 GitHub Trending 二次传播（**6/23**）；**GPT-5.6**：**OpenAI 未发布**；传闻 **推迟至 ~7 月中旬** |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Anthropic / 企业 Agent | [Claude Tag in Slack（TechCrunch）](https://techcrunch.com/2026/06/23/anthropics-claude-tag-is-learning-your-company-one-slack-message-at-a-time/) | **2026-06-23** | 产品/研究预览 | **Enterprise/Team** Slack **常驻 Claude**；**跨频道记忆**、**ambient 主动跟进**；管理员 **工具/频道 scope** |
+| Anthropic / 产品（里程碑） | [Fable 5 still offline after June 22 pricing deadline（explainx.ai）](https://explainx.ai/blog/is-fable-5-back-2026) | **2026-06-23** | 产品/合规 | **6/22 免费窗口截止** 后 **Fable/Mythos 仍全球 offline**；**Opus 4.8** 为 Claude Code/API 默认回退 |
+| Claude Code | [Claude Code v2.1.187（GitHub）](https://github.com/anthropics/claude-code/releases/tag/v2.1.187) | **2026-06-23** | 开源发布 | **sandbox.credentials**；**org 模型限制**；**MCP idle timeout**；**StructuredOutput** 无限重试修复 |
+| M&A / AI 检测 | [Superhuman acquires GPTZero（TechCrunch）](https://techcrunch.com/2026/06/23/superhuman-acquires-ai-detection-startup-gptzero/) | **2026-06-23** | 并购 | **19M 用户/$30M ARR** AI 检测并入 **Grammarly/Superhuman**；**双检测器** 策略 |
+| M&A / 营销 Agent | [MoEngage acquires Aampe（TechCrunch）](https://techcrunch.com/2026/06/23/indias-moengage-bets-marketings-future-on-millions-of-ai-agents/) | **2026-06-23** | 并购 | **每客户独立 AI Agent** 个性化营销；对标 **Salesforce/Adobe** |
+| 资本 | [Menlo Ventures $3B fund, Anthropic stake ~$14B（TechCrunch）](https://techcrunch.com/2026/06/23/after-betting-the-firm-on-anthropic-menlo-ventures-raises-victorious-3b-fund/) | **2026-06-23** | 资本 | **2024 $750M Anthropic SPV** 回报驱动史上最大募资；**Anthology** 基金 ~**$250M** 已部署 |
+| 模型（未证实） | [GPT-5.6 delay to mid-July rumors（Digg/社区）](https://digg.com/tech/6hp5va4b) | **2026-06-23**（传闻） | 市场传闻 | **OpenAI 未官宣**；**Polymarket 6/22–28 窗口未兑现**；**勿当作已发布** |
+| Agent 安全（相邻） | [OpenClaw security risks: Check Point June 22（AIToolsRecap）](https://aitoolsrecap.com/Blog/openclaw-ai-agent-security-risks-2026) | **2026-06-22–23** | 安全研究 | **ClawHub ~11% 恶意 skills**；**CVE-2026-32922** 等；**prompt injection→RCE** 链 |
+| 论文（相邻） | [Self-Compacting Language Model Agents（arXiv:2606.23525）](https://arxiv.org/abs/2606.23525v1) | **2026-06-22** | 论文原文 | **SelfCompact**：模型自主决定 **何时/如何 compact** 上下文 |
+| 论文（相邻） | [Tmax: terminal agents RL recipe（arXiv:2606.23321）](https://arxiv.org/abs/2606.23321v1) | **2026-06-22** | 论文原文 | **9B** 在 **Terminal-Bench 2.0** **27%**；开源 **terminal agent** RL 基线 |
+| OpenAI（相邻） | [Patch the Planet open source security（TechCrunch）](https://techcrunch.com/2026/06/22/openai-launches-new-initiative-to-help-find-and-patch-open-source-bugs/) | **2026-06-22** | 官方/生态 | **6/23 中国时间** 持续传播；与 **GPT-5.5-Cyber GA** 同日叙事 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 企业 Slack Agent | **Claude Tag 发布解读（TechCrunch）** | ambient mode、跨频道 memory、admin scope | 企业 AI/协作平台 |
+| Claude Code 安全 | **v2.1.187 release notes** | sandbox.credentials、org model restrictions | 平台/SRE |
+| MCP 可靠性 | **CLAUDE_CODE_MCP_TOOL_IDLE_TIMEOUT** | 远程 MCP **5min hang→abort** | Agent 工程师 |
+| Agent 上下文 | **SelfCompact 论文** | compaction tool + rubric | 长时 Agent 架构 |
+| Terminal Agent | **Tmax 开源配方** | RL on terminal environments | Agent 训练/评测 |
+| OpenClaw 安全 | **Check Point + ClawHub 审计** | 恶意 skills、indirect injection | 安全/平台 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/23 呈现 **「协作入口 Agent 化 + Coding Agent 治理默认化 + 传闻模型空窗」**——Anthropic 用 **Claude Tag** 把 **Slack** 变成 **持久 Agent 运行时**；Claude Code **v2.1.187** 把 **凭证隔离/MCP 超时/结构化输出** 当作 **生产默认**；工程侧应在 **GPT-5.6 未发布** 窗口继续 **Opus 4.8 + GPT-5.5** 混部并跟踪 **Fable 恢复**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 企业 Agent | **Claude Tag** research preview | 设计 **channel-scoped memory** 与 **ambient 介入** 的 **审计/回滚** |
+| Coding Agent | **v2.1.187** | 启用 **sandbox.credentials**；为 org 配置 **model allowlist** |
+| MCP | **idle timeout 默认 abort** | 远程 MCP 需 **SLO + 重试**；可覆写 **CLAUDE_CODE_MCP_TOOL_IDLE_TIMEOUT** |
+| 上下文管理 | **SelfCompact** | 用 **模型自触发 compact** 替代固定 token 阈值 |
+| Terminal RL | **Tmax** | 终端 Agent benchmark 可复现 **open RL recipe** |
+| OpenClaw | **安全报告传播** | **ClawHub skills 供应链** 需 **签名/沙箱/白名单** |
+| Fable 里程碑 | **6/23 credits 日但 offline** | FinOps 按 **Opus 4.8** 计费；勿假设 **Fable API** 可用 |
+| GPT-5.6 | **未发布** | 生产路由勿硬编码 **gpt-5.6** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **TechCrunch：Claude Tag** | **6/23 最可核验 Anthropic 产品发布** |
+| 必读 | **Claude Code v2.1.187** | **MCP/StructuredOutput/sandbox** 生产级修复 |
+| 推荐 | **SelfCompact 论文** | **长 Agent trace** 的 **自适应 compact** 范式 |
+| 推荐 | **Tmax 论文 + HuggingFace 合集** | **Terminal-Bench** 开源 RL 基线 |
+| 推荐 | **OpenClaw Check Point 报告** | **Agent marketplace 供应链** 风险样本 |
+| 延伸 | **Menlo $3B / Anthropic 回报** | **模型 maker 资本飞轮** 对生态影响 |
+
+### 来源清单
+
+- 检索范围：2026-06-23 00:00:00 到 2026-06-23 23:59:59（Asia/Shanghai）
+- 引用域名：techcrunch.com, github.com, explainx.ai, digg.com, aitoolsrecap.com, arxiv.org, thenextweb.com, openai.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 产品发布 | Anthropic Claude Tag | 2026-06-23 | https://techcrunch.com/2026/06/23/anthropics-claude-tag-is-learning-your-company-one-slack-message-at-a-time/ |
+| 开源发布 | Claude Code v2.1.187 | 2026-06-23 | https://github.com/anthropics/claude-code/releases/tag/v2.1.187 |
+| 产品状态 | Fable 5 offline status | 2026-06-23 | https://explainx.ai/blog/is-fable-5-back-2026 |
+| 并购 | Superhuman×GPTZero | 2026-06-23 | https://techcrunch.com/2026/06/23/superhuman-acquires-ai-detection-startup-gptzero/ |
+| 并购 | MoEngage×Aampe | 2026-06-23 | https://techcrunch.com/2026/06/23/indias-moengage-bets-marketings-future-on-millions-of-ai-agents/ |
+| 资本 | Menlo $3B fund | 2026-06-23 | https://techcrunch.com/2026/06/23/after-betting-the-firm-on-anthropic-menlo-ventures-raises-victorious-3b-fund/ |
+| 市场传闻 | GPT-5.6 delay | 2026-06-23 | https://digg.com/tech/6hp5va4b |
+| 安全研究 | OpenClaw Check Point | 2026-06-22–23 | https://aitoolsrecap.com/Blog/openclaw-ai-agent-security-risks-2026 |
+| 论文原文 | SelfCompact | 2026-06-22 | https://arxiv.org/abs/2606.23525v1 |
+| 论文原文 | Tmax | 2026-06-22 | https://arxiv.org/abs/2606.23321v1 |
+| 相邻日期/中国时间窗口传播 | Patch the Planet | 2026-06-22 | https://techcrunch.com/2026/06/22/openai-launches-new-initiative-to-help-find-and-patch-open-source-bugs/ |
+
 ## 2026-06-22
 
 ### 今日总览

@@ -2,6 +2,77 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-06-23
+
+### 今日总览
+
+**一句话结论**：`2026-06-23` 固定来源口径下，**掘金** 当日硬对齐 **AI 大事件汇总 + 前端 Agent 工程雷达 + GitHub Trending 周报**；**Claude Tag / Claude Code v2.1.187 / OpenClaw 安全** 来自 **非固定来源** 补充核验；**美团/阿里/字节 techblog 6/23 仍空窗**；掘金 **GPT-5.6 今夜发布** 等表述 **与 OpenAI 未官宣矛盾**，正文已标注勿当作事实。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 掘金；阿里/美团/字节 techblog / 腾讯云等 **site: 6/23**；非固定来源补充核验 |
+| 核心趋势 | **Agent 工程中文解读链**：**OpenCode 登顶**、**Oak agent-native VCS**、**Tabstack 浏览器 injection 防护**；**企业 Slack Agent** 预计 **1–3 天** 进入社区长文 |
+| 可直接关注 | 用 **掘金前端价值资讯** 对照 **Claude Tag** 与 **Copilot JetBrains agents** 的 **治理/权限** 设计 |
+| 未发现更新 | 阿里 102/中间件/语雀、tech.meituan.com、techblog.toutiao.com、developer.aliyun.com（6/23 硬对齐长文）、腾讯云开发者（6/23 硬对齐）、京东/滴滴/有赞/360/网易、百度 FEX/EFE、AlloyTeam、Tencent_TEG：本次未见 **6/23 team 首发** 长文 |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| AI 汇总（含未证实项） | [今日AI大事件 2026.06.23（掘金）](https://juejin.cn/post/7654069744535011354) | **2026-06-23** | 掘金 | 汇总 **Reflection×SpaceX/Patch the Planet/OpenCode** 等；**GPT-5.6 发布/Fable credits 开放** 与官方状态 **不符**，作 **社区传播** 阅读并交叉核验 |
+| 前端 / Agent 工程 | [前端价值资讯 2026-06-23（掘金）](https://juejin.cn/post/7654069744534568986) | **2026-06-23** | 掘金 | **Deno Desktop**、**Copilot JetBrains agents**、**Oak agent VCS**、**Tabstack indirect injection** |
+| GitHub 趋势 | [鲫鱼科技周报 GitHub Trending 2026-06-23（掘金）](https://juejin.cn/post/7654119725074956338) | **2026-06-23** | 掘金 | **token 压缩 MCP**、**cybersecurity skills 包**、**OpenMontage 视频 Agent** 等周榜 |
+| Claude Tag（相邻） | [Claude Tag in Slack（TechCrunch，非固定来源补充核验）](https://techcrunch.com/2026/06/23/anthropics-claude-tag-is-learning-your-company-one-slack-message-at-a-time/) | **2026-06-23** | 第三方报道，补充核验 | Slack **常驻 Agent** 与 **ambient 协作** 的企业落地样本 |
+| Claude Code（相邻） | [Claude Code v2.1.187（GitHub，非固定来源补充核验）](https://github.com/anthropics/claude-code/releases/tag/v2.1.187) | **2026-06-23** | 开源发布，补充核验 | **sandbox.credentials/MCP timeout** 与前端 **Agent 治理** 同频 |
+| Agent 安全（相邻） | [Agentjacking MCP 注入（掘金，2026-06-21 发布）](https://juejin.cn/post/7652922562629173284) | **2026-06-21**（6/23 传播） | 掘金 | **Sentry DSN→假报错→Agent 执行**；与 **Tabstack 浏览器 injection** 文可对照 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Agent VCS | **Oak（HN 雷达，掘金引用）** | branch-per-task、lazy mount、并行 agent | 平台/工具链 |
+| 浏览器 Agent | **Tabstack indirect injection 文** | DOM/a11y 树作 agent 输入的 **清洗/审计** | 前端架构 |
+| IDE Agent 治理 | **Copilot JetBrains org agents** | 分发、权限、费用可见性 | 团队 Tech Lead |
+| MCP 安全 | **掘金 Agentjacking 文** | MCP 数据源 **不可信内容** 边界 | 安全/Agent 工程师 |
+| Skills 生态 | **GitHub Trending cybersecurity skills** | agentskills.io × MITRE/NIST 映射 | 安全 Agent 平台 |
+
+### 工程实践归纳
+
+**总体判断**：6/23 中文固定来源以 **掘金社区解读** 为主——**Agent 工具链**（OpenCode/Oak/Copilot）与 **Agent 安全**（MCP/browser injection）并行；**team blog 空窗** 下需用 **TechCrunch/GitHub** 补 **Claude Tag** 等 **当日主线**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 协作 Agent | **Claude Tag**（补充核验） | Slack **scope + ambient** 需 **审计日志** |
+| Coding Agent | **Claude Code v2.1.187** | 与 **Copilot JetBrains agents** 同样强调 **org 策略** |
+| 开源 Agent | **OpenCode 榜单传播**（掘金汇总） | **模型可选/可审计** vs **闭源 IDE 绑定** 选型 |
+| VCS for Agents | **Oak 雷达** | 评估 **agent-native git** 替代 **worktree 手工** |
+| 安全 | **Agentjacking + OpenClaw ClawHub** | **MCP/marketplace 供应链** 双端治理 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **掘金：前端价值资讯 6/23** | 当日 **固定来源硬对齐** 中 **工程密度最高** |
+| 推荐 | **掘金：GitHub Trending 周报** | **skills/MCP/视频 Agent** 生态快照 |
+| 推荐 | **TechCrunch：Claude Tag** | 补 team blog 空窗的 **企业 Agent 主线** |
+| 延伸 | **掘金：今日AI大事件** | 作 **社区叙事** 阅读，**GPT-5.6/Fable** 须交叉核验 |
+
+### 来源清单
+
+- 检索范围：2026-06-23 00:00:00 到 2026-06-23 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：字节（掘金 ✓）；其余维度已检索未见 6/23 硬对齐 team 首发长文
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 字节跳动 | 掘金 | 社区汇总 | 今日AI大事件 2026.06.23 | 2026-06-23 | https://juejin.cn/post/7654069744535011354 |
+| 字节跳动 | 掘金 | 社区解读 | 前端价值资讯 2026-06-23 | 2026-06-23 | https://juejin.cn/post/7654069744534568986 |
+| 字节跳动 | 掘金 | 社区周报 | GitHub Trending 2026-06-23 | 2026-06-23 | https://juejin.cn/post/7654119725074956338 |
+| 字节跳动 | 掘金 | 安全解读 | Agentjacking（6/21 发布，6/23 传播） | 2026-06-21 | https://juejin.cn/post/7652922562629173284 |
+| Anthropic（补充核验） | TechCrunch | 产品报道 | Claude Tag | 2026-06-23 | https://techcrunch.com/2026/06/23/anthropics-claude-tag-is-learning-your-company-one-slack-message-at-a-time/ |
+| Anthropic（补充核验） | GitHub | 开源发布 | Claude Code v2.1.187 | 2026-06-23 | https://github.com/anthropics/claude-code/releases/tag/v2.1.187 |
+| 美团/阿里/腾讯/京东/滴滴/百度/360/有赞/网易 | 固定来源清单 | 无新增 | 无可靠新增来源 | - | - |
+
 ## 2026-06-22
 
 ### 今日总览
