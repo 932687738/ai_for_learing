@@ -4,68 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="更新每日新闻摘要，包含2026-06-23的AI相关资讯和知识库动态，新增AI Daily News Digest和Knowledge Base Digest文件，修正项目配置，优化工作空间设置。">
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/大纲/分章详细大纲.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/大纲/大纲.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/大纲/细纲_第001章.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/大纲/细纲_第002章.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第001章_铁锈与蜂蜜.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第002章_褪色之名.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第003章_档案里的空白.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第004章_第七张脸.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第005章_不存在的邻居.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第006章_黄金线.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第007章_镜中的停顿.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第008章_回声听见.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第009章_死者的颜色.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第010章_褪色教室.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第011章_被删掉的毕业照.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第012章_求生.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第013章_姓名牌.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第014章_饲养槽.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第015章_猎与被猎.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第016章_名字的重量.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第017章_赦免还是清除.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第018章_也在逃命.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第019章_假面邀请.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第020章_茧之声.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第021章_无垢的证词.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第022章_羽化小镇.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第023章_集体褪色.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第024章_进化的谎言.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第025章_五十七的锈.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第026章_收割场.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第027章_镜中的亿次死亡.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第028章_囚笼里的黄金.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第029章_回声断裂.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第030章_小镇第三日.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第031章_羽化前夜.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第032章_叛逃者的价.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第033章_假进化真吞噬.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第034章_锈钉的锁.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第035章_不入茧.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第036章_巨镜之门.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第037章_镜面行政区.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第038章_认知熵.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第039章_宇宙的最后观众.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第040章_人皮之下.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第041章_无垢的终局.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第042章_茧的九十七.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第043章_复刻之痛.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第044章_缓冲区计划.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第045章_全球羽化.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第046章_镜鬼扩散.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第047章_我仍存在.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/正文/第048章_无处不在.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/设定/世界观/力量体系.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/设定/角色/沈渡.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/设定/题材定位.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/追踪/记忆碎片记录.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/story/人皮契约/追踪/鬼种成熟进度.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/count_chapter_body.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/count_chapters_batch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/expand_short_chapters.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/extract_chapter_status.py" afterDir="false" />
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="《人皮契约》">
+      <change afterPath="$PROJECT_DIR$/story/终末之语/初版大纲.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-digest.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-digest.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-state.json" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-state.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyReport/github-topz.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/github-topz.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-digest.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-digest.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-state.json" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-state.json" afterDir="false" />
     </list>
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
@@ -318,7 +264,8 @@
       <workItem from="1782100747425" duration="624000" />
       <workItem from="1782182971514" duration="3800000" />
       <workItem from="1782195741320" duration="1288000" />
-      <workItem from="1782283607650" duration="1240000" />
+      <workItem from="1782283607650" duration="4054000" />
+      <workItem from="1782369546242" duration="118000" />
     </task>
     <task id="LOCAL-00001" summary="docs(project): 更新项目配置和文档以支持 Python 开发环境&#10;&#10;- 移除 .idea 目录的 git 忽略规则，将其加入版本控制&#10;- 修正项目模块名称中的拼写错误（ai_for_learning -&gt; ai_for_learing）&#10;- 添加详细的 Python 环境配置说明和依赖安装指南&#10;- 在课程模式文档中增加 Python 依赖管理规范&#10;- 更新项目状态文件中的任务时间戳和处理目标列表&#10;- 配置 PyCharm 工作空间设置和虚拟环境排除路径">
       <option name="closed" value="true" />
@@ -696,7 +643,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782283634409</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="《人皮契约》">
+      <option name="closed" value="true" />
+      <created>1782293025277</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1782293025277</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -714,7 +669,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="docs(ai-daily-news): 更新AI日报摘要与状态文件&#10;&#10;- 添加2026-05-13日AI新闻摘要内容&#10;- 更新ai-daily-state.json同步最新处理日期&#10;- 添加2026-05-13日知识库新闻摘要&#10;- 更新knowledge-base-state.json同步最新处理日期&#10;- 修正项目配置文件中的任务历史记录&#10;- 更新workspace.xml中的运行配置和任务元数据" />
     <MESSAGE value="feat(study): 完善CNN课程内容并新增向量数据库管理工具&#10;&#10;- 补充CNN核心概念讲解包括卷积运算、核权重、特征图和池化详解&#10;- 新增三个NumPy演示脚本用于可视化卷积和池化过程&#10;- 添加课程进度跟踪和外部依赖说明&#10;- 开发ChromaDB命令行工具支持CRUD操作和多种连接模式&#10;- 更新项目规则文档集成向量数据库操作入口" />
     <MESSAGE value="feat(knowledge-base): 添加 GitHub star 排行榜功能&#10;&#10;- 在知识库摘要流程中集成 GitHub 按 star 排序的前十名仓库统计&#10;- 新增 dailyReport/github-topz.md 文件用于存储排行榜数据&#10;- 添加 update_github_topz.py 工具脚本实现排行榜自动更新&#10;- 修改 dual-digest-on-pull 规则文档说明双 digest 流程变更&#10;- 在知识库摘要技能文档中添加 GitHub star 十强相关说明&#10;- 实现排行榜数据与历史数据的合并排序逻辑&#10;- 添加上海时区的时间戳记录每次更新时间" />
     <MESSAGE value="教学进度" />
@@ -739,7 +693,8 @@
     <MESSAGE value="每日新闻" />
     <MESSAGE value="更新每日新闻摘要，包含2026-06-05的AI相关资讯和知识库动态，新增AI Daily News Digest和Knowledge Base Digest文件，修正项目配置，优化工作空间设置。" />
     <MESSAGE value="更新每日新闻摘要，包含2026-06-23的AI相关资讯和知识库动态，新增AI Daily News Digest和Knowledge Base Digest文件，修正项目配置，优化工作空间设置。" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新每日新闻摘要，包含2026-06-23的AI相关资讯和知识库动态，新增AI Daily News Digest和Knowledge Base Digest文件，修正项目配置，优化工作空间设置。" />
+    <MESSAGE value="《人皮契约》" />
+    <option name="LAST_COMMIT_MESSAGE" value="《人皮契约》" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ai_for_learing$vanilla_rnn_numpy_demo.coverage" NAME="vanilla_rnn_numpy_demo Coverage Results" MODIFIED="1778826911757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ai-learning/07-cnn-rnn-transformer-intro/scripts" />

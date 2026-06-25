@@ -2,6 +2,100 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-06-24
+
+### 今日总览
+
+**一句话结论**：`2026-06-24` 是 **「OpenAI 自研推理芯片 Jalapeño + Google Gemini 3.5 Flash 内置 computer use + 人才/供应链双线」**——OpenAI 与 Broadcom 发布 **Jalapeño**（9 个月 tape-out，实验室已跑 **GPT-5.3-Codex-Spark**）；Google 将 **computer use** 原生集成进 **Gemini 3.5 Flash** 并配套企业级 prompt injection 防护；产业侧 **Google 核心研究员再流向 Anthropic/OpenAI**、**OpenClaw ClawHub 恶意 skills 持续曝光**、**Figma 画布 AI skills/代码层** 升级；**GPT-5.6 仍未官宣**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenAI Jalapeño；Google computer use；TechCrunch 人才流动；Claude Code releases；OpenClaw/Hermes；arXiv agent 记忆论文；中文补充 |
+| 核心趋势 | **全栈推理基础设施**：模型厂商自研 **inference ASIC** 与 **UI Agent 内置工具** 并行；**Agent 供应链安全** 从 CVE 延伸到 **marketplace skills**；**人才 IPO 窗口** 加速 **Google→Anthropic/OpenAI** 流动 |
+| 可直接关注 | 评估 **Jalapeño** 对 **Codex/ChatGPT 推理 FinOps** 的中长期影响；试用 **Gemini 3.5 Flash computer use** 的企业 **confirmation/stop-on-injection** 护栏；升级 **Claude Code v2.1.191** 的 **/rewind、hooks matcher、background agent** 修复 |
+| 专项检索结论 | **Claude Code**：**v2.1.190/191**（**2026-06-24** GitHub release，含 **/rewind**、streaming scroll、hooks 修复）；**Codex**：无 **6/24** 新 tag（**CLI 0.142.0 为 6/22**，**0.142.1 为 6/25**）；**OpenClaw**：**v2026.6.10** release + **Dark Reading 6/24** 报道 **ClawHub 新一批恶意 skills**；**Hermes**：**MarkTechPost 6/24** 报道 **`/learn` skills 自动生成**（推文 **6/23**）；**Spring AI**：无 **6/24** release（**2.0.0 GA 为 6/12**）；**skills**：无 **6/24** 官方新标准发布（生态仍以 **agentskills.io** 与 IDE 集成为主）；**GPT-5.6**：**OpenAI 未发布** |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| OpenAI / 基础设施 | [OpenAI and Broadcom unveil Jalapeño inference chip（官方）](https://openai.com/index/openai-broadcom-jalapeno-inference-chip/) | **2026-06-24** | 官方发布 | 首款 **LLM 推理 ASIC**；**9 个月 tape-out**；实验室 workload 含 **GPT-5.3-Codex-Spark**；多代 **gigawatt** 平台 |
+| OpenAI / 基础设施 | [OpenAI unveils its first custom chip（TechCrunch）](https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/) | **2026-06-24** | 技术媒体 | 强调 **inference 降本** 与 **降低 Nvidia 依赖**；**pre-training 仍可能依赖 Nvidia** |
+| Google / Agent | [Introducing computer use in Gemini 3.5 Flash（Google Blog）](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/) | **2026-06-24** | 官方发布 | **computer use 内置工具** 进入主 Flash 模型；**Gemini API / Enterprise Agent Platform**；可选 **用户确认 + injection 自动停止** |
+| 人才 / 竞争 | [AI researchers continue to leave Google for rivals（TechCrunch）](https://techcrunch.com/2026/06/24/ai-researchers-continue-to-leave-google-for-its-rivals/) | **2026-06-24** | 产业 | **Jonas Adler、Alexander Pritzel** 加盟 **Anthropic**（Gemini 核心贡献者）；延续 **Shazeer/Jumper** 离职链 |
+| Anthropic / 企业 | [Claude on Google Cloud: Monitoring and Securing Agents at Scale（Webinar）](https://www.anthropic.com/webinars/claude-on-google-cloud-monitoring-and-securing-agents-at-scale) | **2026-06-24** | 技术活动 | **Agent SDK + OpenTelemetry + Model Armor + Cloud IAM/Agent Gateway** 生产落地路径 |
+| Claude Code | [Claude Code v2.1.191（GitHub）](https://github.com/anthropics/claude-code/releases/tag/v2.1.191) | **2026-06-24** | 开源发布 | **/rewind**；修复 **streaming scroll jump**、**background agent 复活**、**hooks 逗号 matcher 不触发** |
+| Claude Code | [Claude Code v2.1.190（GitHub）](https://github.com/anthropics/claude-code/releases/tag/v2.1.190) | **2026-06-24** | 开源发布 | **Bug fixes and reliability improvements**（同日较早 tag） |
+| OpenClaw | [openclaw v2026.6.10（GitHub）](https://github.com/openclaw/openclaw/releases/tag/v2026.6.10) | **2026-06-24** | 开源发布 | 例行版本；与 **ClawHub 供应链安全** 议题同日传播 |
+| Agent 安全 | [More Malicious OpenClaw Skills Threaten AI Supply Chain（Dark Reading）](https://www.darkreading.com/cyber-risk/malicious-openclaw-skills-clawhub-threaten-ai-supply-chain) | **2026-06-24** | 安全研究 | **Unit 42 五类恶意 skills** 绕过扫描；**infostealer / agentic front-running** 等 |
+| Hermes | [Nous Research `/learn` for Hermes Agent Skills（MarkTechPost）](https://www.marktechpost.com/2026/06/24/nous-research-adds-learn-to-hermes-agents-skills-system-capturing-workflows-as-slash-commands-without-hand-writing-skill-md/) | **2026-06-24** | 产品/生态 | **`/learn`** 从目录/URL/对话自动生成 **SKILL.md**；**progressive disclosure** 降 token |
+| 设计 / Agent | [Figma adds code layers, animations, more AI features（TechCrunch）](https://techcrunch.com/2026/06/24/figma-adds-code-layers-support-for-animations-more-ai-features-in-new-update/) | **2026-06-24** | 产品 | **代码层 + Claude Code/Codex 集成延续**；画布 **AI skills** 与 **自定义插件 prompt** |
+| 模型（未证实） | [GPT-5.6 仍未官宣（社区/掘金汇总）](https://juejin.cn/post/7654563844733075491) | **2026-06-24** | 市场观察 | **OpenAI 官网/API 无 GPT-5.6**；仅 **Codex canary** 间接证据；勿当作已发布 |
+| 论文（相邻） | [MEMPROBE: Probing Long-Term Agent Memory（arXiv:2606.24595）](https://arxiv.org/abs/2606.24595v1) | **2026-06-23** | 论文原文 | **记忆 artifact 可审计** benchmark；任务成功 ≠ 状态可恢复 |
+| 论文（相邻） | [Self-Compacting Language Model Agents（arXiv:2606.23525）](https://arxiv.org/abs/2606.23525v1) | **2026-06-22** | 论文原文 | **SelfCompact**：模型自触发 **compact** 替代固定 token 阈值 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 推理 ASIC | **OpenAI Jalapeño 官方文** | LLM inference 专用架构、**perf/watt**、多代平台 | 基础设施/FinOps |
+| UI Agent | **Gemini 3.5 Flash computer use** | 内置 **computer_use**、Browserbase demo、企业 safeguard | Agent 平台工程师 |
+| GCP Agent 治理 | **Anthropic×Google Cloud Webinar** | **Model Armor、Agent Identity、OTel traces** | 企业 SRE/安全 |
+| Claude Code | **v2.1.191 release notes** | **/rewind**、hooks matcher、background tasks | 日常 CC 用户 |
+| Agent 记忆评测 | **MEMPROBE 论文** | **hidden user-state recovery** 直接审计记忆 | 长时 Agent 架构 |
+| OpenClaw 安全 | **Dark Reading + Unit 42** | **ClawHub 恶意 skills 绕过 VT/ClawScan** | 安全/平台 |
+| Hermes Skills | **MarkTechPost `/learn`** | 自动 **SKILL.md**、**~/.hermes/skills/** 单源 | 开源 Agent 用户 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/24 呈现 **「推理芯片 + UI Agent 工具内置 + Agent marketplace 供应链风险」** 三线——OpenAI **Jalapeño** 把 **Codex/ChatGPT 推理** 拉向自研 silicon；Google 把 **computer use** 从独立模型并入 **Flash 主模型** 降低集成成本；工程侧应同步加固 **skills/MCP/marketplace** 供应链与 **Gemini/OpenClaw 类 UI Agent** 的 **injection 护栏**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 推理基础设施 | **Jalapeño ASIC** | 关注 **inference $/token** 曲线；训练仍可能 **GPU 混部** |
+| UI Agent | **Gemini 3.5 computer use** | 默认启用 **confirmation + stop-on-injection**；Browserbase 作沙箱参考 |
+| Coding Agent | **Claude Code v2.1.191** | 用 **/rewind** Recover from `/clear`；审计 **hooks matcher** 语法 |
+| Agent 供应链 | **OpenClaw ClawHub** | **skills 签名/沙箱/白名单**；勿假设 **VT 扫描 = 安全** |
+| Skills 生态 | **Hermes `/learn`** | 自动生成 skill 需 **write_approval** 与 **人工 review** |
+| MCP/LangChain | **langchain-mcp-adapters 0.3.0（6/10）** | 6/24 无新 release；MCP→LangGraph 仍以 **MultiServerMCPClient** 为主 |
+| Spring AI | **无 6/24 release** | **Vertex Generative AI 模块 6/24 弃用截止**（社区 issue 讨论 **java-genai 迁移**） |
+| 长期记忆 | **MEMPROBE** | 评测从 **下游任务** 转向 **memory artifact 可恢复性** |
+| GPT-5.6 | **未发布** | 生产路由勿硬编码 **gpt-5.6** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **OpenAI Jalapeño 官方发布** | **6/24 最可核验重大基础设施事件** |
+| 必读 | **Google：computer use in Gemini 3.5 Flash** | **UI Agent 内置工具 + 企业 safeguard** 样本 |
+| 推荐 | **Claude Code v2.1.191** | **/rewind、hooks、background agent** 生产级修复 |
+| 推荐 | **TechCrunch：Google 人才流向 Anthropic** | 理解 **Gemini vs Claude** 研发竞争态势 |
+| 推荐 | **Dark Reading：OpenClaw ClawHub** | **Agent marketplace 供应链** 最新案例 |
+| 延伸 | **MEMPROBE 论文** | **长时 Agent 记忆审计** 新 benchmark 范式 |
+
+### 来源清单
+
+- 检索范围：2026-06-24 00:00:00 到 2026-06-24 23:59:59（Asia/Shanghai）
+- 引用域名：openai.com, blog.google, techcrunch.com, github.com, anthropic.com, darkreading.com, marktechpost.com, arxiv.org, juejin.cn
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | OpenAI Jalapeño inference chip | 2026-06-24 | https://openai.com/index/openai-broadcom-jalapeno-inference-chip/ |
+| 官方发布 | Gemini 3.5 Flash computer use | 2026-06-24 | https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/ |
+| 技术媒体 | OpenAI custom chip (TechCrunch) | 2026-06-24 | https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/ |
+| 技术媒体 | Google researchers leave for rivals | 2026-06-24 | https://techcrunch.com/2026/06/24/ai-researchers-continue-to-leave-google-for-its-rivals/ |
+| 技术媒体 | Figma AI/code layers update | 2026-06-24 | https://techcrunch.com/2026/06/24/figma-adds-code-layers-support-for-animations-more-ai-features-in-new-update/ |
+| 开源发布 | Claude Code v2.1.191 | 2026-06-24 | https://github.com/anthropics/claude-code/releases/tag/v2.1.191 |
+| 开源发布 | Claude Code v2.1.190 | 2026-06-24 | https://github.com/anthropics/claude-code/releases/tag/v2.1.190 |
+| 开源发布 | openclaw v2026.6.10 | 2026-06-24 | https://github.com/openclaw/openclaw/releases/tag/v2026.6.10 |
+| 安全研究 | OpenClaw malicious skills (Dark Reading) | 2026-06-24 | https://www.darkreading.com/cyber-risk/malicious-openclaw-skills-clawhub-threaten-ai-supply-chain |
+| 技术活动 | Claude on GCP webinar | 2026-06-24 | https://www.anthropic.com/webinars/claude-on-google-cloud-monitoring-and-securing-agents-at-scale |
+| 生态报道 | Hermes /learn skills | 2026-06-24 | https://www.marktechpost.com/2026/06/24/nous-research-adds-learn-to-hermes-agents-skills-system-capturing-workflows-as-slash-commands-without-hand-writing-skill-md/ |
+| 论文原文 | MEMPROBE | 2026-06-23（相邻日期/中国时间窗口传播） | https://arxiv.org/abs/2606.24595v1 |
+| 论文原文 | SelfCompact | 2026-06-22（相邻日期/中国时间窗口传播） | https://arxiv.org/abs/2606.23525v1 |
+| 中文补充 | 掘金 GPT-5.6 跳票汇总 | 2026-06-24 | https://juejin.cn/post/7654563844733075491 |
+
 ## 2026-06-23
 
 ### 今日总览

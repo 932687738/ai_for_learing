@@ -2,6 +2,78 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-06-24
+
+### 今日总览
+
+**一句话结论**：`2026-06-24` 固定来源口径下，**掘金** 当日硬对齐 **AI 大事件汇总 + 英伟达股东大会解读**；全球主线 **OpenAI Jalapeño 自研芯片、Gemini 3.5 Flash computer use、Google 人才流向 Anthropic** 来自 **非固定来源** 补充核验；**美团/阿里/字节 techblog 6/24 仍空窗**；掘金 **GPT-5.6 已发布** 等表述 **与 OpenAI 未官宣矛盾**，正文已标注勿当作事实。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 掘金；阿里/美团/字节 techblog / 腾讯云等 **site: 6/24**；非固定来源补充核验 |
+| 核心趋势 | **算力与 Agent 双线**：中文社区解读 **Jalapeño 推理芯片** 与 **Vera Rubin Agent 芯片**；**GPT-5.6 跳票** 与 **Fable 5 出口管制** 叠加，推动 **多模型 fallback** 讨论 |
+| 可直接关注 | 用 **掘金 6/24 AI 汇总** 对照 **OpenAI/Google 官方原文** 交叉核验；跟踪 **英伟达 Vera Rubin** 交付节奏对 **Agent 推理** 的影响 |
+| 未发现更新 | 阿里 102/中间件/语雀、tech.meituan.com、techblog.toutiao.com、developer.aliyun.com（6/24 硬对齐长文）、腾讯云开发者（6/24 硬对齐）、京东/滴滴/有赞/360/网易、百度 FEX/EFE、AlloyTeam、Tencent_TEG：本次未见 **6/24 team 首发** 长文 |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| AI 汇总（含未证实项） | [今日AI大事件 2026.06.24（掘金）](https://juejin.cn/post/7654563844733075491) | **2026-06-24** | 掘金 | 汇总 **GPT-5.6 跳票、Claude Tag、Sakana Fugu** 等；**GPT-5.6 发布** 与官方状态 **不符**，作 **社区传播** 阅读并交叉核验 |
+| 芯片 / Agent 基础设施 | [英伟达股东大会 Vera Rubin 解读（掘金）](https://juejin.cn/post/7654428278595354659) | **2026-06-24** | 掘金 | **Vera Rubin 面向 AI Agent**、**Blackwell 产能爬坡**；与 **OpenAI Jalapeño** 推理 ASIC 形成对照 |
+| OpenAI 芯片（补充核验） | [OpenAI Jalapeño inference chip（OpenAI，非固定来源补充核验）](https://openai.com/index/openai-broadcom-jalapeno-inference-chip/) | **2026-06-24** | 官方发布，补充核验 | **9 个月 tape-out**、**Codex-Spark 实验室 workload**；中文 team blog 空窗下的 **算力主线** |
+| Google Agent（补充核验） | [computer use in Gemini 3.5 Flash（Google Blog，非固定来源补充核验）](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/) | **2026-06-24** | 官方发布，补充核验 | **UI Agent 内置工具** + **injection 自动停止**；企业 Agent 平台参考 |
+| 人才竞争（补充核验） | [Google researchers leave for Anthropic（TechCrunch，非固定来源补充核验）](https://techcrunch.com/2026/06/24/ai-researchers-continue-to-leave-google-for-its-rivals/) | **2026-06-24** | 第三方报道，补充核验 | **Gemini 核心研究员** 加盟 **Anthropic**；IPO 窗口人才战样本 |
+| Claude Code（补充核验） | [Claude Code v2.1.191（GitHub，非固定来源补充核验）](https://github.com/anthropics/claude-code/releases/tag/v2.1.191) | **2026-06-24** | 开源发布，补充核验 | **/rewind**、hooks matcher、background agent 修复 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 推理芯片 | **OpenAI Jalapeño 官方文** | LLM inference ASIC、**perf/watt**、多代 gigawatt 平台 | 基础设施/FinOps |
+| Agent 芯片 | **掘金：Vera Rubin 解读** | **Agent 专用算力** vs **通用 GPU** 路线 | 架构/采购 |
+| UI Agent | **Gemini computer use 文档** | 内置 **computer_use**、企业 safeguard | Agent 平台 |
+| 多模型路由 | **掘金：Sakana Fugu 汇总** | **单 API 多模型编排** | 平台工程师 |
+| Coding Agent | **Claude Code v2.1.191** | **/rewind**、hooks 修复 | 日常 CC 用户 |
+
+### 工程实践归纳
+
+**总体判断**：6/24 中文固定来源以 **掘金社区解读** 为主——**算力叙事**（Jalapeño/Vera Rubin）与 **模型空窗/跳票**（GPT-5.6）并行；**team blog 空窗** 下需用 **OpenAI/Google/TechCrunch** 补 **当日全球主线**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 推理 ASIC | **OpenAI Jalapeño**（补充核验） | 长期 **inference $/token** 可能下行；短期仍以 **云 GPU** 为主 |
+| Agent 算力 | **Vera Rubin Agent 定位**（掘金） | 评估 **Agent 工作负载** 的 **专用芯片** vs **通用 GPU** |
+| UI Agent | **Gemini computer use** | 企业默认 **confirmation + injection stop** |
+| 模型路由 | **GPT-5.6 跳票 + Fable 管制** | 生产 **多 vendor fallback** 与 **canary 路由** |
+| Coding Agent | **Claude Code v2.1.191** | **/rewind** 改善 **误 /clear** 恢复 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **掘金：今日AI大事件 6/24** | 当日 **固定来源硬对齐** 中文叙事入口 |
+| 必读 | **OpenAI Jalapeño 官方文** | 补 team blog 空窗的 **算力主线** |
+| 推荐 | **掘金：英伟达 Vera Rubin** | **Agent 芯片** 中文解读 |
+| 推荐 | **Google computer use 官方文** | **UI Agent 内置工具** 工程参考 |
+| 延伸 | **TechCrunch：Google 人才流动** | **Gemini vs Claude** 研发竞争背景 |
+
+### 来源清单
+
+- 检索范围：2026-06-24 00:00:00 到 2026-06-24 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：字节（掘金 ✓）；其余维度已检索未见 6/24 硬对齐 team 首发长文
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 字节跳动 | 掘金 | 社区汇总 | 今日AI大事件 2026.06.24 | 2026-06-24 | https://juejin.cn/post/7654563844733075491 |
+| 字节跳动 | 掘金 | 社区解读 | 英伟达股东大会 Vera Rubin | 2026-06-24 | https://juejin.cn/post/7654428278595354659 |
+| OpenAI（补充核验） | openai.com | 官方发布 | Jalapeño inference chip | 2026-06-24 | https://openai.com/index/openai-broadcom-jalapeno-inference-chip/ |
+| Google（补充核验） | blog.google | 官方发布 | computer use in Gemini 3.5 Flash | 2026-06-24 | https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/ |
+| Anthropic/Google（补充核验） | TechCrunch | 产业报道 | Google researchers leave | 2026-06-24 | https://techcrunch.com/2026/06/24/ai-researchers-continue-to-leave-google-for-its-rivals/ |
+| Anthropic（补充核验） | GitHub | 开源发布 | Claude Code v2.1.191 | 2026-06-24 | https://github.com/anthropics/claude-code/releases/tag/v2.1.191 |
+| 美团/阿里/腾讯/京东/滴滴/百度/360/有赞/网易 | 固定来源清单 | 无新增 | 无可靠新增来源 | - | - |
+
 ## 2026-06-23
 
 ### 今日总览
