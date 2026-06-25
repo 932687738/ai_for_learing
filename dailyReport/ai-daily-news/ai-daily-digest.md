@@ -2,6 +2,109 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-06-25
+
+### 今日总览
+
+**一句话结论**：`2026-06-25` 是 **「Codex Remote 正式 GA + Agent 融资/评测基建 + 邮箱让位 Agent + OpenClaw 供应链再曝雷」**——OpenAI **Codex Remote** 与 **CLI 0.142.1/0.142.2** 同日发布，**DigitalOcean 插件** 可一键拉起远程 workspace；产业侧 **General Intuition $320M**、**Patronus AI $50M** 押注 **世界模型/Agent 数字环境评测**；**Notion Mail 关停** 转向 **Agent 收件箱**；**OpenClaw ClawHub** 再曝 **金融欺诈/供应链恶意 skills**；**Jalapeño 芯片** 与 **EU AI Act Omnibus** 延续 **6/24 主线传播**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Codex Remote GA；CLI 0.142.2；TechCrunch Agent 融资/Notion/Unconventional AI；OpenClaw beta+ClawHub 安全；Anthropic SRE webinar；EU AI Act Omnibus；OpenAI 威胁报告活动；Halo Agent Skills |
+| 核心趋势 | **Coding Agent 移动化 + 云 workspace**：Codex 从 **终端/IDE** 延伸到 **手机遥控 + Droplet 远程机**；**Agent 评测/训练基建** 获大额融资（**Patronus 数字世界**、**General Intuition 游戏数据世界模型**）；**生产力产品 Agent 化**（Notion Mail→Agent inbox） |
+| 可直接关注 | 升级 **Codex App + ChatGPT 移动版** 完成 **QR 一对一配对** 后试用 **Remote GA**；评估 **DigitalOcean 插件** 作 **SSH 远程项目** 沙箱；跟踪 **OpenClaw 2026.6.11-beta.1** 的 **channel control** 与 **ClawHub skills 白名单/签名** |
+| 专项检索结论 | **Claude Code**：**v2.1.191** 为 **6/24 GitHub tag**，**6/25** 社区 changelog 持续传播（**/rewind、MCP retry、~37% streaming CPU 降**）；**Codex**：**Remote GA + 0.142.1/0.142.2（6/25 官方 changelog）**；**OpenClaw**：**v2026.6.11-beta.1（6/24 23:37 UTC，6/25 中国窗口传播）** + **Cybersecurity News 6/25 ClawHub 恶意 skills**；**Hermes**：无 **6/25** 新 release（**v2026.6.19 为 6/19**）；**Spring AI**：无 **6/25** release（**2.0.0 GA 为 6/12**）；**skills**：**Glasswall Halo Agent Skills 包（6/25）** 跨 **Claude/Cursor/Codex** 的 **SKILL.md 集成样本** |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Codex / Remote | [Codex Remote reaches general availability（官方 Changelog）](https://developers.openai.com/codex/changelog) | **2026-06-25** | 官方发布 | **ChatGPT 移动版** 遥控 **Mac/Windows Codex App**；**QR 一对一配对**；**DigitalOcean 插件** 自动 **Droplet + SSH + 远程 workspace** |
+| Codex / CLI | [Codex CLI 0.142.2（GitHub）](https://github.com/openai/codex/releases/tag/rust-v0.142.2) | **2026-06-25** | 开源发布 | **MCP tool search 默认启用**；macOS **system proxy/PAC/WPAD**；插件 **dark-mode logo** |
+| Codex / 生态 | [DigitalOcean plugin for Codex（DigitalOcean Blog）](https://www.digitalocean.com/blog/run-codex-in-the-cloud) | **2026-06-25** | 产品/生态 | **自然语言** 在 DO 账户内 **创建 Codex-ready 云开发机**；与 **Remote GA** 组合 **离桌续跑** |
+| OpenAI / 安全 | [Inside OpenAI's Investigation into Foreign Influence（Forum Event）](https://forum.openai.com/public/events/inside-openais-investigation-into-foreign-influence-on-u-s-ai-debates-ybj5vx7df6) | **2026-06-25** | 技术活动 | **June 2026 Threat Report** 解读；**I2 团队** 检测 **协调滥用 ChatGPT** |
+| Agent 融资 | [General Intuition $320M at $2.3B valuation（TechCrunch）](https://techcrunch.com/2026/06/25/general-intuitions-2-3b-bet-that-video-games-can-train-ai-agents-for-the-real-world/) | **2026-06-25** | 产业 | **游戏录像→空间-时序推理** 世界模型；**Medal 数据集** 预训练；**digital twin 工厂/机器人** 场景 |
+| Agent 评测 | [Patronus AI $50M Series B（TechCrunch）](https://techcrunch.com/2026/06/25/patronus-ai-lands-50m-to-build-digital-worlds-that-stress-test-ai-agents/) | **2026-06-25** | 产业 | **digital world models** 复制 **网站/内部系统**；**RL 后 stress-test**；**1–10 周长时 Agent 运行** 评测愿景 |
+| 生产力 / Agent | [Notion Mail shuts down amid agent takeover（TechCrunch）](https://techcrunch.com/2026/06/25/notion-mail-shuts-down-amid-agent-takeover/) | **2026-06-25** | 产品 | **2026-09-22** 关停 **Notion Mail**；**>50% 用户不再打开 inbox** 而交 **Agent 工作流** |
+| 推理 / 硬件 | [Unconventional AI Un-0 oscillator architecture（TechCrunch）](https://techcrunch.com/2026/06/25/databricks-former-ai-chief-thinks-he-can-cut-ais-power-bill-by-1000x/) | **2026-06-25** | 产品/研究 | **振荡器架构** 软件仿真 **图像生成**；宣称 **推理功耗降 1000×**；**Naveen Rao（前 Databricks AI 负责人）** |
+| 竞争 / 消费 | [Claude winning over paid consumers（TechCrunch）](https://techcrunch.com/2026/06/25/anthropics-claude-is-winning-over-paid-consumers-a-market-owned-by-chatgpt/) | **2026-06-25** | 产业 | **Indagari** 信用卡数据：**Claude 付费用户/收入 2026 以来约 +75%**；**DataCamp** 自学 **Claude 课程需求 18×** |
+| Anthropic / 工程 | [Cooking with Claude: SRE Incident Response Agent（Webinar）](https://www.anthropic.com/webinars/cooking-with-claude-how-to-build-an-sre-incident-response-agent) | **2026-06-25** | 技术活动 | **Claude Managed Agents + Skill + webhook + 人工审批 PR** 端到端 **SRE 响应 Agent** |
+| OpenClaw | [openclaw v2026.6.11-beta.1（GitHub）](https://github.com/openclaw/openclaw/releases/tag/v2026.6.11-beta.1) | **2026-06-24**（相邻日期/中国时间窗口传播） | 开源发布 | **300+ PR**：**channel control、remote wake-up、mobile settings、agent 可靠性** |
+| Agent 安全 | [OpenClaw ClawHub supply chain malware（Cybersecurity News）](https://cybersecuritynews.com/openclaw-skill-marketplace-exposes-ai-agents/) | **2026-06-25** | 安全研究 | **Unit 42 五类恶意 skills** 绕过 **VT/ClawScan**；**infostealer / pump-and-dump** |
+| skills 生态 | [Halo Agent Skills package（Glasswall）](https://www.glasswall.com/blog/drop-glasswall-halo-into-your-ai-agent-introducing-the-halo-agent-skills-package) | **2026-06-25** | 生态 | **agentskills.io 标准** 跨 **Claude/Cursor/Codex/Gemini** 的 **Halo 文件安全 API** skills |
+| 政策 | [EU Parliament approves AI Act Omnibus amendments（Mondaq）](https://www.mondaq.com/new-technology/1806780/eu-parliament-approves-amendments-to-the-ai-act) | **2026-06-25** | 政策标准 | **6/16 欧洲议会批准** Omnibus；**高风险 Annex III 延至 2027-12-02**；**Council 正式通过仍待完成** |
+| 基础设施（相邻） | [OpenAI Jalapeño inference chip（HPCwire）](https://www.hpcwire.com/off-the-wire/openai-and-broadcom-unveil-llm-optimized-intelligence-processor/) | **2026-06-25** | 技术媒体 | **6/24 官方发布** 的 **Jalapeño ASIC** 在 **6/25** 产业媒体持续解读 |
+| Codex / 运营 | [Codex Pro subscription display bugs（OpenAI Community）](https://community.openai.com/t/urgent-critical-bug-report-gpt-pro-20x-account-mislabeled-as-free-tier-wrong-codex-quota-severe-business-impact/1384740) | **2026-06-25** | 社区/运营 | 多用户报告 **Pro x20 显示为 Free、配额异常、订阅静默取消**；**非产品发布** 但影响 **Codex 生产使用** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Codex Remote | **OpenAI Remote connections 文档** | **QR 配对、SSH 远程项目、Computer Use 可选** | Codex 移动端用户 |
+| Codex CLI | **Changelog 0.142.2** | **MCP tool search、system proxy、插件 catalog** | CLI/IDE 用户 |
+| SRE Agent | **Anthropic Cooking with Claude webinar** | **Managed Agent + Skill + webhook + approval gate** | SRE/平台工程师 |
+| Agent 评测 | **Patronus digital worlds** | **网站/系统副本 + RL stress-test** | Agent QA/安全 |
+| OpenClaw | **v2026.6.11-beta.1 release notes** | **channel control、plugin distribution** | 自托管 Agent 用户 |
+| Agent 供应链 | **Cybersecurity News + Unit 42** | **ClawHub 恶意 skills 绕过扫描** | 安全/平台 |
+| skills 集成 | **Glasswall Halo skills GitHub** | **SKILL.md + references 渐进披露** | 多 IDE Agent 开发者 |
+| EU 合规 | **Mondaq / Legalithm Omnibus 解读** | **高风险延期 vs 8/2/2026 仍有效** | 合规/GRC |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/25 呈现 **「Codex 远程/云 workspace GA + Agent 训练/评测基础设施融资 + 生产力 Agent 替代表层 UI」** 三线——OpenAI 把 **Coding Agent** 从桌面扩展到 **手机 + 云 Droplet**；**Patronus/General Intuition** 分别押注 **评测用数字世界** 与 **游戏数据世界模型**；**Notion Mail 关停** 是 **Agent-first inbox** 的产品信号；工程侧应同步加固 **OpenClaw/Halo 类 skills marketplace** 供应链。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Coding Agent | **Codex Remote GA** | **QR 一对一配对** 防 **多设备串线**；远程 thread 跑在 **SSH host 文件系统** |
+| 云 Dev 环境 | **DigitalOcean 插件** | **自然语言 provisioning** 需 **IAM/SSH key 治理** 与 **按量成本上限** |
+| MCP | **CLI 0.142.2 tool search** | MCP 工具多时 **discovery 默认走 search** 降 context |
+| Agent 评测 | **Patronus $50M** | 生产 Agent 需 **>1h 长时 digital twin** 评测，非仅 **单轮 benchmark** |
+| 世界模型 | **General Intuition** | **游戏/仿真数据** 训练 **spatial-temporal** Agent；关注 **API 早期客户** |
+| OpenClaw | **6.6.11-beta.1 + ClawHub CVE 传播** | **skills 签名/沙箱/白名单**；**beta channel control** 改善 **多 channel 路由** |
+| Claude Code | **v2.1.191 持续传播** | **/rewind** Recover from `/clear`；**MCP OAuth retry** |
+| Hermes | **无 6/25 release** | 最新 **v2026.6.19（6/19）**；**/learn skills** 仍为主打 |
+| Spring AI | **无 6/25 release** | **2.0.0 GA（6/12）** 仍是当前基线；**Boot 4 迁移** 前置 |
+| skills | **Halo Agent Skills** | 第三方 **SKILL.md 包** 示范 **API 集成 + progressive disclosure** |
+| 合规 | **EU AI Act Omnibus** | **8/2/2026 Annex III 截止日期法律仍有效** 直至 **OJ 发布**；勿停合规准备 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **OpenAI Codex Remote GA changelog** | **6/25 最可核验重大 Codex 产品事件** |
+| 必读 | **OpenAI Remote connections 文档** | **手机↔主机↔SSH 远程项目** 完整拓扑 |
+| 推荐 | **Patronus AI Series B（TechCrunch）** | **Agent digital world 评测** 新赛道样本 |
+| 推荐 | **Notion Mail 关停公告** | **Agent 替代表层 UI** 的产品转折点 |
+| 推荐 | **OpenClaw ClawHub 安全报道** | **skills marketplace 供应链** 最新案例 |
+| 延伸 | **General Intuition 融资** | **游戏数据→世界模型→机器人 digital twin** 链路 |
+| 延伸 | **EU AI Act Omnibus（Mondaq 6/25）** | **高风险延期时间线** 与 **当前法律状态** |
+
+### 来源清单
+
+- 检索范围：2026-06-25 00:00:00 到 2026-06-25 23:59:59（Asia/Shanghai）
+- 引用域名：developers.openai.com, github.com, digitalocean.com, techcrunch.com, anthropic.com, cybersecuritynews.com, glasswall.com, mondaq.com, hpcwire.com, community.openai.com, forum.openai.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Codex Remote GA | 2026-06-25 | https://developers.openai.com/codex/changelog |
+| 官方发布 | Codex CLI 0.142.2 | 2026-06-25 | https://github.com/openai/codex/releases/tag/rust-v0.142.2 |
+| 官方文档 | Remote connections | 2026-06-25 | https://developers.openai.com/codex/remote-connections |
+| 生态发布 | DigitalOcean for Codex | 2026-06-25 | https://www.digitalocean.com/blog/run-codex-in-the-cloud |
+| 技术活动 | OpenAI foreign influence forum | 2026-06-25 | https://forum.openai.com/public/events/inside-openais-investigation-into-foreign-influence-on-u-s-ai-debates-ybj5vx7df6 |
+| 技术活动 | Cooking with Claude SRE webinar | 2026-06-25 | https://www.anthropic.com/webinars/cooking-with-claude-how-to-build-an-sre-incident-response-agent |
+| 技术媒体 | General Intuition $320M | 2026-06-25 | https://techcrunch.com/2026/06/25/general-intuitions-2-3b-bet-that-video-games-can-train-ai-agents-for-the-real-world/ |
+| 技术媒体 | Patronus AI $50M | 2026-06-25 | https://techcrunch.com/2026/06/25/patronus-ai-lands-50m-to-build-digital-worlds-that-stress-test-ai-agents/ |
+| 技术媒体 | Notion Mail shutdown | 2026-06-25 | https://techcrunch.com/2026/06/25/notion-mail-shuts-down-amid-agent-takeover/ |
+| 技术媒体 | Unconventional AI Un-0 | 2026-06-25 | https://techcrunch.com/2026/06/25/databricks-former-ai-chief-thinks-he-can-cut-ais-power-bill-by-1000x/ |
+| 技术媒体 | Claude paid consumer growth | 2026-06-25 | https://techcrunch.com/2026/06/25/anthropics-claude-is-winning-over-paid-consumers-a-market-owned-by-chatgpt/ |
+| 开源发布 | OpenClaw v2026.6.11-beta.1 | 2026-06-24（相邻日期/中国时间窗口传播） | https://github.com/openclaw/openclaw/releases/tag/v2026.6.11-beta.1 |
+| 安全研究 | OpenClaw ClawHub malware | 2026-06-25 | https://cybersecuritynews.com/openclaw-skill-marketplace-exposes-ai-agents/ |
+| 生态发布 | Halo Agent Skills | 2026-06-25 | https://www.glasswall.com/blog/drop-glasswall-halo-into-your-ai-agent-introducing-the-halo-agent-skills-package |
+| 政策标准 | EU AI Act Omnibus (Mondaq) | 2026-06-25 | https://www.mondaq.com/new-technology/1806780/eu-parliament-approves-amendments-to-the-ai-act |
+| 技术媒体 | Jalapeño HPCwire | 2026-06-25 | https://www.hpcwire.com/off-the-wire/openai-and-broadcom-unveil-llm-optimized-intelligence-processor/ |
+| 社区/运营 | Codex Pro subscription bugs | 2026-06-25 | https://community.openai.com/t/urgent-critical-bug-report-gpt-pro-20x-account-mislabeled-as-free-tier-wrong-codex-quota-severe-business-impact/1384740 |
+
 ## 2026-06-24
 
 ### 今日总览

@@ -2,6 +2,80 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-06-25
+
+### 今日总览
+
+**一句话结论**：`2026-06-25` 固定来源口径下，**掘金** 当日硬对齐 **AI 资讯日报 + 重要新闻汇总**；**腾讯云开发者** 发布 **DeepSeek 510 亿融资解读**；全球主线 **Codex Remote GA、Agent 融资潮（General Intuition/Patronus）、Notion Mail 关停** 来自 **非固定来源** 补充核验；**美团/阿里/字节 techblog 6/25 仍空窗**；掘金部分 **GPT-5.6 已发布** 等表述 **与 OpenAI 未官宣矛盾**，正文已标注勿当作事实。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 掘金；腾讯云开发者；阿里/美团/字节 techblog / 百度 FEX/EFE 等 **site: 6/25**；非固定来源补充核验 |
+| 核心趋势 | **Agent 基建与融资中文解读**：掘金汇总 **Codex Remote、Jalapeño 芯片、Claude Tag** 等；腾讯云聚焦 **DeepSeek 510 亿融资结构**；**team blog 空窗** 下需交叉 **OpenAI/TechCrunch** 原文 |
+| 可直接关注 | 用 **掘金 6/25 AI 汇总** 对照 **OpenAI Codex changelog** 核验 **Remote GA**；阅读 **腾讯云 DeepSeek 融资文** 理解 **产业资本结构**，勿混用 **未证实模型发布** |
+| 未发现更新 | 阿里 102/中间件/语雀、tech.meituan.com、techblog.toutiao.com、developer.aliyun.com（6/25 硬对齐长文）、百度 FEX/EFE/developer、京东/滴滴/有赞/360/网易、AlloyTeam、Tencent_TEG：本次未见 **6/25 team 首发** 长文 |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| AI 汇总 | [「2026.06.25」科技AI资讯日报（掘金）](https://juejin.cn/post/7654903809820409902) | **2026-06-25** | 掘金 | 汇总 **Jalapeño、Gemini computer use、GLM-5.2** 等；部分条目需 **官方交叉核验** |
+| AI 汇总 | [2026.06.25 AI重要新闻（掘金）](https://juejin.cn/post/7655229220512088115) | **2026-06-25** | 掘金 | **Codex Remote、Claude Tag、Anthropic 蒸馏指控** 等；**GPT-5.6 发布** 与官方 **不符** |
+| 产业 / 融资 | [DeepSeek 融了 510 亿（腾讯云开发者）](https://cloud.tencent.com/developer/article/2697566) | **2026-06-25** | 腾讯云+社区 | **510 亿人民币** 首轮外部融资、**投后约 4000 亿**；投资方含 **腾讯/宁德/京东/网易** 等 |
+| Codex Remote（补充核验） | [Codex Remote GA（OpenAI Changelog，非固定来源补充核验）](https://developers.openai.com/codex/changelog) | **2026-06-25** | 官方发布，补充核验 | **手机遥控 Mac/Windows Codex**；**DigitalOcean 插件** 远程 workspace |
+| Agent 融资（补充核验） | [Patronus AI $50M（TechCrunch，非固定来源补充核验）](https://techcrunch.com/2026/06/25/patronus-ai-lands-50m-to-build-digital-worlds-that-stress-test-ai-agents/) | **2026-06-25** | 第三方报道，补充核验 | **digital world models**  stress-test **长时 Agent** |
+| 生产力 Agent（补充核验） | [Notion Mail 关停（TechCrunch，非固定来源补充核验）](https://techcrunch.com/2026/06/25/notion-mail-shuts-down-amid-agent-takeover/) | **2026-06-25** | 第三方报道，补充核验 | **2026-09-22** 关停 Mail；**Agent inbox** 替代 **传统 inbox UI** |
+| 活动预告 | [移动机械智能化与网联化论坛直播预告（腾讯云开发者）](https://cloud.tencent.com/developer/news/4067034) | **2026-06-25** | 腾讯云+社区 | **博世/CiA/易控智驾** 等 **非道路移动机械** 智能化论坛 **当日直播** |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Codex Remote | **OpenAI Remote connections** | **QR 配对、SSH 远程项目、Computer Use 可选** | 移动端 Codex 用户 |
+| AI 产业 | **腾讯云：DeepSeek 510 亿解读** | **融资结构、战略投资者、估值** | 产业/投资关注者 |
+| Agent 评测 | **Patronus digital worlds** | **网站副本 + RL stress-test** | Agent 平台/QA |
+| 中文速览 | **掘金 6/25 AI 日报** | **当日中文叙事入口**；需 **官方原文对照** | 研发日常刷资讯 |
+| 具身 / 网联 | **腾讯云论坛预告** | **移动机械 CAN/OTA/功能安全** | 工业/IoT 工程师 |
+
+### 工程实践归纳
+
+**总体判断**：6/25 中文固定来源以 **掘金社区 AI 汇总 + 腾讯云产业解读** 为主——**DeepSeek 超大融资** 与 **Codex Remote/Agent 融资** 并行；**team blog 空窗** 下 **Remote GA、Patronus、Notion Mail** 等全球主线需 **OpenAI/TechCrunch** 补充核验。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Coding Agent | **Codex Remote GA**（补充核验） | **手机审批 + 远程 thread**；配对 **QR 一对一** |
+| 产业资本 | **DeepSeek 510 亿**（腾讯云） | **战略投资者绑定算力/场景**；关注 **API/开源节奏** |
+| Agent 评测 | **Patronus $50M**（补充核验） | 生产 **长时 digital twin** 评测 **> 单轮 eval** |
+| 产品 Agent 化 | **Notion Mail 关停** | **>50% 用户不打开 inbox** → **Agent 工作流** 产品设计信号 |
+| 中文资讯质量 | **掘金 GPT-5.6 等未证实项** | **社区汇总必须交叉 OpenAI 官网/API 文档** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **掘金：2026.06.25 AI 资讯日报** | 当日 **固定来源硬对齐** 中文叙事入口 |
+| 必读 | **腾讯云：DeepSeek 510 亿** | 当日 **固定来源** 产业主线长文 |
+| 推荐 | **OpenAI Codex Remote changelog** | 补 team blog 空窗的 **Coding Agent 主线** |
+| 推荐 | **掘金：AI 重要新闻 6/25** | **蒸馏指控/Claude Tag** 等 **争议话题** 中文速览 |
+| 延伸 | **Patronus / Notion Mail（TechCrunch）** | **Agent 评测基建** 与 **生产力 Agent 化** 样本 |
+
+### 来源清单
+
+- 检索范围：2026-06-25 00:00:00 到 2026-06-25 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：字节（掘金 ✓）；腾讯（腾讯云开发者 ✓）；其余维度已检索未见 6/25 硬对齐 team 首发长文
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 字节跳动 | 掘金 | 社区汇总 | 2026.06.25 科技AI资讯日报 | 2026-06-25 | https://juejin.cn/post/7654903809820409902 |
+| 字节跳动 | 掘金 | 社区汇总 | 2026.06.25 AI重要新闻 | 2026-06-25 | https://juejin.cn/post/7655229220512088115 |
+| 腾讯 | 腾讯云+社区 | 产业解读 | DeepSeek 510 亿融资 | 2026-06-25 | https://cloud.tencent.com/developer/article/2697566 |
+| 腾讯 | 腾讯云+社区 | 活动预告 | 移动机械智能化论坛 | 2026-06-25 | https://cloud.tencent.com/developer/news/4067034 |
+| OpenAI（补充核验） | developers.openai.com | 官方发布 | Codex Remote GA | 2026-06-25 | https://developers.openai.com/codex/changelog |
+| Patronus（补充核验） | TechCrunch | 产业报道 | Patronus AI $50M | 2026-06-25 | https://techcrunch.com/2026/06/25/patronus-ai-lands-50m-to-build-digital-worlds-that-stress-test-ai-agents/ |
+| Notion（补充核验） | TechCrunch | 产品报道 | Notion Mail shutdown | 2026-06-25 | https://techcrunch.com/2026/06/25/notion-mail-shuts-down-amid-agent-takeover/ |
+| 美团/阿里/京东/滴滴/百度/360/有赞/网易 | 固定来源清单 | 无新增 | 无可靠新增来源 | - | - |
+
 ## 2026-06-24
 
 ### 今日总览
