@@ -2,6 +2,243 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-06-27
+
+### 今日总览
+
+**一句话结论**：`2026-06-27` 是 **「Mythos 出口管制余波 + 亚洲 Cyber 模型补位 + Coding Agent 体验补丁」**——TechCrunch 报道 **360 屠龙峰 / Sakana Fugu** 在 **Anthropic Mythos/Fable 禁令** 窗口推出 **Mythos 级网络安全/编排模型**；**Paul Meade（Vision Pro VP）** 转投 **OpenAI 硬件**；**Claude Code v2.1.195**、**Codex 0.142.3** 在 **6/26 UTC 晚间 tag** 于 **中国时间窗口** 落地；**GPT-5.6 受限 preview** 监管叙事持续发酵。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Mythos 出口管制余波；亚洲 Cyber/编排模型；OpenAI 硬件人才；Claude Code/Codex 补丁；GPT-5.6 监管跟进；Spring AI/Hermes/OpenClaw/skills 专项 |
+| 核心趋势 | **出口管制催生区域替代**：**360/Sakana** 以 **漏洞发现/多模型编排** 切入 **Mythos 空窗**；**Frontier 发布政治化** 从 **6/26 GPT-5.6/Mythos 部分恢复** 延续为 **媒体/政策解读**；**Coding Agent 体验层** 持续 **小版本加固** |
+| 可直接关注 | 评估 **亚洲 Cyber 模型** 对 **红队/漏洞扫描 pipeline** 的 **合规与数据源** 影响；跟踪 **OpenAI×Jony Ive 硬件** 团队扩张；升级 **Claude Code v2.1.195** 并验证 **voice/MCP/hook matcher** 修复 |
+| 专项检索结论 | **Claude Code**：**v2.1.195（GitHub Published 2026-06-26T21:29:42Z，6/27 中国窗口）**——**mouse click 禁用、voice dictation、MCP hyphenated matcher、background agent**；**Codex**：**0.142.3 maintenance-only（同 UTC 窗口，6/27 中国传播）**；**OpenClaw**：**PR #95831 Codex OAuth compaction** 社区 changelog **6/28 发布**，**6/27 无新 release**；**Hermes**：无 **6/27** release；**Spring AI**：无 **6/27** release；**skills**：无 **6/27** 官方新标准 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 出口管制 / Cyber | [Asian AI startups launch Mythos-like models（TechCrunch）](https://techcrunch.com/2026/06/27/asian-ai-startups-launch-mythos-like-models-as-anthropics-export-ban-drags-on/) | **2026-06-27** | 技术媒体 | **360 屠龙峰/倚天阵** 对标 **Mythos**；**Sakana Fugu** **多模型编排 Agent**；**出口管制** 催生 **区域 Cyber 替代** |
+| 人才 / 硬件 | [Apple Vision Pro exec leaving for OpenAI（TechCrunch）](https://techcrunch.com/2026/06/27/apple-vision-pro-exec-is-reportedly-leaving-for-openai/) | **2026-06-27** | 产业 | **Paul Meade** 从 **Vision Pro/智能眼镜** 转 **OpenAI 硬件**；与 **Jony Ive 设备** 项目协同信号 |
+| 监管 / Mythos | [Anthropic Mythos 5 returns for 100+ orgs（CNBC/Reuters 传播）](https://www.cnbctv18.com/technology/anthropic-claude-mythos-5-returns-us-clears-access-100-plus-trusted-organisations-19933250.htm) | **2026-06-27**（相邻日期/中国时间窗口传播） | 技术媒体 | **Mythos 5 部分恢复** 给 **关键基础设施组织**；**Fable 5 仍离线**；**政府选名单透明度** 受质疑 |
+| Claude Code | [Claude Code v2.1.195（GitHub）](https://github.com/anthropics/claude-code/releases/tag/v2.1.195) | **2026-06-27**（UTC 6/26 21:29，中国时间窗口） | 开源发布 | **voice dictation** 多语言/设备切换；**MCP hyphenated matcher** 精确匹配；**background agent** 可靠性 |
+| Codex | [Codex CLI 0.142.3（GitHub）](https://github.com/openai/codex/releases/tag/rust-v0.142.3) | **2026-06-27**（UTC 6/26 21:29，中国时间窗口） | 开源发布 | **maintenance-only**，相对 **0.142.2 无用户可见变更** |
+| 监管叙事 | [Government-Gated AI paradigm（Digital Applied）](https://www.digitalapplied.com/blog/us-government-gated-ai-models-new-release-paradigm-2026) | **2026-06-27** | 产业评论 | **6/26 双轨 gate**（**GPT-5.6 preview + Mythos 白名单**）被解读为 **managed-release 模板** |
+| 基础设施 | [SoftBank questions Musk orbital data center hype（TechCrunch）](https://techcrunch.com/2026/06/27/softbanks-ceo-isnt-the-only-one-with-questions-about-elon-musks-orbital-data-center-hype/) | **2026-06-27** | 技术媒体 | **轨道数据中心** 叙事 **算力供给可信度** 受质疑 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Cyber 模型地缘 | **TechCrunch：亚洲 Mythos-like 模型** | **Tulongfeng/Fugu**、**编排 vs 单体** | 安全/合规架构师 |
+| Coding Agent | **Claude Code v2.1.195 release notes** | **voice/MCP matcher/background jobs** | 日常 CC 用户 |
+| 发布合规 | **Digital Applied：Government-Gated AI** | **trusted partner list**、**Fable/Mythos 先例** | 平台/GRC |
+| 硬件生态 | **TechCrunch：Paul Meade→OpenAI** | **Wearable/AI device** 人才流动 | 硬件/产品 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/27 呈现 **「出口管制外溢到区域 Cyber/编排模型 + Coding Agent 体验补丁 + OpenAI 硬件团队补强」**——**Sakana Fugu** 强调 **Orchestration Models** 而非更大单体；**Claude Code/Codex** 同日 **小版本** 修复 **voice/MCP/background** 生产痛点。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 区域 Cyber 模型 | **360/Sakana 补位 Mythos 空窗** | **红队/漏洞 AI** 需 **多 vendor + 地缘合规** 预案 |
+| 编排 Agent | **Sakana Fugu 多模型 API 编排** | **单 provider 依赖** 在 **export ban** 下是 **架构风险** |
+| Claude Code | **v2.1.195** | **MCP server 名含连字符** 时 matcher 需 **精确/regex** |
+| Codex | **0.142.3 maintenance** | 无功能变更；可 **批量升级** 不必改 workflow |
+| OpenClaw | **无 6/27 release** | **Codex OAuth compaction** 修复在 **6/28** 合入 |
+| Hermes | **无 6/27 release** | **自进化 skills** 路线不变 |
+| Spring AI | **无 6/27 release** | **spring-ai-agent-utils SkillsTool** 文档可参考 |
+| skills | **无 6/27 官方新标准** | **agentskills.io** 跨平台 **SKILL.md** 仍是事实标准 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **TechCrunch：亚洲 Mythos-like 模型** | **6/27 最可核验地缘+Cyber 主线** |
+| 必读 | **Claude Code v2.1.195** | **MCP/voice/background** 生产修复 |
+| 推荐 | **TechCrunch：Paul Meade→OpenAI** | **AI 硬件人才** 竞争信号 |
+| 推荐 | **Digital Applied：Government-Gated AI** | **managed-release** 框架解读 |
+| 延伸 | **CNBC：Mythos 5 部分恢复** | **Fable 仍离线** 与 **白名单透明度** |
+
+### 来源清单
+
+- 检索范围：2026-06-27 00:00:00 到 2026-06-27 23:59:59（Asia/Shanghai）
+- 引用域名：techcrunch.com, github.com, digitalapplied.com, cnbctv18.com, openclawchronicles.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 技术媒体 | Asian AI startups launch Mythos-like models | 2026-06-27 | https://techcrunch.com/2026/06/27/asian-ai-startups-launch-mythos-like-models-as-anthropics-export-ban-drags-on/ |
+| 技术媒体 | Apple Vision Pro exec leaving for OpenAI | 2026-06-27 | https://techcrunch.com/2026/06/27/apple-vision-pro-exec-is-reportedly-leaving-for-openai/ |
+| 技术媒体 | SoftBank questions orbital data center hype | 2026-06-27 | https://techcrunch.com/2026/06/27/softbanks-ceo-isnt-the-only-one-with-questions-about-elon-musks-orbital-data-center-hype/ |
+| 开源发布 | Claude Code v2.1.195 | 2026-06-27（UTC 6/26 21:29，中国时间窗口） | https://github.com/anthropics/claude-code/releases/tag/v2.1.195 |
+| 开源发布 | Codex CLI 0.142.3 | 2026-06-27（UTC 6/26 21:29，中国时间窗口） | https://github.com/openai/codex/releases/tag/rust-v0.142.3 |
+| 产业评论 | Government-Gated AI paradigm | 2026-06-27 | https://www.digitalapplied.com/blog/us-government-gated-ai-models-new-release-paradigm-2026 |
+| 技术媒体 | Anthropic Mythos 5 partial restore (CNBC) | 2026-06-27（相邻日期/中国时间窗口传播） | https://www.cnbctv18.com/technology/anthropic-claude-mythos-5-returns-us-clears-access-100-plus-trusted-organisations-19933250.htm |
+
+
+## 2026-06-28
+
+### 今日总览
+
+**一句话结论**：`2026-06-28` 是 **「企业 AI 落地反思 + HBM 超级周期 + Agent 运行时一致性修复」**——**Ford 召回 350 名资深工程师** 因 **纯 AI/自动化质量系统未达预期**；**Micron** 凭 **HBM/RAMageddon** 市值短暂逼近 **Meta/Tesla**；**OpenClaw** 合入 **Codex OAuth compaction P1 修复**；**Codex** 推送 **长线程导航 QoL**；**GPT-5.6 受限 preview** 媒体跟进持续。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 企业 AI 落地；Micron/HBM 基础设施；OpenClaw/Codex 修复；Ford 制造 AI；GPT-5.6 监管跟进；Claude Code/Hermes/Spring AI/skills 专项 |
+| 核心趋势 | **AI 不能替代领域专家**：Ford **gray beard 工程师** 回归 **训练 AI + 年轻员工**；**算力/memory 瓶颈** 从 **GPU** 外溢到 **HBM/DRAM（Micron）**；**Agent 运行时** 修复 **OAuth 会话 compact** 一致性 |
+| 可直接关注 | 制造业/硬件 **AI+专家混合 QA** 模式；**HBM 长协（Micron×Nvidia/Anthropic）** 对 **推理成本** 影响；升级 **OpenClaw** 并验证 **Codex OAuth-only compact** |
+| 专项检索结论 | **Claude Code**：无 **6/28** 新 tag（**v2.1.195 为 6/27 中国窗口**）；**Codex**：**长线程滚动/位置跟踪 QoL**（WinCentral **6/28** 报道），**无新 GitHub release**；**OpenClaw**：**PR #95831 Codex OAuth compaction fix（6/28 合入报道）**；**Hermes**：无 **6/28** release；**Spring AI**：无 **6/28** release；**skills**：无 **6/28** 官方新标准 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 企业落地 | [Ford rehires gray beard engineers after AI falls short（TechCrunch）](https://techcrunch.com/2026/06/28/ford-rehires-gray-beard-engineers-after-ai-falls-short/) | **2026-06-28** | 产业 | **350 资深工程师** 回归；**AI 质检未达预期**；**专家训练 AI** 而非放弃 AI |
+| 基础设施 | [Why Wall Street thinks Micron is the next Nvidia（TechCrunch）](https://techcrunch.com/2026/06/28/why-wall-street-thinks-us-memory-maker-micron-is-the-next-nvidia/) | **2026-06-28** | 技术媒体 | **HBM 短缺/RAMageddon**；**Q3 营收 YoY 4×**；**16 份长期供应协议（含 Nvidia/Anthropic）** |
+| OpenClaw | [OpenClaw Fixes Codex OAuth Compaction（OpenClaw Chronicles）](https://openclawchronicles.com/posts/openclaw-codex-oauth-compaction-fix/) | **2026-06-28** | 社区/工程 | **PR #95831**：**OAuth-only Codex 会话** 可 **compact** 而无需 **OPENAI_API_KEY** |
+| Codex | [Codex long-thread navigation QoL（WinCentral/Ground News）](https://ground.news/article/codex-just-fixed-one-of-the-most-annoying-things-about-long-ai-coding-conversations) | **2026-06-28** | 产品更新 | **长 coding 线程** **滚动/位置跟踪** 体验改进 |
+| GPT-5.6 | [OpenAI Sol/Terra/Luna limited preview follow-up（LatestLY）](https://www.latestly.com/technology/openai-launches-sol-terra-and-luna-ai-models-limits-rollout-following-us-government-request-7493322.html) | **2026-06-28** | 技术媒体 | **政府安全审查** 下 **preview 延期**；**数周内 broader availability** 预期 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 企业 AI | **TechCrunch：Ford gray beard 工程师** | **AI+专家混合**、**warranty/recall 降本** | 制造业/质量工程师 |
+| 算力/memory | **TechCrunch：Micron 分析** | **HBM SCA**、**RAMageddon 至 2027** | 基础设施/FinOps |
+| Agent 运行时 | **OpenClaw Codex OAuth compaction** | **nativeHarnessCompaction**、**OAuth-only profile** | OpenClaw/Codex 自托管用户 |
+| Codex UX | **Codex 长线程 QoL** | **scroll/position tracking** | 长 session Codex 用户 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/28 强调 **「AI 落地需要领域专家闭环 + memory 供给瓶颈 + Agent 会话 compact 一致性」**——Ford 案例是 **LLM 工程外** 的 **真实世界 QA** 教训；Micron 说明 **推理成本** 不仅取决于 **模型单价** 还取决于 **HBM 供给**；OpenClaw 修复 **Codex OAuth compact** 是 **生产 Agent 长会话** 关键路径。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 企业 QA | **Ford AI 质检未达预期** | **AI 辅助** 需 **专家标注/复核** 闭环，勿 **全自动替代** |
+| Memory 供给 | **Micron HBM 超级周期** | **推理集群规划** 需纳入 **DRAM/HBM 长协** |
+| OpenClaw | **Codex OAuth compaction fix** | **OAuth harness** 与 **API-key path** 的 **compact 路由** 须一致 |
+| Codex | **长线程 QoL** | **长 session** 产品体验影响 **实际吞吐** |
+| Claude Code | **无 6/28 新 tag** | **v2.1.195** 为当前最新 |
+| Hermes | **无 6/28 release** | 无变更 |
+| Spring AI | **无 6/28 release** | 无变更 |
+| skills | **无 6/28 官方新标准** | 无变更 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **TechCrunch：Ford gray beard 工程师** | **6/28 最鲜明企业 AI 落地反思** |
+| 必读 | **TechCrunch：Micron 下一个 Nvidia** | **HBM/RAMageddon** 对 **AI 成本曲线** 影响 |
+| 推荐 | **OpenClaw Codex OAuth compaction** | **OAuth-only Agent 长会话** 必修 |
+| 推荐 | **Codex 长线程 QoL** | **长 coding session** 体验改进 |
+| 延伸 | **LatestLY：GPT-5.6 preview 跟进** | **政府审查** 下 **GA 时间线** 预期 |
+
+### 来源清单
+
+- 检索范围：2026-06-28 00:00:00 到 2026-06-28 23:59:59（Asia/Shanghai）
+- 引用域名：techcrunch.com, openclawchronicles.com, ground.news, latestly.com, github.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 技术媒体 | Ford rehires gray beard engineers | 2026-06-28 | https://techcrunch.com/2026/06/28/ford-rehires-gray-beard-engineers-after-ai-falls-short/ |
+| 技术媒体 | Micron as next Nvidia | 2026-06-28 | https://techcrunch.com/2026/06/28/why-wall-street-thinks-us-memory-maker-micron-is-the-next-nvidia/ |
+| 社区/工程 | OpenClaw Codex OAuth compaction fix | 2026-06-28 | https://openclawchronicles.com/posts/openclaw-codex-oauth-compaction-fix/ |
+| 产品更新 | Codex long-thread navigation QoL | 2026-06-28 | https://ground.news/article/codex-just-fixed-one-of-the-most-annoying-things-about-long-ai-coding-conversations |
+| 技术媒体 | GPT-5.6 limited preview follow-up | 2026-06-28 | https://www.latestly.com/technology/openai-launches-sol-terra-and-luna-ai-models-limits-rollout-following-us-government-request-7493322.html |
+
+
+## 2026-06-26
+
+### 今日总览
+
+**一句话结论**：`2026-06-26` 是 **「GPT-5.6 Sol/Terra/Luna 受限预览 + 白宫逐客户审批 + Agent 工具链加固」**——OpenAI 官方发布 **GPT-5.6 系列**（**Sol/Terra/Luna**）但应美国政府要求 **仅限 trusted partners 预览**、**逐客户审批**；同日 **Claude Code v2.1.193** 强化 **全 shell 自动分类 + OTEL assistant_response**；产业叙事从 **Anthropic vs OpenAI** 转向 **全行业 vs 政府发布流程**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | GPT-5.6 官方预览；白宫/ TechCrunch 监管；Claude Code v2.1.193；Codex 账户运营问题；EU AI Act Omnibus；Langflow/MCP 生态；OpenClaw/Hermes 对比 |
+| 核心趋势 | **前沿模型发布政治化**：GPT-5.6 与 **Fable/Mythos 禁令** 形成 **「政府逐客户 gate」** 先例；**Coding Agent 生产加固**（CC **classifyAllShell**、OTEL 审计）；**Agent 编排/visual workflow**（Langflow **MCP server** 部署）持续 |
+| 可直接关注 | 评估 **GPT-5.6 preview** 是否影响 **API 路由/定价**（**Sol $5/$30、Terra $2.5/$15、Luna $1/$6 per 1M tokens**）；升级 **Claude Code v2.1.193** 并检查 **OTEL_LOG_ASSISTANT_RESPONSES** 默认值；跟踪 **白宫 EO 框架** 对 **未来 frontier release** 的影响 |
+| 专项检索结论 | **Claude Code**：**v2.1.193（6/26 05:45 CST GitHub tag）**——**autoMode.classifyAllShell**、**OTEL assistant_response**、**bg shell memory-pressure reaping**；**Codex**：**无 6/26 窗口内新 changelog 条目**（**0.142.3 为 6/27 05:29 CST**）；**OpenClaw**：无 **6/26** release（**6.6.11-beta.1 为 6/24–6/25 传播**）；**Hermes**：无 **6/26** release（**v2026.6.19 为 6/19**）；**Spring AI**：无 **6/26** release；**skills**：无 **6/26** 官方新标准（Cursor **local skill loading** 社区 bug 讨论延续） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| OpenAI / 模型 | [Previewing GPT-5.6 Sol（官方）](https://openai.com/index/previewing-gpt-5-6-sol/) | **2026-06-26** | 官方发布 | **Sol/Terra/Luna** 三档；**max/ultra reasoning**；**Terminal-Bench 2.1 SOTA**；**分层 cyber safeguard** |
+| 监管 / 发布 | [OpenAI limits GPT-5.6 rollout（TechCrunch）](https://techcrunch.com/2026/06/26/openai-limits-gpt-5-6-rollout-after-government-request-says-restrictions-shouldnt-be-the-norm/) | **2026-06-26** | 政策/产业 | 白宫要求 **trusted partners only**、**customer-by-customer 审批**；OpenAI 称 **不应成为长期默认** |
+| 监管 / 叙事 | [It's not about Anthropic vs. OpenAI anymore（TechCrunch）](https://techcrunch.com/2026/06/26/its-not-about-anthropic-vs-openai-anymore/) | **2026-06-26** | 产业评论 | **Fable/Mythos 禁令** 与 **GPT-5.6 受限预览** 使 **全行业** 面临同一 **发布流程** 问题 |
+| Claude Code | [Claude Code v2.1.193（GitHub）](https://github.com/anthropics/claude-code/releases/tag/v2.1.193) | **2026-06-26** | 开源发布 | **classifyAllShell** 全 shell 走 auto-mode；**denial reasons** 可见；**OTEL assistant_response** 升级行为 |
+| GPT-5.6 / 安全 | [GPT-5.6 Preview system card（官方引用）](https://openai.com/index/previewing-gpt-5-6-sol/) | **2026-06-26** | 官方发布 | **700k+ A100 GPU-hours 自动红队**；**未达 Cyber Critical**；**ExploitBench² 约 1/3 tokens vs Mythos** |
+| GPT-5.6 / 定价 | [GPT-5.6 Availability and pricing（官方）](https://openai.com/index/previewing-gpt-5-6-sol/) | **2026-06-26** | 官方发布 | **Sol $5/$30、Terra $2.5/$15、Luna $1/$6**；**30min cache life**；**Cerebras 750 tok/s（7 月）** |
+| Agent 生态 | [Langflow visual RAG & MCP deployment guide（explainx.ai）](https://explainx.ai/blog/langflow-visual-ai-workflows-rag-agents-guide-2026) | **2026-06-26** | 技术文档 | **Langflow flow → MCP server**；**~100k GitHub stars**；可视化 **RAG/多 Agent** |
+| OpenClaw / Hermes | [OpenClaw and Hermes: what controls the agent（The New Stack）](https://thenewstack.io/openclaw-hermes-agent-harness/) | **2026-06-26** | 技术媒体 | **Gateway-first（OpenClaw）** vs **Memory-first（Hermes）** harness 架构分歧 |
+| 政策 | [EU AI Act Omnibus delays（Morgan Lewis）](https://www.morganlewis.com/pubs/2026/06/eu-approves-delays-and-other-amendments-to-certain-eu-ai-act-obligations-what-businesses-should-know) | **2026-06-24**（相邻日期/中国时间窗口传播） | 政策标准 | **Annex III 延至 2027-12-02**；**OJ 发布前 8/2/2026 仍有效** |
+| Codex / 运营 | [Widespread false-positive Pro 20X ban（OpenAI Community）](https://community.openai.com/t/widespread-false-positive-ban-on-pro-20x/1384790) | **2026-06-26** | 社区/运营 | **Google Play 订阅** 关联 **账户停用/订阅取消**；影响 **Codex 生产使用** |
+| 基础设施（相邻） | [Custom chips trend video（TechCrunch）](https://techcrunch.com/video/why-everyone-from-openai-to-spacex-is-building-their-own-chips-and-turning-up-the-pressure-on-nvidia/) | **2026-06-26** | 技术媒体 | **Jalapeño** 与 **自研芯片 hedge** 叙事延续 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| GPT-5.6 | **OpenAI Previewing GPT-5.6 Sol** | **Sol/Terra/Luna 分层**、**max/ultra mode**、**safeguard stack** | 模型/API 工程师 |
+| 发布合规 | **TechCrunch：GPT-5.6 受限 rollout** | **government gate**、**trusted partners** | 平台/GRC |
+| Claude Code | **v2.1.193 release notes** | **classifyAllShell**、**OTEL_LOG_ASSISTANT_RESPONSES=0** | 日常 CC 用户 |
+| Visual Agent | **Langflow MCP 部署指南** | **flow → MCP tool**、**playground → API** | Agent 平台 |
+| Harness 架构 | **The New Stack：OpenClaw vs Hermes** | **Gateway vs Memory** 控制面 | 自托管 Agent 架构师 |
+| EU 合规 | **Morgan Lewis Omnibus 解读** | **高风险延期 vs 当前法律状态** | 合规/GRC |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/26 呈现 **「Frontier 模型发布流程政治化 + Coding Agent 生产级权限/遥测加固 + Visual MCP 编排」** 三线——GPT-5.6 **受限预览** 把 **API/Codex 路由** 与 **政府审批** 绑定；Claude Code **v2.1.193** 把 **shell 全量分类 + OTEL 响应日志** 推上生产默认路径；Langflow 等工具继续降低 **MCP Agent 部署** 门槛。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Frontier 模型 | **GPT-5.6 Sol preview** | 生产 **多 vendor fallback**；勿硬编码 **gpt-5.6** 直至 GA |
+| 政府 gate | **customer-by-customer 审批** | **preview partner** 名单可能 **动态变化**；关注 **EO cyber 框架** |
+| Coding Agent | **Claude Code v2.1.193** | 启用 **classifyAllShell** 前评估 **CI/脚本误拦**；**OTEL 升级默认带 response** |
+| MCP 编排 | **Langflow MCP server** | **可视化 flow** 可 **一键变 MCP tool**；适合 **PoC→生产** 过渡 |
+| OpenClaw | **无 6/26 release** | **Gateway/channel control** 仍是 **6/25 beta** 主线 |
+| Hermes | **无 6/26 release** | **Memory-first + /learn skills** 路线不变 |
+| Spring AI | **无 6/26 release** | **2.0.0 GA（6/12）** 基线 |
+| skills | **Cursor skill loading bug** | **Agent 会话 skills 静默缺失** 需 **显式 /skill-name** 兜底 |
+| Agent 安全 | **GPT-5.6 layered safeguards** | **real-time classifier + account review** 样本可参考 **企业 Agent 护栏** |
+| 长时 Agent 论文（相邻） | **SelfCompact / MEMPROBE（6/22–6/23）** | **自适应 compact** 与 **memory artifact 审计** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **OpenAI：Previewing GPT-5.6 Sol** | **6/26 最可核验重大模型事件** |
+| 必读 | **TechCrunch：GPT-5.6 受限 rollout** | **政府 gate 对 frontier 发布的直接影响** |
+| 推荐 | **Claude Code v2.1.193** | **classifyAllShell + OTEL 升级行为** 生产必读 |
+| 推荐 | **TechCrunch：不再只是 Anthropic vs OpenAI** | **行业集体行动** 视角 |
+| 推荐 | **Langflow MCP 指南** | **可视化 Agent → MCP** 工程路径 |
+| 延伸 | **The New Stack：OpenClaw vs Hermes harness** | **Gateway vs Memory** 架构选型 |
+| 延伸 | **SelfCompact 论文（6/22）** | **长时 Agent context compact** 新范式 |
+
+### 来源清单
+
+- 检索范围：2026-06-26 00:00:00 到 2026-06-26 23:59:59（Asia/Shanghai）
+- 引用域名：openai.com, github.com, techcrunch.com, explainx.ai, thenewstack.io, morganlewis.com, community.openai.com, arxiv.org
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Previewing GPT-5.6 Sol | 2026-06-26 | https://openai.com/index/previewing-gpt-5-6-sol/ |
+| 技术媒体 | OpenAI limits GPT-5.6 rollout | 2026-06-26 | https://techcrunch.com/2026/06/26/openai-limits-gpt-5-6-rollout-after-government-request-says-restrictions-shouldnt-be-the-norm/ |
+| 技术媒体 | Not Anthropic vs OpenAI anymore | 2026-06-26 | https://techcrunch.com/2026/06/26/its-not-about-anthropic-vs-openai-anymore/ |
+| 开源发布 | Claude Code v2.1.193 | 2026-06-26 | https://github.com/anthropics/claude-code/releases/tag/v2.1.193 |
+| 技术文档 | Langflow MCP guide | 2026-06-26 | https://explainx.ai/blog/langflow-visual-ai-workflows-rag-agents-guide-2026 |
+| 技术媒体 | OpenClaw vs Hermes harness | 2026-06-26 | https://thenewstack.io/openclaw-hermes-agent-harness/ |
+| 政策标准 | EU AI Act Omnibus (Morgan Lewis) | 2026-06-24（相邻日期/中国时间窗口传播） | https://www.morganlewis.com/pubs/2026/06/eu-approves-delays-and-other-amendments-to-certain-eu-ai-act-obligations-what-businesses-should-know |
+| 社区/运营 | Codex Pro false-positive ban | 2026-06-26 | https://community.openai.com/t/widespread-false-positive-ban-on-pro-20x/1384790 |
+| 技术媒体 | Custom chips trend video | 2026-06-26 | https://techcrunch.com/video/why-everyone-from-openai-to-spacex-is-building-their-own-chips-and-turning-up-the-pressure-on-nvidia/ |
+| 论文原文 | SelfCompact | 2026-06-22（相邻日期/中国时间窗口传播） | https://arxiv.org/abs/2606.23525v1 |
+| 论文原文 | MEMPROBE | 2026-06-23（相邻日期/中国时间窗口传播） | https://arxiv.org/abs/2606.24595v1 |
+
 ## 2026-06-25
 
 ### 今日总览

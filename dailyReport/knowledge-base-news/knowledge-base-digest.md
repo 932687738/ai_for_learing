@@ -2,6 +2,204 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-06-27
+
+### 今日总览
+
+**一句话结论**：`2026-06-27` 固定来源口径下，**掘金** 当日硬对齐 **XMind MCP 实战教程**；**GitHub 开源推荐（6/27 榜）** 于 **6/28 发布** 作 **相邻传播**；**腾讯云/美团/阿里 team blog 6/27 仍空窗**；全球 **Mythos 出口管制/亚洲 Cyber 模型** 主线需 **TechCrunch** 非固定来源补充核验。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 掘金；腾讯云开发者/tech.meituan.com/techblog.toutiao.com 等 **site: 6/27**；非固定来源补充核验 |
+| 核心趋势 | **MCP 工程化中文教程**（XMind MCP **即插即用**）；**开源 Agent/音频推理** 社区精选（**Qwen-AgentWorld、audio.cpp**）；**team blog 空窗** |
+| 可直接关注 | 按 **掘金 XMind MCP** 搭建 **思维导图 MCP Server**；对照 **Qwen-AgentWorld** 评估 **多 Agent 世界模型** PoC |
+| 未发现更新 | 腾讯云开发者 **6/27 硬对齐 team 首发**、阿里 102/中间件/语雀、tech.meituan.com、techblog.toutiao.com、百度 FEX/EFE/developer、京东/滴滴/有赞/360/网易、AlloyTeam、Tencent_TEG |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| MCP / Agent | [MCP入门到落地：手把手带你玩转 XMind MCP（掘金）](https://juejin.cn/post/7655529430275194943) | **2026-06-27** | 掘金 | **XMind MCP** **即插即用**；**MCP Server 接入/调试** 全流程 |
+| 开源精选（相邻） | [GitHub 开源推荐 | 2026年6月27日（掘金）](https://juejin.cn/post/7655654223931195407) | **2026-06-28**（相邻日期/中国时间窗口传播） | 掘金 | **Codex 橙皮书**、**Qwen-AgentWorld**、**audio.cpp 纯 C++ 音频推理** |
+| Mythos 地缘（补充核验） | [Asian AI startups launch Mythos-like models（TechCrunch，非固定来源补充核验）](https://techcrunch.com/2026/06/27/asian-ai-startups-launch-mythos-like-models-as-anthropics-export-ban-drags-on/) | **2026-06-27** | 第三方报道，补充核验 | **360/Sakana** **Cyber/编排模型** 补 **Mythos 空窗** |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| MCP | **掘金：XMind MCP 教程** | **MCP Server**、**思维导图工具链** | Agent/MCP 工程师 |
+| 多 Agent | **Qwen-AgentWorld（掘金推荐）** | **语言世界模型**、**多 Agent 协作** | Agent 平台研发 |
+| 边缘音频 AI | **audio.cpp（掘金推荐）** | **纯 C++ TTS/STT/VAD**、**无 GPU** | 嵌入式/桌面音频 |
+| Cyber 地缘 | **TechCrunch：亚洲 Mythos-like** | **出口管制** 与 **区域模型** | 安全/合规 |
+
+### 工程实践归纳
+
+**总体判断**：6/27 中文固定来源以 **掘金 MCP 实战** 为主——**XMind MCP** 降低 **工具接入** 门槛；**team blog 空窗** 下 **Qwen-AgentWorld/audio.cpp** 来自 **6/28 发布的 GitHub 榜** 作 **相邻补充**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| MCP 落地 | **XMind MCP 教程（掘金）** | **MCP = USB 式即插即用** 工程心智 |
+| 多 Agent | **Qwen-AgentWorld（相邻）** | **世界模型+多 Agent** 可作 **复杂工作流** 参考 |
+| 音频推理 | **audio.cpp（相邻）** | **C++ 无 GPU** 路径适合 **离线/嵌入式** |
+| team blog | **6/27 空窗** | 全球 **Cyber 地缘** 需 **TechCrunch** 补充 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **掘金：XMind MCP 教程** | 当日 **固定来源硬对齐** 工程文 |
+| 推荐 | **掘金：GitHub 6/27 榜** | **Codex 中文指南 + Qwen-AgentWorld** |
+| 推荐 | **TechCrunch：亚洲 Mythos-like** | 补 team blog 空窗的 **Cyber 主线** |
+| 延伸 | **audio.cpp** | **笔记本可跑** 音频 AI 样本 |
+
+### 来源清单
+
+- 检索范围：2026-06-27 00:00:00 到 2026-06-27 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：字节（掘金 ✓）；其余维度已检索未见 6/27 硬对齐 team 首发长文
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 字节 | 掘金 | 技术文章 | MCP入门到落地：XMind MCP | 2026-06-27 | https://juejin.cn/post/7655529430275194943 |
+| 字节 | 掘金 | 开源精选（相邻） | GitHub 开源推荐 2026-06-27 | 2026-06-28（相邻日期/中国时间窗口传播） | https://juejin.cn/post/7655654223931195407 |
+| TechCrunch（补充核验） | techcrunch.com | 产业报道 | 亚洲 Mythos-like 模型 | 2026-06-27 | https://techcrunch.com/2026/06/27/asian-ai-startups-launch-mythos-like-models-as-anthropics-export-ban-drags-on/ |
+| 阿里/腾讯/美团/京东/滴滴/百度/360/有赞/网易 | 固定来源清单 | 无新增 | 无可靠新增来源 | - | - |
+
+
+## 2026-06-28
+
+### 今日总览
+
+**一句话结论**：`2026-06-28` 固定来源口径下，**掘金** 当日 **未见硬对齐 team 首发长文**；**GitHub 6/27 开源榜** 于 **6/28 发布** 作 **当日可读补充**；**腾讯云/美团/阿里 team blog 6/28 仍空窗**；全球 **Ford AI 质检反思、Micron HBM** 需 **TechCrunch** 非固定来源补充核验。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 掘金/腾讯云开发者/tech.meituan.com 等 **site: 6/28**；非固定来源补充核验 |
+| 核心趋势 | **固定来源空窗日**；**社区开源榜**（**Codex 橙皮书/Qwen-AgentWorld**）与 **企业 AI 落地/Global 算力** 叙事并行但后者来自 **非固定来源** |
+| 可直接关注 | 阅读 **6/28 发布的 GitHub 6/27 榜** 跟踪 **Codex 中文生态**；对照 **Ford/Micron** 报道理解 **AI 落地与 HBM 供给** |
+| 未发现更新 | 腾讯云开发者 **6/28 硬对齐 team 首发**、阿里 102/中间件/语雀、tech.meituan.com、techblog.toutiao.com、百度 FEX/EFE/developer、京东/滴滴/有赞/360/网易、AlloyTeam、Tencent_TEG |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 开源精选 | [GitHub 开源推荐 | 2026年6月27日（掘金）](https://juejin.cn/post/7655654223931195407) | **2026-06-28** | 掘金 | **Codex 橙皮书 2100⭐**、**Qwen-AgentWorld**、**audio.cpp** |
+| 企业落地（补充核验） | [Ford rehires gray beard engineers（TechCrunch，非固定来源补充核验）](https://techcrunch.com/2026/06/28/ford-rehires-gray-beard-engineers-after-ai-falls-short/) | **2026-06-28** | 第三方报道，补充核验 | **AI 质检未达预期**；**专家+AI 混合** |
+| 基础设施（补充核验） | [Micron as next Nvidia（TechCrunch，非固定来源补充核验）](https://techcrunch.com/2026/06/28/why-wall-street-thinks-us-memory-maker-micron-is-the-next-nvidia/) | **2026-06-28** | 第三方报道，补充核验 | **HBM/RAMageddon**、**长期供应协议** |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Codex 中文生态 | **Codex 橙皮书（掘金榜）** | **Codex 全链路中文指南** | Codex 初学者/团队培训 |
+| 多 Agent | **Qwen-AgentWorld** | **世界模型框架** | Agent 研究者 |
+| 企业 AI | **Ford gray beard（补充核验）** | **专家训练 AI** | 制造业 QA |
+| 算力 | **Micron HBM（补充核验）** | **RAMageddon 至 2027** | 基础设施采购 |
+
+### 工程实践归纳
+
+**总体判断**：6/28 **team blog 全面空窗**，固定来源仅 **掘金 GitHub 榜（6/28 发布）** 可核验；**Ford/Micron** 全球主线来自 **TechCrunch 补充核验**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 社区开源 | **GitHub 6/27 榜（6/28 发布）** | **Codex 中文资料** 与 **Qwen 多 Agent** 值得跟踪 |
+| 企业 QA | **Ford AI 未达预期（补充核验）** | **领域专家不可省** |
+| Memory 供给 | **Micron HBM 周期（补充核验）** | **推理成本** 含 **HBM 长协** |
+| team blog | **6/28 空窗** | 固定来源 **低产出日** 需 **社区+全球媒体** 补位 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **掘金：GitHub 6/27 榜（6/28 发布）** | 当日 **固定来源唯一硬对齐** 长文 |
+| 推荐 | **TechCrunch：Ford gray beard** | **企业 AI 落地** 反面案例 |
+| 推荐 | **TechCrunch：Micron** | **HBM 超级周期** 背景 |
+| 延伸 | **Qwen-AgentWorld** | **阿里多 Agent 世界模型** |
+
+### 来源清单
+
+- 检索范围：2026-06-28 00:00:00 到 2026-06-28 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：字节（掘金 ✓）；其余维度已检索未见 6/28 硬对齐 team 首发长文
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 字节 | 掘金 | 开源精选 | GitHub 开源推荐 2026-06-27 | 2026-06-28 | https://juejin.cn/post/7655654223931195407 |
+| TechCrunch（补充核验） | techcrunch.com | 产业报道 | Ford gray beard engineers | 2026-06-28 | https://techcrunch.com/2026/06/28/ford-rehires-gray-beard-engineers-after-ai-falls-short/ |
+| TechCrunch（补充核验） | techcrunch.com | 产业报道 | Micron as next Nvidia | 2026-06-28 | https://techcrunch.com/2026/06/28/why-wall-street-thinks-us-memory-maker-micron-is-the-next-nvidia/ |
+| 阿里/腾讯/美团/京东/滴滴/百度/360/有赞/网易 | 固定来源清单 | 无新增 | 无可靠新增来源 | - | - |
+
+
+## 2026-06-26
+
+### 今日总览
+
+**一句话结论**：`2026-06-26` 固定来源口径下，**腾讯云开发者** 当日硬对齐 **M-Robots 开源鸿蒙机器人分论坛**；全球主线 **GPT-5.6 受限预览、Claude Code v2.1.193** 来自 **非固定来源** 补充核验；**掘金/美团/阿里/字节 techblog 6/26 仍空窗**；腾讯云 **灵晟 TOP500** 为 **6/23–6/24 相邻传播**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 腾讯云开发者；掘金/美团/阿里/字节等 **site: 6/26**；非固定来源补充核验 |
+| 核心趋势 | **开源机器人底座（M-Robots）** 与 **AI 监管叙事（GPT-5.6 受限预览）** 并行；**team blog 空窗** 下需 **OpenAI/TechCrunch/GitHub** 补 **当日全球主线** |
+| 可直接关注 | 跟踪 **M-Robots 分论坛** 发布的 **技术架构与生态计划**；对照 **OpenAI GPT-5.6 官方文** 理解 **Sol/Terra/Luna 定价与 preview 范围** |
+| 未发现更新 | 掘金、阿里 102/中间件/语雀、tech.meituan.com、techblog.toutiao.com、developer.aliyun.com、百度 FEX/EFE/developer、京东/滴滴/有赞/360/网易、AlloyTeam、Tencent_TEG：本次未见 **6/26 硬对齐 team 首发** 长文 |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 开源 / 机器人 | [M-Robots 分论坛：聚力开源共启新生态（腾讯云开发者）](https://developer.cloud.tencent.com/news/4132566) | **2026-06-26** | 腾讯云+社区 | **OpenHarmony 商用机器人全栈开源社区 M-Robots** 分论坛；**技术架构 + 生态激励 + 落地案例** |
+| GPT-5.6（补充核验） | [Previewing GPT-5.6 Sol（OpenAI，非固定来源补充核验）](https://openai.com/index/previewing-gpt-5-6-sol/) | **2026-06-26** | 官方发布，补充核验 | **Sol/Terra/Luna** 受限 preview；**白宫 trusted partners gate** |
+| Claude Code（补充核验） | [Claude Code v2.1.193（GitHub，非固定来源补充核验）](https://github.com/anthropics/claude-code/releases/tag/v2.1.193) | **2026-06-26** | 开源发布，补充核验 | **classifyAllShell**、**OTEL assistant_response**、**bg shell reaping** |
+| 监管（补充核验） | [OpenAI limits GPT-5.6 rollout（TechCrunch，非固定来源补充核验）](https://techcrunch.com/2026/06/26/openai-limits-gpt-5-6-rollout-after-government-request-says-restrictions-shouldnt-be-the-norm/) | **2026-06-26** | 第三方报道，补充核验 | **逐客户审批** 发布流程；**Fable/Mythos 先例** 延伸 |
+| 超算（相邻） | [灵晟超算登顶 TOP500（腾讯云开发者）](https://cloud.tencent.com/developer/news/4133490) | **2026-06-23**（相邻日期/中国时间窗口传播） | 腾讯云+社区 | **2.198 Exaflop/s Rmax**；**ISC 2026** 发布 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 开源机器人 | **腾讯云：M-Robots 分论坛** | **OpenHarmony 机器人栈**、**生态激励** | 机器人/嵌入式工程师 |
+| Frontier 模型 | **OpenAI GPT-5.6 官方文** | **Sol/Terra/Luna 分层**、**safeguard stack** | 模型/API 工程师 |
+| Coding Agent | **Claude Code v2.1.193** | **classifyAllShell**、**OTEL 默认值** | 日常 CC 用户 |
+| 超算 | **腾讯云：灵晟 TOP500** | **2EFlops 持续算力**、**超智融合架构** | 基础设施/HPC |
+| 监管背景 | **TechCrunch：GPT-5.6 受限 rollout** | **政府 gate** 对 **preview 范围** 的影响 | 平台/GRC |
+
+### 工程实践归纳
+
+**总体判断**：6/26 中文固定来源以 **腾讯云 M-Robots 开源机器人分论坛** 为主——**OpenHarmony 机器人底座** 与 **GPT-5.6 全球监管叙事** 并行；**team blog 空窗** 下 **GPT-5.6、Claude Code v2.1.193** 需 **OpenAI/TechCrunch** 补充核验。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 开源机器人 | **M-Robots 分论坛（腾讯云）** | **OpenHarmony 机器人栈** 或成 **国产机器人软件底座** 样本 |
+| Frontier 模型 | **GPT-5.6 preview（补充核验）** | 生产 **多 vendor fallback**；**preview 非 GA** |
+| Coding Agent | **Claude Code v2.1.193（补充核验）** | **OTEL 升级默认带 response** 需显式 **OTEL_LOG_ASSISTANT_RESPONSES=0** |
+| 监管 | **白宫 gate（补充核验）** | **frontier release** 需预留 **审批周期** |
+| 超算 | **灵晟 TOP500（相邻）** | **2EFlops** 级 **国产超算** 对 **大模型训练/仿真** 供给 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **腾讯云：M-Robots 分论坛** | 当日 **固定来源硬对齐** 技术主线 |
+| 必读 | **OpenAI GPT-5.6 官方文** | 补 team blog 空窗的 **frontier 模型主线** |
+| 推荐 | **Claude Code v2.1.193** | **classifyAllShell + OTEL** 生产变更 |
+| 推荐 | **TechCrunch：GPT-5.6 受限 rollout** | **监管 gate** 中文语境背景 |
+| 延伸 | **腾讯云：灵晟 TOP500** | **国产超算** 算力供给背景 |
+
+### 来源清单
+
+- 检索范围：2026-06-26 00:00:00 到 2026-06-26 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：腾讯（腾讯云开发者 ✓）；其余维度已检索未见 6/26 硬对齐 team 首发长文
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 腾讯 | 腾讯云+社区 | 活动/生态 | M-Robots 分论坛 | 2026-06-26 | https://developer.cloud.tencent.com/news/4132566 |
+| 腾讯 | 腾讯云+社区 | 产业转载（相邻） | 灵晟 TOP500 | 2026-06-23（相邻日期/中国时间窗口传播） | https://cloud.tencent.com/developer/news/4133490 |
+| OpenAI（补充核验） | openai.com | 官方发布 | GPT-5.6 Sol preview | 2026-06-26 | https://openai.com/index/previewing-gpt-5-6-sol/ |
+| Anthropic（补充核验） | GitHub | 开源发布 | Claude Code v2.1.193 | 2026-06-26 | https://github.com/anthropics/claude-code/releases/tag/v2.1.193 |
+| OpenAI（补充核验） | TechCrunch | 产业报道 | GPT-5.6 受限 rollout | 2026-06-26 | https://techcrunch.com/2026/06/26/openai-limits-gpt-5-6-rollout-after-government-request-says-restrictions-shouldnt-be-the-norm/ |
+| 字节/阿里/美团/京东/滴滴/百度/360/有赞/网易 | 固定来源清单 | 无新增 | 无可靠新增来源 | - | - |
+
 ## 2026-06-25
 
 ### 今日总览
