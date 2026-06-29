@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="移除story内容" />
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="0628">
+      <change beforePath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-digest.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-digest.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyReport/github-topz.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/github-topz.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-digest.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-digest.md" afterDir="false" />
+    </list>
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,14 +264,7 @@
       <workItem from="1782369546242" duration="118000" />
       <workItem from="1782369752099" duration="1315000" />
       <workItem from="1782431069086" duration="63000" />
-    </task>
-    <task id="LOCAL-00003" summary="feat(study): 更新第3课和第7课教学内容并添加示例脚本&#10;&#10;- 在第3课中添加交叉验证、模型保存和Java系统集成的核心讲解与问答&#10;- 增加常见错误与排错章节的详细说明和外部补充&#10;- 新增house_price_cross_val.py和house_price_save_load.py示例脚本&#10;- 在.gitignore中添加模型文件夹忽略规则&#10;- 更新COURSE_PROGRESS.md反映第7课学习进度和跳课说明&#10;- 修改README.md更新pandas依赖说明&#10;- 更新IDEA运行配置添加新的Python脚本配置">
-      <option name="closed" value="true" />
-      <created>1778643849270</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1778643849270</updated>
+      <workItem from="1782694098694" duration="678000" />
     </task>
     <task id="LOCAL-00004" summary="docs(ai-daily-news): 更新AI日报摘要与状态文件&#10;&#10;- 添加2026-05-13日AI新闻摘要内容&#10;- 更新ai-daily-state.json同步最新处理日期&#10;- 添加2026-05-13日知识库新闻摘要&#10;- 更新knowledge-base-state.json同步最新处理日期&#10;- 修正项目配置文件中的任务历史记录&#10;- 更新workspace.xml中的运行配置和任务元数据">
       <option name="closed" value="true" />
@@ -653,7 +650,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782431124555</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="0628">
+      <option name="closed" value="true" />
+      <created>1782694188113</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1782694188113</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -671,7 +676,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="日常新闻摘要" />
     <MESSAGE value="面试内容" />
     <MESSAGE value="Hypothetical Document Embeddings解释" />
     <MESSAGE value="Ragas框架介绍" />
@@ -696,7 +700,8 @@
     <MESSAGE value="终末之语" />
     <MESSAGE value="20260625" />
     <MESSAGE value="移除story内容" />
-    <option name="LAST_COMMIT_MESSAGE" value="移除story内容" />
+    <MESSAGE value="0628" />
+    <option name="LAST_COMMIT_MESSAGE" value="0628" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ai_for_learing$vanilla_rnn_numpy_demo.coverage" NAME="vanilla_rnn_numpy_demo Coverage Results" MODIFIED="1778826911757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ai-learning/07-cnn-rnn-transformer-intro/scripts" />

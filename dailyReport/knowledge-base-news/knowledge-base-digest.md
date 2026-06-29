@@ -70,51 +70,56 @@
 
 ### 今日总览
 
-**一句话结论**：`2026-06-28` 固定来源口径下，**掘金** 当日 **未见硬对齐 team 首发长文**；**GitHub 6/27 开源榜** 于 **6/28 发布** 作 **当日可读补充**；**腾讯云/美团/阿里 team blog 6/28 仍空窗**；全球 **Ford AI 质检反思、Micron HBM** 需 **TechCrunch** 非固定来源补充核验。
+**一句话结论**：`2026-06-28` 固定来源口径下，**掘金** 发布 **GitHub 6/27 开源榜**（**Codex 橙皮书 / Qwen-AgentWorld / audio.cpp**）为 **当日唯一硬对齐长文**；**腾讯云/美团/阿里 team blog 6/28 仍空窗**；**Ford AI 质检、Micron HBM、Tesla FSD 监管** 来自 **TechCrunch 非固定来源补充核验**。
 
 | 维度 | 本日结论 |
 | --- | --- |
-| 检索范围 | 掘金/腾讯云开发者/tech.meituan.com 等 **site: 6/28**；非固定来源补充核验 |
-| 核心趋势 | **固定来源空窗日**；**社区开源榜**（**Codex 橙皮书/Qwen-AgentWorld**）与 **企业 AI 落地/Global 算力** 叙事并行但后者来自 **非固定来源** |
-| 可直接关注 | 阅读 **6/28 发布的 GitHub 6/27 榜** 跟踪 **Codex 中文生态**；对照 **Ford/Micron** 报道理解 **AI 落地与 HBM 供给** |
+| 检索范围 | 掘金；腾讯云开发者/tech.meituan.com/techblog.toutiao.com 等 **site: 6/28**；非固定来源补充核验 |
+| 核心趋势 | **社区开源榜日**：**Codex 中文生态** 与 **Qwen 多 Agent 世界模型** 受关注；**team blog 空窗** 下 **企业 AI 落地/HBM/AV** 靠 **TechCrunch** 补位 |
+| 可直接关注 | 阅读 **Codex 橙皮书** 作 **Codex 中文 onboarding**；对照 **Qwen-AgentWorld** 评估 **Agent 世界模型** PoC |
 | 未发现更新 | 腾讯云开发者 **6/28 硬对齐 team 首发**、阿里 102/中间件/语雀、tech.meituan.com、techblog.toutiao.com、百度 FEX/EFE/developer、京东/滴滴/有赞/360/网易、AlloyTeam、Tencent_TEG |
 
 ### 重要文章与更新
 
 | 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
 | --- | --- | --- | --- | --- |
-| 开源精选 | [GitHub 开源推荐 | 2026年6月27日（掘金）](https://juejin.cn/post/7655654223931195407) | **2026-06-28** | 掘金 | **Codex 橙皮书 2100⭐**、**Qwen-AgentWorld**、**audio.cpp** |
-| 企业落地（补充核验） | [Ford rehires gray beard engineers（TechCrunch，非固定来源补充核验）](https://techcrunch.com/2026/06/28/ford-rehires-gray-beard-engineers-after-ai-falls-short/) | **2026-06-28** | 第三方报道，补充核验 | **AI 质检未达预期**；**专家+AI 混合** |
-| 基础设施（补充核验） | [Micron as next Nvidia（TechCrunch，非固定来源补充核验）](https://techcrunch.com/2026/06/28/why-wall-street-thinks-us-memory-maker-micron-is-the-next-nvidia/) | **2026-06-28** | 第三方报道，补充核验 | **HBM/RAMageddon**、**长期供应协议** |
+| 开源精选 | [GitHub 开源推荐 | 2026年6月27日（掘金）](https://juejin.cn/post/7655654223931195407) | **2026-06-28** | 掘金 | **Codex 橙皮书 ~2100⭐**、**Qwen-AgentWorld 多 Agent**、**audio.cpp 纯 C++ 音频推理** |
+| 企业落地（补充核验） | [Ford rehires gray beard engineers（TechCrunch，非固定来源补充核验）](https://techcrunch.com/2026/06/28/ford-rehires-gray-beard-engineers-after-ai-falls-short/) | **2026-06-28** | 第三方报道，补充核验 | **AI 质检未达预期**；**350 专家回归训练 AI** |
+| 基础设施（补充核验） | [Micron as next Nvidia（TechCrunch，非固定来源补充核验）](https://techcrunch.com/2026/06/28/why-wall-street-thinks-us-memory-maker-micron-is-the-next-nvidia/) | **2026-06-28** | 第三方报道，补充核验 | **HBM 短缺**；**16 份长期供应协议** |
+| AV/AI（补充核验） | [TechCrunch Mobility: Tesla FSD（TechCrunch，非固定来源补充核验）](https://techcrunch.com/2026/06/28/techcrunch-mobility-all-eyes-on-tesla-fsd/) | **2026-06-28** | 第三方报道，补充核验 | **NHTSA/NTSB 调查**；**Lyft 多传感器 Robotaxi 准入** |
 
 ### 技术文档与实践
 
 | 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
 | --- | --- | --- | --- |
-| Codex 中文生态 | **Codex 橙皮书（掘金榜）** | **Codex 全链路中文指南** | Codex 初学者/团队培训 |
-| 多 Agent | **Qwen-AgentWorld** | **世界模型框架** | Agent 研究者 |
-| 企业 AI | **Ford gray beard（补充核验）** | **专家训练 AI** | 制造业 QA |
-| 算力 | **Micron HBM（补充核验）** | **RAMageddon 至 2027** | 基础设施采购 |
+| Codex 中文 | **bozhouDev/codex-orange-book** | **Codex 全链路中文指南 + PDF** | Codex 初学者/团队培训 |
+| 多 Agent | **QwenLM/Qwen-AgentWorld** | **语言世界模型**、**多 Agent 协作** | Agent 平台研发 |
+| 边缘音频 | **0xShug0/audio.cpp** | **C++ TTS/STT/VAD**、**无 GPU** | 嵌入式/桌面音频 |
+| 企业 AI | **Ford gray beard（补充核验）** | **专家+AI 混合 QA** | 制造业质量 |
+| 算力 | **Micron HBM（补充核验）** | **RAMageddon** | 基础设施采购 |
 
 ### 工程实践归纳
 
-**总体判断**：6/28 **team blog 全面空窗**，固定来源仅 **掘金 GitHub 榜（6/28 发布）** 可核验；**Ford/Micron** 全球主线来自 **TechCrunch 补充核验**。
+**总体判断**：6/28 **team blog 空窗**，固定来源以 **掘金 GitHub 榜** 为主——**Codex 中文资料** 与 **Qwen 多 Agent** 是 **中文社区** 当日主线；**Ford/Micron/Tesla FSD** 需 **TechCrunch** 补充核验。
 
 | 主题 | 进展 | 工程启发 |
 | --- | --- | --- |
-| 社区开源 | **GitHub 6/27 榜（6/28 发布）** | **Codex 中文资料** 与 **Qwen 多 Agent** 值得跟踪 |
-| 企业 QA | **Ford AI 未达预期（补充核验）** | **领域专家不可省** |
-| Memory 供给 | **Micron HBM 周期（补充核验）** | **推理成本** 含 **HBM 长协** |
-| team blog | **6/28 空窗** | 固定来源 **低产出日** 需 **社区+全球媒体** 补位 |
+| Codex 中文生态 | **Codex 橙皮书（掘金）** | **系统化中文 onboarding** 降低 **Codex 采用门槛** |
+| 多 Agent | **Qwen-AgentWorld** | **世界模型框架** 可作 **复杂 Agent 工作流** 参考 |
+| 音频推理 | **audio.cpp** | **笔记本可跑** 的 **C++ 音频 AI** |
+| 企业 QA | **Ford（补充核验）** | **领域专家不可被 AI 单独替代** |
+| Memory | **Micron（补充核验）** | **HBM 长协** 纳入 **推理成本模型** |
+| team blog | **6/28 空窗** | 低产出日依赖 **掘金+全球媒体** |
 
 ### 值得深入阅读的资料
 
 | 推荐级别 | 资料 | 为什么值得读 |
 | --- | --- | --- |
-| 必读 | **掘金：GitHub 6/27 榜（6/28 发布）** | 当日 **固定来源唯一硬对齐** 长文 |
-| 推荐 | **TechCrunch：Ford gray beard** | **企业 AI 落地** 反面案例 |
-| 推荐 | **TechCrunch：Micron** | **HBM 超级周期** 背景 |
-| 延伸 | **Qwen-AgentWorld** | **阿里多 Agent 世界模型** |
+| 必读 | **掘金：GitHub 6/27 榜（6/28 发布）** | 固定来源 **硬对齐** |
+| 必读 | **Codex 橙皮书（GitHub）** | **2100+⭐** 中文 Codex 指南 |
+| 推荐 | **TechCrunch：Ford / Micron** | 企业落地与 **HBM** 背景 |
+| 推荐 | **TechCrunch Mobility：Tesla FSD** | **物理 AI 监管** 样本 |
+| 延伸 | **Qwen-AgentWorld** | 阿里 **多 Agent 世界模型** |
 
 ### 来源清单
 
@@ -127,6 +132,7 @@
 | 字节 | 掘金 | 开源精选 | GitHub 开源推荐 2026-06-27 | 2026-06-28 | https://juejin.cn/post/7655654223931195407 |
 | TechCrunch（补充核验） | techcrunch.com | 产业报道 | Ford gray beard engineers | 2026-06-28 | https://techcrunch.com/2026/06/28/ford-rehires-gray-beard-engineers-after-ai-falls-short/ |
 | TechCrunch（补充核验） | techcrunch.com | 产业报道 | Micron as next Nvidia | 2026-06-28 | https://techcrunch.com/2026/06/28/why-wall-street-thinks-us-memory-maker-micron-is-the-next-nvidia/ |
+| TechCrunch（补充核验） | techcrunch.com | 产业报道 | TechCrunch Mobility Tesla FSD | 2026-06-28 | https://techcrunch.com/2026/06/28/techcrunch-mobility-all-eyes-on-tesla-fsd/ |
 | 阿里/腾讯/美团/京东/滴滴/百度/360/有赞/网易 | 固定来源清单 | 无新增 | 无可靠新增来源 | - | - |
 
 

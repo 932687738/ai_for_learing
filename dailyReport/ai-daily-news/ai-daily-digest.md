@@ -82,70 +82,78 @@
 
 ### 今日总览
 
-**一句话结论**：`2026-06-28` 是 **「企业 AI 落地反思 + HBM 超级周期 + Agent 运行时一致性修复」**——**Ford 召回 350 名资深工程师** 因 **纯 AI/自动化质量系统未达预期**；**Micron** 凭 **HBM/RAMageddon** 市值短暂逼近 **Meta/Tesla**；**OpenClaw** 合入 **Codex OAuth compaction P1 修复**；**Codex** 推送 **长线程导航 QoL**；**GPT-5.6 受限 preview** 媒体跟进持续。
+**一句话结论**：`2026-06-28` 是 **「企业 AI 落地反思 + HBM 超级周期 + Agent/AV 监管并行」**——**Ford 召回 350 名 gray beard 工程师** 因 **纯 AI 质检未达预期**；**Micron** 凭 **HBM/RAMageddon** 市值短暂逼近 **Meta/Tesla**；**OpenClaw** 合入 **Codex OAuth compaction P1**；**Codex** 发布 **0.143.0-alpha.29** 预发行版并改进 **长线程导航**；**Tesla FSD** 遭 **NHTSA/NTSB 调查** 与 **Lyft 多传感器准入规则** 双重压力。
 
 | 维度 | 本日结论 |
 | --- | --- |
-| 检索范围 | 企业 AI 落地；Micron/HBM 基础设施；OpenClaw/Codex 修复；Ford 制造 AI；GPT-5.6 监管跟进；Claude Code/Hermes/Spring AI/skills 专项 |
-| 核心趋势 | **AI 不能替代领域专家**：Ford **gray beard 工程师** 回归 **训练 AI + 年轻员工**；**算力/memory 瓶颈** 从 **GPU** 外溢到 **HBM/DRAM（Micron）**；**Agent 运行时** 修复 **OAuth 会话 compact** 一致性 |
-| 可直接关注 | 制造业/硬件 **AI+专家混合 QA** 模式；**HBM 长协（Micron×Nvidia/Anthropic）** 对 **推理成本** 影响；升级 **OpenClaw** 并验证 **Codex OAuth-only compact** |
-| 专项检索结论 | **Claude Code**：无 **6/28** 新 tag（**v2.1.195 为 6/27 中国窗口**）；**Codex**：**长线程滚动/位置跟踪 QoL**（WinCentral **6/28** 报道），**无新 GitHub release**；**OpenClaw**：**PR #95831 Codex OAuth compaction fix（6/28 合入报道）**；**Hermes**：无 **6/28** release；**Spring AI**：无 **6/28** release；**skills**：无 **6/28** 官方新标准 |
+| 检索范围 | 企业 AI 落地；Micron/HBM；OpenClaw/Codex；Tesla FSD/AV 监管；GPT-5.6 监管跟进；Claude Code/Hermes/Spring AI/skills 专项 |
+| 核心趋势 | **AI 需专家闭环**：Ford **专家训练 AI** 而非放弃 AI；**Memory 瓶颈外溢**：**HBM 长协** 成 **推理成本** 新变量；**Agent 运行时 + 物理 AI** 同步受 **监管/平台规则** 约束 |
+| 可直接关注 | 制造业 **AI+专家混合 QA**；**Micron SCA** 对 **集群采购** 影响；验证 **OpenClaw Codex OAuth-only compact**；跟踪 **Lyft 多传感器标准** 对 **纯视觉 Robotaxi** 的影响 |
+| 专项检索结论 | **Claude Code**：无 **6/28** 新 tag（**v2.1.195 为 6/27 中国窗口**）；**Codex**：**0.143.0-alpha.29（GitHub Published 2026-06-28T00:30:41Z）** + **长线程 QoL**；**OpenClaw**：**PR #95831 Codex OAuth compaction（6/28 合入报道）**；**Hermes**：无 **6/28** release（**/learn skills** 为 **6/23–6/24 相邻传播**）；**Spring AI**：无 **6/28** release；**skills**：无 **6/28** 官方新标准 |
 
 ### 重要事件与发布
 
 | 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
 | --- | --- | --- | --- | --- |
-| 企业落地 | [Ford rehires gray beard engineers after AI falls short（TechCrunch）](https://techcrunch.com/2026/06/28/ford-rehires-gray-beard-engineers-after-ai-falls-short/) | **2026-06-28** | 产业 | **350 资深工程师** 回归；**AI 质检未达预期**；**专家训练 AI** 而非放弃 AI |
-| 基础设施 | [Why Wall Street thinks Micron is the next Nvidia（TechCrunch）](https://techcrunch.com/2026/06/28/why-wall-street-thinks-us-memory-maker-micron-is-the-next-nvidia/) | **2026-06-28** | 技术媒体 | **HBM 短缺/RAMageddon**；**Q3 营收 YoY 4×**；**16 份长期供应协议（含 Nvidia/Anthropic）** |
-| OpenClaw | [OpenClaw Fixes Codex OAuth Compaction（OpenClaw Chronicles）](https://openclawchronicles.com/posts/openclaw-codex-oauth-compaction-fix/) | **2026-06-28** | 社区/工程 | **PR #95831**：**OAuth-only Codex 会话** 可 **compact** 而无需 **OPENAI_API_KEY** |
-| Codex | [Codex long-thread navigation QoL（WinCentral/Ground News）](https://ground.news/article/codex-just-fixed-one-of-the-most-annoying-things-about-long-ai-coding-conversations) | **2026-06-28** | 产品更新 | **长 coding 线程** **滚动/位置跟踪** 体验改进 |
+| 企业落地 | [Ford rehires gray beard engineers after AI falls short（TechCrunch）](https://techcrunch.com/2026/06/28/ford-rehires-gray-beard-engineers-after-ai-falls-short/) | **2026-06-28** | 产业 | **350 资深工程师** 回归；**AI 自动化质检未达预期**；**专家训练 AI + 年轻员工** |
+| 基础设施 | [Why Wall Street thinks Micron is the next Nvidia（TechCrunch）](https://techcrunch.com/2026/06/28/why-wall-street-thinks-us-memory-maker-micron-is-the-next-nvidia/) | **2026-06-28** | 技术媒体 | **Q3 营收 YoY 4×**；**16 份 SCA**（含 **Nvidia/Anthropic**）；**RAMageddon 或延续至 2027** |
+| AV / 监管 | [TechCrunch Mobility: All eyes on Tesla FSD（TechCrunch）](https://techcrunch.com/2026/06/28/techcrunch-mobility-all-eyes-on-tesla-fsd/) | **2026-06-28** | 技术媒体 | **德州致命事故** 引 **NHTSA/NTSB 调查**；**FSD 2023 诉讼和解**；**Lyft 多传感器准入** 或排除 **纯视觉 Cybercab** |
+| 人才 | [OpenAI hires Uber India MD Prabhjeet Singh（TechCrunch Mobility）](https://techcrunch.com/2026/06/28/techcrunch-mobility-all-eyes-on-tesla-fsd/) | **2026-06-28** | 产业 | **OpenAI 首任印度 MD**；全球 **go-to-market/生态** 扩张信号 |
+| OpenClaw | [OpenClaw Fixes Codex OAuth Compaction（OpenClaw Chronicles）](https://openclawchronicles.com/posts/openclaw-codex-oauth-compaction-fix/) | **2026-06-28** | 社区/工程 | **PR #95831**：**OAuth-only Codex 会话** **compact** 无需 **OPENAI_API_KEY** |
+| Codex | [Codex 0.143.0-alpha.29（GitHub）](https://github.com/openai/codex/releases/tag/rust-v0.143.0-alpha.29) | **2026-06-28** | 开源发布 | **pre-release alpha**；**UTC 00:30** 发布 |
+| Codex | [Codex long-thread navigation QoL（Ground News/WinCentral）](https://ground.news/article/codex-just-fixed-one-of-the-most-annoying-things-about-long-ai-coding-conversations) | **2026-06-28** | 产品更新 | **长 coding 线程** **滚动/位置跟踪** 体验改进 |
 | GPT-5.6 | [OpenAI Sol/Terra/Luna limited preview follow-up（LatestLY）](https://www.latestly.com/technology/openai-launches-sol-terra-and-luna-ai-models-limits-rollout-following-us-government-request-7493322.html) | **2026-06-28** | 技术媒体 | **政府安全审查** 下 **preview 延期**；**数周内 broader availability** 预期 |
 
 ### 技术文档与教程
 
 | 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
 | --- | --- | --- | --- |
-| 企业 AI | **TechCrunch：Ford gray beard 工程师** | **AI+专家混合**、**warranty/recall 降本** | 制造业/质量工程师 |
-| 算力/memory | **TechCrunch：Micron 分析** | **HBM SCA**、**RAMageddon 至 2027** | 基础设施/FinOps |
-| Agent 运行时 | **OpenClaw Codex OAuth compaction** | **nativeHarnessCompaction**、**OAuth-only profile** | OpenClaw/Codex 自托管用户 |
-| Codex UX | **Codex 长线程 QoL** | **scroll/position tracking** | 长 session Codex 用户 |
+| 企业 AI | **TechCrunch：Ford gray beard** | **AI+专家混合**、**warranty/recall 降本** | 制造业/质量工程师 |
+| 算力/memory | **TechCrunch：Micron** | **HBM SCA**、**RAMageddon** | 基础设施/FinOps |
+| AV 合规 | **TechCrunch Mobility：Tesla FSD** | **NHTSA 调查**、**Lyft 传感器标准** | 物理 AI/出行产品 |
+| Agent 运行时 | **OpenClaw Codex OAuth compaction** | **nativeHarnessCompaction** | OpenClaw/Codex 自托管 |
+| Codex | **0.143.0-alpha.29 + 长线程 QoL** | **alpha 通道**、**UX 长 session** | Codex 重度用户 |
 
 ### LangChain / Agent / LLM 工程相关进展
 
-**总体判断**：6/28 强调 **「AI 落地需要领域专家闭环 + memory 供给瓶颈 + Agent 会话 compact 一致性」**——Ford 案例是 **LLM 工程外** 的 **真实世界 QA** 教训；Micron 说明 **推理成本** 不仅取决于 **模型单价** 还取决于 **HBM 供给**；OpenClaw 修复 **Codex OAuth compact** 是 **生产 Agent 长会话** 关键路径。
+**总体判断**：6/28 呈现 **「非 LLM 的企业 QA 教训 + HBM 供给约束 + Coding Agent 运行时修复 + 物理 AI 平台规则」** 四线——Ford/Micron 说明 **落地与成本** 不只看 **模型 API**；OpenClaw/Codex 修复 **OAuth compact** 与 **长线程 UX**；Tesla FSD 显示 **Agent 能力** 在 **物理世界** 面临 **独立监管栈**。
 
 | 主题 | 进展 | 工程启发 |
 | --- | --- | --- |
-| 企业 QA | **Ford AI 质检未达预期** | **AI 辅助** 需 **专家标注/复核** 闭环，勿 **全自动替代** |
-| Memory 供给 | **Micron HBM 超级周期** | **推理集群规划** 需纳入 **DRAM/HBM 长协** |
-| OpenClaw | **Codex OAuth compaction fix** | **OAuth harness** 与 **API-key path** 的 **compact 路由** 须一致 |
-| Codex | **长线程 QoL** | **长 session** 产品体验影响 **实际吞吐** |
-| Claude Code | **无 6/28 新 tag** | **v2.1.195** 为当前最新 |
-| Hermes | **无 6/28 release** | 无变更 |
+| 企业 QA | **Ford AI 质检未达预期** | **专家标注/复核** 闭环不可省 |
+| Memory 供给 | **Micron HBM 超级周期** | **推理 TCO** 含 **DRAM/HBM 长协** |
+| 物理 AI | **Tesla FSD 调查 + Lyft 规则** | **纯视觉方案** 或受 **平台准入** 限制 |
+| OpenClaw | **Codex OAuth compaction fix** | **OAuth/API-key** 双路径 **compact 一致性** |
+| Codex | **0.143.0-alpha.29 + QoL** | **alpha** 勿上生产；**长 session UX** 影响效率 |
+| Claude Code | **无 6/28 新 tag** | **v2.1.195** 为最新 |
+| Hermes | **无 6/28 release** | **/learn skills** 文档可参考 |
 | Spring AI | **无 6/28 release** | 无变更 |
-| skills | **无 6/28 官方新标准** | 无变更 |
+| skills | **无 6/28 官方新标准** | **agentskills.io** 跨平台仍有效 |
 
 ### 值得深入阅读的资料
 
 | 推荐级别 | 资料 | 为什么值得读 |
 | --- | --- | --- |
-| 必读 | **TechCrunch：Ford gray beard 工程师** | **6/28 最鲜明企业 AI 落地反思** |
-| 必读 | **TechCrunch：Micron 下一个 Nvidia** | **HBM/RAMageddon** 对 **AI 成本曲线** 影响 |
-| 推荐 | **OpenClaw Codex OAuth compaction** | **OAuth-only Agent 长会话** 必修 |
-| 推荐 | **Codex 长线程 QoL** | **长 coding session** 体验改进 |
-| 延伸 | **LatestLY：GPT-5.6 preview 跟进** | **政府审查** 下 **GA 时间线** 预期 |
+| 必读 | **TechCrunch：Ford gray beard** | **6/28 最鲜明企业 AI 落地反思** |
+| 必读 | **TechCrunch：Micron** | **HBM/RAMageddon** 成本曲线 |
+| 必读 | **TechCrunch Mobility：Tesla FSD** | **物理 AI 监管 + 平台规则** 同日交汇 |
+| 推荐 | **OpenClaw Codex OAuth compaction** | **OAuth-only 长会话** 必修 |
+| 推荐 | **Codex 0.143.0-alpha.29** | **6/28 可核验 Codex 发布** |
+| 延伸 | **LatestLY：GPT-5.6 preview** | **政府审查** 下 **GA 预期** |
 
 ### 来源清单
 
 - 检索范围：2026-06-28 00:00:00 到 2026-06-28 23:59:59（Asia/Shanghai）
-- 引用域名：techcrunch.com, openclawchronicles.com, ground.news, latestly.com, github.com
+- 引用域名：techcrunch.com, github.com, openclawchronicles.com, ground.news, latestly.com
 - 来源清单表格：
 
 | 类型 | 标题 | 日期 | 链接 |
 | --- | --- | --- | --- |
 | 技术媒体 | Ford rehires gray beard engineers | 2026-06-28 | https://techcrunch.com/2026/06/28/ford-rehires-gray-beard-engineers-after-ai-falls-short/ |
 | 技术媒体 | Micron as next Nvidia | 2026-06-28 | https://techcrunch.com/2026/06/28/why-wall-street-thinks-us-memory-maker-micron-is-the-next-nvidia/ |
+| 技术媒体 | TechCrunch Mobility: Tesla FSD | 2026-06-28 | https://techcrunch.com/2026/06/28/techcrunch-mobility-all-eyes-on-tesla-fsd/ |
 | 社区/工程 | OpenClaw Codex OAuth compaction fix | 2026-06-28 | https://openclawchronicles.com/posts/openclaw-codex-oauth-compaction-fix/ |
+| 开源发布 | Codex 0.143.0-alpha.29 | 2026-06-28 | https://github.com/openai/codex/releases/tag/rust-v0.143.0-alpha.29 |
 | 产品更新 | Codex long-thread navigation QoL | 2026-06-28 | https://ground.news/article/codex-just-fixed-one-of-the-most-annoying-things-about-long-ai-coding-conversations |
 | 技术媒体 | GPT-5.6 limited preview follow-up | 2026-06-28 | https://www.latestly.com/technology/openai-launches-sol-terra-and-luna-ai-models-limits-rollout-following-us-government-request-7493322.html |
 
