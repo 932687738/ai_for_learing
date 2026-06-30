@@ -2,6 +2,82 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-06-29
+
+### 今日总览
+
+**一句话结论**：`2026-06-29` 是 **「联邦监管 backlash + 州政府拥抱 Claude + 消费级 AI 硬件/MCP 落地」**——**加州与 Anthropic 签约 Claude 半价** 与 **联邦 supply-chain risk/Mythos 禁令** 形成 **州—联邦分叉**；**Google Gemini** 向全美免费开放 **Personal Intelligence + Nano Banana 图像生成**；**Pocket** 获 **$11M** 押注 **AI 录音硬件 + MCP**；**GPT-5.6/Mythos 受限 preview** 监管叙事在 **6/29 媒体跟进** 中持续发酵。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 加州 Claude 政企协议；Gemini 个性化图像；Pocket/MCP 硬件；Trump 监管批评；GPT-5.6 跟进；Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 专项 |
+| 核心趋势 | **AI 治理联邦/州分裂**：加州 **半价 Claude** vs 联邦 **Anthropic supply-chain risk**；**消费 AI 免费化**（Gemini **Nano Banana**）；**硬件 Agent 入口**（Pocket **MCP server**） |
+| 可直接关注 | 政企采购评估 **州级 Claude 合约** 与 **联邦合规** 冲突；产品侧跟踪 **Gemini Personal Intelligence opt-in** 数据边界；硬件/MCP 场景看 **Pocket enterprise webhook + MCP** |
+| 专项检索结论 | **Claude Code**：无 **6/29** 新 tag（**v2.1.195 仍为最新**）；**Codex**：无 **6/29** 官方 changelog/GitHub release；**OpenClaw**：无 **6/29** release；**Hermes**：无 **6/29** release；**Spring AI**：无 **6/29** release（**agentskills.io** 仍列 Spring AI 为 skills 平台）；**skills**：无 **6/29** 官方新标准 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 政企 / Anthropic | [Anthropic and Gov. Newsom forge Claude half-price deal（TechCrunch）](https://techcrunch.com/2026/06/29/anthropic-and-gov-newsom-forge-deal-allowing-california-government-to-use-claude-at-half-price/) | **2026-06-29** | 政策/产品 | **加州州/地方政府** 获 **Claude 半价 + 培训**；与 **联邦 supply-chain risk** 形成对比 |
+| 模型 / Google | [Gemini personalized Nano Banana image gen free for US（TechCrunch）](https://techcrunch.com/2026/06/29/geminis-personalized-ai-image-generation-is-now-free-for-u-s-users/) | **2026-06-29** | 产品发布 | **Personal Intelligence** 默认读取 **Gmail/Photos/YouTube/Search**（opt-in）；**Nano Banana** 图像生成 **全美免费** |
+| 硬件 / MCP | [Pocket raises $11M for AI note-taking puck（TechCrunch）](https://techcrunch.com/2026/06/29/pocket-raises-11m-in-bet-on-rising-demand-for-ai-note-taking-devices/) | **2026-06-29** | 产业/产品 | **$129 录音 puck**、**13万+销量**；企业集成 **Claude/Cursor** 并提供 **MCP server** |
+| 监管叙事 | [Trump Anthropic and OpenAI restrictions come under fire（The National）](https://www.thenationalnews.com/future/technology/2026/06/29/trumps-anthropic-and-openai-restrictions-come-under-fire/) | **2026-06-29** | 政策/产业 | **GPT-5.6 受限 preview** 与 **Mythos/Fable 出口管制** 遭 **监管过度集中** 批评 |
+| 监管跟进 | [OpenAI becomes latest AI firm to delay model rollout（CNYCentral）](https://cnycentral.com/news/nation-world/openai-becomes-latest-ai-firm-to-delay-model-rollout-gpt-56-anthropic-cybersecurity-china) | **2026-06-29** | 技术媒体 | **GPT-5.6** 仅 **Trump-approved partners**；**EO 6/2 自愿 30 天审查** 背景 |
+| 监管背景（相邻） | [Fable 5 return imminent（Capacity）](https://capacityglobal.com/news/fable5-return-imminent/) | **2026-06-29**（相邻日期/中国时间窗口传播） | 产业 | **Mythos 5 部分恢复** 后 **Fable 5** 或 **本周回归** 预期；**条款未定** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 政企 AI | **TechCrunch：CA×Anthropic 合约** | **州级采购**、**supply-chain risk 未纳入谈判** | 政企/GRC |
+| 消费 AI | **TechCrunch：Gemini Nano Banana** | **Personal Intelligence opt-in**、**Google 账户数据** | 产品/隐私 |
+| 硬件 MCP | **TechCrunch：Pocket** | **离线录音**、**MCP server**、**Claude/Cursor 集成** | 硬件/Agent 工程师 |
+| 监管 | **The National：Trump restrictions** | **managed-release** vs **EO 非强制许可** | 政策/架构 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：6/29 呈现 **「治理分裂（州 vs 联邦）+ 消费侧免费化 + 硬件 MCP 新入口」**——California **Claude 半价** 给 **政企 Agent** 提供 **与联邦不同的采购路径**；Pocket **MCP server** 把 **会议上下文** 接入 **Claude/Cursor**；Gemini **Personal Intelligence** 强化 **账户级 RAG** 产品形态。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 政企 Agent | **CA Claude 半价合约** | **州级合约** 可能 **绕开/并行** 联邦 **supply-chain risk** 限制 |
+| 消费 RAG | **Gemini Personal Intelligence 免费** | **opt-in 账户连接** 是 **默认 off** 还是 **默认 on** 需产品审计 |
+| 硬件 MCP | **Pocket MCP + Claude/Cursor** | **离线录音→转写→MCP** 是 **会议 Agent** 新链路 |
+| 监管 | **GPT-5.6/Mythos 受限** 媒体跟进 | **preview partner** 名单 **动态**；**Fable 5 回归条款** 未定 |
+| Claude Code | **无 6/29 release** | **v2.1.195** 为最新 |
+| Codex | **无 6/29 release** | 无变更 |
+| OpenClaw | **无 6/29 release** | 无变更 |
+| Hermes | **无 6/29 release** | 无变更 |
+| Spring AI | **无 6/29 release** | **agentskills.io** 生态位不变 |
+| skills | **无 6/29 官方新标准** | **agentskills.io** 仍是跨平台事实标准 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **TechCrunch：CA×Anthropic Claude 半价** | **6/29 最可核验政企+治理分叉事件** |
+| 必读 | **TechCrunch：Gemini Nano Banana 免费** | **消费 AI 个性化图像** 产品边界 |
+| 推荐 | **TechCrunch：Pocket $11M + MCP** | **硬件 Agent 入口 + MCP 集成** 样本 |
+| 推荐 | **The National：Trump restrictions backlash** | **managed-release** 政策争议 |
+| 延伸 | **Capacity：Fable 5 回归预期** | **Mythos 部分恢复后 Fable 路径** |
+
+### 来源清单
+
+- 检索范围：2026-06-29 00:00:00 到 2026-06-29 23:59:59（Asia/Shanghai）
+- 引用域名：techcrunch.com, thenationalnews.com, cnycentral.com, capacityglobal.com, agentskills.io
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 技术媒体 | Anthropic CA Claude half-price deal | 2026-06-29 | https://techcrunch.com/2026/06/29/anthropic-and-gov-newsom-forge-deal-allowing-california-government-to-use-claude-at-half-price/ |
+| 技术媒体 | Gemini Nano Banana free for US | 2026-06-29 | https://techcrunch.com/2026/06/29/geminis-personalized-ai-image-generation-is-now-free-for-u-s-users/ |
+| 技术媒体 | Pocket $11M AI note-taking | 2026-06-29 | https://techcrunch.com/2026/06/29/pocket-raises-11m-in-bet-on-rising-demand-for-ai-note-taking-devices/ |
+| 政策/产业 | Trump AI restrictions backlash | 2026-06-29 | https://www.thenationalnews.com/future/technology/2026/06/29/trumps-anthropic-and-openai-restrictions-come-under-fire/ |
+| 技术媒体 | OpenAI delay rollout follow-up | 2026-06-29 | https://cnycentral.com/news/nation-world/openai-becomes-latest-ai-firm-to-delay-model-rollout-gpt-56-anthropic-cybersecurity-china |
+| 产业 | Fable 5 return imminent | 2026-06-29（相邻日期/中国时间窗口传播） | https://capacityglobal.com/news/fable5-return-imminent/ |
+
+
 ## 2026-06-27
 
 ### 今日总览
