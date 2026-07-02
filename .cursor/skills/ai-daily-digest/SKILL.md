@@ -1,6 +1,6 @@
 ---
 name: ai-daily-digest
-description: Generates an AI Daily News Digest in Chinese. Use when the user says 拉取AI新闻, AI新闻摘要, 更新AI日报, 生成AI资讯汇总, or requests force=true. Incrementally searches broad AI news including LLMs, agents, Claude Code, Codex, OpenClaw, Hermes, Spring AI, LangChain, RAG, MCP, model infrastructure, papers, official blogs, releases, GitHub changelogs, enterprise AI adoption, AI safety, and policy updates, then writes fused daily Markdown summaries with persistent state.
+description: Generates an AI Daily News Digest in Chinese. Use when the user says 拉取AI新闻, AI新闻摘要, 更新AI日报, 生成AI资讯汇总, or requests force=true. Writes each day to monthly archive dailyReport/ai-daily-news/YYYYMM.md (auto-create on new month) and mirrors the current month in ai-daily-digest.md. Incrementally searches broad AI news including LLMs, agents, Claude Code, Codex, OpenClaw, Hermes, Spring AI, Spring Alibaba AI, LangChain, LangGraph, Langfuse, Code Graph, RAG, MCP, model infrastructure, papers, official blogs, releases, GitHub changelogs, enterprise AI adoption, AI safety, and policy updates, then writes fused daily Markdown summaries with persistent state.
 ---
 
 # AI Daily News Digest
@@ -32,7 +32,7 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 - 用户回复 `1`：走“日期计算”中的非 force 增量逻辑。
 - 用户回复 `2`：要求用户提供一个 `YYYY-MM-DD` 格式日期；若用户已经在同一句回复中提供日期，可直接使用。
 - 指定日期模式只处理该单日，时间范围仍为该日期的 `00:00:00` 到 `23:59:59`（Asia/Shanghai）。
-- 如果指定日期已经存在于 `processed_dates`，或日报文件中已存在精确章节标题 `## YYYY-MM-DD`，视为日期重复，直接跳过，不检索、不写入、不更新状态，并输出 `该日期已处理，跳过：YYYY-MM-DD`。
+- 如果指定日期已经存在于 `processed_dates`，或**当月归档文件** `YYYYMM.md` 与 **`ai-daily-digest.md`** 中已存在精确章节标题 `## YYYY-MM-DD`，视为日期重复，直接跳过，不检索、不写入、不更新状态，并输出 `该日期已处理，跳过：YYYY-MM-DD`。
 - 如果用户提供的日期格式无效，要求用户重新提供，不要自行猜测。
 
 ## 固定路径
@@ -41,9 +41,16 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 
 - 日报目录：`dailyReport/ai-daily-news`
 - 状态文件：`dailyReport/ai-daily-news/ai-daily-state.json`
-- 日报文件：`dailyReport/ai-daily-news/ai-daily-digest.md`
+- **当月滚动入口（仅保留当前自然月章节）**：`dailyReport/ai-daily-news/ai-daily-digest.md`
+- **按月归档文件（主写入目标）**：`dailyReport/ai-daily-news/YYYYMM.md`（例如 `202605.md`、`202606.md`、`202607.md`；`YYYYMM` 由目标日期 `YYYY-MM-DD` 去掉连字符取前 6 位：`2026-07-01` → `202607`）
 
-如日报目录不存在，先创建目录。如日报文件不存在，创建文件并写入标题。
+如日报目录不存在，先创建目录。归档文件或滚动入口不存在时，按下文「Markdown 写入规则」创建并写入标题。
+
+**归档约定**（与目录内既有 `202605.md`、`202606.md` 一致）：
+
+- 每个自然月的全部 `## YYYY-MM-DD` 章节写入对应 **`YYYYMM.md`**，章节在该文件内按日期**倒序**（最新在最前）。
+- **`ai-daily-digest.md`** 为**当前自然月**的滚动视图：只保留与「本次成功写入日期所属月份」相同的章节；跨月写入后须从该文件中移除其他月份的章节（历史月份仅保留在对应 `YYYYMM.md`）。
+- 进入新月份且 `{YYYYMM}.md` 尚不存在时，**必须先创建**该月归档文件再写入当日章节。
 
 ## 状态文件格式
 
@@ -75,7 +82,7 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
    - 目标日期必须按时间升序处理。
 3. 指定日期模式：
    - 只处理用户指定的 `YYYY-MM-DD`。
-   - 如果该日期已经存在于 `processed_dates`，或日报文件中已有 `## YYYY-MM-DD` 章节，直接跳过。
+   - 如果该日期已经存在于 `processed_dates`，或当月归档 `YYYYMM.md` / 滚动入口 `ai-daily-digest.md` 中已有 `## YYYY-MM-DD` 章节，直接跳过。
    - 如果该日期未处理，则按该日期当天检索、生成章节并写入 Markdown。
 4. force 模式：
    - 当用户文本包含 `force=true` 时启用。
@@ -99,7 +106,7 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 
 检索关键词必须覆盖以下任意一个或多个，并围绕当天日期组合查询：
 
-`AI`, `人工智能`, `生成式 AI`, `LLM`, `大语言模型`, `agent`, `AI agent`, `autonomous agent`, `coding agent`, `agentic AI`, `skills`, `Agent Skills`, `AI skills`, `Codex Skills`, `Claude Skills`, `Cursor Skills`, `Claude Code skills`, `LangChain`, `LangGraph`, `LlamaIndex`, `RAG`, `GraphRAG`, `OpenAI`, `Anthropic`, `Claude`, `Claude Code`, `Codex`, `OpenClaw`, `Hermes`, `Spring AI`, `Spring Boot AI`, `Google DeepMind`, `Gemini`, `Meta Llama`, `MCP`, `A2A`, `向量数据库`, `vector database`, `embedding`, `reranker`, `提示工程`, `prompt engineering`, `模型评测`, `eval`, `benchmark`, `AI 编程`, `AI coding`, `AI 安全`, `AI safety`, `AI 产品发布`, `AI 政策监管`, `模型基础设施`, `GPU`, `TPU`, `推理加速`, `inference`, `enterprise AI`, `企业 AI 落地`, `AI 搜索`, `多模态`, `语音模型`, `机器人`, `具身智能`
+`AI`, `人工智能`, `生成式 AI`, `LLM`, `大语言模型`, `agent`, `AI agent`, `autonomous agent`, `coding agent`, `agentic AI`, `skills`, `Agent Skills`, `AI skills`, `Codex Skills`, `Claude Skills`, `Cursor Skills`, `Claude Code skills`, `LangChain`, `LangGraph`, `Langfuse`, `LLM observability`, `LLM tracing`, `prompt management`, `eval`, `LangSmith`, `LlamaIndex`, `RAG`, `GraphRAG`, `Code Graph`, `code knowledge graph`, `codebase graph`, `Tree-sitter`, `MCP code graph`, `CodeGraph`, `codegraph`, `Codebase-Memory`, `OpenAI`, `Anthropic`, `Claude`, `Claude Code`, `Codex`, `OpenClaw`, `Hermes`, `Spring AI`, `Spring Boot AI`, `Spring Alibaba AI`, `Spring AI Alibaba`, `spring-ai-alibaba`, `java2ai`, `Google DeepMind`, `Gemini`, `Meta Llama`, `MCP`, `A2A`, `向量数据库`, `vector database`, `embedding`, `reranker`, `提示工程`, `prompt engineering`, `模型评测`, `benchmark`, `AI 编程`, `AI coding`, `AI 安全`, `AI safety`, `AI 产品发布`, `AI 政策监管`, `模型基础设施`, `GPU`, `TPU`, `推理加速`, `inference`, `enterprise AI`, `企业 AI 落地`, `AI 搜索`, `多模态`, `语音模型`, `机器人`, `具身智能`
 
 优先来源（按优先级）：
 
@@ -112,7 +119,7 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 扩展来源池（用于扩大覆盖面，仍需按可信度筛选）：
 
 - 官方与厂商：`openai.com`, `anthropic.com`, `deepmind.google`, `blog.google`, `research.google`, `ai.meta.com`, `about.fb.com/news`, `microsoft.com/en-us/research`, `blogs.microsoft.com`, `azure.microsoft.com/blog`, `aws.amazon.com/blogs`, `developer.nvidia.com/blog`, `github.blog`, `huggingface.co/blog`, `mistral.ai/news`, `cohere.com/blog`, `x.ai/news`, `perplexity.ai/hub`, `cursor.com/blog`, `windsurf.com/blog`。
-- 框架与开发生态：`blog.langchain.com`, `docs.langchain.com`, `changelog.langchain.com`, `llamaindex.ai/blog`, `spring.io/blog`, `docs.spring.io/spring-ai`, `github.com/spring-projects/spring-ai`, `github.com/openai/codex`, `github.com/anthropics/claude-code`, `github.com/modelcontextprotocol`, `github.com/langchain-ai`, `github.com/NousResearch/hermes-agent`, `cursor.com/blog`, `docs.cursor.com`, `openai.com/codex`, `platform.openai.com/docs`, `docs.anthropic.com`, `code.claude.com/docs`。
+- 框架与开发生态：`blog.langchain.com`, `docs.langchain.com`, `changelog.langchain.com`, `docs.langchain.com/oss/javascript/langgraph`, `llamaindex.ai/blog`, `spring.io/blog`, `docs.spring.io/spring-ai`, `github.com/spring-projects/spring-ai`, `langfuse.com`, `langfuse.com/changelog`, `langfuse.com/docs`, `langfuse.com/integrations`, `github.com/langfuse/langfuse`, `github.com/langfuse/langfuse-java`, `github.com/langfuse/langfuse-examples`, `java2ai.com`, `github.com/alibaba/spring-ai-alibaba`, `github.com/spring-ai-alibaba/examples`, `github.com/openai/codex`, `github.com/anthropics/claude-code`, `github.com/modelcontextprotocol`, `github.com/langchain-ai`, `github.com/NousResearch/hermes-agent`, `github.com/colbymchenry/codegraph`, `github.com/codegraph-ai/codegraph`, `cursor.com/blog`, `docs.cursor.com`, `openai.com/codex`, `platform.openai.com/docs`, `docs.anthropic.com`, `code.claude.com/docs`。
 - 论文与模型社区：`arxiv.org`, `huggingface.co/papers`, `paperswithcode.com`, `openreview.net`, `neurips.cc`, `icml.cc`, `iclr.cc`, `aclanthology.org`, 作者项目主页和代码仓库。
 - 开源与工程：GitHub Releases、GitHub Trending、GitHub Discussions、release notes、changelog、package registry 页面（npm、PyPI、Maven Central）以及项目官方文档。
 - 可信媒体与深度来源：The Verge、Ars Technica、TechCrunch、VentureBeat、InfoQ、MIT Technology Review、IEEE Spectrum、The Batch、Sebastian Raschka、Simon Willison、Latent Space、Ben's Bites、Import AI。
@@ -127,13 +134,30 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 - 如果内容发布日期不在目标日期，但在目标日期中国时间窗口内传播或与当天重要事件直接相关，可以收录；必须在日期字段标注“相邻日期/中国时间窗口传播”。
 - 信息不足或可信度不足时不要强行写成重大更新。
 
+## 专项主题定义与官方来源
+
+以下四个主题为**强制专项检索**对象（与 Claude Code、Spring AI 同级）。即使当天无新 release，也必须检索并在「专项检索结论」中给出结论。
+
+| 主题 | 定义与检索范围 | 优先官方来源 |
+| --- | --- | --- |
+| **Langfuse** | 开源 LLM 可观测性平台：trace/span、eval、prompt 管理、评分、数据集、Public API、OTel 接入、Java SDK、MCP Server、与 Spring AI / Qwen 等集成 | `langfuse.com`（含 `/changelog`、`/docs`、`/integrations`）、`github.com/langfuse/langfuse`、`github.com/langfuse/langfuse-java`、`github.com/langfuse/langfuse-examples` |
+| **LangChain / LangGraph** | Python/JS Agent 框架与工作流编排：LangChain Core、LangGraph、LangSmith、官方 changelog、MCP/A2A 集成、RAG 组件 | `blog.langchain.com`、`docs.langchain.com`、`changelog.langchain.com`、`github.com/langchain-ai` |
+| **Code Graph** | 面向 AI 编程 Agent 的**代码知识图谱**：Tree-sitter 解析、符号/调用边/依赖图、impact analysis、MCP 暴露、本地索引与增量同步；**不等同于** GitHub Code Search 或 Spring AI Alibaba Graph（后者归入 Spring Alibaba AI） | `github.com/colbymchenry/codegraph`、`github.com/codegraph-ai/codegraph`、arXiv/论文（如 Codebase-Memory）、Memgraph GraphRAG/Code 类 demo、可信技术媒体对 MCP code graph 的报道 |
+| **Spring Alibaba AI** | 阿里 Spring AI 生态：`spring-ai-alibaba` Agent Framework、Graph Core、ReactAgent/SequentialAgent、DataAgent、与 DashScope/Qwen 集成、BOM 与 release | `github.com/alibaba/spring-ai-alibaba`、`java2ai.com`、`github.com/spring-ai-alibaba/examples`、阿里云开发者社区（中文补充） |
+
+区分说明：
+
+- **Spring AI**（`spring-projects/spring-ai`）与 **Spring Alibaba AI**（`alibaba/spring-ai-alibaba`）分开检索、分开记录；前者关注 Spring 官方 GA/Milestone，后者关注阿里 Graph/Agent 框架与 Java Agent 实践。
+- **Code Graph** 指「代码库结构图谱 + Agent 上下文」工具链；若 `spring-ai-alibaba-graph` 当日有 release，可同时出现在 Spring Alibaba AI 与 Agent 框架条目中，但须注明归属。
+- **Langfuse** 重点收录 changelog、SDK/MCP/OTel 集成、与 Spring AI 或 Qwen 的可观测性实践；LangSmith 可作为 LangChain 生态对照，但不替代 Langfuse 专项结论。
+
 ## 推荐检索步骤
 
 对每个日期执行：
 
 1. 用 WebSearch 分组检索官方发布、论文原文、开源 release、可信技术媒体、政策监管。
 2. 使用多个组合查询交叉验证，至少覆盖“关键词+日期+official”“官方站点 site 检索”“论文站点检索”“GitHub/changelog 检索”“政策监管检索”。
-3. 对 `Claude Code`、`Codex`、`OpenClaw`、`Hermes`、`Spring AI`、`skills/Agent Skills/Codex Skills/Claude Skills/Cursor Skills` 必须单独执行专项检索（即使当天无结果也要检索并在总结中说明）。
+3. 对 `Claude Code`、`Codex`、`OpenClaw`、`Hermes`、`Spring AI`、`Spring Alibaba AI`、`Langfuse`、`LangChain`/`LangGraph`、`Code Graph`、`skills/Agent Skills/Codex Skills/Claude Skills/Cursor Skills` 必须单独执行专项检索（即使当天无结果也要检索并在总结中说明）。
 4. 对高价值或不确定结果，必须用 WebFetch 打开原文核验日期和事实。
 5. 日期核验时区分发布时间、更新时间、抓取时间、相邻时区传播时间，避免把搜索摘要日期当成发布日期。
 6. 建立去重后的来源列表，记录标题、URL、发布日期/更新时间、类型、可信度、与研发/学习的关系。
@@ -141,7 +165,7 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 
 最低覆盖矩阵：
 
-- 每个目标日期至少执行 13 组检索：官方厂商、模型/产品、开发者工具、Agent 框架、RAG/MCP/向量数据库、Spring AI/Java AI、Claude Code/Codex/OpenClaw/Hermes、skills/Agent Skills、论文、GitHub release、技术媒体、政策监管、中文补充来源。
+- 每个目标日期至少执行 **17 组**检索：官方厂商、模型/产品、开发者工具、Agent 框架、RAG/MCP/向量数据库、Spring AI/Java AI、**Spring Alibaba AI**、**Langfuse/LLM 可观测性**、**LangChain/LangGraph**、**Code Graph/代码知识图谱**、Claude Code/Codex/OpenClaw/Hermes、skills/Agent Skills、论文、GitHub release、技术媒体、政策监管、中文补充来源。
 - 若某一组没有可靠结果，在对应主题中说明“未发现可核验重大更新”，不要省略该组。
 - 同一事件至少用 2 个来源交叉验证；如果只有一个来源，必须是官方原文、论文原文或 GitHub release。
 - 对“看起来重大”的媒体报道，必须反查官方公告、原始论文、GitHub release 或监管原文。
@@ -153,8 +177,8 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 
 - 模型与产品：新模型、默认模型变更、API 能力、价格/限额、上下文窗口、多模态、语音、图像、视频。
 - AI 编程：Codex、Claude Code、GitHub Copilot、Cursor、Windsurf、JetBrains AI、代码审查、浏览器/终端/IDE 集成。
-- Agent 与工程框架：LangChain、LangGraph、LlamaIndex、Spring AI、Hermes、OpenClaw、MCP、A2A、Agent Skills、Codex Skills、Claude Skills、Cursor Skills、多 Agent、长期记忆、工具调用、工作流编排。
-- RAG 与数据层：GraphRAG、向量数据库、混合检索、rerank、embedding、知识图谱、数据连接器、权限与审计。
+- Agent 与工程框架：LangChain、LangGraph、LangSmith、LlamaIndex、Spring AI、**Spring Alibaba AI**、**Langfuse**、Hermes、OpenClaw、MCP、A2A、Agent Skills、Codex Skills、Claude Skills、Cursor Skills、多 Agent、长期记忆、工具调用、工作流编排。
+- RAG 与数据层：GraphRAG、**Code Graph**、代码知识图谱、向量数据库、混合检索、rerank、embedding、知识图谱、数据连接器、权限与审计。
 - 模型评测与安全：system card、eval、red team、可解释性、AI 安全、网络安全、隐私、内容安全、模型治理。
 - 基础设施：GPU/TPU、推理框架、算力合作、模型部署、边缘推理、云服务、开发平台。
 - 论文与研究：LLM、agent、RAG、对齐、推理、可解释性、多模态、具身智能、科学发现。
@@ -175,6 +199,18 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 - `"OpenClaw" "May 7, 2026" AI`
 - `"Hermes" "May 7, 2026" LLM OR agent`
 - `"Spring AI" OR "Spring Boot AI" "May 7, 2026" release OR blog OR changelog`
+- `"Spring AI Alibaba" OR "spring-ai-alibaba" "May 7, 2026" release OR Graph OR Agent`
+- `site:java2ai.com "May 7, 2026" OR "2026"`
+- `site:github.com/alibaba/spring-ai-alibaba/releases "2026"`
+- `"Langfuse" "May 7, 2026" release OR changelog OR MCP OR OpenTelemetry`
+- `site:langfuse.com/changelog "2026"`
+- `site:github.com/langfuse/langfuse/releases "2026"`
+- `"LangChain" OR "LangGraph" "May 7, 2026" release OR changelog`
+- `site:changelog.langchain.com "2026"`
+- `site:github.com/langchain-ai/langgraph/releases "2026"`
+- `"Code Graph" OR "code knowledge graph" OR "codegraph" "May 7, 2026" MCP OR release`
+- `site:github.com/colbymchenry/codegraph/releases "2026"`
+- `site:github.com/codegraph-ai/codegraph/releases "2026"`
 - `site:spring.io/blog "Spring AI" "May 7, 2026"`
 - `site:github.com/spring-projects/spring-ai/releases "2026"`
 - `"Agent Skills" OR "AI skills" "May 7, 2026" release OR update OR marketplace`
@@ -204,7 +240,7 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 生成日报前执行覆盖检查：
 
 1. 检查是否覆盖官方发布、论文、开源 release、技术媒体、政策监管、开发者工具、Agent/RAG/MCP、企业落地至少 8 类。
-2. 检查专项主题 `Claude Code`、`Codex`、`OpenClaw`、`Hermes`、`Spring AI`、`skills/Agent Skills/Codex Skills/Claude Skills/Cursor Skills` 是否均已检索并有结论。
+2. 检查专项主题 `Claude Code`、`Codex`、`OpenClaw`、`Hermes`、`Spring AI`、**`Spring Alibaba AI`**、**`Langfuse`**、**`LangChain`/`LangGraph`**、**`Code Graph`**、`skills/Agent Skills/Codex Skills/Claude Skills/Cursor Skills` 是否均已检索并有结论。
 3. 检查每条“重要事件与发布”是否包含标题、链接、发布日期/更新时间、信息类型、研发影响。
 4. 检查来源清单表格是否包含所有正文引用来源，且日期字段标注准确。
 5. 检查是否存在同一事件重复列出；如果重复，合并为一条并保留最权威来源。
@@ -228,7 +264,7 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 | 检索范围 | [列出核心检索主题] |
 | 核心趋势 | [2-4 个融合后的趋势，不逐 URL 罗列] |
 | 可直接关注 | [对研发/学习/架构/治理最有价值的 3-5 个方向] |
-| 专项检索结论 | [Claude Code/Codex/OpenClaw/Hermes/Spring AI/skills 等专项检索结论] |
+| 专项检索结论 | [Claude Code/Codex/OpenClaw/Hermes/Spring AI/Spring Alibaba AI/Langfuse/LangChain·LangGraph/Code Graph/skills 等专项检索结论] |
 
 ### 重要事件与发布
 
@@ -274,7 +310,7 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 
 ### 今日总览
 
-本次按 Asia/Shanghai 的 YYYY-MM-DD 00:00:00 到 23:59:59 检索 AI、人工智能、LLM、Agent、RAG、MCP、LangChain、模型发布、论文与政策监管等关键词，未发现可确认属于该日期且具备可靠出处的重大更新。
+本次按 Asia/Shanghai 的 YYYY-MM-DD 00:00:00 到 23:59:59 检索 AI、人工智能、LLM、Agent、RAG、MCP、LangChain、LangGraph、Langfuse、Code Graph、Spring AI、Spring Alibaba AI、模型发布、论文与政策监管等关键词，未发现可确认属于该日期且具备可靠出处的重大更新。
 
 ### 重要事件与发布
 
@@ -305,8 +341,11 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 
 ## Markdown 写入规则
 
-1. 确保日报目录存在。
-2. 如果日报文件不存在，创建并写入：
+对每个成功生成的目标日期 `YYYY-MM-DD`：
+
+1. 计算 `YYYYMM = YYYY` + `MM`（去掉日期中的连字符取前 6 位）。
+2. 归档路径：`dailyReport/ai-daily-news/{YYYYMM}.md`；滚动入口：`dailyReport/ai-daily-news/ai-daily-digest.md`。
+3. 若 `{YYYYMM}.md` 不存在，创建并写入与滚动入口相同的文件头：
 
 ```markdown
 # AI Daily News Digest
@@ -314,11 +353,14 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 ```
 
-3. 每个日期章节标题必须精确为 `## YYYY-MM-DD`。
-4. 如果目标日期章节已存在，覆盖该章节，从该标题开始到下一个 `## YYYY-MM-DD` 标题前结束。
-5. 如果目标日期章节不存在，追加到文件末尾。
-6. 写入多个日期后，确保所有 `## YYYY-MM-DD` 日期章节按日期倒序排列，最新日期必须最靠前，保证每次打开文件先看到最新日报。
-7. 不要删除文件顶部标题和非日期说明内容。
+4. 若 `ai-daily-digest.md` 不存在，同样创建并写入上述文件头。
+5. 每个日期章节标题必须精确为 `## YYYY-MM-DD`。
+6. **双写**：将完整日期章节**同时**写入 `{YYYYMM}.md` 与 `ai-daily-digest.md`（内容一致）。
+7. 若目标日期章节已存在于任一文件，覆盖该章节，从该 `## YYYY-MM-DD` 起到下一个 `## YYYY-MM-DD` 前结束（`force=true` 时同样覆盖）。
+8. 若章节不存在，插入到文件内**日期倒序**位置（最新日期最靠前）；也可写入后全文件重排倒序。
+9. 写入完成后，**修剪 `ai-daily-digest.md`**：仅保留 `YYYY-MM` 与本次成功写入日期所属月份相同的章节；其他月份章节只留在对应 `{YYYYMM}.md`，不得留在滚动入口。
+10. `{YYYYMM}.md` 内也只保留该自然月日期的章节（不要把其他月份误写入当月归档）。
+11. 不要删除各文件顶部标题与说明段。
 
 ## 状态更新规则
 
@@ -336,7 +378,7 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 完成后简要告知用户：
 
 - 处理了哪些日期。
-- 写入或覆盖了哪个 Markdown 文件。
+- 写入或覆盖了哪些 Markdown 文件：**当月归档 `YYYYMM.md`** 与 **滚动入口 `ai-daily-digest.md`**（均给出完整相对路径）。
 - 状态文件已更新。
 
 指定日期重复时，唯一输出必须是：

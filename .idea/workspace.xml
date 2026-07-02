@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="feat(dailyReport): 更新 AI 日报和 GitHub 热门项目至 2026-06-29&#10;&#10;- 添加 2026-06-29 AI 每日摘要，涵盖 Anthropic、Google Gemini、Pocket 等重要进展&#10;- 更新 ai-daily-state.json 同步日期和处理状态至 2026-06-29&#10;- 更新 github-topz.md 的热门仓库排名和 trending 榜单数据&#10;- 新增多个值得关注的 AI 相关 GitHub 仓库，包括 agency-agents、soxoj/maigret 等&#10;- 更新 MCP 相关技术进展和 Claude Code 等专项检索结论">
-      <change afterPath="$PROJECT_DIR$/dailyReport/ai-daily-news/202606.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dailyReport/knowledge-base-news/202606.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-digest.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-digest.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-digest_1.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/ai-daily-news/202605.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-state.json" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-state.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/github-topz.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/github-topz.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-digest.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-digest.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-digest_1.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/knowledge-base-news/202605.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-state.json" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-state.json" afterDir="false" />
-    </list>
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="每日新闻" />
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,26 +42,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.vanilla_rnn_numpy_demo.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/cache/workspace/ai_for_learing/dailyReport/knowledge-base-news",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.vanilla_rnn_numpy_demo.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/cache/workspace/ai_for_learing/dailyReport/knowledge-base-news&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\cache\workspace\ai_for_learing\dailyReport\knowledge-base-news" />

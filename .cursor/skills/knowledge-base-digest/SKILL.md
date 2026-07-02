@@ -1,6 +1,6 @@
 ---
 name: knowledge-base-digest
-description: Generates a Chinese knowledge-base digest from a fixed set of Chinese technology portals and team blogs. Use when the user says 拉取知识库, 更新知识库, 知识库摘要, 生成知识库日报, or requests force=true for knowledge-base updates. It follows the same date, force, deduplication, Markdown section overwrite, descending date order, and state-file rules as ai-daily-digest, but only searches the configured fixed URLs and source names.
+description: Generates a Chinese knowledge-base digest from a fixed set of Chinese technology portals and team blogs. Use when the user says 拉取知识库, 更新知识库, 知识库摘要, 生成知识库日报, or requests force=true for knowledge-base updates. Writes each day to monthly archive dailyReport/knowledge-base-news/YYYYMM.md (auto-create on new month) and mirrors the current month in knowledge-base-digest.md. It follows the same date, force, deduplication, Markdown section overwrite, descending date order, and state-file rules as ai-daily-digest, but only searches the configured fixed URLs and source names. Each pull must also run fixed-source special searches for Langfuse, LangChain/LangGraph, Code Graph, and Spring Alibaba AI engineering practice content.
 ---
 
 # Knowledge Base Digest
@@ -32,7 +32,7 @@ description: Generates a Chinese knowledge-base digest from a fixed set of Chine
 - 用户回复 `1`：走“日期计算”中的非 force 增量逻辑。
 - 用户回复 `2`：要求用户提供一个 `YYYY-MM-DD` 格式日期；若用户已经在同一句回复中提供日期，可直接使用。
 - 指定日期模式只处理该单日，时间范围仍为该日期的 `00:00:00` 到 `23:59:59`（Asia/Shanghai）。
-- 如果指定日期已经存在于 `processed_dates`，或日报文件中已存在精确章节标题 `## YYYY-MM-DD`，视为日期重复，直接跳过，不检索、不写入、不更新状态，并输出 `该日期已处理，跳过：YYYY-MM-DD`。
+- 如果指定日期已经存在于 `processed_dates`，或**当月归档文件** `YYYYMM.md` 与 **`knowledge-base-digest.md`** 中已存在精确章节标题 `## YYYY-MM-DD`，视为日期重复，直接跳过，不检索、不写入、不更新状态，并输出 `该日期已处理，跳过：YYYY-MM-DD`。
 - 如果用户提供的日期格式无效，要求用户重新提供，不要自行猜测。
 
 ## 固定路径
@@ -41,10 +41,17 @@ description: Generates a Chinese knowledge-base digest from a fixed set of Chine
 
 - 日报目录：`dailyReport/knowledge-base-news`
 - 状态文件：`dailyReport/knowledge-base-news/knowledge-base-state.json`
-- 日报文件：`dailyReport/knowledge-base-news/knowledge-base-digest.md`
+- **当月滚动入口（仅保留当前自然月章节）**：`dailyReport/knowledge-base-news/knowledge-base-digest.md`
+- **按月归档文件（主写入目标）**：`dailyReport/knowledge-base-news/YYYYMM.md`（例如 `202605.md`、`202606.md`、`202607.md`；`YYYYMM` 由目标日期 `YYYY-MM-DD` 去掉连字符取前 6 位）
 - **GitHub Star 前十快照（每次知识库拉取必跑）**：`dailyReport/github-topz.md`
 
-如日报目录不存在，先创建目录。如日报文件不存在，创建文件并写入标题。
+如日报目录不存在，先创建目录。归档文件或滚动入口不存在时，按下文「Markdown 写入规则」创建并写入标题。
+
+**归档约定**（与目录内既有 `202605.md`、`202606.md` 一致）：
+
+- 每个自然月的全部 `## YYYY-MM-DD` 章节写入对应 **`YYYYMM.md`**，章节在该文件内按日期**倒序**。
+- **`knowledge-base-digest.md`** 为**当前自然月**滚动视图：只保留与「本次成功写入日期所属月份」相同的章节；跨月后须从滚动入口移除其他月份章节。
+- 进入新月份且 `{YYYYMM}.md` 尚不存在时，**必须先创建**该月归档文件再写入。
 
 **双 Digest 规程链接**（纳入知识库拉取清单，与「拉取日报」工作流一致）：[`.cursor/rules/dual-digest-on-pull.mdc`](../../rules/dual-digest-on-pull.mdc)（工作区根路径：`.cursor/rules/dual-digest-on-pull.mdc`）。
 
@@ -78,7 +85,7 @@ description: Generates a Chinese knowledge-base digest from a fixed set of Chine
    - 目标日期必须按时间升序处理。
 3. 指定日期模式：
    - 只处理用户指定的 `YYYY-MM-DD`。
-   - 如果该日期已经存在于 `processed_dates`，或日报文件中已有 `## YYYY-MM-DD` 章节，直接跳过。
+   - 如果该日期已经存在于 `processed_dates`，或当月归档 `YYYYMM.md` / 滚动入口 `knowledge-base-digest.md` 中已有 `## YYYY-MM-DD` 章节，直接跳过。
    - 如果该日期未处理，则按该日期当天检索、生成章节并写入 Markdown。
 4. force 模式：
    - 当用户文本包含 `force=true` 或明确要求“强制更新/强制重拉”时启用。
@@ -149,7 +156,7 @@ python tools/update_github_topz.py
 
 检索关键词应结合固定来源名称、日期和技术主题，重点覆盖：
 
-`AI`, `人工智能`, `大模型`, `LLM`, `Agent`, `RAG`, `云原生`, `架构`, `中间件`, `RocketMQ`, `Dubbo`, `数据库`, `大数据`, `推荐系统`, `搜索`, `音视频`, `前端`, `Node.js`, `工程化`, `客户端`, `安全`, `漏洞`, `攻防`, `DevOps`, `可观测性`, `稳定性`, `性能优化`, `SRE`, `研发效能`, `机器学习`, `算法`, `业务实践`, `双11`, `支付`, `风控`
+`AI`, `人工智能`, `大模型`, `LLM`, `Agent`, `RAG`, `LangChain`, `LangGraph`, `Langfuse`, `LLM 可观测性`, `链路追踪`, `prompt 管理`, `Code Graph`, `代码知识图谱`, `代码图谱`, `Tree-sitter`, `MCP`, `Spring AI`, `Spring Alibaba AI`, `spring-ai-alibaba`, `java2ai`, `Graph Agent`, `ReactAgent`, `云原生`, `架构`, `中间件`, `RocketMQ`, `Dubbo`, `数据库`, `大数据`, `推荐系统`, `搜索`, `音视频`, `前端`, `Node.js`, `工程化`, `客户端`, `安全`, `漏洞`, `攻防`, `DevOps`, `可观测性`, `稳定性`, `性能优化`, `SRE`, `研发效能`, `机器学习`, `算法`, `业务实践`, `双11`, `支付`, `风控`
 
 过滤规则：
 
@@ -160,15 +167,33 @@ python tools/update_github_topz.py
 - 如果内容发布日期不在目标日期，但在目标日期中国时间窗口内传播或与当天重要更新直接相关，可以收录；必须在日期字段标注“相邻日期/中国时间窗口传播”。
 - 同一文章在多个渠道同步时，以最接近官方/团队原始发布页为准。
 
+## 工程框架专项主题（固定来源内强制检索）
+
+与 `ai-daily-digest` 对齐，以下四个主题在**固定来源清单**内必须单独检索；即使当天无新文，也须在「专项检索结论」与「未发现更新」中说明。
+
+| 主题 | 在知识库中的检索重点 | 优先固定来源 |
+| --- | --- | --- |
+| **Langfuse** | LLM trace/eval/prompt 管理、OTel 接入 Spring AI、与 Qwen/DashScope 的可观测性实践、MCP Server、Java SDK 落地文 | 阿里云开发者社区、掘金、腾讯云+社区、美团/字节等大厂可观测性实践文 |
+| **LangChain / LangGraph** | Agent 编排、RAG 链路、LangGraph 工作流、与 MCP 集成、Java/Python 双栈对比 | 掘金、阿里云/腾讯云开发者、字节技术博客、美团技术团队 |
+| **Code Graph** | 代码知识图谱、Tree-sitter 索引、MCP 代码探索、impact analysis、降 token 的 Agent 上下文方案 | 掘金、阿里云开发者、腾讯技术工程（公众号/Tencent_TEG）、字节技术博客 |
+| **Spring Alibaba AI** | `spring-ai-alibaba`、Graph Core、ReactAgent/DataAgent、与 Spring Boot/Spring AI 集成、java2ai 文档导读 | **阿里云开发者社区**、阿里技术（102.alibaba.com）、语雀·阿里技术干货、掘金 |
+
+区分说明：
+
+- **Spring AI** 与 **Spring Alibaba AI** 分开记录；后者优先 `developer.aliyun.com`、`102.alibaba.com`、语雀阿里技术。
+- **Code Graph** 指代码库结构图谱工具（如 CodeGraph、Codebase-Memory），不要与 Spring AI Alibaba 的 **Graph 工作流引擎**混淆；若同一篇文章同时涉及，拆成两行或注明双重归属。
+- 固定来源外内容不得常规收录；用户补漏例外仍适用。
+
 ## 推荐检索步骤
 
 对每个日期执行：
 
 1. 按固定来源分组检索，每组使用 `site:` 查询或来源名称 + 日期组合查询。
 2. 至少覆盖阿里、腾讯、字节、百度、美团、京东、滴滴、网易、360、有赞 10 个公司/组织维度。
-3. 对高价值或不确定结果，必须用 WebFetch 打开原文核验标题、发布时间、作者/团队、正文技术含量和链接。
-4. 建立去重后的来源列表，记录来源名称、标题、URL、发布日期/更新时间、主题、可信度、研发/学习价值。
-5. 不要按 URL 逐篇机械罗列；先融合信息，再按统一脉络生成当天知识库日报。
+3. 对 **Langfuse**、**LangChain/LangGraph**、**Code Graph**、**Spring Alibaba AI** 四个专项主题，在固定来源内各至少执行 1 组 `site:` 或来源名 + 日期检索（即使无结果也要记录）。
+4. 对高价值或不确定结果，必须用 WebFetch 打开原文核验标题、发布时间、作者/团队、正文技术含量和链接。
+5. 建立去重后的来源列表，记录来源名称、标题、URL、发布日期/更新时间、主题、可信度、研发/学习价值。
+6. 不要按 URL 逐篇机械罗列；先融合信息，再按统一脉络生成当天知识库日报。
 
 在完成所有待写入日期章节并成功保存 `knowledge-base-digest.md` 与状态之后；若将只输出「本次无新资讯」，在输出该行**之前**：必须在同一次会话内执行仓库根命令 `python tools/update_github_topz.py`（说明见「GitHub star 前十」），刷新 `dailyReport/github-topz.md`。
 
@@ -189,6 +214,15 @@ python tools/update_github_topz.py
 - `site:blogs.360.cn "YYYY-MM-DD" 安全 OR 漏洞`
 - `site:tech.youzan.com "YYYY-MM-DD"`
 - `"Tencent_TEG" "YYYY-MM-DD" 技术`
+- `site:developer.aliyun.com "YYYY-MM-DD" "Spring AI Alibaba" OR spring-ai-alibaba OR java2ai`
+- `site:developer.aliyun.com "YYYY-MM-DD" Langfuse OR "LLM 可观测" OR "链路追踪"`
+- `site:102.alibaba.com "YYYY-MM-DD" Spring AI OR Agent OR Graph`
+- `site:juejin.cn "YYYY-MM-DD" Langfuse OR LangChain OR LangGraph`
+- `site:juejin.cn "YYYY-MM-DD" "Code Graph" OR "代码知识图谱" OR codegraph OR Tree-sitter`
+- `site:juejin.cn "YYYY-MM-DD" spring-ai-alibaba OR "Spring AI Alibaba"`
+- `site:cloud.tencent.com/developer "YYYY-MM-DD" LangChain OR Langfuse OR "代码图谱"`
+- `site:tech.meituan.com "YYYY-MM-DD" LangChain OR 可观测性 OR Agent`
+- `site:techblog.toutiao.com "YYYY-MM-DD" LangChain OR Agent OR RAG`
 
 ## 质量控制与查漏补缺
 
@@ -196,11 +230,12 @@ python tools/update_github_topz.py
 
 1. 检查是否只引用固定来源清单中的站点或公众号标识。
 2. 检查是否覆盖至少 10 个公司/组织维度；若无结果，也要在总结中说明已检索但未发现可核验更新。
-3. 检查每条“重要文章与更新”是否包含标题、链接、日期、来源、主题和研发/学习价值。
-4. 检查来源清单表格是否包含所有正文引用来源，且日期字段标注准确。
-5. 检查是否存在同一文章重复列出；如果重复，合并为一条并保留最权威来源。
-6. 若可靠来源少于 3 个，扩大到固定来源内的相邻日期、中国时间窗口传播和站内搜索，但必须标注日期关系。
-7. 如果某天没有新内容，仍要说明覆盖了哪些固定来源维度。
+3. 检查专项主题 **Langfuse**、**LangChain/LangGraph**、**Code Graph**、**Spring Alibaba AI** 是否在固定来源内均已检索并有结论。
+4. 检查每条“重要文章与更新”是否包含标题、链接、日期、来源、主题和研发/学习价值。
+5. 检查来源清单表格是否包含所有正文引用来源，且日期字段标注准确。
+6. 检查是否存在同一文章重复列出；如果重复，合并为一条并保留最权威来源。
+7. 若可靠来源少于 3 个，扩大到固定来源内的相邻日期、中国时间窗口传播和站内搜索，但必须标注日期关系。
+8. 如果某天没有新内容，仍要说明覆盖了哪些固定来源维度与四个专项主题。
 
 ## 日期章节模板
 
@@ -218,6 +253,7 @@ python tools/update_github_topz.py
 | 检索范围 | [列出已检索的固定来源维度] |
 | 核心趋势 | [2-4 个融合后的技术趋势] |
 | 可直接关注 | [对研发/学习/架构/治理最有价值的方向] |
+| 专项检索结论 | [Langfuse/LangChain·LangGraph/Code Graph/Spring Alibaba AI 在固定来源内的检索结论] |
 | 未发现更新 | [列出已检索但未发现可核验更新的来源维度] |
 
 ### 重要文章与更新
@@ -234,7 +270,7 @@ python tools/update_github_topz.py
 
 ### 工程实践归纳
 
-**总体判断**：[用 1 句话总结当天工程实践变化。]
+**总体判断**：[用 1 句话总结当天工程实践变化；须涵盖 Langfuse/LangChain/Code Graph/Spring Alibaba AI 中当日有信号的方向，无则明确写「未发现可核验更新」。]
 
 | 主题 | 进展 | 工程启发 |
 | --- | --- | --- |
@@ -264,7 +300,7 @@ python tools/update_github_topz.py
 
 ### 今日总览
 
-本次按 Asia/Shanghai 的 YYYY-MM-DD 00:00:00 到 23:59:59 检索固定知识库来源，未发现可确认属于该日期且具备可靠出处的重大技术更新。
+本次按 Asia/Shanghai 的 YYYY-MM-DD 00:00:00 到 23:59:59 检索固定知识库来源，并专项检索 Langfuse、LangChain/LangGraph、Code Graph、Spring Alibaba AI，未发现可确认属于该日期且具备可靠出处的重大技术更新。
 
 ### 重要文章与更新
 
@@ -295,8 +331,11 @@ python tools/update_github_topz.py
 
 ## Markdown 写入规则
 
-1. 确保日报目录存在。
-2. 如果日报文件不存在，创建并写入：
+对每个成功生成的目标日期 `YYYY-MM-DD`：
+
+1. 计算 `YYYYMM = YYYY` + `MM`（去掉日期中的连字符取前 6 位）。
+2. 归档路径：`dailyReport/knowledge-base-news/{YYYYMM}.md`；滚动入口：`dailyReport/knowledge-base-news/knowledge-base-digest.md`。
+3. 若 `{YYYYMM}.md` 不存在，创建并写入与滚动入口相同的文件头：
 
 ```markdown
 # Knowledge Base Digest
@@ -304,11 +343,14 @@ python tools/update_github_topz.py
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 ```
 
-3. 每个日期章节标题必须精确为 `## YYYY-MM-DD`。
-4. 如果目标日期章节已存在，覆盖该章节，从该标题开始到下一个 `## YYYY-MM-DD` 标题前结束。
-5. 如果目标日期章节不存在，追加到文件末尾。
-6. 写入多个日期后，确保所有 `## YYYY-MM-DD` 日期章节按日期倒序排列，最新日期必须最靠前。
-7. 不要删除文件顶部标题和非日期说明内容。
+4. 若 `knowledge-base-digest.md` 不存在，同样创建并写入上述文件头。
+5. 每个日期章节标题必须精确为 `## YYYY-MM-DD`。
+6. **双写**：将完整日期章节**同时**写入 `{YYYYMM}.md` 与 `knowledge-base-digest.md`（内容一致）。
+7. 若目标日期章节已存在于任一文件，覆盖该章节，从该 `## YYYY-MM-DD` 起到下一个 `## YYYY-MM-DD` 前结束（`force=true` 时同样覆盖）。
+8. 若章节不存在，插入到文件内**日期倒序**位置（最新日期最靠前）；也可写入后全文件重排倒序。
+9. 写入完成后，**修剪 `knowledge-base-digest.md`**：仅保留 `YYYY-MM` 与本次成功写入日期所属月份相同的章节。
+10. `{YYYYMM}.md` 内只保留该自然月日期的章节。
+11. 不要删除各文件顶部标题与说明段。
 
 ## 状态更新规则
 
@@ -326,7 +368,7 @@ python tools/update_github_topz.py
 完成后简要告知用户：
 
 - 处理了哪些日期。
-- 写入或覆盖了哪个 Markdown 文件（含 `dailyReport/github-topz.md` 是否已更新）。
+- 写入或覆盖了哪些 Markdown 文件：**当月归档 `YYYYMM.md`** 与 **滚动入口 `knowledge-base-digest.md`**（均给出完整相对路径），以及 `dailyReport/github-topz.md` 是否已更新。
 - 状态文件已更新。
 
 指定日期重复时，唯一输出必须是：
