@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="每日新闻" />
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="feat(dailyReport): 添加2026年7月AI日报和知识库日报&#10;&#10;- 新增 ai-daily-news/202607.md 文件，包含2026-07-01 AI日报&#10;- 新增 knowledge-base-news/202607.md 文件，包含2026-07-01 知识库日报&#10;- 更新 ai-daily-digest.md 文件，同步2026-07-01 AI日报内容&#10;- 更新 ai-daily-state.json 状态文件，将最后处理日期推进至2026-07-01" />
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,14 +265,7 @@
       <workItem from="1782694098694" duration="746000" />
       <workItem from="1782780626561" duration="174000" />
       <workItem from="1782869913232" duration="57000" />
-    </task>
-    <task id="LOCAL-00006" summary="feat(knowledge-base): 添加 GitHub star 排行榜功能&#10;&#10;- 在知识库摘要流程中集成 GitHub 按 star 排序的前十名仓库统计&#10;- 新增 dailyReport/github-topz.md 文件用于存储排行榜数据&#10;- 添加 update_github_topz.py 工具脚本实现排行榜自动更新&#10;- 修改 dual-digest-on-pull 规则文档说明双 digest 流程变更&#10;- 在知识库摘要技能文档中添加 GitHub star 十强相关说明&#10;- 实现排行榜数据与历史数据的合并排序逻辑&#10;- 添加上海时区的时间戳记录每次更新时间">
-      <option name="closed" value="true" />
-      <created>1778760704479</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1778760704479</updated>
+      <workItem from="1782954756131" duration="2221000" />
     </task>
     <task id="LOCAL-00007" summary="教学进度">
       <option name="closed" value="true" />
@@ -658,7 +651,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782780785262</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="feat(dailyReport): 添加2026年7月AI日报和知识库日报&#10;&#10;- 新增 ai-daily-news/202607.md 文件，包含2026-07-01 AI日报&#10;- 新增 knowledge-base-news/202607.md 文件，包含2026-07-01 知识库日报&#10;- 更新 ai-daily-digest.md 文件，同步2026-07-01 AI日报内容&#10;- 更新 ai-daily-state.json 状态文件，将最后处理日期推进至2026-07-01">
+      <option name="closed" value="true" />
+      <created>1782956947727</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1782956947729</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -676,7 +677,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Hypothetical Document Embeddings解释" />
     <MESSAGE value="Ragas框架介绍" />
     <MESSAGE value="向量搜索阈值区别" />
     <MESSAGE value="Spring AI记忆存储方式" />
@@ -701,7 +701,8 @@
     <MESSAGE value="移除story内容" />
     <MESSAGE value="0628" />
     <MESSAGE value="feat(dailyReport): 更新 AI 日报和 GitHub 热门项目至 2026-06-29&#10;&#10;- 添加 2026-06-29 AI 每日摘要，涵盖 Anthropic、Google Gemini、Pocket 等重要进展&#10;- 更新 ai-daily-state.json 同步日期和处理状态至 2026-06-29&#10;- 更新 github-topz.md 的热门仓库排名和 trending 榜单数据&#10;- 新增多个值得关注的 AI 相关 GitHub 仓库，包括 agency-agents、soxoj/maigret 等&#10;- 更新 MCP 相关技术进展和 Claude Code 等专项检索结论" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(dailyReport): 更新 AI 日报和 GitHub 热门项目至 2026-06-29&#10;&#10;- 添加 2026-06-29 AI 每日摘要，涵盖 Anthropic、Google Gemini、Pocket 等重要进展&#10;- 更新 ai-daily-state.json 同步日期和处理状态至 2026-06-29&#10;- 更新 github-topz.md 的热门仓库排名和 trending 榜单数据&#10;- 新增多个值得关注的 AI 相关 GitHub 仓库，包括 agency-agents、soxoj/maigret 等&#10;- 更新 MCP 相关技术进展和 Claude Code 等专项检索结论" />
+    <MESSAGE value="feat(dailyReport): 添加2026年7月AI日报和知识库日报&#10;&#10;- 新增 ai-daily-news/202607.md 文件，包含2026-07-01 AI日报&#10;- 新增 knowledge-base-news/202607.md 文件，包含2026-07-01 知识库日报&#10;- 更新 ai-daily-digest.md 文件，同步2026-07-01 AI日报内容&#10;- 更新 ai-daily-state.json 状态文件，将最后处理日期推进至2026-07-01" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(dailyReport): 添加2026年7月AI日报和知识库日报&#10;&#10;- 新增 ai-daily-news/202607.md 文件，包含2026-07-01 AI日报&#10;- 新增 knowledge-base-news/202607.md 文件，包含2026-07-01 知识库日报&#10;- 更新 ai-daily-digest.md 文件，同步2026-07-01 AI日报内容&#10;- 更新 ai-daily-state.json 状态文件，将最后处理日期推进至2026-07-01" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ai_for_learing$vanilla_rnn_numpy_demo.coverage" NAME="vanilla_rnn_numpy_demo Coverage Results" MODIFIED="1778826911757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ai-learning/07-cnn-rnn-transformer-intro/scripts" />
