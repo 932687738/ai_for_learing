@@ -2,6 +2,156 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-07-04
+
+### 今日总览
+
+**一句话结论**：`2026-07-04` 是 **「Leanstral 1.5 形式化 Agent 全面开源 + 阿里禁用 Claude Code + 版权诉讼倒逼 AI 使用披露」**——Mistral **Leanstral 1.5** 获 **The Decoder/TestingCatalog** 等 **7/4** 深度解读；**阿里巴巴** 据报 **7/10 起** 禁员工使用 **Claude Code** 改推 **Qoder**；**Midjourney** 诉 Hollywood 要求披露 **内部 generative AI** 用法。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | TechCrunch 7/4；Mistral 官方（**7/2** 相邻）；The Decoder/TestingCatalog；专项工具链 |
+| 核心趋势 | **形式化 proof agent 产品化**：Lean 4 **587/672 PutnamBench** + **真实 bug** 发现；**地缘/合规工具链**：中国大厂 **Claude Code 退场** 与 Anthropic **distillation 反滥用**；**版权 discovery**：studio **内部 AI 训练/使用** 成诉讼焦点 |
+| 可直接关注 | 形式化/安全团队试用 **leanstral-1-5** 免费 API；在华企业评估 **Qoder/国产 Agent** 替代 **Claude Code**；内容/法务关注 **Midjourney discovery** 对 **内部 AI 文档** 的示范效应 |
+| 专项检索结论 | **Claude Code**：无 **7/4** 新 GitHub release（最近 **v2.1.201 为 7/3**）；**Codex**：无 **7/4** release；**OpenClaw**：无 **7/4** release；**Hermes**：无 **7/4** release；**Spring AI / Spring Alibaba AI**：无 **7/4** release；**Langfuse / LangChain / Code Graph**：无 **7/4** release（Code Graph **Medium 7/4** 相邻解读）；**skills**：Leanstral **proof agent** 与 Midjourney **prompt/output 披露** 争点 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Mistral / 形式化 | [Leanstral 1.5: Proof Abundance（官方）](https://mistral.ai/news/leanstral-1-5/) | **2026-07-02**（**7/4** 媒体续传） | 官方发布 | **Apache-2.0**；**labs-leanstral-1-5** 免费 API；**119B/6B active**；**57 仓库扫出 5 bug** |
+| Mistral / 形式化 | [Leanstral 1.5（The Decoder）](https://the-decoder.com/mistrals-open-source-leanstral-1-5-aces-formal-math-benchmarks-and-catches-real-bugs-in-code/) | **2026-07-04** | 技术媒体 | **miniF2F 100%**；**FATE-H 87% / FATE-X 34%**；Rust **varinteger** overflow 案例 |
+| Mistral / 形式化 | [Leanstral 1.5 open model（TestingCatalog）](https://www.testingcatalog.com/mistral-releases-leanstral-1-5-open-model-for-proof-engineering/) | **2026-07-04** | 技术媒体 | **256k context**；Labs **2026-09-30 退役** 时间表；替换 **leanstral-2603** |
+| 企业合规 | [Alibaba bans Claude Code（TechCrunch）](https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/) | **2026-07-04** | 产业/合规 | **7/10** 起禁 **Claude Code**；改 **Qoder**；Anthropic **distillation/reseller** 反滥用背景 |
+| 版权 / 诉讼 | [Midjourney vs Hollywood AI disclosure（TechCrunch）](https://techcrunch.com/2026/07/04/midjourney-wants-hollywood-studios-to-reveal-the-details-of-their-ai-usage/) | **2026-07-04** | 政策/法律 | 要求披露 **内部 storyboard/ideation AI** 与 **全部 prompts/outputs** |
+| Code Graph | [Inside CodeGraph（Medium）](https://ai.plainenglish.io/inside-codegraph-how-ai-coding-agents-understand-million-line-codebases-without-reading-every-file-66b069215c00) | **2026-07-04**（相邻日期/中国时间窗口传播） | 技术媒体 | 本地 **knowledge graph** 降 token；支持 **Claude Code/Cursor/Hermes** 等 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Lean 4 Agent | **Mistral Leanstral 1.5 官方 + TestingCatalog** | **Mistral Vibe**、`/leanstral`、Lean LSP MCP | 形式化/证明工程师 |
+| 企业工具链 | **TechCrunch 阿里 Claude Code 禁令** | **Qoder** 替代、跨境 **OAuth/distillation** 风险 | 在华研发管理 |
+| 版权 discovery | **Midjourney 诉讼报道** | **consumer-facing vs internal AI** 证据边界 | 法务/内容团队 |
+| Code Graph | **Inside CodeGraph 文** | 预索引图谱 vs 每 session 重发现 | 大仓 Agent 架构 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：7/4 主线是 **「形式化 Agent 开源可达 + 跨境 Coding Agent 合规收紧 + 生成式 AI 使用透明化诉讼」**——Leanstral 把 **proof engineering** 拉到免费 API；阿里案例说明 **frontier 工具 + 地缘合规** 已进入 **IT 采购清单**；Midjourney 争 **internal AI** 披露，影响 **训练数据/工具链审计** 标准。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 形式化 Agent | **Leanstral 1.5** 7/4 媒体深读 | **Lean 4 + code agent env** 可接 **SafeVerify** 流水线 |
+| 跨境合规 | **阿里禁 Claude Code** | 企业需 **approved tool list** + **国产 Agent IDE** 双轨 |
+| 版权诉讼 | **Midjourney discovery 扩面** | 内部 **storyboard AI** 亦可能构成 **industry custom** 证据 |
+| Claude Code | 无 **7/4** release | 维持 **7/3 Manual** 升级节奏 |
+| Codex/OpenClaw/Hermes | 无 **7/4** release | 无变更 |
+| Langfuse/LangChain/Spring | 无 **7/4** release | 跟踪 **7/3 Langfuse v3.205.0** 即可 |
+| Code Graph | **Medium 7/4 解读** | 多 Agent 共用 **repo-local index** 仍是降本主线 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Leanstral 1.5 官方 + The Decoder 7/4** | 当日 **形式化 Agent** 最完整叙事 |
+| 必读 | **TechCrunch：阿里 Claude Code 禁令** | **7/10 deadline** 的企业工具链样本 |
+| 推荐 | **Midjourney Hollywood discovery** | **internal vs consumer AI** 法律边界 |
+| 延伸 | **Inside CodeGraph** | 大仓 Agent **context layer** 工程对照 |
+
+### 来源清单
+
+- 检索范围：2026-07-04 00:00:00 到 2026-07-04 23:59:59（Asia/Shanghai）
+- 引用域名：mistral.ai, the-decoder.com, testingcatalog.com, techcrunch.com, ai.plainenglish.io
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Leanstral 1.5 | 2026-07-02（7/4 续传） | https://mistral.ai/news/leanstral-1-5/ |
+| 技术媒体 | Leanstral 1.5 The Decoder | 2026-07-04 | https://the-decoder.com/mistrals-open-source-leanstral-1-5-aces-formal-math-benchmarks-and-catches-real-bugs-in-code/ |
+| 技术媒体 | Leanstral 1.5 TestingCatalog | 2026-07-04 | https://www.testingcatalog.com/mistral-releases-leanstral-1-5-open-model-for-proof-engineering/ |
+| 产业 | Alibaba bans Claude Code | 2026-07-04 | https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/ |
+| 法律 | Midjourney Hollywood AI usage | 2026-07-04 | https://techcrunch.com/2026/07/04/midjourney-wants-hollywood-studios-to-reveal-the-details-of-their-ai-usage/ |
+| 技术媒体 | Inside CodeGraph | 2026-07-04（相邻） | https://ai.plainenglish.io/inside-codegraph-how-ai-coding-agents-understand-million-line-codebases-without-reading-every-file-66b069215c00 |
+
+## 2026-07-03
+
+### 今日总览
+
+**一句话结论**：`2026-07-03` 是 **「Claude Code Manual 权限语义 + Langfuse v4 会话 UI + 机器人/Agent 技能库 ASPIRE + 35B Agents-A1 开源活跃」**——**Claude Code v2.1.200/201** 连更；**Langfuse v3.205.0** 强化 trace 图与会话视图；**NVIDIA ASPIRE** 机器人技能库论文传播；**上海 AI Lab Agents-A1** 仓库持续更新；**Mistral Leanstral 1.5** 媒体续传（官方 **7/2**）。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | GitHub release；NVIDIA/Mistral/上海 AI Lab；MarkTechPost/TechCrunch；专项工具链 |
+| 核心趋势 | **Coding Agent 体验细化**：CC **default→Manual**、对话框不再自动继续；**LLMOps UI 迭代**：Langfuse **v4 sessions** + **widget MCP**；**Agent 技能复利**：ASPIRE **31% zero-shot** 长任务；**Horizon scaling**：35B **Agents-A1** 对标万亿级 Agent 表现 |
+| 可直接关注 | 升级 **Claude Code ≥2.1.200** 并检查 **permission mode** 配置；评估 **Langfuse v3.205.0** trace 图与 **Parquet export**；机器人/具身团队跟踪 **ASPIRE** 开源计划 |
+| 专项检索结论 | **Claude Code**：**v2.1.200**（**Published 2026-07-03T16:52:33Z**）+ **v2.1.201**（**23:50:35Z**）；**Codex**：**0.143.0-alpha.35**（**Published 2026-07-03T02:33:31Z**）；**OpenClaw**：无 **7/3** 新 release（**2026.7.1-beta.1 为 7/2**）；**Hermes**：无 **7/3** release；**Spring AI / Spring Alibaba AI**：无 **7/3** release；**Langfuse**：**v3.205.0**（**Published 2026-07-03T17:20:56Z**）；**LangChain/LangGraph**：无 **7/3** release；**Code Graph**：无 **7/3** release（社区解读 **7/3~7/4** 相邻传播）；**skills**：ASPIRE **机器人 skill library** 论文主线 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Claude Code | [Claude Code v2.1.200](https://github.com/anthropics/claude-code/releases/tag/v2.1.200) | **2026-07-03** | 开源发布 | **default→Manual** 权限模式；**AskUserQuestion** 不再自动继续；background session/daemon 多项修复 |
+| Claude Code | [Claude Code v2.1.201](https://github.com/anthropics/claude-code/releases/tag/v2.1.201) | **2026-07-03** | 开源发布 | **Sonnet 5** 会话移除 mid-conversation **harness reminders** system role |
+| Codex | [Codex 0.143.0-alpha.35](https://github.com/openai/codex/releases/tag/rust-v0.143.0-alpha.35) | **2026-07-03** | 开源预发布 | alpha 线常规迭代 |
+| Langfuse | [Langfuse v3.205.0](https://github.com/langfuse/langfuse/releases/tag/v3.205.0) | **2026-07-03** | 开源发布 | **v4 sessions View**、filter sidebar rail、**widget MCP/API**、trace graph 抛光、**Parquet export** |
+| NVIDIA / 具身 | [ASPIRE: Agentic Skills Discovery for Robotics（NVIDIA GEAR）](https://research.nvidia.com/labs/gear/aspire/) | **2026-06-29~07-03**（相邻日期/中国时间窗口传播） | 论文/研究 | **skill library** 持续学习；**LIBERO-Pro Long 31% zero-shot**；handover **20%→92%** |
+| 论文 | [ASPIRE arXiv:2607.00272](https://arxiv.org/html/2607.00272v1) | **2026-07-03**（MarkTechPost 报道） | 论文原文 | 多机构 **code-as-policy** 机器人 Agent；**CaP-Agent0** 对照 |
+| 开源 Agent 模型 | [InternScience/Agents-A1（GitHub）](https://github.com/InternScience/Agents-A1) | **2026-06-26~07-03**（仓库 **Last push 2026-07-03**） | 开源发布 | **35B MoE**；**45K token** 平均轨迹；**六域 multi-teacher OPD** |
+| Mistral / 形式化 | [Leanstral 1.5（Mistral 官方）](https://mistral.ai/news/leanstral-1-5/) | **2026-07-02**（相邻日期/中国时间窗口传播） | 官方发布 | **587/672 PutnamBench**；**Apache-2.0**；**119B MoE / 6B active** |
+| Mistral / 形式化 | [Leanstral 1.5（MarkTechPost）](https://www.marktechpost.com/2026/07/03/mistral-ai-releases-leanstral-1-5-an-apache-2-0-lean-4-code-agent-model-solving-587-of-672-putnambench-problems/) | **2026-07-03** | 技术媒体 | **miniF2F 100%**；**5 个真实仓库 bug** 发现叙事 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Claude Code 权限 | **v2.1.200 release** | **Manual** 模式、`/config` idle timeout | 终端 Agent 日常用户 |
+| Langfuse 会话 | **v3.205.0 release** | v4 sessions、widget MCP、metadata 搜索建议 | LLMOps/Agent 运维 |
+| 机器人 Agent | **ASPIRE 论文 + NVIDIA 页** | multimodal traces、skill distillation | 具身/机器人研发 |
+| 长程 Agent 模型 | **Agents-A1 技术报告** | horizon scaling、domain-routed OPD | Agent 训练/评测 |
+| 形式化证明 | **Leanstral 1.5 官方文** | Lean 4 agent、CISPO RL、code verification | 形式化/安全关键代码 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：7/3 呈现 **「终端 Agent 权限语义清晰化 + 观测平台 UI/MCP 加厚 + 机器人/数学 Agent 技能复利」**——Claude Code 把 **Manual** 命名落地；Langfuse 向 **v4 会话与 widget** 演进；ASPIRE 与 Leanstral 分别代表 **物理世界 skill library** 与 **形式化 proof agent** 两条 Agent 深化路径。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Claude Code | **v2.1.200 Manual + 对话框 hold** | 人机协同 Agent 应 **显式等待用户**；background session 需 **daemon 版本时间戳** 防回滚劫持 |
+| Langfuse | **v3.205.0** sessions/graph/widget | 观测栈从 trace 列表 → **会话级 View + MCP widget 创建** |
+| Codex | **0.143.0-alpha.35** | alpha 跟进前在 staging 验证 |
+| ASPIRE | **机器人 skill library** | **validated fix → reusable skill** 模式可映射到软件 Agent **playbook** |
+| Agents-A1 | **35B horizon scaling** | 长轨迹 **45K tokens** 训练 infra 比纯参数量更关键 |
+| Leanstral | **Lean 4 proof agent** | 形式化验证 Agent 可 **catch real bugs**（varinteger overflow 等） |
+| OpenClaw | 无 **7/3** tag | 继续跟踪 **7.1-beta.1** attach/Telegram Codex |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Claude Code v2.1.200** | **Manual 权限 + 对话框行为** 当日最可核验 CC 变更 |
+| 必读 | **Langfuse v3.205.0** | **v4 sessions + widget MCP** 工程信号 |
+| 推荐 | **ASPIRE 论文** | **skill library + zero-shot 31%** 具身 Agent 样本 |
+| 推荐 | **Agents-A1 GitHub/报告** | **35B vs 万亿参数** horizon scaling 一手材料 |
+| 延伸 | **Leanstral 1.5** | 形式化 **proof engineering** 开源标杆 |
+
+### 来源清单
+
+- 检索范围：2026-07-03 00:00:00 到 2026-07-03 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, research.nvidia.com, arxiv.org, mistral.ai, marktechpost.com, internscience.github.io
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Claude Code v2.1.200 | 2026-07-03 | https://github.com/anthropics/claude-code/releases/tag/v2.1.200 |
+| 开源发布 | Claude Code v2.1.201 | 2026-07-03 | https://github.com/anthropics/claude-code/releases/tag/v2.1.201 |
+| 开源发布 | Codex 0.143.0-alpha.35 | 2026-07-03 | https://github.com/openai/codex/releases/tag/rust-v0.143.0-alpha.35 |
+| 开源发布 | Langfuse v3.205.0 | 2026-07-03 | https://github.com/langfuse/langfuse/releases/tag/v3.205.0 |
+| 论文原文 | ASPIRE arXiv | 2026-07-03（报道） | https://arxiv.org/html/2607.00272v1 |
+| 官方研究 | NVIDIA ASPIRE | 2026-06-29~07-03（相邻） | https://research.nvidia.com/labs/gear/aspire/ |
+| 开源发布 | Agents-A1 | 2026-07-03（push） | https://github.com/InternScience/Agents-A1 |
+| 官方发布 | Leanstral 1.5 | 2026-07-02（相邻） | https://mistral.ai/news/leanstral-1-5/ |
+| 技术媒体 | Leanstral 1.5 MarkTechPost | 2026-07-03 | https://www.marktechpost.com/2026/07/03/mistral-ai-releases-leanstral-1-5-an-apache-2-0-lean-4-code-agent-model-solving-587-of-672-putnambench-problems/ |
+
 ## 2026-07-02
 
 ### 今日总览
