@@ -2,6 +2,75 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-07-05
+
+### 今日总览
+
+**一句话结论**：`2026-07-05` 是 **「OpenClaw 7.1-beta.2 平台大版本 + Mechanical Turk 标注平台退场 + GPT-5.6 宽发布窗口临近」**——**OpenClaw 2026.7.1-beta.2**（**Published 2026-07-05T09:10:09Z**）集中交付 **GPT-5.6 / attach / ClawRouter / 原生 App**；**Amazon Mechanical Turk** 宣布 **7/30** 起不再接受新客户；媒体汇总 **GPT-5.6 Sol/Terra/Luna** 政府审查后 **GA 窗口**（**6/26 受限预览** 相邻传播）。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenClaw GitHub release；TechCrunch 7/5；GPT-5.6/Claude Science 相邻传播；专项工具链 |
+| 核心趋势 | **自托管 Agent 平台化**：OpenClaw **455 PR** 级 beta 覆盖 **路由/多通道/移动端**；**人类标注供应链收缩**：MTurk **停纳新客** 与 **LLM 自标注** 讽刺闭环；**frontier 发布节奏**：GPT-5.6 **~20 伙伴预览** 后 **mid-July GA** 预期 |
+| 可直接关注 | 自托管栈评估 **OpenClaw 7.1-beta.2**（**Node 22/24**）；数据团队规划 **MTurk 替代标注** 管线；跟踪 **GPT-5.6 Terra 2× 定价** 对 Agent 路由的影响 |
+| 专项检索结论 | **Claude Code**：无 **7/5** 新 release（最新 **v2.1.201 为 7/3**）；**Codex**：无 **7/5** release；**OpenClaw**：**2026.7.1-beta.2**（**Published 2026-07-05**）；**Hermes**：无 **7/5** release；**Spring AI / Spring Alibaba AI**：无 **7/5** release；**Langfuse**：无 **7/5** release；**LangChain/LangGraph**：无 **7/5** release；**Code Graph**：无 **7/5** release；**skills**：OpenClaw **ClawRouter** 与 Claude Science **60+ skills**（**6/30** 相邻） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| OpenClaw / 发布 | [openclaw 2026.7.1-beta.2](https://github.com/openclaw/openclaw/releases/tag/v2026.7.1-beta.2) | **2026-07-05** | 开源预发布 | **GPT-5.6**、**openclaw attach**、**ClawRouter**、Telegram **Codex /login**、**on-exit cron**、iOS/Android/macOS 大更新 |
+| 数据 / 标注 | [Amazon MTurk stops new customers（TechCrunch）](https://techcrunch.com/2026/07/05/amazon-will-stop-accepting-new-customers-for-mechanical-turk/) | **2026-07-05** | 产业/基建 | **7/30/2026** 起停纳新客；2018 起 **SageMaker 标注** 叙事；**33–46% worker 用 LLM 完成任务**（2023 研究） |
+| OpenAI / 模型 | [GPT-5.6 preview & GA window（AIToolsRecap 7/5）](https://aitoolsrecap.com/Blog/ai-news-july-5-2026) | **2026-07-05**（相邻日期/中国时间窗口传播） | 技术媒体 | **Sol 96.7% Terminal-Bench 2.1** 叙事；**Terra 2× 低于 GPT-5.5 成本**；**6/26 政府限制 ~20 伙伴** 后 **mid-July GA** 预期 |
+| Anthropic / 垂直 | [Claude Science grant deadline（官方 6/30）](https://www.anthropic.com/news/claude-science-ai-workbench) | **2026-06-30**（**7/5 窗口传播**） | 官方产品 | **AI for Science** 项目申请 **至 7/15**；**$30K credits + Modal $2K** |
+| 企业合规 | [Alibaba Claude Code ban（TechCrunch 7/4）](https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/) | **2026-07-04**（**7/5 中国时间窗口传播**） | 产业/合规 | **7/10** 生效；改 **Qoder**；Anthropic **distillation 反滥用** 背景 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| OpenClaw 7.1-beta.2 | **GitHub release notes** | **ClawRouter**、**attach** harness、**Node 22/24** 要求 | 自托管 Gateway 运维 |
+| GPT-5.6 接入 | **OpenClaw Chronicles GPT-5.6** | **Sol/Terra/Luna** catalog、Codex OAuth、App Server | 有 preview 权限的团队 |
+| 标注供应链 | **TechCrunch MTurk 报道** | 停纳新客时间表、LLM 污染标注数据 | ML 数据工程 |
+| Claude Science | **Anthropic 官方 Science 页** | **7/15 申请截止**、BioNeMo skills | 生命科学研发 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：7/5 是 **「OpenClaw 平台 beta 大打包 + 人类标注平台边缘化 + frontier 模型 GA 倒计时」**——工程侧 **OpenClaw 7.1-beta.2** 把 **模型路由、外部 harness、移动端、Cron** 合成一次交付；产业侧 **MTurk** 退场提示 **RLHF/评测数据** 需新供给；**GPT-5.6 Terra** 定价叙事或重塑 **Agent 默认路由**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| OpenClaw | **2026.7.1-beta.2** | **ClawRouter** 动态模型发现 + 预算报告；**attach** 统一 Codex/Claude harness |
+| 多通道 Agent | **Telegram Codex /login**、iMessage polls | 多 IM 通道应统一 **steering + final-reply recovery** |
+| Cron | **on-exit** schedule | 用 **进程退出事件** 触发 Agent 比固定 cron 更贴近 CI/批任务 |
+| Claude Code | 无 **7/5** release | 维持 **7/3 Manual + v2.1.201** |
+| Codex/Hermes/Langfuse | 无 **7/5** release | 无变更 |
+| 数据标注 | **MTurk 停纳新客** | 评测/微调 pipeline 需 **LLM-judge + 合成数据** 替代方案 |
+| GPT-5.6 | **GA 窗口临近**（媒体 **7/5**） | 预备 **Terra 成本路由** 与 **Sol ultra** 质量档 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **OpenClaw 2026.7.1-beta.2 release** | 当日 **最可核验重大开源 Agent 平台** 更新 |
+| 必读 | **TechCrunch：Mechanical Turk 停纳新客** | **AI 标注供应链** 拐点信号 |
+| 推荐 | **AIToolsRecap 7/5 GPT-5.6 汇总** | **GA 窗口 + Terra 定价** 竞争对照 |
+| 延伸 | **Claude Science 7/15 申请** | 垂直 **workflow+skills** 资助样本 |
+
+### 来源清单
+
+- 检索范围：2026-07-05 00:00:00 到 2026-07-05 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, techcrunch.com, aitoolsrecap.com, anthropic.com, openclawchronicles.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | openclaw 2026.7.1-beta.2 | 2026-07-05 | https://github.com/openclaw/openclaw/releases/tag/v2026.7.1-beta.2 |
+| 技术媒体 | Amazon MTurk stops new customers | 2026-07-05 | https://techcrunch.com/2026/07/05/amazon-will-stop-accepting-new-customers-for-mechanical-turk/ |
+| 技术媒体 | AI News July 5 2026 | 2026-07-05 | https://aitoolsrecap.com/Blog/ai-news-july-5-2026 |
+| 官方产品 | Claude Science workbench | 2026-06-30（7/5 传播） | https://www.anthropic.com/news/claude-science-ai-workbench |
+| 产业 | Alibaba Claude Code ban | 2026-07-04（相邻） | https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/ |
+
 ## 2026-07-04
 
 ### 今日总览

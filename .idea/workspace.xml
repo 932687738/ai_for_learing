@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="feat(dailyReport): 添加2026年7月AI日报和知识库日报&#10;&#10;- 新增 ai-daily-news/202607.md 文件，包含2026-07-01 AI日报&#10;- 新增 knowledge-base-news/202607.md 文件，包含2026-07-01 知识库日报&#10;- 更新 ai-daily-digest.md 文件，同步2026-07-01 AI日报内容&#10;- 更新 ai-daily-state.json 状态文件，将最后处理日期推进至2026-07-01" />
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="chore(dailyReport): 更新每日报告状态和数据&#10;&#10;- 更新 ai-daily-state.json 中的最后同步日期到 2026-06-30&#10;- 在已处理日期列表中添加 2026-06-30&#10;- 更新 github-topz.md 的最新更新时间为 2026-07-01 09:18:28&#10;- 更新顶级仓库的 star 数量统计&#10;- 替换本周 trending 榜单中的仓库排名和数据&#10;- 替换本月 trending 榜单中的仓库排名和数据&#10;- 添加新的 trending 仓库如 hasaneyldrm/exercises-dataset 和 usestrix/strix 等">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,14 +268,8 @@
       <workItem from="1782780626561" duration="174000" />
       <workItem from="1782869913232" duration="57000" />
       <workItem from="1782954756131" duration="2221000" />
-    </task>
-    <task id="LOCAL-00007" summary="教学进度">
-      <option name="closed" value="true" />
-      <created>1778835959366</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1778835959366</updated>
+      <workItem from="1783218151866" duration="36000" />
+      <workItem from="1783299024821" duration="1208000" />
     </task>
     <task id="LOCAL-00008" summary="日常新闻摘要">
       <option name="closed" value="true" />
@@ -659,7 +655,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782956947729</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="chore(dailyReport): 更新每日报告状态和数据&#10;&#10;- 更新 ai-daily-state.json 中的最后同步日期到 2026-06-30&#10;- 在已处理日期列表中添加 2026-06-30&#10;- 更新 github-topz.md 的最新更新时间为 2026-07-01 09:18:28&#10;- 更新顶级仓库的 star 数量统计&#10;- 替换本周 trending 榜单中的仓库排名和数据&#10;- 替换本月 trending 榜单中的仓库排名和数据&#10;- 添加新的 trending 仓库如 hasaneyldrm/exercises-dataset 和 usestrix/strix 等">
+      <option name="closed" value="true" />
+      <created>1783213254008</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1783213254008</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -677,7 +681,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Ragas框架介绍" />
     <MESSAGE value="向量搜索阈值区别" />
     <MESSAGE value="Spring AI记忆存储方式" />
     <MESSAGE value="Spring AI智能体组件匹配顺序解析" />
@@ -702,7 +705,8 @@
     <MESSAGE value="0628" />
     <MESSAGE value="feat(dailyReport): 更新 AI 日报和 GitHub 热门项目至 2026-06-29&#10;&#10;- 添加 2026-06-29 AI 每日摘要，涵盖 Anthropic、Google Gemini、Pocket 等重要进展&#10;- 更新 ai-daily-state.json 同步日期和处理状态至 2026-06-29&#10;- 更新 github-topz.md 的热门仓库排名和 trending 榜单数据&#10;- 新增多个值得关注的 AI 相关 GitHub 仓库，包括 agency-agents、soxoj/maigret 等&#10;- 更新 MCP 相关技术进展和 Claude Code 等专项检索结论" />
     <MESSAGE value="feat(dailyReport): 添加2026年7月AI日报和知识库日报&#10;&#10;- 新增 ai-daily-news/202607.md 文件，包含2026-07-01 AI日报&#10;- 新增 knowledge-base-news/202607.md 文件，包含2026-07-01 知识库日报&#10;- 更新 ai-daily-digest.md 文件，同步2026-07-01 AI日报内容&#10;- 更新 ai-daily-state.json 状态文件，将最后处理日期推进至2026-07-01" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(dailyReport): 添加2026年7月AI日报和知识库日报&#10;&#10;- 新增 ai-daily-news/202607.md 文件，包含2026-07-01 AI日报&#10;- 新增 knowledge-base-news/202607.md 文件，包含2026-07-01 知识库日报&#10;- 更新 ai-daily-digest.md 文件，同步2026-07-01 AI日报内容&#10;- 更新 ai-daily-state.json 状态文件，将最后处理日期推进至2026-07-01" />
+    <MESSAGE value="chore(dailyReport): 更新每日报告状态和数据&#10;&#10;- 更新 ai-daily-state.json 中的最后同步日期到 2026-06-30&#10;- 在已处理日期列表中添加 2026-06-30&#10;- 更新 github-topz.md 的最新更新时间为 2026-07-01 09:18:28&#10;- 更新顶级仓库的 star 数量统计&#10;- 替换本周 trending 榜单中的仓库排名和数据&#10;- 替换本月 trending 榜单中的仓库排名和数据&#10;- 添加新的 trending 仓库如 hasaneyldrm/exercises-dataset 和 usestrix/strix 等" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore(dailyReport): 更新每日报告状态和数据&#10;&#10;- 更新 ai-daily-state.json 中的最后同步日期到 2026-06-30&#10;- 在已处理日期列表中添加 2026-06-30&#10;- 更新 github-topz.md 的最新更新时间为 2026-07-01 09:18:28&#10;- 更新顶级仓库的 star 数量统计&#10;- 替换本周 trending 榜单中的仓库排名和数据&#10;- 替换本月 trending 榜单中的仓库排名和数据&#10;- 添加新的 trending 仓库如 hasaneyldrm/exercises-dataset 和 usestrix/strix 等" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ai_for_learing$vanilla_rnn_numpy_demo.coverage" NAME="vanilla_rnn_numpy_demo Coverage Results" MODIFIED="1778826911757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ai-learning/07-cnn-rnn-transformer-intro/scripts" />
