@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="chore(dailyReport): 更新每日报告状态和数据&#10;&#10;- 更新 ai-daily-state.json 中的最后同步日期到 2026-06-30&#10;- 在已处理日期列表中添加 2026-06-30&#10;- 更新 github-topz.md 的最新更新时间为 2026-07-01 09:18:28&#10;- 更新顶级仓库的 star 数量统计&#10;- 替换本周 trending 榜单中的仓库排名和数据&#10;- 替换本月 trending 榜单中的仓库排名和数据&#10;- 添加新的 trending 仓库如 hasaneyldrm/exercises-dataset 和 usestrix/strix 等">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyReport/ai-daily-news/202607.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/ai-daily-news/202607.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-digest.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-digest.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-state.json" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-state.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyReport/github-topz.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/github-topz.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyReport/knowledge-base-news/202607.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/knowledge-base-news/202607.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-digest.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-digest.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-state.json" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-state.json" afterDir="false" />
     </list>
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
@@ -269,15 +276,8 @@
       <workItem from="1782869913232" duration="57000" />
       <workItem from="1782954756131" duration="2221000" />
       <workItem from="1783218151866" duration="36000" />
-      <workItem from="1783299024821" duration="1208000" />
-    </task>
-    <task id="LOCAL-00008" summary="日常新闻摘要">
-      <option name="closed" value="true" />
-      <created>1779066425266</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1779066425266</updated>
+      <workItem from="1783299024821" duration="18052000" />
+      <workItem from="1783386394662" duration="428000" />
     </task>
     <task id="LOCAL-00009" summary="日常新闻摘要">
       <option name="closed" value="true" />
@@ -663,7 +663,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783213254008</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="chore(dailyReport): 更新每日报告状态和数据&#10;&#10;- 更新 ai-daily-state.json 中的最后同步日期到 2026-06-30&#10;- 在已处理日期列表中添加 2026-06-30&#10;- 更新 github-topz.md 的最新更新时间为 2026-07-01 09:18:28&#10;- 更新顶级仓库的 star 数量统计&#10;- 替换本周 trending 榜单中的仓库排名和数据&#10;- 替换本月 trending 榜单中的仓库排名和数据&#10;- 添加新的 trending 仓库如 hasaneyldrm/exercises-dataset 和 usestrix/strix 等">
+      <option name="closed" value="true" />
+      <created>1783302408240</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1783302408241</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

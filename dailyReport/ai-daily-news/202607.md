@@ -2,6 +2,84 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-07-06
+
+### 今日总览
+
+**一句话结论**：`2026-07-06` 是 **「Claude J-space 全局工作区可解释性突破 + 伊利诺伊州 frontier 第三方审计立法 + 平台侧 LLM 攻防与数据治理」**——Anthropic 发布 **Global Workspace in Language Models**（**J-lens**、**Neuronpedia demo**）；**伊利诺伊 SB 315** 成法要求 **年度独立安全审计**；**Google** 默认用搜索媒体训练 AI（可 opt-out）；**Reddit** 用 **LLM 反 LLM 垃圾**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Anthropic 官方研究；TechCrunch/The Verge/Chicago Sun-Times；专项工具链 |
+| 核心趋势 | **可解释性进认知层**：**verbalizable representations / J-space** 可读写干预；**州法 frontier 审计**：伊利诺伊 **SB 315** 接棒 NY RAISE/CA SB 53；**平台治理**：用户数据默认入模 + **LLM 反垃圾** |
+| 可直接关注 | 研读 **transformer-circuits.pub/workspace** 与 **anthropics/jacobian-lens**；合规团队跟踪 **SB 315**（**2027-01-01** 生效）；检查 **Google Search Services History** 设置 |
+| 专项检索结论 | **Claude Code**：无 **7/6** 新 release（**#73829** 嵌套 background agent 问题 **7/6** 更新）；**Codex**：无 **7/6** release；**OpenClaw**：无 **7/6** 新 tag（**7.1-beta.2 为 7/5**）；**Hermes**：**MoA 2.0** **7/5~7/6** 媒体续传（官方 **6/26** 宣布）；**Spring AI / Spring Alibaba AI**：无 **7/6** release；**Langfuse**：无 **7/6** release；**LangChain/LangGraph**：无 **7/6** release；**Code Graph**：无 **7/6** release；**skills**：Claude Science **60+ skills**（**6/30** 相邻） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Anthropic / 研究 | [A global workspace in language models（官方）](https://www.anthropic.com/research/global-workspace) | **2026-07-06** | 官方研究 | **J-space** 特权可言语表征；**Jacobian lens** 读写；**Neuronpedia** 交互 demo |
+| 论文 | [Verbalizable Representations Form a Global Workspace（TCA）](https://transformer-circuits.pub/2026/workspace/index.html) | **2026-07-06** | 论文原文 | **access consciousness** 功能类比；silent reasoning / concept composition 实验 |
+| 开源 | [anthropics/jacobian-lens（GitHub）](https://github.com/anthropics/jacobian-lens) | **2026-07-06** | 开源代码 | 核心方法开源实现 |
+| 政策 / 监管 | [Illinois SB 315 AI Safety Measures Act 签署（官方）](https://gov-pritzker-newsroom.prezly.com/gov-pritzker-signs-nation-leading-artificial-intelligence-safety-law) | **2026-07-06** | 政策监管 | **首个州法要求年度第三方安全审计**；**$500M+ revenue frontier** 开发者 |
+| 政策 / 监管 | [Illinois AI safety bill is now law（The Verge）](https://www.theverge.com/ai-artificial-intelligence/961781/illinoiss-ai-safety-bill-is-now-law) | **2026-07-06** | 政策监管 | 接棒 **NY RAISE / CA SB 53**；**~40% 美国市场** 将受三州标准覆盖 |
+| 隐私 / 数据 | [Google Search 默认用媒体训练 AI（TechCrunch）](https://techcrunch.com/2026/07/06/if-you-use-google-youre-training-its-ai-heres-how-to-opt-out/) | **2026-07-06** | 产品/治理 | **Search Services History** 默认开启；媒体用于 **AI 模型与安全**；与 **Web & App Activity** 分离 |
+| 平台 / 治理 | [Reddit 用 LLM 反 LLM 垃圾（TechCrunch）](https://techcrunch.com/2026/07/06/reddit-is-using-llms-to-solve-a-problem-llms-largely-created/) | **2026-07-06** | 产业/安全 | **2300 万 spam views/日**；**LLM 抓协调假行为**；曝光 spam **-20%**（1–3 月） |
+| 基础设施 | [SK Hynix 美国 IPO（TechCrunch）](https://techcrunch.com/2026/07/06/us-investors-will-soon-get-access-to-sk-hynix-another-memory-maker-riding-the-ai-boom/) | **2026-07-06** | 产业/基建 | **~$28B** 募资叙事；**RAMageddon** HBM/DRAM 短缺；Q1 收入 **+200% YoY** |
+| Hermes / Agent | [Hermes MoA 2.0 媒体解读（TechTimes 7/5）](https://www.techtimes.com/articles/319754/20260705/hermes-moa-20-combines-gpt-claude-deepseek-outscore-any-one-model.htm) | **2026-07-05~06**（相邻日期/中国时间窗口传播） | 开源/Agent | **虚拟 model provider** ensemble；HermesBench **+11% vs GPT-5.5** 叙事 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| J-space 可解释性 | **Anthropic 官方 + TCA 论文** | **Jacobian lens**、verbalizable reps、干预实验 | 对齐/可解释性研发 |
+| 开源复现 | **jacobian-lens repo** | 核心方法实现 | 机制可解释性工程师 |
+| Illinois 合规 | **SB 315 签署文 + Verge** | 第三方审计、灾难性风险框架 | 合规/平台治理 |
+| Google 隐私 | **TechCrunch opt-out 指南** | Search Services History vs Web & App Activity | 个人/企业数据治理 |
+| Hermes MoA | **hermes-agent MoA 文档** | 虚拟 provider、aggregator/reference 模型 | 多模型编排 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：7/6 呈现 **「模型内部认知工作区可观测 + 州法审计制度化 + 平台 LLM 攻防常态化」**——J-space 研究把 **silent reasoning** 变成可干预对象；伊利诺伊法把 **frontier 安全** 从自愿送审推向 **强制审计**；Reddit 案例说明 **Agent/LLM 既是攻击面也是防御工具**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 可解释性 | **Anthropic Global Workspace** | **J-lens** 或可用于 **审计 hidden reasoning**、检测 **misalignment** |
+| 多模型 Agent | **Hermes MoA 2.0** 媒体续传 | **虚拟 model** ensemble 是 **受限 frontier** 的替代路由；注意 **token 倍增成本** |
+| Claude Code | **#73829** 嵌套 background agent（**7/6 更新**） | **PreToolUse hook** 阻止子 agent 再 spawn background；防 **orphan billing** |
+| 平台治理 | **Reddit LLM 反垃圾** | 内容平台需 **LLM-native abuse detection** + 人工复核 |
+| 数据合规 | **Google 默认训练** | RAG/搜索 Agent 需重新评估 **用户上传媒体** 许可链 |
+| Codex/OpenClaw/Langfuse/Spring | 无 **7/6** release | 无变更 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Anthropic Global Workspace + TCA 论文** | **7/6 最可核验重大研究** |
+| 必读 | **Illinois SB 315 签署** | **首个州法第三方 AI 审计** |
+| 推荐 | **TechCrunch：Google AI 训练 opt-out** | 默认入模对 **企业/个人** 数据策略的冲击 |
+| 推荐 | **TechCrunch：Reddit LLM 反垃圾** | **LLM 攻防** 平台实践样本 |
+| 延伸 | **SK Hynix IPO / RAMageddon** | **Agent 推理** 背后的 **HBM 供给** 约束 |
+
+### 来源清单
+
+- 检索范围：2026-07-06 00:00:00 到 2026-07-06 23:59:59（Asia/Shanghai）
+- 引用域名：anthropic.com, transformer-circuits.pub, github.com, techcrunch.com, theverge.com, gov-pritzker-newsroom.prezly.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方研究 | A global workspace in language models | 2026-07-06 | https://www.anthropic.com/research/global-workspace |
+| 论文原文 | Verbalizable Representations Global Workspace | 2026-07-06 | https://transformer-circuits.pub/2026/workspace/index.html |
+| 开源代码 | anthropics/jacobian-lens | 2026-07-06 | https://github.com/anthropics/jacobian-lens |
+| 政策监管 | Illinois SB 315 signed | 2026-07-06 | https://gov-pritzker-newsroom.prezly.com/gov-pritzker-signs-nation-leading-artificial-intelligence-safety-law |
+| 政策监管 | Illinois AI safety law Verge | 2026-07-06 | https://www.theverge.com/ai-artificial-intelligence/961781/illinoiss-ai-safety-bill-is-now-law |
+| 技术媒体 | Google training AI opt-out | 2026-07-06 | https://techcrunch.com/2026/07/06/if-you-use-google-youre-training-its-ai-heres-how-to-opt-out/ |
+| 技术媒体 | Reddit LLM anti-spam | 2026-07-06 | https://techcrunch.com/2026/07/06/reddit-is-using-llms-to-solve-a-problem-llms-largely-created/ |
+| 产业 | SK Hynix US IPO | 2026-07-06 | https://techcrunch.com/2026/07/06/us-investors-will-soon-get-access-to-sk-hynix-another-memory-maker-riding-the-ai-boom/ |
+| 技术媒体 | Hermes MoA 2.0 TechTimes | 2026-07-05（相邻） | https://www.techtimes.com/articles/319754/20260705/hermes-moa-20-combines-gpt-claude-deepseek-outscore-any-one-model.htm |
+
 ## 2026-07-05
 
 ### 今日总览
