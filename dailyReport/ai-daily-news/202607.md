@@ -2,6 +2,97 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-07-07
+
+### 今日总览
+
+**一句话结论**：`2026-07-07` 是 **「Meta Muse 自研多模态首发 + Anthropic Cowork 全端/政府版双轨扩张 + 巨头自研模型降本与地缘摩擦」**——Meta Superintelligence Labs 发布 **Muse Image** 并预览 **Muse Video**；Anthropic 同日推出 **Cowork 移动/网页** 与 **Claude for Government Desktop 公测（Code+Cowork）**；Microsoft 在 Office 中提高 **MAI 自研模型** 占比；**Alibaba** 因安全争议将 **Claude Code** 列入高风险软件（**7/10** 生效）。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Meta/Anthropic 官方；TechCrunch/The Verge/VentureBeat/CNBC；NVIDIA/Crusoe；GitHub release；专项工具链 |
+| 核心趋势 | **自研多模态**：Meta 用 **Muse** 替代第三方图像模型并接入 **Instagram @mention**；**知识工作 Agent 平台化**：Cowork **>90% 非编码**、**云端后台续跑**；**成本与主权**：Microsoft **MAI 替代第三方**、Alibaba **禁 Claude Code** |
+| 可直接关注 | 评估 **Muse Image** 的 **agentic tool use + Instagram 上下文** 对广告/UGC 合规影响；政府客户跟踪 **FedRAMP High Desktop** 的 **hash-chained audit log**；升级 **Claude Code v2.1.203** 修复 background agent 僵死 |
+| 专项检索结论 | **Claude Code**：**v2.1.203**（**Published: 2026-07-07T21:06Z**）修复 macOS 内存误判、background session 僵死、MCP roots；**Codex**：**0.143.0-alpha.38**（**2026-07-07T04:34Z**）；**OpenClaw**：无 **7/7** 新 tag（**v2026.7.1-beta.2 为 7/5**）；**7/7** 合并 **promos CLI**（ClawHub 促销认领，社区报道）；**Hermes**：无 **7/7** release；**Spring AI / Spring Alibaba AI**：无 **7/7** release；**Langfuse / LangChain / Code Graph**：无 **7/7** release |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Meta / 多模态 | [Introducing Muse Image and Muse Video（官方）](https://ai.meta.com/blog/introducing-muse-image-muse-video-msl/) | **2026-07-07** | 官方发布 | **MSL** 首个自研图像模型；**agentic** 推理+工具；**Instagram 社交上下文**；**Muse Video** 预览 |
+| Meta / 产品 | [Meta rolls out Muse image generator（TechCrunch）](https://techcrunch.com/2026/07/07/meta-rolls-out-muse-a-new-ai-image-generator/) | **2026-07-07** | 技术媒体 | 代号 **Mango**；免费额度+订阅；**Marketplace 室内 redesign**、Stories **30 款 AI 特效** |
+| Meta / 产品 | [Meta Muse Image can @mention Instagram users（The Verge）](https://www.theverge.com/tech/962485/meta-muse-image-ai-model-instagram) | **2026-07-07** | 技术媒体 | **@mention** 拉入他人公开形象；需关注 **likeness/隐私** 控制 |
+| Anthropic / Cowork | [Claude Cowork on web and mobile（官方）](https://claude.com/blog/cowork-web-mobile) | **2026-07-07** | 官方发布 | **Max** 先行；**云端后台续跑**、**定时任务无设备在线**；**>90% 非软件开发** 使用数据 |
+| Anthropic / Cowork | [Claude Cowork expands to mobile and web（TechCrunch）](https://techcrunch.com/2026/07/07/the-coding-agent-wars-are-spilling-into-the-rest-of-the-office-claude-cowork/) | **2026-07-07** | 技术媒体 | 编码 Agent 战争外溢至 **行政/知识工作**；与 **Claude Tag（Slack）** 联动 |
+| Anthropic / 政府 | [Bringing Claude Code and Claude Cowork to government（官方）](https://claude.com/blog/bringing-claude-code-and-claude-cowork-to-government) | **2026-07-07** | 官方发布 | **FedRAMP High Desktop 公测**；**hash-chained audit log**、**SCIM 分层配额**、**预付 usage NTE cap** |
+| Anthropic / 模型 | [Fable 5 订阅含额度窗口截止（官方 redeploy 文）](https://www.anthropic.com/news/redeploying-fable-5) | **2026-07-07** | 产品/政策 | Pro/Max/Team/部分 Enterprise **含 Fable 5 至 7/7**；之后转 **usage credits** |
+| Microsoft / 成本 | [Microsoft joins AI cost-cutting trend（TechCrunch）](https://techcrunch.com/2026/07/07/microsoft-joins-ai-cost-cutting-trend-by-relying-more-on-its-own-models/) | **2026-07-07** | 产业/产品 | **Excel/Word** 提高 **MAI 自研** 应答比例；与 **Build 七款 MAI** 叙事衔接 |
+| 法律 AI | [Norm raises $120M, unicorn valuation（TechCrunch）](https://techcrunch.com/2026/07/07/ai-law-startup-norm-raises-120m-hits-unicorn-valuation/) | **2026-07-07** | 融资/产业 | **AI-native law firm** + **agent 监督 agent**；企业法务自动化样本 |
+| 机器人 / 开源 | [NVIDIA + Hugging Face LeRobot integration（NVIDIA Blog）](https://blogs.nvidia.com/blog/hugging-face-lerobot-models-frameworks-open-robotics/) | **2026-07-07** | 官方发布 | **Isaac GR00T 1.7**、**Teleop** 进 LeRobot；**Cosmos 3** 世界模型即将接入 |
+| 基础设施 | [Crusoe serverless fine-tuning + self-serve inference（官方）](https://www.crusoe.ai/resources/newsroom/crusoe-launches-serverless-fine-tuning-and-self-serve-inference-deployments) | **2026-07-07** | 产业/基建 | **Intelligence Foundry** 一键 **微调→生产推理**；**H100/H200** GPU-hour 计费 |
+| 地缘 / 安全 | [Alibaba orders staff to drop Claude Code（Yahoo/CNBC 报道）](https://finance.yahoo.com/technology/ai/articles/alibaba-orders-staff-drop-anthropic-050542787.html) | **2026-07-07**（相邻日期/中国时间窗口传播） | 产业/安全 | **7/10** 起禁 **Claude Code**；改 **Qoder**；与 **反蒸馏/检测代码** 争议相关 |
+| 平台 / 治理 | [Reddit's AI conundrum（The Verge）](https://www.theverge.com/ai-artificial-intelligence/962018/reddits-ai-conundrum) | **2026-07-07** | 产业/治理 | **LLM 反 LLM 垃圾** 舆论续传；平台 **卖数据+反滥用** 张力 |
+| Claude Code | [v2.1.203（GitHub release）](https://github.com/anthropics/claude-code/releases/tag/v2.1.203) | **2026-07-07** | 开源发布 | login 过期预警、manual mode 徽章、background session 恢复、MCP roots |
+| Codex | [0.143.0-alpha.38（GitHub release）](https://github.com/openai/codex/releases/tag/rust-v0.143.0-alpha.38) | **2026-07-07** | 开源发布 | alpha 线例行跟进 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Muse 多模态 | **Meta 官方 Muse 博文** | agentic 图像/视频、Instagram 上下文、Seal watermark | 多模态/社交产品 |
+| Cowork 跨端 | **Anthropic Cowork 官方文** | 云端续跑、审批推送、chat/Cowork 统一入口 | 知识工作 Agent 设计 |
+| 政府合规 | **Claude for Government Desktop** | FedRAMP High、hash-chained audit、SCIM 分层 | 公共部门架构/安全 |
+| LeRobot | **NVIDIA LeRobot 集成文** | GR00T 1.7 post-train、Teleop 数据采集 | 具身智能/机器人研发 |
+| Claude Code 运维 | **v2.1.203 release notes** | background agent 恢复、macOS 内存回归修复 | 终端 Agent 运维 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：7/7 呈现 **「消费端多模态自研 + 知识工作 Agent 全端化 + 政企合规桌面化」** 三线并进——Meta **Muse** 把 **社交图谱** 写进生成链路；Anthropic 用 **Cowork 使用数据** 证明 **非编码才是主战场**，并用 **Government Desktop** 把同一套 Code/Cowork 搬进 **FedRAMP High**；工程侧 **Claude Code 2.1.203** 继续加固 **background/MCP** 可靠性。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 知识工作 Agent | **Cowork 移动/网页 + 云端后台** | 长任务需 **跨设备状态机 + 人工审批推送**；桌面保留 **本地文件/浏览器** 深能力 |
+| 政府交付 | **Code+Cowork FedRAMP Desktop** | **hash-chained admin audit**、**部门级 prepaid cap** 可复制到企业多租户 |
+| 多模态产品 | **Muse Image @mention** | UGC/广告场景要预设 **likeness opt-out** 与 **水印检测 API** |
+| 编码 Agent | **Claude Code 2.1.203** | background session **token 过期自恢复**；MCP **roots/list_changed** 同步工作目录 |
+| 成本优化 | **Microsoft MAI 混用** | 企业可评估 **自研小模型路由** 降低第三方 token 账单 |
+| 地缘合规 | **Alibaba 禁 Claude Code** | 跨国团队需 **工具链白名单 + 数据出境** 双轨治理 |
+| OpenClaw | **promos CLI**（**7/7** 社区） | **ClawHub 促销** 应 **显式 claim** 而非静默改默认模型 |
+| Codex | **0.143.0-alpha.38** | alpha 线继续在 staging 验证后再推广 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Meta Muse Image/Video 官方发布** | **7/7 最可核验自研多模态里程碑** |
+| 必读 | **Anthropic Cowork 移动/网页 + 政府 Desktop** | 同日 **消费/政企** 双轨 Agent 平台化 |
+| 推荐 | **TechCrunch：Microsoft MAI 降本** | 理解 **tokenmaxxing 退潮** 后的 **自研模型路由** |
+| 推荐 | **NVIDIA LeRobot + GR00T 1.7** | 开源 **VLA** 进标准 robotics 工作流 |
+| 延伸 | **Alibaba 禁 Claude Code 报道** | **Agent 供应链地缘化** 与 **反滥用检测** 争议样本 |
+
+### 来源清单
+
+- 检索范围：2026-07-07 00:00:00 到 2026-07-07 23:59:59（Asia/Shanghai）
+- 引用域名：ai.meta.com, claude.com, anthropic.com, techcrunch.com, theverge.com, blogs.nvidia.com, crusoe.ai, github.com, finance.yahoo.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Introducing Muse Image and Muse Video | 2026-07-07 | https://ai.meta.com/blog/introducing-muse-image-muse-video-msl/ |
+| 官方发布 | Claude Cowork web and mobile | 2026-07-07 | https://claude.com/blog/cowork-web-mobile |
+| 官方发布 | Claude Code and Cowork for government | 2026-07-07 | https://claude.com/blog/bringing-claude-code-and-claude-cowork-to-government |
+| 技术媒体 | Meta Muse image generator | 2026-07-07 | https://techcrunch.com/2026/07/07/meta-rolls-out-muse-a-new-ai-image-generator/ |
+| 技术媒体 | Claude Cowork mobile web | 2026-07-07 | https://techcrunch.com/2026/07/07/the-coding-agent-wars-are-spilling-into-the-rest-of-the-office-claude-cowork/ |
+| 技术媒体 | Microsoft MAI cost cutting | 2026-07-07 | https://techcrunch.com/2026/07/07/microsoft-joins-ai-cost-cutting-trend-by-relying-more-on-its-own-models/ |
+| 技术媒体 | Norm $120M Series C | 2026-07-07 | https://techcrunch.com/2026/07/07/ai-law-startup-norm-raises-120m-hits-unicorn-valuation/ |
+| 技术媒体 | Meta Muse @mention Verge | 2026-07-07 | https://www.theverge.com/tech/962485/meta-muse-image-ai-model-instagram |
+| 官方发布 | NVIDIA Hugging Face LeRobot | 2026-07-07 | https://blogs.nvidia.com/blog/hugging-face-lerobot-models-frameworks-open-robotics/ |
+| 产业 | Crusoe serverless fine-tuning | 2026-07-07 | https://www.crusoe.ai/resources/newsroom/crusoe-launches-serverless-fine-tuning-and-self-serve-inference-deployments |
+| 开源发布 | Claude Code v2.1.203 | 2026-07-07 | https://github.com/anthropics/claude-code/releases/tag/v2.1.203 |
+| 开源发布 | Codex 0.143.0-alpha.38 | 2026-07-07 | https://github.com/openai/codex/releases/tag/rust-v0.143.0-alpha.38 |
+| 产业/安全 | Alibaba ban Claude Code | 2026-07-07（相邻） | https://finance.yahoo.com/technology/ai/articles/alibaba-orders-staff-drop-anthropic-050542787.html |
+| 政策/产品 | Fable 5 allowance ends Jul 7 | 2026-07-07 | https://www.anthropic.com/news/redeploying-fable-5 |
+
 ## 2026-07-06
 
 ### 今日总览
