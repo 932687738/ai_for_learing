@@ -2,6 +2,104 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-07-08
+
+### 今日总览
+
+**一句话结论**：`2026-07-08` 是 **「GPT-Live 全双工语音换代 + Grok 4.5 旗舰发布 + 消费端多模态/Agent 基建密集落地」**——OpenAI 发布 **GPT-Live**（**全双工**、后台委托 **GPT-5.5**）并公开 **国家安全合作原则**；**SpaceXAI Grok 4.5** 正式 GA；**Google Photos Video Remix**（**Gemini Omni**）上线；**Amazon Moonraker** 泄露显示 **Agentic Alexa** 年 GPU 成本 **>$100M**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenAI/x.ai 官方；TechCrunch/The Verge/VentureBeat；Google Photos；Business Insider；GitHub release；专项工具链 |
+| 核心趋势 | **语音成 Agent 主界面**：GPT-Live **边听边说**、可 **静默旁听** 再应答；**模型竞争**：Grok 4.5 **$2/$6** 对标 Opus 叙事；**多模态下沉**：Photos **Video Remix** 模板化；**算力/融资**：SambaNova **$1B**、Prime Intellect **$130M** |
+| 可直接关注 | 评估 GPT-Live **delegation 到 GPT-5.5** 的延迟与 **青少年安全** 护栏；对比 Grok 4.5 **500K context** 与 **2× token 效率** 宣称；跟踪 **GPT-5.6 Sol/Terra/Luna** 公众可用窗口 |
+| 专项检索结论 | **Claude Code**：**v2.1.204**（**Published: 2026-07-08T00:27Z**）修复 headless hook 流式；**v2.1.205** 为 **7/9 05:22 CST**（相邻，未纳入本日）；**Codex**：无 **7/8** GitHub release；**OpenClaw**：无 **7/8** 新 tag；**Hermes**：无 **7/8** release；**Spring AI / Spring Alibaba AI**：无 **7/8** release；**Langfuse**：**v3.208.0**（**2026-07-08T18:08Z**）；**LangChain/LangGraph**：无 **7/8** changelog；**Code Graph**：无 **7/8** release |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| OpenAI / 语音 | [Introducing GPT-Live（官方）](https://openai.com/index/introducing-gpt-live/) | **2026-07-08** | 官方发布 | **全双工** 语音；后台 **GPT-5.5** 检索/推理；**GPT-Live-1 / mini** 分 tier |
+| OpenAI / 语音 | [GPT-Live System Card](https://deploymentsafety.openai.com/gpt-live) | **2026-07-08** | 安全文档 | 未达 Preparedness **High**；delegation 继承旗舰护栏 |
+| OpenAI / 语音 | [ChatGPT Release Notes: GPT-Live-1](https://help.openai.com/en/articles/6825453-chatgpt-release-notes) | **2026-07-08** | 产品更新 | 付费 **GPT-Live-1**、免费 **mini**；暂不支持 video/screen share |
+| OpenAI / 语音 | [GPT-Live full-duplex（TechCrunch）](https://techcrunch.com/2026/07/08/openai-releases-new-voice-models-for-more-natural-live-conversations/) | **2026-07-08** | 技术媒体 | 实时翻译、**可视化 widget**（天气/体育）；非 AI companion 定位 |
+| OpenAI / 治理 | [National Security Principles（官方）](https://openai.com/index/government-national-security-partnerships) | **2026-07-08** | 政策/治理 | **Daybreak** 网络防御伙伴扩展；禁止 **大规模国内监控/自主武器** |
+| OpenAI / 教育 | [K–12 educators AI Skills Jam（官方）](https://openai.com/index/k-12-educators-practical-skills) | **2026-07-08** | 官方活动 | **1600+** 教育者线下工作坊；首场 **Clayton County GA 7/8** |
+| xAI / 模型 | [Introducing Grok 4.5（官方）](https://x.ai/news/grok-4-5) | **2026-07-08** | 官方发布 | **500K context**；**$2/$6**；**Grok Build + Cursor**；与 **Cursor** 联合训练叙事 |
+| xAI / 模型 | [Grok 4.5 Opus-class（TechCrunch）](https://techcrunch.com/2026/07/08/spacexai-releases-grok-4-5-which-elon-describes-as-an-opus-class-model/) | **2026-07-08** | 技术媒体 | Musk 称对标 **Opus 4.7** 且更快更省 token |
+| 模型 / 监管 | [GPT-5.6 is go（The Verge）](https://www.theverge.com/ai-artificial-intelligence/962675/gpt-5-6-is-go) | **2026-07-08** | 政策/产品 | Trump 政府放行 **GPT-5.6 Sol/Terra/Luna** 公开发布 |
+| Google / 多模态 | [Video Remix feature（Droid Life）](https://www.droid-life.com/2026/07/08/google-photos-video-remix-feature/) | **2026-07-08** | 产品发布 | **Gemini Omni** 驱动；电影级重光、背景替换、水彩/素描风格 |
+| Google / 多模态 | [Google Photos video remixes（Android Authority）](https://www.androidauthority.com/google-photos-video-remix-3678037/) | **2026-07-08** | 技术媒体 | **Create** 标签页；**AI Plus/Pro/Ultra** 订阅；云端处理限额 |
+| Amazon / Agent | [Moonraker agentic Alexa（Business Insider）](https://www.businessinsider.com/amazon-moonraker-project-alexa-agentic-cost-2026-7) | **2026-07-08** | 产业/泄露 | 单次请求多动作；**2026 GPU >$100M**；**Anthropic Sonnet** 测试 |
+| 基础设施 | [SambaNova $1B Series F（TechCrunch）](https://techcrunch.com/2026/07/08/sambanova-draws-1b-at-11b-valuation-in-series-f-first-close/) | **2026-07-08** | 融资/基建 | **$11B** 估值；**JPMorganChase** 本地推理伙伴；**SN50** H2 出货 |
+| Agent 基建 | [Prime Intellect $130M Series A（TechCrunch）](https://techcrunch.com/2026/07/08/prime-intellect-raises-130m-series-a-to-help-enterprises-build-their-own-ai-agents/) | **2026-07-08** | 融资/产业 | **$1B** 估值；企业自训 **RL Agent** 全栈；**$100M ARR** 叙事 |
+| 推理优化 | [ZML/LLMD 跨芯片推理（TechCrunch）](https://techcrunch.com/2026/07/08/hot-french-startup-zml-releases-free-product-to-speed-inference-across-lots-of-ai-chips/) | **2026-07-08** | 开源/基建 | 覆盖 **NVIDIA/AMD/TPU/Metal/Intel Arc**；免费起步 |
+| 办公 / Agent | [Superhuman Docs launch（官方）](https://blog.superhuman.com/superhuman-launches-superhuman-docs/) | **2026-07-08** | 产品发布 | **Coda→Superhuman Docs**；**Docs AI** 建表/自动化；**100 万行** Database beta |
+| 可观测性 | [Langfuse v3.208.0（GitHub）](https://github.com/langfuse/langfuse/releases/tag/v3.208.0) | **2026-07-08** | 开源发布 | monitor filter、trace 删除 **ClickHouse** 性能、usage_details 校验 |
+| Claude Code | [v2.1.204（GitHub）](https://github.com/anthropics/claude-code/releases/tag/v2.1.204) | **2026-07-08** | 开源发布 | headless **SessionStart hook** 流式修复 |
+| 语音 / 媒体 | [GPT-Live better at shutting up（The Verge）](https://www.theverge.com/ai-artificial-intelligence/962856/chatgpt-upgraded-voice-mode-gpt-live) | **2026-07-08** | 技术媒体 | 减少抢话；停顿等待；**mhmm/yeah** 反馈词 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 全双工语音 | **GPT-Live 官方 + System Card** | full-duplex、delegation、青少年护栏 | 语音 Agent/产品 |
+| Grok API | **x.ai Grok 4.5 文档** | `grok-4.5`、function calling、500K ctx | 编码 Agent 选型 |
+| 视频编辑 | **Google Photos Video Remix** | Gemini Omni 模板、云端处理限额 | 多模态产品 |
+| LLM 可观测 | **Langfuse v3.208.0 changelog** | ClickHouse trace 删除优化、monitor filter | 平台/SRE |
+| 国家安全 AI | **OpenAI National Security Principles** | Daybreak 伙伴、合同限制 | 政企合规 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：7/8 呈现 **「语音接口 Agent 化 + 开源/企业自训 Agent 基建 + 消费硬件 Agent 竞赛」**——GPT-Live 把 **frontier 文本能力** 包进 **连续语音会话**；Prime Intellect/SambaNova 分别押注 **企业 RL 自训** 与 **本地推理芯片**；Moonraker 说明 **语音入口 Agent** 的 **GPU 账单** 仍是瓶颈。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 语音 Agent | **GPT-Live 全双工** | 长对话需 **delegation 异步回传** + **可视化 widget**；注意 **Business/Enterprise 暂不可用** |
+| 编码 Agent | **Grok 4.5 GA** | **$2/$6** + **Cursor 联合训练** 是新的 **IDE 绑定** 竞争轴 |
+| 可观测性 | **Langfuse 3.208.0** | trace 大规模删除要优化 **ClickHouse blob prune** |
+| 终端 Agent | **Claude Code 2.1.204** | headless worker **hook 流式** 影响 remote worker 存活 |
+| 企业 Agent | **Prime Intellect 全栈** | **RL + eval + compute** 打包，应对 **frontier API 关停** 风险 |
+| 推理异构 | **ZML/LLMD** | 多芯片推理统一层或降低 **vendor lock-in** |
+| 办公 Agent | **Superhuman Docs AI** | 文档面 **prompt→表格/自动化** 是 Cowork 类产品的 SaaS 变体 |
+| OpenClaw/Hermes/Spring/Code Graph | 无 **7/8** 重大 release | 无变更 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **OpenAI GPT-Live 官方 + System Card** | **7/8 最可核验语音架构换代** |
+| 必读 | **Grok 4.5 官方发布** | 新旗舰定价与 **Cursor** 生态绑定 |
+| 推荐 | **OpenAI National Security Principles** | 政府 AI 合作的合同边界样本 |
+| 推荐 | **Amazon Moonraker 泄露分析** | **Agentic 语音助手** 的真实 **GPU 成本** |
+| 延伸 | **SambaNova $1B / Prime Intellect $130M** | **推理芯片 vs Agent 训练基建** 资本流向 |
+
+### 来源清单
+
+- 检索范围：2026-07-08 00:00:00 到 2026-07-08 23:59:59（Asia/Shanghai）
+- 引用域名：openai.com, deploymentsafety.openai.com, help.openai.com, x.ai, techcrunch.com, theverge.com, blog.superhuman.com, blogs.nvidia.com, businessinsider.com, github.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Introducing GPT-Live | 2026-07-08 | https://openai.com/index/introducing-gpt-live/ |
+| 安全文档 | GPT-Live System Card | 2026-07-08 | https://deploymentsafety.openai.com/gpt-live |
+| 官方发布 | National Security Principles | 2026-07-08 | https://openai.com/index/government-national-security-partnerships |
+| 官方发布 | K-12 AI Skills Jam | 2026-07-08 | https://openai.com/index/k-12-educators-practical-skills |
+| 官方发布 | Introducing Grok 4.5 | 2026-07-08 | https://x.ai/news/grok-4-5 |
+| 技术媒体 | GPT-Live TechCrunch | 2026-07-08 | https://techcrunch.com/2026/07/08/openai-releases-new-voice-models-for-more-natural-live-conversations/ |
+| 技术媒体 | Grok 4.5 TechCrunch | 2026-07-08 | https://techcrunch.com/2026/07/08/spacexai-releases-grok-4-5-which-elon-describes-as-an-opus-class-model/ |
+| 技术媒体 | GPT-5.6 is go Verge | 2026-07-08 | https://www.theverge.com/ai-artificial-intelligence/962675/gpt-5-6-is-go |
+| 技术媒体 | GPT-Live Verge | 2026-07-08 | https://www.theverge.com/ai-artificial-intelligence/962856/chatgpt-upgraded-voice-mode-gpt-live |
+| 技术媒体 | Google Photos Video Remix | 2026-07-08 | https://www.droid-life.com/2026/07/08/google-photos-video-remix-feature/ |
+| 产业 | Amazon Moonraker BI | 2026-07-08 | https://www.businessinsider.com/amazon-moonraker-project-alexa-agentic-cost-2026-7 |
+| 融资 | SambaNova $1B | 2026-07-08 | https://techcrunch.com/2026/07/08/sambanova-draws-1b-at-11b-valuation-in-series-f-first-close/ |
+| 融资 | Prime Intellect $130M | 2026-07-08 | https://techcrunch.com/2026/07/08/prime-intellect-raises-130m-series-a-to-help-enterprises-build-their-own-ai-agents/ |
+| 基建 | ZML LLMD | 2026-07-08 | https://techcrunch.com/2026/07/08/hot-french-startup-zml-releases-free-product-to-speed-inference-across-lots-of-ai-chips/ |
+| 产品 | Superhuman Docs | 2026-07-08 | https://blog.superhuman.com/superhuman-launches-superhuman-docs/ |
+| 开源发布 | Langfuse v3.208.0 | 2026-07-08 | https://github.com/langfuse/langfuse/releases/tag/v3.208.0 |
+| 开源发布 | Claude Code v2.1.204 | 2026-07-08 | https://github.com/anthropics/claude-code/releases/tag/v2.1.204 |
+
 ## 2026-07-07
 
 ### 今日总览
