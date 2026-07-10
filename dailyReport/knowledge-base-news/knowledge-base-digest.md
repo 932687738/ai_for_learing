@@ -2,6 +2,61 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-07-09
+
+### 今日总览
+
+**一句话结论**：`2026-07-09` 固定来源口径下，**阿里云开发者社区** 有一篇 **可核验当日** 的 **Copilot CLI vs Claude Code** 迁移实战文；其余 **9 个公司/组织维度 + 四专项** 未发现 **team 首发长文** 硬对齐。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 阿里 102 / 阿里云开发者 / 中间件 / 语雀；腾讯云开发者；字节 techblog / 掘金；百度 FEX/EFE/开发者；美团；京东科技/凹凸；滴滴；网易知乎；360；有赞 |
+| 核心趋势 | **Agent CLI 生态对照**：阿里云社区同步全球 **Copilot CLI 1.0.69** 能力矩阵（**/fleet、/delegate、MCP/skills**） |
+| 可直接关注 | Claude Code 深度用户评估 **Copilot CLI** 的 **CLAUDE.md 零迁移** 与 **云端 /delegate PR** 工作流 |
+| 专项检索结论 | **Langfuse**：固定来源内 **7/9** 无新文；**LangChain/LangGraph**：无 **7/9** 新文（全球 **NemoClaw** 见 AI 日报）；**Code Graph**：无 **7/9** 新文；**Spring Alibaba AI**：无 **7/9** 新文 |
+| 未发现更新 | 阿里 102/中间件/语雀；腾讯 TEG/腾讯云/AlloyTeam/大讲堂；字节 techblog；百度；美团；京东；滴滴；网易；360；有赞；掘金（**7/9** 无硬对齐 team 首发） |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Agent CLI | [GitHub Copilot CLI 上手指南（面向 Claude Code 深度用户）](https://developer.aliyun.com/article/1746621) | **2026-07-09** | 阿里云开发者社区 | **Copilot CLI 1.0.69** 命令对照：**/plan、/fleet、/delegate、/mcp、/skills**；**CLAUDE.md 原生读取** |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| CLI Agent 迁移 | **Copilot CLI 上手指南（阿里云）** | **/delegate 云端 PR**、**esc esc 打断**、**/rewind 回滚** | Claude Code 用户评估 Copilot |
+| 指令文件 | 同上 | 加载 **CLAUDE.md + AGENTS.md + .github/instructions** | 多仓 monorepo 规范治理 |
+| 会员/模型 | 同上 | **Pro+** 解锁 **Opus**；**/model auto** | 成本与能力权衡 |
+
+### 工程实践归纳
+
+**总体判断**：固定来源 **7/9** 增量集中在 **「终端 Agent CLI 工具链对照」**——与全球 **GPT-5.6 GA、Claude Reflect、阿里禁 Claude Code** 同日共振，说明 **国内开发者社区** 正在消化 **多 CLI Agent** 并存与 **合规切换** 议题。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Copilot CLI | **阿里云社区当日整理文** | **`/delegate` 长任务云端 PR** 是 Copilot 相对 Claude Code 的差异化能力 |
+| MCP/Skills | 同上 | **`/mcp` + `/skills`** 与 Claude Code 生态 **概念对齐**，迁移成本主要在 **权限/审计** |
+| Langfuse/LangChain/Code Graph/Spring Alibaba AI | 固定来源 **7/9 无硬对齐长文** | 全球 **NemoClaw/LangGraph** 进展见 **AI 日报** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | **GitHub Copilot CLI 上手指南（阿里云 7/9）** | 固定来源内 **唯一可核验当日** 的 Agent CLI 对照手册 |
+| 延伸 | **AI 日报 2026-07-09** | **GPT-5.6 / Muse Spark / Claude Code 封禁** 全球主线 |
+
+### 来源清单
+
+- 检索范围：2026-07-09 00:00:00 到 2026-07-09 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：已覆盖固定来源清单中的公司/组织维度；**7/9 可核验硬增量** 主要来自 **阿里云开发者社区**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 阿里巴巴 | 阿里云开发者社区 | 技术文章 | GitHub Copilot CLI 上手指南（面向 Claude Code 深度用户） | 2026-07-09 | https://developer.aliyun.com/article/1746621 |
+
 ## 2026-07-08
 
 ### 今日总览

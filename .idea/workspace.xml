@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="feat(dailyReport): 添加2026年7月7日AI日报和知识库新闻&#10;&#10;- 添加Meta Muse图像和视频模型发布的相关内容&#10;- 添加Anthropic Claude Cowork移动端和网页版扩展信息&#10;- 添加Claude for Government Desktop公测详情&#10;- 更新Microsoft自研模型成本削减趋势报道&#10;- 添加Alibaba禁止使用Claude Code的安全合规信息&#10;- 更新Claude Code v2.1.203版本发布说明&#10;- 同步更新github-topz排行榜数据至最新状态&#10;- 更新ai-daily-state.json同步日期至2026-07-07">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/ai-daily-news/202607.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/ai-daily-news/202607.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-digest.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-digest.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-state.json" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-state.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/github-topz.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/github-topz.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/knowledge-base-news/202607.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/knowledge-base-news/202607.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-digest.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-digest.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-state.json" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-state.json" afterDir="false" />
     </list>
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
@@ -280,15 +273,7 @@
       <workItem from="1783386394662" duration="957000" />
       <workItem from="1783387370121" duration="1701000" />
       <workItem from="1783509379056" duration="33000" />
-      <workItem from="1783564755313" duration="307000" />
-    </task>
-    <task id="LOCAL-00011" summary="日常新闻摘要">
-      <option name="closed" value="true" />
-      <created>1779323860164</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1779323860164</updated>
+      <workItem from="1783564755313" duration="6341000" />
     </task>
     <task id="LOCAL-00012" summary="日常新闻摘要">
       <option name="closed" value="true" />
@@ -674,7 +659,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783509394370</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="feat(dailyReport): 添加2026年7月7日AI日报和知识库新闻&#10;&#10;- 添加Meta Muse图像和视频模型发布的相关内容&#10;- 添加Anthropic Claude Cowork移动端和网页版扩展信息&#10;- 添加Claude for Government Desktop公测详情&#10;- 更新Microsoft自研模型成本削减趋势报道&#10;- 添加Alibaba禁止使用Claude Code的安全合规信息&#10;- 更新Claude Code v2.1.203版本发布说明&#10;- 同步更新github-topz排行榜数据至最新状态&#10;- 更新ai-daily-state.json同步日期至2026-07-07">
+      <option name="closed" value="true" />
+      <created>1783565262848</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1783565262849</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

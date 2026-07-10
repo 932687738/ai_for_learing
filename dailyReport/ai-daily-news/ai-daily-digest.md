@@ -2,6 +2,100 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-07-09
+
+### 今日总览
+
+**一句话结论**：`2026-07-09` 是 **「GPT-5.6 结束 12 天政府预审全面 GA + Meta Muse Spark 1.1 开放 API + 中美 AI 工具链信任危机」**——OpenAI **Sol/Terra/Luna** 同步登陆 **ChatGPT/API/Codex**；Meta 发布 **Muse Spark 1.1** 与 **Meta Model API** 公测；Anthropic 推出 **Claude Reflect** 用量洞察；**LangChain × NVIDIA NemoClaw** 企业 Agent 蓝图发布；**阿里 7/10 起禁 Claude Code** 与中方 **后门/监控** 警告叠加。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenAI/Meta/Anthropic/IBM/LangChain 官方；TechCrunch/TechTimes；arXiv/FSE；GitHub release；专项工具链 |
+| 核心趋势 | **Frontier 模型「预审后放量」**：GPT-5.6 结束 **~20 家政府 vet 客户** 限制；**自研 API 商业化**：Meta **$1.25/$4.25** 对标 OpenAI/Anthropic；**Agent  harness 成主战场**：NemoClaw **Nemotron 3 Ultra + Deep Agents + OpenShell**；**供应链信任**：Claude Code **Unicode 隐写检测** 触发大厂封禁 |
+| 可直接关注 | 评估 **GPT-5.6 Sol `ultra` 多 Agent 并行** 与 **30 分钟 prompt cache** 对成本模型影响；跟踪 **Muse Spark 1.1** 在 **OpenClaw/Replit/Cline** 生态的 agentic coding 表现；企业侧对比 **IBM Bob Premium**（Z/i/Java）与 **NemoClaw** 治理/runtime 分层 |
+| 专项检索结论 | **Claude Code**：**v2.1.205**（**Published: 2026-07-08T21:22Z** → **7/9 05:22 CST**，相邻）**/doctor→/checkup** 全量体检；**Codex**：**GPT-5.6** 同日 GA；**OpenClaw**：无 **7/9** 新 tag，**durable runtime** 大 PR **#102495/#102983** 活跃；**Hermes**：无 **7/9** release；**Spring AI / Spring Alibaba AI**：无 **7/9** release；**Langfuse**：无 **7/9** release；**LangChain/LangGraph**：**NemoClaw Deep Agents** 蓝图（**7/9**）；**Code Graph**：无 **7/9** release |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| OpenAI / 模型 | [GPT-5.6: Frontier intelligence（官方）](https://openai.com/index/gpt-5-6/) | **2026-07-09** | 官方发布 | **Sol/Terra/Luna** 三档 GA；**`ultra`** 多 Agent 并行；**30min prompt cache**（写 1.25×、读 9 折） |
+| OpenAI / 治理 | [GPT-5.6 12 天政府预审后公开（TechTimes）](https://www.techtimes.com/articles/319979/20260709/gpt-56-goes-public-after-12-day-white-house-gate-tests-voluntary-ai-framework.htm) | **2026-07-09** | 政策/产业 | **6/26–7/9** 仅 **~20** 政府 vet 组织可用 API/Codex；**CAISI** 测试后全面放开 |
+| Meta / 模型 | [Introducing Muse Spark 1.1（官方）](https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/) | **2026-07-09** | 官方发布 | **1M context**、多 Agent 编排、**Meta Model API** 公测；**$1.25/$4.25** per M tokens |
+| Meta / 安全 | [Muse Spark 1.1 Evaluation Report](https://ai.meta.com/static-resource/muse-spark-1-1-evaluation-report/) | **2026-07-09** | 安全文档 | 未缓解时 **C&B/Cyber** 或达 **high risk**；多层缓解后 **moderate or lower** |
+| Anthropic / 产品 | [Claude Reflect analytics（TechCrunch）](https://techcrunch.com/2026/07/09/anthropics-new-claude-feature-is-quietly-selling-you-on-ai/) | **2026-07-09** | 产品发布 | 用量/主题可视化 + **quiet hours**；引导 **Projects** 持久上下文 |
+| Anthropic / 工程 | [Claude Code admin Value/Usage tabs（Releasebot）](https://releasebot.io/updates/anthropic) | **2026-07-09** | 产品更新 | 组织级 **cost per commit**、**Analytics API** 对接 Datadog/CloudZero |
+| LangChain / 企业 | [NemoClaw Deep Agents Blueprint（LangChain × NVIDIA）](https://martechseries.com/predictive-ai/ai-platforms-machine-learning/langchain-and-nvidia-launch-nemoclaw-deep-agents-blueprint-for-enterprise-agents/) | **2026-07-09** | 官方/产业 | **Nemotron 3 Ultra + Deep Agents + OpenShell**；eval **0.86 @ $4.48** vs 竞品 **$43.48** |
+| IBM / Agent | [IBM Bob v2 multi-agent（官方）](https://newsroom.ibm.com/2026-07-09-ibm-advances-enterprise-ai-software-development-with-multi-agent-capabilities-and-specialized-modernization-workflows) | **2026-07-09** | 官方发布 | **Premium Package** 覆盖 **IBM Z/i/Java** 现代化；内置 **AI cost analytics** |
+| 开源 / 本地 | [Ollama $65M Series B（TechCrunch）](https://techcrunch.com/2026/07/09/popular-open-source-ai-developer-tool-ollama-raises-65m-grows-to-nearly-9m-users/) | **2026-07-09** | 融资/产业 | **8.9M MAU**、**85% Fortune 500**；桌面开源不变，云 GPU 按用量计费 |
+| 地缘 / 安全 | [Alibaba bans Claude Code（Trivium China）](https://triviumchina.com/2026/07/09/alibaba-bans-anthropics-coding-tools-over-backdoor-fears/) | **2026-07-09** | 政策/安全 | **7/10** 起内部禁 **Anthropic 全系**；改推 **Qoder**；触发因 **Unicode 隐写检测** |
+| 地缘 / 安全 | [China warns Claude Code backdoor（TPS）](https://tpsreport.news/news/china-warns-anthropic-claude-code-backdoor) | **2026-07-09** | 政策/安全 | 网信办平台警示 **v2.1.91–6/29** 版本 **未授权回传**；Anthropic 称 **anti-distillation 实验** |
+| 开发者工具 | [GitHub Copilot 桌面/BYOK/JetBrains（TechTimes）](https://www.techtimes.com/articles/319988/20260709/github-copilot-breaks-agent-barrier-free-desktop-app-jetbrains-cost-controls.htm) | **2026-07-09** | 技术媒体 | **Free tier** 可用 Copilot App；**BYOK** 无订阅亦可；**Codex→JetBrains** 公测 |
+| 论文 / 评测 | [Poisoned Chalice LLM Eval Report（arXiv）](https://arxiv.org/html/2607.07481) | **2026-07-09** | 论文/会议 | **FSE'26** 竞赛收官；**SERSEM** 在 held-out **Mellum AUC 0.753** 检 contamination |
+| 消费 / 娱乐 | [Character.AI microdrama（TechCrunch）](https://techcrunch.com/2026/07/09/character-ai-enters-the-microdrama-arena-with-its-own-productions-but-with-a-twist/) | **2026-07-09** | 产品发布 | **c.ai Series** 三部微短剧 + 角色 **roleplay**；**c.ai FM/Reads** 实验 |
+| Claude Code | [v2.1.205（GitHub）](https://github.com/anthropics/claude-code/releases/tag/v2.1.205) | **2026-07-09**（相邻，**Published 7/8 21:22Z**） | 开源发布 | **/checkup** 清理 unused skills/MCP；Windows worktree 删除修复 |
+| xAI / 模型 | [Grok 4.5 default for Grok Build（Engadget）](https://www.engadget.com/2211260/spacex-ai-grok-4-5-cursor/) | **2026-07-09** | 技术媒体 | **7/8 官方 GA** 延续；**Grok Build** 默认 **4.5**；**Cursor** 联合训练叙事 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| GPT-5.6 GA | **OpenAI GPT-5.6 官方** | Sol **`ultra`**、Terra/Luna 分 tier、**explicit cache** | Agent/平台架构 |
+| Meta Agent API | **Muse Spark 1.1 官方 + Eval Report** | **1M ctx**、多 Agent、**Meta Model API** 定价 | 自研 Agent 选型 |
+| 企业 Agent 栈 | **NemoClaw 蓝图 + Jensen×Harrison fireside** | **Deep Agents harness + OpenShell runtime** | 企业 Agent 平台 |
+| 遗留现代化 | **IBM Bob v2 + Premium Packages** | **COBOL/PL/I/JCL**、**IBM i**、**Java 25** 迁移 | 主机/Java 架构师 |
+| LLM 评测 | **Poisoned Chalice arXiv** | **membership inference** 检 training contamination | 模型评测/合规 |
+| Codex 可观测 | **Langfuse Codex Plugin 文档** | **TRACE_TO_LANGFUSE**、OTEL→Langfuse | Agent SRE |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：7/9 呈现 **「Frontier 模型放量 + 企业 open-agent 全栈打包 + 终端 Agent 信任危机」**——GPT-5.6/Muse Spark 1.1 把 **agentic coding + 多 Agent** 推成默认能力；NemoClaw/IBM Bob 分别从 **开源权重+runtime** 与 **遗留系统现代化** 切入企业；Claude Code **检测/封禁** 说明 **Agent 供应链审计** 已成地缘议题。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Frontier GA | **GPT-5.6 Sol/Terra/Luna** | **政府 vet 窗口** 或成美国 frontier 发布新常态；注意 **分 tier 24h 滚动** |
+| 自研 API | **Muse Spark 1.1 + Meta Model API** | **OpenAI-compatible** 包 **search/citations/parallel tools**；与 **Muse Image** 联动 |
+| 企业 harness | **NemoClaw = Nemotron + Deep Agents + OpenShell** | **harness 层** 决定 **10× 推理成本** 叙事；EY/Baseten 等做落地 |
+| 遗留 Agent | **IBM Bob Premium Z/i/Java** | **多 Agent + opinionated workflow** 是 COBOL→云 的可复制模板 |
+| 终端体检 | **Claude Code /checkup** | 定期清理 **skills/MCP/hooks** 是 **context 预算** 运维项 |
+| 信任/合规 | **阿里禁 Claude Code + 中方警示** | 跨境 Agent 需 **SBOM + 网络 egress 审计**；勿依赖 vendor **隐式 telemetry** |
+| OpenClaw/Hermes/Spring/Langfuse/Code Graph | 无 **7/9** 重大 release | OpenClaw **durable runtime** PR 栈值得跟踪 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **OpenAI GPT-5.6 官方** | **7/9 最可核验 frontier GA** 与 **cache/ultra** 机制 |
+| 必读 | **Meta Muse Spark 1.1 官方 + Eval Report** | 自研 **agentic API** 定价与安全阈值样本 |
+| 推荐 | **LangChain × NVIDIA NemoClaw 发布** | **open-weight + harness + runtime** 三分法参考架构 |
+| 推荐 | **IBM Bob v2 新闻稿** | 企业 **legacy modernization Agent** 产品化路径 |
+| 延伸 | **Poisoned Chalice FSE 报告** | 代码 LLM **contamination 检测** 竞赛方法论 |
+| 延伸 | **Alibaba/China Claude Code 封禁链** | **AI 工具链地缘化** 的前哨案例 |
+
+### 来源清单
+
+- 检索范围：2026-07-09 00:00:00 到 2026-07-09 23:59:59（Asia/Shanghai）
+- 引用域名：openai.com, ai.meta.com, techcrunch.com, newsroom.ibm.com, martechseries.com, triviumchina.com, github.com, arxiv.org, engadget.com, techtimes.com, releasebot.io
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | GPT-5.6 Frontier intelligence | 2026-07-09 | https://openai.com/index/gpt-5-6/ |
+| 官方发布 | Introducing Muse Spark 1.1 | 2026-07-09 | https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/ |
+| 安全文档 | Muse Spark 1.1 Evaluation Report | 2026-07-09 | https://ai.meta.com/static-resource/muse-spark-1-1-evaluation-report/ |
+| 官方发布 | IBM Bob v2 multi-agent | 2026-07-09 | https://newsroom.ibm.com/2026-07-09-ibm-advances-enterprise-ai-software-development-with-multi-agent-capabilities-and-specialized-modernization-workflows |
+| 产业 | NemoClaw Deep Agents Blueprint | 2026-07-09 | https://martechseries.com/predictive-ai/ai-platforms-machine-learning/langchain-and-nvidia-launch-nemoclaw-deep-agents-blueprint-for-enterprise-agents/ |
+| 技术媒体 | Claude Reflect TechCrunch | 2026-07-09 | https://techcrunch.com/2026/07/09/anthropics-new-claude-feature-is-quietly-selling-you-on-ai/ |
+| 技术媒体 | Ollama $65M TechCrunch | 2026-07-09 | https://techcrunch.com/2026/07/09/popular-open-source-ai-developer-tool-ollama-raises-65m-grows-to-nearly-9m-users/ |
+| 技术媒体 | GPT-5.6 government gate TechTimes | 2026-07-09 | https://www.techtimes.com/articles/319979/20260709/gpt-56-goes-public-after-12-day-white-house-gate-tests-voluntary-ai-framework.htm |
+| 政策/安全 | Alibaba bans Claude Code Trivium | 2026-07-09 | https://triviumchina.com/2026/07/09/alibaba-bans-anthropics-coding-tools-over-backdoor-fears/ |
+| 政策/安全 | China Claude Code warning TPS | 2026-07-09 | https://tpsreport.news/news/china-warns-anthropic-claude-code-backdoor |
+| 技术媒体 | GitHub Copilot desktop TechTimes | 2026-07-09 | https://www.techtimes.com/articles/319988/20260709/github-copilot-breaks-agent-barrier-free-desktop-app-jetbrains-cost-controls.htm |
+| 论文 | Poisoned Chalice LLM Eval | 2026-07-09 | https://arxiv.org/html/2607.07481 |
+| 开源发布 | Claude Code v2.1.205 | 2026-07-09（相邻，Published 2026-07-08T21:22Z） | https://github.com/anthropics/claude-code/releases/tag/v2.1.205 |
+| 技术媒体 | Grok 4.5 Engadget | 2026-07-09 | https://www.engadget.com/2211260/spacex-ai-grok-4-5-cursor/ |
+| 产品 | Character.AI microdrama | 2026-07-09 | https://techcrunch.com/2026/07/09/character-ai-enters-the-microdrama-arena-with-its-own-productions-but-with-a-twist/ |
+
 ## 2026-07-08
 
 ### 今日总览
