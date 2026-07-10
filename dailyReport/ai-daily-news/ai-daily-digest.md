@@ -2,6 +2,83 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-07-10
+
+### 今日总览
+
+**一句话结论**：`2026-07-10` 是 **「Claude Code v2.1.206 工程修复密集落地 + 阿里禁 Anthropic 工具正式生效 + GPT-5.6 24h 放量窗口收尾」**——Anthropic 发布 **v2.1.206**（**Published: 2026-07-10T01:45Z**）；**阿里巴巴** 内部 **Anthropic 全系**（含 Claude Code）禁令 **7/10 起执行**；**Langfuse** 上线 **Slack/Webhook 项目通知** 与 **可定制 Home 仪表盘**；**GPT-5.6 / ChatGPT Work** 自 **7/9** 起的 **24h 全球滚动** 进入收官日。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Anthropic/OpenAI/Meta/Langfuse 官方；GitHub release；Artificial Analysis；Trivium China；专项工具链 |
+| 核心趋势 | **Agent CLI 运维 maturity**：Claude Code **MCP timeout / OAuth / worktree 安全** 批量修复；**地缘工具链分化**：阿里 **Qoder 替代 Claude Code** 落地；**LLM 可观测 productization**：Langfuse **告警路由 + Home dashboard** |
+| 可直接关注 | 升级 **v2.1.206** 修复 **MCP `request_timeout_ms`** 与 **OAuth 刷新**；跨境团队评估 **Qoder vs Copilot CLI** 迁移路径；Langfuse 项目侧配置 **Notifications → Slack/Webhook** |
+| 专项检索结论 | **Claude Code**：**v2.1.206**（**7/10**）；**Codex**：**GPT-5.6 放量窗口收尾**（**7/9 GA 相邻**）；**OpenClaw**：无 **7/10** 新 tag；**Hermes**：无 **7/10** release；**Spring AI / Spring Alibaba AI**：无 **7/10** release；**Langfuse**：**7/10 changelog**（通知通道 + Home dashboard，**v3.210.0** 代码 **7/9 发布相邻**）；**LangChain/LangGraph**：无 **7/10** 重大 release；**Code Graph**：无 **7/10** release |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Claude Code | [v2.1.206（GitHub）](https://github.com/anthropics/claude-code/releases/tag/v2.1.206) | **2026-07-10** | 开源发布 | **`/cd` 路径建议**、**CLAUDE.md trim /doctor**、**MCP timeout 修复**、**worktree 外目录确认**、**background agent 热升级** |
+| Anthropic / 平台 | [CMEK content preservation 文档扩展（Platform Release Notes）](https://docs.anthropic.com/en/release-notes/api) | **2026-07-10** | 技术文档 | **`cmek_preserve` 过滤示例**、**`policy_violation_investigation` / `csae_report` reason codes** |
+| 地缘 / 安全 | [Alibaba bans Anthropic coding tools（Trivium）](https://triviumchina.com/2026/07/09/alibaba-bans-anthropics-coding-tools-over-backdoor-fears/) | **2026-07-10**（**生效日**；报道 **7/9**） | 政策/安全 | **7/10 起** 内部禁 **Anthropic 全系**；改推 **Qoder**；触发因 **Unicode 隐写检测** |
+| OpenAI / 产品 | [GPT-5.6 24h 全球放量窗口（官方）](https://openai.com/index/gpt-5-6/) | **2026-07-10**（**7/9 GA 相邻，24h rollout 收官**） | 官方发布 | **Sol/Terra/Luna** 分 tier 继续扩展；**ChatGPT Work** **Plus/Business** 数日内跟进 |
+| Meta / 评测 | [Muse Spark 1.1 Intelligence Index 51（Artificial Analysis）](https://artificialanalysis.ai/articles) | **2026-07-10** | 独立评测 | **7/9 Muse Spark 1.1 GA** 后首份 AA 量化：**51 分**、token 效率优于同档竞品 |
+| Langfuse / 可观测 | [Project notification channels（Changelog）](https://langfuse.com/changelog/2026-07-10-project-notification-channels) | **2026-07-10** | 产品更新 | **blob export 失败**、**evaluator 停用** 等告警可路由 **Slack/Webhook** |
+| Langfuse / 可观测 | [Home is a dashboard（Changelog）](https://langfuse.com/changelog/2026-07-10-home-is-a-dashboard) | **2026-07-10** | 产品更新 | **Home 页可定制 widget**；与 **v3.210.0** trace graph 视图增强配套 |
+| 政策 / 劳动 | [Labor regulator AI plan for HR（Trivium）](https://triviumchina.com/2026/07/10/labor-regulator-releases-ai-plan-for-hr/) | **2026-07-10** | 政策/产业 | **MoHRSS 7/9** 发布 **AI+人社** 场景意见；**7/10** 政策解读跟进 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Claude Code 运维 | **v2.1.206 release notes** | **MCP `request_timeout_ms`**、**OAuth 刷新**、**`/doctor` CLAUDE.md trim** | Agent CLI SRE |
+| 企业合规 | **Anthropic CMEK preservation docs** | **`cmek_preserve` 事件**、人工/自动 pipeline 均写 preservation | 政企合规/安全 |
+| LLM 可观测 | **Langfuse 7/10 changelog** | **Slack/Webhook 告警**、**Home dashboard preset** | 平台/SRE |
+| 模型选型 | **AA Muse Spark 1.1 评测** | **Intelligence Index 51**、成本/token 效率 | Agent 架构师 |
+| 跨境 Agent | **阿里禁 Claude Code + Qoder 替代** | **供应链审计**、**内部 Agent 白名单** | 跨境研发团队 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：7/10 呈现 **「终端 Agent 工程化补丁日 + 地缘工具链落地 + 可观测告警产品化」**——Claude Code **v2.1.206** 集中修复 **MCP/登录/worktree/Windows** 等生产痛点；阿里 **7/10 禁令** 把 **7/9 信任危机** 转为 **内部工具切换**；Langfuse **通知路由** 说明 Agent 平台 **SRE 告警** 正成为标配能力。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| CLI 稳定性 | **Claude Code v2.1.206** | **per-server MCP timeout** 需在 **`.mcp.json`** 显式配置；**background agent 热升级** 减少 attach 延迟 |
+| 上下文治理 | **`/doctor` CLAUDE.md trim** | 定期裁剪 **checked-in CLAUDE.md** 中可从代码推导的内容，控制 **context 预算** |
+| 地缘合规 | **阿里 Anthropic 禁令生效** | 跨境团队需 **双栈 Agent CLI**（**Qoder/Copilot CLI**）与 **egress 审计** |
+| 模型放量 | **GPT-5.6 24h rollout 收官** | **分 tier 滚动** 意味着 **feature flag / 降级路径** 需按 plan 设计 |
+| 可观测告警 | **Langfuse Slack/Webhook** | **evaluator 停用**、**export 失败** 应走 **项目级通知** 而非仅 admin email |
+| OpenClaw/Hermes/Spring/LangChain/Code Graph | 无 **7/10** 重大 release | 关注 OpenClaw **durable runtime** PR 栈（见 **7/9** 日报） |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Claude Code v2.1.206 GitHub release** | **7/10 最可核验** 的 Agent CLI 工程更新 |
+| 必读 | **Trivium 阿里禁 Anthropic 生效** | **地缘 Agent 工具链** 的首个 **大厂内部落地日** |
+| 推荐 | **Langfuse 7/10 双 changelog** | **LLM 平台告警路由** 的产品化样本 |
+| 推荐 | **Anthropic CMEK preservation 文档** | 企业 **密钥托管 + 内容保全** 审计事件规范 |
+| 延伸 | **AA Muse Spark 1.1 评测（7/10）** | **7/9 Meta API GA** 后的独立量化对照 |
+| 延伸 | **AI 日报 2026-07-09** | **GPT-5.6 GA / Muse Spark 1.1 / Claude Reflect** 全球主线 |
+
+### 来源清单
+
+- 检索范围：2026-07-10 00:00:00 到 2026-07-10 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, docs.anthropic.com, triviumchina.com, openai.com, artificialanalysis.ai, langfuse.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Claude Code v2.1.206 | 2026-07-10 | https://github.com/anthropics/claude-code/releases/tag/v2.1.206 |
+| 技术文档 | Anthropic Platform CMEK preservation | 2026-07-10 | https://docs.anthropic.com/en/release-notes/api |
+| 政策/安全 | Alibaba bans Anthropic（生效 7/10） | 2026-07-10 | https://triviumchina.com/2026/07/09/alibaba-bans-anthropics-coding-tools-over-backdoor-fears/ |
+| 官方发布 | GPT-5.6 rollout（24h 窗口收官） | 2026-07-10（7/9 GA 相邻） | https://openai.com/index/gpt-5-6/ |
+| 独立评测 | Muse Spark 1.1 AA 评测 | 2026-07-10 | https://artificialanalysis.ai/articles |
+| 产品更新 | Langfuse project notification channels | 2026-07-10 | https://langfuse.com/changelog/2026-07-10-project-notification-channels |
+| 产品更新 | Langfuse Home dashboard | 2026-07-10 | https://langfuse.com/changelog/2026-07-10-home-is-a-dashboard |
+| 政策/产业 | MoHRSS AI+HR plan Trivium | 2026-07-10 | https://triviumchina.com/2026/07/10/labor-regulator-releases-ai-plan-for-hr/ |
+
 ## 2026-07-09
 
 ### 今日总览
