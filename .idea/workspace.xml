@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="feat(dailyReport): 添加2026-07-09 AI日报和知识库日报内容&#10;&#10;- 新增 ai-daily-news/202607.md 中 2026-07-09 日报内容&#10;- 新增 knowledge-base-news/202607.md 中 2026-07-09 知识库日报内容&#10;- 更新 ai-daily-digest.md 添加 2026-07-09 AI摘要内容&#10;- 更新 ai-daily-state.json 同步状态至 2026-07-09&#10;- 更新 github-topz.md 最近更新时间为 2026-07-10 09:09:20">
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="feat(dailyReport): 添加2026-07-10 AI日报和知识库日报内容&#10;&#10;- 新增 ai-daily-news/202607.md 中 2026-07-10 日报内容，包含 Claude Code v2.1.206 发布、阿里禁 Anthropic 工具生效等重要信息&#10;- 新增 knowledge-base-news/202607.md 中 2026-07-10 知识库日报内容，记录固定来源当日检索结果&#10;- 更新 ai-daily-news/ai-daily-digest.md 添加 2026-07-10 摘要内容&#10;- 修改 ai-daily-news/ai-daily-state.json 将最后同步日期更新至 2026-07-10&#10;- 更新 github-topz.md 的统计时间戳和仓库排名数据，反映最新 GitHub 趋势变化">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
@@ -276,14 +276,8 @@
       <workItem from="1783564755313" duration="6341000" />
       <workItem from="1783645364112" duration="2551000" />
       <workItem from="1783678360603" duration="32000" />
-    </task>
-    <task id="LOCAL-00013" summary="日常新闻摘要">
-      <option name="closed" value="true" />
-      <created>1779582580565</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1779582580565</updated>
+      <workItem from="1783722882658" duration="407000" />
+      <workItem from="1783736948219" duration="32000" />
     </task>
     <task id="LOCAL-00014" summary="日常新闻摘要">
       <option name="closed" value="true" />
@@ -669,7 +663,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783648883254</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="feat(dailyReport): 添加2026-07-10 AI日报和知识库日报内容&#10;&#10;- 新增 ai-daily-news/202607.md 中 2026-07-10 日报内容，包含 Claude Code v2.1.206 发布、阿里禁 Anthropic 工具生效等重要信息&#10;- 新增 knowledge-base-news/202607.md 中 2026-07-10 知识库日报内容，记录固定来源当日检索结果&#10;- 更新 ai-daily-news/ai-daily-digest.md 添加 2026-07-10 摘要内容&#10;- 修改 ai-daily-news/ai-daily-state.json 将最后同步日期更新至 2026-07-10&#10;- 更新 github-topz.md 的统计时间戳和仓库排名数据，反映最新 GitHub 趋势变化">
+      <option name="closed" value="true" />
+      <created>1783723283713</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1783723283713</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -687,7 +689,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Spring AI智能体组件匹配顺序解析" />
     <MESSAGE value="Spring AI Transformer Advisor 作用" />
     <MESSAGE value="整理文件" />
     <MESSAGE value="多智能体通信模式解析" />
@@ -712,7 +713,8 @@
     <MESSAGE value="chore(dailyReport): 更新每日报告状态和数据&#10;&#10;- 更新 ai-daily-state.json 中的最后同步日期到 2026-06-30&#10;- 在已处理日期列表中添加 2026-06-30&#10;- 更新 github-topz.md 的最新更新时间为 2026-07-01 09:18:28&#10;- 更新顶级仓库的 star 数量统计&#10;- 替换本周 trending 榜单中的仓库排名和数据&#10;- 替换本月 trending 榜单中的仓库排名和数据&#10;- 添加新的 trending 仓库如 hasaneyldrm/exercises-dataset 和 usestrix/strix 等" />
     <MESSAGE value="feat(dailyReport): 添加2026年7月7日AI日报和知识库新闻&#10;&#10;- 添加Meta Muse图像和视频模型发布的相关内容&#10;- 添加Anthropic Claude Cowork移动端和网页版扩展信息&#10;- 添加Claude for Government Desktop公测详情&#10;- 更新Microsoft自研模型成本削减趋势报道&#10;- 添加Alibaba禁止使用Claude Code的安全合规信息&#10;- 更新Claude Code v2.1.203版本发布说明&#10;- 同步更新github-topz排行榜数据至最新状态&#10;- 更新ai-daily-state.json同步日期至2026-07-07" />
     <MESSAGE value="feat(dailyReport): 添加2026-07-09 AI日报和知识库日报内容&#10;&#10;- 新增 ai-daily-news/202607.md 中 2026-07-09 日报内容&#10;- 新增 knowledge-base-news/202607.md 中 2026-07-09 知识库日报内容&#10;- 更新 ai-daily-digest.md 添加 2026-07-09 AI摘要内容&#10;- 更新 ai-daily-state.json 同步状态至 2026-07-09&#10;- 更新 github-topz.md 最近更新时间为 2026-07-10 09:09:20" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(dailyReport): 添加2026-07-09 AI日报和知识库日报内容&#10;&#10;- 新增 ai-daily-news/202607.md 中 2026-07-09 日报内容&#10;- 新增 knowledge-base-news/202607.md 中 2026-07-09 知识库日报内容&#10;- 更新 ai-daily-digest.md 添加 2026-07-09 AI摘要内容&#10;- 更新 ai-daily-state.json 同步状态至 2026-07-09&#10;- 更新 github-topz.md 最近更新时间为 2026-07-10 09:09:20" />
+    <MESSAGE value="feat(dailyReport): 添加2026-07-10 AI日报和知识库日报内容&#10;&#10;- 新增 ai-daily-news/202607.md 中 2026-07-10 日报内容，包含 Claude Code v2.1.206 发布、阿里禁 Anthropic 工具生效等重要信息&#10;- 新增 knowledge-base-news/202607.md 中 2026-07-10 知识库日报内容，记录固定来源当日检索结果&#10;- 更新 ai-daily-news/ai-daily-digest.md 添加 2026-07-10 摘要内容&#10;- 修改 ai-daily-news/ai-daily-state.json 将最后同步日期更新至 2026-07-10&#10;- 更新 github-topz.md 的统计时间戳和仓库排名数据，反映最新 GitHub 趋势变化" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(dailyReport): 添加2026-07-10 AI日报和知识库日报内容&#10;&#10;- 新增 ai-daily-news/202607.md 中 2026-07-10 日报内容，包含 Claude Code v2.1.206 发布、阿里禁 Anthropic 工具生效等重要信息&#10;- 新增 knowledge-base-news/202607.md 中 2026-07-10 知识库日报内容，记录固定来源当日检索结果&#10;- 更新 ai-daily-news/ai-daily-digest.md 添加 2026-07-10 摘要内容&#10;- 修改 ai-daily-news/ai-daily-state.json 将最后同步日期更新至 2026-07-10&#10;- 更新 github-topz.md 的统计时间戳和仓库排名数据，反映最新 GitHub 趋势变化" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ai_for_learing$vanilla_rnn_numpy_demo.coverage" NAME="vanilla_rnn_numpy_demo Coverage Results" MODIFIED="1778826911757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ai-learning/07-cnn-rnn-transformer-intro/scripts" />
