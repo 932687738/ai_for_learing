@@ -2,6 +2,77 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-07-13
+
+### 今日总览
+
+**一句话结论**：`2026-07-13` 是 **「Fable 5 第三次延期 + Sol 五小时限额临时解除 + Langfuse Graph 双模式 + Gemini 3.5 Pro 7/17 传闻升温」**——Anthropic 将 **Fable 5 订阅含用量** 自 **7/12 截止** 再延至 **7/19 23:59 PT**（**Dataconomy 7/13**）；OpenAI **Tibo（7/12）** 临时取消 **Plus/Pro/Business** 的 **Sol 五小时 cap** 并 **一次性重置用量**；**Langfuse 7/13 changelog** 发布 **Trace Graph Aggregated/Expanded** 双模式；**TechTimes 7/13** 汇总 **Gemini 3.5 Pro → 7/17** 第三方目标（**未官方确认**）。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Anthropic/OpenAI/Google/Langfuse/GitHub 官方与衍生；Dataconomy/TechTimes/BYOBot；专项工具链 |
+| 核心趋势 | **Frontier 定价拉锯**：Fable 5 **第三次延期** vs Sol **临时放额度**；**可观测产品化**：Langfuse **Graph 双视图** 服务 Agent 调试；**政策化发布**：**CAISI 审 GPT-5.6** 成为 **7/13 周报** 主线 |
+| 可直接关注 | **7/19 前** Fable 5 仍占 **50% 周限额**；Sol **五小时限制已临时移除** 但 **非无限**；**7/14 周** OpenAI 承诺 **sidebar Projects 回归**；Langfuse trace 调试优先试 **Expanded DAG** |
+| 专项检索结论 | **Claude Code**：无 **7/13** 新 release（最新 **v2.1.207** 为 **7/11**）；**Codex**：**Sol 限额临时解除** + **Projects 缺失 Issue #32593 7/13 仍活跃**；**OpenClaw**：无 **7/13** 新 tag；**Hermes**：无 **7/13** release；**Spring AI / Spring Alibaba AI**：无 **7/13** release；**Langfuse**：**7/13 changelog Graph View 双模式**；**LangChain/LangGraph**：无 **7/13** release（**1.3.13 / 1.2.9** 为 **7/10**）；**Code Graph**：无 **7/13** release |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Anthropic / 产品 | [Fable 5 免费含用量第三次延至 7/19（Dataconomy）](https://dataconomy.com/2026/07/13/claude-fable-5-free-access-extended-july-19/) | **2026-07-13**（**官方 X 公告 7/12**） | 产品/定价 | **6/22→7/7→7/12→7/19** 四度推迟 **credits-only**；**Claude Code 周限额 +50%** 同步延至 **7/19** |
+| OpenAI / 产品 | [临时解除 Sol 五小时限额并重置用量（Dataconomy）](https://dataconomy.com/2026/07/13/openai-lifts-gpt-5-6-sol-usage-limits-temporarily/) | **2026-07-13**（**Tibo 帖 7/12**） | 官方回应/产品 | **Plus/Pro/Business** 取消 **5h cap**；**一次性 usage reset**；承诺 **Sol 更高效、少扣额度** |
+| OpenAI / UX | [ChatGPT Work 桌面缺失 Projects（GitHub #32593）](https://github.com/openai/codex/issues/32593) | **2026-07-13**（**Issue 更新 7/13**；**7/9 发布相邻**） | Bug/产品 | **chatgpt.com 可见 Projects**、**桌面 sidebar 为空**；**7/14 周** 大更新预告 **sidebar 回归** |
+| Langfuse / 可观测 | [Graph View Aggregated/Expanded 双模式（Langfuse Changelog）](https://langfuse.com/changelog/2026-07-13-graph-view-modes) | **2026-07-13** | 产品/changelog | **Aggregated** 折叠同名步骤；**Expanded** **call-by-call DAG** 展开循环；**ELK 确定性布局** |
+| Google / 模型 | [Gemini 3.5 Pro 目标 7/17 仍无官方确认（TechTimes）](https://www.techtimes.com/articles/320308/20260713/gemini-35-pro-targets-july-17-after-full-rebuild-every-spec-remains-unconfirmed.htm) | **2026-07-13** | 技术媒体/传闻 | **2M context / Deep Think** 为 **I/O 已公布**；**7/17 GA** 来自 **第三方 leak**；公网 API 仍无 **`gemini-3.5-pro`** |
+| 产业 / 周报 | [All Things Agentic 7/13 周报（BYOBot）](https://byobot.ai/ai-news/all-things-agentic-july-13-2026) | **2026-07-13** | 周报/产业 | **CAISI 审 GPT-5.6**、**ICML 开源论文潮**、**Grok 4.5 $2/$6**、**Apple 诉 OpenAI**、**Fed×Andreessen AI 任务组** |
+| Google / 工程 | [Gemini 3.5 Pro 延期因 token 效率（BYOBot 引用）](https://byobot.ai/ai-news/all-things-agentic-july-13-2026) | **2026-07-13**（**延期报道 7/6–7/12 窗口**） | 产业/工程 | 企业测试反馈 **agentic 任务 token 消耗超预期** → **弃 2.5 Pro 架构重建**；**Managed Agents + MCP** 仍持续 ship |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Agent 可观测 | **Langfuse Graph View 7/13 changelog** | **Aggregated vs Expanded**、**loop→DAG**、**viewport 稳定** | LLM 平台/SRE |
+| 额度治理 | **Tibo Sol 限额解除说明** | **5h rolling cap 临时 off**、**efficiency rollout** | ChatGPT Work/Codex 用户 |
+| Frontier 定价 | **Fable 5 第三次延期文** | **50% weekly pool**、**$10/$50 per M credits** | Claude 付费/Team 管理员 |
+| 发布政策 | **BYOBot CAISI 段落** | **Commerce 审 GPT-5.6** 先例、**launch calendar as policy** | 合规/战略 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：7/13 呈现 **「Frontier 模型价格战 + 可观测调试升级 + 桌面 Agent UX 债未清」**——Anthropic **再次延期 Fable credits 化** 对冲 **Sol 临时放额度**；Langfuse **Graph 双模式** 把 **Agent loop 调试** 从 **树视图** 推到 **DAG 级**；OpenAI **Projects 回归** 仍等 **7/14 周** patch。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 定价拉锯 | **Fable 7/19 再延** vs **Sol 5h cap 临时 off** | **采购** 勿按 **单日 headline** 定预算；**7/19** 仍是 **Fable credits** 硬节点（除非再延） |
+| 可观测 | **Langfuse Graph Expanded** | **loop/agent refine** 用 **Expanded** 定位 **单次 errant call**；**Aggregated** 看 **整体拓扑** |
+| 桌面 UX | **Projects 缺失 #32593** | **Work 放量期** 仍用 **web** 管理 **Projects**；桌面 **仅 Codex local workspace** |
+| Token 效率 | **Gemini 3.5 Pro rebuild 传闻** | **Agent 任务** 评估 **$/task** 而非 **$/token**；**enterprise preview** 反馈驱动 **GA slip** |
+| OpenClaw/Hermes/Spring/Code Graph | 无 **7/13** 重大 release | **Claude Code v2.1.207（7/11）** 仍为 CLI 最新 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Dataconomy Fable 5 第三次延期** | **7/13 最硬** 的 Anthropic 定价信号 |
+| 必读 | **Langfuse 7/13 Graph changelog** | **Agent trace 可视化** 可直接落地的 **双模式语义** |
+| 推荐 | **BYOBot 7/13 Agentic 周报** | **CAISI / ICML / 供应链** 一周地图 |
+| 推荐 | **TechTimes Gemini 3.5 Pro 7/17** | **未确认规格** 与 **官方 API 现状** 对照样本 |
+| 延伸 | **AI 日报 2026-07-12** | **Sol 删文件 / Fable 原 7/12 截止** |
+
+### 来源清单
+
+- 检索范围：2026-07-13 00:00:00 到 2026-07-13 23:59:59（Asia/Shanghai）
+- 引用域名：dataconomy.com, langfuse.com, techtimes.com, byobot.ai, github.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 产品 | Fable 5 延至 7/19 Dataconomy | 2026-07-13（公告 7/12） | https://dataconomy.com/2026/07/13/claude-fable-5-free-access-extended-july-19/ |
+| 官方回应 | Sol 五小时限额临时解除 Dataconomy | 2026-07-13（Tibo 7/12） | https://dataconomy.com/2026/07/13/openai-lifts-gpt-5-6-sol-usage-limits-temporarily/ |
+| Bug | ChatGPT Projects 缺失 #32593 | 2026-07-13 | https://github.com/openai/codex/issues/32593 |
+| Changelog | Langfuse Graph View 双模式 | 2026-07-13 | https://langfuse.com/changelog/2026-07-13-graph-view-modes |
+| 技术媒体 | Gemini 3.5 Pro 7/17 TechTimes | 2026-07-13 | https://www.techtimes.com/articles/320308/20260713/gemini-35-pro-targets-july-17-after-full-rebuild-every-spec-remains-unconfirmed.htm |
+| 周报 | All Things Agentic BYOBot | 2026-07-13 | https://byobot.ai/ai-news/all-things-agentic-july-13-2026 |
+
 ## 2026-07-12
 
 ### 今日总览

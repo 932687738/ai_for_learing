@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="feat(dailyReport): 添加2026-07-10 AI日报和知识库日报内容&#10;&#10;- 新增 ai-daily-news/202607.md 中 2026-07-10 日报内容，包含 Claude Code v2.1.206 发布、阿里禁 Anthropic 工具生效等重要信息&#10;- 新增 knowledge-base-news/202607.md 中 2026-07-10 知识库日报内容，记录固定来源当日检索结果&#10;- 更新 ai-daily-news/ai-daily-digest.md 添加 2026-07-10 摘要内容&#10;- 修改 ai-daily-news/ai-daily-state.json 将最后同步日期更新至 2026-07-10&#10;- 更新 github-topz.md 的统计时间戳和仓库排名数据，反映最新 GitHub 趋势变化">
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="docs(dailyReport): 添加2026年7月11日和12日AI日报及知识库日报&#10;&#10;- 添加2026-07-12和2026-07-11两个日期的AI日报内容&#10;- 添加2026-07-12和2026-07-11两个日期的知识库日报内容&#10;- 更新AI日报摘要包含最新两天内容&#10;- 涵盖GPT-5.6 Sol安全事件、Fable 5订阅截止、Apple诉OpenAI等重要内容&#10;- 记录Claude Code v2.1.207发布及ChatGPT Work产品问题修复&#10;- 包含Agent安全、评测作弊、定价模式变化等工程实践分析">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
@@ -278,14 +278,7 @@
       <workItem from="1783678360603" duration="32000" />
       <workItem from="1783722882658" duration="407000" />
       <workItem from="1783736948219" duration="32000" />
-    </task>
-    <task id="LOCAL-00014" summary="日常新闻摘要">
-      <option name="closed" value="true" />
-      <created>1779683473688</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1779683473689</updated>
+      <workItem from="1783907504436" duration="4510000" />
     </task>
     <task id="LOCAL-00015" summary="日常新闻摘要">
       <option name="closed" value="true" />
@@ -671,7 +664,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783723283713</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="docs(dailyReport): 添加2026年7月11日和12日AI日报及知识库日报&#10;&#10;- 添加2026-07-12和2026-07-11两个日期的AI日报内容&#10;- 添加2026-07-12和2026-07-11两个日期的知识库日报内容&#10;- 更新AI日报摘要包含最新两天内容&#10;- 涵盖GPT-5.6 Sol安全事件、Fable 5订阅截止、Apple诉OpenAI等重要内容&#10;- 记录Claude Code v2.1.207发布及ChatGPT Work产品问题修复&#10;- 包含Agent安全、评测作弊、定价模式变化等工程实践分析">
+      <option name="closed" value="true" />
+      <created>1783907583316</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1783907583316</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -689,7 +690,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Spring AI Transformer Advisor 作用" />
     <MESSAGE value="整理文件" />
     <MESSAGE value="多智能体通信模式解析" />
     <MESSAGE value="RAG知识图谱向量图谱关系解析" />
@@ -714,7 +714,8 @@
     <MESSAGE value="feat(dailyReport): 添加2026年7月7日AI日报和知识库新闻&#10;&#10;- 添加Meta Muse图像和视频模型发布的相关内容&#10;- 添加Anthropic Claude Cowork移动端和网页版扩展信息&#10;- 添加Claude for Government Desktop公测详情&#10;- 更新Microsoft自研模型成本削减趋势报道&#10;- 添加Alibaba禁止使用Claude Code的安全合规信息&#10;- 更新Claude Code v2.1.203版本发布说明&#10;- 同步更新github-topz排行榜数据至最新状态&#10;- 更新ai-daily-state.json同步日期至2026-07-07" />
     <MESSAGE value="feat(dailyReport): 添加2026-07-09 AI日报和知识库日报内容&#10;&#10;- 新增 ai-daily-news/202607.md 中 2026-07-09 日报内容&#10;- 新增 knowledge-base-news/202607.md 中 2026-07-09 知识库日报内容&#10;- 更新 ai-daily-digest.md 添加 2026-07-09 AI摘要内容&#10;- 更新 ai-daily-state.json 同步状态至 2026-07-09&#10;- 更新 github-topz.md 最近更新时间为 2026-07-10 09:09:20" />
     <MESSAGE value="feat(dailyReport): 添加2026-07-10 AI日报和知识库日报内容&#10;&#10;- 新增 ai-daily-news/202607.md 中 2026-07-10 日报内容，包含 Claude Code v2.1.206 发布、阿里禁 Anthropic 工具生效等重要信息&#10;- 新增 knowledge-base-news/202607.md 中 2026-07-10 知识库日报内容，记录固定来源当日检索结果&#10;- 更新 ai-daily-news/ai-daily-digest.md 添加 2026-07-10 摘要内容&#10;- 修改 ai-daily-news/ai-daily-state.json 将最后同步日期更新至 2026-07-10&#10;- 更新 github-topz.md 的统计时间戳和仓库排名数据，反映最新 GitHub 趋势变化" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(dailyReport): 添加2026-07-10 AI日报和知识库日报内容&#10;&#10;- 新增 ai-daily-news/202607.md 中 2026-07-10 日报内容，包含 Claude Code v2.1.206 发布、阿里禁 Anthropic 工具生效等重要信息&#10;- 新增 knowledge-base-news/202607.md 中 2026-07-10 知识库日报内容，记录固定来源当日检索结果&#10;- 更新 ai-daily-news/ai-daily-digest.md 添加 2026-07-10 摘要内容&#10;- 修改 ai-daily-news/ai-daily-state.json 将最后同步日期更新至 2026-07-10&#10;- 更新 github-topz.md 的统计时间戳和仓库排名数据，反映最新 GitHub 趋势变化" />
+    <MESSAGE value="docs(dailyReport): 添加2026年7月11日和12日AI日报及知识库日报&#10;&#10;- 添加2026-07-12和2026-07-11两个日期的AI日报内容&#10;- 添加2026-07-12和2026-07-11两个日期的知识库日报内容&#10;- 更新AI日报摘要包含最新两天内容&#10;- 涵盖GPT-5.6 Sol安全事件、Fable 5订阅截止、Apple诉OpenAI等重要内容&#10;- 记录Claude Code v2.1.207发布及ChatGPT Work产品问题修复&#10;- 包含Agent安全、评测作弊、定价模式变化等工程实践分析" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs(dailyReport): 添加2026年7月11日和12日AI日报及知识库日报&#10;&#10;- 添加2026-07-12和2026-07-11两个日期的AI日报内容&#10;- 添加2026-07-12和2026-07-11两个日期的知识库日报内容&#10;- 更新AI日报摘要包含最新两天内容&#10;- 涵盖GPT-5.6 Sol安全事件、Fable 5订阅截止、Apple诉OpenAI等重要内容&#10;- 记录Claude Code v2.1.207发布及ChatGPT Work产品问题修复&#10;- 包含Agent安全、评测作弊、定价模式变化等工程实践分析" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ai_for_learing$vanilla_rnn_numpy_demo.coverage" NAME="vanilla_rnn_numpy_demo Coverage Results" MODIFIED="1778826911757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ai-learning/07-cnn-rnn-transformer-intro/scripts" />
