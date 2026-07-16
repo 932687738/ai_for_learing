@@ -1,6 +1,6 @@
 ---
 name: knowledge-base-digest
-description: Generates a Chinese knowledge-base digest from a fixed set of Chinese technology portals and team blogs. Use when the user says 拉取知识库, 更新知识库, 知识库摘要, 生成知识库日报, or requests force=true for knowledge-base updates. Writes each day to monthly archive dailyReport/knowledge-base-news/YYYYMM.md (auto-create on new month) and mirrors the current month in knowledge-base-digest.md. It follows the same date, force, deduplication, Markdown section overwrite, descending date order, and state-file rules as ai-daily-digest, but only searches the configured fixed URLs and source names. Each pull must also run fixed-source special searches for Langfuse, LangChain/LangGraph, Code Graph, and Spring Alibaba AI engineering practice content.
+description: Generates a Chinese knowledge-base digest from a fixed set of Chinese technology portals and team blogs. Use when the user says 拉取知识库, 更新知识库, 知识库摘要, 生成知识库日报, or requests force=true for knowledge-base updates. Writes each day to monthly archive dailyReport/knowledge-base-news/YYYYMM.md (auto-create on new month) and mirrors the current month in knowledge-base-digest.md. It follows the same date, force, deduplication, Markdown section overwrite, descending date order, and state-file rules as ai-daily-digest, but only searches the configured fixed URLs and source names. Each pull must also run fixed-source special searches for Langfuse, LangChain/LangGraph, Code Graph, Spring Alibaba AI, and Loop Engineering engineering practice content.
 ---
 
 # Knowledge Base Digest
@@ -156,7 +156,7 @@ python tools/update_github_topz.py
 
 检索关键词应结合固定来源名称、日期和技术主题，重点覆盖：
 
-`AI`, `人工智能`, `大模型`, `LLM`, `Agent`, `RAG`, `LangChain`, `LangGraph`, `Langfuse`, `LLM 可观测性`, `链路追踪`, `prompt 管理`, `Code Graph`, `代码知识图谱`, `代码图谱`, `Tree-sitter`, `MCP`, `Spring AI`, `Spring Alibaba AI`, `spring-ai-alibaba`, `java2ai`, `Graph Agent`, `ReactAgent`, `云原生`, `架构`, `中间件`, `RocketMQ`, `Dubbo`, `数据库`, `大数据`, `推荐系统`, `搜索`, `音视频`, `前端`, `Node.js`, `工程化`, `客户端`, `安全`, `漏洞`, `攻防`, `DevOps`, `可观测性`, `稳定性`, `性能优化`, `SRE`, `研发效能`, `机器学习`, `算法`, `业务实践`, `双11`, `支付`, `风控`
+`AI`, `人工智能`, `大模型`, `LLM`, `Agent`, `RAG`, `LangChain`, `LangGraph`, `Langfuse`, `LLM 可观测性`, `链路追踪`, `prompt 管理`, `Code Graph`, `代码知识图谱`, `代码图谱`, `Tree-sitter`, `MCP`, `Loop Engineering`, `loop engineering`, `Agent loop`, `Ralph loop`, `/goal`, `/loop`, `harness engineering`, `Spring AI`, `Spring Alibaba AI`, `spring-ai-alibaba`, `java2ai`, `Graph Agent`, `ReactAgent`, `云原生`, `架构`, `中间件`, `RocketMQ`, `Dubbo`, `数据库`, `大数据`, `推荐系统`, `搜索`, `音视频`, `前端`, `Node.js`, `工程化`, `客户端`, `安全`, `漏洞`, `攻防`, `DevOps`, `可观测性`, `稳定性`, `性能优化`, `SRE`, `研发效能`, `机器学习`, `算法`, `业务实践`, `双11`, `支付`, `风控`
 
 过滤规则：
 
@@ -169,7 +169,7 @@ python tools/update_github_topz.py
 
 ## 工程框架专项主题（固定来源内强制检索）
 
-与 `ai-daily-digest` 对齐，以下四个主题在**固定来源清单**内必须单独检索；即使当天无新文，也须在「专项检索结论」与「未发现更新」中说明。
+与 `ai-daily-digest` 对齐，以下五个主题在**固定来源清单**内必须单独检索；即使当天无新文，也须在「专项检索结论」与「未发现更新」中说明。
 
 | 主题 | 在知识库中的检索重点 | 优先固定来源 |
 | --- | --- | --- |
@@ -177,11 +177,13 @@ python tools/update_github_topz.py
 | **LangChain / LangGraph** | Agent 编排、RAG 链路、LangGraph 工作流、与 MCP 集成、Java/Python 双栈对比 | 掘金、阿里云/腾讯云开发者、字节技术博客、美团技术团队 |
 | **Code Graph** | 代码知识图谱、Tree-sitter 索引、MCP 代码探索、impact analysis、降 token 的 Agent 上下文方案 | 掘金、阿里云开发者、腾讯技术工程（公众号/Tencent_TEG）、字节技术博客 |
 | **Spring Alibaba AI** | `spring-ai-alibaba`、Graph Core、ReactAgent/DataAgent、与 Spring Boot/Spring AI 集成、java2ai 文档导读 | **阿里云开发者社区**、阿里技术（102.alibaba.com）、语雀·阿里技术干货、掘金 |
+| **Loop Engineering** | Agent loop 范式中文解读（`/goal`、`/loop`、verifier、worktrees、skills、定时/触发 loop）；Ralph loop、harness engineering、Human-in-the-Loop；与 Claude Code/Codex/Hermes 对照的 **loop 设计** 实践文 | **掘金**（历史硬对齐较多）、阿里云/腾讯云开发者、字节技术博客、美团技术团队 |
 
 区分说明：
 
 - **Spring AI** 与 **Spring Alibaba AI** 分开记录；后者优先 `developer.aliyun.com`、`102.alibaba.com`、语雀阿里技术。
 - **Code Graph** 指代码库结构图谱工具（如 CodeGraph、Codebase-Memory），不要与 Spring AI Alibaba 的 **Graph 工作流引擎**混淆；若同一篇文章同时涉及，拆成两行或注明双重归属。
+- **Loop Engineering** 固定来源内优先 **掘金** 社区长文；全球 **cobusgreyling/loop-engineering**、Claude/Codex 官方 loop 命令更新见 **AI 日报 Loop Engineering 专项**，知识库可 **相邻日期/传播窗口** 引用但须标注。
 - 固定来源外内容不得常规收录；用户补漏例外仍适用。
 
 ## 推荐检索步骤
@@ -190,7 +192,7 @@ python tools/update_github_topz.py
 
 1. 按固定来源分组检索，每组使用 `site:` 查询或来源名称 + 日期组合查询。
 2. 至少覆盖阿里、腾讯、字节、百度、美团、京东、滴滴、网易、360、有赞 10 个公司/组织维度。
-3. 对 **Langfuse**、**LangChain/LangGraph**、**Code Graph**、**Spring Alibaba AI** 四个专项主题，在固定来源内各至少执行 1 组 `site:` 或来源名 + 日期检索（即使无结果也要记录）。
+3. 对 **Langfuse**、**LangChain/LangGraph**、**Code Graph**、**Spring Alibaba AI**、**Loop Engineering** 五个专项主题，在固定来源内各至少执行 1 组 `site:` 或来源名 + 日期检索（即使无结果也要记录）。
 4. 对高价值或不确定结果，必须用 WebFetch 打开原文核验标题、发布时间、作者/团队、正文技术含量和链接。
 5. 建立去重后的来源列表，记录来源名称、标题、URL、发布日期/更新时间、主题、可信度、研发/学习价值。
 6. 不要按 URL 逐篇机械罗列；先融合信息，再按统一脉络生成当天知识库日报。
@@ -223,6 +225,10 @@ python tools/update_github_topz.py
 - `site:cloud.tencent.com/developer "YYYY-MM-DD" LangChain OR Langfuse OR "代码图谱"`
 - `site:tech.meituan.com "YYYY-MM-DD" LangChain OR 可观测性 OR Agent`
 - `site:techblog.toutiao.com "YYYY-MM-DD" LangChain OR Agent OR RAG`
+- `site:juejin.cn "YYYY-MM-DD" "Loop Engineering" OR "loop engineering" OR "Agent loop" OR "/goal" OR "Ralph loop"`
+- `site:developer.aliyun.com "YYYY-MM-DD" "Loop Engineering" OR "Agent loop" OR harness`
+- `site:cloud.tencent.com/developer "YYYY-MM-DD" loop OR Agent`
+- `site:tech.meituan.com "YYYY-MM-DD" loop OR harness OR Agent`
 
 ## 质量控制与查漏补缺
 
@@ -230,12 +236,12 @@ python tools/update_github_topz.py
 
 1. 检查是否只引用固定来源清单中的站点或公众号标识。
 2. 检查是否覆盖至少 10 个公司/组织维度；若无结果，也要在总结中说明已检索但未发现可核验更新。
-3. 检查专项主题 **Langfuse**、**LangChain/LangGraph**、**Code Graph**、**Spring Alibaba AI** 是否在固定来源内均已检索并有结论。
+3. 检查专项主题 **Langfuse**、**LangChain/LangGraph**、**Code Graph**、**Spring Alibaba AI**、**Loop Engineering** 是否在固定来源内均已检索并有结论。
 4. 检查每条“重要文章与更新”是否包含标题、链接、日期、来源、主题和研发/学习价值。
 5. 检查来源清单表格是否包含所有正文引用来源，且日期字段标注准确。
 6. 检查是否存在同一文章重复列出；如果重复，合并为一条并保留最权威来源。
 7. 若可靠来源少于 3 个，扩大到固定来源内的相邻日期、中国时间窗口传播和站内搜索，但必须标注日期关系。
-8. 如果某天没有新内容，仍要说明覆盖了哪些固定来源维度与四个专项主题。
+8. 如果某天没有新内容，仍要说明覆盖了哪些固定来源维度与五个专项主题。
 
 ## 日期章节模板
 
@@ -253,7 +259,7 @@ python tools/update_github_topz.py
 | 检索范围 | [列出已检索的固定来源维度] |
 | 核心趋势 | [2-4 个融合后的技术趋势] |
 | 可直接关注 | [对研发/学习/架构/治理最有价值的方向] |
-| 专项检索结论 | [Langfuse/LangChain·LangGraph/Code Graph/Spring Alibaba AI 在固定来源内的检索结论] |
+| 专项检索结论 | [Langfuse/LangChain·LangGraph/Code Graph/Spring Alibaba AI/Loop Engineering 在固定来源内的检索结论] |
 | 未发现更新 | [列出已检索但未发现可核验更新的来源维度] |
 
 ### 重要文章与更新
@@ -270,7 +276,7 @@ python tools/update_github_topz.py
 
 ### 工程实践归纳
 
-**总体判断**：[用 1 句话总结当天工程实践变化；须涵盖 Langfuse/LangChain/Code Graph/Spring Alibaba AI 中当日有信号的方向，无则明确写「未发现可核验更新」。]
+**总体判断**：[用 1 句话总结当天工程实践变化；须涵盖 Langfuse/LangChain/Code Graph/Spring Alibaba AI/Loop Engineering 中当日有信号的方向，无则明确写「未发现可核验更新」。]
 
 | 主题 | 进展 | 工程启发 |
 | --- | --- | --- |
@@ -300,7 +306,7 @@ python tools/update_github_topz.py
 
 ### 今日总览
 
-本次按 Asia/Shanghai 的 YYYY-MM-DD 00:00:00 到 23:59:59 检索固定知识库来源，并专项检索 Langfuse、LangChain/LangGraph、Code Graph、Spring Alibaba AI，未发现可确认属于该日期且具备可靠出处的重大技术更新。
+本次按 Asia/Shanghai 的 YYYY-MM-DD 00:00:00 到 23:59:59 检索固定知识库来源，并专项检索 Langfuse、LangChain/LangGraph、Code Graph、Spring Alibaba AI、Loop Engineering，未发现可确认属于该日期且具备可靠出处的重大技术更新。
 
 ### 重要文章与更新
 

@@ -6,15 +6,15 @@
 
 ### 今日总览
 
-**一句话结论**：`2026-07-15` 固定来源口径下，**10 个公司/组织维度 + 四专项均已检索**，**未发现可确认属于该日期且具备可靠出处的 team 首发长文**；全球 **Claude Code v2.1.211 / Langfuse v3.214.0 / Gemini 3.5 Pro 7/17 倒计时** 主线无固定来源硬对齐。
+**一句话结论**：`2026-07-15` 固定来源口径下，**10 个公司/组织维度 + 五专项（含 Loop Engineering）均已检索**，**未发现可确认属于该日期且具备可靠出处的 team 首发长文**；全球 **Claude Code v2.1.211 / Langfuse v3.214.0 / loop-engineering #273+#274 / Pragmatic Engineer 7/15 播客** 无固定来源硬对齐，见 **AI 日报 2026-07-15 Loop Engineering 专项**。
 
 | 维度 | 本日结论 |
 | --- | --- |
 | 检索范围 | 阿里 102 / 阿里云开发者 / 中间件 / 语雀；腾讯云开发者；字节 techblog / 掘金；百度 FEX/EFE/开发者；美团；京东科技/凹凸；滴滴；网易知乎；360；有赞 |
-| 核心趋势 | **固定来源空窗日** |
-| 可直接关注 | 全球 CLI/可观测/Frontier 倒计时见 **AI 日报 2026-07-15**；固定来源最新可核验增量仍为 **7/9 阿里云 Copilot CLI 上手指南** |
-| 专项检索结论 | **Langfuse**：固定来源内 **7/15** 无新文（全球 **v3.214.0 + Root Observations changelog** 见 AI 日报）；**LangChain/LangGraph**：无 **7/15** 新文；**Code Graph**：无 **7/15** 新文；**Spring Alibaba AI**：无 **7/15** 新文 |
-| 未发现更新 | 阿里 102/中间件/语雀；腾讯 TEG/腾讯云/AlloyTeam/大讲堂；字节 techblog；百度；美团；京东；滴滴；网易；360；有赞；掘金（检索到的 **7/5–7/14** 文章均非 **7/15** 硬对齐）；**阿里云镜像站 7/15 同步** 为基础设施更新，非 team 首发长文 |
+| 核心趋势 | **固定来源空窗日**；**Loop Engineering** 全球信号在 **cobusgreyling/loop-engineering 工具链** 与 **播客深度**，非 team blog |
+| 可直接关注 | 全球 loop 增量见 **AI 日报 2026-07-15**；固定来源最新 **Loop Engineering 硬对齐** 仍为 **6/10 掘金 Loop Engineering 文**；**7/9 阿里云 Copilot CLI** 仍为最新 Agent CLI 对照 |
+| 专项检索结论 | **Loop Engineering**：固定来源 **7/15 无新文**（**6/10 掘金 loop 范式文** 仍为最近硬对齐；全球 **#273/#274** 见 AI 日报）；**Langfuse**：固定来源内 **7/15** 无新文；**LangChain/LangGraph**：无 **7/15** 新文；**Code Graph**：无 **7/15** 新文；**Spring Alibaba AI**：无 **7/15** 新文 |
+| 未发现更新 | 阿里 102/中间件/语雀；腾讯 TEG/腾讯云/AlloyTeam/大讲堂；字节 techblog；百度；美团；京东；滴滴；网易；360；有赞；掘金 **7/15 无 Loop Engineering 硬对齐**（**7/2 Agentic AI 文** 提及 agent loop 但非 **7/15** 发布） |
 
 ### 重要文章与更新
 
@@ -22,34 +22,40 @@
 
 ### 技术文档与实践
 
-- 未发现值得收录的新文档或实践文章。
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Loop 范式（固定来源） | [Loop Engineering：设计 prompt agent 的系统（掘金 6/10）](https://juejin.cn/post/7649283795195772980) | **loop 编排**、**sub-agent**、**MCP**；对照 **7/15 loop-context/worktree** | Agent/平台工程师 |
+| Loop 范式（全球） | **AI 日报 2026-07-15** | **#273 日 token 预算**、**#274 worktree lock**、**Dex Horthy slow loops** | TL/架构师 |
 
 ### 工程实践归纳
 
-**总体判断**：固定来源 **7/15** 无 team 首发长文；**阿里云开发者社区** 可核验增量仍止于 **7/9 Copilot CLI 上手指南**。全球 **Claude Code / Langfuse** 见 **AI 日报**。
+**总体判断**：固定来源 **7/15** 无 team 首发长文；**Loop Engineering** 专项在固定来源内 **空窗**，但 **6/10 掘金 loop 文** 仍可作为 **中文 loop 设计** 入口，与 **7/15 全球 loop-engineering 工具链** 形成 **范式 + 基础设施** 对照。
 
 | 主题 | 进展 | 工程启发 |
 | --- | --- | --- |
-| 固定来源 | **7/15 空窗** | 空窗日不代表无全球动态 |
-| Agent CLI | **7/9 阿里云 Copilot CLI 文仍为最新** | 对照 **AI 日报 Claude Code v2.1.211** 评估 CLI 升级 |
+| 固定来源 | **7/15 空窗** | 空窗日不代表无全球 loop 动态 |
+| Loop Engineering | **6/10 掘金文仍为最近硬对齐** | 用 **Addy Osmani/Boris Cherny 五要素** 对照 **loop-init/loop-audit** |
+| Agent CLI | **7/9 阿里云 Copilot CLI 文仍为最新** | 对照 **AI 日报 Claude Code v2.1.211** 评估 **subagent loop** 升级 |
 | Langfuse/LangChain/Code Graph/Spring Alibaba AI | 固定来源 **7/15 无硬对齐长文** | 全球 **Langfuse v3.214.0** 见 AI 日报 |
 
 ### 值得深入阅读的资料
 
 | 推荐级别 | 资料 | 为什么值得读 |
 | --- | --- | --- |
-| 延伸 | **AI 日报 2026-07-15** | **Claude Code v2.1.211 / Langfuse Root Observations / Admin API** |
-| 延伸 | **知识库 2026-07-09 Copilot CLI 文** | 固定来源内 **最新 Agent CLI 对照** |
+| 延伸 | **AI 日报 2026-07-15** | **loop-context/worktree + Pragmatic Engineer 播客** |
+| 必读（固定来源） | **知识库 2026-06-10 掘金 Loop Engineering** | 固定来源内 **最新 loop 范式中文长文** |
+| 延伸 | **知识库 2026-07-09 Copilot CLI 文** | **Agent CLI 对照** |
 
 ### 来源清单
 
 - 检索范围：2026-07-15 00:00:00 到 2026-07-15 23:59:59（Asia/Shanghai）
-- 固定来源覆盖：已覆盖固定来源清单中的公司/组织维度；**7/15 无可核验硬增量**
+- 固定来源覆盖：已覆盖固定来源清单中的公司/组织维度 + **Loop Engineering 专项**；**7/15 无可核验硬增量**
 - 来源清单表格：
 
 | 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
 | --- | --- | --- | --- | --- | --- |
 | — | — | — | 未发现可核验更新 | — | — |
+
 
 ## 2026-07-14
 

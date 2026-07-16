@@ -1,6 +1,6 @@
 ---
 name: ai-daily-digest
-description: Generates an AI Daily News Digest in Chinese. Use when the user says 拉取AI新闻, AI新闻摘要, 更新AI日报, 生成AI资讯汇总, or requests force=true. Writes each day to monthly archive dailyReport/ai-daily-news/YYYYMM.md (auto-create on new month) and mirrors the current month in ai-daily-digest.md. Incrementally searches broad AI news including LLMs, agents, Claude Code, Codex, OpenClaw, Hermes, Spring AI, Spring Alibaba AI, LangChain, LangGraph, Langfuse, Code Graph, RAG, MCP, model infrastructure, papers, official blogs, releases, GitHub changelogs, enterprise AI adoption, AI safety, and policy updates, then writes fused daily Markdown summaries with persistent state.
+description: Generates an AI Daily News Digest in Chinese. Use when the user says 拉取AI新闻, AI新闻摘要, 更新AI日报, 生成AI资讯汇总, or requests force=true. Writes each day to monthly archive dailyReport/ai-daily-news/YYYYMM.md (auto-create on new month) and mirrors the current month in ai-daily-digest.md. Incrementally searches broad AI news including LLMs, agents, Claude Code, Codex, OpenClaw, Hermes, Loop Engineering, Spring AI, Spring Alibaba AI, LangChain, LangGraph, Langfuse, Code Graph, RAG, MCP, model infrastructure, papers, official blogs, releases, GitHub changelogs, enterprise AI adoption, AI safety, and policy updates, then writes fused daily Markdown summaries with persistent state.
 ---
 
 # AI Daily News Digest
@@ -106,7 +106,7 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 
 检索关键词必须覆盖以下任意一个或多个，并围绕当天日期组合查询：
 
-`AI`, `人工智能`, `生成式 AI`, `LLM`, `大语言模型`, `agent`, `AI agent`, `autonomous agent`, `coding agent`, `agentic AI`, `skills`, `Agent Skills`, `AI skills`, `Codex Skills`, `Claude Skills`, `Cursor Skills`, `Claude Code skills`, `LangChain`, `LangGraph`, `Langfuse`, `LLM observability`, `LLM tracing`, `prompt management`, `eval`, `LangSmith`, `LlamaIndex`, `RAG`, `GraphRAG`, `Code Graph`, `code knowledge graph`, `codebase graph`, `Tree-sitter`, `MCP code graph`, `CodeGraph`, `codegraph`, `Codebase-Memory`, `OpenAI`, `Anthropic`, `Claude`, `Claude Code`, `Codex`, `OpenClaw`, `Hermes`, `Spring AI`, `Spring Boot AI`, `Spring Alibaba AI`, `Spring AI Alibaba`, `spring-ai-alibaba`, `java2ai`, `Google DeepMind`, `Gemini`, `Meta Llama`, `MCP`, `A2A`, `向量数据库`, `vector database`, `embedding`, `reranker`, `提示工程`, `prompt engineering`, `模型评测`, `benchmark`, `AI 编程`, `AI coding`, `AI 安全`, `AI safety`, `AI 产品发布`, `AI 政策监管`, `模型基础设施`, `GPU`, `TPU`, `推理加速`, `inference`, `enterprise AI`, `企业 AI 落地`, `AI 搜索`, `多模态`, `语音模型`, `机器人`, `具身智能`
+`AI`, `人工智能`, `生成式 AI`, `LLM`, `大语言模型`, `agent`, `AI agent`, `autonomous agent`, `coding agent`, `agentic AI`, `Loop Engineering`, `loop engineering`, `Ralph loop`, `Ralph Wiggum`, `/goal`, `/loop`, `/schedule`, `agent loop`, `verifier loop`, `loop-init`, `loop-audit`, `loop-worktree`, `loop-context`, `Codex Automations`, `harness engineering`, `skills`, `Agent Skills`, `AI skills`, `Codex Skills`, `Claude Skills`, `Cursor Skills`, `Claude Code skills`, `LangChain`, `LangGraph`, `Langfuse`, `LLM observability`, `LLM tracing`, `prompt management`, `eval`, `LangSmith`, `LlamaIndex`, `RAG`, `GraphRAG`, `Code Graph`, `code knowledge graph`, `codebase graph`, `Tree-sitter`, `MCP code graph`, `CodeGraph`, `codegraph`, `Codebase-Memory`, `OpenAI`, `Anthropic`, `Claude`, `Claude Code`, `Codex`, `OpenClaw`, `Hermes`, `Spring AI`, `Spring Boot AI`, `Spring Alibaba AI`, `Spring AI Alibaba`, `spring-ai-alibaba`, `java2ai`, `Google DeepMind`, `Gemini`, `Meta Llama`, `MCP`, `A2A`, `向量数据库`, `vector database`, `embedding`, `reranker`, `提示工程`, `prompt engineering`, `模型评测`, `benchmark`, `AI 编程`, `AI coding`, `AI 安全`, `AI safety`, `AI 产品发布`, `AI 政策监管`, `模型基础设施`, `GPU`, `TPU`, `推理加速`, `inference`, `enterprise AI`, `企业 AI 落地`, `AI 搜索`, `多模态`, `语音模型`, `机器人`, `具身智能`
 
 优先来源（按优先级）：
 
@@ -119,7 +119,7 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 扩展来源池（用于扩大覆盖面，仍需按可信度筛选）：
 
 - 官方与厂商：`openai.com`, `anthropic.com`, `deepmind.google`, `blog.google`, `research.google`, `ai.meta.com`, `about.fb.com/news`, `microsoft.com/en-us/research`, `blogs.microsoft.com`, `azure.microsoft.com/blog`, `aws.amazon.com/blogs`, `developer.nvidia.com/blog`, `github.blog`, `huggingface.co/blog`, `mistral.ai/news`, `cohere.com/blog`, `x.ai/news`, `perplexity.ai/hub`, `cursor.com/blog`, `windsurf.com/blog`。
-- 框架与开发生态：`blog.langchain.com`, `docs.langchain.com`, `changelog.langchain.com`, `docs.langchain.com/oss/javascript/langgraph`, `llamaindex.ai/blog`, `spring.io/blog`, `docs.spring.io/spring-ai`, `github.com/spring-projects/spring-ai`, `langfuse.com`, `langfuse.com/changelog`, `langfuse.com/docs`, `langfuse.com/integrations`, `github.com/langfuse/langfuse`, `github.com/langfuse/langfuse-java`, `github.com/langfuse/langfuse-examples`, `java2ai.com`, `github.com/alibaba/spring-ai-alibaba`, `github.com/spring-ai-alibaba/examples`, `github.com/openai/codex`, `github.com/anthropics/claude-code`, `github.com/modelcontextprotocol`, `github.com/langchain-ai`, `github.com/NousResearch/hermes-agent`, `github.com/colbymchenry/codegraph`, `github.com/codegraph-ai/codegraph`, `cursor.com/blog`, `docs.cursor.com`, `openai.com/codex`, `platform.openai.com/docs`, `docs.anthropic.com`, `code.claude.com/docs`。
+- 框架与开发生态：`blog.langchain.com`, `docs.langchain.com`, `changelog.langchain.com`, `docs.langchain.com/oss/javascript/langgraph`, `llamaindex.ai/blog`, `spring.io/blog`, `docs.spring.io/spring-ai`, `github.com/spring-projects/spring-ai`, `langfuse.com`, `langfuse.com/changelog`, `langfuse.com/docs`, `langfuse.com/integrations`, `github.com/langfuse/langfuse`, `github.com/langfuse/langfuse-java`, `github.com/langfuse/langfuse-examples`, `java2ai.com`, `github.com/alibaba/spring-ai-alibaba`, `github.com/spring-ai-alibaba/examples`, `github.com/openai/codex`, `github.com/anthropics/claude-code`, `github.com/modelcontextprotocol`, `github.com/langchain-ai`, `github.com/NousResearch/hermes-agent`, `github.com/colbymchenry/codegraph`, `github.com/codegraph-ai/codegraph`, `cursor.com/blog`, `docs.cursor.com`, `openai.com/codex`, `platform.openai.com/docs`, `docs.anthropic.com`, `code.claude.com/docs`, `addyosmani.com/blog/loop-engineering`, `addyo.substack.com`, `github.com/cobusgreyling/loop-engineering`, `cobusgreyling.github.io/loop-engineering`, `developersdigest.tech`, `newsletter.pragmaticengineer.com`, `signals.forwardfuture.ai/loop-library`。
 - 论文与模型社区：`arxiv.org`, `huggingface.co/papers`, `paperswithcode.com`, `openreview.net`, `neurips.cc`, `icml.cc`, `iclr.cc`, `aclanthology.org`, 作者项目主页和代码仓库。
 - 开源与工程：GitHub Releases、GitHub Trending、GitHub Discussions、release notes、changelog、package registry 页面（npm、PyPI、Maven Central）以及项目官方文档。
 - 可信媒体与深度来源：The Verge、Ars Technica、TechCrunch、VentureBeat、InfoQ、MIT Technology Review、IEEE Spectrum、The Batch、Sebastian Raschka、Simon Willison、Latent Space、Ben's Bites、Import AI。
@@ -136,7 +136,7 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 
 ## 专项主题定义与官方来源
 
-以下四个主题为**强制专项检索**对象（与 Claude Code、Spring AI 同级）。即使当天无新 release，也必须检索并在「专项检索结论」中给出结论。
+以下五个主题为**强制专项检索**对象（与 Claude Code、Spring AI 同级）。即使当天无新 release，也必须检索并在「专项检索结论」中给出结论。
 
 | 主题 | 定义与检索范围 | 优先官方来源 |
 | --- | --- | --- |
@@ -144,12 +144,14 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 | **LangChain / LangGraph** | Python/JS Agent 框架与工作流编排：LangChain Core、LangGraph、LangSmith、官方 changelog、MCP/A2A 集成、RAG 组件 | `blog.langchain.com`、`docs.langchain.com`、`changelog.langchain.com`、`github.com/langchain-ai` |
 | **Code Graph** | 面向 AI 编程 Agent 的**代码知识图谱**：Tree-sitter 解析、符号/调用边/依赖图、impact analysis、MCP 暴露、本地索引与增量同步；**不等同于** GitHub Code Search 或 Spring AI Alibaba Graph（后者归入 Spring Alibaba AI） | `github.com/colbymchenry/codegraph`、`github.com/codegraph-ai/codegraph`、arXiv/论文（如 Codebase-Memory）、Memgraph GraphRAG/Code 类 demo、可信技术媒体对 MCP code graph 的报道 |
 | **Spring Alibaba AI** | 阿里 Spring AI 生态：`spring-ai-alibaba` Agent Framework、Graph Core、ReactAgent/SequentialAgent、DataAgent、与 DashScope/Qwen 集成、BOM 与 release | `github.com/alibaba/spring-ai-alibaba`、`java2ai.com`、`github.com/spring-ai-alibaba/examples`、阿里云开发者社区（中文补充） |
+| **Loop Engineering** | Agent 工程范式：设计 **closed feedback loop** 让 Agent 自主迭代（`/goal`、`/loop`、`/schedule`、Codex Automations/`codex exec`、verifier/judge、worktrees、skills、hooks、turn budget）；取代逐条 prompt；与 **Ralph loop**、**harness engineering** 同源；核心 primitive：**触发/定时 → worker agent → 独立 verifier → 终止条件** | `addyosmani.com/blog/loop-engineering`、`github.com/cobusgreyling/loop-engineering`（含 `loop-init`/`loop-audit`/`loop-worktree`/`loop-context`）、`github.com/NousResearch/hermes-agent`（`docs/loop-engineering.md`、`/goal`）、`code.claude.com/docs`（`/loop`、`/goal`、`/schedule`、hooks）、`developers.openai.com/codex`（Automations、`exec`）、`developersdigest.tech`、`newsletter.pragmaticengineer.com` |
 
 区分说明：
 
 - **Spring AI**（`spring-projects/spring-ai`）与 **Spring Alibaba AI**（`alibaba/spring-ai-alibaba`）分开检索、分开记录；前者关注 Spring 官方 GA/Milestone，后者关注阿里 Graph/Agent 框架与 Java Agent 实践。
 - **Code Graph** 指「代码库结构图谱 + Agent 上下文」工具链；若 `spring-ai-alibaba-graph` 当日有 release，可同时出现在 Spring Alibaba AI 与 Agent 框架条目中，但须注明归属。
 - **Langfuse** 重点收录 changelog、SDK/MCP/OTel 集成、与 Spring AI 或 Qwen 的可观测性实践；LangSmith 可作为 LangChain 生态对照，但不替代 Langfuse 专项结论。
+- **Loop Engineering** 与 **Claude Code/Codex/Hermes** 专项交叉：当日 loop 相关 **CLI 命令/changelog** 记入对应工具专项，**loop 范式/工具链/scaffold**（如 `cobusgreyling/loop-engineering` PR、`loop-init`、verifier 模式、Pragmatic Engineer 深度文）记入 Loop Engineering 专项；**禁止**让 Agent 自证 done（maker/checker 分离）为收录重点。
 
 ## 推荐检索步骤
 
@@ -157,7 +159,7 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 
 1. 用 WebSearch 分组检索官方发布、论文原文、开源 release、可信技术媒体、政策监管。
 2. 使用多个组合查询交叉验证，至少覆盖“关键词+日期+official”“官方站点 site 检索”“论文站点检索”“GitHub/changelog 检索”“政策监管检索”。
-3. 对 `Claude Code`、`Codex`、`OpenClaw`、`Hermes`、`Spring AI`、`Spring Alibaba AI`、`Langfuse`、`LangChain`/`LangGraph`、`Code Graph`、`skills/Agent Skills/Codex Skills/Claude Skills/Cursor Skills` 必须单独执行专项检索（即使当天无结果也要检索并在总结中说明）。
+3. 对 `Claude Code`、`Codex`、`OpenClaw`、`Hermes`、`Spring AI`、`Spring Alibaba AI`、`Langfuse`、`LangChain`/`LangGraph`、`Code Graph`、**`Loop Engineering`**、`skills/Agent Skills/Codex Skills/Claude Skills/Cursor Skills` 必须单独执行专项检索（即使当天无结果也要检索并在总结中说明）。
 4. 对高价值或不确定结果，必须用 WebFetch 打开原文核验日期和事实。
 5. 日期核验时区分发布时间、更新时间、抓取时间、相邻时区传播时间，避免把搜索摘要日期当成发布日期。
 6. 建立去重后的来源列表，记录标题、URL、发布日期/更新时间、类型、可信度、与研发/学习的关系。
@@ -165,7 +167,7 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 
 最低覆盖矩阵：
 
-- 每个目标日期至少执行 **17 组**检索：官方厂商、模型/产品、开发者工具、Agent 框架、RAG/MCP/向量数据库、Spring AI/Java AI、**Spring Alibaba AI**、**Langfuse/LLM 可观测性**、**LangChain/LangGraph**、**Code Graph/代码知识图谱**、Claude Code/Codex/OpenClaw/Hermes、skills/Agent Skills、论文、GitHub release、技术媒体、政策监管、中文补充来源。
+- 每个目标日期至少执行 **18 组**检索：官方厂商、模型/产品、开发者工具、Agent 框架、RAG/MCP/向量数据库、Spring AI/Java AI、**Spring Alibaba AI**、**Langfuse/LLM 可观测性**、**LangChain/LangGraph**、**Code Graph/代码知识图谱**、**Loop Engineering/Agent loop 范式**、Claude Code/Codex/OpenClaw/Hermes、skills/Agent Skills、论文、GitHub release、技术媒体、政策监管、中文补充来源。
 - 若某一组没有可靠结果，在对应主题中说明“未发现可核验重大更新”，不要省略该组。
 - 同一事件至少用 2 个来源交叉验证；如果只有一个来源，必须是官方原文、论文原文或 GitHub release。
 - 对“看起来重大”的媒体报道，必须反查官方公告、原始论文、GitHub release 或监管原文。
@@ -177,7 +179,7 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 
 - 模型与产品：新模型、默认模型变更、API 能力、价格/限额、上下文窗口、多模态、语音、图像、视频。
 - AI 编程：Codex、Claude Code、GitHub Copilot、Cursor、Windsurf、JetBrains AI、代码审查、浏览器/终端/IDE 集成。
-- Agent 与工程框架：LangChain、LangGraph、LangSmith、LlamaIndex、Spring AI、**Spring Alibaba AI**、**Langfuse**、Hermes、OpenClaw、MCP、A2A、Agent Skills、Codex Skills、Claude Skills、Cursor Skills、多 Agent、长期记忆、工具调用、工作流编排。
+- Agent 与工程框架：LangChain、LangGraph、LangSmith、LlamaIndex、Spring AI、**Spring Alibaba AI**、**Langfuse**、**Loop Engineering**（`/goal`、`/loop`、verifier、worktrees、automations）、Hermes、OpenClaw、MCP、A2A、Agent Skills、Codex Skills、Claude Skills、Cursor Skills、多 Agent、长期记忆、工具调用、工作流编排。
 - RAG 与数据层：GraphRAG、**Code Graph**、代码知识图谱、向量数据库、混合检索、rerank、embedding、知识图谱、数据连接器、权限与审计。
 - 模型评测与安全：system card、eval、red team、可解释性、AI 安全、网络安全、隐私、内容安全、模型治理。
 - 基础设施：GPU/TPU、推理框架、算力合作、模型部署、边缘推理、云服务、开发平台。
@@ -211,6 +213,12 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 - `"Code Graph" OR "code knowledge graph" OR "codegraph" "May 7, 2026" MCP OR release`
 - `site:github.com/colbymchenry/codegraph/releases "2026"`
 - `site:github.com/codegraph-ai/codegraph/releases "2026"`
+- `"Loop Engineering" OR "loop engineering" OR "/goal" OR "/loop" "May 7, 2026" Claude OR Codex OR Hermes`
+- `site:github.com/cobusgreyling/loop-engineering "2026"`
+- `site:addyosmani.com "loop engineering"`
+- `site:developersdigest.tech "loop engineering" "2026"`
+- `site:newsletter.pragmaticengineer.com "loop engineering"`
+- `site:github.com/NousResearch/hermes-agent "loop engineering" OR /goal`
 - `site:spring.io/blog "Spring AI" "May 7, 2026"`
 - `site:github.com/spring-projects/spring-ai/releases "2026"`
 - `"Agent Skills" OR "AI skills" "May 7, 2026" release OR update OR marketplace`
@@ -240,7 +248,7 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 生成日报前执行覆盖检查：
 
 1. 检查是否覆盖官方发布、论文、开源 release、技术媒体、政策监管、开发者工具、Agent/RAG/MCP、企业落地至少 8 类。
-2. 检查专项主题 `Claude Code`、`Codex`、`OpenClaw`、`Hermes`、`Spring AI`、**`Spring Alibaba AI`**、**`Langfuse`**、**`LangChain`/`LangGraph`**、**`Code Graph`**、`skills/Agent Skills/Codex Skills/Claude Skills/Cursor Skills` 是否均已检索并有结论。
+2. 检查专项主题 `Claude Code`、`Codex`、`OpenClaw`、`Hermes`、`Spring AI`、**`Spring Alibaba AI`**、**`Langfuse`**、**`LangChain`/`LangGraph`**、**`Code Graph`**、**`Loop Engineering`**、`skills/Agent Skills/Codex Skills/Claude Skills/Cursor Skills` 是否均已检索并有结论。
 3. 检查每条“重要事件与发布”是否包含标题、链接、发布日期/更新时间、信息类型、研发影响。
 4. 检查来源清单表格是否包含所有正文引用来源，且日期字段标注准确。
 5. 检查是否存在同一事件重复列出；如果重复，合并为一条并保留最权威来源。
@@ -264,7 +272,7 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 | 检索范围 | [列出核心检索主题] |
 | 核心趋势 | [2-4 个融合后的趋势，不逐 URL 罗列] |
 | 可直接关注 | [对研发/学习/架构/治理最有价值的 3-5 个方向] |
-| 专项检索结论 | [Claude Code/Codex/OpenClaw/Hermes/Spring AI/Spring Alibaba AI/Langfuse/LangChain·LangGraph/Code Graph/skills 等专项检索结论] |
+| 专项检索结论 | [Claude Code/Codex/OpenClaw/Hermes/Spring AI/Spring Alibaba AI/Langfuse/LangChain·LangGraph/Code Graph/Loop Engineering/skills 等专项检索结论] |
 
 ### 重要事件与发布
 
@@ -310,7 +318,7 @@ description: Generates an AI Daily News Digest in Chinese. Use when the user say
 
 ### 今日总览
 
-本次按 Asia/Shanghai 的 YYYY-MM-DD 00:00:00 到 23:59:59 检索 AI、人工智能、LLM、Agent、RAG、MCP、LangChain、LangGraph、Langfuse、Code Graph、Spring AI、Spring Alibaba AI、模型发布、论文与政策监管等关键词，未发现可确认属于该日期且具备可靠出处的重大更新。
+本次按 Asia/Shanghai 的 YYYY-MM-DD 00:00:00 到 23:59:59 检索 AI、人工智能、LLM、Agent、RAG、MCP、LangChain、LangGraph、Langfuse、Code Graph、Loop Engineering、Spring AI、Spring Alibaba AI、模型发布、论文与政策监管等关键词，未发现可确认属于该日期且具备可靠出处的重大更新。
 
 ### 重要事件与发布
 

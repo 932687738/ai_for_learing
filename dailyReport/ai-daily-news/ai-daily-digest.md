@@ -6,14 +6,14 @@
 
 ### 今日总览
 
-**一句话结论**：`2026-07-15` 是 **「Claude Code v2.1.211 + Langfuse v3.214.0 + Anthropic Enterprise Admin API + Gemini 3.5 Pro 7/17 倒计时」**——Anthropic 发布 **v2.1.211**（**subagent stream-json / 权限预览防注入 / Bedrock prompt caching 回归修复**）；**Langfuse v3.214.0（7/15）** 默认 **Root Observations 过滤** 并增强 **Monitors MCP**；**Claude Enterprise Admin API beta（7/15 文档/Releasebot）** 开放 **成员/组/邀请管理**；**Gemini 3.5 Pro** 距 **7/17 传闻 GA** 仅 **2 天**（**Google 仍未官方确认**）。
+**一句话结论**：`2026-07-15` 是 **「Claude Code v2.1.211 + Langfuse v3.214.0 + Loop Engineering 工具链迭代 + Gemini 3.5 Pro 7/17 倒计时」**——Anthropic 发布 **v2.1.211**（**subagent stream-json / 权限预览防注入 / Bedrock prompt caching 回归修复**）；**Langfuse v3.214.0** 默认 **Root Observations 过滤**；**cobusgreyling/loop-engineering（7/15）** 合并 **loop-worktree 路径锁** 与 **loop-context 日 token 预算/`--on-exceed` hook**；**Pragmatic Engineer 7/15 播客** 深度讨论 **loop/harness engineering**；**Gemini 3.5 Pro** 距 **7/17 传闻 GA** 仅 **2 天**（**Google 仍未官方确认**）。
 
 | 维度 | 本日结论 |
 | --- | --- |
-| 检索范围 | Anthropic/GitHub/Langfuse/Google/OpenAI 官方与衍生；Releasebot/DDS/OutYet；专项工具链 |
-| 核心趋势 | **Agent 控制面加固**：Claude Code **权限/多会话稳定性** patch；Langfuse **观测默认视图** 对齐 **SDK app roots**；**Enterprise 治理 API** 补齐 **组织成员运维** |
-| 可直接关注 | 升级 **Claude Code ≥ v2.1.211** 修复 **Bedrock caching 计费回归**；Langfuse 用户留意 **Observations 默认 root 过滤**；**Gemini 3.5 Pro** 生产路由 **等 API model card** 再切换 |
-| 专项检索结论 | **Claude Code**：**v2.1.211**（**7/15**）；**Codex**：无 **7/15** 新 release（**Projects/sidebar 回归仍 open**）；**OpenClaw**：无 **7/15** 新 tag（最新 **2026.7.1** 为 **7/13**）；**Hermes**：无 **7/15** release；**Spring AI / Spring Alibaba AI**：无 **7/15** release；**Langfuse**：**v3.214.0 + 7/15 changelog Root Observations**；**LangChain/LangGraph**：无 **7/15** release（**1.2.9** 为 **7/10**）；**Code Graph**：无 **7/15** release |
+| 检索范围 | Anthropic/GitHub/Langfuse/Google/OpenAI；Loop Engineering 生态；Releasebot/DDS；专项工具链 |
+| 核心趋势 | **Agent 控制面 + loop 基础设施双轨**：Claude Code **权限/多会话** patch；**loop-worktree/loop-context** 解决 **多 loop 碰撞与 token 失控**；Langfuse **观测默认视图** 对齐 **SDK app roots** |
+| 可直接关注 | 升级 **Claude Code ≥ v2.1.211**；多 loop 并行时启用 **loop-worktree advisory lock**；配置 **loop-context `--on-exceed`** 防 token 爆表；Langfuse 用户留意 **Observations 默认 root 过滤** |
+| 专项检索结论 | **Claude Code**：**v2.1.211**（**7/15**）；**Codex**：无 **7/15** 新 release（**Projects/sidebar 回归仍 open**）；**OpenClaw**：无 **7/15** 新 tag（最新 **2026.7.1** 为 **7/13**）；**Hermes**：无 **7/15** release（**Loop Engineering 指南为 6/20**）；**Spring AI / Spring Alibaba AI**：无 **7/15** release；**Langfuse**：**v3.214.0 + 7/15 changelog Root Observations**；**LangChain/LangGraph**：无 **7/15** release（**1.2.9** 为 **7/10**）；**Code Graph**：无 **7/15** release；**Loop Engineering**：**cobusgreyling/loop-engineering 7/15 六连 merge**（**#273 loop-context、#274 loop-worktree**）；**Pragmatic Engineer 7/15 播客**（**Dex Horthy：slow loops / harness**）；无 **7/15** 新 **`/goal`/`/loop` CLI 命令** release |
 
 ### 重要事件与发布
 
@@ -23,6 +23,9 @@
 | Anthropic / 平台 | [Claude Enterprise Admin API beta（Releasebot）](https://releasebot.io/updates/anthropic/claude-developer-platform) | **2026-07-15** | 官方/API | **成员/组/邀请/角色** 管理；**`ce-user-management-2026-07-13`** beta header；**`read:org_audit`** 可读 GET |
 | Langfuse / 可观测 | [Langfuse v3.214.0（GitHub Release）](https://github.com/langfuse/langfuse/releases/tag/v3.214.0) | **2026-07-15** | 开源/release | **Root obs 默认过滤**、**Monitors listMonitors/getMonitor MCP**、**OTel int64 序列化修复**、**AI SDK sole completion runtime** |
 | Langfuse / 可观测 | [Root Observations 默认视图（Changelog）](https://langfuse.com/changelog/2026-07-15-root-observations-default) | **2026-07-15** | 产品/changelog | **Python SDK v4.7+ / JS v5.4+ app roots**；**Is Root Observation=true** 为默认入口 |
+| Loop Engineering / 工具链 | [loop-context：日 token 追踪 + `--on-exceed` hook（#273）](https://github.com/cobusgreyling/loop-engineering/commit/1ceeaf7a0381a250c89da862a8632176249bce96) | **2026-07-15** | 开源/merge | **跨 run 日 token 累计**；**超预算 hook** 可中断/告警 loop |
+| Loop Engineering / 工具链 | [loop-worktree：advisory path locking（#274）](https://github.com/cobusgreyling/loop-engineering/commit/6327550bb418832d5e619d1ad2c804099cd06e87) | **2026-07-15** | 开源/merge | **多 loop 并行** 时 **worktree 路径碰撞** 防护；与 **PR babysitter/CI sweeper** 模式配套 |
+| Loop Engineering / 媒体 | [Context engineering with Dex Horthy（Pragmatic Engineer 播客）](https://newsletter.pragmaticengineer.com/p/context-engineering-with-dex-horthy) | **2026-07-15** | 播客/深度 | **context vs harness vs loop engineering** 边界；**slow loops**（夜间 agent 开 PR、晨间人工 merge）实践 |
 | Google / 模型 | [Gemini 3.5 Pro 7/17 路由指南（ByteIota）](https://byteiota.com/gemini-3-5-pro-july-17-developer-routing-guide/) | **2026-07-15**（**7/8 首发；7/15 传播**） | 技术媒体/工程 | **2M context / Deep Think** 适用 **>500K** 任务；**Flash/Fable 5** 仍为 **agent/coding 默认** |
 | 产业 / 政策 | [OpenAI 提议政府 5% 股权（FT/CNBC 7/2；7/15 传播）](https://www.cnbc.com/2026/07/02/openai-proposes-us-government-own-5percent-stake-to-address-political-blowback.html) | **2026-07-15**（**FT 7/2**；**BYOBot/DDS 7/14–7/15 窗口**） | 产业/政策 | **~$42.6B @ $852B 估值**；**概念阶段**、或需 **国会立法** |
 | 产业 / 活动 | [WAIC 2026 与 Gemini 3.5 Pro 时间线（DDS 7/15）](https://ddsboston.com/blogs/vibe-code-academy/ai-news-for-vibe-coders-daily-2026-07-15) | **2026-07-15** | 周报/产业 | **7/17** 与 **上海 WAIC** 同日叠加；**Gemini 3.5 Pro** 仍为 **leak 口径** |
@@ -32,37 +35,40 @@
 | 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
 | --- | --- | --- | --- |
 | Agent CLI | **Claude Code v2.1.211 changelog** | **subagent text 转发**、**always-allow 存 repo root**、**prompt caching 回归** | Claude Code/多云用户 |
-| Enterprise 治理 | **Admin API User management docs** | **成员/组 CRUD**、**audit scope** | Claude Enterprise 管理员 |
+| Loop 基础设施 | **cobusgreyling/loop-engineering #273/#274** | **日 token 预算**、**worktree path lock**、**maker/checker 分离** | 多 loop 并行团队 |
+| Loop 范式 | **Pragmatic Engineer × Dex Horthy 7/15** | **slow loops**、**harness vs loop**、**trajectory poisoning 识别** | Agent 平台/TL |
 | 可观测 | **Langfuse Root Observations changelog** | **app root vs outer root**、**OTel 过滤后子树** | Langfuse/SRE |
-| 模型路由 | **ByteIota Gemini 3.5 Pro 路由** | **Pro vs Flash vs Fable 5** 任务分桶 | 架构/采购 |
+| Enterprise 治理 | **Admin API User management docs** | **成员/组 CRUD**、**audit scope** | Claude Enterprise 管理员 |
 
 ### LangChain / Agent / LLM 工程相关进展
 
-**总体判断**：7/15 呈现 **「Agent 运行时 patch 日 + 可观测默认视图调整 + Enterprise 治理 API 补齐」**——相比 frontier 模型发布，更像 **生产 Agent 栈的控制面与计费细节** 在快速迭代；**Gemini 3.5 Pro** 进入 **7/17 传闻窗口** 但 **官方 changelog 最新仍为 7/6**。
+**总体判断**：7/15 呈现 **「Agent 运行时 patch + Loop 工具链硬化 + 可观测默认视图调整」**——**Claude Code v2.1.211** 加固 **subagent/background loop** 链路；**loop-context/loop-worktree** 补齐 **生产级 loop 治理**（预算与隔离）；**Dex Horthy 播客** 把 **loop engineering** 从 **社区术语** 拉回 **责任边界与 slow loop 运维** 讨论。
 
 | 主题 | 进展 | 工程启发 |
 | --- | --- | --- |
 | CLI 稳定性 | **v2.1.211 多会话/background 修复** | **并行 Claude Code 会话** 升级后验证 **credential store 登出** 是否消失 |
-| 多云计费 | **Bedrock prompt caching 回归 fix** | **Vertex/Bedrock/Foundry** 用户核对 **7/14–7/15 账单 anomaly** |
+| Loop 治理 | **loop-context 日 token + on-exceed** | **长 run loop** 必须设 **turn/budget 上限**；超支 **hook 中断** 而非 silent burn |
+| Loop 隔离 | **loop-worktree advisory lock** | **PR babysitter + CI sweeper** 并行时 **路径锁** 防 worktree 踩踏 |
+| Loop 文化 | **Pragmatic Engineer slow loops** | **夜间 agent 开 PR、晨间人工读码 merge** 是 **可落地 L1→L2** 路径 |
 | 可观测 UX | **Langfuse 默认 root filter** | **Observations 表** 若空则 **自动放宽**；自定义 view 不受影响 |
 | Enterprise | **Admin API beta** | **成员/组自动化** 可替代 **Console 手工运维** |
-| Frontier 倒计时 | **Gemini 3.5 Pro 7/17 leak** | **生产切换** 以 **`gemini-3.5-pro` API 上架** 为准，勿按媒体日期硬切 |
-| OpenClaw/Hermes/Spring/Code Graph | 无 **7/15** 重大 release | **Managed Agents overrides（6/30）** 仍为 Anthropic 平台主线 |
+| Frontier 倒计时 | **Gemini 3.5 Pro 7/17 leak** | **生产切换** 以 **`gemini-3.5-pro` API 上架** 为准 |
 
 ### 值得深入阅读的资料
 
 | 推荐级别 | 资料 | 为什么值得读 |
 | --- | --- | --- |
 | 必读 | **Claude Code v2.1.211 release notes** | **7/15 最完整** 的安全/稳定性/计费修复清单 |
+| 必读 | **loop-engineering #273 + #274 commits** | **7/15 Loop 专项** 最硬 **工程增量** |
 | 必读 | **Langfuse v3.214.0 + Root Observations changelog** | **默认观测视图** 行为变化直接影响 **日常排障** |
-| 推荐 | **Anthropic Admin API Releasebot 条目** | **Enterprise 组织治理** 可脚本化入口 |
-| 推荐 | **ByteIota Gemini 3.5 Pro 路由** | **7/17 前** 模型选型 **分桶样本** |
-| 延伸 | **AI 日报 2026-07-14** | **Claude Code 三连发 / Langfuse Monitors / CDC 证明** |
+| 推荐 | **Pragmatic Engineer × Dex Horthy（7/15）** | **loop/harness/context** 三者边界与 **slow loop** 样本 |
+| 推荐 | **cobusgreyling/loop-engineering README Help wanted** | **Hermes PR Babysitter (#225)** 等 **下一批 loop 模式** |
+| 延伸 | **AI 日报 2026-06-10 掘金 Loop Engineering** | **固定来源中文 loop 范式** 对照 **7/15 全球工具链** |
 
 ### 来源清单
 
 - 检索范围：2026-07-15 00:00:00 到 2026-07-15 23:59:59（Asia/Shanghai）
-- 引用域名：github.com, langfuse.com, releasebot.io, byteiota.com, ddsboston.com, cnbc.com
+- 引用域名：github.com, langfuse.com, releasebot.io, newsletter.pragmaticengineer.com, byteiota.com, ddsboston.com, cnbc.com
 - 来源清单表格：
 
 | 类型 | 标题 | 日期 | 链接 |
@@ -71,9 +77,13 @@
 | 官方/API | Claude Enterprise Admin API | 2026-07-15 | https://releasebot.io/updates/anthropic/claude-developer-platform |
 | 开源 | Langfuse v3.214.0 | 2026-07-15 | https://github.com/langfuse/langfuse/releases/tag/v3.214.0 |
 | Changelog | Langfuse Root Observations | 2026-07-15 | https://langfuse.com/changelog/2026-07-15-root-observations-default |
+| 开源 | loop-context #273 | 2026-07-15 | https://github.com/cobusgreyling/loop-engineering/commit/1ceeaf7a0381a250c89da862a8632176249bce96 |
+| 开源 | loop-worktree #274 | 2026-07-15 | https://github.com/cobusgreyling/loop-engineering/commit/6327550bb418832d5e619d1ad2c804099cd06e87 |
+| 播客 | Pragmatic Engineer × Dex Horthy | 2026-07-15 | https://newsletter.pragmaticengineer.com/p/context-engineering-with-dex-horthy |
 | 技术媒体 | Gemini 3.5 Pro 路由 ByteIota | 2026-07-15（首发 7/8） | https://byteiota.com/gemini-3-5-pro-july-17-developer-routing-guide/ |
 | 产业 | OpenAI 5% 政府股权 CNBC | 2026-07-15（FT 7/2） | https://www.cnbc.com/2026/07/02/openai-proposes-us-government-own-5percent-stake-to-address-political-blowback.html |
 | 日报 | DDS Vibe Coders 7/15 | 2026-07-15 | https://ddsboston.com/blogs/vibe-code-academy/ai-news-for-vibe-coders-daily-2026-07-15 |
+
 
 ## 2026-07-14
 
