@@ -2,6 +2,169 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-07-17
+
+### 今日总览
+
+**一句话结论**：`2026-07-17` 是 **「WAIC 2026 开幕 + Claude Code v2.1.212 防失控 loop + Langfuse 三连发 + Gemini 3.5 Pro 第三次爽约 + Kimi K3 2.8T」**——**WAIC** 上海开幕（**习近平 keynote / WAICO 29 国 / 300+ 全球首发**）；**Step Agent OS / Nubia AI Agent 手机 / MiniMax M3** 亮相；**Claude Code v2.1.212（08:26 CST）** 引入 **`/fork` 后台会话** 与 **WebSearch/subagent 200 次上限**；**Langfuse v3.219–221** 一日三版；**Gemini 3.5 Pro** **7/17 传闻 GA 未兑现**；**Moonshot Kimi K3（2.8T）** API/应用上线（**权重 7/27 开放**）。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | WAIC/中国 Agent OS/开源 frontier；Anthropic/Langfuse/Google/Moonshot；政策/治理；专项工具链 |
+| 核心趋势 | **Agent 从 chat 走向 OS + 连接应用 + 治理联盟**；**Claude Code 原生 loop 护栏**（cap/background MCP）；**开源 frontier 2.8T 与 WAIC 国产 Agent 栈** 同台 |
+| 可直接关注 | 跟踪 **WAIC 7/17–20** **Step AOS / 智算 / 具身** 首发；升级 **Claude Code v2.1.212** 启用 **subagent/search cap**；Langfuse **≥ v3.221**；**Gemini 3.5 Pro** 生产路由 **仍以 API model card 为准** |
+| 专项检索结论 | **Claude Code**：**v2.1.212**（**7/17 08:26 CST**）；**Codex**：无 **7/17** stable release；**OpenClaw**：**2026.7.2-beta.2**（**7/17** prerelease，**Control UI 远程 Codex/Claude 终端**）；**Hermes**：无 **7/17** release；**Spring AI / Spring Alibaba AI**：无 **7/17** release；**Langfuse**：**v3.219.0 + v3.220.0 + v3.221.0**（**7/17**）；**LangChain/LangGraph**：无 **7/17** release（**langchain 1.3.14 为 7/16**）；**Code Graph**：无 **7/17** release；**Loop Engineering**：**Claude Code v2.1.212 内置 runaway loop 上限**；**cobusgreyling/loop-engineering 无 7/17 新 npm**（**7/16 npm 1.2/1.1 仍为主线**） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 产业 / WAIC | [WAIC 2026 开幕：WAICO 29 国 + 300+ 全球首发（TechTimes）](https://www.techtimes.com/articles/320812/20260717/china-launches-rival-ai-governance-bloc-waic-2026-opens-300-product-debuts.htm) | **2026-07-17** | 产业/治理 | **世界人工智能合作组织 WAICO** 成立；**100000㎡** 展；**智算/具身** 双赛道 |
+| Agent OS / 终端 | [Step Agent OS / STEPX Neo AI Agent 手机（36Kr/7/13 首发；7/17 WAIC 展）](https://eu.36kr.com/en/p/3894202301250819) | **2026-07-17**（**7/13 发布；7/17 WAIC 传播**） | 产品/Agent OS | **意图+任务** 取代 **文件+应用**；**GUI-MCP** 跨 App 调度；**支付宝/美团/滴滴** 生态 |
+| Agent OS / 终端 | [Nubia × StepFun Agent OS 全球首款 AI Agent 手机（TechTimes 7/17）](https://www.techtimes.com/articles/320812/20260717/china-launches-rival-ai-governance-bloc-waic-2026-opens-300-product-debuts.htm) | **2026-07-17** | 产品/终端 | **系统级 Agent** 观察屏幕并跨 App 执行多步任务 |
+| 模型 / 开源 | [Moonshot Kimi K3 2.8T（VentureBeat 7/16 PT；7/17 传播）](https://venturebeat.com/technology/chinas-moonshot-ai-releases-kimi-k3-the-largest-open-source-model-ever-rivaling-top-u-s-systems) | **2026-07-17**（**API 7/16 PT 上线；权重 7/27**） | 模型/开源 | **Terminal Bench 88.3**；**Frontend Code Arena 76% win rate**；**权重 7/27 才开放下载** |
+| Google / 模型 | [Gemini 3.5 Pro 第三次延期（The Verge 7/17）](https://www.theverge.com/tech/966899/gemini-3-5-pro-was-supposed-to-launch-in-june-but-its-still-not-out) | **2026-07-17** | 技术媒体 | **7/17 传闻 GA 未发生**；Google **仍测试 3.5 Pro + upgraded Flash** |
+| Anthropic / CLI | [Claude Code v2.1.212（GitHub Release）](https://github.com/anthropics/claude-code/releases/tag/v2.1.212) | **2026-07-17** | 开源/release | **`/fork`→background session**、**WebSearch/subagent 200 cap**、**MCP 2min 自动 background** |
+| Langfuse / 可观测 | [Langfuse v3.219.0–v3.221.0（GitHub）](https://github.com/langfuse/langfuse/releases/tag/v3.221.0) | **2026-07-17** | 开源/release | **Monitors deep-link**、**filter sidebar UX**、**v4 events in-view charts**、**agent sandbox egress** |
+| OpenClaw / Agent | [OpenClaw 2026.7.2-beta.2（GitHub Release）](https://github.com/openclaw/openclaw/releases/tag/v2026.7.2-beta.2) | **2026-07-17** | 开源/prerelease | **Control UI 远程 Codex/Claude 终端**；**Codex CLI 0.144.4** bundle |
+| 产业 / 政策 | [白宫收紧 frontier 模型访问 / Gold Eagle（CNBC 7/17）](https://www.cnbc.com/2026/07/17/white-house-ai-access-anthropic-openai.html) | **2026-07-17** | 产业/政策 | **政府主导模型访问 clearinghouse**；**Glasswing/Daybreak 企业 consortium 前景不明** |
+| 产业 / 诉讼 | [Apple × OpenAI 商业秘密诉讼升级（TechStartups 7/17）](https://techstartups.com/2026/07/17/top-tech-news-today-july-17-2026-anthropic-apple-google-meta-moonshot-ai-nvidia-more/) | **2026-07-17** | 产业/法律 | **~40 名前 Apple 员工** 收到 **document preservation** 通知 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Agent OS | **Step AOS / STEPX Neo 36Kr 文** | **跨 App 意图调度**、**GUI-MCP** | 移动端 Agent 架构师 |
+| Loop 护栏 | **Claude Code v2.1.212 changelog** | **200 cap**、**MCP auto-background**、**`/fork` vs `/subtask`** | Claude Code/Loop 工程师 |
+| 可观测 | **Langfuse v3.219–221** | **Monitor→trace deep-link**、**assistant 上下文快捷操作** | SRE/Agent 平台 |
+| 开源 frontier | **VentureBeat Kimi K3** | **2.8T API 现可用**、**7/27 权重** 分阶段 | 模型选型/自托管 |
+| WAIC 观展 | **TechTimes WAIC 7/17** | **WAICO / Atlas 950 / 人形机器人 200+** | 产业/采购 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：7/17 是 **「中国 Agent OS 落地日 + 全球 loop 护栏硬化日 + Frontier 档期再分化」**——**WAIC** 把 **Agent OS/智算/具身** 推上主舞台；**Claude Code v2.1.212** 把 **runaway loop 防护** 写进 **CLI 默认行为**；**Gemini 3.5 Pro** 与 **Kimi K3** 形成 **「延期 vs 2.8T 抢跑」** 对照。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Agent OS | **Step AOS + Nubia Agent 手机** | **系统级 GUI Agent** 需 **权限/审计/回滚** 三件套 |
+| Loop 护栏 | **Claude Code search/subagent cap** | **长 run loop** 必须 **session 级 budget**；与 **loop-context 日 token** 互补 |
+| Loop 范式 | **OpenClaw beta.2 远程终端** | **Control UI + 配对节点** 是 **loop 运维** 新入口 |
+| 可观测 | **Langfuse 7/17 三连发** | **Monitor 告警→trace 表** 缩短 **loop 故障 MTTR** |
+| Frontier | **Kimi K3 API 上线 / 权重 7/27** | **先 API 后权重** 成为 **开源 frontier 新常态** |
+| Frontier | **Gemini 3.5 Pro 7/17 未 GA** | **勿按媒体日期硬切**；**Flash 升级版** 或为 stopgap |
+| 治理 | **WAICO + 美国 Gold Eagle** | **模型访问** 正 **国家化/平台化** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Claude Code v2.1.212 release notes** | **7/17 Loop 护栏** 最完整一手清单 |
+| 必读 | **TechTimes WAIC 2026 7/17** | **Agent OS + 治理 + 300 首发** 全景 |
+| 必读 | **Langfuse v3.221.0 changelog** | **Monitor deep-link + v4 charts** 直接影响排障 |
+| 推荐 | **VentureBeat Kimi K3** | **2.8T 能力 vs 7/27 权重** 时间线 |
+| 推荐 | **CNBC 白宫模型访问 7/17** | **Enterprise 模型治理** 政策样本 |
+| 延伸 | **AI 日报 2026-07-16** | **Langfuse 三连发 / Search connected apps** |
+
+### 来源清单
+
+- 检索范围：2026-07-17 00:00:00 到 2026-07-17 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, techtimes.com, venturebeat.com, theverge.com, cnbc.com, techstartups.com, eu.36kr.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 产业 | WAIC 2026 开幕 TechTimes | 2026-07-17 | https://www.techtimes.com/articles/320812/20260717/china-launches-rival-ai-governance-bloc-waic-2026-opens-300-product-debuts.htm |
+| 产品 | Step AOS / STEPX 36Kr | 2026-07-17（7/13 首发） | https://eu.36kr.com/en/p/3894202301250819 |
+| 模型 | Kimi K3 VentureBeat | 2026-07-17（API 7/16 PT） | https://venturebeat.com/technology/chinas-moonshot-ai-releases-kimi-k3-the-largest-open-source-model-ever-rivaling-top-u-s-systems |
+| 技术媒体 | Gemini 3.5 Pro The Verge | 2026-07-17 | https://www.theverge.com/tech/966899/gemini-3-5-pro-was-supposed-to-launch-in-june-but-its-still-not-out |
+| 开源 | Claude Code v2.1.212 | 2026-07-17 | https://github.com/anthropics/claude-code/releases/tag/v2.1.212 |
+| 开源 | Langfuse v3.221.0 | 2026-07-17 | https://github.com/langfuse/langfuse/releases/tag/v3.221.0 |
+| 开源 | OpenClaw 2026.7.2-beta.2 | 2026-07-17 | https://github.com/openclaw/openclaw/releases/tag/v2026.7.2-beta.2 |
+| 产业 | CNBC 白宫 AI 访问 | 2026-07-17 | https://www.cnbc.com/2026/07/17/white-house-ai-access-anthropic-openai.html |
+| 产业 | TechStartups 7/17 汇总 | 2026-07-17 | https://techstartups.com/2026/07/17/top-tech-news-today-july-17-2026-anthropic-apple-google-meta-moonshot-ai-nvidia-more/ |
+
+
+## 2026-07-16
+
+### 今日总览
+
+**一句话结论**：`2026-07-16` 是 **「Langfuse 三连发 + Google Search 连接应用 + Gemini 3.5 Pro 第三次延期 + WAIC 2026 开幕前夜 + Loop npm 1.2/1.1」**——Langfuse **v3.215.0→v3.217.0** 一日三版（**Agent sandbox / Dashboard MCP / trace I/O 性能**）；Google **Search AI Mode** 接入 **Instacart/Canva/YouTube Music**；**Gemini 3.5 Pro** 再传 **第三次延期**（**编码能力未达内部目标**，**Bloomberg/9to5Google 7/16**）；**WAIC 2026** 媒体预展（**7/17 正式开幕**）；**loop-context 1.2.0 + loop-worktree 1.1.0** npm 发布（**Discussion #294**）。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Google/Langfuse/LangChain/WAIC/Loop Engineering；Gemini 传闻；专项工具链 |
+| 核心趋势 | **Agent 连接外部世界 + 可观测平台加速迭代**；Search **connected apps** 把 **MCP/工具调用** 推向 **消费级入口**；**Gemini 3.5 Pro** 从 **传闻 GA** 转向 **可靠性/编码再打磨** |
+| 可直接关注 | Langfuse 升级至 **≥ v3.217.0** 修复 **大 trace I/O 卡顿**；评估 **Search connected apps** 对 **Agent 产品入口** 的启示；**loop-context/worktree npm** 落地 **日预算 + 路径锁**；**WAIC 7/17–20** 跟踪 **阶跃 Agent OS / MiniMax M3 / 国产智算** |
+| 专项检索结论 | **Claude Code**：无 **7/16** 新 release（**v2.1.211 为 7/15**；**v2.1.212 为 7/17 08:26 CST**）；**Codex**：**rust-v0.145.0-alpha.16**（**7/16** prerelease）；**OpenClaw**：无 **7/16** 新 tag（**2026.7.1 为 7/13**）；**Hermes**：无 **7/16** release；**Spring AI / Spring Alibaba AI**：无 **7/16** release；**Langfuse**：**v3.215.0 + v3.216.0 + v3.217.0**（**7/16**）；**LangChain/LangGraph**：**langchain==1.3.14**（**7/16**）；**LangGraph** 无 **7/16** release（**1.2.9 为 7/10**）；**Code Graph**：无 **7/16** release；**Loop Engineering**：**npm loop-context 1.2.0 + loop-worktree 1.1.0**（**Discussion #294，7/16**）；**Hermes PR Babysitter 示例 #247** 等 **7/13–16 窗口** merge |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Google / Search | [Connect more of your apps to Search（官方博客）](https://blog.google/products-and-platforms/products/search/connected-apps/) | **2026-07-16** | 官方/产品 | **AI Mode** 连接 **Instacart/Canva/YouTube Music**；**规划→结账/设计/播放** 一站式 |
+| Google / 模型 | [Gemini 3.5 Pro delays due to coding performance（9to5Google）](https://9to5google.com/2026/07/16/gemini-3-5-pro-delays/) | **2026-07-16** | 技术媒体 | **6 月 deadline 已过**；Google 称 **正测试 3.5 Pro + upgraded Flash**；**编码训练结果 disappointing** |
+| Google / 模型 | [Gemini 3.5 Pro misses third deadline（TechTimes 7/16）](https://www.techtimes.com/articles/320736/20260716/rebuilt-gemini-35-pro-misses-third-deadline-google-eyes-stopgap-release.htm) | **2026-07-16** | 技术媒体 | **7/17 传闻 GA 极可能再滑**；**幻觉/可靠性** 为新瓶颈；**API 仍无 gemini-3.5-pro GA** |
+| Langfuse / 可观测 | [Langfuse v3.215.0（GitHub Release）](https://github.com/langfuse/langfuse/releases/tag/v3.215.0) | **2026-07-16** | 开源/release | **facet 搜索建议**、**Agent sandbox**、**Sentry error ID** |
+| Langfuse / 可观测 | [Langfuse v3.216.0（GitHub Release）](https://github.com/langfuse/langfuse/releases/tag/v3.216.0) | **2026-07-16** | 开源/release | **v4 sessions metadata 过滤**、**Dashboard/Widget CRUD MCP（unstable）** |
+| Langfuse / 可观测 | [Langfuse v3.217.0（GitHub Release）](https://github.com/langfuse/langfuse/releases/tag/v3.217.0) | **2026-07-16** | 开源/release | **PR preview GitHub deployments**、**blob export SSRF 自动禁用**、**trace 大 I/O 性能修复** |
+| LangChain / 框架 | [langchain==1.3.14（GitHub Release）](https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.3.14) | **2026-07-16** | 开源/release | **`ToolErrorMiddleware`**、**`ToolRetryMiddleware` 仅重试可重试异常** |
+| Loop Engineering / 工具链 | [npm update — loop-context 1.2.0 + loop-worktree 1.1.0（#294）](https://github.com/cobusgreyling/loop-engineering/discussions/294) | **2026-07-16** | 社区/announce | **日 token 预算 `--daily-budget-from-pattern`**、**`--on-exceed` hook**、**advisory path lock** |
+| Codex / CLI | [Codex rust-v0.145.0-alpha.16（GitHub Release）](https://github.com/openai/codex/releases/tag/rust-v0.145.0-alpha.16) | **2026-07-16** | 开源/prerelease | **7/16 alpha** 预发布；无 **stable tag** |
+| 产业 / 活动 | [WAIC 2026 media preview（City News Service 7/16）](https://www.citynewsservice.cn/articles/china-biz-buzz/tech/china-tech-giants-push-computing-limits-as-waic-2026-opens-in-shanghai-znxeqvpm) | **2026-07-16** | 产业/活动 | **7/17 开幕**；**华为 Atlas 950 SuperPod**、**曙光 8000 万卡集群** 预展；**300+ 全球首发** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Agent 入口 | **Google Search connected apps 博客** | **AI Mode + 第三方 app OAuth**、**Personal Intelligence** | 产品/Agent 架构 |
+| 可观测 | **Langfuse v3.215–217 changelog** | **Agent sandbox**、**Dashboard MCP**、**trace I/O size-gate** | Langfuse/SRE |
+| Agent 中间件 | **langchain 1.3.14 release** | **ToolErrorMiddleware**、**retry 可重试异常过滤** | LangChain 工程师 |
+| Loop 工具链 | **loop-engineering Discussion #294** | **npm 1.2/1.1**、**loop-cost 1.1 多 agent 成本** | 多 loop 运维 |
+| Frontier 路由 | **9to5Google Gemini 3.5 Pro 7/16** | **Flash 升级 vs Pro 延期** 分桶 | 架构/采购 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：7/16 呈现 **「消费级 Agent 连接应用 + 工程平台三连 patch + Frontier 模型档期再滑」**——Google 把 **Gemini 式 connected apps** 搬进 **Search AI Mode**；Langfuse **一日三版** 强化 **Agent sandbox 与 trace 大 payload**；**Gemini 3.5 Pro** 在 **7/17 前夜** 仍无 **官方 GA**，产业焦点转向 **WAIC 国产智算/Agent OS**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 连接应用 | **Search AI Mode × Instacart/Canva/YT Music** | **Agent 产品** 应预留 **OAuth 连接层**，而非仅 **chat 窗口** |
+| 可观测 | **Langfuse 7/16 三连发** | **大 trace** 必须 **size-gate I/O**；**Dashboard MCP** 进入 **unstable API** |
+| 工具中间件 | **LangChain ToolErrorMiddleware** | **Agent 工具失败** 应用 **middleware 统一降级**，而非 **裸 retry** |
+| Loop npm | **loop-context 1.2 + worktree 1.1** | **L2 loop** 标配 **日预算 + path lock**；对照 **#247 Hermes PR Babysitter** |
+| Frontier | **Gemini 3.5 Pro 第三次延期** | **7/17 生产切换** 仍须 **等 API model card**；**Flash 升级版** 或为 **stopgap** |
+| WAIC | **7/16 预展 / 7/17 开幕** | **阶跃 Agent OS / MiniMax M3 / Atlas 950** 为 **中文 Agent+智算** 对照样本 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Langfuse v3.215–217 release notes** | **7/16 最密集** 可观测增量 |
+| 必读 | **Google Search connected apps 官方文** | **消费级 Agent 连接范式** 一手来源 |
+| 推荐 | **loop-engineering Discussion #294** | **npm 级 loop 治理** 可复现命令 |
+| 推荐 | **9to5Google Gemini 3.5 Pro 7/16** | **7/17 前** 模型路由 **风险样本** |
+| 延伸 | **AI 日报 2026-07-15** | **Claude Code v2.1.211 / loop #273+#274** |
+
+### 来源清单
+
+- 检索范围：2026-07-16 00:00:00 到 2026-07-16 23:59:59（Asia/Shanghai）
+- 引用域名：blog.google, github.com, langfuse.com, 9to5google.com, techtimes.com, citynewsservice.cn
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方 | Google Search connected apps | 2026-07-16 | https://blog.google/products-and-platforms/products/search/connected-apps/ |
+| 技术媒体 | Gemini 3.5 Pro delays 9to5Google | 2026-07-16 | https://9to5google.com/2026/07/16/gemini-3-5-pro-delays/ |
+| 技术媒体 | Gemini 3.5 Pro third deadline TechTimes | 2026-07-16 | https://www.techtimes.com/articles/320736/20260716/rebuilt-gemini-35-pro-misses-third-deadline-google-eyes-stopgap-release.htm |
+| 开源 | Langfuse v3.215.0 | 2026-07-16 | https://github.com/langfuse/langfuse/releases/tag/v3.215.0 |
+| 开源 | Langfuse v3.216.0 | 2026-07-16 | https://github.com/langfuse/langfuse/releases/tag/v3.216.0 |
+| 开源 | Langfuse v3.217.0 | 2026-07-16 | https://github.com/langfuse/langfuse/releases/tag/v3.217.0 |
+| 开源 | langchain==1.3.14 | 2026-07-16 | https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.3.14 |
+| 社区 | loop-engineering npm #294 | 2026-07-16 | https://github.com/cobusgreyling/loop-engineering/discussions/294 |
+| 开源 | Codex v0.145.0-alpha.16 | 2026-07-16 | https://github.com/openai/codex/releases/tag/rust-v0.145.0-alpha.16 |
+| 产业 | WAIC 2026 preview CNS | 2026-07-16 | https://www.citynewsservice.cn/articles/china-biz-buzz/tech/china-tech-giants-push-computing-limits-as-waic-2026-opens-in-shanghai-znxeqvpm |
+
+
 ## 2026-07-15
 
 ### 今日总览

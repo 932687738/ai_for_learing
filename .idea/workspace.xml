@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="docs(dailyReport): 添加2026年7月14-15日AI日报和知识库日报&#10;&#10;- 添加 2026-07-15 AI 日报内容，包含 Claude Code v2.1.211、Langfuse v3.214.0、&#10;  Gemini 3.5 Pro 7/17 倒计时等信息&#10;- 添加 2026-07-14 AI 日报内容，涵盖 Claude Code 三连发、Langfuse v3.213.0、&#10;  Sol Ultra 数学证明等技术动态&#10;- 添加 2026-07-15 知识库日报内容，记录固定来源检索结果为空窗日&#10;- 添加 2026-07-14 知识库日报内容，记录固定来源检索结果为空窗日&#10;- 更新 github-topz.md 的最近更新时间至 2026-07-16 09:10:48&#10;- 更新 github-topz.md 的 Star 数量统计和热门仓库排名&#10;- 移除部分 trending 仓库的新增标记，更新当前热门仓库动态数据" />
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="docs(daily-report): 更新 2026-07-15 AI 日报与知识库日报&#10;&#10;- 添加 Loop Engineering 工具链迭代内容，包括 loop-context 日 token 预算与 loop-worktree 路径锁&#10;- 更新核心趋势为 Agent 控制面 + loop 基础设施双轨发展&#10;- 新增 Pragmatic Engineer 7/15 播客关于 loop/harness engineering 的深度讨论&#10;- 补充 loop-engineering #273/#274 commits 作为必读资料&#10;- 更新引用域名为包含 newsletter.pragmaticengineer.com&#10;- 知识库日报同步更新 Loop Engineering 专项检索结论" />
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,14 +279,7 @@
       <workItem from="1783907504436" duration="4510000" />
       <workItem from="1783992132753" duration="8508000" />
       <workItem from="1784164327957" duration="31000" />
-    </task>
-    <task id="LOCAL-00017" summary="面试内容">
-      <option name="closed" value="true" />
-      <created>1779954095945</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1779954095945</updated>
+      <workItem from="1784164981904" duration="1031000" />
     </task>
     <task id="LOCAL-00018" summary="面试内容">
       <option name="closed" value="true" />
@@ -672,7 +665,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784164342986</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="docs(daily-report): 更新 2026-07-15 AI 日报与知识库日报&#10;&#10;- 添加 Loop Engineering 工具链迭代内容，包括 loop-context 日 token 预算与 loop-worktree 路径锁&#10;- 更新核心趋势为 Agent 控制面 + loop 基础设施双轨发展&#10;- 新增 Pragmatic Engineer 7/15 播客关于 loop/harness engineering 的深度讨论&#10;- 补充 loop-engineering #273/#274 commits 作为必读资料&#10;- 更新引用域名为包含 newsletter.pragmaticengineer.com&#10;- 知识库日报同步更新 Loop Engineering 专项检索结论">
+      <option name="closed" value="true" />
+      <created>1784165804995</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1784165804996</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -690,7 +691,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="RAG知识图谱向量图谱关系解析" />
     <MESSAGE value="MCP原理与Spring AI实现" />
     <MESSAGE value="SpringAI多模态实现与动态模型切换" />
     <MESSAGE value="ChromaDB向量数据库详解" />
@@ -715,7 +715,8 @@
     <MESSAGE value="docs(dailyReport): 添加2026年7月11日和12日AI日报及知识库日报&#10;&#10;- 添加2026-07-12和2026-07-11两个日期的AI日报内容&#10;- 添加2026-07-12和2026-07-11两个日期的知识库日报内容&#10;- 更新AI日报摘要包含最新两天内容&#10;- 涵盖GPT-5.6 Sol安全事件、Fable 5订阅截止、Apple诉OpenAI等重要内容&#10;- 记录Claude Code v2.1.207发布及ChatGPT Work产品问题修复&#10;- 包含Agent安全、评测作弊、定价模式变化等工程实践分析" />
     <MESSAGE value="feat(dailyReport): 添加 2026-07-13 AI 日报和知识库日报内容&#10;&#10;- 在 ai-daily-news/202607.md 中添加 2026-07-13 日报内容，涵盖 Fable 5 延期、Sol 限额临时解除、Langfuse Graph 双模式等重要事件&#10;- 在 knowledge-base-news/202607.md 中添加 2026-07-13 知识库日报，记录固定来源检索结果为空的情况&#10;- 在 ai-daily-news/ai-daily-digest.md 中同步添加 2026-07-13 日报摘要内容&#10;- 更新 ai-daily-news/ai-daily-state.json 中的最后同步日期和处理日期列表，加入 2026-07-13&#10;- 更新 github-topz.md 中的仓库排名数据，同步最新的 Star 数量和新增仓库信息" />
     <MESSAGE value="docs(dailyReport): 添加2026年7月14-15日AI日报和知识库日报&#10;&#10;- 添加 2026-07-15 AI 日报内容，包含 Claude Code v2.1.211、Langfuse v3.214.0、&#10;  Gemini 3.5 Pro 7/17 倒计时等信息&#10;- 添加 2026-07-14 AI 日报内容，涵盖 Claude Code 三连发、Langfuse v3.213.0、&#10;  Sol Ultra 数学证明等技术动态&#10;- 添加 2026-07-15 知识库日报内容，记录固定来源检索结果为空窗日&#10;- 添加 2026-07-14 知识库日报内容，记录固定来源检索结果为空窗日&#10;- 更新 github-topz.md 的最近更新时间至 2026-07-16 09:10:48&#10;- 更新 github-topz.md 的 Star 数量统计和热门仓库排名&#10;- 移除部分 trending 仓库的新增标记，更新当前热门仓库动态数据" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs(dailyReport): 添加2026年7月14-15日AI日报和知识库日报&#10;&#10;- 添加 2026-07-15 AI 日报内容，包含 Claude Code v2.1.211、Langfuse v3.214.0、&#10;  Gemini 3.5 Pro 7/17 倒计时等信息&#10;- 添加 2026-07-14 AI 日报内容，涵盖 Claude Code 三连发、Langfuse v3.213.0、&#10;  Sol Ultra 数学证明等技术动态&#10;- 添加 2026-07-15 知识库日报内容，记录固定来源检索结果为空窗日&#10;- 添加 2026-07-14 知识库日报内容，记录固定来源检索结果为空窗日&#10;- 更新 github-topz.md 的最近更新时间至 2026-07-16 09:10:48&#10;- 更新 github-topz.md 的 Star 数量统计和热门仓库排名&#10;- 移除部分 trending 仓库的新增标记，更新当前热门仓库动态数据" />
+    <MESSAGE value="docs(daily-report): 更新 2026-07-15 AI 日报与知识库日报&#10;&#10;- 添加 Loop Engineering 工具链迭代内容，包括 loop-context 日 token 预算与 loop-worktree 路径锁&#10;- 更新核心趋势为 Agent 控制面 + loop 基础设施双轨发展&#10;- 新增 Pragmatic Engineer 7/15 播客关于 loop/harness engineering 的深度讨论&#10;- 补充 loop-engineering #273/#274 commits 作为必读资料&#10;- 更新引用域名为包含 newsletter.pragmaticengineer.com&#10;- 知识库日报同步更新 Loop Engineering 专项检索结论" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs(daily-report): 更新 2026-07-15 AI 日报与知识库日报&#10;&#10;- 添加 Loop Engineering 工具链迭代内容，包括 loop-context 日 token 预算与 loop-worktree 路径锁&#10;- 更新核心趋势为 Agent 控制面 + loop 基础设施双轨发展&#10;- 新增 Pragmatic Engineer 7/15 播客关于 loop/harness engineering 的深度讨论&#10;- 补充 loop-engineering #273/#274 commits 作为必读资料&#10;- 更新引用域名为包含 newsletter.pragmaticengineer.com&#10;- 知识库日报同步更新 Loop Engineering 专项检索结论" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ai_for_learing$vanilla_rnn_numpy_demo.coverage" NAME="vanilla_rnn_numpy_demo Coverage Results" MODIFIED="1778826911757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ai-learning/07-cnn-rnn-transformer-intro/scripts" />
