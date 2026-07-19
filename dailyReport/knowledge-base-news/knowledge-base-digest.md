@@ -2,6 +2,63 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-07-18
+
+### 今日总览
+
+**一句话结论**：`2026-07-18` 固定来源口径下，**10 个公司/组织维度 + 五专项均已检索**，**未发现可确认属于该日期且具备可靠出处的 team 首发长文**；**WAIC 2026 第二日** 全球主线（**Agent Native Cloud / Kimi K3 / Claude v2.1.214 / LeRobot GR00T**）尚未进入 **阿里云/字节/美团 team blog 7/18 硬对齐链**，见 **AI 日报 2026-07-18**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 阿里 102 / 阿里云开发者 / 中间件 / 语雀；腾讯云开发者；字节 techblog / 掘金；百度 FEX/EFE/开发者；美团；京东科技/凹凸；滴滴；网易知乎；360；有赞 |
+| 核心趋势 | **WAIC 第二日固定来源仍空窗**；**Agent 云原生 / 智算 / 端侧** 热度在 **展会与全球媒体**，**team blog 预计 1–3 天滞后** |
+| 可直接关注 | 全球 **Agent Native Cloud / Claude fail-closed / Codex 0.144.6** 见 **AI 日报**；固定来源 **Loop Engineering** 最近硬对齐仍为 **6/10 掘金**；**掘金 7/17 前端圈 Kimi K3 盘点** 为 **相邻日期传播**（非 7/18 首发） |
+| 专项检索结论 | **Loop Engineering**：固定来源 **7/18 无新文**（全球 **Claude EndConversation + heartbeat** 见 AI 日报）；**Langfuse**：固定来源 **7/18 无新文**（历史 **Spring AI + Langfuse OTel** 掘金文可对照）；**LangChain/LangGraph**：无 **7/18** 新文；**Code Graph**：无 **7/18** 新文；**Spring Alibaba AI**：无 **7/18** 新文 |
+| 未发现更新 | 阿里 102/中间件/语雀 team blog；腾讯 TEG/腾讯云/AlloyTeam；字节 techblog；百度；美团；京东；滴滴；网易；360；有赞；掘金 **无 7/18 硬对齐 team 首发** |
+
+### 重要文章与更新
+
+- 未发现可核验的重大文章或更新。
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| WAIC 观展（固定来源） | [2026 WAIC 展品地图（阿里云开发者社区）](https://developer.aliyun.com/article/1746063) | **Agent OS / 智算 / 具身**（**相邻日期传播**） | WAIC 参会者 |
+| Agent 云（待滞后稿） | 对照 **AI 日报 Agent Native Cloud** | **AgentTeams / Agentic Computer** 预计 **developer.aliyun.com** 后续解读 | 云原生架构师 |
+| Loop 范式（固定来源） | [Loop Engineering 掘金 6/10](https://juejin.cn/post/7649283795195772980) | 对照 **Claude v2.1.214 fail-closed + v2.1.212 cap** | Agent 工程师 |
+| 可观测（固定来源历史） | [Spring AI + Langfuse 掘金实践文](https://juejin.cn/post/7633627985466032137) | **OTel → Langfuse**、**Tool input/output 采集**（**非 7/18 首发**） | Java Agent 平台 |
+
+### 工程实践归纳
+
+**总体判断**：**7/18 WAIC 第二日** 固定来源 **持续空窗**；**企业 Agent 云 / CLI 安全 / 具身开源** 叙事已在 **全球 release 与展会**，**阿里云/腾讯/字节 team blog 尚未同步**——建议 **7/19–7/21** 重点刷新 **developer.aliyun.com / 掘金 / tech.meituan.com**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 固定来源 | **7/18 空窗** | **WAIC 期间** team blog **滞后 1–3 天** 为常态 |
+| Loop Engineering | **6/10 掘金文仍为最近硬对齐** | **fail-closed permission** + **loop cap** 可组合设计 **verifier** |
+| Langfuse/Spring Alibaba | 固定来源 **7/18 无新文** | 用 **历史 Spring AI + Langfuse OTel 文** 预备 **WAIC 滞后解读** |
+| Agent 云 | 无固定来源 **7/18** 硬对齐 | 先读 **AI 日报 Agent Native Cloud**，再等 **阿里云开发者** 落地文 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 延伸 | **AI 日报 2026-07-18** | **Agent Native Cloud / Claude v2.1.214 / LeRobot** |
+| 延伸 | **阿里云 WAIC 展品地图** | 固定来源 **观展索引** |
+| 必读（Loop） | **知识库 2026-06-10 掘金 Loop Engineering** | 中文 **loop 设计** 入口 |
+
+### 来源清单
+
+- 检索范围：2026-07-18 00:00:00 到 2026-07-18 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：已覆盖固定来源清单 + **五专项**；**7/18 无可核验 team 首发硬增量**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| — | — | — | 未发现可核验更新 | — | — |
+
+
 ## 2026-07-17
 
 ### 今日总览

@@ -2,6 +2,89 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-07-18
+
+### 今日总览
+
+**一句话结论**：`2026-07-18` 是 **「WAIC 第二日 + 阿里 Agent Native Cloud + Kimi K3 全球发酵 + Claude Code v2.1.214 权限 fail-closed + Codex 0.144.6 /  outage 恢复」**——**WAIC** 进入 **Agent 云原生 / 具身 / 国产智算** 密集发布日；**阿里云 Agent Native Cloud（AgentTeams + Agentic Computer）** 与 **iFLYTEK GuideX 政务 Agent** 同台；**Moonshot Kimi K3（2.8T MoE）** 在 **AP/全球媒体** 持续发酵；**Claude Code v2.1.214（01:20 UTC / 09:20 CST）** 把 **permission analyzer 全面 fail-closed** 并加入 **EndConversation**；**Codex CLI 0.144.6（13:51 UTC）** 修复 **GPT-5.6 272K context**；**NVIDIA × Hugging Face LeRobot** 集成 **GR00T 1.7 + Isaac Teleop**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | WAIC/中国 Agent 云/开源 frontier/具身；Anthropic/OpenAI/NVIDIA/Huawei；产业资本；专项工具链 |
+| 核心趋势 | **企业 Agent 从 demo 走向「Agent Native 云 + 多 Agent 编排 + 沙箱执行」**；**CLI 安全日**（Claude fail-closed + Codex 模型元数据修复）；**WAIC 第二日** 把 **国产智算集群 / 端侧 Agent 终端 / 开源 2.8T** 推上主舞台 |
+| 可直接关注 | 评估 **Agent Native Cloud** 的 **AgentTeams / Agentic Computer / sandbox 隔离** 对企业编排的启示；升级 **Claude Code ≥ v2.1.214** 验证 **PowerShell/bash/docker 权限**；**Codex ≥ 0.144.6** 确认 **GPT-5.6 Sol/Terra/Luna 272K**；跟踪 **LeRobot GR00T 1.7** 人形机器人 post-train 链路 |
+| 专项检索结论 | **Claude Code**：**v2.1.214**（**7/18 01:20 UTC**）；**Codex**：**CLI 0.144.6 stable**（**7/18 13:51 UTC**）+ **7/18 access-denied incident 已恢复**；**OpenClaw**：无 **7/18** 新 tag（**2026.7.2-beta.2 为 7/17**）；**Hermes**：无 **7/18** release（**PR #61834 reasoning projection 7/18 更新**）；**Spring AI / Spring Alibaba AI**：无 **7/18** release；**Langfuse**：无 **7/18** release（**v3.221.0 为 7/17**）；**LangChain/LangGraph**：无 **7/18** release；**Code Graph**：无 **7/18** release；**Loop Engineering**：**Claude v2.1.214 EndConversation + 长 run heartbeat** 强化 **maker/checker 分离**；**cobusgreyling/loop-engineering 无 7/18 新 npm**；**skills**：**Cursor Customize 页**（Releasebot **7/18 更新**）统一 **plugins/skills/MCP** 管理（**open Agent Skills 标准**） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 云 / Agent | [Alibaba Cloud Agent Native Cloud（CryptoBriefing / WAIC）](https://cryptobriefing.com/alibaba-cloud-launches-agent-native-cloud-to-scale-enterprise-ai-agents/) | **2026-07-18** | 官方/产业 | **AgentTeams 多 Agent 编排** + **Agentic Computer 云端安全执行** + **原生 sandbox / 身份集成** |
+| 政务 Agent | [iFLYTEK GuideX 政务交互 Agent（GlobeNewswire）](https://www.globenewswire.com/news-release/2026/07/18/3329348/0/en/iFLYTEK-Launches-GuideX-Taking-Public-Services-from-Answering-Questions-to-Completing-Tasks.html) | **2026-07-18** | 产品/Agent | **Omnimodal 感知 + Self-Regulation 任务闭环 + SkillHub 10000+ skills**；**0.42s 全链路响应** |
+| 模型 / 开源 | [Kimi K3 2.8T 全球报道（AP / BroadbandBreakfast）](https://broadbandbreakfast.com/chinese-ai-model-takes-u-s-by-surprise-with-abilities-rivaling-claude-and-chatgpt/) | **2026-07-18** | 模型/开源 | **2.8T MoE / 1M context**；**$3/$15 per M tokens**；**权重 7/27 开放**；**WAIC 开幕前后传播窗口** |
+| 智算 / 硬件 | [Huawei Ascend 950 Ultra Node 首发（VGMG / WAIC）](https://vgmg.net/2026/07/18/kimi-k3-launches-with-2-8-trillion-parameters-as-waic-day-two-shifts-focus-from-benchmarks-to-real-world-ai-deployment/) | **2026-07-18** | 产业/基础设施 | **超节点 / 统一内存寻址**；面向 **万亿 MoE 训练与高并发推理** |
+| 具身 / 开源 | [NVIDIA × Hugging Face LeRobot GR00T 1.7 + Isaac Teleop（NVIDIA Blog）](https://blogs.nvidia.com/blog/hugging-face-lerobot-models-frameworks-open-robotics/) | **2026-07-18** | 官方/开源 | **VLA 人形基础模型** + **Teleop 标准化数据采集** 进入 **LeRobot 统一工作流** |
+| Anthropic / CLI | [Claude Code v2.1.214（GitHub Release）](https://github.com/anthropics/claude-code/releases/tag/v2.1.214) | **2026-07-18** | 开源/release | **permission analyzer fail-closed**；**EndConversation**；**OTel message.uuid / tool_source**；**>10K char 命令强制 prompt** |
+| OpenAI / CLI | [Codex CLI 0.144.6（GitHub Release）](https://github.com/openai/codex/releases/tag/rust-v0.144.6) | **2026-07-18** | 开源/release | **GPT-5.6 Sol/Terra/Luna bundled instructions 刷新**；**context window 恢复 272K** |
+| OpenAI / 运维 | [Codex access-denied incident resolved（OpenAI Status）](https://status.openai.com/incidents/01KXT44TAQQ2R0AZDDVSJGAC4H) | **2026-07-18** | 官方/status | **08:05–12:58 PT** 部分用户 **CLI/Desktop access-denied**；**7/18 已恢复** |
+| 产业 / 资本 | [Apple 重夺全球市值第一（Al Jazeera / 7/17 收盘；7/18 传播）](https://www.aljazeera.com/economy/2026/7/17/apple-regains-top-spot-as-worlds-most-valuable-company) | **2026-07-18**（**7/17 收盘；7/18 中国时间窗口传播**） | 产业/资本 | **$4.88T vs Nvidia $4.86T**；**AI capex 叙事再平衡** |
+| 安全 / 治理 | [Claude Code hidden tracker 持续报道（Claude News 7/18 Briefing）](https://claude-news.today/en/briefings/briefing-2026-07-18/) | **2026-07-18** | 安全/媒体 | **Unicode steganography 实验** 与 **v2.1.214 安全加固** 形成对照；**信任/透明** 议题 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 企业 Agent 云 | **Agent Native Cloud 报道** | **AgentTeams / Agentic Computer / sandbox 隔离 / 组织知识复用** | 云原生 + Agent 平台架构师 |
+| CLI 安全 | **Claude Code v2.1.214 changelog** | **fail-closed permission**、**docker daemon-redirect prompt**、**EndConversation** | Claude Code / 安全工程师 |
+| 机器人 | **NVIDIA LeRobot GR00T 集成博客** | **`lerobot[groot]`**、**Isaac Teleop 数据格式**、**Cosmos 3 规划** | 具身智能 / RL 工程师 |
+| 政务 Agent | **iFLYTEK GuideX 发布稿** | **多模态 crowded venue 感知**、**dual-track 政策/推理** | 垂直 Agent 产品 |
+| Loop 护栏 | **Claude v2.1.214 + v2.1.212 对照** | **cap（7/17）+ fail-closed（7/18）** 组合 | Loop Engineering 实践者 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：7/18 是 **「WAIC Agent 基础设施落地日 + 全球 CLI 安全硬化日」**——**阿里云** 把 **多 Agent 编排与云端执行** 产品化；**Claude Code / Codex** 同日发版，分别强化 **权限 fail-closed** 与 **模型元数据正确性**；**LeRobot** 把 **VLA post-train** 接入 **Hugging Face 开源机器人栈**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Agent 云原生 | **Agent Native Cloud** | **AgentTeams + sandbox + 身份** 应成为 **企业 multi-agent** 默认三层 |
+| 政务垂直 | **GuideX SkillHub** | **10000+ no-code skills** 展示 **垂直 Agent 平台化** 路径 |
+| CLI 安全 | **Claude v2.1.214 fail-closed** | **长命令 / help / docker redirect** 等 **auto-approve 漏洞** 必须 **默认 prompt** |
+| Loop 治理 | **EndConversation + heartbeat** | **滥用/jailbreak 终止** 与 **长 tool 心跳** 是 **loop 运维** 必要 primitive |
+| Codex 稳定 | **0.144.6 + outage 恢复** | **272K context 元数据** 错误会 ** silently 缩上下文**——需 **版本 pin + status 订阅** |
+| 具身开源 | **GR00T 1.7 in LeRobot** | **Teleop 数据 → post-train → deploy** 可 **标准化复用** |
+| Frontier | **Kimi K3 WAIC 第二日叙事** | **API 先行 / 权重滞后（7/27）** + **国产智算超节点** 绑定 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Claude Code v2.1.214 release notes** | **7/18 最完整 CLI 安全变更清单** |
+| 必读 | **NVIDIA LeRobot GR00T 1.7 博客** | **物理 AI 开源工作流** 一手入口 |
+| 必读 | **Agent Native Cloud 发布报道** | **企业 Agent 云架构** 关键组件定义 |
+| 推荐 | **iFLYTEK GuideX GlobeNewswire** | **政务 Agent 任务闭环** 产品规格 |
+| 推荐 | **Codex 0.144.6 + OpenAI Status 7/18** | **生产 CLI 运维** 样本 |
+| 延伸 | **AI 日报 2026-07-17** | **WAIC 开幕 / Kimi K3 / Claude v2.1.212 cap** 前情 |
+
+### 来源清单
+
+- 检索范围：2026-07-18 00:00:00 到 2026-07-18 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, cryptobriefing.com, globenewswire.com, blogs.nvidia.com, broadbandbreakfast.com, vgmg.net, aljazeera.com, status.openai.com, claude-news.today, developers.openai.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 产业 | Agent Native Cloud CryptoBriefing | 2026-07-18 | https://cryptobriefing.com/alibaba-cloud-launches-agent-native-cloud-to-scale-enterprise-ai-agents/ |
+| 产品 | iFLYTEK GuideX GlobeNewswire | 2026-07-18 | https://www.globenewswire.com/news-release/2026/07/18/3329348/0/en/iFLYTEK-Launches-GuideX-Taking-Public-Services-from-Answering-Questions-to-Completing-Tasks.html |
+| 模型 | Kimi K3 AP/BroadbandBreakfast | 2026-07-18 | https://broadbandbreakfast.com/chinese-ai-model-takes-u-s-by-surprise-with-abilities-rivaling-claude-and-chatgpt/ |
+| 基础设施 | Huawei Ascend 950 VGMG | 2026-07-18 | https://vgmg.net/2026/07/18/kimi-k3-launches-with-2-8-trillion-parameters-as-waic-day-two-shifts-focus-from-benchmarks-to-real-world-ai-deployment/ |
+| 开源 | NVIDIA LeRobot GR00T | 2026-07-18 | https://blogs.nvidia.com/blog/hugging-face-lerobot-models-frameworks-open-robotics/ |
+| 开源 | Claude Code v2.1.214 | 2026-07-18 | https://github.com/anthropics/claude-code/releases/tag/v2.1.214 |
+| 开源 | Codex rust-v0.144.6 | 2026-07-18 | https://github.com/openai/codex/releases/tag/rust-v0.144.6 |
+| 官方 | OpenAI Codex incident | 2026-07-18 | https://status.openai.com/incidents/01KXT44TAQQ2R0AZDDVSJGAC4H |
+| 产业 | Apple vs Nvidia Al Jazeera | 2026-07-18（7/17 收盘传播） | https://www.aljazeera.com/economy/2026/7/17/apple-regains-top-spot-as-worlds-most-valuable-company |
+| 安全 | Claude News 7/18 Briefing | 2026-07-18 | https://claude-news.today/en/briefings/briefing-2026-07-18/ |
+
+
 ## 2026-07-17
 
 ### 今日总览

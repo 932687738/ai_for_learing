@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="docs(daily-report): 更新 2026-07-15 AI 日报与知识库日报&#10;&#10;- 添加 Loop Engineering 工具链迭代内容，包括 loop-context 日 token 预算与 loop-worktree 路径锁&#10;- 更新核心趋势为 Agent 控制面 + loop 基础设施双轨发展&#10;- 新增 Pragmatic Engineer 7/15 播客关于 loop/harness engineering 的深度讨论&#10;- 补充 loop-engineering #273/#274 commits 作为必读资料&#10;- 更新引用域名为包含 newsletter.pragmaticengineer.com&#10;- 知识库日报同步更新 Loop Engineering 专项检索结论" />
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="docs(daily-report): 更新 2026-07-15 AI 日报与知识库日报&#10;&#10;- 添加 Loop Engineering 工具链迭代内容，包括 loop-context 日 token 预算与 loop-worktree 路径锁&#10;- 更新核心趋势为 Agent 控制面 + loop 基础设施双轨发展&#10;- 新增 Pragmatic Engineer 7/15 播客关于 loop/harness engineering 的深度讨论&#10;- 补充 loop-engineering #273/#274 commits 作为必读资料&#10;- 更新引用域名为包含 newsletter.pragmaticengineer.com&#10;- 知识库日报同步更新 Loop Engineering 专项检索结论">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +25,8 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/932687738/ai_for_yxy.git&quot;,
-    &quot;accountId&quot;: &quot;ab65b188-4631-45f8-8246-be6952ade089&quot;
+    &quot;url&quot;: &quot;https://github.com/932687738/ai_for_learing.git&quot;,
+    &quot;accountId&quot;: &quot;9392cf07-9dc5-4561-875b-be7637360938&quot;
   }
 }</component>
   <component name="MarkdownSettingsMigration">
@@ -280,6 +282,10 @@
       <workItem from="1783992132753" duration="8508000" />
       <workItem from="1784164327957" duration="31000" />
       <workItem from="1784164981904" duration="1031000" />
+      <workItem from="1784422685291" duration="109000" />
+      <workItem from="1784422866938" duration="98000" />
+      <workItem from="1784423654295" duration="7000" />
+      <workItem from="1784423672096" duration="354000" />
     </task>
     <task id="LOCAL-00018" summary="面试内容">
       <option name="closed" value="true" />
