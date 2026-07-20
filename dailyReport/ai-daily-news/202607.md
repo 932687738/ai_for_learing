@@ -2,6 +2,84 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-07-19
+
+### 今日总览
+
+**一句话结论**：`2026-07-19` 是 **「WAIC 第三日 + 公共 AI 基础设施 + Claude Code v2.1.215 skills 显式化 + 产业并购/诉讼」**——**WAIC** 从 **模型秀** 转向 **地震/气象预警 Agent、Global South 合作、WAICO 治理**；**中国地震局** 发布 **地震科学 AI Agent** 与 **MAZU 气象预警**（**Djibouti 2.0 移交**）；**Current AI Alpha Chat**（**Hugging Face/Mozilla/MIT** 联盟）与 **$400M 公共 AI 基础设施** 获 **TechCrunch 7/19** 报道；**Claude Code v2.1.215（02:56 UTC）** 停止 **自动运行 `/verify`/`/code-review` skills**；**Netflix $587M 收购 InterPositive**；**Apple × OpenAI 硬件/IPO 诉讼阴影**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | WAIC/公共 AI/垂直 Agent；Anthropic/OpenAI/产业资本；MCP 定稿倒计时；专项工具链 |
+| 核心趋势 | **AI 从 benchmark 走向公共品与垂直预警**（地震/气象/Global South）；**CLI skills 治理** 从 **隐式 auto-run** 转向 **显式 `/verify`/`/code-review` 调用**；**开源 frontier（Kimi K3）+ 公共 AI（Current AI）** 与 **闭源商业/IP 摩擦** 并存 |
+| 可直接关注 | 跟踪 **MCP 2026-07-28 定稿**（**9 天后**）迁移 **stateless core**；升级 **Claude Code ≥ v2.1.215** 调整 **CI/review 工作流**（**skills 须手动 invoke**）；阅读 **Global Times WAIC 7/19** 了解 **MAZU/WAICO/Global South** 叙事 |
+| 专项检索结论 | **Claude Code**：**v2.1.215**（**7/19 02:56 UTC**）；**Codex**：无 **7/19** stable release（**#34035 7/19 讨论永久取消 5h 限额**）；**OpenClaw**：无 **7/19** release；**Hermes**：无 **7/19** release；**Spring AI / Spring Alibaba AI**：无 **7/19** release；**Langfuse**：无 **7/19** release；**LangChain/LangGraph**：无 **7/19** release；**Code Graph**：无 **7/19** release；**Loop Engineering**：**Claude v2.1.215 显式 skills invoke** 强化 **verifier 须人工/显式触发**；**cobusgreyling/loop-engineering 无 7/19 新 npm**；**skills**：**Agent Skills 标准** 与 **Claude verify/review 显式化** 形成对照 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 产业 / WAIC | [WAIC 第三日：实用 AI + Global South（Global Times）](https://www.globaltimes.cn/page/202607/1366319.shtml) | **2026-07-19** | 产业/治理 | **地震/气象预警 Agent**、**Kimi K3 定价冲击**、**WAICO 29 国**、**UNIDO 多边合作** |
+| 垂直 Agent | [中国地震局地震科学 AI Agent / 智能处理系统（WAIC 论坛/CCTV）](https://www.globaltimes.cn/page/202607/1366319.shtml) | **2026-07-19** | 官方/垂直 | **监测/预报/预警/防灾** 全链路 AI；**2028 目标** 有效 AI 支撑 |
+| 垂直 Agent | [MAZU 气象预警 Djibouti 2.0 移交（Xinhua / WAIC）](https://www.globaltimes.cn/page/202607/1366319.shtml) | **2026-07-19** | 官方/公共品 | **3km 分辨率 / 3 天预报 / 6h 更新**；**面向 Global South 可定制公共品** |
+| 公共 AI | [Current AI Alpha Chat + $400M 公共基础设施（TechCrunch）](https://techcrunch.com/2026/07/19/nonprofit-current-ai-is-racing-to-build-the-world-wide-web-of-ai-free-for-all/) | **2026-07-19** | 非营利/开源 | **Hugging Face/Mozilla/MIT** 联盟 **7 周组装**；**无私有权重** 开源 chatbot |
+| Anthropic / CLI | [Claude Code v2.1.215（GitHub Release）](https://github.com/anthropics/claude-code/releases/tag/v2.1.215) | **2026-07-19** | 开源/release | **`/verify`/`/code-review` skills 不再 auto-run**；须 **显式 invoke** |
+| 产业 / 并购 | [Netflix $587M 收购 InterPositive（TechCrunch）](https://techcrunch.com/2026/07/19/netflix-paid-587m-for-ben-afflecks-ai-filmmaking-startup/) | **2026-07-19** | 产业/并购 | **~300 部片已用 gen-AI**；**后期制作 AI 工具** 规模化 |
+| 产业 / 诉讼 | [Apple 诉讼或影响 OpenAI 硬件/IPO（TechCrunch）](https://techcrunch.com/2026/07/19/can-an-apple-lawsuit-derail-openais-hardware-plans/) | **2026-07-19** | 产业/法律 | **商业秘密诉讼** vs **硬件/smart speaker IPO 叙事** |
+| 协议 / MCP | [MCP 2026-07-28 定稿倒计时（MCP Blog RC）](https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/) | **2026-07-19**（**7/28 定稿；7/19 迁移窗口**） | 标准/协议 | **stateless core**、**Mcp-Method/Name headers**、**Tasks/MCP Apps 扩展** |
+| Codex / 社区 | [Codex 5h 限额移除永久化请求 #34035（GitHub）](https://github.com/openai/codex/issues/34035) | **2026-07-19**（**7/18 创建；7/19 活跃**） | 社区/产品 | **Plus/Pro/Business 仅 weekly 限额** 体验反馈；**7/12 临时取消 5h 窗** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 公共 AI | **Current AI / Alpha Chat TechCrunch** | **联盟组装栈**、**Suno Sutra 22 语言离线** | AI 治理/开源平台 |
+| Loop/skills | **Claude v2.1.215 changelog** | **verify/review 显式 invoke** vs **auto-run** | Claude Code / Loop 工程师 |
+| MCP 迁移 | **MCP 2026-07-28 RC + Developers Digest 迁移指南** | **去掉 initialize/session**、**_meta 每请求携带** | MCP Server 维护者 |
+| 垂直 Agent | **Global Times WAIC 7/19** | **地震 AI Agent / MAZU 3km** | 政务/预警系统架构 |
+| 产业 | **Netflix InterPositive 监管文件** | **gen-AI 后期制作** 企业落地 | 媒体 AI 产品 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：7/19 是 **「WAIC 实用化 + 公共 AI 叙事 + CLI skills 治理微调日」**——**垂直预警 Agent** 与 **Current AI 公共栈** 展示 **AI 公共品** 路径；**Claude Code v2.1.215** 把 **review/verify** 从 **隐式 loop** 收回到 **显式 human/agent invoke**；**MCP 7/28 定稿** 进入 **最后迁移窗口**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 垂直 Agent | **地震/气象 WAIC 发布** | **观测→预报→预警→公众服务** 全链路可 **Agent 化** |
+| 公共 AI | **Alpha Chat 联盟栈** | **多组织拼装** 可复用于 **主权/多语言** 公共模型 |
+| Loop/skills | **Claude v2.1.215 显式 skills** | **verifier/review 不应 silent auto-run**；与 **loop maker/checker 分离** 一致 |
+| MCP | **7/28 定稿 9 天倒计时** | **stateless + routable headers** 需 **mid-July 完成迁移** |
+| Frontier 传播 | **Kimi K3 Global South 叙事** | **开源权重 + 低价 API** 改变 **创新可及性** 讨论 |
+| 产业 | **Netflix $587M gen-AI 后期** | **垂直工具并购** 快于 **通用模型并购** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Global Times WAIC 7/19 全文** | **第三日实用 AI + Global South** 最完整媒体综述 |
+| 必读 | **Claude Code v2.1.215 release** | **skills auto-run 变更** 影响 CI/review 流程 |
+| 必读 | **MCP 2026-07-28 RC 博客** | **定稿前最后架构清单** |
+| 推荐 | **Current AI TechCrunch 7/19** | **公共 AI 基础设施** 样本 |
+| 推荐 | **Netflix InterPositive TechCrunch** | **企业 gen-AI 并购定价** 参考 |
+| 延伸 | **AI 日报 2026-07-18** | **Agent Native Cloud / Claude fail-closed** 前情 |
+
+### 来源清单
+
+- 检索范围：2026-07-19 00:00:00 到 2026-07-19 23:59:59（Asia/Shanghai）
+- 引用域名：globaltimes.cn, github.com, techcrunch.com, blog.modelcontextprotocol.io, developers.openai.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 产业 | WAIC 第三日 Global Times | 2026-07-19 | https://www.globaltimes.cn/page/202607/1366319.shtml |
+| 公共 AI | Current AI TechCrunch | 2026-07-19 | https://techcrunch.com/2026/07/19/nonprofit-current-ai-is-racing-to-build-the-world-wide-web-of-ai-free-for-all/ |
+| 开源 | Claude Code v2.1.215 | 2026-07-19 | https://github.com/anthropics/claude-code/releases/tag/v2.1.215 |
+| 产业 | Netflix InterPositive TechCrunch | 2026-07-19 | https://techcrunch.com/2026/07/19/netflix-paid-587m-for-ben-afflecks-ai-filmmaking-startup/ |
+| 产业 | Apple OpenAI 诉讼 TechCrunch | 2026-07-19 | https://techcrunch.com/2026/07/19/can-an-apple-lawsuit-derail-openais-hardware-plans/ |
+| 标准 | MCP 2026-07-28 RC | 2026-07-19（7/28 定稿窗口） | https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/ |
+| 社区 | Codex #34035 5h 限额 | 2026-07-19 | https://github.com/openai/codex/issues/34035 |
+
+
 ## 2026-07-18
 
 ### 今日总览
