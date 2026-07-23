@@ -2,6 +2,228 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-07-22
+
+### 今日总览
+
+**一句话结论**：`2026-07-22` 是 **「Genesis Mission 超 $50 亿联邦落地 + Claude Code v2.1.218 review/MCP 工程化 + MCP 7/28 定稿前最后 6 天」**——白宫 **OSTP/DOE** 宣布 **Genesis Mission** 累计 **超 $50 亿** 联邦投入，**15+ 机构** 参与 **National Science and Technology Challenges**，**NIH Bio Genesis Mission** 目标 **10 年内把发现到临床时间减半**；**DOE** 公布 **首批 278 个项目** 与 **$293M** 挑战资金；**Claude Code v2.1.218（21:24 UTC）** 把 **`/code-review` 改为后台 subagent**、强化 **MCP 连接诊断** 与 **Windows `\u` 路径修复**；**MCP 2026-07-28** 距定稿 **6 天**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 美国联邦 AI-for-Science；Anthropic CLI；MCP 定稿倒计时；专项工具链 |
+| 核心趋势 | **AI 从消费/编码工具上升为国家级科学基础设施**（Genesis + American Science and Security Platform）；**CLI 侧** 继续 **subagent 治理 + MCP 可观测性** 双轨演进 |
+| 可直接关注 | 跟踪 **Genesis Mission Summit** 与 **Bio Genesis 挑战**（慢病根因/儿科肿瘤/药物发现）；升级 **Claude Code ≥ v2.1.218** 调整 **review 工作流**（后台 subagent）；**7/28 前完成 MCP stateless 迁移** |
+| 专项检索结论 | **Claude Code**：**v2.1.218**（**7/22 21:24 UTC**）；**Codex**：无 **7/22** stable release；**OpenClaw**：无 **7/22** release；**Hermes**：无 **7/22** release；**Spring AI / Spring Alibaba AI**：无 **7/22** release；**Langfuse**：无 **7/22** release；**LangChain/LangGraph**：无 **7/22** release；**Code Graph**：无 **7/22** release；**Loop Engineering**：**Claude v2.1.218 `/code-review` 后台化** 强化 **review 与主会话分离**；**skills**：**`context: fork` skills 默认后台运行** |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 政策 / 科学 | [Genesis Mission 超 $50 亿联邦投入（White House）](https://www.whitehouse.gov/releases/2026/07/45502/) | **2026-07-22** | 官方/政策 | **15+ 联邦机构**、**American Science and Security Platform**、**National Science and Technology Challenges** |
+| 生物医学 | [Bio Genesis Mission 启动（NIH）](https://www.nih.gov/about-nih/nih-director/statements/statement-launch-bio-genesis-mission-nihs-component-national-genesis-mission) | **2026-07-22** | 官方/科研 | **AI + 先进计算** 加速 **癌症/慢病/罕见病**；**FY26–27 已对齐 $1.2B+** |
+| 能源 / DOE | [Genesis Mission 首批项目（DOE）](https://www.energy.gov/undersecretaryforscience/genesis-mission/genesis-mission) | **2026-07-22** | 官方/科研 | **278 个首批项目**、**$293M 挑战资金**、**美日 $1B 合作** |
+| 产业 | [Genesis Mission 解读（Engadget）](https://www.engadget.com/2221309/us-outlines-its-5-billion-genesis-mission-to-boost-science-with-ai/) | **2026-07-22** | 媒体/政策 | **电网/微电子/生物威胁/量子** 等挑战矩阵；**Microsoft SPARK** 等企业伙伴 |
+| Anthropic / CLI | [Claude Code v2.1.218（GitHub Release）](https://github.com/anthropics/claude-code/releases/tag/v2.1.218) | **2026-07-22** | 开源/release | **`/code-review` 后台 subagent**；**MCP 连接 HTTP 状态/空白字符告警**；**Windows `\u` 路径 CJK 乱码修复** |
+| 协议 / MCP | [MCP 2026-07-28 RC（MCP Blog）](https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/) | **2026-07-22**（**7/28 定稿；6 天倒计时**） | 标准/协议 | **stateless core**、**去掉 initialize/Mcp-Session-Id**、**explicit handle 模式** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| AI-for-Science | **White House Genesis 发布稿** | **American Science and Security Platform**、跨机构 **挑战清单** | 科研平台/政策研究者 |
+| 生物医学 AI | **NIH Bio Genesis 声明** | **发现→临床时间减半**、**FY26–27 资金对齐** | 生物医药 AI 工程师 |
+| CLI review | **Claude v2.1.218 changelog** | **后台 `/code-review`**、**`/ultrareview` 非交互 cloud review** | Claude Code / CI 维护者 |
+| MCP 迁移 | **MCP RC + Microsoft App Service 博文** | **无 sticky routing**、**_meta 每请求携带** | MCP Server 运维 |
+| Loop 分离 | **Claude v2.1.217 cap + v2.1.218 review 后台** | **subagent 并发治理 + review 会话隔离** | Loop Engineering 实践者 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：7/22 是 **「国家级 AI-for-Science 资本化日 + CLI subagent/review 工程化日」**——**Genesis Mission** 把 **联邦数据/算力/AI 工具** 绑成 **可编排平台**；**Claude Code** 同日把 **code review** 从 **主会话占用** 改为 **后台 subagent**，与 **7/21 subagent 并发 cap** 形成 **治理组合拳**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 国家级平台 | **Genesis $5B+** | **科学 AI** 需要 **共享平台 + 挑战驱动**，而非单点模型发布 |
+| 生物医学 | **Bio Genesis** | **慢病根因/药物发现** 是 **垂直 foundation model + 数据集** 主战场 |
+| CLI review | **v2.1.218 后台 review** | **长 review 不应阻塞 maker 会话**——与 **loop checker 分离** 一致 |
+| MCP 运维 | **list 连接诊断 + 空白字符告警** | **MCP 生产故障** 应 **可观测、可自助排查** |
+| Skills | **fork skills 默认后台** | **长技能执行** 应 **默认异步**，避免 **阻塞主 agent** |
+| MCP 定稿 | **6 天倒计时** | **7/28 前** 完成 **stateless 迁移** 与 **explicit handle 设计** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **White House Genesis $5B 发布稿** | **7/22 最大政策/资金事件** |
+| 必读 | **Claude Code v2.1.218 release** | **review/MCP/Windows 三类生产修复** |
+| 必读 | **NIH Bio Genesis 声明** | **生物医学 AI 国家路线** |
+| 推荐 | **DOE Genesis 项目页** | **278 首批项目** 与 **挑战资金** |
+| 推荐 | **MCP 2026-07-28 RC** | **定稿前最后架构清单** |
+| 延伸 | **AI 日报 2026-07-21** | **Gemini 3.6 / OSTP 黄金时代 / subagent cap** 前情 |
+
+### 来源清单
+
+- 检索范围：2026-07-22 00:00:00 到 2026-07-22 23:59:59（Asia/Shanghai）
+- 引用域名：whitehouse.gov, nih.gov, energy.gov, github.com, engadget.com, blog.modelcontextprotocol.io, techcommunity.microsoft.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 政策 | Genesis Mission $5B+ White House | 2026-07-22 | https://www.whitehouse.gov/releases/2026/07/45502/ |
+| 科研 | NIH Bio Genesis Mission | 2026-07-22 | https://www.nih.gov/about-nih/nih-director/statements/statement-launch-bio-genesis-mission-nihs-component-national-genesis-mission |
+| 能源 | DOE Genesis Mission | 2026-07-22 | https://www.energy.gov/undersecretaryforscience/genesis-mission/genesis-mission |
+| 开源 | Claude Code v2.1.218 | 2026-07-22 | https://github.com/anthropics/claude-code/releases/tag/v2.1.218 |
+| 标准 | MCP 2026-07-28 RC | 2026-07-22（7/28 定稿窗口） | https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/ |
+| 媒体 | Engadget Genesis 解读 | 2026-07-22 | https://www.engadget.com/2221309/us-outlines-its-5-billion-genesis-mission-to-boost-science-with-ai/ |
+
+
+## 2026-07-21
+
+### 今日总览
+
+**一句话结论**：`2026-07-21` 是 **「Google Gemini 3.6 Flash 效率战 + OpenAI 小企业 GPT-5.6 下沉 + OSTP 科学黄金时代报告 + Claude Code v2.1.217 subagent 治理」**——**Google DeepMind** 发布 **Gemini 3.6 Flash / 3.5 Flash-Lite / 3.5 Flash Cyber**（**agent/编码/网安** 三线）；**OpenAI** 推出 **ChatGPT for small business program**（**ChatGPT Work + GPT-5.6**）；**OSTP** 发布 **Science: A New Golden Age** 并绑定 **Genesis Mission** 为 **AI-for-Science 旗舰**；**Claude Code v2.1.217（21:35 UTC）** 加入 **emoji 短码补全**、**subagent 并发默认 cap 20**、**默认禁止嵌套 subagent**；**Anthropic × Physical Intelligence** 春季收购传闻获 **TechCrunch 7/21** 跟进（**无成交**）。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Google/OpenAI/白宫 OSTP；Anthropic 产业并购；CLI 工具链；专项检索 |
+| 核心趋势 | **模型竞争从 frontier 转向 workhorse/agent 效率层**（Gemini Flash 降 token/降本）；**SMB 市场** 成为 **ChatGPT Work + GPT-5.6** 新战场；**联邦科学政策** 为 **7/22 Genesis 落地** 铺路 |
+| 可直接关注 | 评估 **Gemini 3.6 Flash**（**$1.50/$7.50 per M**、**DeepSWE 49%**）作为 **agent 主力模型**；订阅 **OpenAI SMB program** 获取 **Work 工作流模板**；升级 **Claude Code ≥ v2.1.217** 配置 **`CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS`** |
+| 专项检索结论 | **Claude Code**：**v2.1.217**（**7/21 21:35 UTC**）；**Codex**：无 **7/21** stable release；**OpenClaw**：无 **7/21** 新 tag（**2026.7.2-beta.3 为 7/18**）；**Hermes**：无 **7/21** release；**Spring AI / Spring Alibaba AI**：无 **7/21** release；**Langfuse**：无 **7/21** release；**LangChain/LangGraph**：无 **7/21** release；**Code Graph**：无 **7/21** release；**Loop Engineering**：**subagent cap + 禁嵌套** 与 **maker/checker 分层** 一致；**skills**：**OpenAI SMB 工作流模板** 与 **ChatGPT Work agents** 强化 **垂直 skills 包** 需求 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 模型 / Google | [Gemini 3.6 Flash 等三模型（TechCrunch）](https://techcrunch.com/2026/07/21/google-releases-three-new-gemini-models-but-no-3-5-pro/) | **2026-07-21** | 官方/模型 | **3.6 Flash workhorse**（**token -17%**）；**3.5 Flash-Lite 最便宜**；**3.5 Flash Cyber 网安专精**（政府/伙伴试点） |
+| 模型 / Google | [Gemini 3.6 Flash（NYT）](https://www.nytimes.com/2026/07/21/technology/google-ai-cybersecurity-gemini.html) | **2026-07-21** | 媒体/模型 | **编码/金融 benchmark** 强化；**Cyber 模型漏洞发现/修补** |
+| 企业 / OpenAI | [ChatGPT for small business program（OpenAI）](https://openai.com/index/introducing-chatgpt-small-business-program/) | **2026-07-21** | 官方/产品 | **Webinar + OpenAI Academy 线下**；**ChatGPT Work + GPT-5.6** 面向 **SMB** |
+| 政策 / OSTP | [Science: A New Golden Age（White House）](https://www.whitehouse.gov/releases/2026/07/45470/) | **2026-07-21** | 官方/政策 | **80 年来首次全面 R&D 体系重思**；**Genesis Mission 为 AI-for-Science 旗舰** |
+| 产业 / 并购 | [Anthropic × Physical Intelligence 传闻（TechCrunch）](https://techcrunch.com/2026/07/21/the-anthropic-physical-intelligence-rumor-roiling-ai-twitter/) | **2026-07-21** | 媒体/产业 | **春季确有洽谈**、**CEO 否认成交**；**π0.5 机器人大脑** 与 **Anthropic 具身布局** 关联 |
+| Anthropic / CLI | [Claude Code v2.1.217（GitHub Release）](https://github.com/anthropics/claude-code/releases/tag/v2.1.217) | **2026-07-21** | 开源/release | **`:heart:` emoji 补全**；**subagent 并发 cap 20**；**默认禁嵌套 subagent**；**`--max-budget-usd` 停后台 agent** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Agent 模型选型 | **Gemini 3.6 Flash 定价/基准** | **cost per completed task**、**DeepSWE 37%→49%** | Agent 平台架构师 |
+| SMB Agent | **OpenAI SMB program 发布稿** | **ChatGPT Work 跨 app 多步**、**GPT-5.6 全计划可用** | 小企业数字化 |
+| 科学政策 | **OSTP Science: A New Golden Age PDF** | **AI-native 科研机构**、**Genesis 旗舰任务** | 科研/政策读者 |
+| CLI 治理 | **Claude v2.1.217 changelog** | **`CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS`**、**`CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH`** | Claude Code 运维 |
+| 具身并购 | **TechCrunch PI 传闻文** | **收购 vs 自研** 在 **机器人栈** 的 trade-off | 具身 AI 战略 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：7/21 是 **「workhorse 模型效率日 + SMB agent 下沉日 + 联邦科学政策预热日」**——**Google** 用 **Flash 三线** 抢 **agent 生产 token**；**OpenAI** 用 **Work + SMB program** 把 **多步 agent** 推给 **最小组织**；**Claude Code** 用 **hard cap** 防止 **单消息 subagent 风暴**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Workhorse 模型 | **Gemini 3.6 Flash GA** | **agent 生产** 应评 **每任务成本** 而非 **每 token 标价** |
+| 网安垂直 | **Flash Cyber 试点** | **漏洞发现/修补** 可走 **专精小模型 + 限域访问** |
+| SMB Agent | **ChatGPT Work + GPT-5.6** | **lean team** 需要 **模板化 workflow + partner integrations** |
+| 科学政策 | **OSTP 黄金时代报告** | **Genesis** 是 **7/22 落地的政策前奏** |
+| Subagent 治理 | **Claude cap 20 + 禁嵌套** | **fan-out 必须有预算与深度上限** |
+| 具身战略 | **PI 洽谈无成交** | **机器人能力** 仍可能走 **合作/投资** 而非 **并购** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **TechCrunch Gemini 3.6 发布** | **三线 Flash 定位** 最清晰 |
+| 必读 | **OpenAI SMB program 发布稿** | **GPT-5.6 + Work** 小企业入口 |
+| 必读 | **Claude Code v2.1.217 release** | **subagent 治理三件套** |
+| 推荐 | **OSTP Science: A New Golden Age** | **Genesis 政策语境** |
+| 推荐 | **TechCrunch PI 传闻** | **具身并购 vs 自研** 样本 |
+| 延伸 | **AI 日报 2026-07-20** | **WAIC 闭幕 / MCP stateless / v2.1.216** 前情 |
+
+### 来源清单
+
+- 检索范围：2026-07-21 00:00:00 到 2026-07-21 23:59:59（Asia/Shanghai）
+- 引用域名：techcrunch.com, openai.com, whitehouse.gov, github.com, nytimes.com, openrouter.ai
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 模型 | Google Gemini 3.6 Flash TechCrunch | 2026-07-21 | https://techcrunch.com/2026/07/21/google-releases-three-new-gemini-models-but-no-3-5-pro/ |
+| 产品 | OpenAI SMB program | 2026-07-21 | https://openai.com/index/introducing-chatgpt-small-business-program/ |
+| 政策 | OSTP Science Golden Age | 2026-07-21 | https://www.whitehouse.gov/releases/2026/07/45470/ |
+| 开源 | Claude Code v2.1.217 | 2026-07-21 | https://github.com/anthropics/claude-code/releases/tag/v2.1.217 |
+| 产业 | Anthropic PI rumor TechCrunch | 2026-07-21 | https://techcrunch.com/2026/07/21/the-anthropic-physical-intelligence-rumor-roiling-ai-twitter/ |
+| 模型 | Gemini 3.6 NYT | 2026-07-21 | https://www.nytimes.com/2026/07/21/technology/google-ai-cybersecurity-gemini.html |
+
+
+## 2026-07-20
+
+### 今日总览
+
+**一句话结论**：`2026-07-20` 是 **「WAIC 2026 闭幕 + WAICO 29 国创始 + CAISI 主任辞职 + Claude Code v2.1.216 长会话性能 + MCP stateless  mainstream 解读」**——**WAIC（7/17–7/20）** 在 **上海闭幕**，**主席声明/WAICO** 定调 **全球 AI 治理与 Global South**；**TechCrunch 7/20** 报道 **CAISI 主任 Chris Fall 辞职**（**任内约 3 个月**），叠加 **Kimi K3 开源权重** 引发的 **监管/保护主义** 争论；**Claude Code v2.1.216（22:14 UTC）** 新增 **`sandbox.filesystem.disabled`** 并修复 **长会话二次方归一化卡顿**；**TechCrunch 7/20** 以 **Arcade** 视角解读 **MCP 7/28 stateless** 对 **Agent 基础设施规模化** 的意义。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | WAIC/全球治理；美国联邦 AI 标准人事；Anthropic CLI；MCP 协议；专项工具链 |
+| 核心趋势 | **展会从模型秀收束为治理与落地叙事**（WAICO/Global South）；**美国 AI 标准机构人事动荡** 与 **开源 frontier 地缘摩擦** 并存；**CLI 长会话性能** 与 **沙箱粒度控制** 成为生产刚需 |
+| 可直接关注 | 阅读 **外交部 WAIC 主席声明** 理解 **WAICO 29 国** 机制；跟踪 **CAISI/NIST** 人事与 **Kimi K3 开放权重** 政策走向；升级 **Claude Code ≥ v2.1.216** 验证 **长会话 resume/compact**；按 **MCP RC** 预备 **7/28 stateless 迁移** |
+| 专项检索结论 | **Claude Code**：**v2.1.216**（**7/20 22:14 UTC**）；**Codex**：无 **7/20** stable release（**#34035 5h 限额讨论仍活跃**）；**OpenClaw**：无 **7/20** release；**Hermes**：无 **7/20** release；**Spring AI / Spring Alibaba AI**：无 **7/20** release；**Langfuse**：无 **7/20** release；**LangChain/LangGraph**：无 **7/20** release；**Code Graph**：无 **7/20** release；**Loop Engineering**：**v2.1.216 长会话性能 + fail-closed 延续** 支撑 **长 loop 可恢复**；**skills**：**MCP stateless** 降低 **skills/MCP 混合部署** 的 **会话亲和成本** |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 产业 / WAIC | [WAIC 2026 主席声明（外交部）](https://www.mfa.gov.cn/mfa_eng/xw/zyxw/202607/t20260717_11984715.html) | **2026-07-20**（**7/17–7/20 会议；7/20 闭幕传播**） | 官方/治理 | **WAICO 政府间组织**、**29 国创始**、**AI for good and for all** |
+| 产业 / WAIC | [习近平 WAICO 与全球治理（新华社/en.cppcc）](http://en.cppcc.gov.cn/2026-07/20/c_1198497.htm) | **2026-07-20** | 官方/治理 | **140+ 论坛 / 1400 嘉宾**；**Global South 能力建设** |
+| 治理 / 美国 | [CAISI 主任 Chris Fall 辞职（TechCrunch）](https://techcrunch.com/2026/07/20/trumps-latest-ai-czar-has-already-resigned/) | **2026-07-20** | 媒体/政策 | **NIST 下属 CAISI** 三月内再换帅；**Kimi K3 开源监管** 争论背景 |
+| 协议 / MCP | [MCP stateless 解读（TechCrunch）](https://techcrunch.com/2026/07/20/ais-most-important-protocol-is-getting-a-little-bit-easier-to-use/) | **2026-07-20** | 媒体/协议 | **7/28 定稿前 mainstream 科普**；**Arcade $60M Agent 基础设施** 语境 |
+| Anthropic / CLI | [Claude Code v2.1.216（GitHub Release）](https://github.com/anthropics/claude-code/releases/tag/v2.1.216) | **2026-07-20** | 开源/release | **`sandbox.filesystem.disabled`**；**长会话 message normalization 二次方卡顿修复** |
+| 协议 / MCP | [MCP 2026-07-28 RC（MCP Blog）](https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/) | **2026-07-20**（**7/28 定稿；8 天倒计时**） | 标准/协议 | **去掉 initialize/session**、**horizontal scale** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 全球治理 | **外交部 WAIC 主席声明** | **WAICO 总部上海**、**29 国创始机制** | AI 治理/出海 |
+| 美国标准 | **TechCrunch CAISI 辞职** | **CAISI 职责** vs **模型风险政治化** | 合规/政策 |
+| CLI 性能 | **Claude v2.1.216 changelog** | **长会话 O(n²) normalization**、**cloud resume 丢消息修复** | Claude Code 长任务用户 |
+| 沙箱 | **sandbox.filesystem.disabled** | **保留网络 egress 控制、跳过文件系统隔离** | 安全/沙箱工程师 |
+| MCP 迁移 | **TechCrunch + MCP RC** | **stateless = 普通 Web 负载均衡** | MCP Server 维护者 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：7/20 是 **「WAIC 治理收束日 + 美国标准机构震荡日 + MCP 规模化叙事日 + CLI 长会话修复日」**——**WAICO** 把 **Global South** 写入 **制度层**；**MCP stateless** 被 **主流科技媒体** 定义为 **Agent 基础设施成本拐点**；**Claude Code** 继续 **每日发版** 修补 **长 loop 生产痛点**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 全球治理 | **WAIC 闭幕 + WAICO** | **多边组织** 与 **开源 frontier 传播** 将长期拉扯 |
+| 美国标准 | **CAISI 再换帅** | **模型标准/测试** 机构 **政治化** 增加 **合规不确定性** |
+| MCP 规模 | **stateless mainstream 解读** | **7/28 前** 应 **去掉 session store 依赖** |
+| CLI 性能 | **v2.1.216 长会话修复** | **multi-day agent** 必须 **profile normalization 成本** |
+| 沙箱粒度 | **filesystem.disabled** | **仅需网络策略** 的场景可 **减沙箱开销** |
+| 开源地缘 | **Kimi K3 监管争论** | **开放权重** 与 **出口/使用限制** 讨论升温 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **外交部 WAIC 主席声明** | **WAICO 机制** 一手定调 |
+| 必读 | **Claude Code v2.1.216 release** | **长会话 + 沙箱** 生产修复 |
+| 必读 | **TechCrunch MCP stateless 7/20** | **7/28 变更的 mainstream 解释** |
+| 推荐 | **TechCrunch CAISI 辞职** | **美国 AI 标准人事** 背景 |
+| 推荐 | **新华社 WAICO 7/20** | **29 国创始** 细节 |
+| 延伸 | **AI 日报 2026-07-19** | **WAIC 第三日 / Claude v2.1.215** 前情 |
+
+### 来源清单
+
+- 检索范围：2026-07-20 00:00:00 到 2026-07-20 23:59:59（Asia/Shanghai）
+- 引用域名：mfa.gov.cn, en.cppcc.gov.cn, techcrunch.com, github.com, blog.modelcontextprotocol.io
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 治理 | WAIC 主席声明 MFA | 2026-07-20 | https://www.mfa.gov.cn/mfa_eng/xw/zyxw/202607/t20260717_11984715.html |
+| 治理 | WAICO 新华社 | 2026-07-20 | http://en.cppcc.gov.cn/2026-07/20/c_1198497.htm |
+| 政策 | CAISI Fall 辞职 TechCrunch | 2026-07-20 | https://techcrunch.com/2026/07/20/trumps-latest-ai-czar-has-already-resigned/ |
+| 协议 | MCP stateless TechCrunch | 2026-07-20 | https://techcrunch.com/2026/07/20/ais-most-important-protocol-is-getting-a-little-bit-easier-to-use/ |
+| 开源 | Claude Code v2.1.216 | 2026-07-20 | https://github.com/anthropics/claude-code/releases/tag/v2.1.216 |
+| 标准 | MCP 2026-07-28 RC | 2026-07-20（7/28 定稿窗口） | https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/ |
+
+
 ## 2026-07-19
 
 ### 今日总览
