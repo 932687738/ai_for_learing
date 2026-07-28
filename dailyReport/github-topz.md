@@ -14,21 +14,21 @@
 - **与 Trending 区别**：本节为全局累计 Star 排序快照；文末 Trending 为 GitHub「今日 / 本周 / 本月热度」榜单，数据源与口径均不同。
 - **标记**列：相对**本次拉取前**磁盘上 `github-topz.md` 中本节表格已存在的 `owner/repo`，不存在的行标为 **新增**；下次拉取会重新计算并清空上一次的「新增」（仅保留新一轮相对上一轮新增）。
 
-**最近一次更新时间**（Asia/Shanghai）： 2026-07-18 08:09:22
+**最近一次更新时间**（Asia/Shanghai）： 2026-07-28 16:19:45
 
 | 序号 | 仓库 | Stars | 仓库简介（中文） | 链接 | 标记 |
 | --- | --- | ---:| --- | --- | --- |
-| 1 | `codecrafters-io/build-your-own-x` | 527323 | 通过从零重写各类代表性技术来学习编程与设计，加深对底层原理的理解。 | https://github.com/codecrafters-io/build-your-own-x |  |
-| 2 | `sindresorhus/awesome` | 486134 | 围绕多种主题整理的「Awesome」精品清单合集。 | https://github.com/sindresorhus/awesome |  |
-| 3 | `freeCodeCamp/freeCodeCamp` | 451971 | freeCodeCamp 官网开源代码与学习课程：可免费学习编程、数学与计算机科学。 | https://github.com/freeCodeCamp/freeCodeCamp |  |
-| 4 | `public-apis/public-apis` | 451003 | 免费可用的公共 API 资源汇总清单。 | https://github.com/public-apis/public-apis |  |
-| 5 | `EbookFoundation/free-programming-books` | 392339 | 可免费获取的编程与计算机类书籍书单汇总。 | https://github.com/EbookFoundation/free-programming-books |  |
-| 6 | `openclaw/openclaw` | 383292 | 可在多系统运行的个人 AI 助手（吉祥物为龙虾图标）。 | https://github.com/openclaw/openclaw |  |
-| 7 | `nilbuild/developer-roadmap` | 361360 | 交互式开发者路线图、入门与进阶教程等学习资料合集。 | https://github.com/nilbuild/developer-roadmap |  |
+| 1 | `codecrafters-io/build-your-own-x` | 532279 | 通过从零重写各类代表性技术来学习编程与设计，加深对底层原理的理解。 | https://github.com/codecrafters-io/build-your-own-x |  |
+| 2 | `sindresorhus/awesome` | 489792 | 围绕多种主题整理的「Awesome」精品清单合集。 | https://github.com/sindresorhus/awesome |  |
+| 3 | `freeCodeCamp/freeCodeCamp` | 453015 | freeCodeCamp 官网开源代码与学习课程：可免费学习编程、数学与计算机科学。 | https://github.com/freeCodeCamp/freeCodeCamp |  |
+| 4 | `public-apis/public-apis` | 452987 | 免费可用的公共 API 资源汇总清单。 | https://github.com/public-apis/public-apis |  |
+| 5 | `EbookFoundation/free-programming-books` | 393176 | 可免费获取的编程与计算机类书籍书单汇总。 | https://github.com/EbookFoundation/free-programming-books |  |
+| 6 | `openclaw/openclaw` | 384382 | 可在多系统运行的个人 AI 助手（吉祥物为龙虾图标）。 | https://github.com/openclaw/openclaw |  |
+| 7 | `nilbuild/developer-roadmap` | 362916 | 交互式开发者路线图、入门与进阶教程等学习资料合集。 | https://github.com/nilbuild/developer-roadmap |  |
 | 8 | `re4/LibreCode` | 361048 | LibreCode -类似编码/反转接口的Ollama光标 | https://github.com/re4/LibreCode |  |
-| 9 | `donnemartin/system-design-primer` | 357998 | 大厂级系统设计学习与面试备战材料（含 Anki 卡片范例）。 | https://github.com/donnemartin/system-design-primer |  |
-| 10 | `jwasham/coding-interview-university` | 356482 | 面向软件工程师岗位的系统化计算机科学与面试自学路线图。 | https://github.com/jwasham/coding-interview-university |  |
-| 11 | `vinta/awesome-python` | 308747 | 带选型倾向的 Python 框架、扩展库、工具与学习资源合集。 | https://github.com/vinta/awesome-python |  |
+| 9 | `donnemartin/system-design-primer` | 359458 | 大厂级系统设计学习与面试备战材料（含 Anki 卡片范例）。 | https://github.com/donnemartin/system-design-primer |  |
+| 10 | `jwasham/coding-interview-university` | 357292 | 面向软件工程师岗位的系统化计算机科学与面试自学路线图。 | https://github.com/jwasham/coding-interview-university |  |
+| 11 | `vinta/awesome-python` | 310747 | 带选型倾向的 Python 框架、扩展库、工具与学习资源合集。 | https://github.com/vinta/awesome-python |  |
 | 12 | `awesome-selfhosted/awesome-selfhosted` | 303934 | 可自行部署的各类自由软件网络服务与 Web 应用清单。 | https://github.com/awesome-selfhosted/awesome-selfhosted |  |
 | 13 | `996icu/996.ICU` | 276361 | 倡议关注「996」工作制、计数星标与交流的开发社区仓库（含网络迷因用语）。 | https://github.com/996icu/996.ICU |  |
 | 14 | `practical-tutorials/project-based-learning` | 272563 | 基于项目的教程精选列表 | https://github.com/practical-tutorials/project-based-learning |  |
@@ -53,20 +53,21 @@
 
 | # | 仓库 | Stars | Forks | 语言 | 周期动向 | 仓库简介（中文） | 链接 | 标记 |
 | ---: | --- | ---:| ---:| --- | --- | --- | --- | --- |
-| 1 | `codecrafters-io/build-your-own-x` | 527323 | 49903 | Markdown | 1,068 stars today | 通过从零重写各类代表性技术来学习编程与设计，加深对底层原理的理解。 | https://github.com/codecrafters-io/build-your-own-x |  |
-| 2 | `PostHog/posthog` | 36179 | 3010 | Python | 438 stars today | 🦔 PostHog是构建自动驾驶产品的领先平台。我们的开发人员工具–人工智能可观察性、分析、会话重播、标记、实验、错误跟踪、日志等–捕获代理诊断问题、发现机会和发布所需的所有上下文…… | https://github.com/PostHog/posthog |  |
-| 3 | `HenryNdubuaku/maths-cs-ai-compendium` | 6603 | 810 | TypeScript | 200 stars today | 成为一名破解的人工智能/机器学习研究工程师 | https://github.com/HenryNdubuaku/maths-cs-ai-compendium | 新增 |
-| 4 | `Nutlope/hallmark` | 11993 | 601 | CSS | 1,485 stars today | Claude Code、Cursor和Codex的防AI倾斜设计技能。 | https://github.com/Nutlope/hallmark |  |
-| 5 | `github/copilot-sdk` | 9790 | 1330 | Java | 233 stars today | 用于将GitHub Copilot Agent集成到应用和服务中的多平台SDK | https://github.com/github/copilot-sdk |  |
-| 6 | `anthropics/cwc-workshops` | 1579 | 489 | TypeScript | 45 stars today | — | https://github.com/anthropics/cwc-workshops | 新增 |
-| 7 | `PrismML-Eng/Bonsai-demo` | 1706 | 167 | Shell | 278 stars today | 盆栽演示 | https://github.com/PrismML-Eng/Bonsai-demo |  |
-| 8 | `protocolbuffers/protobuf` | 71537 | 16192 | C++ | 11 stars today | 协议缓冲区- Google的数据交换格式 | https://github.com/protocolbuffers/protobuf | 新增 |
-| 9 | `tirth8205/code-review-graph` | 19733 | 2106 | Python | 74 stars today | MCP和CLI的本地优先代码智能图。构建代码库的持久映射，以便AI编码工具仅读取重要内容，并对审阅和大型重构工作流进行基准上下文缩减。 | https://github.com/tirth8205/code-review-graph | 新增 |
-| 10 | `docusealco/docuseal` | 17831 | 1769 | Ruby | 91 stars today | 开源DocuSign替代方案。创建、填写和签署数字文档 ✍️ | https://github.com/docusealco/docuseal | 新增 |
-| 11 | `openinterpreter/openinterpreter` | 66350 | 5706 | Rust | 431 stars today | Kimi K3等开放模型的编码代理 | https://github.com/openinterpreter/openinterpreter |  |
-| 12 | `RyanCodrai/turbovec` | 13293 | 1179 | Python | 280 stars today | 基于TurboQuant构建的矢量索引，用Rust和Python绑定编写 | https://github.com/RyanCodrai/turbovec | 新增 |
-| 13 | `HKUDS/DeepTutor` | 27345 | 3644 | Python | 531 stars today | DeepTutor ：终身个性化辅导。https://deeptutor.info/。 | https://github.com/HKUDS/DeepTutor |  |
-| 14 | `OpenCut-app/OpenCut` | 74841 | 7545 | TypeScript | 1,074 stars today | 开源CapCut替代方案 | https://github.com/OpenCut-app/OpenCut |  |
+| 1 | `permissionlesstech/bitchat` | 32712 | 5133 | Swift | 2,346 stars today | 蓝牙网状聊天， IRC共鸣 | https://github.com/permissionlesstech/bitchat | 新增 |
+| 2 | `amnezia-vpn/amnezia-client` | 14029 | 1042 | C++ | 515 stars today | Amnezia VPN客户端（桌面版+移动版） | https://github.com/amnezia-vpn/amnezia-client | 新增 |
+| 3 | `moeru-ai/airi` | 44347 | 4417 | TypeScript | 572 stars today | 💖🧸 自我托管，你拥有的Grok Companion ，一个包含外府灵魂的容器，将它们带入我们的世界的网络生活，希望达到Neuro-sama的高度。能够实时语音聊天、Minecraft、Factorio播放。支持Web/macOS/Windows。 | https://github.com/moeru-ai/airi | 新增 |
+| 4 | `opengeos/GeoLibre` | 2951 | 369 | TypeScript | 420 stars today | 一个轻量级的云原生GIS平台，用于可视化、探索和分析地理空间数据。它在Web浏览器、桌面、移动设备和Jupyter笔记本中运行。 | https://github.com/opengeos/GeoLibre | 新增 |
+| 5 | `yorukot/superfile` | 21094 | 675 | Go | 600 stars today | 漂亮的现代终端文件管理器 | https://github.com/yorukot/superfile | 新增 |
+| 6 | `NanmiCoder/MediaCrawler` | 58648 | 11637 | Python | 362 stars today | 小红书笔记 · 评论爬虫、抖音视频 · 评论爬虫、快手视频 · 评论爬虫、B 站视频 ｜ 评论爬虫、微博帖子 ｜ 评论爬虫、百度贴吧帖子 ｜ 百度贴吧评论回复爬虫 · 知乎问答文章｜评论爬虫 | https://github.com/NanmiCoder/MediaCrawler | 新增 |
+| 7 | `pbakaus/impeccable` | 51881 | 3048 | JavaScript | 847 stars today | 让您的人工智能更好地进行设计的设计语言。 | https://github.com/pbakaus/impeccable | 新增 |
+| 8 | `shiyu-coder/Kronos` | 34692 | 5809 | Python | 441 stars today | Kronos ：金融市场语言的基础模型 | https://github.com/shiyu-coder/Kronos | 新增 |
+| 9 | `alibaba/open-code-review` | 15212 | 1024 | Go | 979 stars today | 开源和免费—在阿里巴巴的规模上经过测试。混合架构代码审核工具：确定性流水线+ LLM Agent、精确的行级注释、内置微调规则集（ NPE、线程安全、XSS、SQL注入）、OpenAI &amp; Anthropic兼容。 | https://github.com/alibaba/open-code-review | 新增 |
+| 10 | `jenkinsci/jenkins` | 25939 | 9678 | Java | 180 stars today | Jenkins自动化服务器 | https://github.com/jenkinsci/jenkins | 新增 |
+| 11 | `bradautomates/claude-video` | 11455 | 1161 | Python | 434 stars today | 让Claude能够观看任何视频。/观看下载、提取帧、转录，并将所有内容交给Claude。 | https://github.com/bradautomates/claude-video | 新增 |
+| 12 | `vudovn/ag-kit` | 8034 | 1514 | TypeScript | 14 stars today | — | https://github.com/vudovn/ag-kit | 新增 |
+| 13 | `apache/cassandra` | 10012 | 4005 | Java | 11 stars today | 开源事务性分布式数据库。商品硬件或云基础设施上的线性可扩展性和经过验证的容错性，而不会影响性能。 | https://github.com/apache/cassandra | 新增 |
+| 14 | `mvanhorn/last30days-skill` | 54392 | 4704 | Python | 240 stars today | 人工智能代理技能，研究Reddit、X、YouTube、HN、Polymarket和网络上的任何主题，然后合成基础摘要 | https://github.com/mvanhorn/last30days-skill | 新增 |
+| 15 | `ocornut/imgui` | 75275 | 11971 | C++ | 51 stars today | 尊敬的ImGui ：无臃肿的C + +图形用户界面，依赖关系最少 | https://github.com/ocornut/imgui | 新增 |
 
 
 ### 本周 trending（since=weekly）
@@ -75,25 +76,31 @@
 
 | # | 仓库 | Stars | Forks | 语言 | 周期动向 | 仓库简介（中文） | 链接 | 标记 |
 | ---: | --- | ---:| ---:| --- | --- | --- | --- | --- |
-| 1 | `Nutlope/hallmark` | 11993 | 601 | CSS | 8,075 stars this week | Claude Code、Cursor和Codex的防AI倾斜设计技能。 | https://github.com/Nutlope/hallmark |  |
-| 2 | `abseil/abseil-cpp` | 17959 | 3138 | C++ | 608 stars this week | Abseil通用库（ C + + ） | https://github.com/abseil/abseil-cpp |  |
-| 3 | `google-labs-code/stitch-skills` | 7612 | 893 | TypeScript | 1,076 stars this week | 专为与Stitch MCP服务器配合使用而设计的代理技能库。每项技能都遵循Agent Skills开放标准，与Antigravity、Gemini CLI、Claude Code、Cursor等编码代理兼容。 | https://github.com/google-labs-code/stitch-skills |  |
-| 4 | `HKUDS/Vibe-Trading` | 24620 | 4075 | Python | 5,616 stars this week | “Vibe-Trading ：您的个人交易代理” | https://github.com/HKUDS/Vibe-Trading |  |
-| 5 | `wonderwhy-er/DesktopCommanderMCP` | 8450 | 934 | TypeScript | 1,657 stars this week | 这是Claude的MCP服务器，具有终端控制、文件系统搜索和diff文件编辑功能 | https://github.com/wonderwhy-er/DesktopCommanderMCP |  |
-| 6 | `OpenCut-app/OpenCut` | 74841 | 7545 | TypeScript | 12,718 stars this week | 开源CapCut替代方案 | https://github.com/OpenCut-app/OpenCut |  |
-| 7 | `stablyai/orca` | 21138 | 1532 | TypeScript | 5,409 stars this week | ORCA是ADE ，用于与一群并行代理商合作。使用您自己的订阅运行任何编码代理。可在桌面和移动设备上使用。 | https://github.com/stablyai/orca |  |
-| 8 | `Shubhamsaboo/awesome-llm-apps` | 123596 | 18215 | Python | 6,252 stars this week | 100多个AI Agent和RAG应用程序，您可以实际运行—克隆、自定义、发货。 | https://github.com/Shubhamsaboo/awesome-llm-apps |  |
-| 9 | `oven-sh/bun` | 94801 | 4884 | Rust | 1,212 stars this week | 令人难以置信的快速JavaScript运行时、捆绑程序、测试运行程序和包管理器–所有功能于一身 | https://github.com/oven-sh/bun |  |
-| 10 | `iOfficeAI/OfficeCLI` | 18823 | 1261 | C# | 4,611 stars this week | OfficeCLI是第一个也是最好的Office套件，专为AI代理读取、编辑和自动化Word、Excel和PowerPoint文件而构建。免费、开源、单一二进制文件，无需安装Office。 | https://github.com/iOfficeAI/OfficeCLI |  |
-| 11 | `davila7/claude-code-templates` | 29681 | 3155 | Python | 1,084 stars this week | 用于配置和监控Claude Code的CLI工具 | https://github.com/davila7/claude-code-templates |  |
-| 12 | `openai/codex-plugin-cc` | 29097 | 1843 | JavaScript | 1,801 stars this week | 使用Claude Code的Codex来查看代码或委派任务。 | https://github.com/openai/codex-plugin-cc |  |
-| 13 | `HKUDS/DeepTutor` | 27345 | 3644 | Python | 1,801 stars this week | DeepTutor ：终身个性化辅导。https://deeptutor.info/。 | https://github.com/HKUDS/DeepTutor |  |
-| 14 | `pbakaus/impeccable` | 47638 | 2759 | JavaScript | 2,331 stars this week | 让您的人工智能更好地进行设计的设计语言。 | https://github.com/pbakaus/impeccable |  |
-| 15 | `kangarooking/cangjie-skill` | 3495 | 505 | Python | 1,158 stars this week | 把书、长视频、播客等高价值内容蒸馏成可执行的 Agent Skills | https://github.com/kangarooking/cangjie-skill |  |
-| 16 | `diegosouzapw/OmniRoute` | 18378 | 2633 | TypeScript | 3,605 stars this week | 永不停止编码。免费AI网关：一个端点， 231多家提供商（ 50多家免费） ，将Claude Code、Codex、Cursor、Cline和Copilot连接到免费的Claude/GPT/Gemini。RTK + Caveman堆叠压缩可节省15-95%的代币、智能自动回退、MCP/A2A、多模式API、桌面/PWA。 | https://github.com/diegosouzapw/OmniRoute |  |
-| 17 | `ogulcancelik/herdr` | 17642 | 1113 | Rust | 2,512 stars this week | 位于您终端中的座席多路复用器。 | https://github.com/ogulcancelik/herdr |  |
-| 18 | `actions/checkout` | 8484 | 2601 | TypeScript | 159 stars this week | 签出仓库的操作 | https://github.com/actions/checkout |  |
-| 19 | `vercel-labs/native` | 6495 | 263 | Zig | 854 stars this week | 用于构建本机桌面应用的工具包 | https://github.com/vercel-labs/native | 新增 |
+| 1 | `ayghri/i-have-adhd` | 11810 | 596 | Python | 6,961 stars this week | 您的编码代理阻止其埋葬答案的技能。ADHD友好的输出。 | https://github.com/ayghri/i-have-adhd | 新增 |
+| 2 | `koala73/worldmonitor` | 75569 | 11319 | TypeScript | 13,231 stars this week | 实时全球智能仪表板。在统一的态势感知界面中进行人工智能驱动的新闻聚合、地缘政治监控和基础设施跟踪 | https://github.com/koala73/worldmonitor | 新增 |
+| 3 | `bojieli/ai-agent-book` | 23627 | 2398 | Python | 13,627 stars this week | 《深入理解 AI Agent：设计原理与工程实践》（李博杰 著）开源主仓库：全书正文、编译版 PDF 与按章配套代码 | https://github.com/bojieli/ai-agent-book | 新增 |
+| 4 | `oblien/openship` | 9063 | 735 | TypeScript | 4,911 stars this week | 自托管部署平台 | https://github.com/oblien/openship | 新增 |
+| 5 | `agegr/pi-web` | 3053 | 400 | TypeScript | 1,676 stars this week | Pi编码代理的Web UI | https://github.com/agegr/pi-web | 新增 |
+| 6 | `tirth8205/code-review-graph` | 27133 | 2512 | Python | 4,577 stars this week | MCP和CLI的本地优先代码智能图。构建代码库的持久映射，以便AI编码工具仅读取重要内容，并对审阅和大型重构工作流进行基准上下文缩减。 | https://github.com/tirth8205/code-review-graph | 新增 |
+| 7 | `diegosouzapw/OmniRoute` | 32483 | 4206 | TypeScript | 11,057 stars this week | 永不停止编码。免费MIT AI网关：一个端点， 290多个提供商（ 90多个免费） ， 500多个型号— Kimi ， Claude ， GPT ， OpenAI ， Gemini ， GLM ， DeepSeek ， MiniMax。适用于Claude Code、Codex、Cursor、OpenCode、Cline和Copilot。配额感知自动回退， RTK +穴居人压缩保存…… | https://github.com/diegosouzapw/OmniRoute |  |
+| 8 | `1jehuang/jcode` | 12359 | 1360 | Rust | 2,585 stars this week | 最具RAM效率的线束 | https://github.com/1jehuang/jcode | 新增 |
+| 9 | `mattpocock/skills` | 192012 | 16499 | Shell | 12,682 stars this week | 真正工程师的技能。直接来自我的.agents目录。 | https://github.com/mattpocock/skills | 新增 |
+| 10 | `earendil-works/pi` | 79341 | 9749 | TypeScript | 5,751 stars this week | AI agent toolkit ：统一LLM API、agent loop、TUI、coding agent CLI | https://github.com/earendil-works/pi | 新增 |
+| 11 | `ruvnet/RuView` | 87067 | 11582 | Rust | 5,662 stars this week | π RuView将商用WiFi信号转化为实时空间智能、生命体征监测和存在检测--所有这些都无需一个像素的视频。 | https://github.com/ruvnet/RuView | 新增 |
+| 12 | `shiyu-coder/Kronos` | 34692 | 5809 | Python | 2,167 stars this week | Kronos ：金融市场语言的基础模型 | https://github.com/shiyu-coder/Kronos | 新增 |
+| 13 | `Pumpkin-MC/Pumpkin` | 10231 | 688 | Rust | 2,192 stars this week | 让每个人都能托管快速高效的Minecraft服务器。 | https://github.com/Pumpkin-MC/Pumpkin | 新增 |
+| 14 | `rohitg00/ai-engineering-from-scratch` | 44379 | 7489 | Python | 3,961 stars this week | 学习它，构建它。为其他人运送。 | https://github.com/rohitg00/ai-engineering-from-scratch | 新增 |
+| 15 | `HKUDS/DeepTutor` | 30691 | 4025 | Python | 2,172 stars this week | DeepTutor ：终身个性化辅导。https://deeptutor.info/。 | https://github.com/HKUDS/DeepTutor |  |
+| 16 | `MoonshotAI/kimi-code` | 5451 | 801 | TypeScript | 1,263 stars this week | Kimi Code CLI —新一代代理的起点 | https://github.com/MoonshotAI/kimi-code | 新增 |
+| 17 | `schollz/croc` | 38904 | 1544 | Go | 2,738 stars this week | 轻松安全地将物品从一台计算机发送到另一台计算机 🐊 📦 | https://github.com/schollz/croc | 新增 |
+| 18 | `earthtojake/text-to-cad` | 11108 | 1199 | JavaScript | 2,262 stars this week | CAD、机器人和硬件设计的代理技能集合 | https://github.com/earthtojake/text-to-cad | 新增 |
+| 19 | `CoreBunch/Instatic` | 6314 | 557 | TypeScript | 2,523 stars this week | Webflow、Framer和WordPress的开源替代品。Agentic自托管可视化CMS输出干净的静态页面。用户、角色、插件、内容、数据库，应有尽有。 | https://github.com/CoreBunch/Instatic | 新增 |
+| 20 | `pingdotgg/t3code` | 15344 | 3351 | TypeScript | 1,050 stars this week | — | https://github.com/pingdotgg/t3code | 新增 |
+| 21 | `hyprwm/Hyprland` | 37571 | 1894 | C++ | 782 stars this week | Hyprland是一款独立的、高度可定制的动态平铺Wayland合成器，不会牺牲外观。 | https://github.com/hyprwm/Hyprland | 新增 |
+| 22 | `every-app/open-seo` | 8805 | 985 | TypeScript | 3,015 stars this week | Semrush和Ahrefs的开源替代品 | https://github.com/every-app/open-seo | 新增 |
+| 23 | `Nutlope/hallmark` | 19034 | 953 | CSS | 4,758 stars this week | Claude Code、Cursor和Codex的防AI倾斜设计技能。 | https://github.com/Nutlope/hallmark |  |
+| 24 | `stablyai/orca` | 31198 | 2207 | TypeScript | 7,546 stars this week | ORCA是ADE ，用于与一群并行代理商合作。使用您自己的订阅运行任何编码代理。可在桌面、移动和VPS上使用。 | https://github.com/stablyai/orca |  |
+| 25 | `KnockOutEZ/wigolo` | 3781 | 249 | TypeScript | 1,478 stars this week | 您的AI编码代理的首选网络—通过MCP进行本地优先搜索、获取、抓取和研究。无API密钥，无云，每次查询$ 0。公开测试版。 | https://github.com/KnockOutEZ/wigolo | 新增 |
 
 
 ### 本月 trending（since=monthly）
@@ -102,23 +109,26 @@
 
 | # | 仓库 | Stars | Forks | 语言 | 周期动向 | 仓库简介（中文） | 链接 | 标记 |
 | ---: | --- | ---:| ---:| --- | --- | --- | --- | --- |
-| 1 | `calesthio/OpenMontage` | 39516 | 4677 | Python | 34,748 stars this month | 世界上第一个开源代理视频制作系统。12个管道， 52个工具， 500多个代理技能。将您的AI编码助手变成一个完整的视频制作工作室。 | https://github.com/calesthio/OpenMontage |  |
-| 2 | `DeusData/codebase-memory-mcp` | 32429 | 2478 | C | 28,151 stars this month | 高性能代码智能MCP服务器。将代码库编入持久知识图表—以毫秒为单位的平均存储库。158种语言，子MS查询，令牌减少99 ％。单个静态二进制文件，零依赖关系。 | https://github.com/DeusData/codebase-memory-mcp |  |
-| 3 | `asgeirtj/system_prompts_leaks` | 58638 | 9579 | JavaScript | 15,885 stars this month | 从Anthropic - Claude Fable 5、Opus 4.8、Claude Code、Claude Design中提取系统提示。OpenAI - ChatGPT GPT-5.6、Codex GPT-5.6、GPT-5.5。Google - Gemini 3.5 Flash、3.1 Pro、Antigravity。xAI - Grok、Cursor、Copilot、VS Code、Perplexity等。定期更新。 | https://github.com/asgeirtj/system_prompts_leaks |  |
-| 4 | `kunchenguid/no-mistakes` | 6415 | 477 | Go | 5,063 stars this month | git push no-mistakes | https://github.com/kunchenguid/no-mistakes |  |
-| 5 | `usestrix/strix` | 42258 | 4359 | Python | 16,488 stars this month | 开源人工智能渗透测试工具，用于查找和修复应用程序的漏洞。 | https://github.com/usestrix/strix |  |
-| 6 | `stablyai/orca` | 21138 | 1532 | TypeScript | 16,048 stars this month | ORCA是ADE ，用于与一群并行代理商合作。使用您自己的订阅运行任何编码代理。可在桌面和移动设备上使用。 | https://github.com/stablyai/orca |  |
-| 7 | `ogulcancelik/herdr` | 17642 | 1113 | Rust | 11,568 stars this month | 位于您终端中的座席多路复用器。 | https://github.com/ogulcancelik/herdr |  |
-| 8 | `Zackriya-Solutions/meetily` | 25286 | 2533 | Rust | 12,699 stars this month | 隐私第一，基于Rust构建的人工智能会议助手，具有4倍的Parakeet/Whisper实时转录、扬声器日记和Ollama摘要。100%本地处理。无需云。Meetily （ Meetly Ai - https://meetily.ai ）是首屈一指的自托管、开源Ai会议...... | https://github.com/Zackriya-Solutions/meetily |  |
-| 9 | `diegosouzapw/OmniRoute` | 18379 | 2633 | TypeScript | 12,026 stars this month | 永不停止编码。免费AI网关：一个端点， 231多家提供商（ 50多家免费） ，将Claude Code、Codex、Cursor、Cline和Copilot连接到免费的Claude/GPT/Gemini。RTK + Caveman堆叠压缩可节省15-95%的代币、智能自动回退、MCP/A2A、多模式API、桌面/PWA。 | https://github.com/diegosouzapw/OmniRoute |  |
-| 10 | `alibaba/page-agent` | 26914 | 2357 | TypeScript | 8,521 stars this month | JavaScript页面内GUI代理。使用自然语言控制Web界面。 | https://github.com/alibaba/page-agent |  |
-| 11 | `Panniantong/Agent-Reach` | 57492 | 4603 | Python | 25,126 stars this month | 让您的人工智能代理看到整个互联网。阅读和搜索Twitter、Reddit、YouTube、GitHub、Bilibili、XiaoHongShu —一个CLI ，无API费用。 | https://github.com/Panniantong/Agent-Reach |  |
-| 12 | `interviewstreet/hiring-agent` | 6010 | 1076 | Python | 4,955 stars this month | 用于评估和评分简历的AI代理。 | https://github.com/interviewstreet/hiring-agent |  |
-| 13 | `ocornut/imgui` | 74735 | 11915 | C++ | 1,007 stars this month | 尊敬的ImGui ：无臃肿的C + +图形用户界面，依赖关系最少 | https://github.com/ocornut/imgui |  |
-| 14 | `simplex-chat/simplex-chat` | 18671 | 1172 | Haskell | 7,662 stars this month | SimpleX -第一个没有任何类型用户标识符的消息传递网络-设计为100 ％私有！ iOS ， Android和桌面应用程序📱！ | https://github.com/simplex-chat/simplex-chat |  |
-| 15 | `BuilderIO/agent-native` | 3753 | 362 | TypeScript | 3,209 stars this month | 用于构建代理本机应用程序的框架。 | https://github.com/BuilderIO/agent-native | 新增 |
-| 16 | `gabime/spdlog` | 29165 | 5248 | C++ | 391 stars this month | 快速C + +日志记录库。 | https://github.com/gabime/spdlog |  |
-| 17 | `OpenCut-app/OpenCut` | 74841 | 7545 | TypeScript | 18,999 stars this month | 开源CapCut替代方案 | https://github.com/OpenCut-app/OpenCut |  |
-| 18 | `iOfficeAI/OfficeCLI` | 18823 | 1261 | C# | 11,556 stars this month | OfficeCLI是第一个也是最好的Office套件，专为AI代理读取、编辑和自动化Word、Excel和PowerPoint文件而构建。免费、开源、单一二进制文件，无需安装Office。 | https://github.com/iOfficeAI/OfficeCLI |  |
-| 19 | `wonderwhy-er/DesktopCommanderMCP` | 8450 | 934 | TypeScript | 2,389 stars this month | 这是Claude的MCP服务器，具有终端控制、文件系统搜索和diff文件编辑功能 | https://github.com/wonderwhy-er/DesktopCommanderMCP |  |
+| 1 | `diegosouzapw/OmniRoute` | 32483 | 4206 | TypeScript | 24,936 stars this month | 永不停止编码。免费MIT AI网关：一个端点， 290多个提供商（ 90多个免费） ， 500多个型号— Kimi ， Claude ， GPT ， OpenAI ， Gemini ， GLM ， DeepSeek ， MiniMax。适用于Claude Code、Codex、Cursor、OpenCode、Cline和Copilot。配额感知自动回退， RTK +穴居人压缩保存…… | https://github.com/diegosouzapw/OmniRoute |  |
+| 2 | `usestrix/strix` | 45107 | 4719 | Python | 18,948 stars this month | 开源人工智能渗透测试工具，用于查找和修复应用程序的漏洞。 | https://github.com/usestrix/strix |  |
+| 3 | `hasaneyldrm/exercises-dataset` | 17433 | 2131 | HTML | 16,896 stars this month | 1,324个运动健身数据集—动画GIF、180 × 180缩略图、肌肉群和设备数据，以及6种语言的分步说明。LogPress应用程序背后的运动数据层。 | https://github.com/hasaneyldrm/exercises-dataset | 新增 |
+| 4 | `permissionlesstech/bitchat` | 32712 | 5133 | Swift | 5,679 stars this month | 蓝牙网状聊天， IRC共鸣 | https://github.com/permissionlesstech/bitchat | 新增 |
+| 5 | `stablyai/orca` | 31198 | 2207 | TypeScript | 22,573 stars this month | ORCA是ADE ，用于与一群并行代理商合作。使用您自己的订阅运行任何编码代理。可在桌面、移动和VPS上使用。 | https://github.com/stablyai/orca |  |
+| 6 | `catchorg/Catch2` | 21372 | 3390 | C++ | 1,057 stars this month | 用于单元测试、TDD和BDD的现代C + +原生测试框架-使用C + +14、C + +17及更高版本（ C + +11支持v2.x分支， C + +03支持Catch1.x分支） | https://github.com/catchorg/Catch2 | 新增 |
+| 7 | `ogulcancelik/herdr` | 21672 | 1457 | Rust | 13,835 stars this month | 位于您终端中的座席多路复用器。 | https://github.com/ogulcancelik/herdr |  |
+| 8 | `emilkowalski/skills` | 21781 | 1179 | — | 17,933 stars this month | 设计工程师的技能。 | https://github.com/emilkowalski/skills | 新增 |
+| 9 | `Zackriya-Solutions/meetily` | 27077 | 2750 | Rust | 14,255 stars this month | 隐私第一，基于Rust构建的人工智能会议助手，具有4倍的Parakeet/Whisper实时转录、扬声器日记和Ollama摘要。100%本地处理。无需云。Meetily （ Meetly Ai - https://meetily.ai ）是首屈一指的自托管、开源Ai会议...... | https://github.com/Zackriya-Solutions/meetily |  |
+| 10 | `Nutlope/hallmark` | 19034 | 953 | CSS | 15,231 stars this month | Claude Code、Cursor和Codex的防AI倾斜设计技能。 | https://github.com/Nutlope/hallmark | 新增 |
+| 11 | `xbtlin/ai-berkshire` | 14524 | 2039 | Python | 10,999 stars this month | AI 时代的伯克希尔：基于 Claude Code / Codex 的价值投资研究框架。巴菲特·芒格·段永平·李录四大师方法论 + 多Agent并行研究。· AI-era Berkshire: a value investing research framework built for Claude Code / Codex. 4 masters' methodologies + multi-agent adversarial analysis. | https://github.com/xbtlin/ai-berkshire | 新增 |
+| 12 | `asgeirtj/system_prompts_leaks` | 61029 | 9969 | JavaScript | 14,761 stars this month | 从Anthropic - Claude Fable 5、Opus 5、Claude Design、Claude Code中提取系统提示。OpenAI - ChatGPT GPT-5.6-Sol ， Codex。Google - Gemini 3.5 Flash、3.1 Pro、Antigravity。xAI - Grok、Cursor、Copilot、VS Code、Perplexity等。定期更新。 | https://github.com/asgeirtj/system_prompts_leaks |  |
+| 13 | `Robbyant/lingbot-map` | 15717 | 1657 | Python | 8,189 stars this month | 用于从流数据重建场景的前馈3D基础模型 | https://github.com/Robbyant/lingbot-map | 新增 |
+| 14 | `koala73/worldmonitor` | 75569 | 11319 | TypeScript | 15,236 stars this month | 实时全球智能仪表板。在统一的态势感知界面中进行人工智能驱动的新闻聚合、地缘政治监控和基础设施跟踪 | https://github.com/koala73/worldmonitor | 新增 |
+| 15 | `iOfficeAI/OfficeCLI` | 22751 | 1532 | C# | 14,550 stars this month | OfficeCLI是第一个也是最好的Office套件，专为AI代理读取、编辑和自动化Word、Excel和PowerPoint文件而构建。免费、开源、单一二进制文件，无需安装Office。 | https://github.com/iOfficeAI/OfficeCLI |  |
+| 16 | `DeusData/codebase-memory-mcp` | 36026 | 2816 | C | 19,689 stars this month | 高性能代码智能MCP服务器。将代码库编入持久知识图表—以毫秒为单位的平均存储库。158种语言，子MS查询，令牌减少99 ％。单个静态二进制文件，零依赖关系。 | https://github.com/DeusData/codebase-memory-mcp |  |
+| 17 | `ocornut/imgui` | 75275 | 11971 | C++ | 1,186 stars this month | 尊敬的ImGui ：无臃肿的C + +图形用户界面，依赖关系最少 | https://github.com/ocornut/imgui |  |
+| 18 | `HKUDS/Vibe-Trading` | 28172 | 4567 | Python | 14,723 stars this month | “Vibe-Trading ：您的个人交易代理” | https://github.com/HKUDS/Vibe-Trading | 新增 |
+| 19 | `wonderwhy-er/DesktopCommanderMCP` | 8903 | 1010 | TypeScript | 2,807 stars this month | 这是Claude的MCP服务器，具有终端控制、文件系统搜索和diff文件编辑功能 | https://github.com/wonderwhy-er/DesktopCommanderMCP |  |
+| 20 | `bradautomates/claude-video` | 11456 | 1161 | Python | 8,199 stars this month | 让Claude能够观看任何视频。/观看下载、提取帧、转录，并将所有内容交给Claude。 | https://github.com/bradautomates/claude-video | 新增 |
+| 21 | `alibaba/page-agent` | 28037 | 2465 | TypeScript | 7,926 stars this month | JavaScript页面内GUI代理。使用自然语言控制Web界面。 | https://github.com/alibaba/page-agent |  |
+| 22 | `openai/codex-plugin-cc` | 30164 | 1974 | JavaScript | 8,576 stars this month | 使用Claude Code的Codex来查看代码或委派任务。 | https://github.com/openai/codex-plugin-cc | 新增 |
 
