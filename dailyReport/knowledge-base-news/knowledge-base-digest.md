@@ -2,6 +2,167 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-07-30
+
+### 今日总览
+
+**一句话结论**：`2026-07-30` 固定来源口径下，**10 个公司/组织维度 + 五专项均已检索**，**未发现可确认属于该日期且具备可靠出处的 team 首发长文**；**Anthropic 三起 cyber eval 入侵 / Langfuse v4.1.0 / MCP 迁移窗口** 无 **7/30 固定来源硬对齐**，见 **AI 日报 2026-07-30**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 阿里 102 / 阿里云开发者 / 中间件 / 语雀；腾讯云开发者；字节 techblog / 掘金；百度 FEX/EFE/开发者；美团；京东科技/凹凸；滴滴；网易知乎；360；有赞 |
+| 核心趋势 | **固定来源空窗**；**eval 安全 / LLMOps v4 迁移 / MCP stateless** 在 **全球官方与 GitHub** |
+| 可直接关注 | **Langfuse v4.1.0** 见 **AI 日报**；固定来源 **Spring AI 2.0 MCP 掘金专题** 对照 **7/28 stateless 迁移** |
+| 专项检索结论 | **Loop Engineering**：固定来源 **7/30 无新文**（全球 **eval postmortem** 见 AI 日报）；**Langfuse**：**v4.1.0 为全球 GitHub release**（固定来源 **7/30 无 team 首发文**）；**LangChain/LangGraph**：无 **7/30** 新文；**Code Graph**：无 **7/30** 新文；**Spring Alibaba AI**：无 **7/30** 新文 |
+| 未发现更新 | 全固定来源 **7/30 无硬对齐** |
+
+### 重要文章与更新
+
+- 未发现可核验的重大文章或更新。
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Langfuse v4（全球） | [Langfuse v4.1.0](https://github.com/langfuse/langfuse/releases/tag/v4.1.0) | **v4 migration / Docker latest** | LLMOps |
+| MCP（固定来源历史） | [Spring AI 2.0 MCP 掘金专题](https://juejin.cn/post/7644484272205283369) | **mcp-client/server starter**（对照 **7/28 stateless**） | Java MCP 团队 |
+| 可观测（固定来源历史） | [Spring AI + Langfuse OTel 掘金](https://juejin.cn/post/7633627985466032137) | **OTel → Langfuse** | Java Agent 平台 |
+
+### 工程实践归纳
+
+**总体判断**：7/30 **eval 安全连环披露日** 固定来源 **仍空窗**——**Java 团队** 应 **AI 日报 Anthropic 报告 + Spring AI MCP 历史文** 做 **eval 隔离与 MCP 迁移** 双线 checklist。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Langfuse | **v4.1.0（全球）** | **自托管 Langfuse 用户规划 v3→v4** |
+| MCP | **7/28 GA 后迁移窗口** | **Spring AI MCP starter 须对齐 2026-07-28 SDK** |
+| 固定来源 | **7/30 空窗** | **安全类话题中文 team blog 持续滞后** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 延伸 | **AI 日报 2026-07-30** | **Anthropic 3 incidents / Langfuse v4.1.0** |
+| 延伸 | **Spring AI 2.0 MCP 掘金专题** | 固定来源 **Java MCP 基线** |
+
+### 来源清单
+
+- 检索范围：2026-07-30 00:00:00 到 2026-07-30 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：已覆盖 + **五专项**；**7/30 无可核验 team 首发硬增量**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| — | — | — | 未发现可核验更新 | — | — |
+
+
+## 2026-07-29
+
+### 今日总览
+
+**一句话结论**：`2026-07-29` 固定来源口径下，**10 个公司/组织维度 + 五专项均已检索**，**未发现可确认属于该日期且具备可靠出处的 team 首发长文**；**HF 入侵时间线 / Microsoft FY26 财报 / Langfuse v3.224.3** 无 **7/29 固定来源硬对齐**，见 **AI 日报 2026-07-29**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 阿里 102 / 阿里云开发者 / 中间件 / 语雀；腾讯云开发者；字节 techblog / 掘金；百度 FEX/EFE/开发者；美团；京东科技/凹凸；滴滴；网易知乎；360；有赞 |
+| 核心趋势 | **固定来源空窗**；**MCP 迁移 / agent 安全 / LLMOps 定价** 在 **全球官方与 GitHub release** |
+| 可直接关注 | **Langfuse v3.224.3 Opus 5 定价** 见 **AI 日报**；固定来源 **Spring AI + Langfuse OTel 文** 可对照 **MCP stateless 迁移** |
+| 专项检索结论 | **Loop Engineering**：固定来源 **7/29 无新文**（全球 **Vending-Bench 长期 agent** 见 AI 日报）；**Langfuse**：**v3.224.3 为全球 GitHub release**（固定来源 **7/29 无 team 首发文**）；**LangChain/LangGraph**：无 **7/29** 新文；**Code Graph**：无 **7/29** 新文；**Spring Alibaba AI**：无 **7/29** 新文 |
+| 未发现更新 | 全固定来源 **7/29 无硬对齐** |
+
+### 重要文章与更新
+
+- 未发现可核验的重大文章或更新。
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Langfuse（全球 release） | [Langfuse v3.224.3](https://github.com/langfuse/langfuse/releases/tag/v3.224.3) | **Opus 5 / gpt-5.3-codex 定价** | LLMOps |
+| MCP 迁移（固定来源历史） | [阿里云 MCP 实战文](https://developer.aliyun.com/article/1741326) | 对照 **7/28 stateless GA** | MCP 工程师 |
+| 可观测（固定来源历史） | [OTel → Langfuse 掘金](https://juejin.cn/post/7647571270608322602) | **Collector 双写 Langfuse** | 平台工程师 |
+
+### 工程实践归纳
+
+**总体判断**：7/29 **MCP 迁移 enforcement 窗口开启** 但固定来源 **仍空窗**——建议 **AI 日报 MCP 迁移指南 + 历史阿里云 MCP 文** 组合推进。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Langfuse | **v3.224.3（全球）** | **Opus 5 切换后第一时间更新 Langfuse 定价表** |
+| MCP | **7/29 SDK 不再 initialize** | **Java MCP server 对照 Spring AI MCP starter 升级** |
+| 固定来源 | **7/29 空窗** | **安全/财报类话题中文 team blog 滞后** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 延伸 | **AI 日报 2026-07-29** | **HF 时间线 / MSFT 财报 / Langfuse release** |
+| 延伸 | **Spring AI + Langfuse 掘金历史文** | **Opus 5 trace 成本基线** |
+
+### 来源清单
+
+- 检索范围：2026-07-29 00:00:00 到 2026-07-29 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：已覆盖 + **五专项**；**7/29 无可核验 team 首发硬增量**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| — | — | — | 未发现可核验更新 | — | — |
+
+
+## 2026-07-28
+
+### 今日总览
+
+**一句话结论**：`2026-07-28` 固定来源口径下，**10 个公司/组织维度 + 五专项均已检索**，**未发现可确认属于该日期且具备可靠出处的 team 首发长文**；**MCP 2026-07-28 定稿 / Claude MCP tunnels / Kimi K3 权重** 无 **7/28 固定来源硬对齐**，见 **AI 日报 2026-07-28**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 全固定来源清单 + 五专项 |
+| 核心趋势 | **MCP GA 日** 全球热度高但 **中文 team blog 未同步**；**掘金历史 MCP/OTel 文** 仍是固定来源最近可引用材料 |
+| 可直接关注 | **MCP stateless 迁移** 见 **AI 日报 + 阿里云 MCP 历史文**；**Spring AI Alibaba Graph + Langfuse** 历史文对照 **OTel trace** |
+| 专项检索结论 | **Loop Engineering**：固定来源 **7/28 无新文**；**Langfuse**：固定来源 **7/28 无新文**；**LangChain/LangGraph**：无 **7/28** 新文；**Code Graph**：无 **7/28** 新文；**Spring Alibaba AI**：固定来源 **7/28 无新文**（全球 **MCP 2026-07-28** 见 AI 日报） |
+| 未发现更新 | 全固定来源 **7/28 无硬对齐** |
+
+### 重要文章与更新
+
+- 未发现可核验的重大文章或更新。
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| MCP（固定来源历史） | [阿里云 MCP Server 开发部署](https://developer.aliyun.com/article/1741326) | 对照 **7/28 stateless** | Java/MCP 团队 |
+| Spring Alibaba（固定来源历史） | [Spring AI Alibaba Graph + Langfuse](https://juejin.cn/post/7549314246204309514) | **graph observation** | Agent 平台 |
+| MCP（全球） | **AI 日报 MCP 2026-07-28 GA** | **initialize 移除 / OTel** | 全体 MCP 开发者 |
+
+### 工程实践归纳
+
+**总体判断**：7/28 **MCP 史上最大版本发布** 固定来源 **零硬对齐**——**Java 团队** 应优先 **AI 日报 + Spring AI MCP starter 文档** 而非等中文 blog。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| MCP GA | 全球 **7/28 定稿** | **Spring AI MCP client/server 须对齐 2026-07-28 SDK** |
+| 固定来源 | **7/28 空窗** | **协议大版本中文解读通常滞后 1–2 周** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读（全球） | **AI 日报 2026-07-28** | **MCP GA 完整清单** |
+| 延伸 | **阿里云 MCP 历史文** | 固定来源 **唯一 MCP 实战入口** |
+
+### 来源清单
+
+- 检索范围：2026-07-28 00:00:00 到 2026-07-28 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：已覆盖；**7/28 无可核验 team 首发硬增量**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| — | — | — | 未发现可核验更新 | — | — |
+
+
 ## 2026-07-27
 
 ### 今日总览
