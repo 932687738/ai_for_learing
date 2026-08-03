@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="feat(dailyReport): 添加2026年7月22日至27日AI日报和知识库日报&#10;&#10;- 新增2026-07-27至2026-07-22的AI领域每日新闻汇总&#10;- 新增2026-07-27的固定中文技术知识库来源汇总&#10;- 涵盖Anthropic open-weights立场澄清、Cognizant合作扩展、Microsoft网安平台发布等内容&#10;- 包含Claude分享链接隐私问题、OpenAI Hugging Face入侵事件后续讨论&#10;- 记录Microsoft MAI-Cyber-1-Flash和Perception网安平台发布信息&#10;- 更新MCP协议7/28定稿倒计时相关内容&#10;- 添加技术文档、工程实践和值得阅读资料推荐&#10;- 提供来源清单和专项检索结论表格" />
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="docs(dailyReport): 添加2026年7月28-30日AI与知识库日报内容&#10;&#10;- 添加2026-07-30 AI日报：Anthropic三起生产入侵事件、Hugging Face入侵复盘、Langfuse v4.1.0发布、MCP stateless迁移窗口&#10;- 添加2026-07-29 AI日报：Hugging Face入侵技术时间线、Microsoft FY26财报、Vending-Bench长期agent风险、Lilian Weng回归OpenAI、Langfuse v3.224.3定价更新&#10;- 添加2026-07-28 AI日报：MCP 2026-07-28规范定稿、Anthropic MCP全面支持、Sam Altman表态decelerate、Kimi K3权重开放&#10;- 添加2026-07-30知识库日报：固定来源检索无重大更新，建议参考AI日报相关内容&#10;- 添加2026-07-29知识库日报：固定来源检索无重大更新，关注Langfuse v3.224.3和MCP迁移&#10;- 添加2026-07-28知识库日报：固定来源检索无重大更新，重点关注MCP stateless迁移和历史文档对照">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,12 +23,12 @@
     &quot;assignee&quot;: &quot;932687738&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/932687738/ai_for_learing.git&quot;,
-    &quot;accountId&quot;: &quot;9392cf07-9dc5-4561-875b-be7637360938&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/932687738/ai_for_learing.git",
+    "accountId": "bfd8cec1-f587-4317-8f13-c69f1a6e56b6"
   }
-}</component>
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -275,14 +277,8 @@
       <workItem from="1784422866938" duration="98000" />
       <workItem from="1784423654295" duration="7000" />
       <workItem from="1784423672096" duration="589000" />
-    </task>
-    <task id="LOCAL-00019" summary="面试内容">
-      <option name="closed" value="true" />
-      <created>1779955197639</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1779955197639</updated>
+      <workItem from="1785463796181" duration="1272000" />
+      <workItem from="1785465590103" duration="604000" />
     </task>
     <task id="LOCAL-00020" summary="面试内容">
       <option name="closed" value="true" />
@@ -668,7 +664,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785226894443</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="docs(dailyReport): 添加2026年7月28-30日AI与知识库日报内容&#10;&#10;- 添加2026-07-30 AI日报：Anthropic三起生产入侵事件、Hugging Face入侵复盘、Langfuse v4.1.0发布、MCP stateless迁移窗口&#10;- 添加2026-07-29 AI日报：Hugging Face入侵技术时间线、Microsoft FY26财报、Vending-Bench长期agent风险、Lilian Weng回归OpenAI、Langfuse v3.224.3定价更新&#10;- 添加2026-07-28 AI日报：MCP 2026-07-28规范定稿、Anthropic MCP全面支持、Sam Altman表态decelerate、Kimi K3权重开放&#10;- 添加2026-07-30知识库日报：固定来源检索无重大更新，建议参考AI日报相关内容&#10;- 添加2026-07-29知识库日报：固定来源检索无重大更新，关注Langfuse v3.224.3和MCP迁移&#10;- 添加2026-07-28知识库日报：固定来源检索无重大更新，重点关注MCP stateless迁移和历史文档对照">
+      <option name="closed" value="true" />
+      <created>1785463816739</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1785463816740</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -686,7 +690,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="SpringAI多模态实现与动态模型切换" />
     <MESSAGE value="ChromaDB向量数据库详解" />
     <MESSAGE value="README.md文件回填" />
     <MESSAGE value="更新2026-05-29的智能体面试知识库，新增Tool Calling、FlowAgent顺序执行、MessageChatMemoryAdvisor记忆机制等内容，增强了Agent架构与协同模块的文档，确保知识点的完整性与可读性。" />
@@ -711,7 +714,8 @@
     <MESSAGE value="docs(dailyReport): 添加2026年7月14-15日AI日报和知识库日报&#10;&#10;- 添加 2026-07-15 AI 日报内容，包含 Claude Code v2.1.211、Langfuse v3.214.0、&#10;  Gemini 3.5 Pro 7/17 倒计时等信息&#10;- 添加 2026-07-14 AI 日报内容，涵盖 Claude Code 三连发、Langfuse v3.213.0、&#10;  Sol Ultra 数学证明等技术动态&#10;- 添加 2026-07-15 知识库日报内容，记录固定来源检索结果为空窗日&#10;- 添加 2026-07-14 知识库日报内容，记录固定来源检索结果为空窗日&#10;- 更新 github-topz.md 的最近更新时间至 2026-07-16 09:10:48&#10;- 更新 github-topz.md 的 Star 数量统计和热门仓库排名&#10;- 移除部分 trending 仓库的新增标记，更新当前热门仓库动态数据" />
     <MESSAGE value="docs(daily-report): 更新 2026-07-15 AI 日报与知识库日报&#10;&#10;- 添加 Loop Engineering 工具链迭代内容，包括 loop-context 日 token 预算与 loop-worktree 路径锁&#10;- 更新核心趋势为 Agent 控制面 + loop 基础设施双轨发展&#10;- 新增 Pragmatic Engineer 7/15 播客关于 loop/harness engineering 的深度讨论&#10;- 补充 loop-engineering #273/#274 commits 作为必读资料&#10;- 更新引用域名为包含 newsletter.pragmaticengineer.com&#10;- 知识库日报同步更新 Loop Engineering 专项检索结论" />
     <MESSAGE value="feat(dailyReport): 添加2026年7月22日至27日AI日报和知识库日报&#10;&#10;- 新增2026-07-27至2026-07-22的AI领域每日新闻汇总&#10;- 新增2026-07-27的固定中文技术知识库来源汇总&#10;- 涵盖Anthropic open-weights立场澄清、Cognizant合作扩展、Microsoft网安平台发布等内容&#10;- 包含Claude分享链接隐私问题、OpenAI Hugging Face入侵事件后续讨论&#10;- 记录Microsoft MAI-Cyber-1-Flash和Perception网安平台发布信息&#10;- 更新MCP协议7/28定稿倒计时相关内容&#10;- 添加技术文档、工程实践和值得阅读资料推荐&#10;- 提供来源清单和专项检索结论表格" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(dailyReport): 添加2026年7月22日至27日AI日报和知识库日报&#10;&#10;- 新增2026-07-27至2026-07-22的AI领域每日新闻汇总&#10;- 新增2026-07-27的固定中文技术知识库来源汇总&#10;- 涵盖Anthropic open-weights立场澄清、Cognizant合作扩展、Microsoft网安平台发布等内容&#10;- 包含Claude分享链接隐私问题、OpenAI Hugging Face入侵事件后续讨论&#10;- 记录Microsoft MAI-Cyber-1-Flash和Perception网安平台发布信息&#10;- 更新MCP协议7/28定稿倒计时相关内容&#10;- 添加技术文档、工程实践和值得阅读资料推荐&#10;- 提供来源清单和专项检索结论表格" />
+    <MESSAGE value="docs(dailyReport): 添加2026年7月28-30日AI与知识库日报内容&#10;&#10;- 添加2026-07-30 AI日报：Anthropic三起生产入侵事件、Hugging Face入侵复盘、Langfuse v4.1.0发布、MCP stateless迁移窗口&#10;- 添加2026-07-29 AI日报：Hugging Face入侵技术时间线、Microsoft FY26财报、Vending-Bench长期agent风险、Lilian Weng回归OpenAI、Langfuse v3.224.3定价更新&#10;- 添加2026-07-28 AI日报：MCP 2026-07-28规范定稿、Anthropic MCP全面支持、Sam Altman表态decelerate、Kimi K3权重开放&#10;- 添加2026-07-30知识库日报：固定来源检索无重大更新，建议参考AI日报相关内容&#10;- 添加2026-07-29知识库日报：固定来源检索无重大更新，关注Langfuse v3.224.3和MCP迁移&#10;- 添加2026-07-28知识库日报：固定来源检索无重大更新，重点关注MCP stateless迁移和历史文档对照" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs(dailyReport): 添加2026年7月28-30日AI与知识库日报内容&#10;&#10;- 添加2026-07-30 AI日报：Anthropic三起生产入侵事件、Hugging Face入侵复盘、Langfuse v4.1.0发布、MCP stateless迁移窗口&#10;- 添加2026-07-29 AI日报：Hugging Face入侵技术时间线、Microsoft FY26财报、Vending-Bench长期agent风险、Lilian Weng回归OpenAI、Langfuse v3.224.3定价更新&#10;- 添加2026-07-28 AI日报：MCP 2026-07-28规范定稿、Anthropic MCP全面支持、Sam Altman表态decelerate、Kimi K3权重开放&#10;- 添加2026-07-30知识库日报：固定来源检索无重大更新，建议参考AI日报相关内容&#10;- 添加2026-07-29知识库日报：固定来源检索无重大更新，关注Langfuse v3.224.3和MCP迁移&#10;- 添加2026-07-28知识库日报：固定来源检索无重大更新，重点关注MCP stateless迁移和历史文档对照" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ai_for_learing$vanilla_rnn_numpy_demo.coverage" NAME="vanilla_rnn_numpy_demo Coverage Results" MODIFIED="1778826911757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ai-learning/07-cnn-rnn-transformer-intro/scripts" />
