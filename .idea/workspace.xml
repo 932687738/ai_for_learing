@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="docs(dailyReport): 添加2026年7月28-30日AI与知识库日报内容&#10;&#10;- 添加2026-07-30 AI日报：Anthropic三起生产入侵事件、Hugging Face入侵复盘、Langfuse v4.1.0发布、MCP stateless迁移窗口&#10;- 添加2026-07-29 AI日报：Hugging Face入侵技术时间线、Microsoft FY26财报、Vending-Bench长期agent风险、Lilian Weng回归OpenAI、Langfuse v3.224.3定价更新&#10;- 添加2026-07-28 AI日报：MCP 2026-07-28规范定稿、Anthropic MCP全面支持、Sam Altman表态decelerate、Kimi K3权重开放&#10;- 添加2026-07-30知识库日报：固定来源检索无重大更新，建议参考AI日报相关内容&#10;- 添加2026-07-29知识库日报：固定来源检索无重大更新，关注Langfuse v3.224.3和MCP迁移&#10;- 添加2026-07-28知识库日报：固定来源检索无重大更新，重点关注MCP stateless迁移和历史文档对照">
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="docs(dailyReport): 更新 2026-07-31 AI 和知识库日报内容&#10;&#10;- 添加 2026-07-31 AI 日报，涵盖 OpenAI agent 逃逸传闻、Google Earth AI 撤回、Langfuse v4.2.0&#10;- 添加 2026-07-31 知识库日报，记录固定来源检索结果和 Langfuse v4.2.0 相关信息&#10;- 更新 github-topz.md 的最后更新时间戳和仓库排名数据&#10;- 同步更新 trending 仓库列表的星级和关注度变化数据">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
@@ -23,12 +23,12 @@
     &quot;assignee&quot;: &quot;932687738&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/932687738/ai_for_learing.git",
-    "accountId": "bfd8cec1-f587-4317-8f13-c69f1a6e56b6"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/932687738/ai_for_learing.git&quot;,
+    &quot;accountId&quot;: &quot;bfd8cec1-f587-4317-8f13-c69f1a6e56b6&quot;
   }
-}]]></component>
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -279,22 +279,8 @@
       <workItem from="1784423672096" duration="589000" />
       <workItem from="1785463796181" duration="1272000" />
       <workItem from="1785465590103" duration="604000" />
-    </task>
-    <task id="LOCAL-00020" summary="面试内容">
-      <option name="closed" value="true" />
-      <created>1779955479121</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1779955479121</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Hypothetical Document Embeddings解释">
-      <option name="closed" value="true" />
-      <created>1779955640775</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1779955640775</updated>
+      <workItem from="1785724247232" duration="371000" />
+      <workItem from="1785724631543" duration="1272000" />
     </task>
     <task id="LOCAL-00022" summary="Ragas框架介绍">
       <option name="closed" value="true" />
@@ -672,7 +658,23 @@
       <option name="project" value="LOCAL" />
       <updated>1785463816740</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="feat(dailyReport): 添加2026年8月AI日报和知识库日报内容&#10;&#10;- 在 ai-daily-news/202607.md 和 knowledge-base-news/202607.md 中添加空行分隔符&#10;- 新增 ai-daily-news/202608.md 文件，包含 2026-08-02 和 2026-08-01 的 AI 日报内容&#10;- 新增 knowledge-base-news/202608.md 文件，包含 2026-08-02 和 2026-08-01 的知识库日报内容&#10;- 新增 tools/_digest_batch_20260731_0802.py 脚本，用于批量生成 2026-07-31 至 08-02 的日报摘要&#10;- 更新 AI 日报内容，涵盖 OpenAI Astra 多智能体科研进展、decel 辩论、Claude API 退役等重点事件&#10;- 更新知识库日报内容，记录固定中文技术知识库来源的检索结果和缺失情况">
+      <option name="closed" value="true" />
+      <created>1785724441131</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1785724441132</updated>
+    </task>
+    <task id="LOCAL-00070" summary="docs(dailyReport): 更新 2026-07-31 AI 和知识库日报内容&#10;&#10;- 添加 2026-07-31 AI 日报，涵盖 OpenAI agent 逃逸传闻、Google Earth AI 撤回、Langfuse v4.2.0&#10;- 添加 2026-07-31 知识库日报，记录固定来源检索结果和 Langfuse v4.2.0 相关信息&#10;- 更新 github-topz.md 的最后更新时间戳和仓库排名数据&#10;- 同步更新 trending 仓库列表的星级和关注度变化数据">
+      <option name="closed" value="true" />
+      <created>1785724611777</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1785724611777</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -690,8 +692,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ChromaDB向量数据库详解" />
-    <MESSAGE value="README.md文件回填" />
     <MESSAGE value="更新2026-05-29的智能体面试知识库，新增Tool Calling、FlowAgent顺序执行、MessageChatMemoryAdvisor记忆机制等内容，增强了Agent架构与协同模块的文档，确保知识点的完整性与可读性。" />
     <MESSAGE value="更新2026-05-29的Agent架构与协同模块，新增ToolCallback、Advisor与Hook的区别及执行顺序的详细说明，增强了文档的结构与可读性，同时更新了知识库中的相关条目，确保知识点的准确性与完整性。" />
     <MESSAGE value="```&#10;feat(tools): 添加 AI 和知识库新闻摘要生成工具&#10;&#10;- 实现增量摘要写入功能，支持 2026-06-02 和 2026-06-03 日期&#10;- 创建 AI Daily News Digest 和 Knowledge Base Digest 文件路径配置&#10;- 添加摘要头部信息和日期正则匹配功能&#10;- 实现摘要内容分割和合并逻辑，按日期排序处理&#10;- 集成状态跟踪功能，记录已处理日期和最后同步时间&#10;- 支持批量日期处理和增量更新机制&#10;```" />
@@ -715,7 +715,9 @@
     <MESSAGE value="docs(daily-report): 更新 2026-07-15 AI 日报与知识库日报&#10;&#10;- 添加 Loop Engineering 工具链迭代内容，包括 loop-context 日 token 预算与 loop-worktree 路径锁&#10;- 更新核心趋势为 Agent 控制面 + loop 基础设施双轨发展&#10;- 新增 Pragmatic Engineer 7/15 播客关于 loop/harness engineering 的深度讨论&#10;- 补充 loop-engineering #273/#274 commits 作为必读资料&#10;- 更新引用域名为包含 newsletter.pragmaticengineer.com&#10;- 知识库日报同步更新 Loop Engineering 专项检索结论" />
     <MESSAGE value="feat(dailyReport): 添加2026年7月22日至27日AI日报和知识库日报&#10;&#10;- 新增2026-07-27至2026-07-22的AI领域每日新闻汇总&#10;- 新增2026-07-27的固定中文技术知识库来源汇总&#10;- 涵盖Anthropic open-weights立场澄清、Cognizant合作扩展、Microsoft网安平台发布等内容&#10;- 包含Claude分享链接隐私问题、OpenAI Hugging Face入侵事件后续讨论&#10;- 记录Microsoft MAI-Cyber-1-Flash和Perception网安平台发布信息&#10;- 更新MCP协议7/28定稿倒计时相关内容&#10;- 添加技术文档、工程实践和值得阅读资料推荐&#10;- 提供来源清单和专项检索结论表格" />
     <MESSAGE value="docs(dailyReport): 添加2026年7月28-30日AI与知识库日报内容&#10;&#10;- 添加2026-07-30 AI日报：Anthropic三起生产入侵事件、Hugging Face入侵复盘、Langfuse v4.1.0发布、MCP stateless迁移窗口&#10;- 添加2026-07-29 AI日报：Hugging Face入侵技术时间线、Microsoft FY26财报、Vending-Bench长期agent风险、Lilian Weng回归OpenAI、Langfuse v3.224.3定价更新&#10;- 添加2026-07-28 AI日报：MCP 2026-07-28规范定稿、Anthropic MCP全面支持、Sam Altman表态decelerate、Kimi K3权重开放&#10;- 添加2026-07-30知识库日报：固定来源检索无重大更新，建议参考AI日报相关内容&#10;- 添加2026-07-29知识库日报：固定来源检索无重大更新，关注Langfuse v3.224.3和MCP迁移&#10;- 添加2026-07-28知识库日报：固定来源检索无重大更新，重点关注MCP stateless迁移和历史文档对照" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs(dailyReport): 添加2026年7月28-30日AI与知识库日报内容&#10;&#10;- 添加2026-07-30 AI日报：Anthropic三起生产入侵事件、Hugging Face入侵复盘、Langfuse v4.1.0发布、MCP stateless迁移窗口&#10;- 添加2026-07-29 AI日报：Hugging Face入侵技术时间线、Microsoft FY26财报、Vending-Bench长期agent风险、Lilian Weng回归OpenAI、Langfuse v3.224.3定价更新&#10;- 添加2026-07-28 AI日报：MCP 2026-07-28规范定稿、Anthropic MCP全面支持、Sam Altman表态decelerate、Kimi K3权重开放&#10;- 添加2026-07-30知识库日报：固定来源检索无重大更新，建议参考AI日报相关内容&#10;- 添加2026-07-29知识库日报：固定来源检索无重大更新，关注Langfuse v3.224.3和MCP迁移&#10;- 添加2026-07-28知识库日报：固定来源检索无重大更新，重点关注MCP stateless迁移和历史文档对照" />
+    <MESSAGE value="feat(dailyReport): 添加2026年8月AI日报和知识库日报内容&#10;&#10;- 在 ai-daily-news/202607.md 和 knowledge-base-news/202607.md 中添加空行分隔符&#10;- 新增 ai-daily-news/202608.md 文件，包含 2026-08-02 和 2026-08-01 的 AI 日报内容&#10;- 新增 knowledge-base-news/202608.md 文件，包含 2026-08-02 和 2026-08-01 的知识库日报内容&#10;- 新增 tools/_digest_batch_20260731_0802.py 脚本，用于批量生成 2026-07-31 至 08-02 的日报摘要&#10;- 更新 AI 日报内容，涵盖 OpenAI Astra 多智能体科研进展、decel 辩论、Claude API 退役等重点事件&#10;- 更新知识库日报内容，记录固定中文技术知识库来源的检索结果和缺失情况" />
+    <MESSAGE value="docs(dailyReport): 更新 2026-07-31 AI 和知识库日报内容&#10;&#10;- 添加 2026-07-31 AI 日报，涵盖 OpenAI agent 逃逸传闻、Google Earth AI 撤回、Langfuse v4.2.0&#10;- 添加 2026-07-31 知识库日报，记录固定来源检索结果和 Langfuse v4.2.0 相关信息&#10;- 更新 github-topz.md 的最后更新时间戳和仓库排名数据&#10;- 同步更新 trending 仓库列表的星级和关注度变化数据" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs(dailyReport): 更新 2026-07-31 AI 和知识库日报内容&#10;&#10;- 添加 2026-07-31 AI 日报，涵盖 OpenAI agent 逃逸传闻、Google Earth AI 撤回、Langfuse v4.2.0&#10;- 添加 2026-07-31 知识库日报，记录固定来源检索结果和 Langfuse v4.2.0 相关信息&#10;- 更新 github-topz.md 的最后更新时间戳和仓库排名数据&#10;- 同步更新 trending 仓库列表的星级和关注度变化数据" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ai_for_learing$vanilla_rnn_numpy_demo.coverage" NAME="vanilla_rnn_numpy_demo Coverage Results" MODIFIED="1778826911757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ai-learning/07-cnn-rnn-transformer-intro/scripts" />

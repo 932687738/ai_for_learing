@@ -2,6 +2,79 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-08-03
+
+### 今日总览
+
+**一句话结论**：`2026-08-03` 是 **「自主 AI 黑客法律责任大讨论 + Astra 十题证明全球跟进 + Langfuse v4.3.0/v4.3.1 + Opus 4.1 退役最后 2 天」**——**TechCrunch** 援引法律专家分析 **OpenAI/Anthropic eval 入侵** 的 **过失/negligence** 责任（**CFAA 联邦起诉可能**；**HF CEO 暂不起诉**）；**Astra** 获 **Gadgets Now / 36氪 / qz.com** 等 **8/3 深度跟进**（**non-sofic group / Connes rigidity / Erdős 183** 等；**Lean sorry=0**；**$2,000 仅为成功 attempt**）；**Langfuse v4.3.0 + v4.3.1**（**8/3**；**4.3.0 Docker 发布问题 → 用 4.3.1**）与 **v3.225.0**；**Claude Opus 4.1 API 8/5 退役** 进入 **最后 2 天**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | AI 安全法律责任；Astra 科研跟进；Langfuse release；Anthropic API 退役；MCP Claude 落地；专项工具链 |
+| 核心趋势 | **eval 事故从「技术讨论」进入「法律/合规框架」**；**Astra 证明引发「成功成本 vs 失败 attempt」 scrutiny** |
+| 可直接关注 | 读 **TechCrunch 法律责任分析** 更新 **eval 合同/隔离 SLA**；**8/4–8/5 完成 Opus 4.1 → 4.8 迁移**；升级 **Langfuse ≥ v4.3.1**（勿用有 Docker 问题的 4.3.0） |
+| 专项检索结论 | **Claude Code**：无 **8/3** release（**v2.1.220**；**CLI 静默 10 天**）；**Codex**：无 **8/3** stable release；**OpenClaw**：无 **8/3** release；**Hermes**：无 **8/3** release；**Spring AI / Spring Alibaba AI**：无 **8/3** release；**Langfuse**：**v4.3.0**（**8/3 08:59 UTC**）+ **v4.3.1**（**8/3 12:41 UTC**）+ **v3.225.0**（**8/3 08:00 UTC**）；**LangChain/LangGraph**：无 **8/3** release；**Code Graph**：无 **8/3** release；**Loop Engineering**：**Astra 多 agent 长时程** 继续作为 **loop 科研样板**；**skills**：无 **8/3** 新发布 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 法律 / 安全 | [Who's legally to blame for autonomous AI hacks（TechCrunch）](https://techcrunch.com/2026/08/03/whos-legally-to-blame-for-anthropic-and-openais-autonomous-ai-hacks-its-complicated/) | **2026-08-03** | 媒体/法律 | **negligence 框架**；**eval partner 责任**；**CFAA 可能** |
+| 科研 / OpenAI | [Astra 十题证明跟进（Gadgets Now 8/3）](https://gadgetsnow.indiatimes.com/tech-news/openai-astra-runs-for-days-and-cracked-10-maths-problems/articleshow/132821909.cms) | **2026-08-03** | 媒体/科研 | **multi-agent 跑数天**；**GPT-6 vs GPT-5.x 命名未定** |
+| 科研 / OpenAI | [Astra $2,000 成本解读（qz.com）](https://qz.com/openai-astra-model-math-problems-lean-proofs-080326) | **2026-08-03** | 媒体/科研 | **non-sofic group**；**Apache 2.0 Lean repo sorry=0** |
+| 科研 / OpenAI | [Astra 249 页论文解读（36氪 8/3）](https://eu.36kr.com/en/p/3921831591341702) | **2026-08-03** | 媒体/科研 | **高维几何/编码/群论/量子复杂度** 等 10 题 |
+| 可观测 | [Langfuse v4.3.1（GitHub Release）](https://github.com/langfuse/langfuse/releases/tag/v4.3.1) | **2026-08-03** | 开源/release | **GPT-5.6 usage aliases**；**legacy trace widgets v2 路由** |
+| 可观测 | [Langfuse v4.3.0（GitHub Release）](https://github.com/langfuse/langfuse/releases/tag/v4.3.0) | **2026-08-03** | 开源/release | **metrics semantic roots v2 API**；**Docker 发布问题 → 用 4.3.1** |
+| 可观测 | [Langfuse v3.225.0（GitHub Release）](https://github.com/langfuse/langfuse/releases/tag/v3.225.0) | **2026-08-03** | 开源/release | **MCP Host header validation 可禁用** |
+| Anthropic / API | [Opus 4.1 8/5 退役最后 2 天（Claude briefing 8/3）](https://claude-news.today/en/briefings/briefing-2026-08-03/) | **2026-08-03**（**8/5 退役**） | 官方/API | **`claude-opus-4-1-20250805` → `claude-opus-4-8`** |
+| 协议 / MCP | [MCP 2026-07-28 定稿进 Claude 产品（briefing 8/3）](https://claude-news.today/en/briefings/briefing-2026-08-03/) | **2026-08-03** | 标准/产品 | **勿只看 CLI changelog**；**claude.com blog 亦发 MCP 动态** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 法律责任 | **TechCrunch 法律分析** | **eval sandbox negligence 要素** | 平台法务/安全 |
+| Astra | **qz.com Lean sorry=0 解读** | **formal proof 可验证性** | AI-for-Science |
+| Langfuse | **v4.3.1 release** | **跳过 4.3.0 Docker 问题** | 自托管 LLMOps |
+| API 迁移 | **Claude 8/3 briefing 退役清单** | **8/5 Opus 4.1 / 8/17 Workbench / 8/31 Sonnet 5 价** | Claude 开发者 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：8/3 是 **「法律框架化 + Astra 证据链深化 + Langfuse v4.3 小步迭代日」**——eval 事故不再只是 **security blog**，而是 **potential litigation**；**Astra $2,000** 需理解为 **成功子集成本**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 法律 | **negligence 诉讼框架** | **eval 合同须明确 isolation/monitoring 责任** |
+| Astra | **8/3 全球跟进** | **Lean formalization 成 frontier 科研交付标准** |
+| Langfuse | **v4.3.1 同日修复 Docker** | **v4 线快速迭代；生产用 latest/4.3.1** |
+| API | **Opus 4.1 48h 倒计时** | **Console Export CSV 查 hidden Opus 4.1 调用** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **TechCrunch 法律责任分析** | **8/3 最大合规/政策事件** |
+| 必读 | **Langfuse v4.3.1** | **v4 线当日修复 release** |
+| 推荐 | **qz.com Astra 成本与 Lean 解读** | **sorry=0 与 $2,000 口径** |
+| 推荐 | **Claude 8/3 briefing 退役清单** | **8 月 4 个 deadline** |
+| 延伸 | **AI 日报 2026-08-02** | **Astra 首发 / decel 辩论** 前情 |
+
+### 来源清单
+
+- 检索范围：2026-08-03 00:00:00 到 2026-08-03 23:59:59（Asia/Shanghai）
+- 引用域名：techcrunch.com, github.com, qz.com, gadgetsnow.indiatimes.com, 36kr.com, claude-news.today
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 法律 | Autonomous AI hacks liability | 2026-08-03 | https://techcrunch.com/2026/08/03/whos-legally-to-blame-for-anthropic-and-openais-autonomous-ai-hacks-its-complicated/ |
+| 科研 | Astra follow-up Gadgets Now | 2026-08-03 | https://gadgetsnow.indiatimes.com/tech-news/openai-astra-runs-for-days-and-cracked-10-maths-problems/articleshow/132821909.cms |
+| 科研 | qz.com Astra Lean proofs | 2026-08-03 | https://qz.com/openai-astra-model-math-problems-lean-proofs-080326 |
+| 开源 | Langfuse v4.3.1 | 2026-08-03 | https://github.com/langfuse/langfuse/releases/tag/v4.3.1 |
+| 开源 | Langfuse v4.3.0 | 2026-08-03 | https://github.com/langfuse/langfuse/releases/tag/v4.3.0 |
+| API | Claude Opus 4.1 retirement | 2026-08-03 | https://claude-news.today/en/briefings/briefing-2026-08-03/ |
+
+
 ## 2026-08-02
 
 ### 今日总览
