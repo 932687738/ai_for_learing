@@ -2,6 +2,85 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-08-04
+
+### 今日总览
+
+**一句话结论**：`2026-08-04` 是 **「白宫 frontier 安全框架闭门评审 + Qwen3.8-Max 开放权重跟进 + DeepMind RSI 资本论 + Claude Code 双 release + Opus 4.1 退役前最后 1 天」**——**OpenAI/Anthropic/Google/Meta** 赴 **白宫** 评审 **自愿性 frontier 模型安全测试框架**（**政府可获最多 30 天 pre-release 访问**；**Fortune：框架不公开披露**）；**Qwen3.8-Max**（**2.4T MoE / 95B active / 1M context**）获 **8/4 全球跟进**（**权重约 8/10 开放**；**$2/$6 per M tokens**）；**DeepMind CSO Sekhon** 称 **~$200B/年 capex 押注 recursive self-improvement（RSI）**（**当前 AI 收入尚不足以支撑**）；**Claude Code v2.1.221 + v2.1.222**（**8/4**；**worktree 隔离修复 / 后台 session 自动 commit-push**）；**Opus 4.1 API 8/5 退役** 进入 **最后 1 天**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 白宫 AI 安全框架；Qwen3.8-Max；DeepMind RSI/capex；TechCrunch 政策/商业；Claude Code release；Anthropic 算力；专项工具链 |
+| 核心趋势 | **治理从「deadline miss」进入「闭门 walkthrough + 不公开框架」**；**开放权重 vs 安全 gap 与 OSAA/SAFE 并行**；**capex 叙事从 demand 转向 RSI 能力赌注** |
+| 可直接关注 | **8/4 前完成 Opus 4.1 → 4.8 迁移并移除 temperature/top_p**；升级 **Claude Code ≥ v2.1.222**（**worktree 隔离**）；评估 **Qwen3.8-Max API** 与 **8/10 自托管窗口**；frontier 产品 **+30 天 pre-release 审查 slack** |
+| 专项检索结论 | **Claude Code**：**v2.1.221**（**8/4 00:14 UTC**）+ **v2.1.222**（**8/4 22:39 UTC**）；**Codex**：无 **8/4** stable release；**OpenClaw**：无 **8/4** release；**Hermes**：无 **8/4** release；**Spring AI / Spring Alibaba AI**：无 **8/4** release；**Langfuse**：无 **8/4** release（**v4.3.1 仍为最新**）；**LangChain/LangGraph**：无 **8/4** release；**Code Graph**：无 **8/4** release；**Loop Engineering**：**Qwen 16 天自主 coding run** + **Claude 后台 session commit-push loop**；**skills**：**v2.1.221 新增 prompt-audit 子命令** |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 政策 / 安全 | [白宫 frontier 框架闭门评审（Fortune 8/4）](https://fortune.com/2026/08/04/baffling-white-house-wont-publicly-release-ai-model-evaluation-framework-it-reviewed-today-with-openai-anthropic-microsoft-and-others/) | **2026-08-04** | 政策/监管 | **自愿参与；框架细节不公开**；**30 天 pre-release 访问** |
+| 政策 / 安全 | [白宫 AI 安全测试会议（Reuters/Gadgets Now 8/4）](https://gadgetsnow.indiatimes.com/tech-news/white-house-finalises-ai-safety-tests-meta-confirms-meeting/articleshow/132861762.cms) | **2026-08-04** | 政策/媒体 | **Meta 确认参会**；**eval 入侵后 oversight 升温** |
+| 开放权重 / 安全 | [Open-weight 逼近 frontier 但 safety gap 仍在（TechCrunch 8/4）](https://techcrunch.com/2026/08/04/open-weight-ai-models-are-catching-up-to-the-frontier-the-safety-gap-remains/) | **2026-08-04** | 媒体/安全 | **GLM-5.2 cyber/bio 接近 GPT-5.5/Opus 4.7**；**SaferAI 报告** |
+| 开放生态 | [NVIDIA OSAA/SAFE 一周进展（TechCrunch 8/4）](https://techcrunch.com/2026/08/04/nvidia-doesnt-mess-around-a-week-after-open-ai-industry-group-formed-its-already-showing-progress/) | **2026-08-04** | 产业/开源 | **120+ 公司 OSAA**；**Shared AI Findings Exchange（SAFE）** |
+| 模型 / 阿里 | [Qwen3.8-Max 开放权重跟进（AI in Asia 8/4）](https://aiinasia.com/pan-asia/alibaba-qwen38-max-qwenwork-asia-enterprise-agents-pan-asia-deep-dive-2026-08-04) | **2026-08-04** | 媒体/产品 | **2.4T MoE**；**QwenWork 公测**；**权重 ~8/10** |
+| 模型 / 阿里 | [Qwen3.8-Max $2/M tokens（Martin Cid 8/4）](https://www.martincid.com/technology-sv/alibabas-qwen-3-8-max-costs-2-per-million-tokens-open-weights-arrive-aug-10/) | **2026-08-04** | 媒体/定价 | **首个 Max 级开放权重承诺**；**SWE-bench Pro 67.7 vs Fable 80** |
+| 资本 / DeepMind | [RSI 是 capex 投资论核心（Yahoo Finance 8/4）](https://finance.yahoo.com/technology/ai/articles/google-exec-warns-ai-spending-115557174.html) | **2026-08-04** | 媒体/战略 | **Alphabet 2026 capex $195–205B**；**AI air pocket 风险** |
+| 算力 / Anthropic | [Anthropic 签 $10B Volta 云合约（TechCrunch 8/4）](https://techcrunch.com/2026/08/04/anthropic-signs-10-billion-deal-with-ai-cloud-startup-volta/) | **2026-08-04** | 商业/infra | **6 年期；挪威 133MW；Vera Rubin** |
+| 诉讼 / Apple | [Apple 请求禁令阻止 OpenAI 用其机密（TechCrunch 8/4）](https://techcrunch.com/2026/08/04/apple-says-more-ex-employees-may-have-taken-confidential-data-to-openai/) | **2026-08-04** | 法律/商业 | **11+ 前员工可能涉密**；**preliminary injunction** |
+| CLI | [Claude Code v2.1.221（GitHub Release）](https://github.com/anthropics/claude-code/releases/tag/v2.1.221) | **2026-08-04** | 开源/release | **Focus view**；**credential mask 模式**；**后台 commit-push** |
+| CLI | [Claude Code v2.1.222（GitHub Release）](https://github.com/anthropics/claude-code/releases/tag/v2.1.222) | **2026-08-04** | 开源/release | **worktree 隔离修复**；**SendMessage 权限分类** |
+| Anthropic / API | [Opus 4.1 8/5 退役最后 1 天（相邻日期传播）](https://simoncarter.ai/posts/anthropic-is-retiring-claude-opus-4-1-on-august-5-2026-here-s-what-developers-ne/) | **2026-08-04**（**8/5 退役**） | 官方/API | **无 auto-redirect；移除 temperature/top_p** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 政策 | **Fortune 白宫框架分析** | **自愿 vs 强制；不公开细则** | 平台合规/PM |
+| 开放权重 | **TechCrunch SaferAI 报告解读** | **GLM-5.2 capability vs safety** | AI 安全/治理 |
+| Qwen | **byteiota API 切换指南** | **OpenAI-compatible base_url 两行切换** | 成本优化团队 |
+| Claude Code | **v2.1.221 release notes** | **Linux/WSL credential masking** | CLI/Agent 开发者 |
+| API 迁移 | **Simon Carter Opus 4.1 迁移** | **8/5 hard fail；hidden serverless 审计** | Claude API 用户 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：8/4 是 **「治理闭门化 + 开放权重 Max 级突破 + agent loop 工程化加速日」**——**Qwen 16 天自主 coding** 与 **Claude 后台 session 自动 push** 同日形成 **long-horizon agent** 对照；**RSI capex 论** 把 **Astra 证明** 与 **万亿 infra 估值** 绑定。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 治理 | **30 天 pre-release 窗口成 shipping fact** | **frontier roadmap +1 月 slack** |
+| Qwen | **Max 级首次承诺开放权重** | **自托管 sizing 本周启动；27B 单卡备选** |
+| Claude Code | **双 release 修复 worktree 隔离** | **多 session/subagent 须用 ≥2.1.222** |
+| Loop | **后台 session 自动 commit-push-PR** | **loop 终止条件 + git 隔离须同时设计** |
+| 安全 | **OSAA SAFE 提案公开征询** | **open-weight 防御工具链标准化起步** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Fortune 白宫框架不公开分析** | **8/4 最大政策事件** |
+| 必读 | **Claude Code v2.1.222** | **worktree 隔离安全修复** |
+| 推荐 | **TechCrunch GLM-5.2 safety gap** | **开放权重治理核心辩论** |
+| 推荐 | **DeepMind RSI / Yahoo Finance capex** | **infra 投资逻辑重构** |
+| 延伸 | **AI 日报 2026-08-03** | **eval 法律责任 / Langfuse v4.3.1** 前情 |
+
+### 来源清单
+
+- 检索范围：2026-08-04 00:00:00 到 2026-08-04 23:59:59（Asia/Shanghai）
+- 引用域名：fortune.com, techcrunch.com, github.com, finance.yahoo.com, aiinasia.com, martincid.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 政策 | White House framework not public | 2026-08-04 | https://fortune.com/2026/08/04/baffling-white-house-wont-publicly-release-ai-model-evaluation-framework-it-reviewed-today-with-openai-anthropic-microsoft-and-others/ |
+| 安全 | Open-weight safety gap | 2026-08-04 | https://techcrunch.com/2026/08/04/open-weight-ai-models-are-catching-up-to-the-frontier-the-safety-gap-remains/ |
+| 模型 | Qwen3.8-Max Asia deep dive | 2026-08-04 | https://aiinasia.com/pan-asia/alibaba-qwen38-max-qwenwork-asia-enterprise-agents-pan-asia-deep-dive-2026-08-04 |
+| 战略 | DeepMind RSI capex | 2026-08-04 | https://finance.yahoo.com/technology/ai/articles/google-exec-warns-ai-spending-115557174.html |
+| 商业 | Anthropic Volta $10B | 2026-08-04 | https://techcrunch.com/2026/08/04/anthropic-signs-10-billion-deal-with-ai-cloud-startup-volta/ |
+| 开源 | Claude Code v2.1.222 | 2026-08-04 | https://github.com/anthropics/claude-code/releases/tag/v2.1.222 |
+| 开源 | Claude Code v2.1.221 | 2026-08-04 | https://github.com/anthropics/claude-code/releases/tag/v2.1.221 |
+
+
 ## 2026-08-03
 
 ### 今日总览
