@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>寓言故事知识库 - 思维导图</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #f7f8fa; }
+    #mindmap { width: 100%; height: 100%; }
+    .hint {
+      position: fixed; left: 12px; bottom: 12px; z-index: 10;
+      font: 12px/1.4 sans-serif; color: #666; background: rgba(255,255,255,.9);
+      border: 1px solid #ddd; border-radius: 6px; padding: 8px 10px;
+    }
+  </style>
+</head>
+<body>
+  <svg id="mindmap"></svg>
+  <div class="hint">滚轮缩放 · 拖拽平移 · 专业编辑请打开同目录 <code>思维导图.xmind</code></div>
+  <script type="text/template" id="mindmap-markdown">
+# AI & 认知寓言
+- 用寓言理解智能、认知与复杂系统
+- 认知科学与哲学
+  - 观察、偏好与实在如何被认知框架塑造
+  - 山谷里的梯子
+    - 适应性偏好：欲望会被环境塑造，并自我合理化
+  - 盲人绘海
+    - 模型依赖实在论：只能通过模型接触世界，无唯一真图景
+  - 镜中河
+    - 二阶控制论：观察者总是系统的一部分，无法真正外在观察
+- 语言与认知
+  - 意义与指称如何依赖外部世界
+  - 两座山谷的银液
+    - 语义外部主义：意义不在头脑，由外部环境锚定
+- 复杂系统与演化
+  - 涌现、锁定与临界：整体如何生成与崩溃
+  - 东门之辐
+    - 路径依赖：偶然初始选择经正反馈锁定发展轨道
+  - 石塔与蝴蝶
+    - 自组织临界性：微小扰动可引发任意规模的雪崩
+  - 驼背老人的石阵
+    - 涌现：整体属性不在部分之中，拆解即消失
+- 机器学习与泛化
+  - 模型何时学会、何时失效、何时遗忘
+  - 十二个名字的铁匠
+    - 灾难性遗忘：学新任务时旧知识被权重覆盖
+  - 影子的学徒
+    - 分布偏移：训练分布之外，学到的规律会失效
+- 智能本质与具身认知
+  - 智能不只在符号里，也在身体与世界中
+  - 山巅上的智童
+    - 莫拉维克悖论：高等推理易做，感知运动极难
+- 强化学习与决策
+  - 延迟奖励下如何归因与学习
+  - 晚宴的功劳
+    - 信用分配：延迟奖励难以归功于序列中的哪一步
+- AI对齐安全与可解释性
+  - 目标错位、刷榜与黑箱解释难题
+  - 天尺的最后一题
+    - 基准饱和与欺骗性对齐：刷榜会扭曲真实能力
+  - 解梦师
+    - 可解释性困境：预测准确，事后解释却不可靠
+  - 量天尺
+    - 奖励黑客：优化指标不等于达成真实意图
+- 未分类_待标注
+  - 尚未归入明确领域的故事
+
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.17.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.17.2"></script>
+  <script>
+    (function () {
+      var markdown = document.getElementById('mindmap-markdown').textContent.trim()
+      var Transformer = window.markmap.Transformer
+      var Markmap = window.markmap.Markmap
+      var transformer = new Transformer()
+      var result = transformer.transform(markdown)
+      Markmap.create('#mindmap', null, result.root)
+    })()
+  </script>
+</body>
+</html>
