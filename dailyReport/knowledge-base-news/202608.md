@@ -2,6 +2,61 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-08-05
+
+### 今日总览
+
+**一句话结论**：`2026-08-05` 固定来源口径下，**10 个公司/组织维度 + 五专项均已检索**，**未发现 `developer.aliyun.com` / `102.alibaba.com` 等固定域名上可确认属于 8/5 的 team 首发长文**；**Qwen3.8-Max** 官方内容出现在 **Alibaba Cloud 国际站博客（8/5）**，属 **阿里云体系官方但未在固定 URL 清单内**，见 **AI 日报 2026-08-05** 交叉引用；**Google 重组 / Opus 4.1 退役** 无固定来源硬对齐。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 全固定来源清单 + 五专项 |
+| 核心趋势 | **固定来源 8/5 空窗**；**Qwen Max / Discovery Loop / API 退役** 在 **全球官方与媒体** |
+| 可直接关注 | **Qwen3.8-Max / Opus 4.1 迁移** 见 **AI 日报**；固定来源 **成本治理 / Agent 可观测历史文** 对照 **Inference Hooks 与 long-horizon agent** |
+| 专项检索结论 | 五专项 **8/5 均无固定来源新文** |
+| 未发现更新 | 全固定来源 **8/5 无硬对齐** |
+
+### 重要文章与更新
+
+- 未发现可核验的重大文章或更新（固定 URL 清单内）。
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 成本治理（固定来源历史） | [大模型成本工程治理（阿里云开发者 8/1）](https://developer.aliyun.com/article/1752513) | **重试放大倍数 / 缓存节省比例** | LLMOps |
+| 可观测（固定来源历史） | [AI 应用排障可观测设计（阿里云开发者 8/1）](https://developer.aliyun.com/article/1752203) | **请求 ID / token / 工具调用日志** | SRE |
+| Agent 安全（固定来源历史） | [AI Agent 受控运行（阿里云开发者）](https://developer.aliyun.com/article/1717838) | **Session 审计 + OTEL 三源联动** | Agent 平台 |
+| Graph 观测（固定来源历史） | [Graph 观测设计原理（掘金）](https://juejin.cn/post/7530437804129861672) | **Spring AI Alibaba Graph → Langfuse** | Java Agent |
+
+### 工程实践归纳
+
+**总体判断**：8/5 **Discovery Loop 实验自动化** 与 **Anthropic Inference Hooks** 均未进入 **中文 team blog**；可对照 **AI 日报** 与 **阿里云开发者成本/可观测历史文** 设计 **Enterprise 推理前治理 + trace 拆账**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Spring Alibaba AI | **固定来源无 8/5 新文** | **Qwen API 切换可参考 Spring AI ChatClient base_url 模式** |
+| Langfuse | **固定来源无 8/5 新文** | **Inference Hooks 与 Langfuse trace 可分层：pre-gate vs post-audit** |
+| Loop Engineering | **固定来源无 8/5 新文** | **Discovery Loop 见 AI 日报 Loop 专项** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 延伸 | **AI 日报 2026-08-05** | **Google 重组 / Opus 4.1 退役 / Qwen3.8-Max** |
+| 延伸 | **阿里云开发者成本治理文** | **Qwen $2/$6 接入后的拆账指标** |
+
+### 来源清单
+
+- 检索范围：2026-08-05 00:00:00 到 2026-08-05 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：已覆盖；**8/5 无可核验 team 首发硬增量（固定 URL）**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| — | — | — | 未发现可核验更新 | — | — |
+
+
 ## 2026-08-04
 
 ### 今日总览

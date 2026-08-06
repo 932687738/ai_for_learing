@@ -2,6 +2,77 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-08-05
+
+### 今日总览
+
+**一句话结论**：`2026-08-05` 是 **「Google AI 权力结构地震 + Opus 4.1 正式退役 + Inference Hooks 企业 beta + Qwen3.8-Max 官方博客跟进」**——**Jeff Dean** 离任 Google **27 年后** 联合 **Ghemawat / Quoc Le / Vinyals** 创立 **Discovery Loop**（**PBC；自动化科学实验 loop + RSI**；**Alphabet 投资**）；**Demis Hassabis** 转 **DeepMind 董事长 + Alphabet 首席科学家**，**Koray Kavukcuoglu** 接 **DeepMind 日常运营**；**Anthropic** 官方 **退役 `claude-opus-4-1-20250805`**（**请求 hard fail → 迁移 Opus 5**）并发布 **Inference Hooks Enterprise beta**；**阿里云官方博客 8/5** 跟进 **Qwen3.8-Max**（**权重仍约 8/10 开放**）。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Google AI 组织架构；Discovery Loop；Anthropic API 退役；Inference Hooks；Qwen3.8-Max；专项工具链 |
+| 核心趋势 | **顶级研究员「出大厂做 discovery/RSI」与「大厂内部 AGI 治理重组」同日发生**；**Opus 4.1 deadline 兑现** |
+| 可直接关注 | **立即审计所有 `claude-opus-4-1-20250805` 引用并切 Opus 5/4.8**；**移除 temperature/top_p**；Enterprise 评估 **Inference Hooks**；**8/10 前准备 Qwen3.8 自托管 sizing** |
+| 专项检索结论 | **Claude Code**：无 **8/5** release（**v2.1.222** 仍为最新）；**Codex**：无 **8/5** stable release；**OpenClaw**：无 **8/5** release；**Hermes**：无 **8/5** release；**Spring AI / Spring Alibaba AI**：无 **8/5** release；**Langfuse**：无 **8/5** release；**LangChain/LangGraph**：无 **8/5** release；**Code Graph**：无 **8/5** release；**Loop Engineering**：**Discovery Loop 自动化实验 loop** + **Qwen 16 天 coding run（相邻传播）**；**skills**：无 **8/5** 新发布 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 人事 / Google | [Jeff Dean 等创立 Discovery Loop（TechCrunch 8/5）](https://techcrunch.com/2026/08/05/jeff-dean-and-other-top-ai-researchers-are-leaving-google-to-launch-their-own-startup/) | **2026-08-05** | 创业/科研 | **PBC；并行实验 loop；RSI**；**Radical/Khosla 领投** |
+| 人事 / Google | [Google AI 架构重组（CNBC 8/5）](https://www.cnbc.com/2026/08/05/google-chief-scientist-jeff-dean-leaving-company-after-27-years.html) | **2026-08-05** | 官方/组织 | **Hassabis → 董事长+Alphabet CSO**；**Kavukcuoglu → DeepMind SVP** |
+| 人事 / Google | [Hassabis 卸任 DeepMind CEO（Fortune 8/5）](https://fortune.com/2026/08/05/demis-hassabis-steps-down-google-deepmind-ai-shakeup/) | **2026-08-05** | 媒体/组织 | **聚焦 AGI 战略与 Isomorphic Labs** |
+| API / Anthropic | [Opus 4.1 正式退役（Claude API Release Notes 8/5）](https://platform.claude.com/docs/en/release-notes/overview) | **2026-08-05** | 官方/API | **`claude-opus-4-1-20250805` hard fail**；**→ Opus 5** |
+| 企业 / Anthropic | [Inference Hooks Enterprise beta（Claude API 8/5）](https://platform.claude.com/docs/en/release-notes/overview) | **2026-08-05** | 官方/产品 | **prompt 推理前 hold；allow/deny 签名请求** |
+| 模型 / 阿里 | [Qwen3.8-Max 官方博客（Alibaba Cloud 8/5）](https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421) | **2026-08-05** | 官方/blog | **2.4T MoE；首个 Max 级开放权重承诺；API 已 GA** |
+| 模型 / 阿里 | [Discovery Loop 与 Qwen 权重窗口（相邻传播）](https://economictimes.indiatimes.com/tech/technology/googles-jeff-dean-launches-ai-startup-discovery-loop/articleshow/132955389.cms) | **2026-08-05** | 媒体 | **权重 ~8/10；27B 为 realistic 自托管路径** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| API 迁移 | **Anthropic model deprecations** | **Opus 4.1 Retired 状态确认** | Claude API 用户 |
+| 企业安全 | **Inference Hooks 文档** | **推理前 governance server 裁决** | Enterprise 安全/合规 |
+| Discovery | **Discovery Loop 官网/press** | **hypothesis → experiment → iterate loop** | AI-for-Science |
+| Qwen | **Alibaba Cloud Qwen3.8-Max blog** | **OpenAI-compatible API 集成** | 成本/自托管团队 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：8/5 是 **「人才与组织重组日 + API 硬 deadline 兑现日」**——**Discovery Loop** 把 **DeepMind RSI 叙事** 从 **hyperscaler capex 演讲** 推进到 **独立 PBC 产品化**；**Inference Hooks** 把 **agent governance** 从 **post-hoc audit** 前移到 **pre-inference gate**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 组织 | **Dean/Hassabis 双线变动** | **Gemini 路线 vs 独立 discovery startup 分化** |
+| API | **Opus 4.1 hard fail** | **hidden serverless/CI model ID 全面审计** |
+| 治理 | **Inference Hooks beta** | **Enterprise 可插 AI security server** |
+| Loop | **Discovery Loop PBC** | **automated experimental loop 成创业品类** |
+| 开放权重 | **Qwen Max 权重仍 pending** | **8/10 为 first hard checkpoint** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **CNBC Google AI 重组 + Dean 离职** | **8/5 最大组织事件** |
+| 必读 | **Anthropic Opus 4.1 退役 release notes** | **deadline 已兑现；迁移 Opus 5** |
+| 推荐 | **TechCrunch Discovery Loop** | **RSI + 科学发现自动化** |
+| 推荐 | **Inference Hooks 文档** | **Enterprise 推理前治理新 primitive** |
+| 延伸 | **AI 日报 2026-08-04** | **白宫框架 / Qwen 首发 / Claude Code v2.1.222** 前情 |
+
+### 来源清单
+
+- 检索范围：2026-08-05 00:00:00 到 2026-08-05 23:59:59（Asia/Shanghai）
+- 引用域名：techcrunch.com, cnbc.com, fortune.com, platform.claude.com, alibabacloud.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 创业 | Discovery Loop Jeff Dean | 2026-08-05 | https://techcrunch.com/2026/08/05/jeff-dean-and-other-top-ai-researchers-are-leaving-google-to-launch-their-own-startup/ |
+| 组织 | Google AI reshuffle CNBC | 2026-08-05 | https://www.cnbc.com/2026/08/05/google-chief-scientist-jeff-dean-leaving-company-after-27-years.html |
+| 组织 | Hassabis steps down Fortune | 2026-08-05 | https://fortune.com/2026/08/05/demis-hassabis-steps-down-google-deepmind-ai-shakeup/ |
+| 官方 | Opus 4.1 retired + Inference Hooks | 2026-08-05 | https://platform.claude.com/docs/en/release-notes/overview |
+| 官方 | Qwen3.8-Max Alibaba Cloud blog | 2026-08-05 | https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421 |
+
+
 ## 2026-08-04
 
 ### 今日总览
