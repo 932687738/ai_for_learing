@@ -2,6 +2,75 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-08-06
+
+### 今日总览
+
+**一句话结论**：`2026-08-06` 是 **「Claude Code v2.1.223 安全加固 + Mirendil $100M+ Google Cloud RSI 算力 + OpenAI 硬件定价泄露 + RSI 创业潮延续」**——**Claude Code v2.1.223**（**8/6 00:52 UTC**；**Bash 权限 bypass 修复**；**workflow sandbox 逃逸修复**；**`/review` → `/code-review` 别名**；**1M context 强制 200K compaction**）；**Mirendil** 签 **$100M+ 多年 Google Cloud** 合约训练 **recursive self-improvement AI**（**TPU + Nvidia GPU**；创始人来自 **Anthropic**）；**Bloomberg/TechCrunch**：OpenAI **LoveFrom 合作 AI 音箱** 定价 **$300–400**、**2027 发布**；**Inevitable AI Group** 获 **$6M** 做 **AI-native SaaS venture studio**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Claude Code release；RSI/算力合约；OpenAI 硬件；venture studio；专项工具链 |
+| 核心趋势 | **RSI 从 DeepMind 演讲进入「$100M cloud deal」落地**；**CLI 安全补丁密度升高**（permission bypass / sandbox / org policy） |
+| 可直接关注 | 升级 **Claude Code ≥ v2.1.223**；评估 **Mirendil/Google RSI 栈** 对 **enterprise compute 叙事**；**OpenAI 硬件 $300–400** 对 **ChatGPT 生态定价** 信号 |
+| 专项检索结论 | **Claude Code**：**v2.1.223**（**8/6 00:52 UTC**）；**Codex**：无 **8/6** stable release；**OpenClaw**：无 **8/6** release；**Hermes**：无 **8/6** release；**Spring AI / Spring Alibaba AI**：无 **8/6** release；**Langfuse**：无 **8/6** release；**LangChain/LangGraph**：无 **8/6** release；**Code Graph**：无 **8/6** release；**Loop Engineering**：**Mirendil RSI 训练 loop** + **Qwen oh-my-cli harness 工程讨论（相邻传播）**；**skills**：无 **8/6** 新发布 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| CLI | [Claude Code v2.1.223（GitHub Release）](https://github.com/anthropics/claude-code/releases/tag/v2.1.223) | **2026-08-06** | 开源/release | **Bash/Unicode 权限 bypass 修复**；**workflow dynamic import 沙箱修复** |
+| CLI | [Claude Code v2.1.223 变更摘要](https://github.com/anthropics/claude-code/releases/tag/v2.1.223) | **2026-08-06** | 开源/release | **`/review` 别名 `/code-review`**；**`CLAUDE_CODE_DISABLE_1M_CONTEXT`** |
+| 算力 / RSI | [Mirendil $100M+ Google Cloud 合约（TechCrunch 8/6）](https://techcrunch.com/2026/08/06/exclusive-mirendil-inks-100m-google-cloud-deal-to-scale-self-improving-ai/) | **2026-08-06** | 商业/infra | **RSI 研究；TPU/GPU 混训；~$1B seed 一半买算力** |
+| 硬件 / OpenAI | [OpenAI AI 音箱 $300–400（TechCrunch 8/6）](https://techcrunch.com/2026/08/06/openais-new-ai-smart-speaker-will-reportedly-sell-for-between-300-400/) | **2026-08-06** | 媒体/产品 | **LoveFrom 设计；donut 形态；2027 发布** |
+| 创投 | [Inevitable AI Group $6M（TechCrunch 8/6）](https://techcrunch.com/press-release/inevitable-ai-group-raises-6m-from-aleph-to-launch-ai-native-saas-companies/) | **2026-08-06** | 创投 | **AI-native venture studio；2026 年已 launch 5 个** |
+| 模型 / Qwen | [Qwen harness 仍决定 agent 可靠性（DEV 相邻传播）](https://dev.to/zira125/qwen38-max-is-huge-the-agent-harness-still-decides-4cke) | **2026-08-06**（**oh-my-cli 8/3 前情**） | 社区/工程 | **95B active ≠ agent 总成本**；**可复现 harness 测试清单** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Claude Code | **v2.1.223 release notes** | **org bypassPermissions 策略修复** | CLI/多 agent 团队 |
+| RSI | **TechCrunch Mirendil 报道** | **workload→chip 编排** | infra/研究平台 |
+| Agent 测试 | **DEV Qwen harness 文** | **固定 budget 可复现 agent eval** | Agent 平台 |
+| 硬件 | **Bloomberg OpenAI 音箱报道** | **ChatGPT 物理入口定价** | 产品/战略 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：8/6 是 **「CLI 安全补丁日 + RSI 算力合约日」**——**Mirendil deal** 把 **8/4–8/5 DeepMind/Discovery Loop RSI 叙事** 推进到 **$100M 级 cloud commitment**；**Claude Code 223** 集中修复 **permission/sandbox/workflow 逃逸**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| CLI 安全 | **v2.1.223 多路 bypass 修复** | **升级后回归测试 Bash 审批 UI** |
+| RSI | **Mirendil × Google Cloud** | **RSI 训练 = TPU/GPU 混编排问题** |
+| Loop | **oh-my-cli harness 讨论延续** | **issue state machine + verifier 比 benchmark 重要** |
+| Context | **1M→200K auto-compaction 开关** | **长上下文产品须显式测 compaction 行为** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Claude Code v2.1.223** | **8/6 最大工程 release** |
+| 必读 | **TechCrunch Mirendil Google Cloud** | **RSI 算力落地样板** |
+| 推荐 | **TechCrunch OpenAI 音箱定价** | **ChatGPT 硬件战略信号** |
+| 推荐 | **DEV Qwen harness 测试框架** | **agent 可复现 eval 清单** |
+| 延伸 | **AI 日报 2026-08-05** | **Discovery Loop / Opus 4.1 退役** 前情 |
+
+### 来源清单
+
+- 检索范围：2026-08-06 00:00:00 到 2026-08-06 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, techcrunch.com, dev.to
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源 | Claude Code v2.1.223 | 2026-08-06 | https://github.com/anthropics/claude-code/releases/tag/v2.1.223 |
+| 商业 | Mirendil Google Cloud $100M+ | 2026-08-06 | https://techcrunch.com/2026/08/06/exclusive-mirendil-inks-100m-google-cloud-deal-to-scale-self-improving-ai/ |
+| 产品 | OpenAI smart speaker pricing | 2026-08-06 | https://techcrunch.com/2026/08/06/openais-new-ai-smart-speaker-will-reportedly-sell-for-between-300-400/ |
+| 创投 | Inevitable AI Group $6M | 2026-08-06 | https://techcrunch.com/press-release/inevitable-ai-group-raises-6m-from-aleph-to-launch-ai-native-saas-companies/ |
+| 社区 | Qwen harness still decides | 2026-08-06（相邻） | https://dev.to/zira125/qwen38-max-is-huge-the-agent-harness-still-decides-4cke |
+
+
 ## 2026-08-05
 
 ### 今日总览

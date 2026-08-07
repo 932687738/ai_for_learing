@@ -2,6 +2,61 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-08-06
+
+### 今日总览
+
+**一句话结论**：`2026-08-06` 固定来源口径下，**10 个公司/组织维度 + 五专项均已检索**，**未发现可确认属于该日期且具备可靠出处的 team 首发长文**；**Claude Code v2.1.223 / Mirendil RSI 算力 / OpenAI 硬件** 无 **8/6 固定来源硬对齐**，见 **AI 日报 2026-08-06**；**掘金 Spring AI 成本治理系列 Part 2–4 预告 8 月** 为 **相邻传播**（非 8/6 首发）。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 全固定来源清单 + 五专项 |
+| 核心趋势 | **固定来源 8/6 空窗**；**CLI 安全 release / RSI cloud deal** 在 **GitHub 与全球媒体** |
+| 可直接关注 | **Claude Code v2.1.223 / Mirendil** 见 **AI 日报**；固定来源 **成本治理 / Graph 观测历史文** 对照 **agent harness 可复现测试** |
+| 专项检索结论 | 五专项 **8/6 均无固定来源新文** |
+| 未发现更新 | 全固定来源 **8/6 无硬对齐** |
+
+### 重要文章与更新
+
+- 未发现可核验的重大文章或更新（固定 URL 清单内）。
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 成本治理（固定来源历史） | [大模型成本工程治理（阿里云开发者）](https://developer.aliyun.com/article/1752513) | **重试放大倍数 / 缓存节省** | LLMOps |
+| Graph 观测（固定来源历史） | [Graph 观测设计原理（掘金）](https://juejin.cn/post/7530437804129861672) | **Spring AI Alibaba Graph → Langfuse** | Agent 平台 |
+| Agent 安全（固定来源历史） | [AI Agent 受控运行（阿里云开发者）](https://developer.aliyun.com/article/1717838) | **Session 审计三源联动** | Agent 平台 |
+| Loop（固定来源历史） | [Spring AI @Tool 实战（掘金）](https://juejin.cn/post/7626247447086661651) | **ToolCallbacks + 权限边界** | Agent 工程 |
+
+### 工程实践归纳
+
+**总体判断**：8/6 **Claude Code permission bypass 修复** 与 **Mirendil RSI 算力合约** 均未进入 **中文 team blog**；可对照 **AI 日报 v2.1.223** 与 **oh-my-cli harness 讨论** 设计 **Bash 审批回归 + issue state machine loop**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Langfuse | **固定来源无 8/6 新文** | **agent eval trace 对照 Graph 观测历史文** |
+| Loop Engineering | **固定来源无 8/6 新文** | **oh-my-cli issue FSM 见 AI 日报 Loop 专项** |
+| Spring Alibaba AI | **固定来源无 8/6 新文** | **Qwen API 切换仍用 ChatClient base_url 模式** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 延伸 | **AI 日报 2026-08-06** | **Claude Code v2.1.223 / Mirendil / OpenAI 硬件** |
+| 延伸 | **AI 日报 2026-08-05** | **Discovery Loop / Opus 4.1 退役** 前情 |
+
+### 来源清单
+
+- 检索范围：2026-08-06 00:00:00 到 2026-08-06 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：已覆盖；**8/6 无可核验 team 首发硬增量（固定 URL）**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| — | — | — | 未发现可核验更新 | — | — |
+
+
 ## 2026-08-05
 
 ### 今日总览

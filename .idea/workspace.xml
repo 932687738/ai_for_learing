@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="refactor(story-archivist): 更新故事归档规范和树形结构&#10;&#10;- 更新版本号从 5.0 到 5.1&#10;- 固定分组节点名为 总述、领域说明、故事&#10;- 领域说明文字必须挂在 总述 / 领域说明 下，不得与故事标题同级&#10;- 每个故事标题下有且仅有一个简述子节点&#10;- 明确领域说明与故事必须分挂在不同分组节点下&#10;- 根下仅两类直接子节点：总述 + 各领域名&#10;- 每个领域下有且仅有两个直接子节点：领域说明、故事&#10;- 更新 HTML 文件中的树形结构展示&#10;- 调整反例说明，强调分组节点的重要性">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="feat(dailyReport): 添加2026-08-05 AI日报和知识库日报内容&#10;&#10;- 更新 ai-daily-news/202608.md 添加2026-08-05日报内容&#10;- 更新 knowledge-base-news/202608.md 添加2026-08-05日报内容&#10;- 更新 ai-daily-news/ai-daily-digest.md 添加2026-08-05摘要内容&#10;- 更新 ai-daily-news/ai-daily-state.json 同步最新日期状态&#10;- 更新 github-topz.md 同步最新GitHub trending数据至2026-08-06" />
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -286,14 +284,7 @@
       <workItem from="1785893856935" duration="740000" />
       <workItem from="1785894947119" duration="4358000" />
       <workItem from="1785912279499" duration="707000" />
-    </task>
-    <task id="LOCAL-00026" summary="Spring AI智能体组件匹配顺序解析">
-      <option name="closed" value="true" />
-      <created>1779956307484</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1779956307484</updated>
+      <workItem from="1785981900975" duration="323000" />
     </task>
     <task id="LOCAL-00027" summary="Spring AI Transformer Advisor 作用">
       <option name="closed" value="true" />
@@ -679,7 +670,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785898745378</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="feat(dailyReport): 添加2026-08-05 AI日报和知识库日报内容&#10;&#10;- 更新 ai-daily-news/202608.md 添加2026-08-05日报内容&#10;- 更新 knowledge-base-news/202608.md 添加2026-08-05日报内容&#10;- 更新 ai-daily-news/ai-daily-digest.md 添加2026-08-05摘要内容&#10;- 更新 ai-daily-news/ai-daily-state.json 同步最新日期状态&#10;- 更新 github-topz.md 同步最新GitHub trending数据至2026-08-06">
+      <option name="closed" value="true" />
+      <created>1785982020659</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1785982020659</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -697,7 +696,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="更新每日新闻摘要，包含2026-06-05的AI相关资讯和知识库动态，新增AI Daily News Digest和Knowledge Base Digest文件，修正项目配置，优化工作空间设置。" />
     <MESSAGE value="更新每日新闻摘要，包含2026-06-23的AI相关资讯和知识库动态，新增AI Daily News Digest和Knowledge Base Digest文件，修正项目配置，优化工作空间设置。" />
     <MESSAGE value="《人皮契约》" />
     <MESSAGE value="终末之语" />
@@ -722,7 +720,8 @@
     <MESSAGE value="docs(dailyReport): 添加2026-08-04 AI日报和知识库日报内容&#10;&#10;- 添加 AI 日报 2026-08-04 章节，涵盖白宫 frontier 安全框架闭门评审&#10;- 添加 Qwen3.8-Max 开放权重跟进、DeepMind RSI 资本论等内容&#10;- 添加 Claude Code v2.1.221 和 v2.1.222 双版本发布信息&#10;- 添加 知识库日报 2026-08-04 章节，记录固定来源检索结果&#10;- 更新 ai-daily-state.json 的最后同步日期到 2026-08-04&#10;- 更新 github-topz.md 的统计时间到 2026-08-05 并调整排名数据" />
     <MESSAGE value="feat(story): 添加领域概念寓言故事集锦&#10;&#10;- 添加镜中河故事解释二阶控制论概念&#10;- 添加驼背老人石阵故事阐述涌现理论&#10;- 添加东门之辐故事诠释路径依赖原理&#10;- 添加山谷梯子故事说明适应性偏好形成&#10;- 添加石塔与蝴蝶故事展现自组织临界性&#10;- 添加孪生世界对比故事体现意义外在论&#10;- 构建完整哲学思辨寓言体系涵盖多个学科概念&#10;- 采用隐喻手法将抽象理论转化为生动故事&#10;- 提供详细概念解释和隐喻对应关系分析" />
     <MESSAGE value="refactor(story-archivist): 更新故事归档规范和树形结构&#10;&#10;- 更新版本号从 5.0 到 5.1&#10;- 固定分组节点名为 总述、领域说明、故事&#10;- 领域说明文字必须挂在 总述 / 领域说明 下，不得与故事标题同级&#10;- 每个故事标题下有且仅有一个简述子节点&#10;- 明确领域说明与故事必须分挂在不同分组节点下&#10;- 根下仅两类直接子节点：总述 + 各领域名&#10;- 每个领域下有且仅有两个直接子节点：领域说明、故事&#10;- 更新 HTML 文件中的树形结构展示&#10;- 调整反例说明，强调分组节点的重要性" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(story-archivist): 更新故事归档规范和树形结构&#10;&#10;- 更新版本号从 5.0 到 5.1&#10;- 固定分组节点名为 总述、领域说明、故事&#10;- 领域说明文字必须挂在 总述 / 领域说明 下，不得与故事标题同级&#10;- 每个故事标题下有且仅有一个简述子节点&#10;- 明确领域说明与故事必须分挂在不同分组节点下&#10;- 根下仅两类直接子节点：总述 + 各领域名&#10;- 每个领域下有且仅有两个直接子节点：领域说明、故事&#10;- 更新 HTML 文件中的树形结构展示&#10;- 调整反例说明，强调分组节点的重要性" />
+    <MESSAGE value="feat(dailyReport): 添加2026-08-05 AI日报和知识库日报内容&#10;&#10;- 更新 ai-daily-news/202608.md 添加2026-08-05日报内容&#10;- 更新 knowledge-base-news/202608.md 添加2026-08-05日报内容&#10;- 更新 ai-daily-news/ai-daily-digest.md 添加2026-08-05摘要内容&#10;- 更新 ai-daily-news/ai-daily-state.json 同步最新日期状态&#10;- 更新 github-topz.md 同步最新GitHub trending数据至2026-08-06" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(dailyReport): 添加2026-08-05 AI日报和知识库日报内容&#10;&#10;- 更新 ai-daily-news/202608.md 添加2026-08-05日报内容&#10;- 更新 knowledge-base-news/202608.md 添加2026-08-05日报内容&#10;- 更新 ai-daily-news/ai-daily-digest.md 添加2026-08-05摘要内容&#10;- 更新 ai-daily-news/ai-daily-state.json 同步最新日期状态&#10;- 更新 github-topz.md 同步最新GitHub trending数据至2026-08-06" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ai_for_learing$vanilla_rnn_numpy_demo.coverage" NAME="vanilla_rnn_numpy_demo Coverage Results" MODIFIED="1778826911757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ai-learning/07-cnn-rnn-transformer-intro/scripts" />
