@@ -2,6 +2,168 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-08-09
+
+### 今日总览
+
+**一句话结论**：`2026-08-09` 固定来源口径下，**10 个公司/组织维度 + 五专项均已检索**，**未发现可确认属于该日期且具备可靠出处的 team 首发长文**；**ChatGPT Atlas 8/9 下线 / Qwen3.8 权重窗口前夜** 无 **8/9 固定来源硬对齐**，见 **AI 日报 2026-08-09**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 全固定来源清单 + 五专项 |
+| 核心趋势 | **固定来源 8/9 空窗**；**Atlas sunset / Qwen 权重 pending** 在 **全球官方与媒体** |
+| 可直接关注 | **Atlas 迁移 / Qwen 8/10 权重** 见 **AI 日报**；固定来源 **Agent 受控运行 / Graph 观测历史文** 对照 **server-side browser 迁移** |
+| 专项检索结论 | 五专项 **8/9 均无固定来源新文** |
+| 未发现更新 | 全固定来源 **8/9 无硬对齐** |
+
+### 重要文章与更新
+
+- 未发现可核验的重大文章或更新（固定 URL 清单内）。
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Agent 浏览（固定来源历史） | [AI Agent 受控运行（阿里云开发者）](https://developer.aliyun.com/article/1717838) | **Session 审计三源联动** | Agent 平台 |
+| Graph 观测（固定来源历史） | [Graph 观测设计原理（掘金）](https://juejin.cn/post/7530437804129861672) | **Spring AI Alibaba Graph → Langfuse** | Agent 平台 |
+| 成本治理（固定来源历史） | [大模型成本工程治理（阿里云开发者）](https://developer.aliyun.com/article/1752513) | **重试放大倍数 / 缓存节省** | LLMOps |
+
+### 工程实践归纳
+
+**总体判断**：8/9 **Atlas 下线** 与 **Qwen 权重窗口** 均未进入 **中文 team blog**；可对照 **AI 日报 Atlas→桌面/云端 agent 浏览迁移** 与 **Graph 观测历史文** 设计 **browser session 审计边界**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Langfuse | **固定来源无 8/9 新文** | **agent eval trace 对照 Graph 观测历史文** |
+| Loop Engineering | **固定来源无 8/9 新文** | **Atlas sunset 产品 loop 见 AI 日报** |
+| Spring Alibaba AI | **固定来源无 8/9 新文** | **Qwen3.8 自托管 sizing 见 AI 日报 8/10 checkpoint** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 延伸 | **AI 日报 2026-08-09** | **ChatGPT Atlas 下线 / Qwen 权重前夜** |
+| 延伸 | **AI 日报 2026-08-08** | **Claude Code v2.1.225/226** |
+
+### 来源清单
+
+- 检索范围：2026-08-09 00:00:00 到 2026-08-09 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：已覆盖；**8/9 无可核验 team 首发硬增量（固定 URL）**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| — | — | — | 未发现可核验更新 | — | — |
+
+
+## 2026-08-08
+
+### 今日总览
+
+**一句话结论**：`2026-08-08` 固定来源口径下，**10 个公司/组织维度 + 五专项均已检索**，**未发现可确认属于该日期且具备可靠出处的 team 首发长文**；**Claude Code v2.1.225/226 / ChatGPT Free unlimited text** 无 **8/8 固定来源硬对齐**，见 **AI 日报 2026-08-08**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 全固定来源清单 + 五专项 |
+| 核心趋势 | **固定来源 8/8 空窗**；**CLI Remote Control / Free tier 扩权** 在 **GitHub 与全球媒体** |
+| 可直接关注 | **Claude Code v2.1.226 / Free unlimited Luna** 见 **AI 日报**；固定来源 **Spring AI @Tool 实战** 对照 **SendMessage 跨 session** |
+| 专项检索结论 | 五专项 **8/8 均无固定来源新文** |
+| 未发现更新 | 全固定来源 **8/8 无硬对齐** |
+
+### 重要文章与更新
+
+- 未发现可核验的重大文章或更新（固定 URL 清单内）。
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Loop（固定来源历史） | [Spring AI @Tool 实战（掘金）](https://juejin.cn/post/7626247447086661651) | **ToolCallbacks + 权限边界** | Agent 工程 |
+| Graph 观测（固定来源历史） | [Graph 观测设计原理（掘金）](https://juejin.cn/post/7530437804129861672) | **Spring AI Alibaba Graph → Langfuse** | Agent 平台 |
+| Agent 安全（固定来源历史） | [AI Agent 受控运行（阿里云开发者）](https://developer.aliyun.com/article/1717838) | **Session 审计三源联动** | Agent 平台 |
+
+### 工程实践归纳
+
+**总体判断**：8/8 **Claude Code SendMessage 跨机** 与 **Free tier unlimited text** 均未进入 **中文 team blog**；可对照 **AI 日报 v2.1.225** 与 **@Tool 权限边界历史文** 设计 **跨 session agent 通信审计**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Langfuse | **固定来源无 8/8 新文** | **Remote Control session trace 对照 Graph 观测** |
+| Loop Engineering | **固定来源无 8/8 新文** | **SendMessage inbox 见 AI 日报** |
+| Spring Alibaba AI | **固定来源无 8/8 新文** | **Qwen API 切换仍用 ChatClient base_url 模式** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 延伸 | **AI 日报 2026-08-08** | **Claude Code v2.1.225/226 / Free unlimited text** |
+| 延伸 | **AI 日报 2026-08-07** | **Astra 安全 + v2.1.224 self-hosted runner** |
+
+### 来源清单
+
+- 检索范围：2026-08-08 00:00:00 到 2026-08-08 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：已覆盖；**8/8 无可核验 team 首发硬增量（固定 URL）**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| — | — | — | 未发现可核验更新 | — | — |
+
+
+## 2026-08-07
+
+### 今日总览
+
+**一句话结论**：`2026-08-07` 固定来源口径下，**10 个公司/组织维度 + 五专项均已检索**，**未发现可确认属于该日期且具备可靠出处的 team 首发长文**；**OpenAI Astra 安全披露 / Anthropic Fable 5 biology / Claude Code v2.1.224** 无 **8/7 固定来源硬对齐**，见 **AI 日报 2026-08-07**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 全固定来源清单 + 五专项 |
+| 核心趋势 | **固定来源 8/7 空窗**；**前沿模型安全 / CLI self-hosted runner** 在 **全球官方与 GitHub** |
+| 可直接关注 | **Astra / Fable 5 biology / v2.1.224** 见 **AI 日报**；固定来源 **Agent 受控运行历史文** 对照 **sandbox credential masking** |
+| 专项检索结论 | 五专项 **8/7 均无固定来源新文** |
+| 未发现更新 | 全固定来源 **8/7 无硬对齐** |
+
+### 重要文章与更新
+
+- 未发现可核验的重大文章或更新（固定 URL 清单内）。
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Agent 安全（固定来源历史） | [AI Agent 受控运行（阿里云开发者）](https://developer.aliyun.com/article/1717838) | **Session 审计三源联动** | Agent 平台 |
+| 成本治理（固定来源历史） | [大模型成本工程治理（阿里云开发者）](https://developer.aliyun.com/article/1752513) | **重试放大倍数 / 缓存节省** | LLMOps |
+| Loop（固定来源历史） | [Spring AI @Tool 实战（掘金）](https://juejin.cn/post/7626247447086661651) | **ToolCallbacks + 权限边界** | Agent 工程 |
+
+### 工程实践归纳
+
+**总体判断**：8/7 **Astra critical threshold** 与 **self-hosted-runner** 均未进入 **中文 team blog**；可对照 **AI 日报 v2.1.224 sandbox masking** 与 **Agent 受控运行历史文** 设计 **credential 脱敏策略**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Langfuse | **固定来源无 8/7 新文** | **agent eval trace 对照 Graph 观测历史文** |
+| Loop Engineering | **固定来源无 8/7 新文** | **Astra eval loop pause 见 AI 日报** |
+| Spring Alibaba AI | **固定来源无 8/7 新文** | **Qwen3.8 权重 8/10 窗口见 AI 日报** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 延伸 | **AI 日报 2026-08-07** | **Astra / Fable 5 biology / Claude Code v2.1.224** |
+| 延伸 | **AI 日报 2026-08-06** | **Claude Code v2.1.223 安全补丁** |
+
+### 来源清单
+
+- 检索范围：2026-08-07 00:00:00 到 2026-08-07 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：已覆盖；**8/7 无可核验 team 首发硬增量（固定 URL）**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| — | — | — | 未发现可核验更新 | — | — |
+
+
 ## 2026-08-06
 
 ### 今日总览

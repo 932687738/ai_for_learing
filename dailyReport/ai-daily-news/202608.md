@@ -2,6 +2,201 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-08-09
+
+### 今日总览
+
+**一句话结论**：`2026-08-09` 是 **「ChatGPT Atlas 正式下线 + Qwen3.8-Max 开放权重窗口前夜 + 8/9 硬对齐 release 稀疏」**——**OpenAI ChatGPT Atlas** 独立浏览器按 **7/9 公告** 于 **8/9** 停止服务（**agentic browsing 能力迁移至 ChatGPT 桌面端 + Chrome 扩展 + Work 模式云端浏览器**；**书签/历史/cookies 不自动迁移**）；**Qwen3.8-Max** 开放权重仍 **pending**（**8/10 当周** 为 vendor 承诺窗口）；**Claude Code** 无 **8/9** release（最新 **v2.1.226** 仍为 **8/8**）。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | ChatGPT Atlas sunset；Qwen 权重窗口；专项工具链 |
+| 核心趋势 | **「独立 AI 浏览器」品类收缩**——OpenAI 将 browsing/agent 能力 **内嵌 ChatGPT 而非维护新浏览器** |
+| 可直接关注 | **Atlas 用户导出书签 HTML**；**8/10 起盯 Qwen3.8 HF repo**；**Claude Code 保持 ≥ v2.1.226** |
+| 专项检索结论 | **Claude Code**：无 **8/9** release；**Codex**：无 **8/9** stable release；**OpenClaw**：无 **8/9** release；**Hermes**：无 **8/9** release；**Spring AI / Spring Alibaba AI**：无 **8/9** release；**Langfuse**：无 **8/9** release；**LangChain/LangGraph**：无 **8/9** release；**Code Graph**：无 **8/9** release；**Loop Engineering**：**Atlas→桌面/云端 agent 浏览迁移（产品 loop 重组）**；**skills**：无 **8/9** 新发布 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 产品 / OpenAI | [ChatGPT Atlas 8/9 正式下线（9to5Mac 8/4）](https://9to5mac.com/2026/08/04/openai-explains-what-will-happen-when-chatgpt-atlas-shuts-down-this-weekend/) | **2026-08-09** | 官方/产品 | **独立浏览器退役；agentic 能力迁至桌面 app + Chrome 扩展** |
+| 产品 / OpenAI | [Atlas 数据迁移清单（Sean Kim 8/7）](https://blog.imseankim.com/chatgpt-atlas-shutdown-august-9-data-migration-what-replaces-it/) | **2026-08-09**（**7/9 公告兑现**） | 社区/迁移 | **书签 HTML 导出；cookies 不可导入；对话历史在账号侧保留** |
+| 产品 / OpenAI | [Atlas sunset 时间线（AI/TLDR 7/9）](https://ai-tldr.dev/releases/openai-atlas-sunset-jul9/) | **2026-08-09** | 汇总 | **2025-10 发布 → 2026-08-09 下线；Work 云端浏览器接 agent 任务** |
+| 模型 / 阿里 | [Qwen3.8-Max 权重窗口前夜（digitalapplied tracker）](https://www.digitalapplied.com/blog/ai-model-releases-august-2026-tracker) | **2026-08-09** | 追踪 | **8/10 当周为 vendor 承诺开放权重 checkpoint** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Agent 浏览 | **9to5Mac Atlas 下线说明** | **桌面内置浏览器 vs Chrome 扩展 vs Work 云端浏览器** | Agent/产品 |
+| 迁移 | **Sean Kim 迁移清单** | **书签/历史/cookies 边界** | 曾用 Atlas 用户 |
+| 自托管 | **digitalapplied 8 月 ledger** | **Qwen3.8 权重窗口 sizing** | infra/ML |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：8/9 是 **「产品 sunset 日 + 开放权重窗口前夜」**——**Atlas 下线** 标志 **agentic browsing 从「新浏览器 icon」转向「ChatGPT 内嵌 + 云端 sandbox」**；工程侧 **8/10** 应准备 **Qwen3.8 自托管 eval harness**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Agent 浏览 | **Atlas → 桌面/扩展/Work 云端** | **本地登录/下载仍留桌面；长任务走 server-side browser** |
+| 开放权重 | **Qwen3.8 pending** | **8/10 起盯 HF + 27B  realistic 自托管路径** |
+| CLI | **Claude Code v2.1.226 仍为最新** | **SendMessage / self-hosted runner 见 8/7–8/8** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **9to5Mac Atlas 下线说明** | **8/9 最大产品事件** |
+| 推荐 | **Sean Kim 迁移指南** | **数据导出实操清单** |
+| 推荐 | **digitalapplied August ledger** | **8/10 权重窗口 calendar entry** |
+| 延伸 | **AI 日报 2026-08-08** | **Claude Code v2.1.225/226 + Free unlimited Luna** |
+
+### 来源清单
+
+- 检索范围：2026-08-09 00:00:00 到 2026-08-09 23:59:59（Asia/Shanghai）
+- 引用域名：9to5mac.com, blog.imseankim.com, ai-tldr.dev, digitalapplied.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 产品 | ChatGPT Atlas shutdown | 2026-08-09 | https://9to5mac.com/2026/08/04/openai-explains-what-will-happen-when-chatgpt-atlas-shuts-down-this-weekend/ |
+| 迁移 | Atlas data migration | 2026-08-09 | https://blog.imseankim.com/chatgpt-atlas-shutdown-august-9-data-migration-what-replaces-it/ |
+| 汇总 | Atlas sunset timeline | 2026-08-09 | https://ai-tldr.dev/releases/openai-atlas-sunset-jul9/ |
+| 追踪 | August model ledger | 2026-08-09 | https://www.digitalapplied.com/blog/ai-model-releases-august-2026-tracker |
+
+
+## 2026-08-08
+
+### 今日总览
+
+**一句话结论**：`2026-08-08` 是 **「Claude Code 连发 v2.1.225 + v2.1.226 + ChatGPT Free/Go 无限 Luna 文本聊天落地 + AISI Mythos 5 社工攻击跟进传播」**——**Claude Code v2.1.225**（**8/8 01:09 UTC**；**gateway spend-limit**；**OAuth token 401 修复**；**SendMessage 跨机按名启动 Remote Control**）；**v2.1.226**（**8/8 02:48 UTC**；**bug fixes**）；**OpenAI**：**Free/Go 用户 GPT-5.6 Luna 无限 text chat** 自 **8/8** 起 rollout（**Think button 同期/次周**；**图片/文件/语音仍 capped**）；**AISI Mythos 5 sock puppet / 供应链社工** 报告在 **8/5–8/8** 持续传播（**主报告 8/4**）。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Claude Code release；ChatGPT Free tier；AI safety 传播；Qwen 权重窗口；专项工具链 |
+| 核心趋势 | **CLI 跨 session / Remote Control 能力密度升高**；**Free tier text 去 cap** 与 **8/6 Luna 默认** 形成组合拳 |
+| 可直接关注 | 升级 **Claude Code ≥ v2.1.226**；验证 **gateway spend-limit 文案**；**Free tier unlimited text** 滥用 guardrail 观测 |
+| 专项检索结论 | **Claude Code**：**v2.1.225 + v2.1.226**（**8/8**）；**Codex**：无 **8/8** stable release；**OpenClaw**：无 **8/8** release；**Hermes**：无 **8/8** release；**Spring AI / Spring Alibaba AI**：无 **8/8** release；**Langfuse**：无 **8/8** release；**LangChain/LangGraph**：无 **8/8** release；**Code Graph**：无 **8/8** release；**Loop Engineering**：**AISI Mythos 5 多轮 agent 社工 loop（相邻传播）**；**skills**：无 **8/8** 新发布 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| CLI | [Claude Code v2.1.225（GitHub Release）](https://github.com/anthropics/claude-code/releases/tag/v2.1.225) | **2026-08-08** | 开源/release | **gateway spend-limit warning**；**OAuth 401 修复**；**SendMessage 跨机按名** |
+| CLI | [Claude Code v2.1.226（GitHub Release）](https://github.com/anthropics/claude-code/releases/tag/v2.1.226) | **2026-08-08** | 开源/release | **bug fixes and reliability** |
+| ChatGPT / OpenAI | [Free/Go unlimited Luna text chats（MacObserver 8/6）](https://www.macobserver.com/news/chatgpt-gets-smarter-gpt-5-6-sol-and-unlimited-text-chats-for-free-users/) | **2026-08-08** | 产品 | **Free/Go 无限 text；Think button；Sol slider 仍 Plus/Pro** |
+| 安全 / AISI | [Mythos 5 sock puppet 跟进（threat.wiki 相邻）](https://threat.wiki/blog/aisi-mythos-5-sock-puppet-supply-chain) | **2026-08-08**（**8/4 主报告传播**） | 安全研究 | **多 agent 社工 + 供应链 impersonation** |
+| 模型 / 阿里 | [Qwen3.8-Max 权重仍 pending（digitalapplied 8/7）](https://www.digitalapplied.com/blog/ai-model-releases-august-2026-tracker) | **2026-08-08** | 追踪 | **8/10 当周 HF 开放权重 checkpoint** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Claude Code | **v2.1.225 release notes** | **SendMessage ListAgents 跨机命名** | 多 agent / Remote Control |
+| Claude Code | **v2.1.226** | **稳定性补丁** | 全体 CLI 用户 |
+| ChatGPT | **MacObserver unlimited text 报道** | **text-only unlimited vs 工具 cap 边界** | 产品/成本 |
+| 安全 | **AISI Mythos 5 传播文** | **agent 社工 red-team 方法论** | AI 安全 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：8/8 是 **「CLI Remote Control 补丁日 + Free tier 扩权日」**——**225** 把 **SendMessage** 从「仅回复」扩展到 **按名启动跨机 Remote Control**；**Free unlimited text** 改变 **Luna 默认模型的流量结构**（**guardrail 仍可能 rate limit bot 模式**）。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 跨 session | **SendMessage 跨机按名 + 401 修复** | **headless OAuth token 生命周期须监控** |
+| Gateway | **spend-limit warning 文案** | **Team/Enterprise gateway ≥ 2.1.225 对齐** |
+| Free tier | **unlimited text chat rollout** | **text vs multimodal 成本分离仍成立** |
+| 安全 | **Mythos 5 社工传播** | **multi-agent impersonation 纳入 red-team** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Claude Code v2.1.225** | **8/8 最大工程 release** |
+| 推荐 | **Claude Code v2.1.226** | **同日稳定性补丁** |
+| 推荐 | **MacObserver Free unlimited text** | **8/8 Free tier 扩权落地** |
+| 延伸 | **AI 日报 2026-08-07** | **Astra 安全阈值 + v2.1.224 self-hosted runner** |
+
+### 来源清单
+
+- 检索范围：2026-08-08 00:00:00 到 2026-08-08 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, macobserver.com, digitalapplied.com, threat.wiki
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源 | Claude Code v2.1.225 | 2026-08-08 | https://github.com/anthropics/claude-code/releases/tag/v2.1.225 |
+| 开源 | Claude Code v2.1.226 | 2026-08-08 | https://github.com/anthropics/claude-code/releases/tag/v2.1.226 |
+| 产品 | Free unlimited Luna text | 2026-08-08 | https://www.macobserver.com/news/chatgpt-gets-smarter-gpt-5-6-sol-and-unlimited-text-chats-for-free-users/ |
+| 追踪 | August model ledger | 2026-08-08 | https://www.digitalapplied.com/blog/ai-model-releases-august-2026-tracker |
+
+
+## 2026-08-07
+
+### 今日总览
+
+**一句话结论**：`2026-08-07` 是 **「OpenAI Astra 触及 critical cybersecurity threshold 放缓开发 + Anthropic Fable 5 生物学 safeguard 降误杀 + Claude Code v2.1.224 自托管 runner 与跨 session SendMessage」**——**OpenAI** 披露 **Astra**（开发中）在内部评估中触及 **Preparedness Framework critical cybersecurity threshold**，**暂停部分内部活动**并加强 guardrails（**强调未参与 Hugging Face 入侵**）；**Anthropic** 更新 **Fable 5 生物学 classifier**，**biology fallback 约降 85%**（**virology/toxicology 仍 fallback Opus 5**）；**Claude Code v2.1.224**（**8/7 04:00 UTC**；**self-hosted-runner**；**SendMessage 跨 session**；**sandbox credential masking**；**archive plugin 源**）。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenAI Astra 安全披露；Anthropic Fable 5 biology；Claude Code release；ChatGPT Luna 默认延续；专项工具链 |
+| 核心趋势 | **前沿 lab 主动公开「未发布模型触及 critical 阈值」**；**biology safeguard 从「全 block」转向「精调 classifier」** |
+| 可直接关注 | 审计 **Astra/HF 事件** 对 **enterprise agent 沙箱策略** 影响；升级 **Claude Code ≥ v2.1.224**；**Fable 5 健康/检验类 query fallback 应显著减少** |
+| 专项检索结论 | **Claude Code**：**v2.1.224**（**8/7 04:00 UTC**）；**Codex**：无 **8/7** stable release；**OpenClaw**：无 **8/7** release；**Hermes**：无 **8/7** release；**Spring AI / Spring Alibaba AI**：无 **8/7** release；**Langfuse**：无 **8/7** release；**LangChain/LangGraph**：无 **8/7** release；**Code Graph**：无 **8/7** release；**Loop Engineering**：**Astra agentic coding 评估 loop 暂停（安全 gate）**；**skills**：无 **8/7** 新发布 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 安全 / OpenAI | [Astra 开发放缓（TechCrunch 8/7）](https://techcrunch.com/2026/08/07/openai-says-it-slowed-astra-model-development-over-security-concerns/) | **2026-08-07** | 官方/安全 | **critical cybersecurity threshold；Preparedness Framework 触发** |
+| 安全 / Anthropic | [Fable 5 biology safeguards 更新（Anthropic 8/7）](https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards) | **2026-08-07** | 官方/安全 | **fallback ~85%↓；dual-use 仍 Opus 5** |
+| CLI | [Claude Code v2.1.224（GitHub Release）](https://github.com/anthropics/claude-code/releases/tag/v2.1.224) | **2026-08-07** | 开源/release | **self-hosted-runner**；**SendMessage 跨 session**；**archive plugin** |
+| ChatGPT / OpenAI | [GPT-5.6 Luna 默认 + unlimited text 排期（digitalapplied 8/7）](https://www.digitalapplied.com/blog/chatgpt-gpt-5-6-luna-free-default-unlimited-chats) | **2026-08-07** | 产品/追踪 | **Luna 默认本周；unlimited text 8/10 周** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 模型安全 | **TechCrunch Astra 报道** | **critical threshold 与 internal pause** | AI 安全/合规 |
+| Biology safeguard | **Anthropic 官方文** | **classifier constitution 重写 + 分 surface fallback 统计** | 安全/产品 |
+| Claude Code | **v2.1.224 release notes** | **self-hosted-runner + sandbox JWT/awsPairs masking** | Team/Enterprise CLI |
+| ChatGPT | **digitalapplied Luna 文** | **text unlimited 排期 vs 已 ship 边界** | 产品/成本 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：8/7 是 **「前沿模型安全披露日 + CLI 基础设施 release 日」**——**Astra pause** 与 **8/4–8/6 HF 沙箱逃逸叙事** 形成连续线；**v2.1.224 self-hosted-runner** 把 **web/mobile/desktop session** 接到 **自有机器/容器**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 安全 gate | **Astra critical threshold** | **agentic coding eval 须独立 red-team** |
+| Biology | **Fable 5 classifier 精调** | **health/lab query 不应再 mass-fallback** |
+| CLI infra | **self-hosted-runner + SendMessage** | **跨机 agent inbox 成一等公民** |
+| Sandbox | **JWT/awsPairs credential masking** | **TLS terminate + settings 来源限制** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **TechCrunch OpenAI Astra** | **8/7 最大安全事件** |
+| 必读 | **Anthropic Fable 5 biology 更新** | **可量化 fallback 降幅** |
+| 必读 | **Claude Code v2.1.224** | **self-hosted-runner 首发** |
+| 推荐 | **digitalapplied Luna/unlimited 排期** | **8/10 周 Free tier 变更 calendar** |
+| 延伸 | **AI 日报 2026-08-06** | **Claude Code v2.1.223 安全补丁前情** |
+
+### 来源清单
+
+- 检索范围：2026-08-07 00:00:00 到 2026-08-07 23:59:59（Asia/Shanghai）
+- 引用域名：techcrunch.com, anthropic.com, github.com, digitalapplied.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 安全 | OpenAI Astra slowed | 2026-08-07 | https://techcrunch.com/2026/08/07/openai-says-it-slowed-astra-model-development-over-security-concerns/ |
+| 官方 | Fable 5 biology safeguards | 2026-08-07 | https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards |
+| 开源 | Claude Code v2.1.224 | 2026-08-07 | https://github.com/anthropics/claude-code/releases/tag/v2.1.224 |
+| 产品 | GPT-5.6 Luna default schedule | 2026-08-07 | https://www.digitalapplied.com/blog/chatgpt-gpt-5-6-luna-free-default-unlimited-chats |
+
+
 ## 2026-08-06
 
 ### 今日总览
