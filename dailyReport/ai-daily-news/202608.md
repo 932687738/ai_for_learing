@@ -2,6 +2,78 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-08-10
+
+### 今日总览
+
+**一句话结论**：`2026-08-10` 是 **「Qwen3.8 开放权重承诺窗口开启但仍 pending + ChatGPT Free/Go 无限 Luna 文本聊天 rollout 周 + Claude Code v2.1.227 + Auto Mode 8/14 默认变更进入倒计时」**——**Qwen3.8-Max / Qwen3.8-27B** 按 **8/2 承诺** 进入 **8/10 当周** HF/ModelScope 窗口，**截至 8/10 末仍无官方 repo 与 license**；**OpenAI** **Free/Go unlimited text chat + Think button** 按 **8/6 公告** 于 **8/10 当周** rollout（**text-only；图片/文件/语音仍 capped**）；**Claude Code v2.1.227**（**8/10 22:56 UTC**；**feature flag / GitHub Action / /tui 修复**）；**Anthropic Auto Mode** 将于 **8/14** 成为 **Pro/Max/Team 新 session 默认**（**8/7 官方博客；classifier overhead 自 8/7 起不再向 Pro/Max/Team 收费**）。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Qwen3.8 权重窗口；ChatGPT Free tier rollout；Claude Code release；Auto Mode 政策；专项工具链 |
+| 核心趋势 | **「承诺窗口 ≠ 已 ship」**——Qwen Max 级开放权重与 Free tier 去 cap 同日进入 **calendar checkpoint**；**CLI 补丁密度维持** |
+| 可直接关注 | **盯 Qwen HuggingFace org 官方 repo + license**；验证 **Free tier unlimited text** 是否已到你的账号；升级 **Claude Code ≥ v2.1.227**；**8/14 前评估 Auto Mode 默认切换** |
+| 专项检索结论 | **Claude Code**：**v2.1.227**（**8/10 22:56 UTC**）；**Codex**：无 **8/10** stable release；**OpenClaw**：无 **8/10** release；**Hermes**：无 **8/10** release；**Spring AI / Spring Alibaba AI**：无 **8/10** release；**Langfuse**：无 **8/10** release；**LangChain/LangGraph**：无 **8/10** release；**Code Graph**：无 **8/10** release；**Loop Engineering**：**Qwen 权重窗口 + Free tier text loop 扩权（产品/infra loop）**；**skills**：无 **8/10** 新发布 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 模型 / 阿里 | [Qwen3.8 开放权重窗口开启仍 pending（digitalapplied 8/10）](https://www.digitalapplied.com/blog/qwen3-8-open-weights-checklist-before-download) | **2026-08-10** | 追踪/承诺 | **Max + 27B 承诺 HF/ModelScope；license 未披露；HF org 无 repo** |
+| 模型 / 阿里 | [Qwen3.8-27B 自托管 sizing 预览（byteiota 8/10）](https://byteiota.com/qwen3-8-open-weights-drop-this-week-read-before-you-download/) | **2026-08-10** | 社区/infra | **27B 4-bit ~14–16GB VRAM；Max 全精度 ~20× H100** |
+| ChatGPT / OpenAI | [Free/Go unlimited Luna text  rollout 周（Unite.AI 8/6）](https://www.unite.ai/openai-gives-free-chatgpt-users-unlimited-text-chats-on-gpt-5-6-luna/) | **2026-08-10**（**8/6 排期兑现周**） | 产品 | **无限 text + Think button；multimodal 仍 capped** |
+| CLI | [Claude Code v2.1.227（GitHub Release）](https://github.com/anthropics/claude-code/releases/tag/v2.1.227) | **2026-08-10** | 开源/release | **expired token feature flag 修复；claude-code-action Bash 修复** |
+| 产品 / Anthropic | [Auto Mode 8/14 默认 + classifier 免费（Anthropic 8/7）](https://claude.com/blog/auto-mode-default-in-claude-code) | **2026-08-10**（**8/7 公告；8/10 传播**） | 官方/产品 | **Pro/Max/Team 新 session 默认 auto；Enterprise/API 仍 opt-in** |
+| 安全 / Anthropic | [Auto Mode 默认变更解读（Help Net Security 8/10）](https://www.helpnetsecurity.com/2026/08/10/anthropic-claude-code-auto-mode/) | **2026-08-10** | 媒体/安全 | **classifier 替代人工逐条审批；admin 评估窗口** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 开放权重 | **digitalapplied 下载前 checklist** | **HF org 核验；license 未出前勿部署** | ML/infra |
+| 自托管 | **byteiota Qwen3.8 硬件文** | **27B vs Max  realistic 路径** | 推理团队 |
+| ChatGPT | **OpenAI Help Center release notes** | **text unlimited vs 工具 cap 边界** | 产品/成本 |
+| Claude Code | **v2.1.227 release notes** | **GitHub Action allowed_non_write_users 修复** | CI/CD + CLI |
+| Auto Mode | **code.claude.com auto-mode-config** | **autoMode.environment 信任域配置** | Team/Enterprise |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：8/10 是 **「开放权重窗口日 + Free tier 扩权 rollout 日 + CLI 补丁日」**——工程侧应把 **Qwen HF repo 监控** 与 **Free tier traffic 结构变化** 当作同日 **calendar gate**；**Auto Mode 8/14** 将改变 **Pro/Max/Team 默认 permission loop**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 开放权重 | **Qwen3.8 窗口开启仍 pending** | **只认 Qwen org 官方 repo；27B 为 realistic 自托管** |
+| Free tier | **unlimited text rollout 周** | **text vs multimodal 成本分离；guardrail 仍可能限 bot** |
+| CLI | **v2.1.227 小版本修复** | **CI Action + expired OAuth token 回归** |
+| 权限 | **Auto Mode 8/14 默认** | **8/10–8/13 配置 autoMode.environment 信任域** |
+| Eval | **Qwen Anthropic-compatible endpoint** | **Claude Code harness 可 pin 对照 incumbent** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **digitalapplied Qwen3.8 checklist** | **8/10 最大 pending 事件** |
+| 必读 | **Claude Code v2.1.227** | **8/10 唯一 hard release** |
+| 推荐 | **Anthropic Auto Mode 博客** | **8/14 默认切换前必读** |
+| 推荐 | **byteiota Qwen 硬件 sizing** | **27B vs Max 部署决策** |
+| 延伸 | **AI 日报 2026-08-09** | **Atlas 下线 / Qwen 权重前夜** |
+
+### 来源清单
+
+- 检索范围：2026-08-10 00:00:00 到 2026-08-10 23:59:59（Asia/Shanghai）
+- 引用域名：digitalapplied.com, byteiota.com, github.com, claude.com, helpnetsecurity.com, unite.ai
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 追踪 | Qwen3.8 open weights checklist | 2026-08-10 | https://www.digitalapplied.com/blog/qwen3-8-open-weights-checklist-before-download |
+| 社区 | Qwen3.8 hardware sizing | 2026-08-10 | https://byteiota.com/qwen3-8-open-weights-drop-this-week-read-before-you-download/ |
+| 产品 | Free unlimited Luna text | 2026-08-10 | https://www.unite.ai/openai-gives-free-chatgpt-users-unlimited-text-chats-on-gpt-5-6-luna/ |
+| 开源 | Claude Code v2.1.227 | 2026-08-10 | https://github.com/anthropics/claude-code/releases/tag/v2.1.227 |
+| 官方 | Auto mode default blog | 2026-08-10（8/7 公告） | https://claude.com/blog/auto-mode-default-in-claude-code |
+| 媒体 | Auto mode Help Net Security | 2026-08-10 | https://www.helpnetsecurity.com/2026/08/10/anthropic-claude-code-auto-mode/ |
+
+
 ## 2026-08-09
 
 ### 今日总览

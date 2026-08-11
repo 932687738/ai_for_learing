@@ -2,6 +2,61 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-08-10
+
+### 今日总览
+
+**一句话结论**：`2026-08-10` 固定来源口径下，**10 个公司/组织维度 + 五专项均已检索**，**未发现可确认属于该日期且具备可靠出处的 team 首发长文**；**Qwen3.8 权重窗口 / ChatGPT Free unlimited text / Claude Code v2.1.227 / Auto Mode 8/14** 无 **8/10 固定来源硬对齐**，见 **AI 日报 2026-08-10**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 全固定来源清单 + 五专项 |
+| 核心趋势 | **固定来源 8/10 空窗**；**Qwen 权重 pending / Free tier rollout / CLI release** 在 **全球官方与 GitHub** |
+| 可直接关注 | **Qwen HF repo / v2.1.227 / Auto Mode** 见 **AI 日报**；固定来源 **Spring AI @Tool / Graph 观测历史文** 对照 **Qwen Anthropic-compatible eval** |
+| 专项检索结论 | 五专项 **8/10 均无固定来源新文** |
+| 未发现更新 | 全固定来源 **8/10 无硬对齐** |
+
+### 重要文章与更新
+
+- 未发现可核验的重大文章或更新（固定 URL 清单内）。
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Spring AI（固定来源历史） | [Spring AI @Tool 实战（掘金）](https://juejin.cn/post/7626247447086661651) | **ToolCallbacks + 权限边界** | Agent 工程 |
+| Graph 观测（固定来源历史） | [Graph 观测设计原理（掘金）](https://juejin.cn/post/7530437804129861672) | **Spring AI Alibaba Graph → Langfuse** | Agent 平台 |
+| Langfuse 集成（官方文档） | [Langfuse × Spring AI OpenTelemetry](https://langfuse.com/integrations/frameworks/spring-ai) | **OTEL → Langfuse ingestion** | Java LLMOps |
+| 成本治理（固定来源历史） | [大模型成本工程治理（阿里云开发者）](https://developer.aliyun.com/article/1752513) | **重试放大倍数 / 缓存节省** | LLMOps |
+
+### 工程实践归纳
+
+**总体判断**：8/10 **Qwen3.8 权重窗口** 与 **Auto Mode 默认切换倒计时** 均未进入 **中文 team blog**；可对照 **AI 日报 Qwen checklist** 与 **Langfuse Spring AI OTEL 集成文档** 设计 **27B 自托管 eval + trace 管线**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Langfuse | **固定来源无 8/10 新文** | **Spring AI OTEL → Langfuse 为 Java 侧 observability 主路径** |
+| Loop Engineering | **固定来源无 8/10 新文** | **Auto Mode permission loop 见 AI 日报** |
+| Spring Alibaba AI | **固定来源无 8/10 新文** | **Qwen DashScope Anthropic-compatible endpoint 可接 Claude Code harness** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 延伸 | **AI 日报 2026-08-10** | **Qwen 权重 pending / v2.1.227 / Auto Mode** |
+| 延伸 | **Langfuse Spring AI 集成文档** | **Java agent trace 标准接法** |
+
+### 来源清单
+
+- 检索范围：2026-08-10 00:00:00 到 2026-08-10 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：已覆盖；**8/10 无可核验 team 首发硬增量（固定 URL）**
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| — | — | — | 未发现可核验更新 | — | — |
+
+
 ## 2026-08-09
 
 ### 今日总览
