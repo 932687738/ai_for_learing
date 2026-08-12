@@ -1,6 +1,6 @@
 ---
 name: juejin-hot-digest
-description: Generates a Chinese digest from Juejin hot boards (文章热榜 + 收藏热榜) for 后端/前端/人工智能/开发工具. Fetches list + article body, classifies and summarizes real content with canonical links, and deduplicates by article URL via persistent seen_urls. Use when the user says 拉取掘金热榜, 掘金热文, 更新掘金热榜, 掘金收藏榜, or requests juejin hot digest / force=true.
+description: Generates a Chinese digest from Juejin hot boards (文章热榜 + 收藏热榜) for 后端/前端/人工智能/开发工具. Fetches list + article body, classifies and summarizes real content with canonical links, and deduplicates by article URL via persistent seen_urls. Use when the user says 拉取掘金热榜, 掘金热文, 更新掘金热榜, 掘金收藏榜, or requests juejin hot digest / force=true. Also runs as the third step when dual-digest-on-pull triggers on 拉取 / 拉取日报 (after ai-daily-digest and knowledge-base-digest), sharing the same date/force choice.
 ---
 
 # Juejin Hot Digest（掘金热榜摘要）
@@ -14,6 +14,7 @@ description: Generates a Chinese digest from Juejin hot boards (文章热榜 + �
 - 更新掘金热榜
 - 生成掘金热榜摘要
 - 带 `force=true` 的掘金热榜刷新
+- **统一「拉取」**：用户说 `拉取` / `拉取一下` / `拉取日报` 等（非 Git）时，由 [`.cursor/rules/dual-digest-on-pull.mdc`](../../rules/dual-digest-on-pull.mdc) 在 AI 日报与知识库之后**同步触发本 Skill**；日期/`force` 与另外两路**共用同一次用户选择**，不要再单独提问
 
 目标：按 Asia/Shanghai 时区，从掘金两个热榜页面拉取指定分类文章，**阅读正文后做分类归纳总结**，写入本地 Markdown，并用状态文件按**文章真实链接**去重，避免对同一地址重复拉取与重复摘要。
 
@@ -35,7 +36,9 @@ description: Generates a Chinese digest from Juejin hot boards (文章热榜 + �
 
 ## 触发后的日期选择
 
-除非用户已明确提供 `force=true`，否则先出示选项并等待选择：
+若本次由 **dual-digest-on-pull（统一「拉取」）** 触发：不要单独提问；直接使用用户已给出的 `1` / `2`+日期 / `force=true`（与 AI 日报、知识库相同）。
+
+若用户**仅**请求掘金热榜：除非已明确提供 `force=true` 或已带 `1`/`2`/日期，否则先出示选项并等待选择：
 
 ```text
 请选择拉取方式：

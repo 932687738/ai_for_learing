@@ -53,7 +53,7 @@ description: Generates a Chinese knowledge-base digest from a fixed set of Chine
 - **`knowledge-base-digest.md`** 为**当前自然月**滚动视图：只保留与「本次成功写入日期所属月份」相同的章节；跨月后须从滚动入口移除其他月份章节。
 - 进入新月份且 `{YYYYMM}.md` 尚不存在时，**必须先创建**该月归档文件再写入。
 
-**双 Digest 规程链接**（纳入知识库拉取清单，与「拉取日报」工作流一致）：[`.cursor/rules/dual-digest-on-pull.mdc`](../../rules/dual-digest-on-pull.mdc)（工作区根路径：`.cursor/rules/dual-digest-on-pull.mdc`）。
+**三 Digest 规程链接**（纳入知识库拉取清单，与「拉取日报」工作流一致；统一「拉取」时本 skill 之后还会跑掘金热榜）：[`.cursor/rules/dual-digest-on-pull.mdc`](../../rules/dual-digest-on-pull.mdc)（工作区根路径：`.cursor/rules/dual-digest-on-pull.mdc`）。
 
 ## 状态文件格式
 

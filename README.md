@@ -86,7 +86,7 @@
 
 | 文件 | 说明 |
 | --- | --- |
-| [`.cursor/rules/dual-digest-on-pull.mdc`](.cursor/rules/dual-digest-on-pull.mdc) | **双 Digest**：当用户语义为「拉取日报」（非 Git `pull`）时，必须先读并按顺序执行两条 Skill（AI 日报 + 知识库），并约定与 `dailyReport/`、`github-topz` 的配合方式 |
+| [`.cursor/rules/dual-digest-on-pull.mdc`](.cursor/rules/dual-digest-on-pull.mdc) | **三 Digest**：当用户语义为「拉取日报」（非 Git `pull`）时，必须先读并按顺序执行三条 Skill（AI 日报 → 知识库 → 掘金热榜），并约定与 `dailyReport/`、`github-topz`、`juejin-hot-news` 的配合方式 |
 | [`.cursor/rules/front-end-cursor-rules.mdc`](.cursor/rules/front-end-cursor-rules.mdc) | **前端主线栈**（React 16、react-router-dom 4、Redux/Zustand、Ant Design 5、Less 等）的编码约束与偏好 |
 | [`.cursor/rules/graphrag.mdc`](.cursor/rules/graphrag.mdc) | **GraphRAG 智能体**：在 `project_graphrag/**`、`tools/chroma_crud.py` 等上下文下，规定目标项目只读、构建/增量/语义增强/写回与安全边界 |
 
