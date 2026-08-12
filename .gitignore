@@ -11,6 +11,8 @@ __pycache__/
 # nightly dual-digest 调度器产物
 scripts/dual-digest-scheduled/node_modules/
 scripts/dual-digest-scheduled/logs/
+tools/logs/
+dailyReport/juejin-hot-news/_staging_latest.json
 /.idea/
 
 # 第 3 课 Pipeline 本地序列化产物（可由脚本重新生成）
