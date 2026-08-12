@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="feat(dailyReport): 添加2026-08-06 AI日报和知识库日报内容&#10;&#10;- 添加 Claude Code v2.1.223 安全加固更新记录&#10;- 记录 Mirendil $100M+ Google Cloud RSI 算力合约信息&#10;- 更新 OpenAI 硬件定价泄露相关内容&#10;- 添加 Inevitable AI Group $6M 创投信息&#10;- 更新 github-topz.md 仓库排名和 trending 数据&#10;- 同步更新 ai-daily-state.json 处理日期状态" />
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="docs(dailyReport): 添加 2026-08-10 AI 与知识库日报内容&#10;&#10;- 新增 2026-08-10 AI 日报，涵盖 Qwen3.8 权重窗口、ChatGPT Free tier 无限文本等功能更新&#10;- 新增 2026-08-10 知识库日报，记录固定来源检索结果与工程实践要点&#10;- 更新 ai-daily-state.json 状态文件，将最后同步日期推进至 2026-08-10&#10;- 更新 github-topz.md 热门仓库排名，包含 semantica-agi、firecrawl 等新增热门项目&#10;- 整合 AI 日报与知识库日报内容，完善当日技术动态与工具链进展记录" />
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -287,14 +287,7 @@
       <workItem from="1785981900975" duration="323000" />
       <workItem from="1786066994230" duration="51000" />
       <workItem from="1786325537905" duration="466000" />
-    </task>
-    <task id="LOCAL-00029" summary="多智能体通信模式解析">
-      <option name="closed" value="true" />
-      <created>1779958162773</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1779958162773</updated>
+      <workItem from="1786429950986" duration="795000" />
     </task>
     <task id="LOCAL-00030" summary="RAG知识图谱向量图谱关系解析">
       <option name="closed" value="true" />
@@ -680,7 +673,15 @@
       <option name="project" value="LOCAL" />
       <updated>1786325959783</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="docs(dailyReport): 添加 2026-08-10 AI 与知识库日报内容&#10;&#10;- 新增 2026-08-10 AI 日报，涵盖 Qwen3.8 权重窗口、ChatGPT Free tier 无限文本等功能更新&#10;- 新增 2026-08-10 知识库日报，记录固定来源检索结果与工程实践要点&#10;- 更新 ai-daily-state.json 状态文件，将最后同步日期推进至 2026-08-10&#10;- 更新 github-topz.md 热门仓库排名，包含 semantica-agi、firecrawl 等新增热门项目&#10;- 整合 AI 日报与知识库日报内容，完善当日技术动态与工具链进展记录">
+      <option name="closed" value="true" />
+      <created>1786429968612</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1786429968613</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -698,7 +699,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="《人皮契约》" />
     <MESSAGE value="终末之语" />
     <MESSAGE value="20260625" />
     <MESSAGE value="移除story内容" />
@@ -723,7 +723,8 @@
     <MESSAGE value="refactor(story-archivist): 更新故事归档规范和树形结构&#10;&#10;- 更新版本号从 5.0 到 5.1&#10;- 固定分组节点名为 总述、领域说明、故事&#10;- 领域说明文字必须挂在 总述 / 领域说明 下，不得与故事标题同级&#10;- 每个故事标题下有且仅有一个简述子节点&#10;- 明确领域说明与故事必须分挂在不同分组节点下&#10;- 根下仅两类直接子节点：总述 + 各领域名&#10;- 每个领域下有且仅有两个直接子节点：领域说明、故事&#10;- 更新 HTML 文件中的树形结构展示&#10;- 调整反例说明，强调分组节点的重要性" />
     <MESSAGE value="feat(dailyReport): 添加2026-08-05 AI日报和知识库日报内容&#10;&#10;- 更新 ai-daily-news/202608.md 添加2026-08-05日报内容&#10;- 更新 knowledge-base-news/202608.md 添加2026-08-05日报内容&#10;- 更新 ai-daily-news/ai-daily-digest.md 添加2026-08-05摘要内容&#10;- 更新 ai-daily-news/ai-daily-state.json 同步最新日期状态&#10;- 更新 github-topz.md 同步最新GitHub trending数据至2026-08-06" />
     <MESSAGE value="feat(dailyReport): 添加2026-08-06 AI日报和知识库日报内容&#10;&#10;- 添加 Claude Code v2.1.223 安全加固更新记录&#10;- 记录 Mirendil $100M+ Google Cloud RSI 算力合约信息&#10;- 更新 OpenAI 硬件定价泄露相关内容&#10;- 添加 Inevitable AI Group $6M 创投信息&#10;- 更新 github-topz.md 仓库排名和 trending 数据&#10;- 同步更新 ai-daily-state.json 处理日期状态" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(dailyReport): 添加2026-08-06 AI日报和知识库日报内容&#10;&#10;- 添加 Claude Code v2.1.223 安全加固更新记录&#10;- 记录 Mirendil $100M+ Google Cloud RSI 算力合约信息&#10;- 更新 OpenAI 硬件定价泄露相关内容&#10;- 添加 Inevitable AI Group $6M 创投信息&#10;- 更新 github-topz.md 仓库排名和 trending 数据&#10;- 同步更新 ai-daily-state.json 处理日期状态" />
+    <MESSAGE value="docs(dailyReport): 添加 2026-08-10 AI 与知识库日报内容&#10;&#10;- 新增 2026-08-10 AI 日报，涵盖 Qwen3.8 权重窗口、ChatGPT Free tier 无限文本等功能更新&#10;- 新增 2026-08-10 知识库日报，记录固定来源检索结果与工程实践要点&#10;- 更新 ai-daily-state.json 状态文件，将最后同步日期推进至 2026-08-10&#10;- 更新 github-topz.md 热门仓库排名，包含 semantica-agi、firecrawl 等新增热门项目&#10;- 整合 AI 日报与知识库日报内容，完善当日技术动态与工具链进展记录" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs(dailyReport): 添加 2026-08-10 AI 与知识库日报内容&#10;&#10;- 新增 2026-08-10 AI 日报，涵盖 Qwen3.8 权重窗口、ChatGPT Free tier 无限文本等功能更新&#10;- 新增 2026-08-10 知识库日报，记录固定来源检索结果与工程实践要点&#10;- 更新 ai-daily-state.json 状态文件，将最后同步日期推进至 2026-08-10&#10;- 更新 github-topz.md 热门仓库排名，包含 semantica-agi、firecrawl 等新增热门项目&#10;- 整合 AI 日报与知识库日报内容，完善当日技术动态与工具链进展记录" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ai_for_learing$vanilla_rnn_numpy_demo.coverage" NAME="vanilla_rnn_numpy_demo Coverage Results" MODIFIED="1778826911757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ai-learning/07-cnn-rnn-transformer-intro/scripts" />
