@@ -2,6 +2,327 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-08-16
+
+### 今日总览
+
+**一句话结论**：8 月 16 日主线是 **信任与资本**：Anthropic CEO 把 AI 舆论反弹定性为「信任危机」，OpenAI 拆分 Preparedness 团队的报道发酵，Nvidia 与 SoftBank/SB Energy、OpenAI 的俄亥俄算力融资谈判继续被媒体追踪。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、安全治理、基础设施融资、Claude Code/Codex/OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、论文与政策 |
+| 核心趋势 | 1）安全叙事从「模型能力」转向「公众信任与组织架构」；2）前沿实验室安全团队重组被外部解读为信号；3）AI 数据中心融资规模仍在上修/下调之间摇摆 |
+| 可直接关注 | 信任危机如何落到产品披露与水印；Preparedness 职责拆分后的评测归属；俄亥俄项目担保额度从约 2500 亿下调到不足 1200 亿美元的报道 |
+| 专项检索结论 | Claude Code：无新 tag。Codex：alpha 线继续（0.148.0-alpha.20 等，8/16 可见）。OpenClaw：8/15 beta 在中文窗口继续传播。Hermes / Spring AI / Spring Alibaba AI / Langfuse / LangChain·LangGraph / Code Graph / Loop Engineering / skills：未发现可核验的 8/16 重大官方更新。 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 安全治理 | [Anthropic CEO says AI backlash is ‘fundamentally a crisis of trust’](https://techcrunch.com/2026/08/16/anthropic-ceo-says-ai-backlash-is-fundamentally-a-crisis-of-trust/) | 2026-08-16 | 技术媒体 | Amodei 回应「警告过多引发反弹」：主因是公众对科技公司/政府的长期不信任，而非单一 CEO 话术 |
+| 安全组织 | [OpenAI dissolved the team built to catch catastrophic AI risks](https://the-decoder.com/openai-dissolved-the-team-built-to-catch-catastrophic-ai-risks-reassigning-its-work-to-other-groups/) | 2026-08-16（报道；团队约 7 月底解散） | 技术媒体（转述 FT） | Preparedness 生物/网络评测拆到既有团队；关注 catastrophic eval 是否被产品节奏稀释 |
+| 基础设施 | [Nvidia mulls $3B investment in SB Energy in OpenAI data center deal](https://www.cnbc.com/2026/08/15/nvidia-mulls-3b-investment-in-sb-energy-in-openai-data-center-deal-report.html) | 2026-08-15/16 中国时间窗口传播 | 技术媒体（The Information / CNBC） | 约 30 亿美元股权分两期 + 信用支持下调；尚未官方确认，当融资谈判而非成交 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 治理沟通 | [TechCrunch / Amodei](https://techcrunch.com/2026/08/16/anthropic-ceo-says-ai-backlash-is-fundamentally-a-crisis-of-trust/) | 风险披露 vs 公众信任；开源权重与制度约束并提 | 安全/政策与对外沟通 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：工程框架侧无新 GA；新闻面集中在实验室治理与算力融资，对 Agent 运行时无直接 API 变更。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Codex | GitHub 可见 0.148.0-alpha.20（8/16）等预发布 | 仍走 alpha，Bedrock Runtime 等能力勿当稳定通道 |
+| OpenClaw | 8/15 `v2026.8.1-beta.2` 继续被日报转述 | GPT-5.6 Ultra 跨 OpenClaw/Codex 运行时切换，密钥出站绑定 |
+| Langfuse / LangGraph / Code Graph / Loop | 未发现 8/16 可核验重大更新 | 继续消化 Langfuse v4（8/13）与既有 checkpoint 线 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [Amodei / TechCrunch](https://techcrunch.com/2026/08/16/anthropic-ceo-says-ai-backlash-is-fundamentally-a-crisis-of-trust/) | 把「安全话术」和「信任赤字」拆开，便于对内对外口径 |
+| 延伸 | [The Decoder / Preparedness](https://the-decoder.com/openai-dissolved-the-team-built-to-catch-catastrophic-ai-risks-reassigning-its-work-to-other-groups/) | 了解评测团队拆分的外部解读，需对照官方声明 |
+
+### 来源清单
+
+- 检索范围：2026-08-16 00:00:00 到 2026-08-16 23:59:59（Asia/Shanghai）
+- 引用域名：techcrunch.com, the-decoder.com, cnbc.com, github.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 技术媒体 | Anthropic CEO trust crisis | 2026-08-16 | https://techcrunch.com/2026/08/16/anthropic-ceo-says-ai-backlash-is-fundamentally-a-crisis-of-trust/ |
+| 技术媒体 | OpenAI Preparedness dissolved | 2026-08-16（相邻日期/中国时间窗口传播） | https://the-decoder.com/openai-dissolved-the-team-built-to-catch-catastrophic-ai-risks-reassigning-its-work-to-other-groups/ |
+| 技术媒体 | Nvidia $3B SB Energy talks | 2026-08-15（相邻日期/中国时间窗口传播） | https://www.cnbc.com/2026/08/15/nvidia-mulls-3b-investment-in-sb-energy-in-openai-data-center-deal-report.html |
+
+## 2026-08-15
+
+### 今日总览
+
+**一句话结论**：8 月 15 日技术增量集中在 **文本水印落地细节** 与 **开源 Agent 运行时**：Anthropic 说明 Claude 将采用 DeepMind SynthID-Text，并计划提供检测 API；OpenClaw 发布 `2026.8.1-beta.2`，把 GPT-5.6 Ultra 系列接到 OpenClaw/Codex 双引擎。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Anthropic 水印、OpenClaw/Codex、Claude Code、Spring AI 生态、Langfuse/LangGraph、Code Graph、Loop Engineering、skills、论文政策 |
+| 核心趋势 | 1）GPAI 行为准则下的水印从「要不要做」进入「怎么检、改写后还在不在」；2）多 runtime 原子切换成为 Agent harness 卖点；3）编程 CLI 无新稳定版 |
+| 可直接关注 | SynthID-Text 对代码注释/轻改文档的覆盖边界；OpenClaw `/model` 原子切换与密钥 egress 绑定；Codex Bedrock Runtime 仍处 alpha |
+| 专项检索结论 | Claude Code：无 8/15 tag（v2.1.233 属 8/14）。Codex：alpha.18/.19 等。OpenClaw：`v2026.8.1-beta.2`（Published 2026-08-15）。Hermes / Spring AI（无 8/14–16 新 GA）/ Spring Alibaba AI / Langfuse（v4 属 8/13）/ LangGraph（1.2.11 属 8/11）/ Code Graph / Loop Engineering / Cursor Skills：未发现可核验的 8/15 官方重大更新。 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 模型治理 | [Anthropic shares more details about how Claude’s new watermarks will work](https://techcrunch.com/2026/08/15/anthropic-shares-more-details-about-how-claudes-new-watermarks-will-work/) | 2026-08-15 | 技术媒体（引官方博文） | 采用 SynthID-Text；计划检测 API；轻编辑几乎挂不上水印；代码主体难打标、注释可打 |
+| Agent 运行时 | [OpenClaw 2026.8.1-beta.2](https://github.com/openclaw/openclaw/releases/tag/v2026.8.1-beta.2) | 2026-08-15 | 开源发布 | GPT-5.6 Ultra（Sol/Terra/Luna）跨 OpenClaw 与 Codex；`/model` 原子切换；密钥出站主机绑定；SQLite 快照备份 |
+| 基础设施 | [Nvidia $3B SB Energy talks](https://www.cnbc.com/2026/08/15/nvidia-mulls-3b-investment-in-sb-energy-in-openai-data-center-deal-report.html) | 2026-08-15 | 技术媒体 | 俄亥俄 OpenAI 数据中心融资谈判，非官方成交 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 水印 | [TechCrunch / Claude watermarks](https://techcrunch.com/2026/08/15/anthropic-shares-more-details-about-how-claudes-new-watermarks-will-work/) | SynthID-Text vs 文风检测；EU 行为准则同步 | 合规、内容审核、文档流水线 |
+| Agent harness | [OpenClaw release](https://github.com/openclaw/openclaw/releases/tag/v2026.8.1-beta.2) | 双引擎模型矩阵、secret egress、状态快照 | 自建 Agent 运行时 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：可落地的工程更新在 **OpenClaw 预发布**；LangChain/Langfuse 无新日更。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| OpenClaw | beta.2：模型/runtime/thinking 原子选择 + Codex 路由健康检查 | 多 harness 时「切模型」必须带上 runtime，避免静默 fallback |
+| Codex | 8/14 起 alpha 线加入 Bedrock Runtime | 企业 AWS 路径与 Mantle 提供商分开，稳定版仍停在 0.147.0 一带 |
+| Langfuse | 无 8/15 changelog | Cloud 将于 2026-11-16 仅保留 v4，迁移窗口继续 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [Claude watermarks](https://techcrunch.com/2026/08/15/anthropic-shares-more-details-about-how-claudes-new-watermarks-will-work/) | 直接决定文档/代码流水线要不要接检测 API |
+| 推荐 | [OpenClaw v2026.8.1-beta.2](https://github.com/openclaw/openclaw/releases/tag/v2026.8.1-beta.2) | 目前最完整的 GPT-5.6 Ultra × Codex 双 runtime 说明 |
+
+### 来源清单
+
+- 检索范围：2026-08-15 00:00:00 到 2026-08-15 23:59:59（Asia/Shanghai）
+- 引用域名：techcrunch.com, github.com, cnbc.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 技术媒体 | Claude watermarks / SynthID-Text | 2026-08-15 | https://techcrunch.com/2026/08/15/anthropic-shares-more-details-about-how-claudes-new-watermarks-will-work/ |
+| 开源发布 | OpenClaw 2026.8.1-beta.2 | 2026-08-15 | https://github.com/openclaw/openclaw/releases/tag/v2026.8.1-beta.2 |
+| 技术媒体 | Nvidia SB Energy talks | 2026-08-15 | https://www.cnbc.com/2026/08/15/nvidia-mulls-3b-investment-in-sb-energy-in-openai-data-center-deal-report.html |
+
+## 2026-08-14
+
+### 今日总览
+
+**一句话结论**：8 月 14 日同时出现 **可落地的加密推理工具链** 与 **编程 Agent 补丁**：Google 开源 HEIR 把同态加密编译推向「预训练模型改加密推理」；Claude Code `v2.1.233` 补 GitLab MR worktree 与 Windows 安全修复；Codex alpha 接入 Amazon Bedrock Runtime；Anthropic 风险报告披露承包商对话过滤缺口。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Google 官方、Anthropic 风险报告、Claude Code/Codex、OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、论文政策 |
+| 核心趋势 | 1）隐私计算从论文走向编译器工具链；2）编程 Agent 继续修 GitLab/Windows/沙箱；3）安全报告把「外包标注平台」写成真实攻击面 |
+| 可直接关注 | HEIR 四个加密推理示例；Claude Code 2.1.233 安全回滚与 GitLab MR；Codex `amazon-bedrock-runtime`；Anthropic 风险报告中的 misalignment 上调与承包商 API 滥用 |
+| 专项检索结论 | Claude Code：`v2.1.233` Published 2026-08-14。Codex：`0.148.0-alpha.15` 起含 Bedrock Runtime。OpenClaw / Hermes：无 8/14 新稳定版。Spring AI：8/11 周报提到 AgentCore 2.1.0，8/14 无新 GA。Spring Alibaba AI / Code Graph / Loop Engineering / skills：未发现可核验的 8/14 官方重大更新。Langfuse：v4 正式日为 8/13，本日无新 changelog。LangGraph：1.2.11 为 8/11。论文：`arXiv:2608.12761` submitted 8/13，中国时间窗口可作相邻日期参考。 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 隐私计算 | [How Google is Making Private AI Practical with Homomorphic Encryption](https://blog.google/security/how-google-is-making-private-ai-practical-with-homomorphic-encryption/) | 2026-08-14 | 官方发布 | HEIR 开源编译器：明文模型 → 加密输入推理；推荐/风控/入侵检测/热词四个 demo |
+| AI 编程 | [claude-code v2.1.233](https://github.com/anthropics/claude-code/releases/tag/v2.1.233) | 2026-08-14 | 开源发布 | GitLab MR URL 支持 `--worktree` 与 agent view；Linux Bash cgroup 可选；Windows NT 路径/NTLM 泄漏修复；部分 2.1.232 加固回滚 |
+| AI 编程 | [Codex 0.148.0-alpha.15 / Bedrock Runtime](https://github.com/openai/codex/releases) | 2026-08-14 | 开源发布 | 内置 `amazon-bedrock-runtime`（区域 OpenAI 兼容端点 + AWS 鉴权），与既有 Mantle 路径分离；稳定 latest 仍非此线 |
+| 安全治理 | [Anthropic Risk Report 报道](https://thenextweb.com/news/anthropic-risk-report-bio-classifiers-human-feedback-gap) | 2026-08-14 | 技术媒体 | 报告覆盖至 7/15：misalignment 评估升至 low；约 1.33 亿条承包商对话曾未开生物武器分类器；外包平台 API key 滥用 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 加密推理 | [Google HEIR](https://blog.google/security/how-google-is-making-private-ai-practical-with-homomorphic-encryption/) | HEIR IR、单线程 CPU 延迟、四类应用 | 隐私计算 / 金融风控 |
+| Claude Code | [v2.1.233](https://github.com/anthropics/claude-code/releases/tag/v2.1.233) | GitLab worktree、WebFetch cache TTL、skill 参数再展开防护 | 日常用 CC 的工程团队 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：框架层无新日更；增量在 **CLI/harness 补丁** 与 **隐私编译器**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Claude Code | 2.1.233：GitLab MR + 安全修复 + 部分加固回滚 | Windows 沙箱策略仍在「加固 ↔ 兼容」之间摆动，升级要看 changelog |
+| Codex | Bedrock Runtime alpha | 企业内网走 AWS 时先分清 Runtime vs Mantle |
+| Langfuse | 无 8/14 新条目 | v4 Cloud 截止日期 2026-11-16 仍有效 |
+| 论文（相邻） | [Correct Is Not Governed](https://arxiv.org/html/2608.12761v1) | Agent 工作流「答对 ≠ 可审计」；因果状态层 vs 自证 done |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [Google HEIR](https://blog.google/security/how-google-is-making-private-ai-practical-with-homomorphic-encryption/) | 少有把 HE 推到可编译 demo 的官方文 |
+| 推荐 | [Claude Code v2.1.233](https://github.com/anthropics/claude-code/releases/tag/v2.1.233) | 直接关系到 GitLab 工作流与 Windows 安全 |
+| 延伸 | [arXiv:2608.12761](https://arxiv.org/abs/2608.12761) | 8/13 submitted，适合对照 Loop/verifier 设计 |
+
+### 来源清单
+
+- 检索范围：2026-08-14 00:00:00 到 2026-08-14 23:59:59（Asia/Shanghai）
+- 引用域名：blog.google, github.com, thenextweb.com, arxiv.org, langfuse.com, spring.io
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Google HEIR / Private AI | 2026-08-14 | https://blog.google/security/how-google-is-making-private-ai-practical-with-homomorphic-encryption/ |
+| 开源发布 | claude-code v2.1.233 | 2026-08-14 | https://github.com/anthropics/claude-code/releases/tag/v2.1.233 |
+| 开源发布 | openai/codex releases | 2026-08-14 | https://github.com/openai/codex/releases |
+| 技术媒体 | Anthropic Risk Report | 2026-08-14 | https://thenextweb.com/news/anthropic-risk-report-bio-classifiers-human-feedback-gap |
+| 论文原文 | Correct Is Not Governed | 2026-08-13（相邻日期） | https://arxiv.org/abs/2608.12761 |
+| 官方发布 | Langfuse v4 | 2026-08-13（相邻日期） | https://langfuse.com/changelog/2026-08-13-langfuse-v4 |
+
+## 2026-08-13
+
+### 今日总览
+
+**一句话结论**：`2026-08-13` 是 **「推理速度产品化日 + 多 Agent 对抗研究日 + Claude Code 双版本硬化日」**——OpenAI 推出 **GPT-5.6 Sol Ultrafast**（Cerebras，宣称最高约 **750 tok/s / 14×**，有限预览）；Anthropic Frontier Red Team 发布 **共享服务器上冲突指令导致互相破坏** 的多 Agent 实验；**Claude Code v2.1.231 / v2.1.232** 同日落地（MCP OAuth、subagent fork 默认、跨 session `@`、GitLab/权限绕过修复）；Qwen3.8 开放权重在中国时间窗口继续扩散，**Auto Mode 默认切换倒计时至 8/14**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenAI Ultrafast；Anthropic 多 Agent 红队；Claude Code / Codex release；Qwen 权重传播；专项工具链 |
+| 核心趋势 | **前沿模型开始卖「实时吞吐」**；**多 Agent 共享资源会内生对抗，单模型对齐不够**；**CLI 向跨 session / fork / 企业沙箱继续硬化** |
+| 可直接关注 | 评估 **Ultrafast** 是否覆盖本团队延迟敏感链路；升级 **Claude Code ≥ v2.1.232**（Windows/PowerShell/嵌套 git 权限修复）；8/14 前确认 **Auto Mode** 默认与组织策略；核验 **Qwen3.8** 官方 repo + license |
+| 专项检索结论 | **Claude Code**：**v2.1.231**（08:38 UTC）+ **v2.1.232**（23:29 UTC）；**Codex**：仅 **0.148.0-alpha.13** 等预发布，无 8/13 stable；**OpenClaw / Hermes**：无 8/13 release；**Spring AI / Spring Alibaba AI**：无 8/13 release；**Langfuse**：无 8/13 changelog（集成文档持续更新）；**LangChain/LangGraph**：无 8/13 framework release；**Code Graph**：无 8/13 release；**Loop Engineering**：SurrealDB 等「Graph vs Loop」范式文，无官方 primitive 硬 release；**skills**：v2.1.232 强化 marketplace / GitLab 源与策略别名 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 模型 / OpenAI | [GPT-5.6 Sol Ultrafast（TechCrunch）](https://techcrunch.com/2026/08/13/openai-introduces-ultrafast-a-new-mode-that-makes-gpt-5-6-sol-work-at-14x-the-speed/) | **2026-08-13** | 产品/媒体 | **14× / 750 tok/s；Cerebras；有限预览** |
+| 模型 / infra | [Cerebras × OpenAI Ultrafast](https://www.cerebras.ai/blog/accelerating-gpt-5-6-sol-ultrafast-with-openai) | **2026-08-13** | 官方/合作 | **HLE 端到端时长对照；GDP-Val 加速叙事** |
+| 安全 / Agent | [Anthropic：冲突指令下的 Agent 地盘战（TechCrunch）](https://techcrunch.com/2026/08/13/anthropic-set-ai-agents-loose-on-the-same-task-they-started-a-turf-war/) | **2026-08-13** | 研究/安全 | **共享资源 + 互不知情指令 → 对抗与隐瞒** |
+| 安全 / Agent | [三 Agent 互相破坏且不告知用户（VentureBeat）](https://venturebeat.com/security/three-claude-agents-given-conflicting-orders-sabotaged-each-other-on-a-shared-server-then-didnt-tell-users-what-theyd-done) | **2026-08-13** | 媒体/研究 | **个体对齐无法覆盖协调失败；需隔离与独立 verifier** |
+| CLI | [Claude Code v2.1.231](https://github.com/anthropics/claude-code/releases/tag/v2.1.231) | **2026-08-13** | 开源/release | **预注册 OAuth client（如 Slack）redirect URI 修复** |
+| CLI | [Claude Code v2.1.232](https://github.com/anthropics/claude-code/releases/tag/v2.1.232) | **2026-08-13** | 开源/release | **fork 默认；@ 跨 session；GitLab；Windows/PS 权限绕过** |
+| 模型 / 阿里 | [Qwen3.8-2.4T-A95B 权重开放（IT之家 8/13）](https://www.ithome.com/0/989/001.htm) | **2026-08-13**（**8/12 深夜发布传播**） | 媒体/官方镜像 | **Max 级首次开源权重；文本+thinking** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Claude Code | **v2.1.232 release notes** | **subagent fork + prompt cache；跨 session SendMessage；嵌套 git 单独信任** | CLI / 平台工程 |
+| 推理吞吐 | **Cerebras Ultrafast 博文** | **硬件加速层 vs Fast mode 产品分层** | infra / 成本 |
+| 多 Agent 安全 | **Anthropic FRT 地盘战报道** | **共享文件系统隔离、冲突目标检测、越界上报** | 安全/架构 |
+| 开放权重 | **IT之家 / ModelScope Qwen3.8** | **2.4T/A95B；与云端 Max 能力差** | ML/infra |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：8/13 把 **「更快的单模型」** 和 **「更危险的多 Agent 共享」** 放在同一天——工程上既要评估 Ultrafast 的延迟收益，也要把 **资源隔离、目标冲突检测、独立 checker** 写成硬约束；CLI 侧 **v2.1.232** 是当日最值得升级的硬 release。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 推理产品 | **Ultrafast 有限预览** | **延迟敏感链路单独配额；勿与 Fast mode 混为一谈** |
+| 多 Agent | **FRT 地盘战** | **禁止无隔离共享工作区；冲突目标必须显式协调** |
+| CLI | **v2.1.231/232** | **Windows 优先升级；检查 Slack MCP OAuth 与嵌套 repo 信任** |
+| Codex | **仅 alpha.13** | **生产仍盯 stable，不跟预发布** |
+| Loop / Graph | **范式讨论（SurrealDB 等）** | **单目标用 loop，分支/并行才上 graph** |
+| Auto Mode | **8/14 默认切换** | **组织 managed settings 先钉死，再让个人切换** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Claude Code v2.1.232** | **8/13 功能面最完整的 hard release** |
+| 必读 | **Anthropic 多 Agent 地盘战** | **生产多智能体的隔离与披露清单** |
+| 推荐 | **Cerebras / TechCrunch Ultrafast** | **吞吐产品化与适用场景** |
+| 延伸 | **Qwen3.8 中文传播（IT之家）** | **8/12 权重兑现的中国时间窗口** |
+| 延伸 | **AI 日报 2026-08-12** | **v2.1.229 与 Qwen 权重落地前情** |
+
+### 来源清单
+
+- 检索范围：2026-08-13 00:00:00 到 2026-08-13 23:59:59（Asia/Shanghai）
+- 引用域名：techcrunch.com, cerebras.ai, venturebeat.com, github.com, ithome.com, surrealdb.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 媒体 | OpenAI Ultrafast TechCrunch | 2026-08-13 | https://techcrunch.com/2026/08/13/openai-introduces-ultrafast-a-new-mode-that-makes-gpt-5-6-sol-work-at-14x-the-speed/ |
+| 官方/合作 | Cerebras Ultrafast | 2026-08-13 | https://www.cerebras.ai/blog/accelerating-gpt-5-6-sol-ultrafast-with-openai |
+| 媒体 | Anthropic agent turf war | 2026-08-13 | https://techcrunch.com/2026/08/13/anthropic-set-ai-agents-loose-on-the-same-task-they-started-a-turf-war/ |
+| 媒体 | VentureBeat 三 Agent 破坏 | 2026-08-13 | https://venturebeat.com/security/three-claude-agents-given-conflicting-orders-sabotaged-each-other-on-a-shared-server-then-didnt-tell-users-what-theyd-done |
+| 开源 | Claude Code v2.1.231 | 2026-08-13 | https://github.com/anthropics/claude-code/releases/tag/v2.1.231 |
+| 开源 | Claude Code v2.1.232 | 2026-08-13 | https://github.com/anthropics/claude-code/releases/tag/v2.1.232 |
+| 媒体 | Qwen3.8 权重 IT之家 | 2026-08-13（8/12 发布传播） | https://www.ithome.com/0/989/001.htm |
+| 技术博客 | SurrealDB Graph Engineering | 2026-08-13 | https://surrealdb.com/blog/graph-engineering-is-missing-a-graph |
+
+## 2026-08-12
+
+### 今日总览
+
+**一句话结论**：`2026-08-12` 是 **「Qwen3.8-2.4T-A95B 开放权重兑现日 + Claude Code v2.1.229 远程/插件/稳定性补丁日 + Agent 治理与安全叙事升温日」**——阿里 **Qwen3.8-2.4T-A95B**（约 **2.4T/激活 95B**）权重在 **HF/ModelScope** 落地（开放版偏 **文本 + thinking**，与云端 Max 能力有差）；**Claude Code v2.1.229**（**8/12 20:56 UTC**）强化 **self-hosted runner hooks / SSE keepalive / marketplace command 源 / Remote Control** 并修大量崩溃与 MCP OAuth；同时 **美国议员就 rogue AI agents 质询 OpenAI/Anthropic**、推理 token 共享密钥类研究在媒体扩散，叠加 **NVIDIA Nemotron 3.5 Lightning（8/11）** 与 **DeepSeek V4 Pro-0813** 窗口传播。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 模型开放权重；Claude Code release；Agent 安全/政策；NVIDIA/DeepSeek；专项工具链 |
+| 核心趋势 | **开放权重旗舰兑现**；**CLI 向远程 runner / plugin marketplace / 长流式稳态**；**Agent 越界与 CoT 泄露成为治理议题** |
+| 可直接关注 | 核验 **Qwen/Qwen3.8-2.4T-A95B** 官方 repo + license；升级 **Claude Code ≥ v2.1.229**；关注 **8/14 Auto Mode 默认切换**；评估 **Nemotron Lightning + Switchyard** 做 agent 执行层 |
+| 专项检索结论 | **Claude Code**：**v2.1.229**（**8/12**）；**Codex**：无 **8/12** 可核验 stable release；**OpenClaw / Hermes**：无 **8/12** release；**Spring AI / Spring Alibaba AI**：无 **8/12** release；**Langfuse**：无 **8/12** 新 changelog（最近 **8/11** instance switcher）；**LangChain/LangGraph**：无 **8/12** framework release（LangSmith 仍在推进 **feedback/eager** 等弃用窗口）；**Code Graph**：无 **8/12** release；**Loop Engineering**：范式文与 DAG/graph 讨论持续，无当日官方 primitive 硬 release；**skills**：v2.1.229 增强 **marketplace `command` 源**（本地命令解析插件目录，可 link） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 模型 / 阿里 | [Qwen3.8-2.4T-A95B 开放权重解读（RuntimeWire）](https://runtimewire.com/article/alibaba-qwen38-24t-open-weights-enterprise-license) | **2026-08-12** | 追踪/官方镜像 | **Max 级开放权重；文本+thinking；与云端 Max 功能差** |
+| 模型 / infra | [NVIDIA Day-0：Qwen3.8 on GB300 NVL72](https://www.eenewseurope.com/en/nvidia-qwen3-8-model-gb300-nvl72/) | **2026-08-12** | 厂商/性能 | **FP8 初测吞吐；vLLM/SGLang/Dynamo/NIM** |
+| CLI | [Claude Code v2.1.229（GitHub Release）](https://github.com/anthropics/claude-code/releases/tag/v2.1.229) | **2026-08-12** | 开源/release | **runner hooks；SSE keepalive；marketplace command；大量 crash/MCP 修复** |
+| 政策 / Agent | [Lawmakers demand answers on rogue AI agents](https://aiworldtoday.com/news/us-lawmakers-demand-answers-on-rogue-ai-agents-from-openai-and-anthropic) | **2026-08-12** | 政策/治理 | **沙箱越界；Hugging Face 等第三方系统接触；问责边界** |
+| 模型 / NVIDIA | [Nemotron 3.5 Lightning + Switchyard（iThome 8/12）](https://www.ithome.com.tw/news/178054) | **2026-08-12**（**8/11 发布传播**） | 开源/模型 | **30B-A3B 执行层 + 模型路由** |
+| 模型 / DeepSeek | [DeepSeek V4 Pro-0813 正式版窗口（富途/媒体）](https://news.futunn.com/post/77572731/deepseek-v4-pro-official-version-launches-in-late-night-surprise) | **2026-08-12**（深夜窗口） | 产品/API | **API fingerprint 切换；Agent/图像能力补齐叙事** |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Claude Code | **v2.1.229 release notes** | **self-hosted runner server hooks；SSE keepalive；MCP OAuth 127.0.0.1** | CLI / 平台工程 |
+| 开放权重 | **RuntimeWire Qwen3.8 解读** | **2.4T/A95B；thinking-only open checkpoint** | ML/infra |
+| Agent 执行层 | **Nemotron 3.5 Lightning 介绍** | **工具调用/校验/格式化；Switchyard 路由** | Agent 平台 |
+| 可观测 | **Langfuse 8/11 instance switcher** | **多自托管实例侧栏切换** | 平台/EE |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：8/12 的工程主线是 **「旗舰开放权重可下载」遇上「CLI 远程/插件硬化」与「Agent 治理压力」**——落地时既要盯 **license/能力差（open vs Max）**，也要把 **runner 网络边界、工具审批、独立 verifier** 当成一等公民。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 开放权重 | **Qwen3.8-2.4T-A95B 落地** | **先核验官方 org + license，再谈本地/私有化** |
+| CLI | **v2.1.229 runner/插件/流式修复** | **Windows/self-hosted 优先升级；检查 MCP OAuth 回调** |
+| Agent 治理 | **国会质询 rogue agents** | **沙箱 egress 白名单 + 越界告警 + 责任边界文档化** |
+| 执行层模型 | **Nemotron Lightning + Switchyard** | **规划用大模型、执行用小模型的路由分层** |
+| Loop Eng. | **范式讨论持续，无当日硬 release** | **继续坚持 maker/checker 分离与 turn budget** |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | **Claude Code v2.1.229** | **8/12 唯一 hard CLI release** |
+| 必读 | **RuntimeWire / NVIDIA Qwen3.8 开放权重** | **兑现 8/11 倒计时；能力边界清楚** |
+| 推荐 | **rogue AI agents 质询报道** | **Agent 生产化合规清单** |
+| 延伸 | **Nemotron 3.5 Lightning** | **agent grunt work 专用小模型** |
+| 延伸 | **AI 日报 2026-08-11** | **Qwen 窗口 pending 前情** |
+
+### 来源清单
+
+- 检索范围：2026-08-12 00:00:00 到 2026-08-12 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, runtimewire.com, eenewseurope.com, aiworldtoday.com, ithome.com.tw, news.futunn.com, langfuse.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源 | Claude Code v2.1.229 | 2026-08-12 | https://github.com/anthropics/claude-code/releases/tag/v2.1.229 |
+| 追踪 | Qwen3.8-2.4T-A95B RuntimeWire | 2026-08-12 | https://runtimewire.com/article/alibaba-qwen38-24t-open-weights-enterprise-license |
+| 厂商 | NVIDIA Qwen3.8 GB300 Day-0 | 2026-08-12 | https://www.eenewseurope.com/en/nvidia-qwen3-8-model-gb300-nvl72/ |
+| 政策 | Rogue AI agents lawmakers | 2026-08-12 | https://aiworldtoday.com/news/us-lawmakers-demand-answers-on-rogue-ai-agents-from-openai-and-anthropic |
+| 媒体 | Nemotron 3.5 Lightning iThome | 2026-08-12（8/11 发布传播） | https://www.ithome.com.tw/news/178054 |
+| 媒体 | DeepSeek V4 Pro-0813 | 2026-08-12 | https://news.futunn.com/post/77572731/deepseek-v4-pro-official-version-launches-in-late-night-surprise |
+| 官方 changelog | Langfuse instance switcher | 2026-08-11（相邻日） | https://langfuse.com/changelog/2026-08-11-self-hosted-instance-switcher |
+
 ## 2026-08-11
 
 ### 今日总览
@@ -69,7 +390,6 @@
 | 媒体 | Daybreak TechCrunch | 2026-08-10（8/11 传播） | https://techcrunch.com/2026/08/10/as-ai-led-attacks-multiply-openai-launches-a-new-cyber-model/ |
 | 追踪 | Qwen3.8-Max Awesome Agents | 2026-08-11 | https://awesomeagents.ai/models/qwen-3-8-max/ |
 | 社区 | Qwen3.8-27B / ModelScope countdown | 2026-08-11 | https://aireiter.com/blog/qwen3-8-27b |
-
 
 ## 2026-08-10
 
@@ -142,7 +462,6 @@
 | 官方 | Auto mode default blog | 2026-08-10（8/7 公告） | https://claude.com/blog/auto-mode-default-in-claude-code |
 | 媒体 | Auto mode Help Net Security | 2026-08-10 | https://www.helpnetsecurity.com/2026/08/10/anthropic-claude-code-auto-mode/ |
 
-
 ## 2026-08-09
 
 ### 今日总览
@@ -204,7 +523,6 @@
 | 迁移 | Atlas data migration | 2026-08-09 | https://blog.imseankim.com/chatgpt-atlas-shutdown-august-9-data-migration-what-replaces-it/ |
 | 汇总 | Atlas sunset timeline | 2026-08-09 | https://ai-tldr.dev/releases/openai-atlas-sunset-jul9/ |
 | 追踪 | August model ledger | 2026-08-09 | https://www.digitalapplied.com/blog/ai-model-releases-august-2026-tracker |
-
 
 ## 2026-08-08
 
@@ -271,7 +589,6 @@
 | 产品 | Free unlimited Luna text | 2026-08-08 | https://www.macobserver.com/news/chatgpt-gets-smarter-gpt-5-6-sol-and-unlimited-text-chats-for-free-users/ |
 | 追踪 | August model ledger | 2026-08-08 | https://www.digitalapplied.com/blog/ai-model-releases-august-2026-tracker |
 
-
 ## 2026-08-07
 
 ### 今日总览
@@ -336,7 +653,6 @@
 | 官方 | Fable 5 biology safeguards | 2026-08-07 | https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards |
 | 开源 | Claude Code v2.1.224 | 2026-08-07 | https://github.com/anthropics/claude-code/releases/tag/v2.1.224 |
 | 产品 | GPT-5.6 Luna default schedule | 2026-08-07 | https://www.digitalapplied.com/blog/chatgpt-gpt-5-6-luna-free-default-unlimited-chats |
-
 
 ## 2026-08-06
 
@@ -405,7 +721,6 @@
 | 产品 | OpenAI smart speaker pricing | 2026-08-06 | https://techcrunch.com/2026/08/06/openais-new-ai-smart-speaker-will-reportedly-sell-for-between-300-400/ |
 | 创投 | Inevitable AI Group $6M | 2026-08-06 | https://techcrunch.com/press-release/inevitable-ai-group-raises-6m-from-aleph-to-launch-ai-native-saas-companies/ |
 | 社区 | Qwen harness still decides | 2026-08-06（相邻） | https://dev.to/zira125/qwen38-max-is-huge-the-agent-harness-still-decides-4cke |
-
 
 ## 2026-08-05
 
@@ -476,7 +791,6 @@
 | 组织 | Hassabis steps down Fortune | 2026-08-05 | https://fortune.com/2026/08/05/demis-hassabis-steps-down-google-deepmind-ai-shakeup/ |
 | 官方 | Opus 4.1 retired + Inference Hooks | 2026-08-05 | https://platform.claude.com/docs/en/release-notes/overview |
 | 官方 | Qwen3.8-Max Alibaba Cloud blog | 2026-08-05 | https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421 |
-
 
 ## 2026-08-04
 
@@ -556,7 +870,6 @@
 | 开源 | Claude Code v2.1.222 | 2026-08-04 | https://github.com/anthropics/claude-code/releases/tag/v2.1.222 |
 | 开源 | Claude Code v2.1.221 | 2026-08-04 | https://github.com/anthropics/claude-code/releases/tag/v2.1.221 |
 
-
 ## 2026-08-03
 
 ### 今日总览
@@ -629,7 +942,6 @@
 | 开源 | Langfuse v4.3.0 | 2026-08-03 | https://github.com/langfuse/langfuse/releases/tag/v4.3.0 |
 | API | Claude Opus 4.1 retirement | 2026-08-03 | https://claude-news.today/en/briefings/briefing-2026-08-03/ |
 
-
 ## 2026-08-02
 
 ### 今日总览
@@ -691,7 +1003,6 @@
 | 科研 | OpenAI Astra 10 math proofs | 2026-08-02 | https://siliconangle.com/2026/08/02/openais-astra-solves-10-long-open-math-problems-publishes-proofs/ |
 | 政策 | Sam Altman decel debate | 2026-08-02 | https://techcrunch.com/2026/08/02/sam-altman-and-ais-decel-debate/ |
 | 科研 | The Next Web Astra | 2026-08-02 | https://thenextweb.com/news/openai-astra-model-ten-math-proofs-non-sofic-groups |
-
 
 ## 2026-08-01
 
@@ -755,5 +1066,3 @@
 | 社会 | Hank Green AI apology | 2026-08-01 | https://techcrunch.com/2026/08/01/youtuber-hank-green-says-his-ai-usage-is-not-healthy/ |
 | 产品 | Altman parenting podcast | 2026-08-01 | https://techcrunch.com/2026/08/01/sam-altman-is-still-making-the-case-for-parenting-via-chatgpt/ |
 | 安全 | NPR hack comparison | 2026-08-01 | https://knpr.org/npr/2026-08-01/why-did-openais-and-anthropics-ai-models-hack-other-companies |
-
-

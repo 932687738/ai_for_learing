@@ -120,7 +120,7 @@ python tools/juejin_hot_fetch.py --limit 15
 指定快照日时加 `--date YYYY-MM-DD`。`force` 且需重拉已见文时加 `--include-seen`。
 
 3. **读暂存**：打开 `dailyReport/juejin-hot-news/_staging_latest.json`。
-4. **只处理 `new_articles`**（特殊去重）：
+4. **只处理 `new_articles`**（特殊去重；写入时也只展示这些，已见文不占表行）：
    - 每条必须有真实 `url`（`https://juejin.cn/post/...`）。
    - 优先用 `detail.mark_content` / `detail.brief` **归纳正文实际内容**，禁止只复述标题。
    - `detail` 为空时：可用 `WebFetch` 打开 `url` 补读；仍失败则标注「正文未取到」并降级为标题+brief，不得编造。
@@ -161,7 +161,7 @@ python tools/juejin_hot_fetch.py --limit 15
 
 | 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
 | --- | ---:| --- | --- | --- | --- |
-| 1 | [标题](URL) | 作者 | 赞/藏/阅 | [2–5 句正文归纳；若为本轮跳过已见则写「已收录，跳过」] | URL |
+| 1 | [标题](URL) | 作者 | 赞/藏/阅 | [2–5 句正文归纳；**仅本轮新 URL**] | URL |
 
 #### 收藏热榜
 
@@ -182,7 +182,7 @@ python tools/juejin_hot_fetch.py --limit 15
 ### 跨榜重复与去重说明
 
 - 本轮新摘要 URL 数：N
-- 因 `seen_urls` 跳过：M（可列 Top 若干标题+链接，或只给数量）
+- 因 `seen_urls` 跳过：M（只给数量；不要把已见文再展开成表行）
 - 同文多标签/双榜出现：列出 `URL → 出现位置`
 
 ### 来源清单
@@ -197,6 +197,8 @@ python tools/juejin_hot_fetch.py --limit 15
 ```
 
 表格中「链接」列可与标题列合并为 Markdown 链接；来源清单必须能回溯全部**新摘要**文章。
+
+**展示规则（必须遵守）**：各标签×榜单表格**只写本轮 `new_articles`**。已在 `seen_urls` 中的文章**禁止占行**，不要写「已收录，跳过」。跳过数量只出现在「今日总览」与「跨榜重复与去重说明」。某槽全是已见文时写一行 `本槽无新增。`，不要输出整榜 15 行占位。
 
 若 `new_articles` 为空但仍需记日：
 
