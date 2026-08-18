@@ -2,6 +2,65 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-08-17
+
+### 今日总览
+
+**一句话结论**：8 月 17 日主线是 **合规水印的媒体解释** 与 **编程 CLI 的晚间发布**：The Verge 等转述 Anthropic 将 Claude 文本水印说成 SynthID-Text 变体；Claude Code `v2.1.234`、Codex `0.148.0-alpha.21` 的 GitHub Published 落在 UTC 晚间（中国时间为 8/18 凌晨）。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、安全治理、Claude Code/Codex/OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、论文与政策 |
+| 核心趋势 | 1）EU AI Act 文本标记从「要不要做」进入「怎么检、短文/代码覆盖弱」；2）编程 Agent 仍以安全路径与 Remote Control 修 bug 为主，无新模型；3）框架专项无 GA |
+| 可直接关注 | SynthID-Text 对短文本/代码的失效边界；Claude Code 拒绝 Windows `\\??\\` NT 路径；用量上限自动续会话可在 `/config` 关掉 |
+| 专项检索结论 | Claude Code：`v2.1.234`（Published 2026-08-17T20:20:58Z，中国时间为 8/18 凌晨）。Codex：`0.148.0-alpha.21`（17 Aug 19:27 UTC）。OpenClaw / Hermes / Spring AI / Spring Alibaba AI / Langfuse / LangChain·LangGraph / Code Graph / Loop Engineering / skills：未发现可核验的 8/17 重大官方更新。社区 briefing 称 legacy Workbench 于 8/17 退役，须对照 Anthropic 官方。 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 模型治理 | [Anthropic explains how Claude’s invisible text watermarks will work](https://www.theverge.com/ai-artificial-intelligence/980869/anthropic-claude-watermarks-synthid-text-system) | 2026-08-17 | 技术媒体（引官方说明） | 采用 DeepMind SynthID-Text 变体：在近义词采样上留统计图案；声称不影响质量/价格；短文、事实句、代码更难打标；检测 API 尚未对公众开放 |
+| 编程 CLI | [Claude Code v2.1.234](https://github.com/anthropics/claude-code/releases/tag/v2.1.234) | 2026-08-17（UTC；中国时间窗口为 8/18 凌晨） | 开源发布 | `CLAUDE_CODE_PROJECT_DIR_NAME`；GitLab MR 角标；用量上限自动续会话；拒绝 Windows NT 命名空间路径；Remote Control 换账号立刻停会话；`claude-api` skill 上下文从约 200k 降到约 25k |
+| 编程 CLI | [Codex 0.148.0-alpha.21](https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.21) | 2026-08-17（UTC；中国时间窗口为 8/18 凌晨） | 开源预发布 | 0.148 预发布线继续，无稳定版 changelog 可当生产依据 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 文本溯源 | [The Verge / SynthID-Text](https://www.theverge.com/ai-artificial-intelligence/980869/anthropic-claude-watermarks-synthid-text-system) | 采样偏置 vs 隐写字符；复制粘贴后仍可检；轻改/短文失效 | 合规、内容审核、对外披露 |
+| Claude Code | [v2.1.234 release](https://github.com/anthropics/claude-code/releases/tag/v2.1.234) | NT 路径硬化、MCP 诊断不再打印解析后的密钥、`/permissions` 可在模型工作时打开 | 终端/桌面 Agent 运维 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：框架侧无新 GA；可落地增量集中在 Claude Code 的权限/路径安全与 Remote Control 一致性。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Claude Code | v2.1.234：用量上限自动续跑、GitLab MR 状态、skill 按需加载文档 | 多租户宿主用 `CLAUDE_CODE_PROJECT_DIR_NAME` 缩短 transcript 目录名；Windows 拒绝 `\\??\\` |
+| Codex | 0.148.0-alpha.21 预发布 | 仍走 alpha，勿当稳定通道 |
+| OpenClaw / Hermes / Langfuse / LangGraph / Code Graph / Loop / Spring AI | 未发现 8/17 可核验重大更新 | 继续消化既有 OpenClaw 8/15 beta 与 Langfuse v4 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [The Verge / watermark](https://www.theverge.com/ai-artificial-intelligence/980869/anthropic-claude-watermarks-synthid-text-system) | 把「看不见的水印」讲成采样偏置，便于对内解释覆盖边界 |
+| 推荐 | [Claude Code v2.1.234](https://github.com/anthropics/claude-code/releases/tag/v2.1.234) | 当日编程 Agent 唯一可核验的完整 changelog |
+| 延伸 | [Claude Code Daily Briefing 2026-08-17](https://claude-news.today/en/briefings/briefing-2026-08-17/) | 社区汇编（含 Workbench 退役倒计时）；事实须回官方 |
+
+### 来源清单
+
+- 检索范围：2026-08-17 00:00:00 到 2026-08-17 23:59:59（Asia/Shanghai）
+- 引用域名：theverge.com, github.com, claude-news.today
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 技术媒体 | Claude invisible text watermarks | 2026-08-17 | https://www.theverge.com/ai-artificial-intelligence/980869/anthropic-claude-watermarks-synthid-text-system |
+| 开源发布 | Claude Code v2.1.234 | 2026-08-17（UTC；相邻日期/中国时间窗口传播） | https://github.com/anthropics/claude-code/releases/tag/v2.1.234 |
+| 开源预发布 | Codex 0.148.0-alpha.21 | 2026-08-17（UTC；相邻日期/中国时间窗口传播） | https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.21 |
+| 社区汇编 | Claude Code Daily Briefing | 2026-08-17 | https://claude-news.today/en/briefings/briefing-2026-08-17/ |
+
 ## 2026-08-16
 
 ### 今日总览

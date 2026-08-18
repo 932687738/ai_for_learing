@@ -2,6 +2,106 @@
 
 按 Asia/Shanghai 时区汇总掘金文章热榜与收藏热榜（后端 / 前端 / 人工智能 / 开发工具），按文章链接去重并归纳正文。
 
+## 2026-08-18
+
+### 今日总览
+
+**一句话结论**：`2026-08-18` 新 URL 主线是 **Harness 插件生态、信创库迁移验收、长文一致性工程、Claude Code Skill 自动化**；收藏榜无新增。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 文章热榜 + 收藏热榜 × 后端/前端/人工智能/开发工具 |
+| 榜单规模 | 每槽最多 15 条；列表总条数 120；去重后新 URL **14**；跳过已见 **106**；详情成功 14 / 失败 0 |
+| 核心趋势 | 1）Harness 从「怎么装」转到「装哪些插件 / 应用商店」；2）后端出现 KingbaseES 复杂 BI 验收数据；3）工具向落到 i18n Skill 与 Hermes 工具集 |
+| 可直接关注 | [SQL Server 迁移到 KingbaseES](https://juejin.cn/post/7674686524114944050)；[DeepSeek Harness必装的10个插件](https://juejin.cn/post/7674802907378303028)；[给 DeepSeek Harness 装个应用商店](https://juejin.cn/post/7673978658780332083)；[AI写长篇小说为什么30章必崩](https://juejin.cn/post/7674372498315460658)；[Claude Code Skill 把 30 分钟变成 8 秒](https://juejin.cn/post/7673211015651213352) |
+
+### 后端
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 4 | [SQL Server 迁移到 KingbaseES：一次复杂 BI 查询的性能实测](https://juejin.cn/post/7674686524114944050) | 一只牛博 | 赞0/藏0/阅897 | 对象迁完不等于报表能用。用订单/明细/客户多表 + 标量子查询做验收，KingbaseES V9R4C019 上 100 并发 TPS 称升 60%、平均响应约 1/10。适合信创迁移验收；数字是单场景压测，别外推所有报表。 | https://juejin.cn/post/7674686524114944050 |
+| 5 | [DeepSeek Harness必装的10个插件](https://juejin.cn/post/7674802907378303028) | 苏三说技术 | 赞6/藏23/阅690 | 默认 dsh web 是毛坯聊天框。用 `dsh plugin --profile web add github:owner/repo#ref` 装插件，启动须加 `--patch`。文内挑 10 个插件并引用 Oh-My-DSH 目录规模。适合刚装 Harness 的人；插件质量参差，先看官方标签。 | https://juejin.cn/post/7674802907378303028 |
+| 12 | [「速通Shell」Shell 循环与遍历](https://juejin.cn/post/7673804310606889023) | 柒号华仔 | 赞1/藏2/阅259 | 把循环当控制流、遍历当数据操作，过一遍 `for`/`while`/`until` 和批量改后缀。适合补脚本基础，不是运维手册。 | https://juejin.cn/post/7673804310606889023 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 前端
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 7 | [为什么跳槽涨薪 30% 的时代彻底结束了？聊聊 2026 前端薪资的天花板](https://juejin.cn/post/7674686524115353650) | ErpanOmer | 赞4/藏5/阅1042 | 增量岗位变存量维护，AI 压缩执行层溢价；高薪转向成本/标准/全栈决策。偏观点，无薪酬调研表。 | https://juejin.cn/post/7674686524115353650 |
+| 13 | [做了个「句拾」小程序，最难的不是业务，是字体](https://juejin.cn/post/7673490766200225807) | 书中枫叶 | 赞10/藏13/阅577 | `loadFontFace` 真机报 scheme/network/fail；还要扛主包 2MB 和 Canvas 海报。适合小程序自定义中文字体避坑。 | https://juejin.cn/post/7673490766200225807 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 人工智能
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 10 | [给 DeepSeek Harness 装个"应用商店"：一条命令，595 个插件随你逛](https://juejin.cn/post/7673978658780332083) | 万少 | 赞7/藏16/阅764 | `dsh-market` 可视化市场 + `dsh-find-plugin` 对话导购；一条 `dsh plugin` 装完重启 Web 出 Tab。适合找插件入口；文末有电子书/B 站引流。 | https://juejin.cn/post/7673978658780332083 |
+| 12 | [AI写长篇小说为什么30章必崩](https://juejin.cn/post/7674372498315460658) | fulton | 赞12/藏12/阅505 | 一致性、节奏、套路三崩：上下文装不下 30 章。作者用 CI/CD 思路做 NovelOps，称跑通 270 章。适合长上下文工程，不是文学教程。 | https://juejin.cn/post/7674372498315460658 |
+| 14 | [DeepSeek 调价正式生效：一夜涨 11 倍，靠低价薅羊毛的日子结束了](https://juejin.cn/post/7674645475095167028) | 程序员_小雨 | 赞3/藏4/阅640 | 称 V4-Pro 缓存命中输入 0.025→0.3 元/百万 token（+1100%），网页/App 不受影响；高峰/闲时半价。社区转述，价格以官网为准。 | https://juejin.cn/post/7674645475095167028 |
+| 15 | [为什么程序员大多都拥抱 AI，而音乐人却抗拒并隔离 AI 音乐池?](https://juejin.cn/post/7672358738310578176) | 珑墨 | 赞2/藏3/阅567 | 代码有编译/测试/回滚验货，音乐没有同等「废品判定」；责任仍在人。偏评论，转自微信。 | https://juejin.cn/post/7672358738310578176 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 开发工具
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 10 | [TextIn xParse + WorkBuddy实战，零门槛轻松打造财报解析助手](https://juejin.cn/post/7672999931842347050) | 倔强的石头_ | 赞2/藏3/阅134 | 276 页年报直接丢模型会糊；先用解析工具拆多级表头/跨页表再问答，并要求页码出处。适合财报 RAG；注意厂商文风。 | https://juejin.cn/post/7672999931842347050 |
+| 11 | [跨平台开发地图 \| 2026年8月](https://juejin.cn/post/7674583645794582563) | 程序员老刘 | 赞2/藏2/阅113 | Flutter 3.47 Material/Cupertino 拆包、Impeller 桌面默认；RN 0.87 Strict TS API 转正；顺带 KMP/MAUI。适合选型扫一眼，升版仍看官方 release。 | https://juejin.cn/post/7674583645794582563 |
+| 13 | [Hermes 工具与工具集——Hermes 的内置能力](https://juejin.cn/post/7672849477086511158) | 自进化Agent智能体 | 赞0/藏0/阅150 | 系列第 8 篇：`core`/`terminal`/`web`/`browser`/`skills` 工具集，以及 `hermes tools`、`/tools`。适合对照官方文档，勿当唯一规范。 | https://juejin.cn/post/7672849477086511158 |
+| 14 | [更新焦虑有救了！当我把选题、文案、配图全交给 AI.....](https://juejin.cn/post/7672125162715856922) | TRAE_ai | 赞0/藏0/阅142 | TraeWork 五场景：选题、封面、标题标签、复盘、定时批量。偏产品实践/营销，可略读 Prompt 结构。 | https://juejin.cn/post/7672125162715856922 |
+| 15 | [30 分钟的重复工作，我写了 Claude Code Skill 变成了 8 秒](https://juejin.cn/post/7673211015651213352) | 坚强小橙 | 赞0/藏1/阅124 | 7 套 i18n JSON：`/export-diff-to-csv` 对 Commit 差分出 CSV，`/convert-excel-to-json` 回填。适合把搬运活做成 Skill；路径写死项目约定。 | https://juejin.cn/post/7673211015651213352 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 跨榜重复与去重说明
+
+- 本轮新摘要 URL 数：14
+- 因 `seen_urls` 跳过：106（只给数量；不要把已见文再展开成表行）
+- 同文多标签/双榜出现：无（14 条均只出现在单一文章热榜槽位）
+
+### 来源清单
+
+- 快照日：2026-08-18（Asia/Shanghai）
+- 页面：https://juejin.cn/hot/articles 、 https://juejin.cn/hot/collected-articles
+- 抓取：`tools/juejin_hot_fetch.py` → `_staging_latest.json`
+
+| 标签 | 榜单 | 标题 | 链接 |
+| --- | --- | --- | --- |
+| 后端 | 文章热榜 | SQL Server 迁移到 KingbaseES：一次复杂 BI 查询的性能实测 | https://juejin.cn/post/7674686524114944050 |
+| 后端 | 文章热榜 | DeepSeek Harness必装的10个插件 | https://juejin.cn/post/7674802907378303028 |
+| 后端 | 文章热榜 | 「速通Shell」Shell 循环与遍历 | https://juejin.cn/post/7673804310606889023 |
+| 前端 | 文章热榜 | 为什么跳槽涨薪 30% 的时代彻底结束了？聊聊 2026 前端薪资的天花板 | https://juejin.cn/post/7674686524115353650 |
+| 前端 | 文章热榜 | 做了个「句拾」小程序，最难的不是业务，是字体 | https://juejin.cn/post/7673490766200225807 |
+| 人工智能 | 文章热榜 | 给 DeepSeek Harness 装个"应用商店"：一条命令，595 个插件随你逛 | https://juejin.cn/post/7673978658780332083 |
+| 人工智能 | 文章热榜 | AI写长篇小说为什么30章必崩 | https://juejin.cn/post/7674372498315460658 |
+| 人工智能 | 文章热榜 | DeepSeek 调价正式生效：一夜涨 11 倍，靠低价薅羊毛的日子结束了 | https://juejin.cn/post/7674645475095167028 |
+| 人工智能 | 文章热榜 | 为什么程序员大多都拥抱 AI，而音乐人却抗拒并隔离 AI 音乐池? | https://juejin.cn/post/7672358738310578176 |
+| 开发工具 | 文章热榜 | TextIn xParse + WorkBuddy实战，零门槛轻松打造财报解析助手 | https://juejin.cn/post/7672999931842347050 |
+| 开发工具 | 文章热榜 | 跨平台开发地图 \| 2026年8月 | https://juejin.cn/post/7674583645794582563 |
+| 开发工具 | 文章热榜 | Hermes 工具与工具集——Hermes 的内置能力 | https://juejin.cn/post/7672849477086511158 |
+| 开发工具 | 文章热榜 | 更新焦虑有救了！当我把选题、文案、配图全交给 AI..... | https://juejin.cn/post/7672125162715856922 |
+| 开发工具 | 文章热榜 | 30 分钟的重复工作，我写了 Claude Code Skill 变成了 8 秒 | https://juejin.cn/post/7673211015651213352 |
+
 ## 2026-08-17
 
 ### 今日总览
