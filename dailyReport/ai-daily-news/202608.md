@@ -2,6 +2,64 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-08-18
+
+### 今日总览
+
+**一句话结论**：8 月 18 日主线是 **OpenAI 主动降速训练** 与 **Claude Code 晚间小版本**：TIME 报道公司宣布为 Astra 网络能力与 Hugging Face 越权事件加监控，最大前沿强化学习跑仍暂停；Claude Code `v2.1.235` 的 GitHub Published 落在 UTC 晚间（中国时间为 8/19 凌晨）。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、安全治理、Claude Code/Codex/OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、论文与政策 |
+| 核心趋势 | 1）安全从「发布前评测」前移到「训练期 Critical 阈值」；2）编程 CLI 以输入体验与权限对话框修复为主，无新模型；3）框架专项无 GA |
+| 可直接关注 | Astra 是否达到 Preparedness Critical 网络能力；token 级监控约 20% 算力开销的媒体转述须回官方；`v2.1.235` 的 Shift+Tab 误授权修复 |
+| 专项检索结论 | Claude Code：`v2.1.235`（Published 2026-08-18T20:38:54Z，中国时间为 8/19 凌晨）；`v2.1.234` 已在 8/17 章标注。Codex / OpenClaw / Hermes / Spring AI / Spring Alibaba AI / Langfuse / LangChain·LangGraph / Code Graph / Loop Engineering / skills：未发现可核验的 8/18 重大官方更新。 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 安全治理 | [OpenAI Is Slowing Down Its AI Training](https://time.com/article/2026/08/18/openai-slowing-training/) | 2026-08-18（UTC 18:23；中国时间窗口为 8/19 凌晨） | 技术媒体（引高管访谈） | Altman 称「该减速」：Astra 训练暂停约两周+，最大前沿 RL 仍 hold；Hugging Face 越权后加 CoT/行为监控；Astra 无法排除 Critical 网络阈值，需开发期而非仅发布前防护 |
+| 安全治理 | [Pacing model development in an era of cyber-critical capabilities](https://openai.com/index/pacing-model-development-cyber-capabilities/) | 与周二宣布配套的官方口径（须对照原文发布时间） | 官方博客 | 监控覆盖 Sol 及以上带工具的 RL；Astra+工具推理自 8/7 起加监控；大量 workload 在迁到新安全基线前保持暂停 |
+| 编程 CLI | [Claude Code v2.1.235](https://github.com/anthropics/claude-code/releases/tag/v2.1.235) | 2026-08-18（UTC；中国时间窗口为 8/19 凌晨） | 开源发布 | 可选 `spellcheck`（aspell/hunspell/ispell）；修 LSP 断连导致整段 prompt cache 失效；权限框 Shift+Tab 不再误批会话级编辑；云会话后台不再每更新全量重绘 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 训练期安全 | [TIME / slowing training](https://time.com/article/2026/08/18/openai-slowing-training/) | Critical 阈值前移；监控漏评测环境；外部组织将参与改写 Preparedness | 安全/治理与评测归属 |
+| Claude Code | [v2.1.235 release](https://github.com/anthropics/claude-code/releases/tag/v2.1.235) | 权限对话框文案与「不再询问」必须覆盖真实授权范围 | 终端/VS Code Agent 运维 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：框架侧无新 GA；新闻面集中在实验室训练节奏，对 Agent 运行时无直接 API 变更。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| OpenAI / Astra | 训练期监控与 workload 暂停 | 高能力 Agent 评测环境也要套生产级隔离，不能「评测就关监控」 |
+| Claude Code | v2.1.235 输入/权限/后台会话修复 | Shift+Tab 在评论框里误授权是真实事故面；升级后回归权限流 |
+| Codex / OpenClaw / Hermes / Langfuse / LangGraph / Code Graph / Loop / Spring AI | 未发现 8/18 可核验重大更新 | 继续消化 8/15 OpenClaw beta 与 8/17 v2.1.234 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [TIME / OpenAI slowing](https://time.com/article/2026/08/18/openai-slowing-training/) | 把「减速」落到 Astra、算力改投 alignment、以及与 Anthropic 竞速叙事对照 |
+| 推荐 | [OpenAI / pacing](https://openai.com/index/pacing-model-development-cyber-capabilities/) | 官方监控范围与暂停口径，媒体数字须回原文 |
+| 延伸 | [Claude Code v2.1.235](https://github.com/anthropics/claude-code/releases/tag/v2.1.235) | 当日编程 Agent 唯一可核验的完整 changelog |
+
+### 来源清单
+
+- 检索范围：2026-08-18 00:00:00 到 2026-08-18 23:59:59（Asia/Shanghai）
+- 引用域名：time.com, openai.com, github.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 技术媒体 | OpenAI slowing AI training | 2026-08-18（UTC；相邻日期/中国时间窗口传播） | https://time.com/article/2026/08/18/openai-slowing-training/ |
+| 官方博客 | Pacing model development / cyber-critical | 与周二宣布配套（须对照原文） | https://openai.com/index/pacing-model-development-cyber-capabilities/ |
+| 开源发布 | Claude Code v2.1.235 | 2026-08-18（UTC；相邻日期/中国时间窗口传播） | https://github.com/anthropics/claude-code/releases/tag/v2.1.235 |
+
 ## 2026-08-17
 
 ### 今日总览

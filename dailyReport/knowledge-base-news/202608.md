@@ -2,6 +2,62 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-08-18
+
+### 今日总览
+
+**一句话结论**：固定来源里最有工程密度的是阿里云开发者两篇 **Agent 接入文**：身份字段不能由模型填写，以及 DSH 插件必须做安装验证；五个专项无官方新 GA。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 阿里/腾讯/字节/百度/美团/京东/滴滴/网易/360/有赞 + 掘金；专项 Langfuse/LangChain/Code Graph/Spring Alibaba AI/Loop Engineering |
+| 核心趋势 | Agent 从「能调 API」转到「谁在调、代表谁、插件能不能装」 |
+| 可直接关注 | `user_id`/`tenant_id` 必须来自已验证登录态；插件 Marketplace 要分层披露权限与安装结果 |
+| 专项检索结论 | Langfuse / LangChain·LangGraph / Code Graph / Spring Alibaba AI / Loop Engineering：固定来源内未发现可核验的 8/18 官方新文。 |
+| 未发现更新 | 阿里技术/中间件/语雀干货、腾讯 TEG/AlloyTeam/大讲堂、字节技术博客、百度 FEX/EFE、美团技术团队、京东/凹凸、滴滴、网易、360、有赞 |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Agent 身份 | [AI Agent 调用业务 API 时，怎样传递用户身份和租户？别让模型自己填写 user_id](https://developer.aliyun.com/article/1756572) | 2026-08-18 | 阿里云开发者 | 接入身份 / 操作主体 / 最终授权三分离；业务接口忽略模型参数里的身份声明，只信验签后的 `X-Bailing-On-Behalf-Of` |
+| Agent 插件 | [Agent 插件为什么需要安装验证？从 DSH 插件生态里的几个实际问题说起](https://developer.aliyun.com/article/1756605) | 2026-08-18 | 阿里云开发者 | README ≠ 能装；记录命令、依赖、postinstall、Harness 是否识别、是否要人工批准；权限（Shell/FS/Network/Token）与功能并列 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 工具调用鉴权 | [别让模型自己填写 user_id](https://developer.aliyun.com/article/1756572) | 认证≠授权；主体从 Session/JWT 派生，不能从 prompt 覆盖 | 已把 Agent 接到订单/退款的后端 |
+| Harness 插件 | [DSH 安装验证](https://developer.aliyun.com/article/1756605) | 元数据 / 能力 / 权限 / 安装结果四层信息 | 在整理或上架 Agent 插件的人 |
+
+### 工程实践归纳
+
+**总体判断**：两篇都指向同一原则——模型不可信，身份与插件供应链必须在运行时外验证。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Agent 身份 | 阿里云开发者长文 | 工具参数只放业务字段，身份头由控制面签名 |
+| DSH 生态 | 安装验证清单 | Marketplace 要从 Discovery 补 Verification |
+| 专项五题 | 无新官方文 | 不把收藏榜旧 CodeGraph 文当成当日新发 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [别让模型填写 user_id](https://developer.aliyun.com/article/1756572) | 可直接对照现有 Function Calling 入参是否泄漏身份 |
+| 推荐 | [DSH 安装验证](https://developer.aliyun.com/article/1756605) | 给插件目录一个可执行的五步验收 |
+
+### 来源清单
+
+- 检索范围：2026-08-18 00:00:00 到 2026-08-18 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：已覆盖清单中的公司/组织维度
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 阿里云 | 阿里云开发者社区 | 技术文章 | Agent 调用业务 API 的身份传递 | 2026-08-18 | https://developer.aliyun.com/article/1756572 |
+| 阿里云 | 阿里云开发者社区 | 技术文章 | Agent 插件安装验证 | 2026-08-18 | https://developer.aliyun.com/article/1756605 |
+
 ## 2026-08-17
 
 ### 今日总览

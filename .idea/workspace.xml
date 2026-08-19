@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="docs(dailyReport): 添加 8 月 11-16 日 AI 资讯与掘金热榜&#10;&#10;- 新增 8 月 11-16 日 AI/人工智能相关每日资讯汇总&#10;- 新增 8 月 11-17 日掘金文章热榜与收藏热榜汇总  &#10;- 涵盖 Anthropic CEO 信任危机表态、OpenAI Preparedness 团队重组&#10;- 包含 Nvidia 与 SB Energy/OpenAI 算力融资谈判动态&#10;- 记录 Claude Code、Codex、OpenClaw 等工具链更新&#10;- 整理 Qwen3.8、GPT-5.6 Ultrafast 等模型进展&#10;- 汇总 Claude Code v2.1.229-v2.1.233 版本发布&#10;- 收录多 Agent 冲突指令安全研究报告&#10;- 添加 HEIR 同态加密编译器开源信息&#10;- 整理 Claude 水印 SynthID-Text 技术细节&#10;- 涵盖 Agent 运行时与工程框架发展动态&#10;- 记录 OpenClaw 2026.8.1-beta.2 预发布版本&#10;- 添加 Langfuse v4 与 LangGraph 1.2.11 更新情况&#10;- 汇总 Spring AI、Hermes、Code Graph 等生态进展&#10;- 记录多 Agent 安全与治理政策动态&#10;- 整理 Claude Code 远程控制与插件市场功能增强&#10;- 添加 NVIDIA Nemotron 3.5 Lightning 与 DeepSeek V4 Pro 更新&#10;- 涵盖 Qwen3.8-2.4T-A95B 开放权重发布&#10;- 记录 Java 生产环境部署与 Redisson 锁优化实践&#10;- 添加 Pi 终端 Agent 与 Skill 入门指南内容" />
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="feat(dailyReport): 添加2026年8月17日和18日AI及掘金热榜报告&#10;&#10;- 新增2026-08-17 AI日报：包含Anthropic文本水印技术解析&#10;- 添加Claude Code v2.1.234和Codex 0.148.0-alpha.21版本发布信息&#10;- 更新2026-08-18掘金热榜：涵盖Harness插件生态和信创迁移内容&#10;- 记录DeepSeek调价和AI长文一致性工程相关讨论&#10;- 同步更新github-topz榜单数据至2026-08-18 09:47:57&#10;- 修正ai-daily-state.json同步日期至2026-08-17" />
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -291,14 +291,7 @@
       <workItem from="1786505283540" duration="1224000" />
       <workItem from="1786676743150" duration="1354000" />
       <workItem from="1786931090577" duration="846000" />
-    </task>
-    <task id="LOCAL-00034" summary="ChromaDB向量数据库详解">
-      <option name="closed" value="true" />
-      <created>1779958980463</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1779958980463</updated>
+      <workItem from="1787017520572" duration="1387000" />
     </task>
     <task id="LOCAL-00035" summary="README.md文件回填">
       <option name="closed" value="true" />
@@ -684,7 +677,15 @@
       <option name="project" value="LOCAL" />
       <updated>1786931773254</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="feat(dailyReport): 添加2026年8月17日和18日AI及掘金热榜报告&#10;&#10;- 新增2026-08-17 AI日报：包含Anthropic文本水印技术解析&#10;- 添加Claude Code v2.1.234和Codex 0.148.0-alpha.21版本发布信息&#10;- 更新2026-08-18掘金热榜：涵盖Harness插件生态和信创迁移内容&#10;- 记录DeepSeek调价和AI长文一致性工程相关讨论&#10;- 同步更新github-topz榜单数据至2026-08-18 09:47:57&#10;- 修正ai-daily-state.json同步日期至2026-08-17">
+      <option name="closed" value="true" />
+      <created>1787039482452</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1787039482452</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -702,7 +703,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat(dailyReport): 更新 AI 日报和 GitHub 热门项目至 2026-06-29&#10;&#10;- 添加 2026-06-29 AI 每日摘要，涵盖 Anthropic、Google Gemini、Pocket 等重要进展&#10;- 更新 ai-daily-state.json 同步日期和处理状态至 2026-06-29&#10;- 更新 github-topz.md 的热门仓库排名和 trending 榜单数据&#10;- 新增多个值得关注的 AI 相关 GitHub 仓库，包括 agency-agents、soxoj/maigret 等&#10;- 更新 MCP 相关技术进展和 Claude Code 等专项检索结论" />
     <MESSAGE value="feat(dailyReport): 添加2026年7月AI日报和知识库日报&#10;&#10;- 新增 ai-daily-news/202607.md 文件，包含2026-07-01 AI日报&#10;- 新增 knowledge-base-news/202607.md 文件，包含2026-07-01 知识库日报&#10;- 更新 ai-daily-digest.md 文件，同步2026-07-01 AI日报内容&#10;- 更新 ai-daily-state.json 状态文件，将最后处理日期推进至2026-07-01" />
     <MESSAGE value="chore(dailyReport): 更新每日报告状态和数据&#10;&#10;- 更新 ai-daily-state.json 中的最后同步日期到 2026-06-30&#10;- 在已处理日期列表中添加 2026-06-30&#10;- 更新 github-topz.md 的最新更新时间为 2026-07-01 09:18:28&#10;- 更新顶级仓库的 star 数量统计&#10;- 替换本周 trending 榜单中的仓库排名和数据&#10;- 替换本月 trending 榜单中的仓库排名和数据&#10;- 添加新的 trending 仓库如 hasaneyldrm/exercises-dataset 和 usestrix/strix 等" />
     <MESSAGE value="feat(dailyReport): 添加2026年7月7日AI日报和知识库新闻&#10;&#10;- 添加Meta Muse图像和视频模型发布的相关内容&#10;- 添加Anthropic Claude Cowork移动端和网页版扩展信息&#10;- 添加Claude for Government Desktop公测详情&#10;- 更新Microsoft自研模型成本削减趋势报道&#10;- 添加Alibaba禁止使用Claude Code的安全合规信息&#10;- 更新Claude Code v2.1.203版本发布说明&#10;- 同步更新github-topz排行榜数据至最新状态&#10;- 更新ai-daily-state.json同步日期至2026-07-07" />
@@ -727,7 +727,8 @@
     <MESSAGE value="docs(dailyReport): 添加掘金热榜日报和更新.gitignore规则&#10;&#10;- 新增 dailyReport/juejin-hot-news/202608.md 文件，包含完整的掘金热榜日报内容&#10;- 添加 tools/logs/ 到 .gitignore，忽略工具日志目录&#10;- 添加 dailyReport/juejin-hot-news/_staging_latest.json 到 .gitignore，忽略临时JSON文件" />
     <MESSAGE value="feat(cursor): 更新拉取日报功能支持掘金热榜&#10;&#10;- 将双 Digest 扩展为三 Digest，新增掘金热榜摘要功能&#10;- 修改 dual-digest-on-pull 规则支持三个技能顺序执行&#10;- 更新 README.md 文档说明三 Digest 工作流&#10;- 在 juejin-hot-digest 中添加统一拉取触发逻辑&#10;- 更新 knowledge-base-digest 引用为三 Digest 规程链接&#10;- 实现掘金热榜与 AI 日报、知识库共享日期选择逻辑" />
     <MESSAGE value="docs(dailyReport): 添加 8 月 11-16 日 AI 资讯与掘金热榜&#10;&#10;- 新增 8 月 11-16 日 AI/人工智能相关每日资讯汇总&#10;- 新增 8 月 11-17 日掘金文章热榜与收藏热榜汇总  &#10;- 涵盖 Anthropic CEO 信任危机表态、OpenAI Preparedness 团队重组&#10;- 包含 Nvidia 与 SB Energy/OpenAI 算力融资谈判动态&#10;- 记录 Claude Code、Codex、OpenClaw 等工具链更新&#10;- 整理 Qwen3.8、GPT-5.6 Ultrafast 等模型进展&#10;- 汇总 Claude Code v2.1.229-v2.1.233 版本发布&#10;- 收录多 Agent 冲突指令安全研究报告&#10;- 添加 HEIR 同态加密编译器开源信息&#10;- 整理 Claude 水印 SynthID-Text 技术细节&#10;- 涵盖 Agent 运行时与工程框架发展动态&#10;- 记录 OpenClaw 2026.8.1-beta.2 预发布版本&#10;- 添加 Langfuse v4 与 LangGraph 1.2.11 更新情况&#10;- 汇总 Spring AI、Hermes、Code Graph 等生态进展&#10;- 记录多 Agent 安全与治理政策动态&#10;- 整理 Claude Code 远程控制与插件市场功能增强&#10;- 添加 NVIDIA Nemotron 3.5 Lightning 与 DeepSeek V4 Pro 更新&#10;- 涵盖 Qwen3.8-2.4T-A95B 开放权重发布&#10;- 记录 Java 生产环境部署与 Redisson 锁优化实践&#10;- 添加 Pi 终端 Agent 与 Skill 入门指南内容" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs(dailyReport): 添加 8 月 11-16 日 AI 资讯与掘金热榜&#10;&#10;- 新增 8 月 11-16 日 AI/人工智能相关每日资讯汇总&#10;- 新增 8 月 11-17 日掘金文章热榜与收藏热榜汇总  &#10;- 涵盖 Anthropic CEO 信任危机表态、OpenAI Preparedness 团队重组&#10;- 包含 Nvidia 与 SB Energy/OpenAI 算力融资谈判动态&#10;- 记录 Claude Code、Codex、OpenClaw 等工具链更新&#10;- 整理 Qwen3.8、GPT-5.6 Ultrafast 等模型进展&#10;- 汇总 Claude Code v2.1.229-v2.1.233 版本发布&#10;- 收录多 Agent 冲突指令安全研究报告&#10;- 添加 HEIR 同态加密编译器开源信息&#10;- 整理 Claude 水印 SynthID-Text 技术细节&#10;- 涵盖 Agent 运行时与工程框架发展动态&#10;- 记录 OpenClaw 2026.8.1-beta.2 预发布版本&#10;- 添加 Langfuse v4 与 LangGraph 1.2.11 更新情况&#10;- 汇总 Spring AI、Hermes、Code Graph 等生态进展&#10;- 记录多 Agent 安全与治理政策动态&#10;- 整理 Claude Code 远程控制与插件市场功能增强&#10;- 添加 NVIDIA Nemotron 3.5 Lightning 与 DeepSeek V4 Pro 更新&#10;- 涵盖 Qwen3.8-2.4T-A95B 开放权重发布&#10;- 记录 Java 生产环境部署与 Redisson 锁优化实践&#10;- 添加 Pi 终端 Agent 与 Skill 入门指南内容" />
+    <MESSAGE value="feat(dailyReport): 添加2026年8月17日和18日AI及掘金热榜报告&#10;&#10;- 新增2026-08-17 AI日报：包含Anthropic文本水印技术解析&#10;- 添加Claude Code v2.1.234和Codex 0.148.0-alpha.21版本发布信息&#10;- 更新2026-08-18掘金热榜：涵盖Harness插件生态和信创迁移内容&#10;- 记录DeepSeek调价和AI长文一致性工程相关讨论&#10;- 同步更新github-topz榜单数据至2026-08-18 09:47:57&#10;- 修正ai-daily-state.json同步日期至2026-08-17" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(dailyReport): 添加2026年8月17日和18日AI及掘金热榜报告&#10;&#10;- 新增2026-08-17 AI日报：包含Anthropic文本水印技术解析&#10;- 添加Claude Code v2.1.234和Codex 0.148.0-alpha.21版本发布信息&#10;- 更新2026-08-18掘金热榜：涵盖Harness插件生态和信创迁移内容&#10;- 记录DeepSeek调价和AI长文一致性工程相关讨论&#10;- 同步更新github-topz榜单数据至2026-08-18 09:47:57&#10;- 修正ai-daily-state.json同步日期至2026-08-17" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ai_for_learing$vanilla_rnn_numpy_demo.coverage" NAME="vanilla_rnn_numpy_demo Coverage Results" MODIFIED="1778826911757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ai-learning/07-cnn-rnn-transformer-intro/scripts" />
