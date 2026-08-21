@@ -2,6 +2,131 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-08-20
+
+### 今日总览
+
+**一句话结论**：8 月 20 日主线是 **腾讯朱雀对 DeepSeek Harness 的间接注入评测** 与 **Claude Code 上午小版本**：A.I.G 在 14,560 次真实运行里测出文件通道隐藏 Unicode 最高 25.5% 攻击成功率；Claude Code `v2.1.237` 补上 Concise 输出样式与网关 prompt cache。OpenAI 减速仍是周二官方口径，安全媒体继续二次传播。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、安全治理、Claude Code/Codex/OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、论文与政策 |
+| 核心趋势 | 1）Harness 安全从「装插件」转到「不可信内容与敏感工具之间要有控制层」；2）编程 CLI 继续修缓存/输出风格，无新模型；3）OpenAI Astra/RL 暂停进入安全媒体复述 |
+| 可直接关注 | 文件通道 `unicode_hidden` 25.5%、文本伪造完成 17.0%、skills 通道 16.0%；输出服从 ≠ 工具落点成功（sink-required 仅约 2.5%）；`/config` 里的 Concise |
+| 专项检索结论 | Claude Code：`v2.1.237`（Published 2026-08-20T00:54:41Z，中国时间 08:54）；`v2.1.236` 已在 8/19 章标注。Codex 当日仅见 `0.149.0-alpha.*` 预发布流水，无 GA。OpenClaw / Hermes / Spring AI / Spring Alibaba AI / Langfuse / LangChain·LangGraph / Code Graph / Loop Engineering / skills：未发现可核验的 8/20 重大官方更新。 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Agent 安全 | [A.I.G Red Team's DeepSeek Harness test: 14,560 runs](https://matrix.tencent.com/en/2026/08/20/deepseek-harness-agent-injection-risk) | 2026-08-20 | 腾讯朱雀实验室 | 真实 DSH TypeScript runtime；16 条间接内容通道、12 种攻击；最高 25.5%/17.0%/16.0%；代码在 [AI-Infra-Guard](https://github.com/Tencent/AI-Infra-Guard/tree/main/Research/deepseek-harness-security-assessment) |
+| 论文 | [Evaluating DeepSeek Harness with A.I.G](https://arxiv.org/abs/2608.16393) | 2026-08-20（朱雀博文窗口；论文与评估同批） | arXiv | RuleJudge / LLMJudge 双裁判；输出-only 目标成功率远高于必须打到 sink 的目标；结论是控制层应夹在不可信内容与敏感动作之间 |
+| 编程 CLI | [Claude Code v2.1.237](https://github.com/anthropics/claude-code/releases/tag/v2.1.237) | 2026-08-20（UTC 00:54，中国时间上午） | 开源发布 | 内置 Concise：先给结果、少铺垫；修 LLM gateway / 自定义 base URL 下 prompt cache 失效 |
+| 安全治理 | [OpenAI Overhauls Model Security With Sandboxing, 30-Minute Alerts](https://www.securityweek.com/openai-overhauls-model-security-with-sandboxing-30-minute-alerts-and-training-pauses/) | 2026-08-20（报道；宣布属 8/18） | 技术媒体 | 把周二 pacing 写成沙箱 + 30 分钟告警 SLA + 约 20% 监控算力税；数字须回官方博文，勿当新宣布 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Harness 注入评测 | [腾讯朱雀 / A.I.G × DSH](https://matrix.tencent.com/en/2026/08/20/deepseek-harness-agent-injection-risk) | 源到汇轨迹；文本/文件载体；skills 也是攻击面；fixture sink 无外泄 | 要上 DSH / 自研 Agent 运行时安全的人 |
+| 论文原文 | [arXiv:2608.16393](https://arxiv.org/abs/2608.16393) | 14,560 次受控执行；双裁判；partial compliance 7.3% vs 2.0% | 要复现矩阵或对照数字的人 |
+| Claude Code | [v2.1.237 release](https://github.com/anthropics/claude-code/releases/tag/v2.1.237) | Concise 输出样式；网关场景 cache | 走自建网关 / 觉得回复太啰嗦的人 |
+| 训练期监控 | [SecurityWeek / 30-min alerts](https://www.securityweek.com/openai-overhauls-model-security-with-sandboxing-30-minute-alerts-and-training-pauses/) | 高优告警 30 分钟无法证伪则暂停；Sol+ 带工具 RL 强制监控 | 安全/评测归属，须回 openai.com |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：框架侧无新 GA；可落地增量在「Harness 需要运行时控制层」的公开评测，以及 Claude Code 输出/缓存小修。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| DSH 间接注入 | 腾讯朱雀 14,560 次实测，文件隐藏 Unicode 最高 25.5% | 工具返回、附加上下文、skills 都要当不可信输入；提示词挡不住 tool-call |
+| 裁判方法 | RuleJudge 与 LLMJudge 会给出不同成功率 | 只看模型「答应了」不够，要看是否打到敏感 sink |
+| Claude Code | v2.1.237 Concise + gateway cache | 自定义 base URL 的团队应升级后再看 cache 命中 |
+| OpenAI 减速 | 安全媒体 8/20 复述沙箱与 30 分钟 SLA | 不是新政策，是 8/18 宣布的二次传播 |
+| Codex / OpenClaw / Hermes / Langfuse / LangGraph / Code Graph / Loop / Spring AI | 未发现 8/20 可核验重大更新 | Codex 稳定版 `0.148.0` 的 GitHub 时间落在 UTC 晚间（中国时间为 8/21），不记入本日 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [腾讯朱雀 / A.I.G × DSH](https://matrix.tencent.com/en/2026/08/20/deepseek-harness-agent-injection-risk) | 当日唯一可核验的大厂 Agent 运行时安全评测，带轨迹与通道拆分 |
+| 推荐 | [arXiv:2608.16393](https://arxiv.org/abs/2608.16393) | 数字、矩阵、代码仓库齐全，可对照媒体转述 |
+| 推荐 | [Claude Code v2.1.237](https://github.com/anthropics/claude-code/releases/tag/v2.1.237) | 当日编程 Agent 唯一可核验的完整 changelog |
+| 延伸 | [SecurityWeek / sandboxing](https://www.securityweek.com/openai-overhauls-model-security-with-sandboxing-30-minute-alerts-and-training-pauses/) | 把 8/18 官方减速落到运维 SLA，须回 openai.com |
+
+### 来源清单
+
+- 检索范围：2026-08-20 00:00:00 到 2026-08-20 23:59:59（Asia/Shanghai）
+- 引用域名：matrix.tencent.com, arxiv.org, github.com, securityweek.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 实验室博文 | A.I.G Red Team DeepSeek Harness test | 2026-08-20 | https://matrix.tencent.com/en/2026/08/20/deepseek-harness-agent-injection-risk |
+| 论文 | Evaluating DeepSeek Harness with A.I.G | 2026-08-20（与朱雀博文同批） | https://arxiv.org/abs/2608.16393 |
+| 开源发布 | Claude Code v2.1.237 | 2026-08-20 | https://github.com/anthropics/claude-code/releases/tag/v2.1.237 |
+| 技术媒体 | OpenAI sandboxing / 30-minute alerts | 2026-08-20（报道；宣布属 8/18） | https://www.securityweek.com/openai-overhauls-model-security-with-sandboxing-30-minute-alerts-and-training-pauses/ |
+
+## 2026-08-19
+
+### 今日总览
+
+**一句话结论**：8 月 19 日主线是 **安全减速的媒体细化** 与 **Claude Code 晚间小版本**：TNW 等把 OpenAI 新监控写成约 20% 推理算力税；Anthropic 8/18 蛋白质设计博文在中文窗口继续传播；Claude Code `v2.1.236` 的 GitHub Published 落在 UTC 晚间（中国时间为 8/20 凌晨）。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、安全治理、Claude Code/Codex/OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、论文与政策 |
+| 核心趋势 | 1）OpenAI「减速」从周二宣布进入数字与竞速对照；2）生命科学 Agent 用湿实验命中率说话；3）编程 CLI 继续修沙箱/会话，无新模型 |
+| 可直接关注 | 监控覆盖 Sol+ 带工具 RL 与全部 Astra 推理；蛋白 binder 27% 命中率须对照独立实验室；`ANTHROPIC_DEFAULT_MODEL` 与 `ANTHROPIC_MODEL` 的差异 |
+| 专项检索结论 | Claude Code：`v2.1.236`（Published 2026-08-19T20:02:05Z，中国时间为 8/20 凌晨）；`v2.1.235` 已在 8/18 章标注。Codex / OpenClaw / Hermes / Spring AI / Spring Alibaba AI / Langfuse / LangChain·LangGraph / Code Graph / Loop Engineering / skills：未发现可核验的 8/19 重大官方更新。 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 安全治理 | [OpenAI puts a 20% compute cost on its new AI safety monitoring](https://thenextweb.com/news/openai-20-percent-compute-overhead-safety-monitoring) | 2026-08-19（报道；宣布属周二） | 技术媒体 | 把周二博文量化为「约 20% 被监控推理算力」；覆盖 Sol 及以上带工具的训练/评测 + Astra 全部推理；与 Anthropic「不必暂停」对照 |
+| 科研 Agent | [How Claude is accelerating protein design and analytical chemistry](https://www.anthropic.com/research/Claude-accelerates-protein-design) | 2026-08-18（相邻日期/中国时间窗口传播） | 官方研究博文 | Mythos Preview / Opus 4.8 对 15 靶成功 14；命中率约 22–35%（文称业界常 10–15%）；Opus 5 在 19–23 分钟内对上 NMR/LC-MS；数据已放 Hugging Face |
+| 编程 CLI | [Claude Code v2.1.236](https://github.com/anthropics/claude-code/releases/tag/v2.1.236) | 2026-08-19（UTC；中国时间窗口为 8/20 凌晨） | 开源发布 | `ANTHROPIC_DEFAULT_MODEL` 只定新会话起点，`/model` 仍覆盖且持久；`notify_when_idle`；macOS `**/.env` 只读拒绝优先；auto mode 不再被 `status.showUntrackedFiles=no` 骗成干净树 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 训练期监控 | [TNW / 20% compute](https://thenextweb.com/news/openai-20-percent-compute-overhead-safety-monitoring) | 监控税 vs 暂停最大前沿 RL；数字须回官方 pacing 博文 | 安全/财务与评测归属 |
+| 湿实验 Agent | [Anthropic / protein](https://www.anthropic.com/research/Claude-accelerates-protein-design) | 协议 prompt 不指定表位；开源折叠/设计工具编排；独立 CRO 复测 | 科研 Agent / 可验证闭环 |
+| Claude Code | [v2.1.236 release](https://github.com/anthropics/claude-code/releases/tag/v2.1.236) | 默认模型 env 与会话级 `/model` 分层；沙箱拒绝规则优先级 | 终端/多会话编排 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：框架侧无新 GA；可落地增量在 Claude Code 沙箱与默认模型分层，以及「可湿实验验证」的科研 Agent。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| OpenAI 监控 | 媒体细化 20% 算力税与竞速叙事 | 高能力评测也要套生产级监控，不能「评测就关监控」 |
+| Anthropic Science | 蛋白设计 + 分析化学两条可复现实验 | maker/checker：模型出设计，CRO 出结合数据 |
+| Claude Code | v2.1.236：默认模型 env、空闲通知、`.env` 拒绝优先 | `/goal` 后台任务 30 分钟起自动 check-in |
+| Codex / OpenClaw / Hermes / Langfuse / LangGraph / Code Graph / Loop / Spring AI | 未发现 8/19 可核验重大更新 | 继续消化周二减速与 8/18 v2.1.235 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [Anthropic / protein](https://www.anthropic.com/research/Claude-accelerates-protein-design) | 官方数字 + Hugging Face 数据，可对照媒体转述 |
+| 推荐 | [Claude Code v2.1.236](https://github.com/anthropics/claude-code/releases/tag/v2.1.236) | 当日编程 Agent 唯一可核验的完整 changelog |
+| 延伸 | [TNW / 20% compute](https://thenextweb.com/news/openai-20-percent-compute-overhead-safety-monitoring) | 把「减速」落到可对账的算力开销，须回 openai.com |
+
+### 来源清单
+
+- 检索范围：2026-08-19 00:00:00 到 2026-08-19 23:59:59（Asia/Shanghai）
+- 引用域名：thenextweb.com, anthropic.com, github.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 技术媒体 | OpenAI 20% compute safety monitoring | 2026-08-19（报道；宣布属周二） | https://thenextweb.com/news/openai-20-percent-compute-overhead-safety-monitoring |
+| 官方研究 | Claude protein design / chemistry | 2026-08-18（相邻日期/中国时间窗口传播） | https://www.anthropic.com/research/Claude-accelerates-protein-design |
+| 开源发布 | Claude Code v2.1.236 | 2026-08-19（UTC；相邻日期/中国时间窗口传播） | https://github.com/anthropics/claude-code/releases/tag/v2.1.236 |
+
 ## 2026-08-18
 
 ### 今日总览
