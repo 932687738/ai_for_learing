@@ -2,6 +2,137 @@
 
 按 Asia/Shanghai 时区汇总掘金文章热榜与收藏热榜（后端 / 前端 / 人工智能 / 开发工具），按文章链接去重并归纳正文。
 
+## 2026-08-24
+
+### 今日总览
+
+**一句话结论**：`2026-08-24` 新 URL 主线是 **DSH 安装/命令/源码对比、Codex 变慢、本地 Qwen 省 token、合同/备份工程文**；收藏榜只补一篇 AI 做微信小游戏旧文。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 文章热榜 + 收藏热榜 × 后端/前端/人工智能/开发工具 |
+| 榜单规模 | 每槽最多 15 条；列表总条数 120；去重后新 URL **29**；跳过已见 **91**；详情成功 29 / 失败 0 |
+| 核心趋势 | 1）Harness 热文从「值不值得装」转到命令手册、插件清单和 `.agents/`；2）有人开始写 Codex「变慢」是工作方式变了；3）工具向落到备份验库、Git 规范、Docker |
+| 可直接关注 | [Codex 怎么突然变慢了](https://juejin.cn/post/7675676910077345798)；[我把 DSH 跑了一遍，终于知道它和 Codex 差在哪](https://juejin.cn/post/7675538244907221001)；[备份完不算完](https://juejin.cn/post/7676421042796412968)；[合同审查助手](https://juejin.cn/post/7676162994423119918) |
+
+### 后端
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 3 | [「速通Shell」Shell 数组、关联数组与 mapfile](https://juejin.cn/post/7675181079705649206) | 柒号华仔 | 赞1/藏3/阅2026 | 系列从单条数据处理转到成组数据：普通数组、关联数组、`mapfile`。强调运维/CI 里 bash 数组够覆盖约 80% 场景。适合补 shell，不是新框架。 | https://juejin.cn/post/7675181079705649206 |
+| 5 | [备份完不算完，先还原到临时库验一遍](https://juejin.cn/post/7676421042796412968) | 一只牛博 | 赞3/藏2/阅1670 | 「备份成功」≠「能还原」。把 custom 备份还原到临时库，验数据、对象、约束和业务查询。演示用 `system` 建删库。适合 DBA/会写备份脚本的人。 | https://juejin.cn/post/7676421042796412968 |
+| 6 | [DeepSeek Harness 这波，搞得全世界都在安装 Node.js](https://juejin.cn/post/7675899462443122726) | 神奇小汤圆 | 赞6/藏8/阅1192 | DSH 默认 Web UI（`127.0.0.1:3080`），入口是 `npx @deepseek-ai/dsh web`，逼着一批非前端装 Node。适合还没跑起来的人；版本以官方为准。 | https://juejin.cn/post/7675899462443122726 |
+| 9 | [DeepSeek Harness 命令大全](https://juejin.cn/post/7675947280080240691) | 苏三说技术 | 赞8/藏10/阅630 | 把 `dsh` 当 profile 启动器，整理 `--profile`/`--patch`/`--dump-config` 与插件安装。速查手册，参数以当时官方文档为准。 | https://juejin.cn/post/7675947280080240691 |
+| 11 | [DeepSeek Harness 必装的插件公布了](https://juejin.cn/post/7675308265186983978) | cxuanAI | 赞5/藏18/阅516 | 盘 Cordis 插件：better-sidebar 等有用，也点名桌宠类没卵用。适合刚装完毛坯房；先看权限。 | https://juejin.cn/post/7675308265186983978 |
+| 12 | [为什么越来越多人用 kkFileView](https://juejin.cn/post/7676641074035605550) | 苏三说技术 | 赞8/藏18/阅387 | 浏览器预览 Word/Excel/CAD/PDF，半小时部署。称 9.9k+ Star。适合 Java OA 要在线预览的人；安全与格式支持须自测。 | https://juejin.cn/post/7676641074035605550 |
+| 13 | [Codex 怎么突然变慢了](https://juejin.cn/post/7675676910077345798) | 掘金者阿豪 | 赞5/藏6/阅357 | 同一类需求从「几分钟改完」变成几十分钟。作者判断是工作方式变了（更多读项目/规划），不是单纯卡顿。偏体验，对照你自己的会话设置。 | https://juejin.cn/post/7675676910077345798 |
+| 14 | [给 AI 时代找工作的同学一些实用建议](https://juejin.cn/post/7676277362519113763) | 逻辑帧 | 赞6/藏9/阅324 | 转公众号：大模型研发是小工种，学历/微调焦虑常见。建议死皮赖脸投、把做过的 RAG/MCP 项目讲清楚。职场文，不是技术手册。 | https://juejin.cn/post/7676277362519113763 |
+| 15 | [Go 1.27 升了一波，泛型方法和 JSON v2 真香但有个坑](https://juejin.cn/post/7675914752422805514) | Flynt | 赞1/藏3/阅375 | 从 1.25 升到 1.27：泛型方法少写包级万能函数；`encoding/json/v2` 踩坑。适合要升级的 Go 服务；changelog 回官方博客。 | https://juejin.cn/post/7675914752422805514 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 前端
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 10 | [高级前端如何优雅地拒绝不合理的产品需求](https://juejin.cn/post/7675261669513953290) | ErpanOmer | 赞12/藏13/阅601 | 别只说「有点难」：用性能/端能力把风险讲清楚，避免接不可能任务再被甩锅。职场沟通文。 | https://juejin.cn/post/7675261669513953290 |
+| 11 | [ECharts 太平面？试试这款 Vue 3D 图表库](https://juejin.cn/post/7674878323556237355) | RayChart | 赞8/藏7/阅501 | 大屏要「立体一点」时，作者不想从零写 Three.js 柱状图。偏库安利，选型先看许可与包体积。 | https://juejin.cn/post/7674878323556237355 |
+| 12 | [虚拟滚动真的比普通滚动性能更好吗](https://juejin.cn/post/7676091857219272742) | Mh | 赞5/藏13/阅725 | 从零写固定高度虚拟列表，再对比「是不是一定更快」。短列表可能更差。适合要做长列表的人。 | https://juejin.cn/post/7676091857219272742 |
+| 14 | [面试官说"打开你的AI工具"](https://juejin.cn/post/7674817329578606619) | kyriewen | 赞6/藏7/阅546 | 现场看你怎么用 Claude Code/Cursor，不是默写八股。引用 LeadDev「默认候选人买得起 Max」。面试观察文。 | https://juejin.cn/post/7674817329578606619 |
+| 15 | [DeepSeek Harness 发布后，我没急着跑 Demo，先把 `.agents/` 翻了一遍](https://juejin.cn/post/7674828652658425896) | 小u | 赞5/藏8/阅586 | 根目录 `.agents/` 里 11 个 Skill、684 份 Agent Note。作者认为 DSH 把「怎么改这个仓库」写成规则和历史决策。适合要读源码仓的人。 | https://juejin.cn/post/7674828652658425896 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 人工智能
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 5 | [这个本地模型，让我 token 自由了](https://juejin.cn/post/7676709710489419786) | stormzhangV | 赞14/藏10/阅804 | 写 Qwen3.8-27B 本地跑、叫板 Opus 4.6、HF/Cline 热度。数字是作者转述，须回阿里/HF。适合 token 账单焦虑、能上本地卡的人。 | https://juejin.cn/post/7676709710489419786 |
+| 6 | [我把 DeepSeek Harness 跑了一遍，终于知道它和 Codex 差在哪了](https://juejin.cn/post/7675538244907221001) | 子昕AI编程 | 赞9/藏8/阅891 | 金句：Codex 把组装好的 Agent 交给你，DSH 把组装方式交给你。劝新手别从架构页起步。对比文，选型对照官方仓库。 | https://juejin.cn/post/7675538244907221001 |
+| 8 | [从失业到出书：我一个人靠 AI 搭起了一家小公司](https://juejin.cn/post/7675947280080879667) | 后端小肥肠 | 赞13/藏5/阅710 | 创业一年半：出书、训练营、视频 IP。经历向，不是 Agent 教程。 | https://juejin.cn/post/7675947280080879667 |
+| 11 | [国产模型越来越强了：DeepSeek V4、Kimi K3 与 GLM](https://juejin.cn/post/7675272903248920595) | Shepherd | 赞5/藏3/阅530 | 专栏铺垫：V4 Flash/Pro、Kimi K3、GLM Coding Plan。资讯盘点，日期回各家公告。 | https://juejin.cn/post/7675272903248920595 |
+| 12 | [没想到吧！Skill 也可以测试](https://juejin.cn/post/7675447922213568558) | RockByte | 赞3/藏4/阅415 | 系列续篇：给上一篇 Skill 写可重复跑的检查脚本，改完回归。适合已经在写 Skill 的人。 | https://juejin.cn/post/7675447922213568558 |
+| 13 | [DeepSeek Harness 强是真的强，普通用户可以再等等](https://juejin.cn/post/7675614776635670582) | 深小乐 | 赞4/藏6/阅374 | 认可 Everything is a Plugin，但认为当前预览不适合普通用户。体验判断，对照你的受众。 | https://juejin.cn/post/7675614776635670582 |
+| 14 | [从 0 到 1，DeepSeek Harness 保姆级安装与使用教程](https://juejin.cn/post/7675266921491267611) | 狂师 | 赞5/藏9/阅345 | 补 8/13 之后的安装路径，作者自称不追热点。步骤文，命令以当时官方为准。 | https://juejin.cn/post/7675266921491267611 |
+| 15 | [RAG检索优化实战：从67%到92%](https://juejin.cn/post/7674794074012893238) | 神奇小汤圆 | 赞5/藏9/阅348 | 先建 Hit Rate@5 / MRR / Context Relevance，再调四步。67%→92% 是作者样本。适合已经上线在盲调 prompt 的人。 | https://juejin.cn/post/7674794074012893238 |
+
+#### 收藏热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 15 | [我全程用 AI开发了一款微信小游戏，上线了](https://juejin.cn/post/7669058712007147539) | 程序员码歌 | 赞65/藏94/阅7621 | 复盘《箭头快跑呀》：选型、美术、审核、广告。旧文新上收藏榜；变现数字以作者自述为准。 | https://juejin.cn/post/7669058712007147539 |
+
+### 开发工具
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 2 | [从零封装一个合同审查助手](https://juejin.cn/post/7676162994423119918) | 倔强的石头_ | 赞5/藏5/阅823 | WorkBuddy + 腾讯云 OCR 吃 5 种格式合同，要要素表、风险清单且能回原文。个人封装，含翻车记录。 | https://juejin.cn/post/7676162994423119918 |
+| 10 | [GitHub 本周热门开源项目：Agent Infra与端侧 AI｜8.17–8.23](https://juejin.cn/post/7676110932394098731) | IvanCodes | 赞2/藏1/阅173 | 周五周报：diagram-design 一周 +1.1 万星等。时点数据，适合扫仓库。 | https://juejin.cn/post/7676110932394098731 |
+| 11 | [【规范】这套 Git 规范，救了整个团队](https://juejin.cn/post/7675677773995999259) | JavaDog程序狗 | 赞2/藏3/阅164 | 用 force push 血案引出分支/评审规范。超过 3 人的团队可当检查清单，不是新工具。 | https://juejin.cn/post/7675677773995999259 |
+| 12 | [Docker 部署禅道 ZenTao](https://juejin.cn/post/7675671057673256975) | 程序员老赵 | 赞2/藏5/阅122 | `easysoft/zentao:22.4` + MariaDB，数据留内网。适合不想上 SaaS Jira 的小团队。 | https://juejin.cn/post/7675671057673256975 |
+| 14 | [2026年8月GitHub热榜深度拆解：Agent Skills席卷开源圈](https://juejin.cn/post/7676748940241633307) | 怪侠说不说 | 赞1/藏2/阅126 | 抓取基准 8/23：月榜多项是 Skills/记忆/路由。长文盘点，星数会变。 | https://juejin.cn/post/7676748940241633307 |
+| 15 | [Docker 实战：使用 Nginx 作为容器入口代理 Node 服务](https://juejin.cn/post/7676375370355441691) | 东风破_ | 赞3/藏1/阅85 | 系列第二篇：多容器 + Nginx 反代 Express。入门拓扑，不是生产硬化。 | https://juejin.cn/post/7676375370355441691 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 跨榜重复与去重说明
+
+- 本轮新摘要 URL 数：29
+- 因 `seen_urls` 跳过：91（只给数量；不要把已见文再展开成表行）
+- 同文多标签/双榜出现：无（29 条均只出现在单一槽位）
+
+### 来源清单
+
+- 快照日：2026-08-24（Asia/Shanghai）
+- 页面：https://juejin.cn/hot/articles 、 https://juejin.cn/hot/collected-articles
+- 抓取：`tools/juejin_hot_fetch.py` → `_staging_latest.json`
+
+| 标签 | 榜单 | 标题 | 链接 |
+| --- | --- | --- | --- |
+| 后端 | 文章热榜 | 「速通Shell」数组与 mapfile | https://juejin.cn/post/7675181079705649206 |
+| 后端 | 文章热榜 | 备份完不算完，先还原到临时库 | https://juejin.cn/post/7676421042796412968 |
+| 后端 | 文章热榜 | DSH 搞得全世界都在安装 Node.js | https://juejin.cn/post/7675899462443122726 |
+| 后端 | 文章热榜 | DeepSeek Harness 命令大全 | https://juejin.cn/post/7675947280080240691 |
+| 后端 | 文章热榜 | DSH 必装插件 | https://juejin.cn/post/7675308265186983978 |
+| 后端 | 文章热榜 | 为什么越来越多人用 kkFileView | https://juejin.cn/post/7676641074035605550 |
+| 后端 | 文章热榜 | Codex 怎么突然变慢了 | https://juejin.cn/post/7675676910077345798 |
+| 后端 | 文章热榜 | 给 AI 时代找工作的建议 | https://juejin.cn/post/7676277362519113763 |
+| 后端 | 文章热榜 | Go 1.27 泛型方法与 JSON v2 | https://juejin.cn/post/7675914752422805514 |
+| 前端 | 文章热榜 | 高级前端如何拒绝不合理需求 | https://juejin.cn/post/7675261669513953290 |
+| 前端 | 文章热榜 | Vue 3D 图表库 | https://juejin.cn/post/7674878323556237355 |
+| 前端 | 文章热榜 | 虚拟滚动真的更快吗 | https://juejin.cn/post/7676091857219272742 |
+| 前端 | 文章热榜 | 面试官说打开你的 AI 工具 | https://juejin.cn/post/7674817329578606619 |
+| 前端 | 文章热榜 | 先翻 DSH 的 .agents/ | https://juejin.cn/post/7674828652658425896 |
+| 人工智能 | 文章热榜 | 这个本地模型让我 token 自由了 | https://juejin.cn/post/7676709710489419786 |
+| 人工智能 | 文章热榜 | DSH 和 Codex 差在哪 | https://juejin.cn/post/7675538244907221001 |
+| 人工智能 | 文章热榜 | 从失业到出书 | https://juejin.cn/post/7675947280080879667 |
+| 人工智能 | 文章热榜 | 国产模型 DeepSeek / Kimi / GLM | https://juejin.cn/post/7675272903248920595 |
+| 人工智能 | 文章热榜 | Skill 也可以测试 | https://juejin.cn/post/7675447922213568558 |
+| 人工智能 | 文章热榜 | DSH 强，普通用户再等等 | https://juejin.cn/post/7675614776635670582 |
+| 人工智能 | 文章热榜 | DSH 保姆级安装 | https://juejin.cn/post/7675266921491267611 |
+| 人工智能 | 文章热榜 | RAG 检索从 67% 到 92% | https://juejin.cn/post/7674794074012893238 |
+| 人工智能 | 收藏热榜 | 全程用 AI 开发微信小游戏 | https://juejin.cn/post/7669058712007147539 |
+| 开发工具 | 文章热榜 | 合同审查助手 | https://juejin.cn/post/7676162994423119918 |
+| 开发工具 | 文章热榜 | GitHub 本周热门 8.17–8.23 | https://juejin.cn/post/7676110932394098731 |
+| 开发工具 | 文章热榜 | 这套 Git 规范救了整个团队 | https://juejin.cn/post/7675677773995999259 |
+| 开发工具 | 文章热榜 | Docker 部署禅道 | https://juejin.cn/post/7675671057673256975 |
+| 开发工具 | 文章热榜 | 8 月 GitHub 热榜深度拆解 | https://juejin.cn/post/7676748940241633307 |
+| 开发工具 | 文章热榜 | Nginx 代理 Node 容器 | https://juejin.cn/post/7676375370355441691 |
+
 ## 2026-08-21
 
 ### 今日总览

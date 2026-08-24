@@ -2,6 +2,180 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-08-23
+
+### 今日总览
+
+**一句话结论**：8 月 23 日可核验增量偏瘦：**Claude Code `v2.1.241` 仅 bugfix**；安全/消费媒体继续复述 8/20 的 Apple Messages 插件与 Full Disk Access 面。Codex 稳定版无新 tag（`0.149.1` 落在 8/24 UTC）。五个框架专项无新 GA。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、安全治理、Claude Code/Codex/OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、论文与政策 |
+| 核心趋势 | 1）编程 CLI 进入连续小修日；2）桌面 Agent 权限争议从「能不能发 iMessage」转到「FDA 打开了哪些盘」；3）框架侧消化 8/22 Langfuse 评测改版 |
+| 可直接关注 | Messages 插件默认要批准正文和收件人；关闭持久批准与任务免批准的已知问题见官方 release notes |
+| 专项检索结论 | Claude Code：`v2.1.241`（Published 2026-08-23T00:52:16Z，中国时间 08:52，仅 bugfix）。Codex / OpenClaw / Hermes / Spring AI / Spring Alibaba AI / Langfuse / LangChain·LangGraph / Code Graph / Loop Engineering / skills：未发现可核验的 8/23 重大官方更新。 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 编程 CLI | [Claude Code v2.1.241](https://github.com/anthropics/claude-code/releases/tag/v2.1.241) | 2026-08-23 | 开源发布 | 仅「Bug fixes and reliability improvements」，无新功能条目 |
+| 桌面插件（传播） | [ChatGPT Work and Codex Can Now Use Apple Messages](https://winbuzzer.com/2026/08/23/openai-lets-chatgpt-search-apple-messages-and-send-replies-o-xcxwbn/) | 2026-08-23（报道；官方属 8/20） | 技术媒体 | 复述 Apple silicon + Work/Codex 才能用；安装、系统权限、发送批准三步分离。权限细节须回 [OpenAI Release Notes](https://openai.com/products/release-notes/) |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Claude Code | [v2.1.241 release](https://github.com/anthropics/claude-code/releases/tag/v2.1.241) | 连续修复日，升级即可 | 已跟 2.1.239 的人 |
+| Messages 权限 | [OpenAI product release notes](https://openai.com/products/release-notes/) | FDA、联系人、自动化分权；默认发送前批准 | Mac 桌面 Agent 管理员 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：无新框架 GA；继续消化 8/21 Codex 仪表盘与 8/22 Langfuse 评测。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Claude Code | v2.1.241 纯修复 | 不必为「新能力」升级，修稳定性可升 |
+| Messages 插件 | 媒体二次传播 + FDA 争议 | 桌面 Agent 的权限边界要写进安全评审，不能只看功能 demo |
+| 其余专项 | 未发现 8/23 可核验重大更新 | Codex `0.149.1` 记到下一中国日 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 延伸 | [OpenAI Release Notes / Apple Messages](https://openai.com/products/release-notes/) | 官方口径比媒体短，含撤销与已知问题 |
+| 延伸 | [Claude Code v2.1.241](https://github.com/anthropics/claude-code/releases/tag/v2.1.241) | 确认当日无功能增量 |
+
+### 来源清单
+
+- 检索范围：2026-08-23 00:00:00 到 2026-08-23 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, openai.com, winbuzzer.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Claude Code v2.1.241 | 2026-08-23 | https://github.com/anthropics/claude-code/releases/tag/v2.1.241 |
+| 技术媒体 | ChatGPT / Codex Apple Messages | 2026-08-23（报道；官方属 8/20） | https://winbuzzer.com/2026/08/23/openai-lets-chatgpt-search-apple-messages-and-send-replies-o-xcxwbn/ |
+
+## 2026-08-22
+
+### 今日总览
+
+**一句话结论**：8 月 22 日主线是 **Langfuse 重做生产评测工作流** 与 **Claude Code `v2.1.239`/`v2.1.240`**：评测侧把 evaluator 与 rule 拆开，可在真实 observation 上试跑并估算近 7 日成本；Claude Code 把 1.1× 美国专属推理溢价写进 `/cost`，并修 Bedrock 代理下静默双计费。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、安全治理、Claude Code/Codex/OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、论文与政策 |
+| 核心趋势 | 1）评测从「写 JSONPath 上线」转到「对着真实 trace 试跑再采样」；2）编程 CLI 继续修云会话/代理/OTel；3）Codex 仅见 alpha 流水，无新 GA |
+| 可直接关注 | evaluator 与 rule 分离；上线前看过去 7 日匹配量；Bedrock 代理剥 Content-Type 会导致整轮非流式重跑 |
+| 专项检索结论 | Langfuse：[Reusable evaluators and rules](https://langfuse.com/changelog/2026-08-22-reusable-evaluators-and-rules)（2026-08-22）。Claude Code：`v2.1.239`（Published 2026-08-21T19:54:23Z，中国时间 8/22 03:54）；`v2.1.240`（Published 2026-08-22T14:45:30Z，中国时间 22:45，仅 bugfix）。Codex / OpenClaw / Hermes / Spring AI / Spring Alibaba AI / LangChain·LangGraph / Code Graph / Loop Engineering / skills：未发现可核验的 8/22 重大官方更新。 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| LLM 评测 | [Set up production evaluations with ease](https://langfuse.com/changelog/2026-08-22-reusable-evaluators-and-rules) | 2026-08-22 | 官方 changelog | Evaluator 定义怎么打分，Rule 定义评哪些 observation；可复用过滤/采样；用真实数据试跑；变量映射可点选，JSONPath 仍留高级路径；上线前估近 7 日量与 judge 成本 |
+| 编程 CLI | [Claude Code v2.1.239](https://github.com/anthropics/claude-code/releases/tag/v2.1.239) | 2026-08-22（UTC 21 日晚；中国时间凌晨） | 开源发布 | `/cost` 计入 1.1× US-only 溢价；`/claude-api upgrade` 迁 Python SDK 0.x→1.x；修 Bedrock 代理双计费、HTTPS_PROXY + SSO 启动挂起、OTel 被 PreToolUse 打断；`/goal` check-in 改为 30min→1h→2h |
+| 编程 CLI | [Claude Code v2.1.240](https://github.com/anthropics/claude-code/releases/tag/v2.1.240) | 2026-08-22 | 开源发布 | 仅「Bug fixes and reliability improvements」，无新功能条目 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 生产评测 | [Langfuse changelog](https://langfuse.com/changelog/2026-08-22-reusable-evaluators-and-rules) | observation 级已自动升级；trace 级须走迁移 FAQ | 已有 Langfuse judge 的人 |
+| Claude Code 账单 | [v2.1.239 release](https://github.com/anthropics/claude-code/releases/tag/v2.1.239) | 数据驻留工作区的 1.1× 要进预算；代理剥 Content-Type 会双计费 | Bedrock/Vertex 走企业代理的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：当日唯一框架级 GA 是 Langfuse 评测体验；编排框架无新 release。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Langfuse | evaluator / rule 分离 + 真实数据试跑 | 先估匹配量再开线上 judge，别一上来全量 LLM 打分 |
+| Claude Code | v2.1.239 成本与代理修复；v2.1.240 纯修复 | `/goal` 长任务降频 check-in，减少打扰 |
+| Codex / LangGraph / Code Graph / Loop / Spring AI | 未发现 8/22 可核验重大更新 | Codex `0.149.1` 落在 8/24 UTC，不记入本日 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [Langfuse / reusable evaluators](https://langfuse.com/changelog/2026-08-22-reusable-evaluators-and-rules) | 当日框架专项唯一可核验官方更新 |
+| 推荐 | [Claude Code v2.1.239](https://github.com/anthropics/claude-code/releases/tag/v2.1.239) | 成本、代理、OTel、`/goal` 条目集中 |
+
+### 来源清单
+
+- 检索范围：2026-08-22 00:00:00 到 2026-08-22 23:59:59（Asia/Shanghai）
+- 引用域名：langfuse.com, github.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方 changelog | Langfuse reusable evaluators and rules | 2026-08-22 | https://langfuse.com/changelog/2026-08-22-reusable-evaluators-and-rules |
+| 开源发布 | Claude Code v2.1.239 | 2026-08-22（中国时间窗口） | https://github.com/anthropics/claude-code/releases/tag/v2.1.239 |
+| 开源发布 | Claude Code v2.1.240 | 2026-08-22 | https://github.com/anthropics/claude-code/releases/tag/v2.1.240 |
+
+## 2026-08-21
+
+### 今日总览
+
+**一句话结论**：8 月 21 日主线是 **Codex 稳定版 `0.149.0` 进入中国时间窗口** 与 **Claude Code `v2.1.238`**：前者补上 `codex agents` 仪表盘、`codex queue` 和 `/cd`；后者给 marketplace `headersHelper`、自托管 runner 延迟关机与 readline 键位。OpenAI「Codex as a platform」与 Apple Messages 插件属 8/19–8/20 官方口径，中文窗口继续传播。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、安全治理、Claude Code/Codex/OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、论文与政策 |
+| 核心趋势 | 1）编程 Agent 把「会话/任务」做成可搜索、可排队的产品面；2）企业网关/自托管 runner 继续补鉴权与关机语义；3）桌面插件把 Messages 当任务入口 |
+| 可直接关注 | `codex agents` / `codex queue`；`keybindingFlavor: readline`；marketplace `headersHelper` 安装时才跑且要确认 |
+| 专项检索结论 | Codex：`0.149.0`（Published 2026-08-20T21:04:55Z，中国时间 8/21 05:04）。Claude Code：`v2.1.238`（Published 2026-08-20T20:33:51Z，中国时间 8/21 04:33）。OpenClaw / Hermes / Spring AI / Spring Alibaba AI / Langfuse / LangChain·LangGraph / Code Graph / Loop Engineering / skills：未发现可核验的 8/21 重大官方更新。 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 编程 CLI | [Codex 0.149.0](https://github.com/openai/codex/releases/tag/rust-v0.149.0) | 2026-08-21（UTC 20 日晚；中国时间凌晨） | 开源发布 | 交互式 `codex agents`；`/cd` `/pwd` `/cwd`；`codex queue` 给已有会话投消息；`codex doctor` 扩到端点防护/代理/桌面状态；SDK 可传精确 CLI 覆盖与 `max`/`ultra` reasoning |
+| 编程 CLI | [Claude Code v2.1.238](https://github.com/anthropics/claude-code/releases/tag/v2.1.238) | 2026-08-21（UTC 20 日晚；中国时间凌晨） | 开源发布 | `keybindingFlavor=readline`；插件市场 `headersHelper` 现用现签；`self-hosted-runner --defer-shutdown-max-min`；修长会话内存与 Remote Control 断线 |
+| Harness 叙事 | [Codex as a platform](https://developers.openai.com/blog/codex-as-a-platform) | 相邻日期/中国时间窗口传播（中文媒体 8/21 集中转述） | 官方开发者博文 | `codex exec` / SDK / `app-server` 三层；ARC-AGI-3 上 Sol 从 13.3% 到 38.3%、输出 token 约 1/6；示例应用 Relay |
+| 桌面插件 | [Apple Messages plugin / Release Notes](https://openai.com/products/release-notes/) | 2026-08-20（相邻日期；中文/安全媒体 8/21 起传播） | 官方产品更新 | Apple silicon Mac 上 Work/Codex 可读 iMessage/SMS/RCS 并经批准发送；需 Full Disk Access，权限面大于聊天记录 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Codex 会话编排 | [0.149.0 release](https://github.com/openai/codex/releases/tag/rust-v0.149.0) | 恢复/fork 线程要带回权限档案；排队消息要能叫醒空闲会话 | 多会话/远程 Codex |
+| Claude Code 企业网关 | [v2.1.238 release](https://github.com/anthropics/claude-code/releases/tag/v2.1.238) | `headersHelper` 不继承凭证环境变量；项目 MCP helper 要先过 trust dialog | 自建市场/代理出网 |
+| 嵌入式 harness | [Codex as a platform](https://developers.openai.com/blog/codex-as-a-platform) | 应用拥有界面/审批/MCP，harness 只管 loop | 要把 Agent 嵌进已有后台的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：框架侧无新 GA；可落地增量在 Codex 任务仪表盘与 Claude Code 插件鉴权。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Codex | 0.149.0：agents 仪表盘 + queue + cwd 命令 | 长任务要能被找到、被投递，而不是只开新会话 |
+| Claude Code | v2.1.238：headersHelper / runner 延迟关机 | 短期 token 现用现签；SIGTERM 先停新活再退 |
+| OpenAI 平台叙事 | exec / SDK / app-server | 别把 CLI 壳再包一层当产品 |
+| Langfuse / LangGraph / Code Graph / Loop / Spring AI | 未发现 8/21 可核验重大更新 | Langfuse 官方 changelog 落在 8/22 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [Codex 0.149.0](https://github.com/openai/codex/releases/tag/rust-v0.149.0) | 当日 Codex 唯一可核验的稳定 changelog |
+| 推荐 | [Claude Code v2.1.238](https://github.com/anthropics/claude-code/releases/tag/v2.1.238) | 企业网关与自托管 runner 相关条目集中 |
+| 延伸 | [Codex as a platform](https://developers.openai.com/blog/codex-as-a-platform) | 把 harness 讲成嵌入面，数字须回原文 |
+
+### 来源清单
+
+- 检索范围：2026-08-21 00:00:00 到 2026-08-21 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, developers.openai.com, openai.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Codex 0.149.0 | 2026-08-21（中国时间窗口） | https://github.com/openai/codex/releases/tag/rust-v0.149.0 |
+| 开源发布 | Claude Code v2.1.238 | 2026-08-21（中国时间窗口） | https://github.com/anthropics/claude-code/releases/tag/v2.1.238 |
+| 官方博文 | Codex as a platform | 相邻日期/中国时间窗口传播 | https://developers.openai.com/blog/codex-as-a-platform |
+| 官方产品 | Apple Messages plugin | 2026-08-20（相邻日期） | https://openai.com/products/release-notes/ |
+
 ## 2026-08-20
 
 ### 今日总览

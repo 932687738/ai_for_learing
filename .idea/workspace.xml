@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="docs(dailyReport): 更新 2026 年 8 月 18 日与 19 日 AI 资讯及掘金热榜&#10;&#10;- 添加 OpenAI 降速训练与 Claude Code v2.1.235 版本发布内容&#10;- 更新掘金热榜涵盖前端职业规划、Harness 入门与缓存一致性等主题&#10;- 记录阿里云开发者关于 Agent 身份传递与插件验证的技术文章&#10;- 同步 GitHub 全局热门仓库数据至 8 月 19 日&#10;- 更新 AI 日报状态追踪文件日期至 2026-08-18">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/ai-daily-news/202608.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/ai-daily-news/202608.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-digest.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-digest.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-state.json" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/ai-daily-news/ai-daily-state.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/github-topz.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/github-topz.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/juejin-hot-news/202608.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/juejin-hot-news/202608.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/juejin-hot-news/juejin-hot-digest.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/juejin-hot-news/juejin-hot-digest.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/juejin-hot-news/juejin-hot-state.json" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/juejin-hot-news/juejin-hot-state.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/knowledge-base-news/202608.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/knowledge-base-news/202608.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-digest.md" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-digest.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-state.json" beforeDir="false" afterPath="$PROJECT_DIR$/dailyReport/knowledge-base-news/knowledge-base-state.json" afterDir="false" />
-    </list>
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="docs(dailyReport): 添加2026年8月18日至20日AI资讯与掘金热榜&#10;&#10;- 添加腾讯朱雀实验室DeepSeek Harness安全评测相关内容&#10;- 添加Claude Code v2.1.237版本更新信息&#10;- 添加OpenAI安全治理措施相关报道&#10;- 添加2026年8月21日掘金文章热榜与收藏热榜&#10;- 添加DSH插件开发与HTML可视化编辑器介绍&#10;- 更新Java落地AI安全实践相关内容" />
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -305,15 +293,7 @@
       <workItem from="1786931090577" duration="846000" />
       <workItem from="1787017520572" duration="1387000" />
       <workItem from="1787120078512" duration="661000" />
-      <workItem from="1787278221526" duration="600000" />
-    </task>
-    <task id="LOCAL-00036" summary="更新2026-05-29的智能体面试知识库，新增Tool Calling、FlowAgent顺序执行、MessageChatMemoryAdvisor记忆机制等内容，增强了Agent架构与协同模块的文档，确保知识点的完整性与可读性。">
-      <option name="closed" value="true" />
-      <created>1780037221697</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1780037221698</updated>
+      <workItem from="1787278221526" duration="641000" />
     </task>
     <task id="LOCAL-00037" summary="更新2026-05-29的Agent架构与协同模块，新增ToolCallback、Advisor与Hook的区别及执行顺序的详细说明，增强了文档的结构与可读性，同时更新了知识库中的相关条目，确保知识点的准确性与完整性。">
       <option name="closed" value="true" />
@@ -699,7 +679,15 @@
       <option name="project" value="LOCAL" />
       <updated>1787120092218</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="docs(dailyReport): 添加2026年8月18日至20日AI资讯与掘金热榜&#10;&#10;- 添加腾讯朱雀实验室DeepSeek Harness安全评测相关内容&#10;- 添加Claude Code v2.1.237版本更新信息&#10;- 添加OpenAI安全治理措施相关报道&#10;- 添加2026年8月21日掘金文章热榜与收藏热榜&#10;- 添加DSH插件开发与HTML可视化编辑器介绍&#10;- 更新Java落地AI安全实践相关内容">
+      <option name="closed" value="true" />
+      <created>1787290704476</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1787290704476</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -717,7 +705,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore(dailyReport): 更新每日报告状态和数据&#10;&#10;- 更新 ai-daily-state.json 中的最后同步日期到 2026-06-30&#10;- 在已处理日期列表中添加 2026-06-30&#10;- 更新 github-topz.md 的最新更新时间为 2026-07-01 09:18:28&#10;- 更新顶级仓库的 star 数量统计&#10;- 替换本周 trending 榜单中的仓库排名和数据&#10;- 替换本月 trending 榜单中的仓库排名和数据&#10;- 添加新的 trending 仓库如 hasaneyldrm/exercises-dataset 和 usestrix/strix 等" />
     <MESSAGE value="feat(dailyReport): 添加2026年7月7日AI日报和知识库新闻&#10;&#10;- 添加Meta Muse图像和视频模型发布的相关内容&#10;- 添加Anthropic Claude Cowork移动端和网页版扩展信息&#10;- 添加Claude for Government Desktop公测详情&#10;- 更新Microsoft自研模型成本削减趋势报道&#10;- 添加Alibaba禁止使用Claude Code的安全合规信息&#10;- 更新Claude Code v2.1.203版本发布说明&#10;- 同步更新github-topz排行榜数据至最新状态&#10;- 更新ai-daily-state.json同步日期至2026-07-07" />
     <MESSAGE value="feat(dailyReport): 添加2026-07-09 AI日报和知识库日报内容&#10;&#10;- 新增 ai-daily-news/202607.md 中 2026-07-09 日报内容&#10;- 新增 knowledge-base-news/202607.md 中 2026-07-09 知识库日报内容&#10;- 更新 ai-daily-digest.md 添加 2026-07-09 AI摘要内容&#10;- 更新 ai-daily-state.json 同步状态至 2026-07-09&#10;- 更新 github-topz.md 最近更新时间为 2026-07-10 09:09:20" />
     <MESSAGE value="feat(dailyReport): 添加2026-07-10 AI日报和知识库日报内容&#10;&#10;- 新增 ai-daily-news/202607.md 中 2026-07-10 日报内容，包含 Claude Code v2.1.206 发布、阿里禁 Anthropic 工具生效等重要信息&#10;- 新增 knowledge-base-news/202607.md 中 2026-07-10 知识库日报内容，记录固定来源当日检索结果&#10;- 更新 ai-daily-news/ai-daily-digest.md 添加 2026-07-10 摘要内容&#10;- 修改 ai-daily-news/ai-daily-state.json 将最后同步日期更新至 2026-07-10&#10;- 更新 github-topz.md 的统计时间戳和仓库排名数据，反映最新 GitHub 趋势变化" />
@@ -742,7 +729,8 @@
     <MESSAGE value="docs(dailyReport): 添加 8 月 11-16 日 AI 资讯与掘金热榜&#10;&#10;- 新增 8 月 11-16 日 AI/人工智能相关每日资讯汇总&#10;- 新增 8 月 11-17 日掘金文章热榜与收藏热榜汇总  &#10;- 涵盖 Anthropic CEO 信任危机表态、OpenAI Preparedness 团队重组&#10;- 包含 Nvidia 与 SB Energy/OpenAI 算力融资谈判动态&#10;- 记录 Claude Code、Codex、OpenClaw 等工具链更新&#10;- 整理 Qwen3.8、GPT-5.6 Ultrafast 等模型进展&#10;- 汇总 Claude Code v2.1.229-v2.1.233 版本发布&#10;- 收录多 Agent 冲突指令安全研究报告&#10;- 添加 HEIR 同态加密编译器开源信息&#10;- 整理 Claude 水印 SynthID-Text 技术细节&#10;- 涵盖 Agent 运行时与工程框架发展动态&#10;- 记录 OpenClaw 2026.8.1-beta.2 预发布版本&#10;- 添加 Langfuse v4 与 LangGraph 1.2.11 更新情况&#10;- 汇总 Spring AI、Hermes、Code Graph 等生态进展&#10;- 记录多 Agent 安全与治理政策动态&#10;- 整理 Claude Code 远程控制与插件市场功能增强&#10;- 添加 NVIDIA Nemotron 3.5 Lightning 与 DeepSeek V4 Pro 更新&#10;- 涵盖 Qwen3.8-2.4T-A95B 开放权重发布&#10;- 记录 Java 生产环境部署与 Redisson 锁优化实践&#10;- 添加 Pi 终端 Agent 与 Skill 入门指南内容" />
     <MESSAGE value="feat(dailyReport): 添加2026年8月17日和18日AI及掘金热榜报告&#10;&#10;- 新增2026-08-17 AI日报：包含Anthropic文本水印技术解析&#10;- 添加Claude Code v2.1.234和Codex 0.148.0-alpha.21版本发布信息&#10;- 更新2026-08-18掘金热榜：涵盖Harness插件生态和信创迁移内容&#10;- 记录DeepSeek调价和AI长文一致性工程相关讨论&#10;- 同步更新github-topz榜单数据至2026-08-18 09:47:57&#10;- 修正ai-daily-state.json同步日期至2026-08-17" />
     <MESSAGE value="docs(dailyReport): 更新 2026 年 8 月 18 日与 19 日 AI 资讯及掘金热榜&#10;&#10;- 添加 OpenAI 降速训练与 Claude Code v2.1.235 版本发布内容&#10;- 更新掘金热榜涵盖前端职业规划、Harness 入门与缓存一致性等主题&#10;- 记录阿里云开发者关于 Agent 身份传递与插件验证的技术文章&#10;- 同步 GitHub 全局热门仓库数据至 8 月 19 日&#10;- 更新 AI 日报状态追踪文件日期至 2026-08-18" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs(dailyReport): 更新 2026 年 8 月 18 日与 19 日 AI 资讯及掘金热榜&#10;&#10;- 添加 OpenAI 降速训练与 Claude Code v2.1.235 版本发布内容&#10;- 更新掘金热榜涵盖前端职业规划、Harness 入门与缓存一致性等主题&#10;- 记录阿里云开发者关于 Agent 身份传递与插件验证的技术文章&#10;- 同步 GitHub 全局热门仓库数据至 8 月 19 日&#10;- 更新 AI 日报状态追踪文件日期至 2026-08-18" />
+    <MESSAGE value="docs(dailyReport): 添加2026年8月18日至20日AI资讯与掘金热榜&#10;&#10;- 添加腾讯朱雀实验室DeepSeek Harness安全评测相关内容&#10;- 添加Claude Code v2.1.237版本更新信息&#10;- 添加OpenAI安全治理措施相关报道&#10;- 添加2026年8月21日掘金文章热榜与收藏热榜&#10;- 添加DSH插件开发与HTML可视化编辑器介绍&#10;- 更新Java落地AI安全实践相关内容" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs(dailyReport): 添加2026年8月18日至20日AI资讯与掘金热榜&#10;&#10;- 添加腾讯朱雀实验室DeepSeek Harness安全评测相关内容&#10;- 添加Claude Code v2.1.237版本更新信息&#10;- 添加OpenAI安全治理措施相关报道&#10;- 添加2026年8月21日掘金文章热榜与收藏热榜&#10;- 添加DSH插件开发与HTML可视化编辑器介绍&#10;- 更新Java落地AI安全实践相关内容" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ai_for_learing$vanilla_rnn_numpy_demo.coverage" NAME="vanilla_rnn_numpy_demo Coverage Results" MODIFIED="1778826911757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ai-learning/07-cnn-rnn-transformer-intro/scripts" />
