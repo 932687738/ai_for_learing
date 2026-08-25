@@ -2,6 +2,62 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-08-24
+
+### 今日总览
+
+**一句话结论**：8 月 24 日主线是 **Langfuse `v4.17.0` 把 8/22 评测改版落到发行版**，以及 **Codex `0.149.1` 补丁**：前者从 trace/event 表建标注队列、评测 UX 进主线，Assistant（OSS）接上 Anthropic Messages；后者无独立 What's New，只给 compare。Claude Code 当日中国时间窗口无新 tag（`v2.1.243` 落在 UTC 晚间，中国时间为 8/25）。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、安全治理、Claude Code/Codex/OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、论文与政策 |
+| 核心趋势 | 1）可观测性从「改 changelog」变成「可升级的 v4 发行」；2）编程 CLI 进入补丁日；3）无新模型 |
+| 可直接关注 | 标注队列可从 trace/event 表一键建；evaluator 可按模型过滤；Claude Code `/usage` Loops 拆解记到 8/25 |
+| 专项检索结论 | Langfuse：`v4.17.0`（Published 2026-08-24T13:14:03Z，中国时间 21:14）。Codex：`0.149.1`（Published 2026-08-24T00:28:28Z，中国时间 08:28）。Claude Code / OpenClaw / Hermes / Spring AI / Spring Alibaba AI / LangChain·LangGraph / Code Graph / Loop Engineering / skills：未发现可核验的 8/24 重大官方更新。 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| LLM 可观测性 | [Langfuse v4.17.0](https://github.com/langfuse/langfuse/releases/tag/v4.17.0) | 2026-08-24 | 开源发布 | 新 evaluation UX 合入主线；从 trace/event 表建 annotation queue；evaluator 可展示/过滤模型；Assistant（OSS）支持 Anthropic Messages；v4 双写默认露出迁移 UI |
+| 编程 CLI | [Codex 0.149.1](https://github.com/openai/codex/releases/tag/rust-v0.149.1) | 2026-08-24 | 开源发布 | 补丁发布，页面无功能条目，变更见 [0.149.0...0.149.1](https://github.com/openai/codex/compare/rust-v0.149.0...rust-v0.149.1) |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 评测上线 | [Langfuse v4.17.0](https://github.com/langfuse/langfuse/releases/tag/v4.17.0) | 8/22 changelog 的 evaluator/rule 体验进发行版；code evaluator 与 score 关联修复 | 自托管 / 要升 v4 的人 |
+| Codex 补丁 | [0.149.1 compare](https://github.com/openai/codex/compare/rust-v0.149.0...rust-v0.149.1) | 无独立 release notes，以 diff 为准 | 已跟 0.149.0、要锁补丁的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：框架侧当日 GA 在 Langfuse 发行版；编排框架无新 release。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Langfuse | v4.17.0：评测 UX + 标注队列 + Anthropic Messages | 从线上 trace 直接建队列，少复制粘贴到评测集 |
+| Codex | 0.149.1 补丁 | 功能仍以 0.149.0 的 agents/queue 为准 |
+| Claude Code | 中国时间窗口无新 tag | `v2.1.243`（UTC 8/24 23:40）记到 8/25：`/usage` Loops、`modelPicker`、`promptCacheTtl` |
+| 其余专项 | 未发现 8/24 可核验重大更新 | 继续消化 8/22 评测改版 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [Langfuse v4.17.0](https://github.com/langfuse/langfuse/releases/tag/v4.17.0) | 当日唯一带完整功能列表的框架发行 |
+| 延伸 | [Codex 0.149.1](https://github.com/openai/codex/releases/tag/rust-v0.149.1) | 确认补丁日、对照 compare |
+
+### 来源清单
+
+- 检索范围：2026-08-24 00:00:00 到 2026-08-24 23:59:59（Asia/Shanghai）
+- 引用域名：github.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Langfuse v4.17.0 | 2026-08-24 | https://github.com/langfuse/langfuse/releases/tag/v4.17.0 |
+| 开源发布 | Codex 0.149.1 | 2026-08-24 | https://github.com/openai/codex/releases/tag/rust-v0.149.1 |
+
 ## 2026-08-23
 
 ### 今日总览
