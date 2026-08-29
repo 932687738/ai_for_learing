@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="docs(dailyReport): 添加2026年8月21日至23日AI资讯与掘金热榜&#10;&#10;- 添加 Claude Code v2.1.238-v2.1.241 版本更新详情&#10;- 记录 Codex 0.149.0 发布及 Apple Messages 插件相关新闻&#10;- 更新 Langfuse 生产评测工作流变更信息&#10;- 补充 DeepSeek Harness 安装使用与命令指南&#10;- 收录本地Qwen模型节省token等AI实践文章&#10;- 整理合同审查助手等开发工具应用案例" />
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="docs(dailyReport): 更新2026年8月24日AI日报和知识库新闻&#10;&#10;- 添加Langfuse v4.17.0发行版，包含评测UX改进和标注队列功能&#10;- 添加Codex 0.149.1补丁版本更新&#10;- 更新掘金热门文章包含EP-Harness团队化方案和CAD diff工具&#10;- 更新知识库新闻涵盖浏览器内CAD对比和向量数据库融合方案&#10;- 修正临时脚本中的日期范围描述&#10;- 移除旧的AI日报内容保持文件结构一致" />
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -295,14 +295,7 @@
       <workItem from="1787120078512" duration="661000" />
       <workItem from="1787278221526" duration="641000" />
       <workItem from="1787553219680" duration="98000" />
-    </task>
-    <task id="LOCAL-00038" summary="每日新闻">
-      <option name="closed" value="true" />
-      <created>1780097258403</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1780097258403</updated>
+      <workItem from="1787621860986" duration="32000" />
     </task>
     <task id="LOCAL-00039" summary="每日新闻">
       <option name="closed" value="true" />
@@ -688,7 +681,15 @@
       <option name="project" value="LOCAL" />
       <updated>1787553269148</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="docs(dailyReport): 更新2026年8月24日AI日报和知识库新闻&#10;&#10;- 添加Langfuse v4.17.0发行版，包含评测UX改进和标注队列功能&#10;- 添加Codex 0.149.1补丁版本更新&#10;- 更新掘金热门文章包含EP-Harness团队化方案和CAD diff工具&#10;- 更新知识库新闻涵盖浏览器内CAD对比和向量数据库融合方案&#10;- 修正临时脚本中的日期范围描述&#10;- 移除旧的AI日报内容保持文件结构一致">
+      <option name="closed" value="true" />
+      <created>1787621882004</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1787621882004</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -706,7 +707,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat(dailyReport): 添加2026-07-09 AI日报和知识库日报内容&#10;&#10;- 新增 ai-daily-news/202607.md 中 2026-07-09 日报内容&#10;- 新增 knowledge-base-news/202607.md 中 2026-07-09 知识库日报内容&#10;- 更新 ai-daily-digest.md 添加 2026-07-09 AI摘要内容&#10;- 更新 ai-daily-state.json 同步状态至 2026-07-09&#10;- 更新 github-topz.md 最近更新时间为 2026-07-10 09:09:20" />
     <MESSAGE value="feat(dailyReport): 添加2026-07-10 AI日报和知识库日报内容&#10;&#10;- 新增 ai-daily-news/202607.md 中 2026-07-10 日报内容，包含 Claude Code v2.1.206 发布、阿里禁 Anthropic 工具生效等重要信息&#10;- 新增 knowledge-base-news/202607.md 中 2026-07-10 知识库日报内容，记录固定来源当日检索结果&#10;- 更新 ai-daily-news/ai-daily-digest.md 添加 2026-07-10 摘要内容&#10;- 修改 ai-daily-news/ai-daily-state.json 将最后同步日期更新至 2026-07-10&#10;- 更新 github-topz.md 的统计时间戳和仓库排名数据，反映最新 GitHub 趋势变化" />
     <MESSAGE value="docs(dailyReport): 添加2026年7月11日和12日AI日报及知识库日报&#10;&#10;- 添加2026-07-12和2026-07-11两个日期的AI日报内容&#10;- 添加2026-07-12和2026-07-11两个日期的知识库日报内容&#10;- 更新AI日报摘要包含最新两天内容&#10;- 涵盖GPT-5.6 Sol安全事件、Fable 5订阅截止、Apple诉OpenAI等重要内容&#10;- 记录Claude Code v2.1.207发布及ChatGPT Work产品问题修复&#10;- 包含Agent安全、评测作弊、定价模式变化等工程实践分析" />
     <MESSAGE value="feat(dailyReport): 添加 2026-07-13 AI 日报和知识库日报内容&#10;&#10;- 在 ai-daily-news/202607.md 中添加 2026-07-13 日报内容，涵盖 Fable 5 延期、Sol 限额临时解除、Langfuse Graph 双模式等重要事件&#10;- 在 knowledge-base-news/202607.md 中添加 2026-07-13 知识库日报，记录固定来源检索结果为空的情况&#10;- 在 ai-daily-news/ai-daily-digest.md 中同步添加 2026-07-13 日报摘要内容&#10;- 更新 ai-daily-news/ai-daily-state.json 中的最后同步日期和处理日期列表，加入 2026-07-13&#10;- 更新 github-topz.md 中的仓库排名数据，同步最新的 Star 数量和新增仓库信息" />
@@ -731,7 +731,8 @@
     <MESSAGE value="docs(dailyReport): 更新 2026 年 8 月 18 日与 19 日 AI 资讯及掘金热榜&#10;&#10;- 添加 OpenAI 降速训练与 Claude Code v2.1.235 版本发布内容&#10;- 更新掘金热榜涵盖前端职业规划、Harness 入门与缓存一致性等主题&#10;- 记录阿里云开发者关于 Agent 身份传递与插件验证的技术文章&#10;- 同步 GitHub 全局热门仓库数据至 8 月 19 日&#10;- 更新 AI 日报状态追踪文件日期至 2026-08-18" />
     <MESSAGE value="docs(dailyReport): 添加2026年8月18日至20日AI资讯与掘金热榜&#10;&#10;- 添加腾讯朱雀实验室DeepSeek Harness安全评测相关内容&#10;- 添加Claude Code v2.1.237版本更新信息&#10;- 添加OpenAI安全治理措施相关报道&#10;- 添加2026年8月21日掘金文章热榜与收藏热榜&#10;- 添加DSH插件开发与HTML可视化编辑器介绍&#10;- 更新Java落地AI安全实践相关内容" />
     <MESSAGE value="docs(dailyReport): 添加2026年8月21日至23日AI资讯与掘金热榜&#10;&#10;- 添加 Claude Code v2.1.238-v2.1.241 版本更新详情&#10;- 记录 Codex 0.149.0 发布及 Apple Messages 插件相关新闻&#10;- 更新 Langfuse 生产评测工作流变更信息&#10;- 补充 DeepSeek Harness 安装使用与命令指南&#10;- 收录本地Qwen模型节省token等AI实践文章&#10;- 整理合同审查助手等开发工具应用案例" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs(dailyReport): 添加2026年8月21日至23日AI资讯与掘金热榜&#10;&#10;- 添加 Claude Code v2.1.238-v2.1.241 版本更新详情&#10;- 记录 Codex 0.149.0 发布及 Apple Messages 插件相关新闻&#10;- 更新 Langfuse 生产评测工作流变更信息&#10;- 补充 DeepSeek Harness 安装使用与命令指南&#10;- 收录本地Qwen模型节省token等AI实践文章&#10;- 整理合同审查助手等开发工具应用案例" />
+    <MESSAGE value="docs(dailyReport): 更新2026年8月24日AI日报和知识库新闻&#10;&#10;- 添加Langfuse v4.17.0发行版，包含评测UX改进和标注队列功能&#10;- 添加Codex 0.149.1补丁版本更新&#10;- 更新掘金热门文章包含EP-Harness团队化方案和CAD diff工具&#10;- 更新知识库新闻涵盖浏览器内CAD对比和向量数据库融合方案&#10;- 修正临时脚本中的日期范围描述&#10;- 移除旧的AI日报内容保持文件结构一致" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs(dailyReport): 更新2026年8月24日AI日报和知识库新闻&#10;&#10;- 添加Langfuse v4.17.0发行版，包含评测UX改进和标注队列功能&#10;- 添加Codex 0.149.1补丁版本更新&#10;- 更新掘金热门文章包含EP-Harness团队化方案和CAD diff工具&#10;- 更新知识库新闻涵盖浏览器内CAD对比和向量数据库融合方案&#10;- 修正临时脚本中的日期范围描述&#10;- 移除旧的AI日报内容保持文件结构一致" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ai_for_learing$vanilla_rnn_numpy_demo.coverage" NAME="vanilla_rnn_numpy_demo Coverage Results" MODIFIED="1778826911757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ai-learning/07-cnn-rnn-transformer-intro/scripts" />

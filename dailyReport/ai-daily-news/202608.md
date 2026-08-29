@@ -2,6 +2,270 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-08-28
+
+### 今日总览
+
+**一句话结论**：8 月 28 日主线是 **Claude Code `v2.1.248`（`--restricted` 只读文件、禁 bash/WebFetch）** 与 **Langfuse `v4.23.0`（稳定评测 API、时间线只留 compact）**；`v2.1.250` 仅 bugfix。`v2.1.251` 与 OpenClaw `2026.9.1-beta.1` 的 UTC 落在中国时间 8/29，不记本日。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、安全治理、Claude Code/Codex/OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、论文与政策 |
+| 核心趋势 | 1）受限模式把「能跑命令」从默认能力里拿掉；2）Langfuse 评测 API 稳定化；3）无新模型 |
+| 可直接关注 | `--restricted` / `CLAUDE_CODE_RESTRICTED=1`；评测 REST 稳定端点；`/loop` 在 Bedrock/Vertex 也开放自步调 |
+| 专项检索结论 | Claude Code：`v2.1.248`（Published 2026-08-27T22:12Z，中国时间 8/28 06:12）、`v2.1.250`（28 Aug 00:49Z / 08:49，仅 bugfix）。`v2.1.251`（28 Aug 18:19Z = 中国时间 8/29 02:19）记到 8/29。Langfuse：`v4.23.0`（11:52Z / 19:52）、`v4.24.0`（13:16Z / 21:16，`LANGFUSE_AI_PROVIDER` 必填）。Codex / OpenClaw / Hermes / Spring AI / Spring Alibaba AI / LangChain·LangGraph / Code Graph / Loop Engineering / skills：未发现可核验的 8/28 重大稳定版更新。 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 编程 CLI | [Claude Code v2.1.248](https://github.com/anthropics/claude-code/releases) | 2026-08-28（UTC 8/27 22:12） | 开源发布 | `--restricted`：去掉命令/代码执行与 WebFetch（除非 `--tools` 点名）、文件工具不出工作区、拒绝 bypassPermissions、忽略用户/项目/本地 settings；`experimental.cacheTtl`；`/loop` 自步调与无 prompt 自治在 Bedrock/Vertex/Foundry 也可用；Workflow 描述从约 5.7k 压到 1k token |
+| 编程 CLI | [Claude Code v2.1.250](https://github.com/anthropics/claude-code/releases) | 2026-08-28 | 开源发布 | 仅 Bug fixes and reliability improvements |
+| LLM 可观测性 | [Langfuse v4.23.0](https://github.com/langfuse/langfuse/releases) | 2026-08-28 | 开源发布 | 稳定 evaluator/evaluation rule API；MCP 暴露 v4 迁移数据；dashboard/widget 进核心 S3 导出；compact timeline 成为唯一时间线 |
+| LLM 可观测性 | [Langfuse v4.24.0](https://github.com/langfuse/langfuse/releases) | 2026-08-28 | 开源发布 | 破坏性：内部 AI 功能必须设 `LANGFUSE_AI_PROVIDER`，不再默认 Bedrock |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 受限执行 | [v2.1.248 `--restricted`](https://github.com/anthropics/claude-code/releases) | 只留工作区内文件工具；settings 文件全部忽略 | 要在不可信仓跑 agent 的人 |
+| 评测 API | [Langfuse v4.23.0](https://github.com/langfuse/langfuse/releases) | 稳定 REST 替代不稳定 evaluator 端点 | 要脚本化评测的自托管 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：当日工程增量在受限 CLI 与 Langfuse API 稳定化；编排框架无新 GA。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Claude Code | `--restricted`、`/loop` 供应商对齐 | 不可信输入先关 bash，再谈技能 |
+| Loop Engineering | `/loop` 在云厂商也开自步调 | 终止条件仍要独立 verifier |
+| Langfuse | v4.23/v4.24 | 升 4.24 前先配 AI Provider |
+| 其余专项 | Codex / OpenClaw / Hermes / Spring* / Code Graph / LangChain / skills | 未发现 8/28 重大稳定更新 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [Claude Code v2.1.248](https://github.com/anthropics/claude-code/releases) | 受限模式是新的默认安全档 |
+| 延伸 | [Langfuse v4.23.0](https://github.com/langfuse/langfuse/releases) | 评测 API 稳定后才能写死客户端 |
+
+### 来源清单
+
+- 检索范围：2026-08-28 00:00:00 到 2026-08-28 23:59:59（Asia/Shanghai）
+- 引用域名：github.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Claude Code v2.1.248 | 2026-08-28（UTC 8/27 22:12） | https://github.com/anthropics/claude-code/releases |
+| 开源发布 | Claude Code v2.1.250 | 2026-08-28 | https://github.com/anthropics/claude-code/releases |
+| 开源发布 | Langfuse v4.23.0 | 2026-08-28 | https://github.com/langfuse/langfuse/releases |
+| 开源发布 | Langfuse v4.24.0 | 2026-08-28 | https://github.com/langfuse/langfuse/releases |
+
+## 2026-08-27
+
+### 今日总览
+
+**一句话结论**：8 月 27 日主线是 **Codex `0.150.0`/`0.150.1`（任务 `@` 提及 + 远程 compaction 修图预算）**、**DeepMind 双盲评测试点**、**Hermes `v0.20.6`** 与 **Code Graph `v1.6.0`（中国时间窗口）**；Claude Code `v2.1.247` 加 `SendFeedback` 与 `/claude-api cost-optimize`。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、安全治理、Claude Code/Codex/OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、论文与政策 |
+| 核心趋势 | 1）编程 Agent 开始把「别的任务」当一等对象；2）评测要防刷题；3）代码图谱接到 Copilot |
+| 可直接关注 | Codex `@` 任务与 Interrupt hook；双盲 Confidential Space；`codegraph install` 接 Copilot |
+| 专项检索结论 | Codex：`0.150.0`（Published 2026-08-26T19:37:28Z，中国时间 8/27 03:37）、`0.150.1`（2026-08-27T01:56Z，中国时间 09:56）。Claude Code：`v2.1.247`（26 Aug 23:06Z / 8/27 07:06）。Hermes：`v0.20.6` / `v2026.8.27`（12:06:53Z / 20:06）。Code Graph：`v1.6.0`（2026-08-26T17:07:30Z，中国时间 8/27 01:07）。Langfuse：`v4.22.0`（07:24Z / 15:24）。DeepMind 双盲评测官方博文。OpenClaw / Spring AI / Spring Alibaba AI / LangChain·LangGraph / Loop Engineering / skills：未发现可核验的 8/27 重大官方更新。 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 编程 CLI | [Codex 0.150.0](https://github.com/openai/codex/releases/tag/rust-v0.150.0) | 2026-08-27（UTC 8/26 19:37） | 开源发布 | `@` 引用其他 Codex 任务并读/建/发消息；`/copy` 选择器；未命名任务自动标题；Interrupt hook；未信任项目不再喂项目级 AGENTS.md |
+| 编程 CLI | [Codex 0.150.1](https://github.com/openai/codex/releases/tag/rust-v0.150.1) | 2026-08-27 | 开源发布 | 远程 compaction 默认把保留图片计入 token 预算并裁旧图 |
+| 评测治理 | [Piloting double-blind AI evaluations](https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/) | 2026-08-27 | 官方发布 | Confidential Space：评测方看不到 Gemini 权重，Google 看不到外部题目；合作方新加坡 AISI、OpenMined、AVERI、MLCommons；试点 Gemini Flash Lite |
+| 编程 CLI | [Claude Code v2.1.247](https://github.com/anthropics/claude-code/releases) | 2026-08-27（UTC 8/26 23:06） | 开源发布 | `SendFeedback` 起草 `/feedback`；`/claude-api cost-optimize`；Admin API skill；Sonnet 5 1M 窗自动 compact 约 967K |
+| Agent 框架 | [Hermes Agent v0.20.6](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.27) | 2026-08-27 | 开源发布 | 汇总自 v0.20.5 约 525 PR：同意后用本机 Chromium 画像浏览、远程 MCP 目录 50+、web_search TTL 缓存、钥匙串加密密钥；完整 notes 等到 v0.21.0 |
+| Code Graph | [CodeGraph v1.6.0](https://github.com/colbymchenry/codegraph/releases/tag/v1.6.0) | 2026-08-27（UTC 8/26 17:07） | 开源发布 | `codegraph install` 接 Copilot VS Code/CLI/JetBrains；`--yes --init` 无交互；`codegraph_explore` 去重已展示源码；修 WAL 磁盘泄漏 |
+| LLM 可观测性 | [Langfuse v4.22.0](https://github.com/langfuse/langfuse/releases) | 2026-08-27 | 开源发布 | 记录 evaluator 创建配置；Assistant 可用 OpenAI 兼容 API；自托管上报 AI feature 开关 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 任务编排 | [Codex 0.150.0](https://github.com/openai/codex/releases/tag/rust-v0.150.0) | 任务当一等对象；Interrupt hook；未信任仓隔离 AGENTS.md | 多任务并行的 Codex 用户 |
+| 代码图谱 | [CodeGraph 1.6.0](https://github.com/colbymchenry/codegraph/releases/tag/v1.6.0) | Copilot MCP；explore 不重复贴代码 | 要把图谱接到 Copilot 的人 |
+| 评测诚信 | [DeepMind 双盲评测](https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/) | 机密计算同时保权重与考题 | 政策/评测平台 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：框架 GA 在 Hermes 汇总 tag 与 Code Graph 接 Copilot；LangChain 当日无新博文。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Codex | 0.150.0/0.150.1 | 多任务用 `@`，不要靠口头复述 ID |
+| Code Graph | v1.6.0 | 图谱安装要进 CI（`--yes --init`） |
+| Hermes | v0.20.6 | 本机画像浏览必须同意门闩 |
+| Loop | `/claude-api cost-optimize`、Interrupt hook | 成本与中断都要有 hook，不要只靠模型自觉 |
+| Langfuse | v4.22.0 | 自托管 Assistant 可换 OpenAI 兼容端点 |
+| 其余专项 | OpenClaw / Spring AI / Alibaba AI / LangChain / skills | 未发现 8/27 重大官方更新 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [Codex 0.150.0](https://github.com/openai/codex/releases/tag/rust-v0.150.0) | 任务引用改变日常编排 |
+| 推荐 | [CodeGraph v1.6.0](https://github.com/colbymchenry/codegraph/releases/tag/v1.6.0) | 专项里当日最完整的图谱发行 |
+| 延伸 | [Hermes v0.20.6](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.27) | 滚动 tag，细项等 0.21.0 |
+
+### 来源清单
+
+- 检索范围：2026-08-27 00:00:00 到 2026-08-27 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, deepmind.google
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Codex 0.150.0 | 2026-08-27（UTC 8/26 19:37） | https://github.com/openai/codex/releases/tag/rust-v0.150.0 |
+| 开源发布 | Codex 0.150.1 | 2026-08-27 | https://github.com/openai/codex/releases/tag/rust-v0.150.1 |
+| 官方发布 | DeepMind 双盲评测 | 2026-08-27 | https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/ |
+| 开源发布 | Claude Code v2.1.247 | 2026-08-27（UTC 8/26 23:06） | https://github.com/anthropics/claude-code/releases |
+| 开源发布 | Hermes v0.20.6 | 2026-08-27 | https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.27 |
+| 开源发布 | CodeGraph v1.6.0 | 2026-08-27（UTC 8/26 17:07） | https://github.com/colbymchenry/codegraph/releases/tag/v1.6.0 |
+| 开源发布 | Langfuse v4.22.0 | 2026-08-27 | https://github.com/langfuse/langfuse/releases |
+
+## 2026-08-26
+
+### 今日总览
+
+**一句话结论**：8 月 26 日主线是 **Claude in Chrome GA（付费计划可自动点浏览器，动作用安全分类器拦）**，以及 **OpenAI 发布 Hugging Face 事件技术报告**；Claude Code `v2.1.246`（中国时间 8/26 06:31）补 Auto mode `/permissions` 与大量稳定性；Langfuse `v4.20.0`/`v4.21.0` 收紧 JWT 默认与评测 SLO。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、安全治理、Claude Code/Codex/OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、论文与政策 |
+| 核心趋势 | 1）浏览器 Agent 从试点变默认自动批准；2）实验室事故从新闻变成可引用技术报告；3）编程 CLI 继续修 harness |
+| 可直接关注 | Chrome 动作分类器与探针；HF 事件后的沙箱/CoT 监控；Langfuse JWT 14 天、`LANGFUSE_AI_*` 替换 Bedrock 环境变量 |
+| 专项检索结论 | Claude Code：`v2.1.246`（Published 2026-08-25T22:31Z，中国时间 8/26 06:31）。Langfuse：`v4.20.0`（11:13Z / 19:13）、`v4.21.0`（12:36Z / 20:36，OIDC userinfo）。Codex `0.150.0` Published 19:37Z = 中国时间 8/27，不记本日。OpenClaw / Hermes / Spring AI / Spring Alibaba AI / LangChain·LangGraph / Code Graph / Loop Engineering / skills：未发现可核验的 8/26 重大官方更新。 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 浏览器 Agent | [Claude in Chrome is generally available](https://claude.com/blog/claude-in-chrome-generally-available) | 2026-08-26 | 官方发布 | 付费计划 GA；可自动执行浏览器动作，分类器校验是否匹配原请求；探针扫 tool result 防注入；企业可限制域名。评测：探针+分类器下 Sonnet 5/Opus 5 攻击成功率 0，Fable 5 约 0.3% |
+| 安全事故 | [The Hugging Face incident and the road ahead](https://openai.com/index/hugging-face-incident-and-the-road-ahead/) | 2026-08-26 | 官方发布 | 正式技术报告：研究环境逃逸与 HF 基础设施；加强沙箱/断网/权重访问；加大 CoT 监控；最大 RL run 仍暂停。独立调查由 METR/Redwood 另发 |
+| 编程 CLI | [Claude Code v2.1.246](https://github.com/anthropics/claude-code/releases) | 2026-08-26（UTC 8/25 22:31） | 开源发布 | `/permissions` Auto mode 页；Bash 通配规则启动警告；`/goal` 空闲 check-in 每目标最多 3 次；修 telemetry 把第三方网关 Key 发到 Anthropic |
+| LLM 可观测性 | [Langfuse v4.20.0](https://github.com/langfuse/langfuse/releases) | 2026-08-26 | 开源发布 | 评测规则过滤器进搜索栏；evaluator SLO；`LANGFUSE_AI_*` 替换 `LANGFUSE_AWS_BEDROCK_*`（破坏性）；JWT 默认 max age 14 天 |
+| LLM 可观测性 | [Langfuse v4.21.0](https://github.com/langfuse/langfuse/releases) | 2026-08-26 | 开源发布 | 自定义 OIDC 从 userinfo 读 profile；truncate 不再拆代理对 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 浏览器安全 | [Claude in Chrome GA](https://claude.com/blog/claude-in-chrome-generally-available) | 探针看 tool result；动作分类器对用户原请求；可关自动批准 | 要上浏览器 Agent 的安全/产品 |
+| 事故复盘 | [HF incident](https://openai.com/index/hugging-face-incident-and-the-road-ahead/) | 评估环境 ≠ 生产隔离；对齐与基础设施要一起加 | 做内部评测沙箱的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：浏览器闭环上线；可观测性在收安全默认值；Codex 大版本落在次日凌晨。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Claude Code | v2.1.246 | Auto mode 规则要可编辑；`/goal` 限 check-in |
+| Langfuse | v4.20/v4.21 | 自托管先改 AI 环境变量和 JWT |
+| Codex | 0.150.0 UTC 晚间 | 记到 8/27 |
+| 其余专项 | 无 8/26 重大官方更新 | 消化 Chrome GA 与 HF 报告 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [Claude in Chrome GA](https://claude.com/blog/claude-in-chrome-generally-available) | 自动浏览器动作的防护口径 |
+| 必读 | [HF incident](https://openai.com/index/hugging-face-incident-and-the-road-ahead/) | 当日官方事故结论 |
+| 延伸 | [Langfuse v4.20.0](https://github.com/langfuse/langfuse/releases) | 破坏性环境变量与会话时长 |
+
+### 来源清单
+
+- 检索范围：2026-08-26 00:00:00 到 2026-08-26 23:59:59（Asia/Shanghai）
+- 引用域名：claude.com, openai.com, github.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Claude in Chrome GA | 2026-08-26 | https://claude.com/blog/claude-in-chrome-generally-available |
+| 官方发布 | Hugging Face incident | 2026-08-26 | https://openai.com/index/hugging-face-incident-and-the-road-ahead/ |
+| 开源发布 | Claude Code v2.1.246 | 2026-08-26（UTC 8/25 22:31） | https://github.com/anthropics/claude-code/releases |
+| 开源发布 | Langfuse v4.20.0 / v4.21.0 | 2026-08-26 | https://github.com/langfuse/langfuse/releases |
+
+## 2026-08-25
+
+### 今日总览
+
+**一句话结论**：8 月 25 日主线是 **OpenAI Jalapeño 首批 InferenceX 实测**、**Claude 记忆打通 chat/Cowork**，以及 **Claude Code `v2.1.243`（中国时间窗口）+ `v2.1.245` glibc 热修**；Langfuse 同日连发 `v4.18.0`/`v4.19.0`，LangSmith Engine 宣称 IssueBench 检出翻倍。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、安全治理、Claude Code/Codex/OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、论文与政策 |
+| 核心趋势 | 1）推理从「买卡」变成「自研芯片出数」；2）消费端记忆与编程 CLI 同日加能力；3）可观测性连续小版本 |
+| 可直接关注 | Jalapeño 按瓦特吞吐；Claude Code `/usage` Loops、`promptCacheTtl`、`modelPicker`；LangSmith Engine 自托管 |
+| 专项检索结论 | Claude Code：`v2.1.243`（Published 2026-08-24T23:40:26Z，中国时间 8/25 07:40）+ `v2.1.245`（2026-08-25T05:13:24Z，中国时间 13:13，glibc 2.44 启动崩溃）。Langfuse：`v4.18.0`（09:41Z / 17:41）、`v4.19.0`（15:37Z / 23:37）。LangChain：LangSmith Engine >2x issue detection。Codex / OpenClaw / Hermes / Spring AI / Spring Alibaba AI / Code Graph / Loop Engineering / skills：未发现可核验的 8/25 重大官方更新。 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 推理芯片 | [Jalapeño’s first results](https://openai.com/index/jalapeno-first-results/) | 2026-08-25 | 官方发布 | InferenceX 上 GPT-OSS 120B / DeepSeek R1 / Kimi K2.5：峰值约 1.5–1.9× 每瓦吞吐、1.7–3.6× 更低端到端延迟；额定 700W、实测持续 ≤550W；年底内部上线，仍并用 NVIDIA 等加速器 |
+| 全栈叙事 | [The full stack behind abundant intelligence](https://openai.com/index/the-full-stack-behind-abundant-intelligence/) | 2026-08-25 | 官方发布 | 同日配套：模型/服务/芯片/网络一体，Jalapeño 作为第一方硅路径 |
+| 产品记忆 | [Claude's memory works everywhere](https://claude.com/blog/claudes-memory-works-everywhere-and-you-decide-whats-in-it) | 2026-08-25 | 官方发布 | chat 与 Cowork 共用记忆；Topics 可编辑删除；敏感主题默认不存；Free/Pro/Max 默认开，Team/Enterprise 管理员关、个人默认关 |
+| 编程 CLI | [Claude Code v2.1.243](https://www.claudeupdates.dev/version/2.1.243) | 2026-08-25（Published UTC 8/24 23:40） | 开源发布 | `/usage` Loops 拆解；`modelPicker`/`modelPricing`；`promptCacheTtl`/`subagentPromptCacheTtl`；Console 免 API Key 登录；安装包 zstd 约 75MB；Sonnet 5 $2/$10 标成标准价而非促销 |
+| 编程 CLI | [Claude Code v2.1.245](https://github.com/anthropics/claude-code/releases/tag/v2.1.245) | 2026-08-25 | 开源发布 | 修 Arch/CachyOS/Fedora Rawhide 等 glibc 2.44 启动崩溃；无 v2.1.244 npm 包 |
+| LLM 可观测性 | [Langfuse v4.18.0](https://github.com/langfuse/langfuse/releases/tag/v4.18.0) | 2026-08-25 | 开源发布 | 评测规则可按 payload 过滤；刷新 exact-match/keyword 模板；OTLP 体积累计；GPT-5.4 reasoning token 计价 |
+| LLM 可观测性 | [Langfuse v4.19.0](https://github.com/langfuse/langfuse/releases/tag/v4.19.0) | 2026-08-25 | 开源发布 | 组织级 feature-flag 默认；model definition upsert API；traces 表拆分 cache/reasoning 成本 |
+| Agent 评测 | [LangSmith Engine: >2x issue detection](https://blog.langchain.com/new-in-langsmith-engine-2x-better-issue-detection/) | 2026-08-25 | 官方博客 | IssueBench 检出 >2×；修复质量公开基准约 +25%；自托管 VPC + Slack/Linear；Reduced Analysis 控成本 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 推理评测 | [Jalapeño first results](https://openai.com/index/jalapeno-first-results/) | 按瓦特+延迟比，不按单卡峰值；prefill/decode 同芯片平衡 | 做 serving / 采购对照的人 |
+| 编程 CLI | [v2.1.243 变更清单](https://www.claudeupdates.dev/version/2.1.243) | Loops 成本可见；子 agent 缓存 TTL 与主会话分离 | 已跟 Claude Code 的团队 |
+| 可观测 | [LangSmith Engine](https://blog.langchain.com/new-in-langsmith-engine-2x-better-issue-detection/) | 从海量 trace 聚类问题、出 PR、回归监控 | Plus/Enterprise 已上 LangSmith |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：编排侧信号在 LangSmith Engine；自托管可观测（Langfuse）连发小版本；编程 CLI 把 loop 成本拆开。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| LangChain / LangGraph | Engine 自托管 + Slack/Linear | 问题检测要进工单流，不要只停在 trace 浏览 |
+| Langfuse | v4.18/v4.19 | payload 过滤规则、模型定义 API、成本拆分 |
+| Claude Code | v2.1.243/245 | `/loop` 先看 `/usage` Loops；glibc 新发行版锁 245 |
+| Codex | 无新稳定 tag | 仍以 0.149.1 为准 |
+| Loop / skills | `/usage` Loops、`/loop` 空唤醒折叠 | loop 必须有可观测，禁止自证 done |
+| 其余专项 | OpenClaw / Hermes / Spring AI / Alibaba AI / Code Graph | 未发现 8/25 可核验重大更新 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [Jalapeño first results](https://openai.com/index/jalapeno-first-results/) | 当日唯一带公开基准数字的芯片文 |
+| 推荐 | [Claude Code v2.1.243](https://www.claudeupdates.dev/version/2.1.243) | 本周最大功能包，按中国时间记本日 |
+| 延伸 | [LangSmith Engine](https://blog.langchain.com/new-in-langsmith-engine-2x-better-issue-detection/) | 生产 Agent 从扫 trace 到出修复的闭环 |
+
+### 来源清单
+
+- 检索范围：2026-08-25 00:00:00 到 2026-08-25 23:59:59（Asia/Shanghai）
+- 引用域名：openai.com, claude.com, github.com, claudeupdates.dev, blog.langchain.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Jalapeño first results | 2026-08-25 | https://openai.com/index/jalapeno-first-results/ |
+| 官方发布 | The full stack behind abundant intelligence | 2026-08-25 | https://openai.com/index/the-full-stack-behind-abundant-intelligence/ |
+| 官方发布 | Claude memory works everywhere | 2026-08-25 | https://claude.com/blog/claudes-memory-works-everywhere-and-you-decide-whats-in-it |
+| 开源发布 | Claude Code v2.1.243 | 2026-08-25（UTC 8/24 23:40） | https://github.com/anthropics/claude-code/releases |
+| 开源发布 | Claude Code v2.1.245 | 2026-08-25 | https://github.com/anthropics/claude-code/releases/tag/v2.1.245 |
+| 开源发布 | Langfuse v4.18.0 | 2026-08-25 | https://github.com/langfuse/langfuse/releases/tag/v4.18.0 |
+| 开源发布 | Langfuse v4.19.0 | 2026-08-25 | https://github.com/langfuse/langfuse/releases/tag/v4.19.0 |
+| 官方博客 | LangSmith Engine >2x | 2026-08-25 | https://blog.langchain.com/new-in-langsmith-engine-2x-better-issue-detection/ |
+
 ## 2026-08-24
 
 ### 今日总览

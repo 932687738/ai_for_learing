@@ -2,6 +2,186 @@
 
 按 Asia/Shanghai 时区汇总掘金文章热榜与收藏热榜（后端 / 前端 / 人工智能 / 开发工具），按文章链接去重并归纳正文。
 
+## 2026-08-29
+
+### 今日总览
+
+**一句话结论**：`2026-08-29` 新 URL 主线是 **上下文工程/Harness、DeepSeek Harness 拆解、GLM-5.3-Flash 实测、Skill 怎么写与怎么评**；收藏榜补 FlutterKit、Agent 入门与「Skill 装多变笨」旧文。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 文章热榜 + 收藏热榜 × 后端/前端/人工智能/开发工具 |
+| 榜单规模 | 每槽最多 15 条；列表总条数 120；去重后新 URL **53**；跳过已见 **67**；详情成功 53 / 失败 0 |
+| 核心趋势 | 1）社区把 Agent 能力归因到 harness/上下文而不是再吹模型；2）国产 Flash 模型在热榜上用真实前端任务计价；3）Skill 从「多装」转向「能评、能共用一份」 |
+| 可直接关注 | [上下文工程](https://juejin.cn/post/7677562804154531890)；[DeepSeek Harness 拆源码](https://juejin.cn/post/7677263893225193515)；[Skill 该怎么写](https://juejin.cn/post/7677435711276744745)；[Skill-Up 测评](https://juejin.cn/post/7677551269758795816) |
+
+### 后端
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 4 | [ValidX时间注解完全指南：10种时间验证注解详解](https://juejin.cn/post/7677572864901054499) | vipxieliang | 赞0/藏0/阅3296 | ValidX 把时间校验拆成格式、过去/未来时间点等 10 个注解，针对 2 月 30 日、缺秒、时间戳位数这类线上事故。适合要统一校验而不是在 Controller 手写 if 的 Java 项目。偏库文档。 | https://juejin.cn/post/7677572864901054499 |
+| 5 | [「速通Shell」常用命令（中）——进程、网络与系统信息](https://juejin.cn/post/7677883485022388267) | 柒号华仔 | 赞7/藏9/阅2455 | Shell 中篇：ps/top、ss/curl、uname/df 等「观察运行中系统」的命令，强调输出动态、跨进程、误用会伤线上。接文件篇，面向运维脚本。 | https://juejin.cn/post/7677883485022388267 |
+| 7 | [ValidX错误消息国际化完全指南：8种语言9个语言包与三级回退机制](https://juejin.cn/post/7678747733979201536) | vipxieliang | 赞0/藏1/阅1428 | ValidX 内置 9 个语言包、8 种语言和三级回退，避免出海报错中英混杂或 Controller 里写语言分支。偏库推广。 | https://juejin.cn/post/7678747733979201536 |
+| 8 | [为什么越来越多人用AgentScope ？](https://juejin.cn/post/7678161312637730862) | 苏三说技术 | 赞12/藏22/阅1072 | 面向 Java 团队介绍阿里 AgentScope-Java：对比 LangChain/AutoGen 的 Python 墙，讲企业级 Agent 为何不必为了框架改语言栈。入门向，细节需回官方文档。 | https://juejin.cn/post/7678161312637730862 |
+| 9 | [「速通Shell」常用命令（下）—— 归档、权限与进阶工具](https://juejin.cn/post/7678166172437004294) | 柒号华仔 | 赞2/藏3/阅950 | Shell 下篇：tar/gzip、chmod/chown、xargs/cron，定位「不常用但每次都要查」。三篇系列收口。 | https://juejin.cn/post/7678166172437004294 |
+| 10 | [为什么越来越多人用gRPC？](https://juejin.cn/post/7677521340606169098) | 苏三说技术 | 赞9/藏9/阅726 | 用压测故事讲 REST+JSON 在高频链路上被序列化/HTTP 吃满 CPU，核心调用改 gRPC 后 QPS 近 3 倍。适合还在 Spring Cloud 同步 HTTP 的人，数字来自作者叙述。 | https://juejin.cn/post/7677521340606169098 |
+| 11 | [177K star，扒开DeepSeek Harness的营销，我看到了什么](https://juejin.cn/post/7677263893225193515) | 大厂码农老A | 赞4/藏8/阅714 | 拆 DeepSeek Harness 高星营销：它是包在模型外的 agent harness（读文件/跑命令/工具循环），源码里有请求前断言不满足就崩。适合被「干掉 Claude Code」标题刷到的人，先看断言再谈迁移。 | https://juejin.cn/post/7677263893225193515 |
+| 12 | [MinIO 停止维护怎么办？Docker 迁移 RustFS 实战：数据零丢失](https://juejin.cn/post/7677562804153614386) | 有来技术 | 赞7/藏7/阅475 | MinIO 社区版归档后，youlai-boot 用整目录复制迁到 RustFS，endpoint/桶名不变、客户端改 AWS SDK。给还在跑社区 MinIO 的 Docker 部署一条可复制路径。 | https://juejin.cn/post/7677562804153614386 |
+| 13 | [一份Token Plan套餐接通 Claude Code 和 Codex：国产模型统一额度池实测指南](https://juejin.cn/post/7676295909912215561) | 一只牛博 | 赞1/藏4/阅612 | 偏营销：用 AiiOnly Token Plan 把多家国产模型额度打成池子接 Claude Code/Codex。可学「订阅碎片」问题，平台勿当中立评测。 | https://juejin.cn/post/7676295909912215561 |
+| 14 | [牛来原来是智谱，GLM-5.3-Flash 实测有惊喜也有硬伤](https://juejin.cn/post/7678580101932220425) | 子昕AI编程 | 赞3/藏3/阅325 | 实测智谱 GLM-5.3-Flash（原匿名牛来）：低价多模态亮眼，视频工作台和票务系统仍要人工收尾。产品体验文。 | https://juejin.cn/post/7678580101932220425 |
+| 15 | [抓包Codex-查看Codex的提示词是怎么写的](https://juejin.cn/post/7676901441995489318) | 四千岁 | 赞4/藏6/阅326 | 用 mitmproxy 抓 Codex 系统提示词，强调 Codex 只是 harness、能力在提示词。适合想对照官方 hidden prompt 的人，注意合规与密钥。 | https://juejin.cn/post/7676901441995489318 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 前端
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 1 | [走进 AI Agent 第二篇：决定 AI Agent 能力上限的关键技术](https://juejin.cn/post/7677562804154531890) | 老王以为 | 赞36/藏59/阅11657 | 上下文工程长文：KV Cache 失效、Skills 渐进披露、状态栏注入、子 Agent 隔离。论点是「模型是天花板、上下文质量是地板」。前端/Agent 入门首选。 | https://juejin.cn/post/7677562804154531890 |
+| 4 | [一个人 + AI 做的小程序，上线 15 天赚了 10 块 5](https://juejin.cn/post/7677077660528001070) | 好市民_ | 赞10/藏5/阅1822 | 一人+AI 做签到小程序 15 天赚 10.53 元的复盘，含流量主曲线。创业心态文，技术点薄。 | https://juejin.cn/post/7677077660528001070 |
+| 5 | [Web Components 为什么火不起来？](https://juejin.cn/post/7677868279283171368) | ErpanOmer | 赞17/藏7/阅1760 | Web Components 标准完整但缺响应式、DX 和 SSR，跨框架复用优势盖不过生态。适合还在评估「要不要上原生组件」的前端。 | https://juejin.cn/post/7677868279283171368 |
+| 6 | [外包前端和大厂前端，写的代码到底有什么本质区别？](https://juejin.cn/post/7677502358059073588) | ErpanOmer | 赞11/藏13/阅1248 | 对比外包与大厂前端：激励分别是交付速度 vs 长期运营，体现在空值防御、监控和安全。观点文，少代码。 | https://juejin.cn/post/7677502358059073588 |
+| 7 | [图解 AI Agent ①：大模型接上 API，为什么还不算 Agent？](https://juejin.cn/post/7677170455305879562) | 不一样的少年_ | 赞10/藏14/阅1279 | 图解 Agent①：接上 API 仍缺 harness 与工具循环，才有观察-行动闭环。零基础向。 | https://juejin.cn/post/7677170455305879562 |
+| 9 | [图解 AI Agent ②：模型到底是怎么读取文件的？](https://juejin.cn/post/7677762452274085914) | 不一样的少年_ | 赞9/藏12/阅1227 | 图解 Agent②：模型读文件是 harness 代读磁盘再塞进消息，没有默认文件权限。接上篇。 | https://juejin.cn/post/7677762452274085914 |
+| 10 | [JWT 3：为什么 Token 要放进 Authorization？Axios 拦截器到底解决了什么？](https://juejin.cn/post/7676826408547041289) | 东风破_ | 赞11/藏9/阅874 | JWT 系列③：Axios 请求拦截器统一带 Authorization，业务与鉴权解耦。教程向。 | https://juejin.cn/post/7676826408547041289 |
+| 11 | [华为新上Pura X View阔直板手机，特殊屏幕比例设备下，前端应该怎么去适配更完美？送你一套完整工具代码](https://juejin.cn/post/7676375370356047899) | 李剑一 | 赞18/藏17/阅644 | 华为 Pura X View 阔直板特殊比例的前端适配，附一套工具代码。设备适配实战。 | https://juejin.cn/post/7676375370356047899 |
+| 12 | [表格、文档、甘特、大屏、表单一站打通：pxcharts超级表格4.0正式上线！](https://juejin.cn/post/7678237761537916979) | 徐小夕 | 赞9/藏9/阅569 | 偏营销：pxcharts 超级表格 4.0，25 字段×8 视图对标飞书多维表。产品发布。 | https://juejin.cn/post/7678237761537916979 |
+| 13 | [JWT 5：路由守卫是什么？把整个 JWT 登录鉴权流程串起来](https://juejin.cn/post/7676826408547123209) | 东风破_ | 赞7/藏2/阅607 | JWT 系列⑤：RequireAuth 路由守卫，把签发、拦截器、Zustand、服务端验证串成链路。 | https://juejin.cn/post/7676826408547123209 |
+| 14 | [JWT 4：Zustand 到底解决了什么？为什么登录状态要放进 Store？](https://juejin.cn/post/7676826408547090441) | 东风破_ | 赞8/藏2/阅553 | JWT 系列④：localStorage 不触发 React 渲染，用 Zustand 做可持久化登录态。 | https://juejin.cn/post/7676826408547090441 |
+| 15 | [领导夸我日报越写越详细了，其实我只敲了 npm run commit](https://juejin.cn/post/7677939086406205467) | 阳火锅 | 赞7/藏7/阅541 | 用 git diff + DeepSeek 生成 commit message 和日报（`npm run commit`）。小工具向，注意别把密钥提交进脚本。 | https://juejin.cn/post/7677939086406205467 |
+
+#### 收藏热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 14 | [开箱即用的 Flutter 通用脚手架——FlutterKit](https://juejin.cn/post/7666446436604739611) | JokerX | 赞67/藏97/阅2533 | 旧文回榜：FlutterKit + AGENTS.md/Skill，让 AI 认项目边界。脚手架样本。 | https://juejin.cn/post/7666446436604739611 |
+| 15 | [一劳永逸解决Codex手机验证](https://juejin.cn/post/7659854493060136975) | 金色的暴发户 | 赞60/藏96/阅3809 | 旧文回榜：绕过 Codex 国外手机验证。有账号合规风险，略读即可。 | https://juejin.cn/post/7659854493060136975 |
+
+### 人工智能
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 2 | [ 爽用 DeepSeek V4 Flash、GLM-5.2、Qwen3.8 Max、GPT-5.6 Sol，EvoX 够猛](https://juejin.cn/post/7677124067654893622) | 沉默王二 | 赞10/藏17/阅1938 | 偏营销：EvoX 蜂群多模型/多 Agent，自称准确率到 71%。当产品体验，数字勿当论文。 | https://juejin.cn/post/7677124067654893622 |
+| 4 | [🔥聊聊 Prompt 是怎么一路进化到 Harness 的](https://juejin.cn/post/7677489259041144866) | 尤水就下 | 赞24/藏30/阅1041 | 从一问一答 Prompt 讲到 Harness（工具、循环、权限）。适合还停在复制粘贴的人。 | https://juejin.cn/post/7677489259041144866 |
+| 6 | [GLM-5.3-Flash 发布：追平 Opus 4.8 的智力，1/40 的价格，跑在国产芯片上](https://juejin.cn/post/7678214547980582952) | 王若风 | 赞3/藏3/阅1012 | 转述智谱 GLM-5.3-Flash：320B-A18B、AA 指数 57 对齐 Opus 4.8、限时约 1/40 价、国产芯片推理。以官方公告为准。 | https://juejin.cn/post/7678214547980582952 |
+| 7 | [DeepSeek Harness 发布一周，登顶 Top10 的插件，暴露了哪些真实需求？](https://juejin.cn/post/7676498957653803008) | 深小乐 | 赞14/藏13/阅849 | DeepSeek Harness 一周插件 Top10，用来看社区补的是环境、模型分档还是任务拆解。插件目录会变。 | https://juejin.cn/post/7676498957653803008 |
+| 8 | [AI Skills 已经封神，但新的问题却越来越严重！](https://juejin.cn/post/7677041436535455787) | 学什么前端 | 赞10/藏9/阅772 | Skills 从「找一个装上」变成「装太多互相抢上下文」。管理/检索/冲突是下一题。 | https://juejin.cn/post/7677041436535455787 |
+| 9 | [我是被现实教育之后，才明白 Skill 到底该怎么写](https://juejin.cn/post/7677435711276744745) | 薛定谔的悦 | 赞14/藏16/阅609 | Skill 不是换文件夹的 prompt：要写触发条件、步骤、完成定义；太短会瞎编。含失败案例。 | https://juejin.cn/post/7677435711276744745 |
+| 10 | [汤森路透的座上宾？Qwen3.5-397B-A17B到底有什么本事？](https://juejin.cn/post/7677899267893461034) | 大厂码农老A | 赞12/藏7/阅404 | 汤森路透私有模型底层选 Qwen3.5-397B-A17B 的叙事。偏媒体，细节须回原厂。 | https://juejin.cn/post/7677899267893461034 |
+| 11 | [我拿 4 个真实前端任务试了 GLM-5.3 Flash：代码一遍跑通，账单 4 分钱](https://juejin.cn/post/7678531174247874586) | kyriewen | 赞6/藏3/阅652 | 4 个真实前端任务测 GLM-5.3 Flash：竞态、并发控制器、评审、截图诊断，自称约 4 分钱。个例，可当任务设计参考。 | https://juejin.cn/post/7678531174247874586 |
+| 12 | [历经两个月，我跑通了 Codex 自动剪辑，涨粉破千](https://juejin.cn/post/7677675037638672384) | 后端小肥肠 | 赞8/藏6/阅634 | Codex + 剪辑 skill 做口播短视频涨粉复盘，含提示词。流程向，平台限流风险自担。 | https://juejin.cn/post/7677675037638672384 |
+| 13 | [难道 AI 真要让程序员三班倒了？](https://juejin.cn/post/7677475198968774708) | 飞哥数智谈 | 赞4/藏1/阅589 | Token 高峰涨价引出「程序员错峰/三班倒」讨论。行业观察，无落地架构。 | https://juejin.cn/post/7677475198968774708 |
+| 14 | [面试官让我现场用 AI 改一个真实 bug——他打断我的 3 个理由](https://juejin.cn/post/7677803387144650761) | kyriewen | 赞8/藏6/阅519 | AI Coding 面试会被打断的三点：定位、批判验证、拆解表达，而不是会不会打开 Claude。面试准备。 | https://juejin.cn/post/7677803387144650761 |
+| 15 | [我带着DeepSeek Harness跑了一周真实需求——这份避坑速查表请收好](https://juejin.cn/post/7677441124442570761) | kyriewen | 赞7/藏5/阅508 | DeepSeek Harness 一周避坑：Node 版本、模型分档、任务拆解、插件预期。装之前看。 | https://juejin.cn/post/7677441124442570761 |
+
+#### 收藏热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 12 | [走进 AI Agent](https://juejin.cn/post/7670003108343513122) | 老王以为 | 赞71/藏100/阅17947 | 旧文回榜：Agent 入门公式（模型+工具+循环）。与热榜「第二篇」配套。 | https://juejin.cn/post/7670003108343513122 |
+| 15 | [为什么 skills 装得越多，AI 越笨？最火的那个 skill 只有一句话](https://juejin.cn/post/7664262170474872884) | 神奇小汤圆 | 赞50/藏94/阅7302 | 旧文回榜：Skill 装多了抢上下文；最短有效 skill 往往一句话约束。对照热榜写 Skill 文。 | https://juejin.cn/post/7664262170474872884 |
+
+### 开发工具
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 4 | [SKill测评：谁才是真正的Skill之王？](https://juejin.cn/post/7677551269758795816) | 京东云开发者 | 赞1/藏2/阅251 | 京东云：用阿里 Skill-Up 在真实 Agent 引擎里测 Skill 对错并把失败变成修复指引。评 Skill 不要只靠作者自觉。 | https://juejin.cn/post/7677551269758795816 |
+| 5 | [《HelloGitHub》第 125 期](https://juejin.cn/post/7678607362014937142) | HelloGitHub | 赞4/藏2/阅173 | HelloGitHub 第 125 期月刊，入门项目合集。浏览向。 | https://juejin.cn/post/7678607362014937142 |
+| 6 | [ 从产品原型到前端开发的需求清单，从1小时到25分钟](https://juejin.cn/post/7673043614508597284) | 优秀稳妥的JiaJi | 赞2/藏0/阅160 | TRAE Work 把 PRD+原型打成带截图需求清单，自称 1 小时压到约 25 分钟。征文/工具向。 | https://juejin.cn/post/7673043614508597284 |
+| 7 | [react-bits：从 36K Stars 的组件库，看动画交互组件该如何被评估](https://juejin.cn/post/7677481344240189459) | 吴琼琼 | 赞3/藏4/阅62 | 用 react-bits（36K star）讨论动画库：视觉语言、接入成本、升级/性能债。选型清单，不是教程。 | https://juejin.cn/post/7677481344240189459 |
+| 8 | [36K stars 的“酷炫组件”，到底该怎么用才不显得用力过猛？](https://juejin.cn/post/7678203712679510022) | 吴琼琼 | 赞2/藏1/阅82 | 续篇：动画是帮完成任务还是抢注意力。落地原则。 | https://juejin.cn/post/7678203712679510022 |
+| 9 | [Naive UI × GenUI SDK：自定义物料库搭建实战](https://juejin.cn/post/7678533346700394532) | OpenTiny社区 | 赞1/藏3/阅82 | OpenTiny GenUI SDK 1.3 物料解耦，接 Naive UI 等自有组件库。生成式 UI 要对齐现网设计系统。 | https://juejin.cn/post/7678533346700394532 |
+| 10 | [从“听得懂”到“干得了”：工业大模型落地工厂的三层进化路线](https://juejin.cn/post/7678237761569210377) | MobotStone | 赞1/藏0/阅87 | 工业大模型三层：基础认知、行业适配、场景执行（接 MES/PLC）。框架文，少代码。 | https://juejin.cn/post/7678237761569210377 |
+| 11 | [项目级 Skill 跨 Agent 共用的解决方案](https://juejin.cn/post/7676282892567412755) | 码农胖大海 | 赞0/藏0/阅106 | 一份 SKILL.md + 软链到 `.codex`/`.claude` 等目录，避免多 Agent 各维护一份。项目级 skills 实用招。 | https://juejin.cn/post/7676282892567412755 |
+| 12 | [自动保存已经有了，为什么笔记软件还需要“历史版本”？](https://juejin.cn/post/7677970307336388634) | 马可家的菠萝 | 赞2/藏1/阅57 | 笔记里自动保存、历史版本、手动快照要拆开，否则 Ctrl+S 会刷出版本洪水。产品设计。 | https://juejin.cn/post/7677970307336388634 |
+| 13 | [九个编码 Agent 共用免费额度，本地代理是路由还是绕开？](https://juejin.cn/post/7677432175924510760) | 苏灿烤鱼 | 赞0/藏0/阅81 | 点评 free-claude-code 高星代理：统一多家免费额度接编码 Agent。无正式 Release、issue 多，当风险清单。偏营销。 | https://juejin.cn/post/7677432175924510760 |
+| 14 | [为什么独立开发者都应该试试 Open Design？](https://juejin.cn/post/7676496495130509358) | 独立开发阿平 | 赞0/藏1/阅87 | 偏营销：Open Design 开源组件/规范，号称省设计时间。独立开发可扫一眼。 | https://juejin.cn/post/7676496495130509358 |
+| 15 | [2026 数据库 CI/CD 工具大盘点：4 款热门工具怎么选？](https://juejin.cn/post/7678889149037248522) | ClouGence | 赞1/藏2/阅55 | 偏营销：4 款数据库 CI/CD 盘点。把 SQL 变更纳入检查-审批-执行，对照官方再选型。 | https://juejin.cn/post/7678889149037248522 |
+
+#### 收藏热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 13 | [从零开始掌握AI应用开发：我的大模型学习路线图（RAG/Agent/MCP/全栈实践）](https://juejin.cn/post/7648441001858007086) | 胡萝卜术 | 赞21/藏22/阅688 | 旧文回榜：RAG/Agent/MCP 学习路线。初学索引。 | https://juejin.cn/post/7648441001858007086 |
+| 14 | [自用推荐｜XTerminal：我心中 SSH 客户端的终极形态](https://juejin.cn/post/7649754424470929418) | 蝎子莱莱爱打怪 | 赞12/藏21/阅1569 | 旧文回榜：XTerminal 替 Xshell/FinalShell。工具安利。 | https://juejin.cn/post/7649754424470929418 |
+
+### 跨榜重复与去重说明
+
+- 本轮新摘要 URL 数：53
+- 因 `seen_urls` 跳过：67（只给数量；不要把已见文再展开成表行）
+- 同文多标签/双榜出现：无（本轮新 URL 均只出现在单一槽位）
+
+### 来源清单
+
+- 快照日：2026-08-29（Asia/Shanghai）
+- 页面：https://juejin.cn/hot/articles 、 https://juejin.cn/hot/collected-articles
+- 抓取：`tools/juejin_hot_fetch.py` → `_staging_latest.json`
+
+| 标签 | 榜单 | 标题 | 链接 |
+| --- | --- | --- | --- |
+| 后端 | 文章热榜 | ValidX时间注解完全指南：10种时间验证注解详解 | https://juejin.cn/post/7677572864901054499 |
+| 后端 | 文章热榜 | 「速通Shell」常用命令（中）——进程、网络与系统信息 | https://juejin.cn/post/7677883485022388267 |
+| 后端 | 文章热榜 | ValidX错误消息国际化完全指南：8种语言9个语言包与三级回退机制 | https://juejin.cn/post/7678747733979201536 |
+| 后端 | 文章热榜 | 为什么越来越多人用AgentScope ？ | https://juejin.cn/post/7678161312637730862 |
+| 后端 | 文章热榜 | 「速通Shell」常用命令（下）—— 归档、权限与进阶工具 | https://juejin.cn/post/7678166172437004294 |
+| 后端 | 文章热榜 | 为什么越来越多人用gRPC？ | https://juejin.cn/post/7677521340606169098 |
+| 后端 | 文章热榜 | 177K star，扒开DeepSeek Harness的营销，我看到了什么 | https://juejin.cn/post/7677263893225193515 |
+| 后端 | 文章热榜 | MinIO 停止维护怎么办？Docker 迁移 RustFS 实战：数据零丢失 | https://juejin.cn/post/7677562804153614386 |
+| 后端 | 文章热榜 | 一份Token Plan套餐接通 Claude Code 和 Codex：国产模型统一额度池实测指南 | https://juejin.cn/post/7676295909912215561 |
+| 后端 | 文章热榜 | 牛来原来是智谱，GLM-5.3-Flash 实测有惊喜也有硬伤 | https://juejin.cn/post/7678580101932220425 |
+| 后端 | 文章热榜 | 抓包Codex-查看Codex的提示词是怎么写的 | https://juejin.cn/post/7676901441995489318 |
+| 前端 | 文章热榜 | 走进 AI Agent 第二篇：决定 AI Agent 能力上限的关键技术 | https://juejin.cn/post/7677562804154531890 |
+| 前端 | 文章热榜 | 一个人 + AI 做的小程序，上线 15 天赚了 10 块 5 | https://juejin.cn/post/7677077660528001070 |
+| 前端 | 文章热榜 | Web Components 为什么火不起来？ | https://juejin.cn/post/7677868279283171368 |
+| 前端 | 文章热榜 | 外包前端和大厂前端，写的代码到底有什么本质区别？ | https://juejin.cn/post/7677502358059073588 |
+| 前端 | 文章热榜 | 图解 AI Agent ①：大模型接上 API，为什么还不算 Agent？ | https://juejin.cn/post/7677170455305879562 |
+| 前端 | 文章热榜 | 图解 AI Agent ②：模型到底是怎么读取文件的？ | https://juejin.cn/post/7677762452274085914 |
+| 前端 | 文章热榜 | JWT 3：为什么 Token 要放进 Authorization？Axios 拦截器到底解决了什么？ | https://juejin.cn/post/7676826408547041289 |
+| 前端 | 文章热榜 | 华为新上Pura X View阔直板手机，特殊屏幕比例设备下，前端应该怎么去适配更完美？送你一套完整工具代码 | https://juejin.cn/post/7676375370356047899 |
+| 前端 | 文章热榜 | 表格、文档、甘特、大屏、表单一站打通：pxcharts超级表格4.0正式上线！ | https://juejin.cn/post/7678237761537916979 |
+| 前端 | 文章热榜 | JWT 5：路由守卫是什么？把整个 JWT 登录鉴权流程串起来 | https://juejin.cn/post/7676826408547123209 |
+| 前端 | 文章热榜 | JWT 4：Zustand 到底解决了什么？为什么登录状态要放进 Store？ | https://juejin.cn/post/7676826408547090441 |
+| 前端 | 文章热榜 | 领导夸我日报越写越详细了，其实我只敲了 npm run commit | https://juejin.cn/post/7677939086406205467 |
+| 人工智能 | 文章热榜 |  爽用 DeepSeek V4 Flash、GLM-5.2、Qwen3.8 Max、GPT-5.6 Sol，EvoX 够猛 | https://juejin.cn/post/7677124067654893622 |
+| 人工智能 | 文章热榜 | 🔥聊聊 Prompt 是怎么一路进化到 Harness 的 | https://juejin.cn/post/7677489259041144866 |
+| 人工智能 | 文章热榜 | GLM-5.3-Flash 发布：追平 Opus 4.8 的智力，1/40 的价格，跑在国产芯片上 | https://juejin.cn/post/7678214547980582952 |
+| 人工智能 | 文章热榜 | DeepSeek Harness 发布一周，登顶 Top10 的插件，暴露了哪些真实需求？ | https://juejin.cn/post/7676498957653803008 |
+| 人工智能 | 文章热榜 | AI Skills 已经封神，但新的问题却越来越严重！ | https://juejin.cn/post/7677041436535455787 |
+| 人工智能 | 文章热榜 | 我是被现实教育之后，才明白 Skill 到底该怎么写 | https://juejin.cn/post/7677435711276744745 |
+| 人工智能 | 文章热榜 | 汤森路透的座上宾？Qwen3.5-397B-A17B到底有什么本事？ | https://juejin.cn/post/7677899267893461034 |
+| 人工智能 | 文章热榜 | 我拿 4 个真实前端任务试了 GLM-5.3 Flash：代码一遍跑通，账单 4 分钱 | https://juejin.cn/post/7678531174247874586 |
+| 人工智能 | 文章热榜 | 历经两个月，我跑通了 Codex 自动剪辑，涨粉破千 | https://juejin.cn/post/7677675037638672384 |
+| 人工智能 | 文章热榜 | 难道 AI 真要让程序员三班倒了？ | https://juejin.cn/post/7677475198968774708 |
+| 人工智能 | 文章热榜 | 面试官让我现场用 AI 改一个真实 bug——他打断我的 3 个理由 | https://juejin.cn/post/7677803387144650761 |
+| 人工智能 | 文章热榜 | 我带着DeepSeek Harness跑了一周真实需求——这份避坑速查表请收好 | https://juejin.cn/post/7677441124442570761 |
+| 开发工具 | 文章热榜 | SKill测评：谁才是真正的Skill之王？ | https://juejin.cn/post/7677551269758795816 |
+| 开发工具 | 文章热榜 | 《HelloGitHub》第 125 期 | https://juejin.cn/post/7678607362014937142 |
+| 开发工具 | 文章热榜 |  从产品原型到前端开发的需求清单，从1小时到25分钟 | https://juejin.cn/post/7673043614508597284 |
+| 开发工具 | 文章热榜 | react-bits：从 36K Stars 的组件库，看动画交互组件该如何被评估 | https://juejin.cn/post/7677481344240189459 |
+| 开发工具 | 文章热榜 | 36K stars 的“酷炫组件”，到底该怎么用才不显得用力过猛？ | https://juejin.cn/post/7678203712679510022 |
+| 开发工具 | 文章热榜 | Naive UI × GenUI SDK：自定义物料库搭建实战 | https://juejin.cn/post/7678533346700394532 |
+| 开发工具 | 文章热榜 | 从“听得懂”到“干得了”：工业大模型落地工厂的三层进化路线 | https://juejin.cn/post/7678237761569210377 |
+| 开发工具 | 文章热榜 | 项目级 Skill 跨 Agent 共用的解决方案 | https://juejin.cn/post/7676282892567412755 |
+| 开发工具 | 文章热榜 | 自动保存已经有了，为什么笔记软件还需要“历史版本”？ | https://juejin.cn/post/7677970307336388634 |
+| 开发工具 | 文章热榜 | 九个编码 Agent 共用免费额度，本地代理是路由还是绕开？ | https://juejin.cn/post/7677432175924510760 |
+| 开发工具 | 文章热榜 | 为什么独立开发者都应该试试 Open Design？ | https://juejin.cn/post/7676496495130509358 |
+| 开发工具 | 文章热榜 | 2026 数据库 CI/CD 工具大盘点：4 款热门工具怎么选？ | https://juejin.cn/post/7678889149037248522 |
+| 前端 | 收藏热榜 | 开箱即用的 Flutter 通用脚手架——FlutterKit | https://juejin.cn/post/7666446436604739611 |
+| 前端 | 收藏热榜 | 一劳永逸解决Codex手机验证 | https://juejin.cn/post/7659854493060136975 |
+| 人工智能 | 收藏热榜 | 走进 AI Agent | https://juejin.cn/post/7670003108343513122 |
+| 人工智能 | 收藏热榜 | 为什么 skills 装得越多，AI 越笨？最火的那个 skill 只有一句话 | https://juejin.cn/post/7664262170474872884 |
+| 开发工具 | 收藏热榜 | 从零开始掌握AI应用开发：我的大模型学习路线图（RAG/Agent/MCP/全栈实践） | https://juejin.cn/post/7648441001858007086 |
+| 开发工具 | 收藏热榜 | 自用推荐｜XTerminal：我心中 SSH 客户端的终极形态 | https://juejin.cn/post/7649754424470929418 |
 ## 2026-08-25
 
 ### 今日总览
