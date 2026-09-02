@@ -1,342 +1,176 @@
 # -*- coding: utf-8 -*-
-"""Incremental digest pull: AI/KB 2026-08-25..28 + Juejin 2026-08-29."""
+"""Incremental digest pull: AI/KB 2026-08-31..09-01 + Juejin 2026-09-02 (cross-month trim)."""
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-AI_25 = """## 2026-08-25
+AI_HEADER = """# AI Daily News Digest
+
+按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
+"""
+
+KB_HEADER = """# Knowledge Base Digest
+
+按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
+"""
+
+JJ_HEADER = """# Juejin Hot Digest
+
+按 Asia/Shanghai 时区汇总掘金文章热榜与收藏热榜（后端 / 前端 / 人工智能 / 开发工具），按文章链接去重并归纳正文。
+"""
+
+AI_31 = """## 2026-08-31
 
 ### 今日总览
 
-**一句话结论**：8 月 25 日主线是 **OpenAI Jalapeño 首批 InferenceX 实测**、**Claude 记忆打通 chat/Cowork**，以及 **Claude Code `v2.1.243`（中国时间窗口）+ `v2.1.245` glibc 热修**；Langfuse 同日连发 `v4.18.0`/`v4.19.0`，LangSmith Engine 宣称 IssueBench 检出翻倍。
+**一句话结论**：8 月 31 日主线是 **OpenClaw `2026.8.1`（品牌化 2.0：会话改 SQLite、权限与凭证默认值重写）**、**Langfuse `v4.25.0`（Web 表格列标准化）**，以及 **DeepSeek-V4-Flash-Vision-Exp 开源权重（MIT，Hugging Face）**；编程 CLI 无中国时间窗口内的新稳定版。
 
 | 维度 | 本日结论 |
 | --- | --- |
-| 检索范围 | 官方厂商、安全治理、Claude Code/Codex/OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、论文与政策 |
-| 核心趋势 | 1）推理从「买卡」变成「自研芯片出数」；2）消费端记忆与编程 CLI 同日加能力；3）可观测性连续小版本 |
-| 可直接关注 | Jalapeño 按瓦特吞吐；Claude Code `/usage` Loops、`promptCacheTtl`、`modelPicker`；LangSmith Engine 自托管 |
-| 专项检索结论 | Claude Code：`v2.1.243`（Published 2026-08-24T23:40:26Z，中国时间 8/25 07:40）+ `v2.1.245`（2026-08-25T05:13:24Z，中国时间 13:13，glibc 2.44 启动崩溃）。Langfuse：`v4.18.0`（09:41Z / 17:41）、`v4.19.0`（15:37Z / 23:37）。LangChain：LangSmith Engine >2x issue detection。Codex / OpenClaw / Hermes / Spring AI / Spring Alibaba AI / Code Graph / Loop Engineering / skills：未发现可核验的 8/25 重大官方更新。 |
+| 检索范围 | 官方厂商、开源 release、Claude Code/Codex/OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、论文与政策、中文补充 |
+| 核心趋势 | 1）个人 Agent runtime 把「会话存储/权限/凭证」当成一次 breaking 大版本，而不是再叠小功能；2）可观测平台继续做 UI 工程债而不是新协议；3）多模态开源权重补上 API 已上线 10 天的 Vision-Exp |
+| 可直接关注 | 升级 OpenClaw 前备份并读 SQLite 迁移；Langfuse 自托管跟到 `v4.25.0`；本地评 Vision-Exp 用官方 HF 仓而不是转载新闻 |
+| 专项检索结论 | OpenClaw：`v2026.8.1`（Published 2026-08-31T03:30:51Z，中国时间 11:30，AKA 2.0）。Langfuse：`v4.25.0`（2026-08-31T10:42:43Z，中国时间 18:42）。Claude Code：当日无中国时间窗口内的新 tag（`v2.1.252` 落在 9/1 03:46）。Codex：仅有 `0.152.0-alpha.*`，稳定版仍为 8/29 的 `0.151.0`。Hermes：`v0.21.0`/`v2026.8.31` 的 Published 为 UTC 19:29，记入 9/1。Spring AI / Spring Alibaba AI / LangChain·LangGraph / Code Graph / Loop Engineering / skills：未发现可核验的 8/31 重大稳定版更新。 |
 
 ### 重要事件与发布
 
 | 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
 | --- | --- | --- | --- | --- |
-| 推理芯片 | [Jalapeño’s first results](https://openai.com/index/jalapeno-first-results/) | 2026-08-25 | 官方发布 | InferenceX 上 GPT-OSS 120B / DeepSeek R1 / Kimi K2.5：峰值约 1.5–1.9× 每瓦吞吐、1.7–3.6× 更低端到端延迟；额定 700W、实测持续 ≤550W；年底内部上线，仍并用 NVIDIA 等加速器 |
-| 全栈叙事 | [The full stack behind abundant intelligence](https://openai.com/index/the-full-stack-behind-abundant-intelligence/) | 2026-08-25 | 官方发布 | 同日配套：模型/服务/芯片/网络一体，Jalapeño 作为第一方硅路径 |
-| 产品记忆 | [Claude's memory works everywhere](https://claude.com/blog/claudes-memory-works-everywhere-and-you-decide-whats-in-it) | 2026-08-25 | 官方发布 | chat 与 Cowork 共用记忆；Topics 可编辑删除；敏感主题默认不存；Free/Pro/Max 默认开，Team/Enterprise 管理员关、个人默认关 |
-| 编程 CLI | [Claude Code v2.1.243](https://www.claudeupdates.dev/version/2.1.243) | 2026-08-25（Published UTC 8/24 23:40） | 开源发布 | `/usage` Loops 拆解；`modelPicker`/`modelPricing`；`promptCacheTtl`/`subagentPromptCacheTtl`；Console 免 API Key 登录；安装包 zstd 约 75MB；Sonnet 5 $2/$10 标成标准价而非促销 |
-| 编程 CLI | [Claude Code v2.1.245](https://github.com/anthropics/claude-code/releases/tag/v2.1.245) | 2026-08-25 | 开源发布 | 修 Arch/CachyOS/Fedora Rawhide 等 glibc 2.44 启动崩溃；无 v2.1.244 npm 包 |
-| LLM 可观测性 | [Langfuse v4.18.0](https://github.com/langfuse/langfuse/releases/tag/v4.18.0) | 2026-08-25 | 开源发布 | 评测规则可按 payload 过滤；刷新 exact-match/keyword 模板；OTLP 体积累计；GPT-5.4 reasoning token 计价 |
-| LLM 可观测性 | [Langfuse v4.19.0](https://github.com/langfuse/langfuse/releases/tag/v4.19.0) | 2026-08-25 | 开源发布 | 组织级 feature-flag 默认；model definition upsert API；traces 表拆分 cache/reasoning 成本 |
-| Agent 评测 | [LangSmith Engine: >2x issue detection](https://blog.langchain.com/new-in-langsmith-engine-2x-better-issue-detection/) | 2026-08-25 | 官方博客 | IssueBench 检出 >2×；修复质量公开基准约 +25%；自托管 VPC + Slack/Linear；Reduced Analysis 控成本 |
+| Agent runtime | [OpenClaw 2026.8.1（AKA 2.0）](https://github.com/openclaw/openclaw/releases/tag/v2026.8.1) | 2026-08-31 | 开源发布 | 会话/转写迁到 SQLite，降级需先还原归档；安装与 onboarding 默认值、session 权限模式、插件信任审查、私有凭证一并改写。官方说明：`openclaw doctor --fix` 可处理大部分 breaking。详见 [release notes](https://docs.openclaw.ai/releases/2026.8.1) |
+| LLM 可观测 | [Langfuse v4.25.0](https://github.com/langfuse/langfuse/releases/tag/v4.25.0) | 2026-08-31 | 开源发布 | Web 表格列（文本/数字/Token Usage/下拉）抽到统一工厂，并加 design-system import 边界。无新 Public API / MCP 能力；自托管升级主要是 UI 一致性 |
+| 开源模型 | [DeepSeek-V4-Flash-Vision-Exp](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-Vision-Exp) | 2026-08-31 | 开源发布 | V4 系首个多模态实验权重，MIT；含 tokenizer、prompt encoding 与覆盖 ViT/Aligner/DFlash/MoE/DSpark 的最小 PyTorch 推理。API 已于 8/21 上线，本日是权重+参考实现 |
+| 服务可用性 | [ChatGPT Work elevated errors and latency](https://status.openai.com/incidents/01M1C5M4K0WC8PPT0Z175RJA1E) | 2026-08-31 | 官方状态 | Plus 用户 Work 模式一度不可用，当日已缓解。企业排障先查 status，不要当成模型能力回归 |
 
 ### 技术文档与教程
 
 | 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
 | --- | --- | --- | --- |
-| 推理评测 | [Jalapeño first results](https://openai.com/index/jalapeno-first-results/) | 按瓦特+延迟比，不按单卡峰值；prefill/decode 同芯片平衡 | 做 serving / 采购对照的人 |
-| 编程 CLI | [v2.1.243 变更清单](https://www.claudeupdates.dev/version/2.1.243) | Loops 成本可见；子 agent 缓存 TTL 与主会话分离 | 已跟 Claude Code 的团队 |
-| 可观测 | [LangSmith Engine](https://blog.langchain.com/new-in-langsmith-engine-2x-better-issue-detection/) | 从海量 trace 聚类问题、出 PR、回归监控 | Plus/Enterprise 已上 LangSmith |
+| 升级路径 | [v2026.8.1 release notes](https://docs.openclaw.ai/releases/2026.8.1) | SQLite 会话、权限默认值、插件 SDK 子路径弃用时间表 | 已在跑 Gateway / 写 OpenClaw 插件的人 |
+| 多模态推理 | [HF 仓 + inference/](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-Vision-Exp) | 参考实现与权重分片分开，无 symlink 依赖 | 要本地复现 Vision-Exp 而不是只调 API 的人 |
+| 可观测 UI | [Langfuse v4.25.0](https://github.com/langfuse/langfuse/releases/tag/v4.25.0) | 表格列组件边界，避免业务页直接引设计系统内部件 | 自托管 Langfuse 或二次开发 Web 的人 |
 
 ### LangChain / Agent / LLM 工程相关进展
 
-**总体判断**：编排侧信号在 LangSmith Engine；自托管可观测（Langfuse）连发小版本；编程 CLI 把 loop 成本拆开。
+**总体判断**：本日工程增量集中在「个人 Agent 的存储/权限默认值」和「多模态权重可本地跑」；编排框架与 Java AI 无新 GA。OpenClaw 把 maker/checker 之外的**会话持久化与凭证默认值**当成 2.0 的真正 breaking。
 
 | 主题 | 进展 | 工程启发 |
 | --- | --- | --- |
-| LangChain / LangGraph | Engine 自托管 + Slack/Linear | 问题检测要进工单流，不要只停在 trace 浏览 |
-| Langfuse | v4.18/v4.19 | payload 过滤规则、模型定义 API、成本拆分 |
-| Claude Code | v2.1.243/245 | `/loop` 先看 `/usage` Loops；glibc 新发行版锁 245 |
-| Codex | 无新稳定 tag | 仍以 0.149.1 为准 |
-| Loop / skills | `/usage` Loops、`/loop` 空唤醒折叠 | loop 必须有可观测，禁止自证 done |
-| 其余专项 | OpenClaw / Hermes / Spring AI / Alibaba AI / Code Graph | 未发现 8/25 可核验重大更新 |
+| OpenClaw / Loop | 2.0 改会话存储与权限默认 | 升级前备份；长任务 loop 先保证会话可迁、可回滚，再谈新 skill |
+| Langfuse | v4.25.0 UI 列标准化 | 观测平台的债往往在表格/权限边界，不是再接一个 exporter |
+| DeepSeek Vision | 权重+参考实现同日放出 | Agent 截图/OCR 任务可切到开源权重做离线评测 |
+| Claude Code / Codex | 无中国时间窗口稳定版 | 不要把 UTC 当晚的 `v2.1.252` / Hermes `0.21.0` 记进本日 |
+| 其余专项 | Hermes / Spring* / LangChain / Code Graph / skills | 未发现 8/31 重大稳定更新 |
 
 ### 值得深入阅读的资料
 
 | 推荐级别 | 资料 | 为什么值得读 |
 | --- | --- | --- |
-| 必读 | [Jalapeño first results](https://openai.com/index/jalapeno-first-results/) | 当日唯一带公开基准数字的芯片文 |
-| 推荐 | [Claude Code v2.1.243](https://www.claudeupdates.dev/version/2.1.243) | 本周最大功能包，按中国时间记本日 |
-| 延伸 | [LangSmith Engine](https://blog.langchain.com/new-in-langsmith-engine-2x-better-issue-detection/) | 生产 Agent 从扫 trace 到出修复的闭环 |
+| 必读 | [OpenClaw 2026.8.1 notes](https://docs.openclaw.ai/releases/2026.8.1) | 本月最大 runtime 变更，按中国时间记本日 |
+| 推荐 | [DeepSeek-V4-Flash-Vision-Exp](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-Vision-Exp) | 官方权重与参考实现，优于中文门户转载 |
+| 延伸 | [Langfuse v4.25.0](https://github.com/langfuse/langfuse/releases/tag/v4.25.0) | 确认本日没有新 trace/eval API |
 
 ### 来源清单
 
-- 检索范围：2026-08-25 00:00:00 到 2026-08-25 23:59:59（Asia/Shanghai）
-- 引用域名：openai.com, claude.com, github.com, claudeupdates.dev, blog.langchain.com
+- 检索范围：2026-08-31 00:00:00 到 2026-08-31 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, docs.openclaw.ai, huggingface.co, status.openai.com
 - 来源清单表格：
 
 | 类型 | 标题 | 日期 | 链接 |
 | --- | --- | --- | --- |
-| 官方发布 | Jalapeño first results | 2026-08-25 | https://openai.com/index/jalapeno-first-results/ |
-| 官方发布 | The full stack behind abundant intelligence | 2026-08-25 | https://openai.com/index/the-full-stack-behind-abundant-intelligence/ |
-| 官方发布 | Claude memory works everywhere | 2026-08-25 | https://claude.com/blog/claudes-memory-works-everywhere-and-you-decide-whats-in-it |
-| 开源发布 | Claude Code v2.1.243 | 2026-08-25（UTC 8/24 23:40） | https://github.com/anthropics/claude-code/releases |
-| 开源发布 | Claude Code v2.1.245 | 2026-08-25 | https://github.com/anthropics/claude-code/releases/tag/v2.1.245 |
-| 开源发布 | Langfuse v4.18.0 | 2026-08-25 | https://github.com/langfuse/langfuse/releases/tag/v4.18.0 |
-| 开源发布 | Langfuse v4.19.0 | 2026-08-25 | https://github.com/langfuse/langfuse/releases/tag/v4.19.0 |
-| 官方博客 | LangSmith Engine >2x | 2026-08-25 | https://blog.langchain.com/new-in-langsmith-engine-2x-better-issue-detection/ |
+| 开源发布 | OpenClaw 2026.8.1 | 2026-08-31 | https://github.com/openclaw/openclaw/releases/tag/v2026.8.1 |
+| 官方文档 | v2026.8.1 (AKA OpenClaw 2.0) | 2026-08-31 | https://docs.openclaw.ai/releases/2026.8.1 |
+| 开源发布 | Langfuse v4.25.0 | 2026-08-31 | https://github.com/langfuse/langfuse/releases/tag/v4.25.0 |
+| 开源发布 | DeepSeek-V4-Flash-Vision-Exp | 2026-08-31 | https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-Vision-Exp |
+| 官方发布 | ChatGPT Work incident | 2026-08-31 | https://status.openai.com/incidents/01M1C5M4K0WC8PPT0Z175RJA1E |
 
 """
 
-AI_26 = """## 2026-08-26
+AI_01 = """## 2026-09-01
 
 ### 今日总览
 
-**一句话结论**：8 月 26 日主线是 **Claude in Chrome GA（付费计划可自动点浏览器，动作用安全分类器拦）**，以及 **OpenAI 发布 Hugging Face 事件技术报告**；Claude Code `v2.1.246`（中国时间 8/26 06:31）补 Auto mode `/permissions` 与大量稳定性；Langfuse `v4.20.0`/`v4.21.0` 收紧 JWT 默认与评测 SLO。
+**一句话结论**：9 月 1 日主线是 **Hermes Agent `v0.21.0`（Bot Mode / cron 记忆 / 子 Agent 中途转向）**、**Codex `0.152.0`（MCP 包名、每工具输出上限、update_plan 改 opt-in）**、**Claude Code `v2.1.252`（Mac Bash swap / Remote Control 卡住）**，以及 **Langfuse `v4.26.0`+`v4.27.0`（eval trace 串联、in-app agent 多模态）**。
 
 | 维度 | 本日结论 |
 | --- | --- |
-| 检索范围 | 官方厂商、安全治理、Claude Code/Codex/OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、论文与政策 |
-| 核心趋势 | 1）浏览器 Agent 从试点变默认自动批准；2）实验室事故从新闻变成可引用技术报告；3）编程 CLI 继续修 harness |
-| 可直接关注 | Chrome 动作分类器与探针；HF 事件后的沙箱/CoT 监控；Langfuse JWT 14 天、`LANGFUSE_AI_*` 替换 Bedrock 环境变量 |
-| 专项检索结论 | Claude Code：`v2.1.246`（Published 2026-08-25T22:31Z，中国时间 8/26 06:31）。Langfuse：`v4.20.0`（11:13Z / 19:13）、`v4.21.0`（12:36Z / 20:36，OIDC userinfo）。Codex `0.150.0` Published 19:37Z = 中国时间 8/27，不记本日。OpenClaw / Hermes / Spring AI / Spring Alibaba AI / LangChain·LangGraph / Code Graph / Loop Engineering / skills：未发现可核验的 8/26 重大官方更新。 |
+| 检索范围 | 官方厂商、开源 release、Claude Code/Codex/OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、论文与政策 |
+| 核心趋势 | 1）编程 Agent 把「多 bot 社会 + 定时任务有记忆」做成产品默认；2）Codex 收紧默认工具面（planning 改 opt-in）同时放宽 MCP 命名；3）可观测平台补 eval↔trace 与站内 agent |
+| 可直接关注 | Hermes Bot Mode/`hermes peer`；Codex `tools.update_plan.enabled`；Langfuse evaluator execution traces；不要把 `v2.1.257`/`OpenClaw 2026.8.2` 记进本日 |
+| 专项检索结论 | Hermes：`v0.21.0`/`v2026.8.31`（Published 2026-08-31T19:29:49Z，中国时间 9/1 03:29）。Claude Code：`v2.1.252`（2026-08-31T19:46:55Z，中国时间 9/1 03:46）。Codex：`rust-v0.152.0`（2026-09-01T01:58:32Z，中国时间 09:58）。Langfuse：`v4.26.0`（UTC 8/31 17:53 → 中国 9/1 01:53）+ `v4.27.0`（2026-09-01T10:55:03Z，中国时间 18:55）。OpenClaw：`2026.8.2` Published 2026-09-01T16:00:56Z = 中国 9/2 00:00，**不记本日**。Claude Code `v2.1.257`/`v2.1.258` 同理落在 9/2。Spring AI / Spring Alibaba AI / LangChain·LangGraph / Code Graph / skills：未发现可核验的 9/1 重大稳定版更新。 |
 
 ### 重要事件与发布
 
 | 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
 | --- | --- | --- | --- | --- |
-| 浏览器 Agent | [Claude in Chrome is generally available](https://claude.com/blog/claude-in-chrome-generally-available) | 2026-08-26 | 官方发布 | 付费计划 GA；可自动执行浏览器动作，分类器校验是否匹配原请求；探针扫 tool result 防注入；企业可限制域名。评测：探针+分类器下 Sonnet 5/Opus 5 攻击成功率 0，Fable 5 约 0.3% |
-| 安全事故 | [The Hugging Face incident and the road ahead](https://openai.com/index/hugging-face-incident-and-the-road-ahead/) | 2026-08-26 | 官方发布 | 正式技术报告：研究环境逃逸与 HF 基础设施；加强沙箱/断网/权重访问；加大 CoT 监控；最大 RL run 仍暂停。独立调查由 METR/Redwood 另发 |
-| 编程 CLI | [Claude Code v2.1.246](https://github.com/anthropics/claude-code/releases) | 2026-08-26（UTC 8/25 22:31） | 开源发布 | `/permissions` Auto mode 页；Bash 通配规则启动警告；`/goal` 空闲 check-in 每目标最多 3 次；修 telemetry 把第三方网关 Key 发到 Anthropic |
-| LLM 可观测性 | [Langfuse v4.20.0](https://github.com/langfuse/langfuse/releases) | 2026-08-26 | 开源发布 | 评测规则过滤器进搜索栏；evaluator SLO；`LANGFUSE_AI_*` 替换 `LANGFUSE_AWS_BEDROCK_*`（破坏性）；JWT 默认 max age 14 天 |
-| LLM 可观测性 | [Langfuse v4.21.0](https://github.com/langfuse/langfuse/releases) | 2026-08-26 | 开源发布 | 自定义 OIDC 从 userinfo 读 profile；truncate 不再拆代理对 |
+| Agent runtime | [Hermes Agent v0.21.0 (v2026.8.31)](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.31) | 2026-09-01（UTC 8/31 19:29） | 开源发布 | Bot Mode 内置：命名 bot、群聊、`hermes peer` 跨 profile DM；cron 带 persistent memory/`continuity`；`delegate_task` 可中途 steer/停；MCP 桌面变成健康检查+用量看板；保护 AGENTS.md/skills 写审批。官方自称 Pantheon Release |
+| 编程 CLI | [Codex 0.152.0](https://github.com/openai/codex/releases/tag/rust-v0.152.0) | 2026-09-01 | 开源发布 | Vim `/` `?` 搜索草稿；限流横幅可跳转用量/套餐；MCP 名允许 `:` `@` `/` `.`；每工具 `output_token_limit`；`thread/shellCommand` 超时可超 1h；**`update_plan` 默认关闭**（`tools.update_plan.enabled = true`）；修 Guardian 压缩丢授权、Windows Store PowerShell 沙箱、云任务拒绝不信任 URL |
+| 编程 CLI | [Claude Code v2.1.252](https://github.com/anthropics/claude-code/releases/tag/v2.1.252) | 2026-09-01（UTC 8/31 19:46） | 开源发布 | 修部分 Mac「task output swap refused」；无 `.claude/settings.local.json` 时 always-allow 不落盘；Remote Control 在 claude.ai 降级时工具结束后卡数分钟；超大失败输出把会话撑爆 API 上限 |
+| LLM 可观测 | [Langfuse v4.26.0](https://github.com/langfuse/langfuse/releases/tag/v4.26.0) | 2026-09-01（UTC 8/31 17:53） | 开源发布 | evaluator execution traces 可回链；PR 可预览 API spec；修 eval structured output 与 reasoning 碰撞、OTel prompt version 当整数解析、in-app-agent OpenAI Responses 保持无状态 |
+| LLM 可观测 | [Langfuse v4.27.0](https://github.com/langfuse/langfuse/releases/tag/v4.27.0) | 2026-09-01 | 开源发布 | in-app-agent 支持多模态输入与 prompt cache；OpenAI Responses 网关；修输出 token 截断空白轮、Claude id 强制 reasoning、S3 multipart 等分片 |
 
 ### 技术文档与教程
 
 | 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
 | --- | --- | --- | --- |
-| 浏览器安全 | [Claude in Chrome GA](https://claude.com/blog/claude-in-chrome-generally-available) | 探针看 tool result；动作分类器对用户原请求；可关自动批准 | 要上浏览器 Agent 的安全/产品 |
-| 事故复盘 | [HF incident](https://openai.com/index/hugging-face-incident-and-the-road-ahead/) | 评估环境 ≠ 生产隔离；对齐与基础设施要一起加 | 做内部评测沙箱的人 |
+| 多 Agent 产品化 | [Hermes v0.21.0](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.31) | Bot 社会、cron 连续性、子 Agent 直播转向、MCP 指挥中心 | 要把「一堆 profile」变成可协作团队的人 |
+| 默认工具面 | [Codex 0.152.0](https://github.com/openai/codex/releases/tag/rust-v0.152.0) | planning 改 opt-in；MCP 输出按工具截断 | 升级后发现 update_plan 没了的人 |
+| eval 可追溯 | [Langfuse v4.26.0](https://github.com/langfuse/langfuse/releases/tag/v4.26.0) | 评分运行留下 execution trace | 要解释「这条 score 怎么来的」的评测同学 |
 
 ### LangChain / Agent / LLM 工程相关进展
 
-**总体判断**：浏览器闭环上线；可观测性在收安全默认值；Codex 大版本落在次日凌晨。
+**总体判断**：Loop Engineering 当日信号在 Hermes：定时任务必须带记忆与连续性，子 Agent 必须可中途纠偏，且保护指令文件写入。Codex 把 planning 从默认能力改成显式开关，和「少给默认工具」同一方向。OpenClaw `2026.8.2`、Claude Code `v2.1.257`（含 Fable 5.1 默认）落在中国时间 9/2，不记本日。
 
 | 主题 | 进展 | 工程启发 |
 | --- | --- | --- |
-| Claude Code | v2.1.246 | Auto mode 规则要可编辑；`/goal` 限 check-in |
-| Langfuse | v4.20/v4.21 | 自托管先改 AI 环境变量和 JWT |
-| Codex | 0.150.0 UTC 晚间 | 记到 8/27 |
-| 其余专项 | 无 8/26 重大官方更新 | 消化 Chrome GA 与 HF 报告 |
+| Hermes / Loop | Bot Mode + cron memory + live steer | 定时 loop 没有昨天的输出就不能去重；子 Agent 不能 fire-and-pray |
+| Codex | MCP 包名 + 每工具截断 + plan opt-in | 默认工具越少越好；截断策略按工具而不是全局一刀 |
+| Claude Code | v2.1.252 稳定性 | Remote Control 与超大失败日志会直接打爆上下文，先修通道再谈新模型 |
+| Langfuse | v4.26–4.27 eval 链 + 站内 agent | 评分必须能点回原始 span；站内 agent 也要走同一套 OTel |
+| OpenClaw | 8.2 落在 9/2 | 8/31 的 2.0 仍是当前应读版本 |
+| 其余专项 | Spring* / LangChain / Code Graph / skills | 未发现 9/1 重大稳定更新 |
 
 ### 值得深入阅读的资料
 
 | 推荐级别 | 资料 | 为什么值得读 |
 | --- | --- | --- |
-| 必读 | [Claude in Chrome GA](https://claude.com/blog/claude-in-chrome-generally-available) | 自动浏览器动作的防护口径 |
-| 必读 | [HF incident](https://openai.com/index/hugging-face-incident-and-the-road-ahead/) | 当日官方事故结论 |
-| 延伸 | [Langfuse v4.20.0](https://github.com/langfuse/langfuse/releases) | 破坏性环境变量与会话时长 |
+| 必读 | [Hermes v0.21.0](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.31) | 本窗口最大 Agent 产品变更，按中国时间记本日 |
+| 必读 | [Codex 0.152.0](https://github.com/openai/codex/releases/tag/rust-v0.152.0) | 默认工具面收紧 + MCP 工程补丁 |
+| 推荐 | [Langfuse v4.27.0](https://github.com/langfuse/langfuse/releases/tag/v4.27.0) | 站内 agent 多模态与 cache，和 v4.26 一起升 |
+| 延伸 | [Claude Code v2.1.252](https://github.com/anthropics/claude-code/releases/tag/v2.1.252) | 中国时间窗口内的稳定补丁；Fable 5.1 等 9/2 |
 
 ### 来源清单
 
-- 检索范围：2026-08-26 00:00:00 到 2026-08-26 23:59:59（Asia/Shanghai）
-- 引用域名：claude.com, openai.com, github.com
-- 来源清单表格：
-
-| 类型 | 标题 | 日期 | 链接 |
-| --- | --- | --- | --- |
-| 官方发布 | Claude in Chrome GA | 2026-08-26 | https://claude.com/blog/claude-in-chrome-generally-available |
-| 官方发布 | Hugging Face incident | 2026-08-26 | https://openai.com/index/hugging-face-incident-and-the-road-ahead/ |
-| 开源发布 | Claude Code v2.1.246 | 2026-08-26（UTC 8/25 22:31） | https://github.com/anthropics/claude-code/releases |
-| 开源发布 | Langfuse v4.20.0 / v4.21.0 | 2026-08-26 | https://github.com/langfuse/langfuse/releases |
-
-"""
-
-AI_27 = """## 2026-08-27
-
-### 今日总览
-
-**一句话结论**：8 月 27 日主线是 **Codex `0.150.0`/`0.150.1`（任务 `@` 提及 + 远程 compaction 修图预算）**、**DeepMind 双盲评测试点**、**Hermes `v0.20.6`** 与 **Code Graph `v1.6.0`（中国时间窗口）**；Claude Code `v2.1.247` 加 `SendFeedback` 与 `/claude-api cost-optimize`。
-
-| 维度 | 本日结论 |
-| --- | --- |
-| 检索范围 | 官方厂商、安全治理、Claude Code/Codex/OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、论文与政策 |
-| 核心趋势 | 1）编程 Agent 开始把「别的任务」当一等对象；2）评测要防刷题；3）代码图谱接到 Copilot |
-| 可直接关注 | Codex `@` 任务与 Interrupt hook；双盲 Confidential Space；`codegraph install` 接 Copilot |
-| 专项检索结论 | Codex：`0.150.0`（Published 2026-08-26T19:37:28Z，中国时间 8/27 03:37）、`0.150.1`（2026-08-27T01:56Z，中国时间 09:56）。Claude Code：`v2.1.247`（26 Aug 23:06Z / 8/27 07:06）。Hermes：`v0.20.6` / `v2026.8.27`（12:06:53Z / 20:06）。Code Graph：`v1.6.0`（2026-08-26T17:07:30Z，中国时间 8/27 01:07）。Langfuse：`v4.22.0`（07:24Z / 15:24）。DeepMind 双盲评测官方博文。OpenClaw / Spring AI / Spring Alibaba AI / LangChain·LangGraph / Loop Engineering / skills：未发现可核验的 8/27 重大官方更新。 |
-
-### 重要事件与发布
-
-| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
-| --- | --- | --- | --- | --- |
-| 编程 CLI | [Codex 0.150.0](https://github.com/openai/codex/releases/tag/rust-v0.150.0) | 2026-08-27（UTC 8/26 19:37） | 开源发布 | `@` 引用其他 Codex 任务并读/建/发消息；`/copy` 选择器；未命名任务自动标题；Interrupt hook；未信任项目不再喂项目级 AGENTS.md |
-| 编程 CLI | [Codex 0.150.1](https://github.com/openai/codex/releases/tag/rust-v0.150.1) | 2026-08-27 | 开源发布 | 远程 compaction 默认把保留图片计入 token 预算并裁旧图 |
-| 评测治理 | [Piloting double-blind AI evaluations](https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/) | 2026-08-27 | 官方发布 | Confidential Space：评测方看不到 Gemini 权重，Google 看不到外部题目；合作方新加坡 AISI、OpenMined、AVERI、MLCommons；试点 Gemini Flash Lite |
-| 编程 CLI | [Claude Code v2.1.247](https://github.com/anthropics/claude-code/releases) | 2026-08-27（UTC 8/26 23:06） | 开源发布 | `SendFeedback` 起草 `/feedback`；`/claude-api cost-optimize`；Admin API skill；Sonnet 5 1M 窗自动 compact 约 967K |
-| Agent 框架 | [Hermes Agent v0.20.6](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.27) | 2026-08-27 | 开源发布 | 汇总自 v0.20.5 约 525 PR：同意后用本机 Chromium 画像浏览、远程 MCP 目录 50+、web_search TTL 缓存、钥匙串加密密钥；完整 notes 等到 v0.21.0 |
-| Code Graph | [CodeGraph v1.6.0](https://github.com/colbymchenry/codegraph/releases/tag/v1.6.0) | 2026-08-27（UTC 8/26 17:07） | 开源发布 | `codegraph install` 接 Copilot VS Code/CLI/JetBrains；`--yes --init` 无交互；`codegraph_explore` 去重已展示源码；修 WAL 磁盘泄漏 |
-| LLM 可观测性 | [Langfuse v4.22.0](https://github.com/langfuse/langfuse/releases) | 2026-08-27 | 开源发布 | 记录 evaluator 创建配置；Assistant 可用 OpenAI 兼容 API；自托管上报 AI feature 开关 |
-
-### 技术文档与教程
-
-| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
-| --- | --- | --- | --- |
-| 任务编排 | [Codex 0.150.0](https://github.com/openai/codex/releases/tag/rust-v0.150.0) | 任务当一等对象；Interrupt hook；未信任仓隔离 AGENTS.md | 多任务并行的 Codex 用户 |
-| 代码图谱 | [CodeGraph 1.6.0](https://github.com/colbymchenry/codegraph/releases/tag/v1.6.0) | Copilot MCP；explore 不重复贴代码 | 要把图谱接到 Copilot 的人 |
-| 评测诚信 | [DeepMind 双盲评测](https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/) | 机密计算同时保权重与考题 | 政策/评测平台 |
-
-### LangChain / Agent / LLM 工程相关进展
-
-**总体判断**：框架 GA 在 Hermes 汇总 tag 与 Code Graph 接 Copilot；LangChain 当日无新博文。
-
-| 主题 | 进展 | 工程启发 |
-| --- | --- | --- |
-| Codex | 0.150.0/0.150.1 | 多任务用 `@`，不要靠口头复述 ID |
-| Code Graph | v1.6.0 | 图谱安装要进 CI（`--yes --init`） |
-| Hermes | v0.20.6 | 本机画像浏览必须同意门闩 |
-| Loop | `/claude-api cost-optimize`、Interrupt hook | 成本与中断都要有 hook，不要只靠模型自觉 |
-| Langfuse | v4.22.0 | 自托管 Assistant 可换 OpenAI 兼容端点 |
-| 其余专项 | OpenClaw / Spring AI / Alibaba AI / LangChain / skills | 未发现 8/27 重大官方更新 |
-
-### 值得深入阅读的资料
-
-| 推荐级别 | 资料 | 为什么值得读 |
-| --- | --- | --- |
-| 推荐 | [Codex 0.150.0](https://github.com/openai/codex/releases/tag/rust-v0.150.0) | 任务引用改变日常编排 |
-| 推荐 | [CodeGraph v1.6.0](https://github.com/colbymchenry/codegraph/releases/tag/v1.6.0) | 专项里当日最完整的图谱发行 |
-| 延伸 | [Hermes v0.20.6](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.27) | 滚动 tag，细项等 0.21.0 |
-
-### 来源清单
-
-- 检索范围：2026-08-27 00:00:00 到 2026-08-27 23:59:59（Asia/Shanghai）
-- 引用域名：github.com, deepmind.google
-- 来源清单表格：
-
-| 类型 | 标题 | 日期 | 链接 |
-| --- | --- | --- | --- |
-| 开源发布 | Codex 0.150.0 | 2026-08-27（UTC 8/26 19:37） | https://github.com/openai/codex/releases/tag/rust-v0.150.0 |
-| 开源发布 | Codex 0.150.1 | 2026-08-27 | https://github.com/openai/codex/releases/tag/rust-v0.150.1 |
-| 官方发布 | DeepMind 双盲评测 | 2026-08-27 | https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/ |
-| 开源发布 | Claude Code v2.1.247 | 2026-08-27（UTC 8/26 23:06） | https://github.com/anthropics/claude-code/releases |
-| 开源发布 | Hermes v0.20.6 | 2026-08-27 | https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.27 |
-| 开源发布 | CodeGraph v1.6.0 | 2026-08-27（UTC 8/26 17:07） | https://github.com/colbymchenry/codegraph/releases/tag/v1.6.0 |
-| 开源发布 | Langfuse v4.22.0 | 2026-08-27 | https://github.com/langfuse/langfuse/releases |
-
-"""
-
-AI_28 = """## 2026-08-28
-
-### 今日总览
-
-**一句话结论**：8 月 28 日主线是 **Claude Code `v2.1.248`（`--restricted` 只读文件、禁 bash/WebFetch）** 与 **Langfuse `v4.23.0`（稳定评测 API、时间线只留 compact）**；`v2.1.250` 仅 bugfix。`v2.1.251` 与 OpenClaw `2026.9.1-beta.1` 的 UTC 落在中国时间 8/29，不记本日。
-
-| 维度 | 本日结论 |
-| --- | --- |
-| 检索范围 | 官方厂商、安全治理、Claude Code/Codex/OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、论文与政策 |
-| 核心趋势 | 1）受限模式把「能跑命令」从默认能力里拿掉；2）Langfuse 评测 API 稳定化；3）无新模型 |
-| 可直接关注 | `--restricted` / `CLAUDE_CODE_RESTRICTED=1`；评测 REST 稳定端点；`/loop` 在 Bedrock/Vertex 也开放自步调 |
-| 专项检索结论 | Claude Code：`v2.1.248`（Published 2026-08-27T22:12Z，中国时间 8/28 06:12）、`v2.1.250`（28 Aug 00:49Z / 08:49，仅 bugfix）。`v2.1.251`（28 Aug 18:19Z = 中国时间 8/29 02:19）记到 8/29。Langfuse：`v4.23.0`（11:52Z / 19:52）、`v4.24.0`（13:16Z / 21:16，`LANGFUSE_AI_PROVIDER` 必填）。Codex / OpenClaw / Hermes / Spring AI / Spring Alibaba AI / LangChain·LangGraph / Code Graph / Loop Engineering / skills：未发现可核验的 8/28 重大稳定版更新。 |
-
-### 重要事件与发布
-
-| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
-| --- | --- | --- | --- | --- |
-| 编程 CLI | [Claude Code v2.1.248](https://github.com/anthropics/claude-code/releases) | 2026-08-28（UTC 8/27 22:12） | 开源发布 | `--restricted`：去掉命令/代码执行与 WebFetch（除非 `--tools` 点名）、文件工具不出工作区、拒绝 bypassPermissions、忽略用户/项目/本地 settings；`experimental.cacheTtl`；`/loop` 自步调与无 prompt 自治在 Bedrock/Vertex/Foundry 也可用；Workflow 描述从约 5.7k 压到 1k token |
-| 编程 CLI | [Claude Code v2.1.250](https://github.com/anthropics/claude-code/releases) | 2026-08-28 | 开源发布 | 仅 Bug fixes and reliability improvements |
-| LLM 可观测性 | [Langfuse v4.23.0](https://github.com/langfuse/langfuse/releases) | 2026-08-28 | 开源发布 | 稳定 evaluator/evaluation rule API；MCP 暴露 v4 迁移数据；dashboard/widget 进核心 S3 导出；compact timeline 成为唯一时间线 |
-| LLM 可观测性 | [Langfuse v4.24.0](https://github.com/langfuse/langfuse/releases) | 2026-08-28 | 开源发布 | 破坏性：内部 AI 功能必须设 `LANGFUSE_AI_PROVIDER`，不再默认 Bedrock |
-
-### 技术文档与教程
-
-| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
-| --- | --- | --- | --- |
-| 受限执行 | [v2.1.248 `--restricted`](https://github.com/anthropics/claude-code/releases) | 只留工作区内文件工具；settings 文件全部忽略 | 要在不可信仓跑 agent 的人 |
-| 评测 API | [Langfuse v4.23.0](https://github.com/langfuse/langfuse/releases) | 稳定 REST 替代不稳定 evaluator 端点 | 要脚本化评测的自托管 |
-
-### LangChain / Agent / LLM 工程相关进展
-
-**总体判断**：当日工程增量在受限 CLI 与 Langfuse API 稳定化；编排框架无新 GA。
-
-| 主题 | 进展 | 工程启发 |
-| --- | --- | --- |
-| Claude Code | `--restricted`、`/loop` 供应商对齐 | 不可信输入先关 bash，再谈技能 |
-| Loop Engineering | `/loop` 在云厂商也开自步调 | 终止条件仍要独立 verifier |
-| Langfuse | v4.23/v4.24 | 升 4.24 前先配 AI Provider |
-| 其余专项 | Codex / OpenClaw / Hermes / Spring* / Code Graph / LangChain / skills | 未发现 8/28 重大稳定更新 |
-
-### 值得深入阅读的资料
-
-| 推荐级别 | 资料 | 为什么值得读 |
-| --- | --- | --- |
-| 推荐 | [Claude Code v2.1.248](https://github.com/anthropics/claude-code/releases) | 受限模式是新的默认安全档 |
-| 延伸 | [Langfuse v4.23.0](https://github.com/langfuse/langfuse/releases) | 评测 API 稳定后才能写死客户端 |
-
-### 来源清单
-
-- 检索范围：2026-08-28 00:00:00 到 2026-08-28 23:59:59（Asia/Shanghai）
+- 检索范围：2026-09-01 00:00:00 到 2026-09-01 23:59:59（Asia/Shanghai）
 - 引用域名：github.com
 - 来源清单表格：
 
 | 类型 | 标题 | 日期 | 链接 |
 | --- | --- | --- | --- |
-| 开源发布 | Claude Code v2.1.248 | 2026-08-28（UTC 8/27 22:12） | https://github.com/anthropics/claude-code/releases |
-| 开源发布 | Claude Code v2.1.250 | 2026-08-28 | https://github.com/anthropics/claude-code/releases |
-| 开源发布 | Langfuse v4.23.0 | 2026-08-28 | https://github.com/langfuse/langfuse/releases |
-| 开源发布 | Langfuse v4.24.0 | 2026-08-28 | https://github.com/langfuse/langfuse/releases |
+| 开源发布 | Hermes Agent v0.21.0 | 2026-09-01（UTC 8/31 19:29） | https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.31 |
+| 开源发布 | Codex 0.152.0 | 2026-09-01 | https://github.com/openai/codex/releases/tag/rust-v0.152.0 |
+| 开源发布 | Claude Code v2.1.252 | 2026-09-01（UTC 8/31 19:46） | https://github.com/anthropics/claude-code/releases/tag/v2.1.252 |
+| 开源发布 | Langfuse v4.26.0 | 2026-09-01（UTC 8/31 17:53） | https://github.com/langfuse/langfuse/releases/tag/v4.26.0 |
+| 开源发布 | Langfuse v4.27.0 | 2026-09-01 | https://github.com/langfuse/langfuse/releases/tag/v4.27.0 |
 
 """
 
-KB_25 = """## 2026-08-25
+KB_31 = """## 2026-08-31
 
 ### 今日总览
 
-**一句话结论**：固定门户里可核验长文是 **阿里云开发者社区转述的 LLM Serving 一年 Trace**（61 亿请求的 Prefix Cache 与负载均衡权衡）；五个专项在固定来源内无新 GA。
+本次按 Asia/Shanghai 的 2026-08-31 00:00:00 到 23:59:59 检索固定知识库来源，并专项检索 Langfuse、LangChain/LangGraph、Code Graph、Spring Alibaba AI、Loop Engineering。固定门户内**未发现可确认属于该日期且具备可靠原文的重大技术长文**；腾讯云+社区出现 DeepSeek-V4-Flash-Vision-Exp 开源资讯，但是 IT之家/企鹅号转载，按过滤规则不收录正文（官方权重见 AI 日报 Hugging Face）。
 
 | 维度 | 本日结论 |
 | --- | --- |
-| 检索范围 | 阿里/腾讯/字节/百度/美团/京东/滴滴/网易/360/有赞 + 掘金；专项 Langfuse/LangChain/Code Graph/Spring Alibaba AI/Loop Engineering |
-| 核心趋势 | Serving 从单次加速转到集群缓存 vs 均衡 |
-| 可直接关注 | 99% Prefix 复用落在 15 分钟内；Cache-aware 路由换 5%–7% 不均衡 |
-| 专项检索结论 | Langfuse / LangChain·LangGraph / Code Graph / Spring Alibaba AI / Loop Engineering：固定来源内未发现可核验的 8/25 新文。 |
-| 未发现更新 | 阿里技术/中间件/语雀、腾讯 TEG/AlloyTeam/大讲堂、字节技术博客、百度 FEX/EFE、美团、京东/凹凸、滴滴、网易、360、有赞 |
-
-### 重要文章与更新
-
-| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
-| --- | --- | --- | --- | --- |
-| LLM Serving | [61 亿次请求背后：LLM Serving 的 Cache 与调度难题](https://developer.aliyun.com/article/1758064) | 2026-08-25 | 阿里云开发者社区 | 论文《A Year in LLM Serving》读后：长输入短输出、Prefix 强时间局部性；多节点下缓存复用与均衡互斥，Cache First 不均衡约 +5%–7% |
-
-### 技术文档与实践
-
-| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
-| --- | --- | --- | --- |
-| 推理调度 | [61 亿次请求](https://developer.aliyun.com/article/1758064) | 路由目标不要只追均衡度 | 做网关/推理平台的人 |
-
-### 工程实践归纳
-
-**总体判断**：五个专项无固定来源新文；工程信号在 Serving 局部性。
-
-| 主题 | 进展 | 工程启发 |
-| --- | --- | --- |
-| 专项五题 | 无新文 | Langfuse/LangSmith 见 AI 日报 |
-| Serving | 生产 Trace 一年盘点 | 先画复用半衰期，再谈一致性哈希 |
-
-### 值得深入阅读的资料
-
-| 推荐级别 | 资料 | 为什么值得读 |
-| --- | --- | --- |
-| 推荐 | [61 亿次请求](https://developer.aliyun.com/article/1758064) | 当日门户里唯一带规模数字的 Serving 文 |
-
-### 来源清单
-
-- 检索范围：2026-08-25 00:00:00 到 2026-08-25 23:59:59（Asia/Shanghai）
-- 固定来源覆盖：已覆盖清单中的公司/组织维度
-- 来源清单表格：
-
-| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
-| --- | --- | --- | --- | --- | --- |
-| 阿里巴巴 | 阿里云开发者社区 | 技术文章 | 61 亿次请求背后 | 2026-08-25 | https://developer.aliyun.com/article/1758064 |
-
-"""
-
-KB_26 = """## 2026-08-26
-
-### 今日总览
-
-本次按 Asia/Shanghai 的 2026-08-26 00:00:00 到 23:59:59 检索固定知识库来源，并专项检索 Langfuse、LangChain/LangGraph、Code Graph、Spring Alibaba AI、Loop Engineering，未发现可确认属于该日期且具备可靠出处的重大技术更新。腾讯云+社区当日多为 Hugging Face 事件转载资讯，无工程细节，不记入重要文章。
+| 检索范围 | 阿里/腾讯/字节/百度/美团/京东/滴滴/网易/360/有赞 + 掘金 + 五个专项 |
+| 核心趋势 | 门户在节日窗口以转载资讯为主，工程长文空窗 |
+| 可直接关注 | 多模态开源权重以 HF 官方仓为准，不要用转载当出处 |
+| 专项检索结论 | Langfuse / LangChain·LangGraph / Code Graph / Spring Alibaba AI / Loop Engineering：固定来源内均未发现可核验的 8/31 新文 |
+| 未发现更新 | 阿里技术、阿里中间件、语雀阿里干货、腾讯技术工程、AlloyTeam、腾讯大讲堂、字节技术博客、FEX/EFE、百度开发者中心、美团技术团队、京东科技、凹凸、滴滴、网易传媒、360、有赞 |
 
 ### 重要文章与更新
 
@@ -348,15 +182,19 @@ KB_26 = """## 2026-08-26
 
 ### 工程实践归纳
 
-- 未发现可复现价值明确的新进展。五个专项在固定来源内均未发现可核验更新。
+**总体判断**：五个专项在固定来源内未发现可核验更新；全球侧 OpenClaw 2.0 / Langfuse v4.25.0 / DeepSeek Vision 权重见 AI 日报，不在此伪装成门户原文。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 五个专项 | 固定来源无新文 | 空窗日不要用转载新闻填表 |
 
 ### 值得深入阅读的资料
 
-- 本日暂无推荐。官方事故报告见 AI 日报 OpenAI 8/26 文。
+- 本日暂无推荐。
 
 ### 来源清单
 
-- 检索范围：2026-08-26 00:00:00 到 2026-08-26 23:59:59（Asia/Shanghai）
+- 检索范围：2026-08-31 00:00:00 到 2026-08-31 23:59:59（Asia/Shanghai）
 - 固定来源覆盖：已覆盖固定来源清单中的公司/组织维度
 - 来源清单表格：
 
@@ -366,64 +204,19 @@ KB_26 = """## 2026-08-26
 
 """
 
-KB_27 = """## 2026-08-27
+KB_01 = """## 2026-09-01
 
 ### 今日总览
 
-**一句话结论**：固定门户可核验长文是 **美团履约团队解析 ACL 2026 杰出论文 GeoRA**（为 RLVR 设计的几何感知 LoRA）；五个专项在固定来源内无新文。
+本次按 Asia/Shanghai 的 2026-09-01 00:00:00 到 23:59:59 检索固定知识库来源，并专项检索 Langfuse、LangChain/LangGraph、Code Graph、Spring Alibaba AI、Loop Engineering，未发现可确认属于该日期且具备可靠出处的重大技术更新。
 
 | 维度 | 本日结论 |
 | --- | --- |
-| 检索范围 | 阿里/腾讯/字节/百度/美团/京东/滴滴/网易/360/有赞 + 掘金；专项 Langfuse/LangChain/Code Graph/Spring Alibaba AI/Loop Engineering |
-| 核心趋势 | RL 微调不要直接套 SFT 的 LoRA 几何 |
-| 可直接关注 | SVD 压 RL 更新子空间；冻残差保预训练锚点 |
-| 专项检索结论 | Langfuse / LangChain·LangGraph / Code Graph / Spring Alibaba AI / Loop Engineering：固定来源内未发现可核验的 8/27 新文。 |
-| 未发现更新 | 阿里技术/中间件/语雀、腾讯 TEG/AlloyTeam/大讲堂、字节、百度 FEX/EFE、京东/凹凸、滴滴、网易、360、有赞 |
-
-### 重要文章与更新
-
-| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
-| --- | --- | --- | --- | --- |
-| RL 微调 | [GeoRA: 为 RLVR 设计的 LoRA](https://tech.meituan.com/2026/08/27/ACL-Outstanding-Paper-GeoRA.html) | 2026-08-27 | 美团技术团队 | 几何先验定位 RLVR 稀疏更新区，SVD 压成低秩适配器；1.5B–32B Qwen/Llama 上数学/医学/代码优于常见低秩基线；ACL 2026 Outstanding Paper |
-
-### 技术文档与实践
-
-| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
-| --- | --- | --- | --- |
-| 后训练 | [GeoRA](https://tech.meituan.com/2026/08/27/ACL-Outstanding-Paper-GeoRA.html) | RL 更新几何 ≠ SFT；冻残差防谱塌缩 | 做 RLVR/LoRA 的算法 |
-
-### 工程实践归纳
-
-**总体判断**：五个专项无固定来源新文；当日信号在 RL 适配器几何。
-
-| 主题 | 进展 | 工程启发 |
-| --- | --- | --- |
-| 专项五题 | 无新文 | Code Graph v1.6.0 见 AI 日报，不在中文门户 |
-| RLVR | GeoRA | 先对齐更新子空间再谈秩 |
-
-### 值得深入阅读的资料
-
-| 推荐级别 | 资料 | 为什么值得读 |
-| --- | --- | --- |
-| 推荐 | [GeoRA](https://tech.meituan.com/2026/08/27/ACL-Outstanding-Paper-GeoRA.html) | 当日门户唯一顶会杰出论文解析 |
-
-### 来源清单
-
-- 检索范围：2026-08-27 00:00:00 到 2026-08-27 23:59:59（Asia/Shanghai）
-- 固定来源覆盖：已覆盖清单中的公司/组织维度
-- 来源清单表格：
-
-| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
-| --- | --- | --- | --- | --- | --- |
-| 美团 | 美团技术团队 | 技术文章 | GeoRA | 2026-08-27 | https://tech.meituan.com/2026/08/27/ACL-Outstanding-Paper-GeoRA.html |
-
-"""
-
-KB_28 = """## 2026-08-28
-
-### 今日总览
-
-本次按 Asia/Shanghai 的 2026-08-28 00:00:00 到 23:59:59 检索固定知识库来源，并专项检索 Langfuse、LangChain/LangGraph、Code Graph、Spring Alibaba AI、Loop Engineering，未发现可确认属于该日期且具备可靠出处的重大技术更新。
+| 检索范围 | 阿里/腾讯/字节/百度/美团/京东/滴滴/网易/360/有赞 + 掘金 + 五个专项 |
+| 核心趋势 | 月初工作日门户仍无新长文；全球 Hermes 0.21.0 / Codex 0.152.0 不在固定来源原文中 |
+| 可直接关注 | 继续等大厂博客，不要把掘金热榜测评误写入知识库日更 |
+| 专项检索结论 | Langfuse / LangChain·LangGraph / Code Graph / Spring Alibaba AI / Loop Engineering：固定来源内均未发现可核验的 9/1 新文 |
+| 未发现更新 | 阿里技术、阿里云开发者社区、阿里中间件、语雀、腾讯技术工程、腾讯云+社区、AlloyTeam、字节技术博客、美团、京东、滴滴、百度、360、有赞等 |
 
 ### 重要文章与更新
 
@@ -435,7 +228,7 @@ KB_28 = """## 2026-08-28
 
 ### 工程实践归纳
 
-- 未发现可复现价值明确的新进展。五个专项在固定来源内均未发现可核验更新。
+- 未发现可复现价值明确的新进展。
 
 ### 值得深入阅读的资料
 
@@ -443,7 +236,7 @@ KB_28 = """## 2026-08-28
 
 ### 来源清单
 
-- 检索范围：2026-08-28 00:00:00 到 2026-08-28 23:59:59（Asia/Shanghai）
+- 检索范围：2026-09-01 00:00:00 到 2026-09-01 23:59:59（Asia/Shanghai）
 - 固定来源覆盖：已覆盖固定来源清单中的公司/组织维度
 - 来源清单表格：
 
@@ -454,60 +247,44 @@ KB_28 = """## 2026-08-28
 """
 
 JJ_SUMMARIES = {
-    "https://juejin.cn/post/7677572864901054499": "ValidX 把时间校验拆成格式、过去/未来时间点等 10 个注解，针对 2 月 30 日、缺秒、时间戳位数这类线上事故。适合要统一校验而不是在 Controller 手写 if 的 Java 项目。偏库文档。",
-    "https://juejin.cn/post/7677883485022388267": "Shell 中篇：ps/top、ss/curl、uname/df 等「观察运行中系统」的命令，强调输出动态、跨进程、误用会伤线上。接文件篇，面向运维脚本。",
-    "https://juejin.cn/post/7678747733979201536": "ValidX 内置 9 个语言包、8 种语言和三级回退，避免出海报错中英混杂或 Controller 里写语言分支。偏库推广。",
-    "https://juejin.cn/post/7678161312637730862": "面向 Java 团队介绍阿里 AgentScope-Java：对比 LangChain/AutoGen 的 Python 墙，讲企业级 Agent 为何不必为了框架改语言栈。入门向，细节需回官方文档。",
-    "https://juejin.cn/post/7678166172437004294": "Shell 下篇：tar/gzip、chmod/chown、xargs/cron，定位「不常用但每次都要查」。三篇系列收口。",
-    "https://juejin.cn/post/7677521340606169098": "用压测故事讲 REST+JSON 在高频链路上被序列化/HTTP 吃满 CPU，核心调用改 gRPC 后 QPS 近 3 倍。适合还在 Spring Cloud 同步 HTTP 的人，数字来自作者叙述。",
-    "https://juejin.cn/post/7677263893225193515": "拆 DeepSeek Harness 高星营销：它是包在模型外的 agent harness（读文件/跑命令/工具循环），源码里有请求前断言不满足就崩。适合被「干掉 Claude Code」标题刷到的人，先看断言再谈迁移。",
-    "https://juejin.cn/post/7677562804153614386": "MinIO 社区版归档后，youlai-boot 用整目录复制迁到 RustFS，endpoint/桶名不变、客户端改 AWS SDK。给还在跑社区 MinIO 的 Docker 部署一条可复制路径。",
-    "https://juejin.cn/post/7676295909912215561": "偏营销：用 AiiOnly Token Plan 把多家国产模型额度打成池子接 Claude Code/Codex。可学「订阅碎片」问题，平台勿当中立评测。",
-    "https://juejin.cn/post/7678580101932220425": "实测智谱 GLM-5.3-Flash（原匿名牛来）：低价多模态亮眼，视频工作台和票务系统仍要人工收尾。产品体验文。",
-    "https://juejin.cn/post/7676901441995489318": "用 mitmproxy 抓 Codex 系统提示词，强调 Codex 只是 harness、能力在提示词。适合想对照官方 hidden prompt 的人，注意合规与密钥。",
-    "https://juejin.cn/post/7677562804154531890": "上下文工程长文：KV Cache 失效、Skills 渐进披露、状态栏注入、子 Agent 隔离。论点是「模型是天花板、上下文质量是地板」。前端/Agent 入门首选。",
-    "https://juejin.cn/post/7677077660528001070": "一人+AI 做签到小程序 15 天赚 10.53 元的复盘，含流量主曲线。创业心态文，技术点薄。",
-    "https://juejin.cn/post/7677868279283171368": "Web Components 标准完整但缺响应式、DX 和 SSR，跨框架复用优势盖不过生态。适合还在评估「要不要上原生组件」的前端。",
-    "https://juejin.cn/post/7677502358059073588": "对比外包与大厂前端：激励分别是交付速度 vs 长期运营，体现在空值防御、监控和安全。观点文，少代码。",
-    "https://juejin.cn/post/7677170455305879562": "图解 Agent①：接上 API 仍缺 harness 与工具循环，才有观察-行动闭环。零基础向。",
-    "https://juejin.cn/post/7677762452274085914": "图解 Agent②：模型读文件是 harness 代读磁盘再塞进消息，没有默认文件权限。接上篇。",
-    "https://juejin.cn/post/7676826408547041289": "JWT 系列③：Axios 请求拦截器统一带 Authorization，业务与鉴权解耦。教程向。",
-    "https://juejin.cn/post/7676375370356047899": "华为 Pura X View 阔直板特殊比例的前端适配，附一套工具代码。设备适配实战。",
-    "https://juejin.cn/post/7678237761537916979": "偏营销：pxcharts 超级表格 4.0，25 字段×8 视图对标飞书多维表。产品发布。",
-    "https://juejin.cn/post/7676826408547123209": "JWT 系列⑤：RequireAuth 路由守卫，把签发、拦截器、Zustand、服务端验证串成链路。",
-    "https://juejin.cn/post/7676826408547090441": "JWT 系列④：localStorage 不触发 React 渲染，用 Zustand 做可持久化登录态。",
-    "https://juejin.cn/post/7677939086406205467": "用 git diff + DeepSeek 生成 commit message 和日报（`npm run commit`）。小工具向，注意别把密钥提交进脚本。",
-    "https://juejin.cn/post/7677124067654893622": "偏营销：EvoX 蜂群多模型/多 Agent，自称准确率到 71%。当产品体验，数字勿当论文。",
-    "https://juejin.cn/post/7677489259041144866": "从一问一答 Prompt 讲到 Harness（工具、循环、权限）。适合还停在复制粘贴的人。",
-    "https://juejin.cn/post/7678214547980582952": "转述智谱 GLM-5.3-Flash：320B-A18B、AA 指数 57 对齐 Opus 4.8、限时约 1/40 价、国产芯片推理。以官方公告为准。",
-    "https://juejin.cn/post/7676498957653803008": "DeepSeek Harness 一周插件 Top10，用来看社区补的是环境、模型分档还是任务拆解。插件目录会变。",
-    "https://juejin.cn/post/7677041436535455787": "Skills 从「找一个装上」变成「装太多互相抢上下文」。管理/检索/冲突是下一题。",
-    "https://juejin.cn/post/7677435711276744745": "Skill 不是换文件夹的 prompt：要写触发条件、步骤、完成定义；太短会瞎编。含失败案例。",
-    "https://juejin.cn/post/7677899267893461034": "汤森路透私有模型底层选 Qwen3.5-397B-A17B 的叙事。偏媒体，细节须回原厂。",
-    "https://juejin.cn/post/7678531174247874586": "4 个真实前端任务测 GLM-5.3 Flash：竞态、并发控制器、评审、截图诊断，自称约 4 分钱。个例，可当任务设计参考。",
-    "https://juejin.cn/post/7677675037638672384": "Codex + 剪辑 skill 做口播短视频涨粉复盘，含提示词。流程向，平台限流风险自担。",
-    "https://juejin.cn/post/7677475198968774708": "Token 高峰涨价引出「程序员错峰/三班倒」讨论。行业观察，无落地架构。",
-    "https://juejin.cn/post/7677803387144650761": "AI Coding 面试会被打断的三点：定位、批判验证、拆解表达，而不是会不会打开 Claude。面试准备。",
-    "https://juejin.cn/post/7677441124442570761": "DeepSeek Harness 一周避坑：Node 版本、模型分档、任务拆解、插件预期。装之前看。",
-    "https://juejin.cn/post/7677551269758795816": "京东云：用阿里 Skill-Up 在真实 Agent 引擎里测 Skill 对错并把失败变成修复指引。评 Skill 不要只靠作者自觉。",
-    "https://juejin.cn/post/7678607362014937142": "HelloGitHub 第 125 期月刊，入门项目合集。浏览向。",
-    "https://juejin.cn/post/7673043614508597284": "TRAE Work 把 PRD+原型打成带截图需求清单，自称 1 小时压到约 25 分钟。征文/工具向。",
-    "https://juejin.cn/post/7677481344240189459": "用 react-bits（36K star）讨论动画库：视觉语言、接入成本、升级/性能债。选型清单，不是教程。",
-    "https://juejin.cn/post/7678203712679510022": "续篇：动画是帮完成任务还是抢注意力。落地原则。",
-    "https://juejin.cn/post/7678533346700394532": "OpenTiny GenUI SDK 1.3 物料解耦，接 Naive UI 等自有组件库。生成式 UI 要对齐现网设计系统。",
-    "https://juejin.cn/post/7678237761569210377": "工业大模型三层：基础认知、行业适配、场景执行（接 MES/PLC）。框架文，少代码。",
-    "https://juejin.cn/post/7676282892567412755": "一份 SKILL.md + 软链到 `.codex`/`.claude` 等目录，避免多 Agent 各维护一份。项目级 skills 实用招。",
-    "https://juejin.cn/post/7677970307336388634": "笔记里自动保存、历史版本、手动快照要拆开，否则 Ctrl+S 会刷出版本洪水。产品设计。",
-    "https://juejin.cn/post/7677432175924510760": "点评 free-claude-code 高星代理：统一多家免费额度接编码 Agent。无正式 Release、issue 多，当风险清单。偏营销。",
-    "https://juejin.cn/post/7676496495130509358": "偏营销：Open Design 开源组件/规范，号称省设计时间。独立开发可扫一眼。",
-    "https://juejin.cn/post/7678889149037248522": "偏营销：4 款数据库 CI/CD 盘点。把 SQL 变更纳入检查-审批-执行，对照官方再选型。",
-    "https://juejin.cn/post/7666446436604739611": "旧文回榜：FlutterKit + AGENTS.md/Skill，让 AI 认项目边界。脚手架样本。",
-    "https://juejin.cn/post/7659854493060136975": "旧文回榜：绕过 Codex 国外手机验证。有账号合规风险，略读即可。",
-    "https://juejin.cn/post/7670003108343513122": "旧文回榜：Agent 入门公式（模型+工具+循环）。与热榜「第二篇」配套。",
-    "https://juejin.cn/post/7664262170474872884": "旧文回榜：Skill 装多了抢上下文；最短有效 skill 往往一句话约束。对照热榜写 Skill 文。",
-    "https://juejin.cn/post/7648441001858007086": "旧文回榜：RAG/Agent/MCP 学习路线。初学索引。",
-    "https://juejin.cn/post/7649754424470929418": "旧文回榜：XTerminal 替 Xshell/FinalShell。工具安利。",
+    "https://juejin.cn/post/7680014875347255334": "讲 Redis 从缓存变成 AI 实时数据层：向量搜索、Vector Sets、语义缓存、Agent 上下文。适合成熟业务里已经有 Redis、想少引一套向量库的人。偏能力地图，生产数字以官方文档为准。",
+    "https://juejin.cn/post/7680375814231605299": "反驳「OpenSearch 只是 ES 7.10 fork」：Linux 基金会、Apache 2.0、独立演进。适合还在 ES 许可/云厂商之间做搜索选型的人。不是性能对打评测。",
+    "https://juejin.cn/post/7678975158596894729": "用一条「智能流水线」讲 LangChain：先建立 Chain/Agent/Memory 心智，不背混乱 API。点出旧 Memory、消息历史、LangGraph 三套示例并存。适合会 Python、没正经用过 LangChain 的人。",
+    "https://juejin.cn/post/7678157950376378383": "博客库拆 6 张表，重点打「点赞表联合主键上再加 postId 索引」这个新手多余索引。适合刚写 schema 的后端。案例小，原则是联合主键左前缀够用就别再加。",
+    "https://juejin.cn/post/7679053043288326150": "Nest 第一步第 3 篇：Controller/Service/Module 对照前端路由/工具函数/barrel。适合从前端转 Nest 的人。系列文，要连着前两篇看。",
+    "https://juejin.cn/post/7678239521201307657": "用 Claude Code 从 0 搭单词后台：Next.js + Supabase + Drizzle + shadcn。重点写云库、ORM、密码哈希、effect 里读 localStorage。适合跟一遍全栈的人。是学习记录不是框架发布。",
+    "https://juejin.cn/post/7680357430018949135": "安利 Claude Academy：按角色教怎么用好 Claude，不是新模型发布。适合要给团队找官方教程入口的人。平台内容会变，以官网为准。",
+    "https://juejin.cn/post/7680043958139781174": "一条线串 Spring Boot：自动装配、starter、过滤器/拦截器、常见设计模式。适合停留在「加依赖就能跑」的人。综述，版本细节以当下 Boot 为准。",
+    "https://juejin.cn/post/7679985418771218470": "用 git/PRD 自动出进度和周报，吐槽 Jira/禅道太重。产品向，适合被周报折磨的全栈。注意把提交当进度会鼓励碎片 commit，治理仍要人审。",
+    "https://juejin.cn/post/7680025405151084571": "cos-design v3.8.0 五个可交互背景（泡泡/蒲公英/熔岩/墨染/极光），拆算法与试玩。适合活动页/登录屏要轻量动效的前端。Canvas/WebGL，注意电量和无障碍。",
+    "https://juejin.cn/post/7678577086287118370": "Three.js 浏览器跑车 Demo，偏娱乐。适合想抄一辆能开的车模的人。不是生产组件库。",
+    "https://juejin.cn/post/7679542577553506358": "栗子周刊 144（8/24–8/30）：Rspack 2.2、pnpm 12、Solid 2.0 RC 等索引。适合扫一周前端发布。条目浅，点原链接。",
+    "https://juejin.cn/post/7678644473824657443": "Vue3 低代码里让 Schema 的 `componentProps` 按组件名出完整类型：条件类型/模板字面量/映射类型，绕开泛型组件偏弱。适合写 Schema 驱动表单的人。",
+    "https://juejin.cn/post/7678974488122032180": "把 Costumy 科研原型改成 Vite+Electron+React+Python 桌面打版：前端预览，Python 做 2D→3D。记录三个难坑。适合桌面+科学计算桥接。",
+    "https://juejin.cn/post/7679623224678613034": "豆包工作 Agent 实测：飞书体系、多端、云电脑、Skill、Seedance。产品测评，适合对比办公 Agent。能力以官方当前版本为准。",
+    "https://juejin.cn/post/7680143535669198858": "用 Qwen3.8-Max 做电商资料包体检：多文件+图一次对型号/授权/功效证据。适合运营质检。数字来自作者样本，不要当通用准确率。",
+    "https://juejin.cn/post/7680023541135507497": "介绍微信 WeMM-Embedding：生产级多模态向量、Apache 2.0、2B 打平更大模型的宣传口径。适合要图文检索/推荐的人。去 GitHub 核版本与评测表，本文是科普。",
+    "https://juejin.cn/post/7679542577553473590": "DeepSeek Harness 发布半月后的 10 个插件清单：dsh-market、视觉、侧栏、搜索等。适合已经装上 dsh、界面还是毛坯的人。插件会变，先看官方 market。",
+    "https://juejin.cn/post/7675992325912887315": "掘金作品广场与用量统计：从 Show me your code 到 works/token。产品公告向。适合要曝光 AI 作品或看 token 消耗的作者。",
+    "https://juejin.cn/post/7678646261259092004": "ZCode 周末送 3 亿 Token 活动说明（GLM-5.3-Flash）。偏营销，略读。额度窗口以活动页为准。",
+    "https://juejin.cn/post/7679020474672660526": "开源 Usora：把和 Codex/Claude 解过的问题沉淀成可复用 Skills，跨 Agent 共享。适合被「每次重教一遍」折磨的人。项目早期，治理/鉴权要自己看仓库。",
+    "https://juejin.cn/post/7680025405152608283": "React+Express+MySQL：有 dist 不等于能上线，要对齐前端请求、后端环境、MySQL 授权、进程。适合第一次部署全栈的人。命令来自作者项目，运行未验证。",
+    "https://juejin.cn/post/7679542577527291958": "怎么读 36K star 的 react-bits：当「动画交互组件」而不是直接当业务库。适合想从展示型仓学组织方式的人。",
+    "https://juejin.cn/post/7678520027876835355": "用 AI 辅助分析 Charles 授权：混淆代码里发现硬编码密钥，复盘方法而不是给破解步骤。适合做安全意识/授权设计的人。不要用来绕过授权。",
+    "https://juejin.cn/post/7678240005149687817": "介绍高星开源：让编码 Agent 根据仓库画出可点、可查、可导出的架构图，一行命令。适合评估「AI 画架构图」值不值得装。输出仍要人审。",
+    "https://juejin.cn/post/7677859417393053696": "Docker 部署 Calibre-Web 0.6.27 做网页书房，打通多端书库。适合自托管电子书。注意映射书库卷和用户权限。",
+    "https://juejin.cn/post/7649363408022683689": "收藏榜：Spring Boot 老手看 FastAPI Hello World 的体感对比。入门安利，不是生产对打。适合两栈都要摸的人。",
+    "https://juejin.cn/post/7669003422981619753": "收藏榜：Nginx 入门（反代、静态、常见指令）。适合第一次碰网关的人。配置以当前稳定版文档为准。",
+    "https://juejin.cn/post/7667465942311829555": "收藏榜：VS Code「简单部署」扩展，少开终端/SFTP 传 dist。适合多项目重复发布的前端。传错目录/覆盖配置仍要自己防。",
+    "https://juejin.cn/post/7653409231856877631": "收藏榜：GSD vs OpenSpec vs Superpowers，对比 spec-driven / 上下文工程，反对纯 vibe coding。适合要给仓库选一套流程 Skill 的人。版本会变，先看各仓 README。",
 }
+
+
+def ensure_file(path: Path, header: str) -> None:
+    if not path.exists():
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(header.rstrip() + "\n\n", encoding="utf-8")
+        print("created", path)
 
 
 def insert_section(path: Path, section: str, heading: str) -> None:
@@ -515,6 +292,8 @@ def insert_section(path: Path, section: str, heading: str) -> None:
     marker = "## %s\n" % heading
     if text.startswith(marker) or ("\n" + marker) in text:
         raise SystemExit("section already exists in %s: %s" % (path, heading))
+    if not section.endswith("\n"):
+        section = section + "\n"
     lines = text.splitlines(keepends=True)
     insert_at = 0
     for i, line in enumerate(lines):
@@ -527,6 +306,15 @@ def insert_section(path: Path, section: str, heading: str) -> None:
             break
     path.write_text("".join(lines[:insert_at]) + section + "".join(lines[insert_at:]), encoding="utf-8")
     print("updated", path, heading)
+
+
+def trim_digest(path: Path, year_month: str) -> None:
+    text = path.read_text(encoding="utf-8")
+    parts = re.split(r"(?=^## )", text, flags=re.M)
+    head = parts[0]
+    kept = [p for p in parts[1:] if p.startswith("## %s-" % year_month)]
+    path.write_text(head.rstrip() + "\n\n" + "".join(kept).lstrip(), encoding="utf-8")
+    print("trimmed", path, "keep", year_month, "sections", len(kept))
 
 
 def update_state_many(path: Path, dates: list) -> None:
@@ -609,7 +397,9 @@ def build_juejin_section(staging_path: Path) -> str:
     for a in arts:
         apps = a.get("appearances") or []
         if len(apps) > 1:
-            locs = ", ".join("%s/%s#%s" % (x.get("category"), x.get("board"), x.get("rank")) for x in apps)
+            locs = ", ".join(
+                "%s/%s#%s" % (x.get("category"), x.get("board"), x.get("rank")) for x in apps
+            )
             multi.append("%s → %s" % (a.get("url"), locs))
     multi_text = "；".join(multi) if multi else "无（本轮新 URL 均只出现在单一槽位）"
 
@@ -621,18 +411,22 @@ def build_juejin_section(staging_path: Path) -> str:
                 % (ap.get("category"), ap.get("board"), a.get("list_title") or "", a.get("url") or "")
             )
 
-    return """## 2026-08-29
+    missing = [a.get("url") for a in arts if a.get("url") not in JJ_SUMMARIES]
+    if missing:
+        raise SystemExit("missing juejin summaries: %s" % missing)
+
+    return """## 2026-09-02
 
 ### 今日总览
 
-**一句话结论**：`2026-08-29` 新 URL 主线是 **上下文工程/Harness、DeepSeek Harness 拆解、GLM-5.3-Flash 实测、Skill 怎么写与怎么评**；收藏榜补 FlutterKit、Agent 入门与「Skill 装多变笨」旧文。
+**一句话结论**：`2026-09-02` 新 URL 主线是 **Redis/OpenSearch 当 AI 数据层、LangChain 入门心智、豆包工作/WeMM-Embedding/DeepSeek Harness 插件，以及 GSD vs OpenSpec vs Superpowers**；收藏榜补 FastAPI/Nginx/VS Code 部署旧文。
 
 | 维度 | 本日结论 |
 | --- | --- |
 | 检索范围 | 文章热榜 + 收藏热榜 × 后端/前端/人工智能/开发工具 |
 | 榜单规模 | 每槽最多 15 条；列表总条数 %(listing)s；去重后新 URL **%(new)s**；跳过已见 **%(skip)s**；详情成功 %(ok)s / 失败 %(fail)s |
-| 核心趋势 | 1）社区把 Agent 能力归因到 harness/上下文而不是再吹模型；2）国产 Flash 模型在热榜上用真实前端任务计价；3）Skill 从「多装」转向「能评、能共用一份」 |
-| 可直接关注 | [上下文工程](https://juejin.cn/post/7677562804154531890)；[DeepSeek Harness 拆源码](https://juejin.cn/post/7677263893225193515)；[Skill 该怎么写](https://juejin.cn/post/7677435711276744745)；[Skill-Up 测评](https://juejin.cn/post/7677551269758795816) |
+| 核心趋势 | 1）后端热榜在讲「已有中间件怎么接向量/搜索」而不是再造框架；2）AI 槽是办公 Agent 测评 + 开源 embedding/Harness 插件；3）开发工具收藏榜继续吃流程 Skill 对比文 |
+| 可直接关注 | [Redis 接入 AI](https://juejin.cn/post/7680014875347255334)；[LangChain 流水线](https://juejin.cn/post/7678975158596894729)；[WeMM-Embedding](https://juejin.cn/post/7680023541135507497)；[GSD vs OpenSpec vs Superpowers](https://juejin.cn/post/7653409231856877631) |
 
 ### 后端
 
@@ -674,7 +468,7 @@ def build_juejin_section(staging_path: Path) -> str:
 
 ### 来源清单
 
-- 快照日：2026-08-29（Asia/Shanghai）
+- 快照日：2026-09-02（Asia/Shanghai）
 - 页面：https://juejin.cn/hot/articles 、 https://juejin.cn/hot/collected-articles
 - 抓取：`tools/juejin_hot_fetch.py` → `_staging_latest.json`
 
@@ -701,41 +495,39 @@ def build_juejin_section(staging_path: Path) -> str:
 
 
 def main() -> None:
-    ai_pairs = [
-        ("2026-08-25", AI_25),
-        ("2026-08-26", AI_26),
-        ("2026-08-27", AI_27),
-        ("2026-08-28", AI_28),
-    ]
-    kb_pairs = [
-        ("2026-08-25", KB_25),
-        ("2026-08-26", KB_26),
-        ("2026-08-27", KB_27),
-        ("2026-08-28", KB_28),
-    ]
-    for heading, sec in ai_pairs:
-        insert_section(ROOT / "dailyReport/ai-daily-news/ai-daily-digest.md", sec, heading)
-        insert_section(ROOT / "dailyReport/ai-daily-news/202608.md", sec, heading)
-    for heading, sec in kb_pairs:
-        insert_section(ROOT / "dailyReport/knowledge-base-news/knowledge-base-digest.md", sec, heading)
-        insert_section(ROOT / "dailyReport/knowledge-base-news/202608.md", sec, heading)
+    ensure_file(ROOT / "dailyReport/ai-daily-news/202609.md", AI_HEADER)
+    ensure_file(ROOT / "dailyReport/knowledge-base-news/202609.md", KB_HEADER)
+    ensure_file(ROOT / "dailyReport/juejin-hot-news/202609.md", JJ_HEADER)
+
+    insert_section(ROOT / "dailyReport/ai-daily-news/202608.md", AI_31, "2026-08-31")
+    insert_section(ROOT / "dailyReport/ai-daily-news/ai-daily-digest.md", AI_31, "2026-08-31")
+    insert_section(ROOT / "dailyReport/ai-daily-news/202609.md", AI_01, "2026-09-01")
+    insert_section(ROOT / "dailyReport/ai-daily-news/ai-daily-digest.md", AI_01, "2026-09-01")
+    trim_digest(ROOT / "dailyReport/ai-daily-news/ai-daily-digest.md", "2026-09")
+
+    insert_section(ROOT / "dailyReport/knowledge-base-news/202608.md", KB_31, "2026-08-31")
+    insert_section(ROOT / "dailyReport/knowledge-base-news/knowledge-base-digest.md", KB_31, "2026-08-31")
+    insert_section(ROOT / "dailyReport/knowledge-base-news/202609.md", KB_01, "2026-09-01")
+    insert_section(ROOT / "dailyReport/knowledge-base-news/knowledge-base-digest.md", KB_01, "2026-09-01")
+    trim_digest(ROOT / "dailyReport/knowledge-base-news/knowledge-base-digest.md", "2026-09")
 
     jj = build_juejin_section(ROOT / "dailyReport/juejin-hot-news/_staging_latest.json")
-    insert_section(ROOT / "dailyReport/juejin-hot-news/juejin-hot-digest.md", jj, "2026-08-29")
-    insert_section(ROOT / "dailyReport/juejin-hot-news/202608.md", jj, "2026-08-29")
+    insert_section(ROOT / "dailyReport/juejin-hot-news/juejin-hot-digest.md", jj, "2026-09-02")
+    insert_section(ROOT / "dailyReport/juejin-hot-news/202609.md", jj, "2026-09-02")
+    trim_digest(ROOT / "dailyReport/juejin-hot-news/juejin-hot-digest.md", "2026-09")
 
     update_state_many(
         ROOT / "dailyReport/ai-daily-news/ai-daily-state.json",
-        ["2026-08-25", "2026-08-26", "2026-08-27", "2026-08-28"],
+        ["2026-08-31", "2026-09-01"],
     )
     update_state_many(
         ROOT / "dailyReport/knowledge-base-news/knowledge-base-state.json",
-        ["2026-08-25", "2026-08-26", "2026-08-27", "2026-08-28"],
+        ["2026-08-31", "2026-09-01"],
     )
     merge_juejin_seen(
         ROOT / "dailyReport/juejin-hot-news/juejin-hot-state.json",
         ROOT / "dailyReport/juejin-hot-news/_staging_latest.json",
-        "2026-08-29",
+        "2026-09-02",
     )
 
 

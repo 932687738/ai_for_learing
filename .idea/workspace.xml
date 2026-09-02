@@ -296,14 +296,7 @@
       <workItem from="1787278221526" duration="641000" />
       <workItem from="1787553219680" duration="98000" />
       <workItem from="1787621860986" duration="32000" />
-    </task>
-    <task id="LOCAL-00039" summary="每日新闻">
-      <option name="closed" value="true" />
-      <created>1780204311573</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1780204311573</updated>
+      <workItem from="1787967913869" duration="167000" />
     </task>
     <task id="LOCAL-00040" summary="```&#10;feat(tools): 添加 AI 和知识库新闻摘要生成工具&#10;&#10;- 实现增量摘要写入功能，支持 2026-06-02 和 2026-06-03 日期&#10;- 创建 AI Daily News Digest 和 Knowledge Base Digest 文件路径配置&#10;- 添加摘要头部信息和日期正则匹配功能&#10;- 实现摘要内容分割和合并逻辑，按日期排序处理&#10;- 集成状态跟踪功能，记录已处理日期和最后同步时间&#10;- 支持批量日期处理和增量更新机制&#10;```">
       <option name="closed" value="true" />
@@ -689,7 +682,15 @@
       <option name="project" value="LOCAL" />
       <updated>1787621882004</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="docs(dailyReport): 更新2026年8月24日AI日报和知识库新闻&#10;&#10;- 添加Langfuse v4.17.0发行版，包含评测UX改进和标注队列功能&#10;- 添加Codex 0.149.1补丁版本更新&#10;- 更新掘金热门文章包含EP-Harness团队化方案和CAD diff工具&#10;- 更新知识库新闻涵盖浏览器内CAD对比和向量数据库融合方案&#10;- 修正临时脚本中的日期范围描述&#10;- 移除旧的AI日报内容保持文件结构一致">
+      <option name="closed" value="true" />
+      <created>1787968065268</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1787968065268</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
