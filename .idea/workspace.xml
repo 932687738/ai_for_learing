@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="docs(dailyReport): 更新2026年8月24日AI日报和知识库新闻&#10;&#10;- 添加Langfuse v4.17.0发行版，包含评测UX改进和标注队列功能&#10;- 添加Codex 0.149.1补丁版本更新&#10;- 更新掘金热门文章包含EP-Harness团队化方案和CAD diff工具&#10;- 更新知识库新闻涵盖浏览器内CAD对比和向量数据库融合方案&#10;- 修正临时脚本中的日期范围描述&#10;- 移除旧的AI日报内容保持文件结构一致" />
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="docs(dailyReport): 更新八月 AI 资讯与掘金热榜汇总&#10;&#10;- 添加 8/31 OpenClaw 2026.8.1、Langfuse v4.25.0 与 DeepSeek-V4-Flash-Vision-Exp 发布&#10;- 补充 8/30 无重大稳定版更新的核验结论&#10;- 更新 8/29 Claude Code v2.1.251、Codex 0.151.0 与 OpenAI 切断 Cursor 模型供应事件&#10;- 增加 8/31 掘金热榜 Rspack 2.2、VisActor VGraph、Superpowers 与 Codex Harness 治理内容&#10;- 完善 Shell 性能优化、网关鉴权、AI 思考外包等技术文章摘要&#10;- 修复已见 URL 跳过逻辑与榜单去重统计说明" />
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,14 +297,7 @@
       <workItem from="1787553219680" duration="98000" />
       <workItem from="1787621860986" duration="32000" />
       <workItem from="1787967913869" duration="167000" />
-    </task>
-    <task id="LOCAL-00040" summary="```&#10;feat(tools): 添加 AI 和知识库新闻摘要生成工具&#10;&#10;- 实现增量摘要写入功能，支持 2026-06-02 和 2026-06-03 日期&#10;- 创建 AI Daily News Digest 和 Knowledge Base Digest 文件路径配置&#10;- 添加摘要头部信息和日期正则匹配功能&#10;- 实现摘要内容分割和合并逻辑，按日期排序处理&#10;- 集成状态跟踪功能，记录已处理日期和最后同步时间&#10;- 支持批量日期处理和增量更新机制&#10;```">
-      <option name="closed" value="true" />
-      <created>1780535269433</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1780535269433</updated>
+      <workItem from="1788354033171" duration="218000" />
     </task>
     <task id="LOCAL-00041" summary="每日新闻">
       <option name="closed" value="true" />
@@ -690,7 +683,15 @@
       <option name="project" value="LOCAL" />
       <updated>1787968065268</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="docs(dailyReport): 更新八月 AI 资讯与掘金热榜汇总&#10;&#10;- 添加 8/31 OpenClaw 2026.8.1、Langfuse v4.25.0 与 DeepSeek-V4-Flash-Vision-Exp 发布&#10;- 补充 8/30 无重大稳定版更新的核验结论&#10;- 更新 8/29 Claude Code v2.1.251、Codex 0.151.0 与 OpenAI 切断 Cursor 模型供应事件&#10;- 增加 8/31 掘金热榜 Rspack 2.2、VisActor VGraph、Superpowers 与 Codex Harness 治理内容&#10;- 完善 Shell 性能优化、网关鉴权、AI 思考外包等技术文章摘要&#10;- 修复已见 URL 跳过逻辑与榜单去重统计说明">
+      <option name="closed" value="true" />
+      <created>1788354163950</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1788354163950</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -708,7 +709,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat(dailyReport): 添加2026-07-10 AI日报和知识库日报内容&#10;&#10;- 新增 ai-daily-news/202607.md 中 2026-07-10 日报内容，包含 Claude Code v2.1.206 发布、阿里禁 Anthropic 工具生效等重要信息&#10;- 新增 knowledge-base-news/202607.md 中 2026-07-10 知识库日报内容，记录固定来源当日检索结果&#10;- 更新 ai-daily-news/ai-daily-digest.md 添加 2026-07-10 摘要内容&#10;- 修改 ai-daily-news/ai-daily-state.json 将最后同步日期更新至 2026-07-10&#10;- 更新 github-topz.md 的统计时间戳和仓库排名数据，反映最新 GitHub 趋势变化" />
     <MESSAGE value="docs(dailyReport): 添加2026年7月11日和12日AI日报及知识库日报&#10;&#10;- 添加2026-07-12和2026-07-11两个日期的AI日报内容&#10;- 添加2026-07-12和2026-07-11两个日期的知识库日报内容&#10;- 更新AI日报摘要包含最新两天内容&#10;- 涵盖GPT-5.6 Sol安全事件、Fable 5订阅截止、Apple诉OpenAI等重要内容&#10;- 记录Claude Code v2.1.207发布及ChatGPT Work产品问题修复&#10;- 包含Agent安全、评测作弊、定价模式变化等工程实践分析" />
     <MESSAGE value="feat(dailyReport): 添加 2026-07-13 AI 日报和知识库日报内容&#10;&#10;- 在 ai-daily-news/202607.md 中添加 2026-07-13 日报内容，涵盖 Fable 5 延期、Sol 限额临时解除、Langfuse Graph 双模式等重要事件&#10;- 在 knowledge-base-news/202607.md 中添加 2026-07-13 知识库日报，记录固定来源检索结果为空的情况&#10;- 在 ai-daily-news/ai-daily-digest.md 中同步添加 2026-07-13 日报摘要内容&#10;- 更新 ai-daily-news/ai-daily-state.json 中的最后同步日期和处理日期列表，加入 2026-07-13&#10;- 更新 github-topz.md 中的仓库排名数据，同步最新的 Star 数量和新增仓库信息" />
     <MESSAGE value="docs(dailyReport): 添加2026年7月14-15日AI日报和知识库日报&#10;&#10;- 添加 2026-07-15 AI 日报内容，包含 Claude Code v2.1.211、Langfuse v3.214.0、&#10;  Gemini 3.5 Pro 7/17 倒计时等信息&#10;- 添加 2026-07-14 AI 日报内容，涵盖 Claude Code 三连发、Langfuse v3.213.0、&#10;  Sol Ultra 数学证明等技术动态&#10;- 添加 2026-07-15 知识库日报内容，记录固定来源检索结果为空窗日&#10;- 添加 2026-07-14 知识库日报内容，记录固定来源检索结果为空窗日&#10;- 更新 github-topz.md 的最近更新时间至 2026-07-16 09:10:48&#10;- 更新 github-topz.md 的 Star 数量统计和热门仓库排名&#10;- 移除部分 trending 仓库的新增标记，更新当前热门仓库动态数据" />
@@ -733,7 +733,8 @@
     <MESSAGE value="docs(dailyReport): 添加2026年8月18日至20日AI资讯与掘金热榜&#10;&#10;- 添加腾讯朱雀实验室DeepSeek Harness安全评测相关内容&#10;- 添加Claude Code v2.1.237版本更新信息&#10;- 添加OpenAI安全治理措施相关报道&#10;- 添加2026年8月21日掘金文章热榜与收藏热榜&#10;- 添加DSH插件开发与HTML可视化编辑器介绍&#10;- 更新Java落地AI安全实践相关内容" />
     <MESSAGE value="docs(dailyReport): 添加2026年8月21日至23日AI资讯与掘金热榜&#10;&#10;- 添加 Claude Code v2.1.238-v2.1.241 版本更新详情&#10;- 记录 Codex 0.149.0 发布及 Apple Messages 插件相关新闻&#10;- 更新 Langfuse 生产评测工作流变更信息&#10;- 补充 DeepSeek Harness 安装使用与命令指南&#10;- 收录本地Qwen模型节省token等AI实践文章&#10;- 整理合同审查助手等开发工具应用案例" />
     <MESSAGE value="docs(dailyReport): 更新2026年8月24日AI日报和知识库新闻&#10;&#10;- 添加Langfuse v4.17.0发行版，包含评测UX改进和标注队列功能&#10;- 添加Codex 0.149.1补丁版本更新&#10;- 更新掘金热门文章包含EP-Harness团队化方案和CAD diff工具&#10;- 更新知识库新闻涵盖浏览器内CAD对比和向量数据库融合方案&#10;- 修正临时脚本中的日期范围描述&#10;- 移除旧的AI日报内容保持文件结构一致" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs(dailyReport): 更新2026年8月24日AI日报和知识库新闻&#10;&#10;- 添加Langfuse v4.17.0发行版，包含评测UX改进和标注队列功能&#10;- 添加Codex 0.149.1补丁版本更新&#10;- 更新掘金热门文章包含EP-Harness团队化方案和CAD diff工具&#10;- 更新知识库新闻涵盖浏览器内CAD对比和向量数据库融合方案&#10;- 修正临时脚本中的日期范围描述&#10;- 移除旧的AI日报内容保持文件结构一致" />
+    <MESSAGE value="docs(dailyReport): 更新八月 AI 资讯与掘金热榜汇总&#10;&#10;- 添加 8/31 OpenClaw 2026.8.1、Langfuse v4.25.0 与 DeepSeek-V4-Flash-Vision-Exp 发布&#10;- 补充 8/30 无重大稳定版更新的核验结论&#10;- 更新 8/29 Claude Code v2.1.251、Codex 0.151.0 与 OpenAI 切断 Cursor 模型供应事件&#10;- 增加 8/31 掘金热榜 Rspack 2.2、VisActor VGraph、Superpowers 与 Codex Harness 治理内容&#10;- 完善 Shell 性能优化、网关鉴权、AI 思考外包等技术文章摘要&#10;- 修复已见 URL 跳过逻辑与榜单去重统计说明" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs(dailyReport): 更新八月 AI 资讯与掘金热榜汇总&#10;&#10;- 添加 8/31 OpenClaw 2026.8.1、Langfuse v4.25.0 与 DeepSeek-V4-Flash-Vision-Exp 发布&#10;- 补充 8/30 无重大稳定版更新的核验结论&#10;- 更新 8/29 Claude Code v2.1.251、Codex 0.151.0 与 OpenAI 切断 Cursor 模型供应事件&#10;- 增加 8/31 掘金热榜 Rspack 2.2、VisActor VGraph、Superpowers 与 Codex Harness 治理内容&#10;- 完善 Shell 性能优化、网关鉴权、AI 思考外包等技术文章摘要&#10;- 修复已见 URL 跳过逻辑与榜单去重统计说明" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ai_for_learing$vanilla_rnn_numpy_demo.coverage" NAME="vanilla_rnn_numpy_demo Coverage Results" MODIFIED="1778826911757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ai-learning/07-cnn-rnn-transformer-intro/scripts" />

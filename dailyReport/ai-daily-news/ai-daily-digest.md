@@ -2,6 +2,132 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-09-03
+
+### 今日总览
+
+**一句话结论**：9 月 3 日主线是 **Claude Code `v2.1.259`（托管 MCP + 无值守 `--permission-prompts none` + Bash Read deny 覆盖 grep）**、**Codex `0.153.0`（远程 marketplace 装插件、可选实验上下文管理）**，以及 **Langfuse `v4.28.0`（eval 告警、experiments 检索/过滤）**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、开源 release、Claude Code/Codex/OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、论文与政策 |
+| 核心趋势 | 1）编程 CLI 把企业托管 MCP 和无值守拒绝做成开关；2）权限系统继续堵「用 grep/选项文件绕过 Read deny」；3）可观测平台把 eval 当产品（告警、实验表） |
+| 可直接关注 | `managedMcpServers`；`--permission-prompts none`；Codex `features.context_management.experimental_mode`；Langfuse evaluator alerts |
+| 专项检索结论 | Claude Code：`v2.1.259`（2026-09-02T22:33:51Z，中国 9/3 06:33）。`v2.1.260` 落在中国 9/4，不记本日。Codex：`rust-v0.153.0`（2026-09-03T01:37:38Z，中国 09:37）。`0.153.1`/`0.153.2` 落在中国 9/4。Langfuse：`v4.28.0`（2026-09-03T09:59:37Z，中国 17:59）。`v4.28.1` 落在中国 9/4。OpenClaw `2026.9.1` Published UTC 9/3 18:31 = 中国 9/4，**不记本日**。Hermes / Spring AI / Spring Alibaba AI / LangChain·LangGraph / Code Graph / Loop Engineering / skills：未发现可核验的 9/3 重大稳定版更新。 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 编程 CLI | [Claude Code v2.1.259](https://github.com/anthropics/claude-code/releases/tag/v2.1.259) | 2026-09-03（UTC 9/2 22:33） | 开源发布 | 组织可用 `managedMcpServers` 下发 HTTP/SSE MCP（带 command 的条目跳过）；`--permission-prompts none` 无值守一律拒绝提示；`glab mr` 识别；`claude plugin validate --json`。Read deny 覆盖 `--flag=file`、`git grep`、`cd && cat`、`grep -r` 扫到被拒目录。并发会话不再互相回滚 `~/.claude.json` |
+| 编程 CLI | [Codex 0.153.0](https://github.com/openai/codex/releases/tag/rust-v0.153.0) | 2026-09-03 | 开源发布 | 插件 CLI 可从远程 marketplace 列/装/卸；Vim `u`/`Ctrl+R` 撤销整份草稿；`tui.auto_recap = false`；Plus/Team 五小时额度过半预警。实验开关 `features.context_management.experimental_mode`（仅 ChatGPT Plus/Pro 的 Codex 后端）打开 token-budget 上下文与 `new_context` |
+| LLM 可观测 | [Langfuse v4.28.0](https://github.com/langfuse/langfuse/releases/tag/v4.28.0) | 2026-09-03 | 开源发布 | eval：judge prompt 元数据、evaluator 执行列、告警管理、observation filter builder；experiments 表搜索与按名过滤；observation API 把 `providedModelName` 改名为 `model`。价格表补 Fable/Mythos 5.1 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 企业 MCP | [v2.1.259 managedMcpServers](https://github.com/anthropics/claude-code/releases/tag/v2.1.259) | 托管条目不再被旧 `allowedMcpServers` 滤掉，要用 `deniedMcpServers` 关 | MDM/托管设置管理员 |
+| 无值守 | `--permission-prompts none` | 提示一律 deny，auto 模式仍按规则判 | CI / headless SDK |
+| 实验上下文 | [Codex 0.153.0](https://github.com/openai/codex/releases/tag/rust-v0.153.0) | `new_context` + history notes，API key/自定义 provider 不可用 | 想先试 token-budget 的 Plus/Pro |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：Loop Engineering 当日信号在无值守与权限：headless 不能弹窗就应直接 deny，而不是静默放行；Read deny 必须覆盖「像读文件的 Bash」。Codex 把插件安装从本地目录扩到远程 marketplace，skills 分发开始产品化。OpenClaw 9.1 与 Claude Code 2.1.260 落在 9/4。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Claude Code / Loop | 托管 MCP + 无值守 deny + grep 纳入 Read deny | 权限规则看的是「会读到什么」，不是命令名 |
+| Codex | marketplace 插件 + 实验上下文 | 插件来源策略和 token-budget 都先当实验开关 |
+| Langfuse | eval 告警 + 实验表 | 评分没有告警就只是仪表盘，不是闭环 |
+| OpenClaw | 9.1 落在 9/4 | 本日仍以 8.2 为最新稳定 |
+| 其余专项 | Hermes / Spring* / LangChain / Code Graph / skills | 未发现 9/3 重大稳定更新 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [Claude Code v2.1.259](https://github.com/anthropics/claude-code/releases/tag/v2.1.259) | 企业 MCP 与 Bash 权限同一天收口 |
+| 推荐 | [Codex 0.153.0](https://github.com/openai/codex/releases/tag/rust-v0.153.0) | 远程插件市场 + 可选上下文实验 |
+| 推荐 | [Langfuse v4.28.0](https://github.com/langfuse/langfuse/releases/tag/v4.28.0) | eval 从「能打分」走到「能告警」 |
+
+### 来源清单
+
+- 检索范围：2026-09-03 00:00:00 到 2026-09-03 23:59:59（Asia/Shanghai）
+- 引用域名：github.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Claude Code v2.1.259 | 2026-09-03（UTC 9/2 22:33） | https://github.com/anthropics/claude-code/releases/tag/v2.1.259 |
+| 开源发布 | Codex 0.153.0 | 2026-09-03 | https://github.com/openai/codex/releases/tag/rust-v0.153.0 |
+| 开源发布 | Langfuse v4.28.0 | 2026-09-03 | https://github.com/langfuse/langfuse/releases/tag/v4.28.0 |
+
+## 2026-09-02
+
+### 今日总览
+
+**一句话结论**：9 月 2 日主线是 **Claude Code 把 Fable 5.1 设为默认 Fable 模型（`v2.1.257`+`v2.1.258`）**、**OpenClaw `2026.8.2`（Linux 桌面伴侣 + 升级回滚）**，以及 **Codex `0.152.1`（Guardian 尊重 Node REPL 策略）**；官方模型博文落在 9/1，按中国时间窗口与 CLI 默认切换记本日。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、开源 release、Claude Code/Codex/OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、论文与政策 |
+| 核心趋势 | 1）编程 CLI 的默认模型切换比官方发博晚一个中国时间窗口；2）个人 runtime 补 Linux 桌面与失败升级恢复；3）可观测/编排框架无新 GA |
+| 可直接关注 | Fable 5.1 缓存读 $0.25/Mtok；`CLAUDE_CODE_SUBAGENT_MODEL_FORCE`；OpenClaw Linux companion；不要把 `v2.1.259` 记进本日 |
+| 专项检索结论 | Claude Code：`v2.1.257`（2026-09-01T17:53:52Z，中国 9/2 01:53）+ `v2.1.258`（2026-09-01T22:33 UTC，中国 9/2 06:33）。Codex：`rust-v0.152.1`（2026-09-01T22:33:02Z，中国 9/2 06:33）。OpenClaw：`v2026.8.2`（2026-09-01T16:00:56Z，中国 9/2 00:00）。Langfuse：无 9/2 的 v4 tag（`v3.225.7` 为 v3 维护线）。Hermes 仍停在 `v0.21.0`。Spring AI / Spring Alibaba AI / LangChain·LangGraph / Code Graph / Loop Engineering / skills：未发现可核验的 9/2 重大稳定版更新。 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 模型/编程 CLI | [Claude Code v2.1.257](https://github.com/anthropics/claude-code/releases/tag/v2.1.257) | 2026-09-02（UTC 9/1 17:53） | 开源发布 | 默认 Fable 换成 `claude-fable-5-1`（1M 上下文，$10/$50，缓存读 $0.25）；`timeFormat`/`timeZone`；auto 模式 Containment Escape；`CLAUDE_CODE_SUBAGENT_MODEL_FORCE`；`/effort s` 只改本会话；工作目录外首次读文件一次性确认；大量 Remote Control / MCP / 插件 symlink 逃逸修复 |
+| 编程 CLI | [Claude Code v2.1.258](https://github.com/anthropics/claude-code/releases/tag/v2.1.258) | 2026-09-02（UTC 9/1 22:33） | 开源发布 | 修 2.1.255 引入的 macOS 12 启动失败；修远程/定时会话在权限审批重发后报 empty content |
+| 模型 | [Introducing Claude Fable 5.1 and Claude Mythos 5.1](https://www.anthropic.com/claude-fable-and-mythos-5-1) | 相邻日期/中国时间窗口传播（官方 9/1） | 官方发布 | 同一权重两套护栏：Fable 公开，Mythos 仅可信访问。缓存读降 75%；Agent 任务官方估最高省约 45%。System Card 同日 |
+| Agent runtime | [OpenClaw 2026.8.2](https://github.com/openclaw/openclaw/releases/tag/v2026.8.2) | 2026-09-02（UTC 9/1 16:00） | 开源发布 | Linux `.deb`/AppImage 桌面伴侣；Home 侧栏不停页；后台会话就地开；升级失败可停半截迁移并恢复 Gateway；浏览器扩展可无 Gateway 唤醒本地 relay |
+| 编程 CLI | [Codex 0.152.1](https://github.com/openai/codex/releases/tag/rust-v0.152.1) | 2026-09-02（UTC 9/1 22:33） | 开源发布 | Guardian 审批尊重模型元数据里的 Node REPL 策略。补丁级，无新功能面 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 默认模型切换 | [v2.1.257](https://github.com/anthropics/claude-code/releases/tag/v2.1.257) + [官方博文](https://www.anthropic.com/claude-fable-and-mythos-5-1) | 网关未配 5.1 时 `fable`/`best` 仍解析到 Fable 5；要 5.1 用 `/model` | 刚升级 CLI、账单突然变的人 |
+| 升级恢复 | [OpenClaw 2026.8.2](https://github.com/openclaw/openclaw/releases/tag/v2026.8.2) | 半截 SQLite 迁移要能停；`openclaw update cleanup --dry-run` | 8/31 刚升 2.0 的 Gateway 运维 |
+| 护栏分层 | [System Card](https://www-cdn.anthropic.com/0339e6a7c5c7b87f5c07798616dc32c215d14235/Claude%20Fable%205.1%20%26%20Claude%20Mythos%205.1%20System%20Card.pdf) | Fable 可做源码漏洞识别，仍挡渗透/利用生成/二进制扫描 | 安全与合规评审 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：本日工程增量在「默认模型 + 子 Agent 强制同模型 + 无值守权限」和「个人 runtime 的桌面/升级闭环」。Loop 相关：`/schedule` 与远程会话在 2.1.258 修了空 content；OpenClaw 让后台会话和 Home 停在同一页。编排框架与 Langfuse v4 无新 GA。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Claude Code | Fable 5.1 默认 + 子 Agent 强制模型 | 多模型团队用 `SUBAGENT_MODEL_FORCE`，避免 spawn 偷偷换贵模型 |
+| OpenClaw | Linux 伴侣 + 升级回滚 | 2.0 之后第一刀是「升坏了能回来」，不是再堆 skill |
+| Codex | 0.152.1 Guardian/REPL | 审批策略要跟模型元数据走，不要写死 |
+| Langfuse / LangChain / Hermes / Spring* / Code Graph / skills | 无 9/2 重大稳定更新 | 自托管仍以 9/1 的 v4.27.0 为准 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [Claude Code v2.1.257](https://github.com/anthropics/claude-code/releases/tag/v2.1.257) | 中国时间窗口内把 Fable 5.1 变成默认，并收一批安全/远程修复 |
+| 必读 | [Fable 5.1 / Mythos 5.1](https://www.anthropic.com/claude-fable-and-mythos-5-1) | 官方定价与护栏分层，按传播窗口补记 |
+| 推荐 | [OpenClaw 2026.8.2](https://github.com/openclaw/openclaw/releases/tag/v2026.8.2) | 2.0 后的第一包稳定补丁，Linux 桌面可用 |
+| 延伸 | [v2.1.258](https://github.com/anthropics/claude-code/releases/tag/v2.1.258) | 还在 Monterey 上跑 CLI 的人先升这一刀 |
+
+### 来源清单
+
+- 检索范围：2026-09-02 00:00:00 到 2026-09-02 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, anthropic.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Claude Code v2.1.257 | 2026-09-02（UTC 9/1 17:53） | https://github.com/anthropics/claude-code/releases/tag/v2.1.257 |
+| 开源发布 | Claude Code v2.1.258 | 2026-09-02（UTC 9/1 22:33） | https://github.com/anthropics/claude-code/releases/tag/v2.1.258 |
+| 官方发布 | Introducing Claude Fable 5.1 and Claude Mythos 5.1 | 相邻日期/中国时间窗口传播（官方 9/1） | https://www.anthropic.com/claude-fable-and-mythos-5-1 |
+| 开源发布 | OpenClaw 2026.8.2 | 2026-09-02（UTC 9/1 16:00） | https://github.com/openclaw/openclaw/releases/tag/v2026.8.2 |
+| 开源发布 | Codex 0.152.1 | 2026-09-02（UTC 9/1 22:33） | https://github.com/openai/codex/releases/tag/rust-v0.152.1 |
+
 ## 2026-09-01
 
 ### 今日总览
