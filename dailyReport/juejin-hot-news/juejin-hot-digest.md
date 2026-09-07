@@ -2,6 +2,135 @@
 
 按 Asia/Shanghai 时区汇总掘金文章热榜与收藏热榜（后端 / 前端 / 人工智能 / 开发工具），按文章链接去重并归纳正文。
 
+## 2026-09-07
+
+### 今日总览
+
+**一句话结论**：`2026-09-07` 新 URL 主线是 **Astra 选型与发布日多模型宕机、Harness/Runtime 术语澄清，以及 UniApp 路由守卫 / 余额扣减等工程短文**；收藏榜仅后端补一篇 Tika。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 文章热榜 + 收藏热榜 × 后端/前端/人工智能/开发工具 |
+| 榜单规模 | 每槽最多 15 条；列表总条数 120；去重后新 URL **28**；跳过已见 **92**；详情成功 28 / 失败 0 |
+| 核心趋势 | 1）AI 槽从「装插件」转到「默认模型贵不贵、全家桶会不会一起挂」；2）前端继续 Rust 工具链 + 一人交货叙事；3）开发工具出现 Codex 账号切换与京东云移动端交付链路 |
+| 可直接关注 | [Astra vs Sol](https://juejin.cn/post/7681223706187153443)；[宕机复盘](https://juejin.cn/post/7681475476906950691)；[Harness vs Runtime](https://juejin.cn/post/7679753075939524623)；[UniApp middleware](https://juejin.cn/post/7681170932347830310) |
+
+### 后端
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 6 | [GPT-6 Astra 来了，GPT-5.6 Sol 还值得用吗？聊聊 Coding、百万上下文、价格和 Plus/Pro](https://juejin.cn/post/7681223706187153443) | 掘金者阿豪 | 赞8/藏4/阅762 | 用 Coding、上下文和 Plus/Pro 价格讨论 Astra 该不该替换 Sol。适合额度敏感的人。社区对比，规格以官方为准。 | https://juejin.cn/post/7681223706187153443 |
+| 9 | [MyBatis-Plus 项目为什么越写越复杂：从一行 Wrapper 说起](https://juejin.cn/post/7680812218214236194) | 落木萧萧825 | 赞4/藏4/阅227 | 从一行 Wrapper 讲到条件膨胀、XML 回潮和「便捷 API 把复杂度藏进调用方」。适合 MP 项目开始难改的人。 | https://juejin.cn/post/7680812218214236194 |
+| 10 | [从零到上线：全栈项目部署全流程实战](https://juejin.cn/post/7680457986106736667) | mONESY | 赞7/藏9/阅196 | 先拆清部署的是 dist、API 还是数据库，再谈 Nginx/进程/迁移。适合第一次上线前后端分离的人。 | https://juejin.cn/post/7680457986106736667 |
+| 12 | [打破传统 MVC：在 Go 中实践高内聚的业务驱动架构](https://juejin.cn/post/7681143768221974568) | Vespeng | 赞1/藏4/阅185 | 批评水平分层在 Go 里来回跳目录，主张按业务包高内聚。适合 Go 服务开始膨胀的人。一种口味，不是标准。 | https://juejin.cn/post/7681143768221974568 |
+| 14 | [高并发下怎么做余额扣减？](https://juejin.cn/post/7681245344118210587) | 花宝宝Dev | 赞2/藏6/阅193 | 「先查再扣」在并发下会超扣，要用条件更新或账本。入门向，适合补并发课。 | https://juejin.cn/post/7681245344118210587 |
+| 15 | [GenOffice上手指南：免费替代Word+PPT+Excel的AI办公神器](https://juejin.cn/post/7680916426782998538) | SimonKing | 赞1/藏4/阅192 | 安利开源 AI 办公套件 GenOffice。产品向，先看许可与数据是否出域。 | https://juejin.cn/post/7680916426782998538 |
+
+#### 收藏热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 14 | [为什么越来越多人用Apache Tika？](https://juejin.cn/post/7667853684410302490) | 苏三说技术 | 赞31/藏58/阅2682 | 一种格式一个解析库会把依赖撕开，Tika 当统一文本抽取门面。适合文档管道，不是新文（7 月），因本轮新 URL 才入表。 | https://juejin.cn/post/7667853684410302490 |
+
+### 前端
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 5 | [Bun 真的能取代 Node.js 吗？](https://juejin.cn/post/7680899684959272970) | ErpanOmer | 赞14/藏6/阅885 | Bun 冷启动和装包快，但生态和 JavaScriptCore 限制仍在。结论是场景分流，不是替换宣言。 | https://juejin.cn/post/7680899684959272970 |
+| 6 | [用 17 行代码给 UniApp 加上全局登录拦截](https://juejin.cn/post/7681170932347830310) | skiyee | 赞18/藏17/阅739 | 给 oiyo/UniApp 路由加 middleware 做登录守卫。适合小程序/App 统一鉴权。17 行是作者最小实现。 | https://juejin.cn/post/7681170932347830310 |
+| 9 | [一周之内，前端 AI 编程的格局被彻底改写了三次](https://juejin.cn/post/7681146373547868166) | 涛涛ing | 赞7/藏6/阅898 | 从 Qwen3.8-Max 上前端榜讲「格局改写」。观察文，榜单会变，勿当规格。 | https://juejin.cn/post/7681146373547868166 |
+| 13 | [2026 年前端的“新王登基”：Rust 正在吃掉整个工具链](https://juejin.cn/post/7680841873821728810) | 涛涛ing | 赞5/藏8/阅606 | 用 npm install 过慢引出 Rust 工具链叙事。趋势文，迁移成本要自己算。 | https://juejin.cn/post/7680841873821728810 |
+| 14 | [一个人，4个岗位，20天：我用Cursor+Codex上线了一款微信小游戏](https://juejin.cn/post/7681286465168769067) | 亿元程序员 | 赞10/藏12/阅467 | 一人分美术/策划/程序/运营，用 Cursor+Codex 20 天上微信小游戏。个案，验收物比工具清单重要。 | https://juejin.cn/post/7681286465168769067 |
+| 15 | [前端学了 Next.js，后端该学啥？NestJS 就是 Node 版的蜜雪冰城](https://juejin.cn/post/7680766055174651947) | 默_笙 | 赞12/藏10/阅460 | 用 Next vs Nest 定位：SSR/API 路由对企业 API。入门向，标题营销。 | https://juejin.cn/post/7680766055174651947 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 人工智能
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 5 | [GPT-6 发布当晚，三大 AI 集体宕机 4 小时——我扒完时间线，发现最该慌的不是宕机](https://juejin.cn/post/7681475476906950691) | kyriewen | 赞9/藏7/阅1026 | 整理 ChatGPT/Claude/Grok 同时不可用的时间线，强调工具全家桶的单点故障。时间线是作者整理，官方事故页为准。 | https://juejin.cn/post/7681475476906950691 |
+| 8 | [一、《从零手撸 Agent》 我用 10 行代码跑通了第一次大模型调用（顺便踩了 4 个坑）](https://juejin.cn/post/7680471403955191814) | 编程干货铺 | 赞12/藏8/阅548 | 从 Key、计费和第一次 HTTP 调用讲起。适合完全没接过 API 的人。系列开篇。 | https://juejin.cn/post/7680471403955191814 |
+| 10 | [一文弄懂 Agent Harness 与 Agent Runtime 的区别](https://juejin.cn/post/7679753075939524623) | Cosolar | 赞9/藏6/阅504 | 澄清 2026 上半年「外层工程」被叫成 Harness 或 Runtime 的术语漂移。适合开会对齐词汇的人。8 月文，本轮新 URL。 | https://juejin.cn/post/7679753075939524623 |
+| 11 | [Fable 5.1 实测：15.84 美元，Pro 用户该买吗？](https://juejin.cn/post/7680761768890253322) | 孟健AI编程 | 赞7/藏7/阅424 | 一次 30 分 43 秒任务按 Claude Code telemetry 约 15.84 美元。适合算 Pro 月费够不够的人。口径是作者本次 run。 | https://juejin.cn/post/7680761768890253322 |
+| 12 | [天才陨落了！三大 AI 集体不可用！](https://juejin.cn/post/7681160462331772969) | 陈大鱼头 | 赞5/藏6/阅466 | 同一窗口的不可用见闻，信息密度低于 kyriewen 复盘。可略读。 | https://juejin.cn/post/7681160462331772969 |
+| 13 | [DeepSeek Harness 从零上手：从认识到写出第一个插件](https://juejin.cn/post/7680183953518690338) | 前端梦工厂 | 赞5/藏9/阅439 | 真机走通 DeepSeek Harness 安装到第一个工具插件。适合要最小可运行单元的人。 | https://juejin.cn/post/7680183953518690338 |
+| 14 | [AI 视频迎来了奇点时刻](https://juejin.cn/post/7680387129118277686) | stormzhangV | 赞11/藏9/阅315 | MiniMax H3 Max 出片速度 + fal 开源互动直播。产品观察，偏营销可略读。 | https://juejin.cn/post/7680387129118277686 |
+| 15 | [豆包完胜 DeepSeek ？！零玩家竞技场，AI Agent 专属对弈！](https://juejin.cn/post/7680833230097481763) | xiaohe0601 | 赞5/藏2/阅293 | 用斗破文风包装 Agent 对弈。娱乐向，技术增量有限。 | https://juejin.cn/post/7680833230097481763 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 开发工具
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 8 | [零成本搭文档站：VitePress + GitHub Pages 就够了](https://juejin.cn/post/7682024345256624166) | 羽升 | 赞2/藏0/阅52 | Markdown 提示词做成可搜索 VitePress，接 Actions 发布。适合内部笔记站。 | https://juejin.cn/post/7682024345256624166 |
+| 9 | [Codex 多账号切换不再折腾：OAuth 配对与 Auth 迁移实践](https://juejin.cn/post/7681135640989499434) | Mintimate | 赞0/藏1/阅83 | 本地管理多 Codex 账号：切换、OAuth 配对、一次性 Auth 迁移、凭据校验与原子替换。只讲本机管理，不涉及绕过官方登录。 | https://juejin.cn/post/7681135640989499434 |
+| 10 | [Codex 驱动的移动端AI全栈开发：从 Relay 原型图到可交付链路](https://juejin.cn/post/7680938642576277538) | 京东云开发者 | 赞0/藏1/阅97 | 「AI 写了页面」不等于移动端交付：C 端约束、组件库和验收链路。京东云开发者，偏实践。 | https://juejin.cn/post/7680938642576277538 |
+| 11 | [用例写不完、回归跑不动？我把最磨人的活交给 TestHub，KPI 反而稳了](https://juejin.cn/post/7680764114492555274) | 大刚测试开发实战 | 赞0/藏0/阅80 | 用 TestHub 扛需求转用例和回归。偏产品软文，可当问题清单略读。 | https://juejin.cn/post/7680764114492555274 |
+| 13 | [tmux 会话管理在 AI 编程中的高级实战](https://juejin.cn/post/7680023541135999017) | CaoZH | 赞0/藏0/阅91 | 用 tmux 同时管多个 Claude Code/Codex 会话并跨机器恢复。适合终端重度用户。 | https://juejin.cn/post/7680023541135999017 |
+| 14 | [告别臃肿与局限，FlyEnv 让本地开发环境管理更便捷](https://juejin.cn/post/7661544967236010010) | hezhifu | 赞0/藏0/阅99 | FlyEnv 把本地 Web/DB/运行时收进原生二进制面板。7 月文，本轮新 URL。容器派可跳过。 | https://juejin.cn/post/7661544967236010010 |
+| 15 | [看 react-bits，不要只看“酷炫”：一套阅读动画交互组件库的框架](https://juejin.cn/post/7681797570133737535) | 吴琼琼 | 赞2/藏2/阅34 | 给高星动画库一套阅读顺序，先问复用再问特效。和上一轮 react-bits 安利文 complementary。 | https://juejin.cn/post/7681797570133737535 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 跨榜重复与去重说明
+
+- 本轮新摘要 URL 数：28
+- 因 `seen_urls` 跳过：92（只给数量；不要把已见文再展开成表行）
+- 同文多标签/双榜出现：无（28 条均只出现在一个槽位）
+
+### 来源清单
+
+- 快照日：2026-09-07（Asia/Shanghai）
+- 页面：https://juejin.cn/hot/articles 、 https://juejin.cn/hot/collected-articles
+- 抓取：`tools/juejin_hot_fetch.py` → `_staging_latest.json`
+
+| 标签 | 榜单 | 标题 | 链接 |
+| --- | --- | --- | --- |
+| 后端 | 文章热榜 | GPT-6 Astra 来了，GPT-5.6 Sol 还值得用吗？ | https://juejin.cn/post/7681223706187153443 |
+| 后端 | 文章热榜 | MyBatis-Plus 项目为什么越写越复杂 | https://juejin.cn/post/7680812218214236194 |
+| 后端 | 文章热榜 | 从零到上线：全栈项目部署全流程实战 | https://juejin.cn/post/7680457986106736667 |
+| 后端 | 文章热榜 | 打破传统 MVC：在 Go 中实践高内聚的业务驱动架构 | https://juejin.cn/post/7681143768221974568 |
+| 后端 | 文章热榜 | 高并发下怎么做余额扣减？ | https://juejin.cn/post/7681245344118210587 |
+| 后端 | 文章热榜 | GenOffice上手指南 | https://juejin.cn/post/7680916426782998538 |
+| 后端 | 收藏热榜 | 为什么越来越多人用Apache Tika？ | https://juejin.cn/post/7667853684410302490 |
+| 前端 | 文章热榜 | Bun 真的能取代 Node.js 吗？ | https://juejin.cn/post/7680899684959272970 |
+| 前端 | 文章热榜 | 用 17 行代码给 UniApp 加上全局登录拦截 | https://juejin.cn/post/7681170932347830310 |
+| 前端 | 文章热榜 | 一周之内，前端 AI 编程的格局被彻底改写了三次 | https://juejin.cn/post/7681146373547868166 |
+| 前端 | 文章热榜 | Rust 正在吃掉整个工具链 | https://juejin.cn/post/7680841873821728810 |
+| 前端 | 文章热榜 | 一个人，4个岗位，20天：微信小游戏 | https://juejin.cn/post/7681286465168769067 |
+| 前端 | 文章热榜 | NestJS 就是 Node 版的蜜雪冰城 | https://juejin.cn/post/7680766055174651947 |
+| 人工智能 | 文章热榜 | GPT-6 发布当晚，三大 AI 集体宕机 4 小时 | https://juejin.cn/post/7681475476906950691 |
+| 人工智能 | 文章热榜 | 从零手撸 Agent：第一次大模型调用 | https://juejin.cn/post/7680471403955191814 |
+| 人工智能 | 文章热榜 | Agent Harness 与 Agent Runtime 的区别 | https://juejin.cn/post/7679753075939524623 |
+| 人工智能 | 文章热榜 | Fable 5.1 实测：15.84 美元 | https://juejin.cn/post/7680761768890253322 |
+| 人工智能 | 文章热榜 | 天才陨落了！三大 AI 集体不可用 | https://juejin.cn/post/7681160462331772969 |
+| 人工智能 | 文章热榜 | DeepSeek Harness 从零上手 | https://juejin.cn/post/7680183953518690338 |
+| 人工智能 | 文章热榜 | AI 视频迎来了奇点时刻 | https://juejin.cn/post/7680387129118277686 |
+| 人工智能 | 文章热榜 | 豆包完胜 DeepSeek ？零玩家竞技场 | https://juejin.cn/post/7680833230097481763 |
+| 开发工具 | 文章热榜 | 零成本搭文档站：VitePress | https://juejin.cn/post/7682024345256624166 |
+| 开发工具 | 文章热榜 | Codex 多账号切换：OAuth 配对 | https://juejin.cn/post/7681135640989499434 |
+| 开发工具 | 文章热榜 | Codex 驱动的移动端 AI 全栈开发 | https://juejin.cn/post/7680938642576277538 |
+| 开发工具 | 文章热榜 | TestHub 用例与回归 | https://juejin.cn/post/7680764114492555274 |
+| 开发工具 | 文章热榜 | tmux 会话管理在 AI 编程中的高级实战 | https://juejin.cn/post/7680023541135999017 |
+| 开发工具 | 文章热榜 | FlyEnv 本地开发环境 | https://juejin.cn/post/7661544967236010010 |
+| 开发工具 | 文章热榜 | 看 react-bits，不要只看“酷炫” | https://juejin.cn/post/7681797570133737535 |
+
 ## 2026-09-04
 
 ### 今日总览
@@ -132,6 +261,7 @@
 | 开发工具 | 文章热榜 | Apifox 8 月更新｜调试、权限与协作体验持续优化 | https://juejin.cn/post/7679974117161156618 |
 | 开发工具 | 文章热榜 | Git 底层原理：分支为什么只是一个 41 字节的文件 | https://juejin.cn/post/7679727158424109071 |
 | 开发工具 | 收藏热榜 | 只需 10 分钟，轻松实现异地组网！Netmaker 保姆级部署教程来了 | https://juejin.cn/post/7659630107413446706 |
+
 ## 2026-09-02
 
 ### 今日总览

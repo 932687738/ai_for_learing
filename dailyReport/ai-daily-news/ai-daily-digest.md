@@ -2,6 +2,189 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-09-06
+
+### 今日总览
+
+**一句话结论**：9 月 6 日主线是 **OpenClaw `2026.9.2` 把 GPT-6 Astra / Muse Spark 1.3 接进桌面伴侣并强化升级恢复**，以及 **Claude Code `v2.1.263` 的稳定性补丁**（无独立功能条目）。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、开源 release、专项主题、论文与政策 |
+| 核心趋势 | 1）Astra 从 Codex 默认模型扩到 OpenClaw 聊天/图像；2）升级器开始保护「另一个 updater 正在准备的文件」；3）Claude Code 进入短补丁窗口 |
+| 可直接关注 | OpenClaw Astra 中途纠偏（支持的 OpenAI API 连接）；升级恢复与备份安全；是否跟 `v2.1.263` |
+| 专项检索结论 | OpenClaw：`2026.9.2`（npm 约 2026-09-05T19:13:08Z，中国 9/6 03:13；编年称 UTC 9/5 20:00）。Claude Code：`v2.1.263`（2026-09-06T02:54:20Z，中国 10:54），changelog 仅写 bug fixes。未检索到可核验的 `v2.1.262` 独立 GitHub 页。Codex / Langfuse / Hermes / Spring AI / Spring Alibaba AI / LangChain·LangGraph / Code Graph / skills：未发现可核验的 9/6 新稳定版。论文与政策：未发现必须单列的 9/6 原文。 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Agent 运行时 | [OpenClaw 2026.9.2](https://docs.openclaw.ai/releases/2026.9.2) | 2026-09-06（UTC 9/5 19:13） | 开源发布 | 接入 GPT-6 Astra 与 Meta Muse Spark 1.3（文本+图像，视账户权限）；支持的 OpenAI API 连接可在 Astra 生成中途纠正；升级报告断线可续、符合条件的中断任务重启后续跑、特定保存失败仍保留已完成答案 |
+| 编程 CLI | [Claude Code v2.1.263](https://github.com/anthropics/claude-code/releases/tag/v2.1.263) | 2026-09-06 | 开源发布 | 官方只写 bug fixes and reliability improvements，没有新命令。跟在 2.1.261 的技能/代理修复之后，适合当稳定补丁，不要预期新能力 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 桌面 Agent | [v2026.9.2](https://docs.openclaw.ai/releases/2026.9.2) | Astra 中途纠偏、升级器不打断已就绪 Gateway | OpenClaw 自托管 |
+| 补丁策略 | [v2.1.263](https://github.com/anthropics/claude-code/releases/tag/v2.1.263) | 无功能列表的补丁仍要记版本，方便回滚对照 | 跟 CLI 日更的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：Astra 开始同时出现在 **编码 CLI 默认模型** 和 **桌面伴侣** 两条线上。OpenClaw 把「升级中别杀掉刚就绪的 Gateway」写成产品行为，这比再加一个模型名更像生产 harness。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| OpenClaw / Loop | Astra + 重启续跑 + 备份安全 | 长任务要能在进程被替换后找回未完成回合 |
+| Claude Code | 2.1.263 纯稳定 | 连续两天功能版之后，先吃补丁再开新实验 |
+| 其余专项 | Codex / Langfuse / LangChain / Code Graph / Spring* / Hermes / skills | 未发现 9/6 重大稳定更新 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [OpenClaw 2026.9.2](https://docs.openclaw.ai/releases/2026.9.2) | Astra 进桌面端 + 升级恢复 |
+| 推荐 | [Claude Code v2.1.263](https://github.com/anthropics/claude-code/releases/tag/v2.1.263) | 记录补丁日，避免和 2.1.261 功能混为一谈 |
+
+### 来源清单
+
+- 检索范围：2026-09-06 00:00:00 到 2026-09-06 23:59:59（Asia/Shanghai）
+- 引用域名：docs.openclaw.ai, github.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | OpenClaw 2026.9.2 | 2026-09-06（UTC 9/5 19:13） | https://docs.openclaw.ai/releases/2026.9.2 |
+| 开源发布 | Claude Code v2.1.263 | 2026-09-06 | https://github.com/anthropics/claude-code/releases/tag/v2.1.263 |
+
+## 2026-09-05
+
+### 今日总览
+
+**一句话结论**：9 月 5 日主线是 **Claude Code `v2.1.261`（`/skill-doctor` 量技能上下文成本）**，以及 **Codex 把 GPT-6-Astra 从「API 可配」推到 Bedrock picker，再到未配置安装的默认模型（`0.153.3`/`0.153.4`）**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、开源 release、专项工具链、论文与政策、中文补充 |
+| 核心趋势 | 1）Skill 从「能装」变成「要计量、要剪枝」；2）Astra 在 Codex 一天内走完 可配 → 可见 → 默认；3）企业网络（TLS 代理 / 组织策略）诊断进入 `/status` |
+| 可直接关注 | `/skill-doctor`；`bashOutputMaxChars`/`taskOutputMaxChars`（上限 128K）；未配置 Codex 会被切到 Astra |
+| 专项检索结论 | Claude Code：`v2.1.261`（2026-09-04T19:58:10Z，中国 9/5 03:58）。Codex：`0.153.3`（UTC 9/4 19:01，中国 03:01）Bedrock picker；`0.153.4`（UTC 9/4 23:25，中国 07:25）未配置默认 Astra。OpenClaw `2026.9.2` npm 约 UTC 9/5 19:13 = 中国 9/6，不记本日。Langfuse / Hermes / Spring AI / Spring Alibaba AI / LangChain·LangGraph / Code Graph / Loop Engineering：未发现可核验的 9/5 新稳定版。 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 编程 CLI / skills | [Claude Code v2.1.261](https://github.com/anthropics/claude-code/releases/tag/v2.1.261) | 2026-09-05（UTC 9/4 19:58） | 开源发布 | `/skill-doctor` 列出未使用 skill 与上下文成本；组织策略加载失败原因写进 `/status` 与 `claude doctor`；子 agent 超长 system prompt 可走文件；Bedrock/Windows Remote Control 过 TLS 检查代理的修复 |
+| 编程 CLI | [Codex 0.153.3](https://github.com/openai/codex/releases/tag/rust-v0.153.3) | 2026-09-05（UTC 9/4 19:01） | 开源发布 | Bedrock Mantle/Runtime 全球与美国线路的 model picker 加入 Astra；异步澄清问题改为只用支持的文本工具 |
+| 编程 CLI | [Codex 0.153.4](https://github.com/openai/codex/releases/tag/rust-v0.153.4) | 2026-09-05（UTC 9/4 23:25） | 开源发布 | 修复捆绑 picker 里 Astra 可见性；**未显式配置模型时捆绑默认改为 GPT-6-Astra**。已有 `model=` 不受影响 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Skill 治理 | `/skill-doctor` | 先看加载成本再决定留谁 | 装了一堆 Skill 的团队 |
+| 输出预算 | `bashOutputMaxChars` / `taskOutputMaxChars` | 超长命令输出先 inline 再落盘，上限 128K | 跑测试/日志的 headless |
+| 模型默认 | [0.153.4](https://github.com/openai/codex/releases/tag/rust-v0.153.4) | 未配置 ≠ 旧默认；要锁 Sol/5.6 必须写 `config.toml` | 怕被静默切模型的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：Skill 与模型默认值同一天变成「可观察的运营问题」。谁加载了什么、谁付上下文税、谁在未配置时被切到 Astra，都应该有开关和诊断，而不是靠口头约定。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| skills | `/skill-doctor` | 清单要带 token 成本，否则只会越装越满 |
+| Codex | Astra 默认化 | 升级 release notes 里「default」比新功能更危险 |
+| Loop / 代理 | 组织策略诊断 + TLS 代理修复 | 远程/企业网失败要能说出「卡在哪一层」 |
+| 其余专项 | Langfuse / LangChain / Code Graph / Spring* / Hermes | 未发现 9/5 重大稳定更新 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [Claude Code v2.1.261](https://github.com/anthropics/claude-code/releases/tag/v2.1.261) | Skill 计量与企业策略诊断 |
+| 必读 | [Codex 0.153.4](https://github.com/openai/codex/releases/tag/rust-v0.153.4) | 未配置安装的默认模型变了 |
+| 推荐 | [Codex 0.153.3](https://github.com/openai/codex/releases/tag/rust-v0.153.3) | Bedrock 目录与异步提问工具约束 |
+
+### 来源清单
+
+- 检索范围：2026-09-05 00:00:00 到 2026-09-05 23:59:59（Asia/Shanghai）
+- 引用域名：github.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Claude Code v2.1.261 | 2026-09-05（UTC 9/4 19:58） | https://github.com/anthropics/claude-code/releases/tag/v2.1.261 |
+| 开源发布 | Codex 0.153.3 | 2026-09-05（UTC 9/4 19:01） | https://github.com/openai/codex/releases/tag/rust-v0.153.3 |
+| 开源发布 | Codex 0.153.4 | 2026-09-05（UTC 9/4 23:25） | https://github.com/openai/codex/releases/tag/rust-v0.153.4 |
+
+## 2026-09-04
+
+### 今日总览
+
+**一句话结论**：9 月 4 日主线是 **Anthropic 用多智能体 + Lean 完成 FLT 端到端机器检查证明**，以及中国时间窗口落地的 **Claude Code `v2.1.260`（`/diff` 面板 + 括号路径权限修复）**、**Codex `0.153.1`/`0.153.2`（API 可配 GPT-6-Astra）**、**Langfuse `v4.28.1`** 与 **OpenClaw `2026.9.1`**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、论文/形式化、开源 release、Claude Code/Codex/OpenClaw/Hermes、Spring AI/Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills、媒体与政策 |
+| 核心趋势 | 1）长程多智能体证明开始以 DAG/形式化平台当 harness；2）编程 CLI 把 Astra 先做成「可配、不默认」；3）可观测补丁线跟上 Fable/Astra 窗口 |
+| 可直接关注 | FLT + Prove2Me DAG；`/diff`；权限规则里的括号路径；Codex API 配 Astra 但不改 picker；Langfuse batch eval 变量映射 |
+| 专项检索结论 | Claude Code：`v2.1.260`（2026-09-03T23:48:12Z，中国 9/4 07:48）。`v2.1.261` 落在中国 9/5。Codex：`0.153.1`（UTC 9/3 21:02）与 `0.153.2`（UTC 9/3 23:53）记本日；`0.153.3`/`0.153.4` 落在中国 9/5。OpenClaw：`2026.9.1` npm 更新约 2026-09-03T18:07Z（中国 9/4 02:07）。Langfuse：`v4.28.1`（UTC 9/3 17:54，中国 9/4 01:54）。GPT-6 Astra 官方博文日期是 9/3，本日按中国时间窗口记录 Codex 接入与 Pro/Enterprise 放量。Hermes 仍 `v0.21.0`；Spring AI / Spring Alibaba AI / LangChain·LangGraph / Code Graph / skills 无新 GA。 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 形式化 / 多智能体 | [Formalizing Fermat's Last Theorem](https://www.anthropic.com/news/formalizing-fermats-last-theorem) | 2026-09-04 | 官方发布 | 约 11 天、数十个 Claude agent 写出 1300 万行 Lean，证明 29500 个中间定理；Prove2Me 用定理 DAG 维持并行与记忆。不是新数学，是机器检查验证 |
+| 编程 CLI | [Claude Code v2.1.260](https://github.com/anthropics/claude-code/releases/tag/v2.1.260) | 2026-09-04（UTC 9/3 23:48） | 开源发布 | `/diff` 全屏对照未提交改动；路径含括号的权限规则不再被当成无效正则；回退 2.1.259 把 Read deny 套到 Bash 参数（曾误伤 `npm run build`） |
+| 编程 CLI | [Codex 0.153.1](https://github.com/openai/codex/releases/tag/rust-v0.153.1) | 2026-09-04（UTC 9/3 21:02） | 开源发布 | API 可配 GPT-6-Astra，不改默认模型、不进 picker。`0.153.2` 同窗口 hotfix |
+| LLM 可观测 | [Langfuse v4.28.1](https://github.com/langfuse/langfuse/releases/tag/v4.28.1) | 2026-09-04（UTC 9/3 17:54） | 开源发布 | batch eval 可覆盖变量映射；experiments 分数列可读；密码重置绑一次性码；ClickHouse 文本索引缓存与自定义 cluster migration |
+| Agent 运行时 | [OpenClaw 2026.9.1](https://docs.openclaw.ai/releases/2026.9.1) | 2026-09-04（相邻日期/中国时间窗口传播） | 开源发布 | 9 月稳定线首个大版本（官方称约 1186 PR）。聊天渲染、安装认凭证、共享 Gateway 上的个人 skill 库。`2026.9.2` 落在中国 9/6 |
+| 模型放量 | [GPT-6 Astra](https://openai.com/index/gpt-6-astra/) | 2026-09-04（相邻日期/中国时间窗口传播；官方博文 9/3） | 官方发布 | 社区 9/4 晚宣布 Pro/Enterprise/API 放量。事实以 9/3 官方文为准，本日只记接入与放量 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 形式化 harness | [FLT 博文 + Prove2Me](https://www.anthropic.com/news/formalizing-fermats-last-theorem) | 定理 DAG、陈述与证明分文件、自然语言检索复用 | 长程 Agent / Loop 设计 |
+| 权限规则 | [v2.1.260 括号路径](https://github.com/anthropics/claude-code/releases/tag/v2.1.260) | `Edit(C:\dir\(name)\**)` 要写成明确路径，不要靠转义括号 | 企业托管设置 |
+| Astra 接入 | [Codex 0.153.1](https://github.com/openai/codex/releases/tag/rust-v0.153.1) | 先 API 可配，后才默认；配置层优先级仍生效 | Codex 管理员 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：当日最硬的工程信号不在框架 release，而在 **「用图/检查器当 verifier，不让单个 agent 自证 done」**。FLT 用 Lean 当独立 checker；Claude Code 把 diff 拉到会话旁路；Codex 把 Astra 先藏在 API 配置后。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Loop Engineering | FLT + Prove2Me DAG + Claude Code harness | 长任务要有外部状态图和机器检查，不能只靠对话记忆 |
+| Claude Code | `/diff` + 权限规则编译 | 规则编译失败应守字面路径，而不是整表失效 |
+| Codex / skills | Astra 可配但未默认 | 新模型先走显式配置，避免未配置安装被静默切走 |
+| Langfuse | batch 变量映射 + 密码重置一次性码 | eval 批跑要能改映射；认证修补属于可观测平台底座 |
+| 其余专项 | Hermes / Spring* / LangChain / Code Graph | 未发现 9/4 重大稳定更新 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [Formalizing Fermat's Last Theorem](https://www.anthropic.com/news/formalizing-fermats-last-theorem) | 目前最大规模的公开 AI 形式化案例 |
+| 必读 | [Claude Code v2.1.260](https://github.com/anthropics/claude-code/releases/tag/v2.1.260) | 对照面板与权限编译同一天收口 |
+| 推荐 | [Langfuse v4.28.1](https://github.com/langfuse/langfuse/releases/tag/v4.28.1) | eval 批处理与认证修补 |
+| 延伸 | [Prove2Me 论文 arXiv:2608.28433](https://arxiv.org/abs/2608.28433) | FLT 文引用的协作形式化平台（投稿日更早，作背景） |
+
+### 来源清单
+
+- 检索范围：2026-09-04 00:00:00 到 2026-09-04 23:59:59（Asia/Shanghai）
+- 引用域名：anthropic.com, github.com, openai.com, langfuse.com, docs.openclaw.ai, arxiv.org
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Formalizing Fermat's Last Theorem | 2026-09-04 | https://www.anthropic.com/news/formalizing-fermats-last-theorem |
+| 开源发布 | Claude Code v2.1.260 | 2026-09-04（UTC 9/3 23:48） | https://github.com/anthropics/claude-code/releases/tag/v2.1.260 |
+| 开源发布 | Codex 0.153.1 | 2026-09-04（UTC 9/3 21:02） | https://github.com/openai/codex/releases/tag/rust-v0.153.1 |
+| 开源发布 | Langfuse v4.28.1 | 2026-09-04（UTC 9/3 17:54） | https://github.com/langfuse/langfuse/releases/tag/v4.28.1 |
+| 开源发布 | OpenClaw 2026.9.1 | 2026-09-04（相邻日期/中国时间窗口传播） | https://docs.openclaw.ai/releases/2026.9.1 |
+| 官方发布 | GPT-6 Astra | 2026-09-04（相邻日期/中国时间窗口传播） | https://openai.com/index/gpt-6-astra/ |
+
 ## 2026-09-03
 
 ### 今日总览
@@ -194,4 +377,3 @@
 | 开源发布 | Claude Code v2.1.252 | 2026-09-01（UTC 8/31 19:46） | https://github.com/anthropics/claude-code/releases/tag/v2.1.252 |
 | 开源发布 | Langfuse v4.26.0 | 2026-09-01（UTC 8/31 17:53） | https://github.com/langfuse/langfuse/releases/tag/v4.26.0 |
 | 开源发布 | Langfuse v4.27.0 | 2026-09-01 | https://github.com/langfuse/langfuse/releases/tag/v4.27.0 |
-
