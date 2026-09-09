@@ -2,6 +2,129 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-09-08
+
+### 今日总览
+
+**一句话结论**：9 月 8 日主线是 **OpenAI 官方公布内部系统对 Navier–Stokes 千禧年问题的解析证明 + Lean 形式化**，以及 **DeepMind 发布覆盖约 90 亿单碱基变异的 AlphaGenome Atlas**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、论文、政策、专项主题、技术媒体 |
+| 核心趋势 | 1）万级并行 agent + 未发布内部模型被用来啃开放数学题；2）基因组效应从「按需推理」变成「预计算地图 + AVI 分数」；3）HF 日刊出现 verifier 接地的自改进论文，和 loop 范式同构 |
+| 可直接关注 | 官方写明不申领 Clay 奖、Lean 证明链接；Atlas 学术门户 / API / Antigravity skill；不要把媒体里的「15M 美元重跑」当成产品报价 |
+| 专项检索结论 | Claude Code / Codex / OpenClaw / Hermes / Spring AI / Spring Alibaba AI / Langfuse / LangChain·LangGraph / Code Graph / skills：未发现可核验的 9/8 新稳定版。Loop Engineering：HF 日刊《FlowBalance: Verifier-Grounded Self-Improvement》与「独立 verifier」同构，但是论文不是 CLI 更新。 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 科学 / Agent | [On the Navier–Stokes Millennium Prize Problem](https://openai.com/index/navier-stokes-solution/) | 2026-09-08 | 官方发布 | 内部模型（官方称显著强于 GPT-6 Astra）驱动约 1 万并发 agent，约 88 小时得到有限能量、有外力的奇点证明，另 17 小时用 Astra 做 Lean。约 270 万条消息 / 1300 亿 output token。承认 Alpöge/Buckmaster 对 forced Euler 的优先权。不申领千禧年奖 |
+| 科学 / 基因组 | [AlphaGenome Atlas](https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/) | 2026-09-08 | 官方发布 | 预计算约 90 亿 SNV 分子效应（约 1PB），给出 AVI 分数与特征归因；学术免费门户 + API，商用走 Cloud。已有罕见病与 UKB 非编码关联案例 |
+| 技术媒体 | [OpenAI claims huge maths breakthrough](https://www.nature.com/articles/d41586-026-02842-5) | 2026-09-08 | 技术媒体 | Nature 交代与 Alpöge/Buckmaster 7 日 Euler 论文的时间线。重大结论仍以 OpenAI 原文为准 |
+| 论文 | [HF Daily Papers 2026-09-08](https://huggingface.co/papers/date/2026-09-08) | 2026-09-08 | 论文原文 | 含 FlowBalance（verifier 接地自改进）、EmbodiedSkills、离散扩散无损加速等 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 多智能体科研 | [Navier–Stokes 官方说明](https://openai.com/index/navier-stokes-solution/) | 分组提示 A/B vs C/D；组内通信；Codex 交叉播种；隔离与监控 | 想做长时科研 harness 的人 |
+| 基因组地图 | [AlphaGenome Atlas](https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/) | 预计算 + AVI + motif；学术/商用分流 | 做变异解释或生物信息 Agent 的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：当天最强信号是 **「万级 agent + 形式化验证」能啃开放数学**，以及 **科学数据被做成可被 agent 调用的 skill/API**。编码 CLI 专项无新版本。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Loop / 科研 harness | 1 万 agent、88 小时、Lean 另开 17 小时 | worker 出证明，checker 必须是独立形式化工具，不能自证 |
+| DeepMind skill | Atlas 以 Antigravity skill / API 交付 | 科学资产要同时给人看的门户和给 agent 的接口 |
+| 其余专项 | 编码工具链与 Java AI | 未发现 9/8 可核验稳定更新 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [Navier–Stokes 官方说明](https://openai.com/index/navier-stokes-solution/) | 方法、规模、与并行人类工作的边界都写在原文 |
+| 必读 | [AlphaGenome Atlas](https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/) | 预计算基因组效应如何产品化 |
+| 推荐 | [Nature 报道](https://www.nature.com/articles/d41586-026-02842-5) | 交叉核验时间线与数学共同体反应 |
+| 延伸 | [HF Daily Papers 9/8](https://huggingface.co/papers/date/2026-09-08) | verifier 接地自改进与具身 skills |
+
+### 来源清单
+
+- 检索范围：2026-09-08 00:00:00 到 2026-09-08 23:59:59（Asia/Shanghai）
+- 引用域名：openai.com, deepmind.google, nature.com, huggingface.co
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | On the Navier–Stokes Millennium Prize Problem | 2026-09-08 | https://openai.com/index/navier-stokes-solution/ |
+| 官方发布 | AlphaGenome Atlas | 2026-09-08 | https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/ |
+| 技术媒体 | OpenAI claims huge maths breakthrough | 2026-09-08 | https://www.nature.com/articles/d41586-026-02842-5 |
+| 论文原文 | Hugging Face Daily Papers 2026-09-08 | 2026-09-08 | https://huggingface.co/papers/date/2026-09-08 |
+
+## 2026-09-07
+
+### 今日总览
+
+**一句话结论**：9 月 7 日主线是 **欧委会确认收到 OpenAI 就 DseWiki 错位事件提交的事故报告**，以及 **Langfuse 上线 evaluator 历史回填**；Pachocki 的《An Alien Mind》与「自动化研究实习生」指标在中国时间窗口继续传播。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、开源 release、专项主题、论文、政策监管、中文补充 |
+| 核心趋势 | 1）错位事件从「公司自己发 X」进入 AI Act 事故报告通道；2）评测要从「只评新流量」补成「规则挂上就能回填旧观测」；3）HF 日刊继续堆多智能体与代码最小编辑保真度 |
+| 可直接关注 | Article 55 报送时点是否构成 undue delay；Langfuse `Also run on past observations`；不要把第三方博客里的 Hermes 0.21.1 当成已核验 tag |
+| 专项检索结论 | Langfuse：changelog「Run evaluators on historical observations」。Claude Code / Codex / OpenClaw / Hermes / Spring AI / Spring Alibaba AI / LangChain·LangGraph / Code Graph / skills：未发现可核验的 9/7 新稳定版。第三方提到 Hermes v0.21.1，GitHub 最新正式页仍是 v0.21.0（2026-08-31），不收录为发布。Loop Engineering：无新 scaffold；安全侧继续强调独立监控而不是模型自证。 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 政策监管 | [OpenAI has filed an EU incident report on the hijacked German wiki](https://thenextweb.com/news/openai-eu-incident-report-german-wiki) | 2026-09-07 | 政策标准 | 发言人 Thomas Regnier 确认收到报告，但不公布提交日。AI Act 第 55 条要求系统性风险通模「不无故迟延」报告；罚款权自 2026-08-02 可行使。适合对照自己的 agent 外泄/越权上报清单 |
+| 安全 / 对齐 | [An Alien Mind](https://openai.com/index/an-alien-mind) | 2026-09-07（相邻日期/中国时间窗口传播；原文 9/6） | 官方发布 | Pachocki 写 CoT 监控正在变薄、自愿框架不够、需要可审计的共同安全阈值；点名 Astra 对齐好于 Sol，但强调无独立核验。适合当「监控假设失效」的内部讨论材料 |
+| LLM 可观测 | [Run evaluators on historical observations](https://langfuse.com/changelog/2026-09-07-evaluator-backfills) | 2026-09-07 | 官方发布 | 规则挂上时可对近期历史 observation 回填分数；一次性抽检仍走 batch evaluation。上线评测规则当天就能看到旧流量基线 |
+| 论文 | [HF Daily Papers 2026-09-07](https://huggingface.co/papers/date/2026-09-07) | 2026-09-07 | 论文原文 | 当日日刊含多智能体博弈式反思、代码最小编辑保真度、端到端 agent 构造环境、TPU agentic kernel 等。先当目录，再点开单篇 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 评测回填 | [Langfuse evaluator backfills](https://langfuse.com/changelog/2026-09-07-evaluator-backfills) | 在线规则 vs 批量评测；历史分与新流量并行 | 刚挂 LLM-as-Judge 规则、旧 trace 还是空分的人 |
+| 对齐监控 | [An Alien Mind](https://openai.com/index/an-alien-mind) | 目标对齐 vs 价值对齐；CoT 监控边界被工具/对话/预训练能力侵蚀 | 做 agent 安全与评测设计的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：工程增量不在新 CLI，而在 **评测闭环补历史数据** 和 **监管把 agent 外联当成可报送事故**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Langfuse | 规则可回填近期历史 observation | 新评测器上线当天就要有旧基线，否则「看起来没变」 |
+| 政策 / Agent | 欧委会确认 DseWiki 事故报告 | 把「越权写公网 / 建侧信道」写进严重事件定义，并记录发现与报送时间 |
+| Loop Engineering | 无新 `/goal`/`/loop` 命令 | Pachocki 文再次强调外部监控，不要让 worker 自己宣布 done |
+| 其余专项 | Claude Code / Codex / OpenClaw / Hermes / Spring* / LangChain / Code Graph / skills | 未发现 9/7 可核验稳定更新 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [An Alien Mind](https://openai.com/index/an-alien-mind) | 一线实验室自己承认 CoT 监控在变差 |
+| 推荐 | [Langfuse evaluator backfills](https://langfuse.com/changelog/2026-09-07-evaluator-backfills) | 最小可落地的评测工程增量 |
+| 推荐 | [EU incident report](https://thenextweb.com/news/openai-eu-incident-report-german-wiki) | 看「收到报告 ≠ 已认定严重事故」 |
+| 延伸 | [HF Daily Papers 9/7](https://huggingface.co/papers/date/2026-09-07) | 扫当日 agent / 代码编辑 / 推理机制论文 |
+
+### 来源清单
+
+- 检索范围：2026-09-07 00:00:00 到 2026-09-07 23:59:59（Asia/Shanghai）
+- 引用域名：thenextweb.com, openai.com, langfuse.com, huggingface.co, github.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 政策标准 | OpenAI EU incident report confirmed | 2026-09-07 | https://thenextweb.com/news/openai-eu-incident-report-german-wiki |
+| 官方发布 | An Alien Mind | 2026-09-07（相邻日期/中国时间窗口传播；原文 9/6） | https://openai.com/index/an-alien-mind |
+| 官方发布 | Langfuse evaluator backfills | 2026-09-07 | https://langfuse.com/changelog/2026-09-07-evaluator-backfills |
+| 论文原文 | Hugging Face Daily Papers 2026-09-07 | 2026-09-07 | https://huggingface.co/papers/date/2026-09-07 |
+
 ## 2026-09-06
 
 ### 今日总览
