@@ -2,6 +2,68 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-09-09
+
+### 今日总览
+
+**一句话结论**：固定来源可核验增量集中在 **阿里云开发者社区的 DLP 落地文** 和 **腾讯云+社区同一作者的 AiTM / 钓鱼治理系列**；五个专项与其余大厂博客无新原文。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 阿里/腾讯/字节/百度/美团/京东/滴滴/网易/360/有赞 + 掘金 + 五个专项 |
+| 核心趋势 | 1）数据防泄露从「买盒子拦截」改成「认内容→定策略→控出口」四层识别；2）云身份钓鱼已经能在 MFA 完成后截会话，防护要绑 FIDO2 / 设备 / 令牌生命周期 |
+| 可直接关注 | DLP 先列全出口再上拦截；M365/Entra 场景不要把「开了 MFA」当成抗钓鱼完成态 |
+| 专项检索结论 | Langfuse / LangChain·LangGraph / Code Graph / Spring Alibaba AI / Loop Engineering：固定来源内均未发现可核验的 9/9 新文。全球 OpenAI 政策窗口 / Anthropic 对齐评估见 AI 日报，不写入知识库正文 |
+| 未发现更新 | 阿里技术门户/中间件/语雀当日无新硬文、美团（最近原文为 9/3 智播）、京东官网、字节博客、百度、滴滴、360、有赞、网易、AlloyTeam |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 安全 / 数据治理 | [DLP 数据防泄露：到底怎么在门口拦住文件](https://developer.aliyun.com/article/1761863) | 2026-09-09 | 阿里云开发者社区 | 关键字→正则→指纹→机器学习四层叠识别；终端/网关/云三端互补。先只记录不拦，调准误报再拦截 |
+| 安全 / 身份 | [基于 BigBear 2.0 与 Evilginx2 的 AiTM 钓鱼治理研究](https://cloud.tencent.com/developer/article/2739720) | 2026-09-09 | 腾讯云+社区 | CloudSEK 披露的 Evilginx2 反向代理钓鱼：MFA 完成后截 Cookie。治理重点是源站绑定通行密钥、条件访问、会话令牌管控 |
+| 安全 / 身份 | [基于 BigBear 事件的 Microsoft 365 中间人钓鱼与多因素认证绕过研究](https://cloud.tencent.com/developer/article/2739715) | 2026-09-09 | 腾讯云+社区 | 与上篇同一事件链，补 M365/Entra 受害规模与「MFA ≠ 抗钓鱼」边界 |
+| 大数据 / 多模态 | [EMR Serverless Daft 算子市场免费公测](https://developer.aliyun.com/article/1761769) | 2026-09-09 | 阿里云开发者社区 | 视频抽帧+多模态清洗走 Serverless 算子；偏产品公测，当数据处理流水线参考即可 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| DLP 落地 | [门口拦住文件](https://developer.aliyun.com/article/1761863) | 出口盘点；四层识别成本递增；加密文件先解密或一律审批 | 安全/合规、要上终端 DLP 的后端 |
+| AiTM 防御 | [BigBear 2.0 治理](https://cloud.tencent.com/developer/article/2739720) | 反向代理截会话；禁 FIDO2 脚本；住宅代理 + Telegram 外泄 | 云身份、邮件安全、零信任团队 |
+
+### 工程实践归纳
+
+**总体判断**：当天可复用的是安全工程（DLP 分层 + 会话级抗钓鱼）；Langfuse / LangChain / Code Graph / Spring Alibaba AI / Loop Engineering 未发现可核验更新。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 数据出口治理 | DLP 文把失败归因于只买拦截设备、出口没列全 | 先盘 U 盘/邮件/网盘/IM/打印，再叠规则；误报高时先审计后阻断 |
+| 云身份 | BigBear 用 Evilginx2 在认证成功后复制会话 | 推送/短信 MFA 挡不住反向代理；要源站绑定 + 设备合规 + 刷新令牌吊销 |
+| 五个专项 | 固定来源内无 9/9 新文 | 不把历史掘金长文回填成当日更新 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [DLP 门口拦住文件](https://developer.aliyun.com/article/1761863) | 短、可落地，适合对照现有 DLP 方案缺哪一层 |
+| 推荐 | [BigBear 2.0 AiTM 治理](https://cloud.tencent.com/developer/article/2739720) | 把「已开 MFA」错觉拆开，给会话令牌和 FIDO2 改造清单 |
+| 延伸 | [EMR Serverless Daft 公测](https://developer.aliyun.com/article/1761769) | 看多模态数据清洗怎么被收成算子市场，少看营销句 |
+
+### 来源清单
+
+- 检索范围：2026-09-09 00:00:00 到 2026-09-09 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：阿里云开发者社区、腾讯云+社区、掘金专项检索、美团/京东/字节/百度/滴滴/360/有赞/网易/阿里技术门户
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 阿里巴巴 | 阿里云开发者社区 | 技术文章 | DLP 数据防泄露：到底怎么在门口拦住文件 | 2026-09-09 | https://developer.aliyun.com/article/1761863 |
+| 阿里巴巴 | 阿里云开发者社区 | 技术文章 | EMR Serverless Daft 算子市场免费公测 | 2026-09-09 | https://developer.aliyun.com/article/1761769 |
+| 腾讯 | 腾讯云+社区 | 技术文章 | 基于 BigBear 2.0 与 Evilginx2 的 AiTM 钓鱼治理研究 | 2026-09-09 | https://cloud.tencent.com/developer/article/2739720 |
+| 腾讯 | 腾讯云+社区 | 技术文章 | 基于 BigBear 事件的 Microsoft 365 中间人钓鱼与多因素认证绕过研究 | 2026-09-09 | https://cloud.tencent.com/developer/article/2739715 |
+| 全部 | 固定来源清单其余维度 | 无新增 | 美团/京东/字节/百度/滴滴/360/有赞/网易及五个专项无 9/9 原文 | - | - |
+
 ## 2026-09-08
 
 ### 今日总览

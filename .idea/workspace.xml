@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="docs(dailyReport): 添加2026年9月AI新闻与掘金热榜汇总&#10;&#10;- 新增2026-09-06 OpenClaw 2026.9.2与Claude Code v2.1.263版本发布记录&#10;- 新增2026-09-05 Claude Code v2.1.261与Codex 0.153.3/0.153.4版本发布记录&#10;- 新增2026-09-04 FLT形式化证明与Claude Code v2.1.260版本发布记录&#10;- 新增2026-09-07掘金热榜文章汇总包括Astra选型与宕机复盘等内容&#10;- 更新AI新闻检索范围与来源清单表格格式&#10;- 完善技术文档与教程推荐资料分类&#10;- 修复权限规则编译与路径括号处理问题记录" />
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="docs(dailyReport): 更新 GitHub 仓库排行榜数据&#10;&#10;- 更新了全局累计 Star 排序快照的时间戳&#10;- 同步了各热门仓库的最新 Star 数量变化&#10;- 清理了上一轮标记为「新增」的仓库标识&#10;- 刷新了每日、每周、每月的 Trending 榜单数据&#10;- 修正了部分仓库的 Star 和 Fork 数量统计&#10;- 移除了过期的新增标记并更新了排名顺序" />
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -300,22 +300,7 @@
       <workItem from="1788354033171" duration="218000" />
       <workItem from="1788517388129" duration="38000" />
       <workItem from="1788748775991" duration="263000" />
-    </task>
-    <task id="LOCAL-00043" summary="更新每日新闻摘要，包含2026-06-05的AI相关资讯和知识库动态，新增AI Daily News Digest和Knowledge Base Digest文件，修正项目配置，优化工作空间设置。">
-      <option name="closed" value="true" />
-      <created>1781003931756</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1781003931756</updated>
-    </task>
-    <task id="LOCAL-00044" summary="更新每日新闻摘要，包含2026-06-05的AI相关资讯和知识库动态，新增AI Daily News Digest和Knowledge Base Digest文件，修正项目配置，优化工作空间设置。">
-      <option name="closed" value="true" />
-      <created>1781048180117</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1781048180117</updated>
+      <workItem from="1788916108915" duration="206000" />
     </task>
     <task id="LOCAL-00045" summary="更新每日新闻摘要，包含2026-06-05的AI相关资讯和知识库动态，新增AI Daily News Digest和Knowledge Base Digest文件，修正项目配置，优化工作空间设置。">
       <option name="closed" value="true" />
@@ -693,7 +678,23 @@
       <option name="project" value="LOCAL" />
       <updated>1788748873023</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="docs(dailyReport): 添加2026年9月AI新闻与掘金热榜汇总&#10;&#10;- 新增2026-09-06 OpenClaw 2026.9.2与Claude Code v2.1.263版本发布记录&#10;- 新增2026-09-05 Claude Code v2.1.261与Codex 0.153.3/0.153.4版本发布记录&#10;- 新增2026-09-04 FLT形式化证明与Claude Code v2.1.260版本发布记录&#10;- 新增2026-09-07掘金热榜文章汇总包括Astra选型与宕机复盘等内容&#10;- 更新AI新闻检索范围与来源清单表格格式&#10;- 完善技术文档与教程推荐资料分类&#10;- 修复权限规则编译与路径括号处理问题记录">
+      <option name="closed" value="true" />
+      <created>1788916122574</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1788916122574</updated>
+    </task>
+    <task id="LOCAL-00093" summary="docs(dailyReport): 更新 GitHub 仓库排行榜数据&#10;&#10;- 更新了全局累计 Star 排序快照的时间戳&#10;- 同步了各热门仓库的最新 Star 数量变化&#10;- 清理了上一轮标记为「新增」的仓库标识&#10;- 刷新了每日、每周、每月的 Trending 榜单数据&#10;- 修正了部分仓库的 Star 和 Fork 数量统计&#10;- 移除了过期的新增标记并更新了排名顺序">
+      <option name="closed" value="true" />
+      <created>1788916306674</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1788916306674</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -711,7 +712,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="docs(dailyReport): 添加2026年7月14-15日AI日报和知识库日报&#10;&#10;- 添加 2026-07-15 AI 日报内容，包含 Claude Code v2.1.211、Langfuse v3.214.0、&#10;  Gemini 3.5 Pro 7/17 倒计时等信息&#10;- 添加 2026-07-14 AI 日报内容，涵盖 Claude Code 三连发、Langfuse v3.213.0、&#10;  Sol Ultra 数学证明等技术动态&#10;- 添加 2026-07-15 知识库日报内容，记录固定来源检索结果为空窗日&#10;- 添加 2026-07-14 知识库日报内容，记录固定来源检索结果为空窗日&#10;- 更新 github-topz.md 的最近更新时间至 2026-07-16 09:10:48&#10;- 更新 github-topz.md 的 Star 数量统计和热门仓库排名&#10;- 移除部分 trending 仓库的新增标记，更新当前热门仓库动态数据" />
     <MESSAGE value="docs(daily-report): 更新 2026-07-15 AI 日报与知识库日报&#10;&#10;- 添加 Loop Engineering 工具链迭代内容，包括 loop-context 日 token 预算与 loop-worktree 路径锁&#10;- 更新核心趋势为 Agent 控制面 + loop 基础设施双轨发展&#10;- 新增 Pragmatic Engineer 7/15 播客关于 loop/harness engineering 的深度讨论&#10;- 补充 loop-engineering #273/#274 commits 作为必读资料&#10;- 更新引用域名为包含 newsletter.pragmaticengineer.com&#10;- 知识库日报同步更新 Loop Engineering 专项检索结论" />
     <MESSAGE value="feat(dailyReport): 添加2026年7月22日至27日AI日报和知识库日报&#10;&#10;- 新增2026-07-27至2026-07-22的AI领域每日新闻汇总&#10;- 新增2026-07-27的固定中文技术知识库来源汇总&#10;- 涵盖Anthropic open-weights立场澄清、Cognizant合作扩展、Microsoft网安平台发布等内容&#10;- 包含Claude分享链接隐私问题、OpenAI Hugging Face入侵事件后续讨论&#10;- 记录Microsoft MAI-Cyber-1-Flash和Perception网安平台发布信息&#10;- 更新MCP协议7/28定稿倒计时相关内容&#10;- 添加技术文档、工程实践和值得阅读资料推荐&#10;- 提供来源清单和专项检索结论表格" />
     <MESSAGE value="docs(dailyReport): 添加2026年7月28-30日AI与知识库日报内容&#10;&#10;- 添加2026-07-30 AI日报：Anthropic三起生产入侵事件、Hugging Face入侵复盘、Langfuse v4.1.0发布、MCP stateless迁移窗口&#10;- 添加2026-07-29 AI日报：Hugging Face入侵技术时间线、Microsoft FY26财报、Vending-Bench长期agent风险、Lilian Weng回归OpenAI、Langfuse v3.224.3定价更新&#10;- 添加2026-07-28 AI日报：MCP 2026-07-28规范定稿、Anthropic MCP全面支持、Sam Altman表态decelerate、Kimi K3权重开放&#10;- 添加2026-07-30知识库日报：固定来源检索无重大更新，建议参考AI日报相关内容&#10;- 添加2026-07-29知识库日报：固定来源检索无重大更新，关注Langfuse v3.224.3和MCP迁移&#10;- 添加2026-07-28知识库日报：固定来源检索无重大更新，重点关注MCP stateless迁移和历史文档对照" />
@@ -736,7 +736,8 @@
     <MESSAGE value="docs(dailyReport): 更新八月 AI 资讯与掘金热榜汇总&#10;&#10;- 添加 8/31 OpenClaw 2026.8.1、Langfuse v4.25.0 与 DeepSeek-V4-Flash-Vision-Exp 发布&#10;- 补充 8/30 无重大稳定版更新的核验结论&#10;- 更新 8/29 Claude Code v2.1.251、Codex 0.151.0 与 OpenAI 切断 Cursor 模型供应事件&#10;- 增加 8/31 掘金热榜 Rspack 2.2、VisActor VGraph、Superpowers 与 Codex Harness 治理内容&#10;- 完善 Shell 性能优化、网关鉴权、AI 思考外包等技术文章摘要&#10;- 修复已见 URL 跳过逻辑与榜单去重统计说明" />
     <MESSAGE value="feat(dailyReport): 添加2026年9月3日和4日的AI及掘金日报内容&#10;&#10;- 添加 Claude Code v2.1.259 版本更新，支持托管 MCP 和无值守模式&#10;- 添加 Codex 0.153.0 版本发布，支持远程插件市场和实验上下文管理&#10;- 添加 Langfuse v4.28.0 更新，增强 eval 告警和实验检索功能&#10;- 添加 9 月 4 日掘金热榜内容，涵盖后端、前端、AI 和开发工具领域&#10;- 整理 9 月 3 日 AI 资讯，包括 Claude Code、Codex 和 OpenClaw 更新&#10;- 补充 Fable 5.1 和 Mythos 5.1 模型介绍及相关技术文档&#10;- 更新掘金榜单去重机制和来源清单表格格式" />
     <MESSAGE value="docs(dailyReport): 添加2026年9月AI新闻与掘金热榜汇总&#10;&#10;- 新增2026-09-06 OpenClaw 2026.9.2与Claude Code v2.1.263版本发布记录&#10;- 新增2026-09-05 Claude Code v2.1.261与Codex 0.153.3/0.153.4版本发布记录&#10;- 新增2026-09-04 FLT形式化证明与Claude Code v2.1.260版本发布记录&#10;- 新增2026-09-07掘金热榜文章汇总包括Astra选型与宕机复盘等内容&#10;- 更新AI新闻检索范围与来源清单表格格式&#10;- 完善技术文档与教程推荐资料分类&#10;- 修复权限规则编译与路径括号处理问题记录" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs(dailyReport): 添加2026年9月AI新闻与掘金热榜汇总&#10;&#10;- 新增2026-09-06 OpenClaw 2026.9.2与Claude Code v2.1.263版本发布记录&#10;- 新增2026-09-05 Claude Code v2.1.261与Codex 0.153.3/0.153.4版本发布记录&#10;- 新增2026-09-04 FLT形式化证明与Claude Code v2.1.260版本发布记录&#10;- 新增2026-09-07掘金热榜文章汇总包括Astra选型与宕机复盘等内容&#10;- 更新AI新闻检索范围与来源清单表格格式&#10;- 完善技术文档与教程推荐资料分类&#10;- 修复权限规则编译与路径括号处理问题记录" />
+    <MESSAGE value="docs(dailyReport): 更新 GitHub 仓库排行榜数据&#10;&#10;- 更新了全局累计 Star 排序快照的时间戳&#10;- 同步了各热门仓库的最新 Star 数量变化&#10;- 清理了上一轮标记为「新增」的仓库标识&#10;- 刷新了每日、每周、每月的 Trending 榜单数据&#10;- 修正了部分仓库的 Star 和 Fork 数量统计&#10;- 移除了过期的新增标记并更新了排名顺序" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs(dailyReport): 更新 GitHub 仓库排行榜数据&#10;&#10;- 更新了全局累计 Star 排序快照的时间戳&#10;- 同步了各热门仓库的最新 Star 数量变化&#10;- 清理了上一轮标记为「新增」的仓库标识&#10;- 刷新了每日、每周、每月的 Trending 榜单数据&#10;- 修正了部分仓库的 Star 和 Fork 数量统计&#10;- 移除了过期的新增标记并更新了排名顺序" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ai_for_learing$vanilla_rnn_numpy_demo.coverage" NAME="vanilla_rnn_numpy_demo Coverage Results" MODIFIED="1778826911757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ai-learning/07-cnn-rnn-transformer-intro/scripts" />
