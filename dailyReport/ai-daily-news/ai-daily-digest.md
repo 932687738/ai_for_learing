@@ -2,6 +2,81 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-09-10
+
+### 今日总览
+
+**一句话结论**：9 月 10 日主线是 **OpenAI 在 API 推出全双工语音模型 GPT-Live-1**，以及 **Anthropic 同日发布威胁情报月报 + 战术情报/常规武器能力评测**；Google Labs 把 Dreambeans 扩至全美。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、语音 API、威胁情报/对齐、HF 日刊、政策监管、专项主题、技术媒体 |
+| 核心趋势 | 1）语音层从「STT+LLM+TTS 三段」收成单一全双工模型，后端仍可 delegate 到更强模型；2）Anthropic 把 misuse 案例与 kill-chain 能力评测同日公开，强调平台侧 classifier 必要；3）政策线继续发酵 OpenAI 强制联邦安全框架呼吁与 EU AI Act 信息请求 |
+| 可直接关注 | GPT-Live-1 WebSocket 接入与 $0.05/min 语音层定价；Anthropic 9 月威胁情报七大 harm area；HF 日刊 SWE-Bench Pro Verified 与 Co-Evolving Harnesses |
+| 专项检索结论 | Claude Code：v2.1.267 发布于 9/9（相邻日期），含 maxEffortLevel 与安全修复。Codex：GitHub 最新稳定版为 0.153.2（9/3–9/4），未见可核验 9/10 稳定 tag；第三方聚合提到的 0.154.0 未在官方 Releases 交叉验证。Langfuse：9/10 无新 changelog（最近 9/7 evaluator backfills）。LangChain·LangGraph / Spring AI / Spring Alibaba AI / Code Graph / OpenClaw / Hermes / skills：未发现 9/10 可核验稳定 release。Loop Engineering：HF 日刊《Co-Evolving Harnesses and Models》与 on-policy correction 同构 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 语音 / API | [Build more natural voice experiences with GPT-Live-1 in the API](https://openai.com/index/introducing-gpt-live-1-in-the-api/) | 2026-09-10 | 官方发布 | 全双工语音模型进 API：可打断、可 delegate 到后端模型/工具；WebRTC/WebSocket/电话；语音层 $0.05/min，后端模型另计 |
+| 威胁情报 | [Detecting and countering misuse of AI: September 2026](https://www.anthropic.com/threat-intelligence-report-september-2026) | 2026-09-10 | 官方发布 | 汇总 2025-12 至 2026-08 七类 misuse（网络、影响、监视、诈骗、生物、常规武器、蒸馏）；强调 AI 从助手走向 orchestrator |
+| 对齐 / 安全 | [Measuring tactical intelligence targeting and conventional weapons capabilities](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities) | 2026-09-10 | 官方发布 | 新评测覆盖账户关联、地理定位、无人机打击链等；Mythos Preview 在部分 geolocation 任务接近/超过人类基线；说明为何需要 on-platform classifier |
+| 产品 / 消费 | [Dreambeans: now available across the U.S.](https://blog.google/innovation-and-ai/models-and-research/google-labs/dreambeans-expansion-september-2026/) | 2026-09-10 | 官方发布 | Google Labs 个性化每日故事实验扩至全美 18+ Android/iOS；可接 Calendar/Gmail/Photos/Gemini 等 |
+| 政策 / 治理 | [OpenAI pushes mandatory national AI safety requirements](https://www.reuters.com/legal/government/openai-pushes-mandatory-national-ai-safety-requirements-2026-09-09/) | 2026-09-09（相邻日期/中国时间窗口传播） | 政策标准 | Reuters 报道 OpenAI 呼吁联邦强制能力分级、独立测试、事件报告；与 EU AI Act 架构相似 |
+| 政策 / 治理 | [EU Starts Enforcing AI Rules](https://theaiinnovator.com/eu-starts-enforcing-ai-regulations-is-it-prepared-to-use-its-full-authority/) | 2026-09-10（相邻日期/中国时间窗口传播） | 政策标准 | 欧委会开始向 GPAI 提供商发信息请求，覆盖安全、网络安全、版权合规 |
+| 论文 | [HF Daily Papers 2026-09-10](https://huggingface.co/papers/date/2026-09-10) | 2026-09-10 | 论文原文 | 含 SWE-Bench Pro Verified、Co-Evolving Harnesses、SAEScientist-Bench、Φ-Bench 等 agent/评测/harness 文 |
+| 开发者工具 | [Claude Code v2.1.267](https://claude-news.today/en/briefings/briefing-2026-09-10/) | 2026-09-09（相邻日期/中国时间窗口传播） | 开源发布 | maxEffortLevel 封顶推理强度；marketplace path traversal 与 managed-settings fail-open 修复；须回 GitHub CHANGELOG 核验 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 实时语音 Agent | [OpenAI GPT-Live-1 发布说明](https://openai.com/index/introducing-gpt-live-1-in-the-api/) | 全双工、interruption、delegation 到 Responses API；电话/WebRTC/WebSocket | 做 voice agent、IVR、客服编排的人 |
+| 语音接入 | [OpenAI Voice WebSockets 文档](https://developers.openai.com/api/docs/guides/voice-websockets) | `session.start` → `session.started`；`gpt-live-1` + 后端 model/tools | 服务端集成工程师 |
+| 实战示例 | [Twilio + GPT-Live-1 Node 教程](https://www.twilio.com/en-us/blog/developers/tutorials/integrations/voice-ai-assistant-openai-gpt-live-1-node) | Media Streams + OpenAI Live WebSocket + delegation | 需要电话场景 PoC 的人 |
+| 威胁建模 | [Anthropic Sep 2026 威胁情报](https://www.anthropic.com/threat-intelligence-report-september-2026) | GTG 案例、 uplift（speed/scale/depth）、多 agent 框架滥用 | 安全/红队/平台治理 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：工程增量在 **语音全双工 API 化** 与 **Agent  misuse/评测同日公开**；框架发版平静，harness 论文继续占 HF 头条。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Voice agent | GPT-Live-1 单模型承担听+说，复杂推理 delegate 后端 | 前端语音层与后端 agent 分离计费；打断语音不等于取消 backend job |
+| 安全 / eval | Anthropic 武器/情报 targeting eval + 月报 case study | agent 平台要把 classifier 当产品能力，不是事后补丁 |
+| Loop / harness | HF《Co-Evolving Harnesses and Models》 | on-policy correction 帮弱模型追平 imitation；和 verifier loop 同族 |
+| Langfuse / LangChain / Code Graph / Spring | 9/10 无稳定 release | 9/7 Langfuse backfills 仍是最近可核验项 |
+| Claude Code / Codex | CC 2.1.267（9/9）；Codex 0.153.2 稳定（9/3–9/4） | 关注 CC 的 effort cap 与 Codex worktree/hook 生态文，但不把第三方 release 聚合当官方 tag |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [GPT-Live-1 API 发布](https://openai.com/index/introducing-gpt-live-1-in-the-api/) | 把 ChatGPT 语音体验产品化为可编排 API，并明确 delegation 架构 |
+| 必读 | [Anthropic Sep 2026 威胁情报](https://www.anthropic.com/threat-intelligence-report-september-2026) | 目前最系统的 frontier misuse 案例公开之一 |
+| 推荐 | [Anthropic 武器/情报 targeting 评测](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities) | 把「常规冲突域」能力量化，补 cyber/bio 之外空白 |
+| 推荐 | [HF Daily Papers 2026-09-10](https://huggingface.co/papers/date/2026-09-10) | SWE agent 基准与 harness 共进化是当天论文主线 |
+| 延伸 | [Dreambeans 全美扩展](https://blog.google/innovation-and-ai/models-and-research/google-labs/dreambeans-expansion-september-2026/) | 看 Google 如何把多 App 信号做成 consumer agent 入口 |
+
+### 来源清单
+
+- 检索范围：2026-09-10 00:00:00 到 2026-09-10 23:59:59（Asia/Shanghai）
+- 引用域名：openai.com, anthropic.com, blog.google, developers.openai.com, huggingface.co, reuters.com, theaiinnovator.com, twilio.com, claude-news.today, github.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Build more natural voice experiences with GPT-Live-1 in the API | 2026-09-10 | https://openai.com/index/introducing-gpt-live-1-in-the-api/ |
+| 官方发布 | Detecting and countering misuse of AI: September 2026 | 2026-09-10 | https://www.anthropic.com/threat-intelligence-report-september-2026 |
+| 官方发布 | Measuring tactical intelligence targeting and conventional weapons capabilities | 2026-09-10 | https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities |
+| 官方发布 | Dreambeans expansion across the U.S. | 2026-09-10 | https://blog.google/innovation-and-ai/models-and-research/google-labs/dreambeans-expansion-september-2026/ |
+| 论文原文 | Hugging Face Daily Papers | 2026-09-10 | https://huggingface.co/papers/date/2026-09-10 |
+| 政策标准 | OpenAI pushes mandatory national AI safety requirements（Reuters） | 2026-09-09（相邻日期/中国时间窗口传播） | https://www.reuters.com/legal/government/openai-pushes-mandatory-national-ai-safety-requirements-2026-09-09/ |
+| 政策标准 | EU Starts Enforcing AI Rules | 2026-09-10（相邻日期/中国时间窗口传播） | https://theaiinnovator.com/eu-starts-enforcing-ai-regulations-is-it-prepared-to-use-its-full-authority/ |
+| 技术文档 | Voice WebSockets | 2026-09-10（相邻日期/中国时间窗口传播） | https://developers.openai.com/api/docs/guides/voice-websockets |
+| 开源发布 | Claude Code v2.1.267 摘要（第三方聚合，待 GitHub 交叉验证） | 2026-09-09（相邻日期/中国时间窗口传播） | https://claude-news.today/en/briefings/briefing-2026-09-10/ |
+
 ## 2026-09-09
 
 ### 今日总览

@@ -2,6 +2,120 @@
 
 按 Asia/Shanghai 时区汇总掘金文章热榜与收藏热榜（后端 / 前端 / 人工智能 / 开发工具），按文章链接去重并归纳正文。
 
+## 2026-09-11
+
+### 今日总览
+
+**一句话结论**：`2026-09-11` 新 URL 主线是 **DeepSeek V4.1 Flash 正式版与降价 + GPT-Live/Astra 舆论延续**，工程向关注 **Coding Agent 为何多选 TS/Node、Codex Hook 审计长任务、LangGraph 反谣言 Agent**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 文章热榜 + 收藏热榜 × 后端/前端/人工智能/开发工具 |
+| 榜单规模 | 每槽最多 15 条；列表总条数 120；去重后新 URL **20**；跳过已见 **100**；详情成功 20 / 失败 0 |
+| 核心趋势 | 1）AI 槽继续消化 DeepSeek Flash 自换代与 9/10 调价；2）开发工具槽出现 Tabbit CLI 浏览器发文与 Codex Hook 复盘；3）后端/redis search、FastAPI 等基础文占榜 |
+| 可直接关注 | [DeepSeek V4.1 Flash 发布解读](https://juejin.cn/post/7683722642071470130)；[Coding Agent 为何多用 Node](https://juejin.cn/post/7683481485497188403)；[Codex Hook](https://juejin.cn/post/7683493984028459035)；[LangGraph 反谣言 Agent](https://juejin.cn/post/7653442979387506726) |
+
+### 后端
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 8 | [为什么不推荐走Agent开发？](https://juejin.cn/post/7683457864929329204) | 程序员飞鱼 | 赞29/藏0/阅320 | 飞鱼从社招视角泼冷水：Agent 岗位需要业务增量，培训班鼓吹「人人 LangChain/LangGraph 搭 Agent」多是焦虑营销。建议做有垂直场景的 Agent，而不是为了面试堆框架 Demo。 | https://juejin.cn/post/7683457864929329204 |
+| 9 | [为啥 Blender 突然火了？](https://juejin.cn/post/7683515498140221478) | cxuanAI | 赞11/藏9/阅558 | cxuanAI 科普 Blender：Astra 发布后「Astra+Blender 3D」出圈。Blender 是免费开源 3D 全流程工具；Astra 可代劳建模/材质/灯光/渲染，降低 3D 创作门槛，但工程细节仍要人审。 | https://juejin.cn/post/7683515498140221478 |
+| 11 | [推荐一个比ES快5倍的搜索引擎](https://juejin.cn/post/7683722642070896690) | 苏三说技术 | 赞10/藏6/阅238 | 苏三介绍 Redis Search 作 ES 轻量替代：宣称同硬件 QPS 约为 ES 3–5 倍、P99 约 5ms。适合中小规模全文检索；复杂聚合/超大规模仍要评估 ES/OpenSearch。 | https://juejin.cn/post/7683722642070896690 |
+| 12 | [ChatGPT Plus、Pro 5x、Pro 20x 到底有多少额度？聊聊 Codex 那个让人看不懂的“周限额”](https://juejin.cn/post/7681223706186596387) | 掘金者阿豪 | 赞0/藏1/阅381 | 掘金者阿豪拆解 ChatGPT Plus/Pro 5x/20x 与 Codex `/status` 的 5 小时/Weekly limit：社区用「美元额度」估算用量，但官方口径并不透明。重度 Codex 用户应盯 status 而不是只看套餐名。 | https://juejin.cn/post/7681223706186596387 |
+| 14 | [Java 图片处理还在用 ImageIO？这个库让你代码从 30 行变 3 行](https://juejin.cn/post/7681245344118063131) | SimonKing | 赞4/藏6/阅264 | SimonKing 系统介绍 Thumbnailator：用链式 API 做裁剪/缩放/水印/压缩，替代 ImageIO 几十行样板代码。适合头像、商品缩略图等 Java 高频图像处理。 | https://juejin.cn/post/7681245344118063131 |
+| 15 | [学习 FastAPI 的 Day 1：看懂接口与请求流程](https://juejin.cn/post/7682323883429232691) | Dragon_xjy | 赞3/藏3/阅190 | Dragon_xjy FastAPI Day1：自动 Swagger/Redoc、Pydantic 校验、依赖注入与中间件执行顺序。偏入门教程，适合 Python 后端转 API 开发。 | https://juejin.cn/post/7682323883429232691 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 前端
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 14 | [为什么市面上的 coding agent 大多数都基于Nodejs？](https://juejin.cn/post/7683481485497188403) | Moment | 赞13/藏10/阅770 | Moment 观察 Coding Agent 多选 TypeScript/Node（Kimi CLI、DeepSeek Harness、Gemini/Qwen CLI）；Claude Code/OpenCode 走 TS+Bun。论点：CLI 生态、Ink/Solid TUI、npm 分发速度推动 TS 占主导，不是语言本身更强。 | https://juejin.cn/post/7683481485497188403 |
+| 15 | [为什么技术极强的前端，往往当不好前端 Team Leader？](https://juejin.cn/post/7683013257235283987) | ErpanOmer | 赞5/藏6/阅613 | ErpanOmer 谈「技术极强前端难当 TL」：个人英雄主义、不愿授权、用写代码速度替代管理，在 2026 缩编环境下更易拖垮团队。偏管理随笔，技术增量有限。 | https://juejin.cn/post/7683013257235283987 |
+
+#### 收藏热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 15 | [我给 AI 搭了个法庭：一个前端仔的 LangGraph 实战全记录](https://juejin.cn/post/7653442979387506726) | 波棱盖卡住了 | 赞59/藏86/阅4949 | 波棱盖用 LangGraph 搭「反谣言」搜索 Agent：灵感来自知乎直答 API，模式分简单/深度/DeepSearch；前端作者学 Python agent 管道全记录。固定来源外技术文，作 LangGraph 实践参考。 | https://juejin.cn/post/7653442979387506726 |
+
+### 人工智能
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 4 | [DeepSeek V4.1 Flash：一次把自家旗舰送走的发布](https://juejin.cn/post/7683722642071470130) | 码事漫谈 | 赞15/藏6/阅569 | 码事漫谈解读 DeepSeek V4.1 Flash 正式版（9/10 12:00）：官方称全面超越 V4 Pro，计划 9/14 下线 Pro 并静默路由到 Flash。48h 内测名带 expires 0910，属激进自换代。 | https://juejin.cn/post/7683722642071470130 |
+| 5 | [DeepSeek 明天又降价（涵历史价格对比）](https://juejin.cn/post/7683347149876051977) | 码事漫谈 | 赞4/藏5/阅819 | 同作者对照 Flash 三次调价：9/10 起缓存命中回到 0.02、未命中 1、输出 4（高峰翻倍）。结论：输入两档退回 8/17 前，输出只降 11% 未完全回原点。Agent/RAG 应盯缓存命中率。 | https://juejin.cn/post/7683347149876051977 |
+| 7 | [每天白嫖 WorkBuddy 100 积分，我让WorkBuddy自己领](https://juejin.cn/post/7683353819855077412) | 程序员晓凡 | 赞4/藏5/阅477 | 晓凡分享 WorkBuddy「积分助手」Skill：自动签到领 100 分、可定时触发，避免断签丢 7 日奖励。产品技巧文，展示 Skill 连接器做日常自动化。 | https://juejin.cn/post/7683353819855077412 |
+| 13 | [GPT images 2.5 一手实测，这也太颠了。。。](https://juejin.cn/post/7683072481465057323) | cxuanAI | 赞5/藏1/阅399 | cxuanAI 实测 ChatGPT Images 2.5（9/8–9/9 发布，热榜传播）：更快、更逼真、可 Sketch 草图转图与照片转艺术风。发布窗口 API 曾报错，属相邻日期产品体验文。 | https://juejin.cn/post/7683072481465057323 |
+| 14 | [从 ChatGPT 到 Astra：四年走完的路，AGI 真的来了吗？](https://juejin.cn/post/7682634449856675867) | Cosolar | 赞6/藏1/阅364 | Cosolar 复盘 Astra 发布与 Brockman「AGI era」引语：从 ChatGPT→o1→Astra 时间线、Lean 数学与 benchmark 叙事。观点文，重大事实需回 OpenAI 官方页。 | https://juejin.cn/post/7682634449856675867 |
+| 15 | [GPT-6 Astra 发布：OpenAI 正式宣告“AGI 时代到来”](https://juejin.cn/post/7681626346015916068) | 全栈弄潮儿 | 赞3/藏2/阅450 | 全栈弄潮儿 Astra 发布解读：代际跃迁、定价与开发者影响综述。与上篇同类，作传播窗口补充。 | https://juejin.cn/post/7681626346015916068 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 开发工具
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 1 | [会开完了，活还是没人干？我用 AiiOnly + Workbuddy 做了个「会议行动项助手」](https://juejin.cn/post/7683062233580634122) | 倔强的石头_ | 赞1/藏1/阅435 | 石头用 AiiOnly + WorkBuddy 做「会议行动项助手」：输入纪要输出可派工任务台账（负责人/DDL/完成标准），而不是摘要。适合内部办公 Agent PoC。 | https://juejin.cn/post/7683062233580634122 |
+| 8 | [Codex、Claude Code、WorkBuddy + Tabbit CLI：让 AI 操控浏览器发文章](https://juejin.cn/post/7683738599201685538) | 若丶相见 | 赞1/藏0/阅66 | 若丶相见 实操 Codex+Tabbit CLI 操控浏览器发掘金：AI 填正文/传图，人工点发布。展示 browser automation + coding agent 分工，Codex/Claude Code/WorkBuddy 均可接 Tabbit Skill。 | https://juejin.cn/post/7683738599201685538 |
+| 13 | [TraeCode从0.5开发微信小程序【需求-开发-测试】](https://juejin.cn/post/7683095604146421802) | 夜果子 | 赞1/藏1/阅40 | 夜果子用 TraeCode 积分开发微信小程序：先让 AI 拆需求文档再修 bug。Trae 靠签到/赠送积分计费，适合轻量小程序，不等于生产级 CI。 | https://juejin.cn/post/7683095604146421802 |
+| 14 | [Codex 里很好用但容易被忽视的功能：Hook](https://juejin.cn/post/7683493984028459035) | 四七伵 | 赞0/藏0/阅67 | 四七伵介绍 Codex Hook：长任务（如 71 分钟）结束后汇总 skill/子 agent/文件 diff/shell 调用，降低复盘成本。Hook 内置于 Codex，适合审计型 workflow。 | https://juejin.cn/post/7683493984028459035 |
+| 15 | [Windows MySQL8.0.44 保姆级超详细安装配置教程（含 ZIP 免安装、MSI 图形安装、完整卸载流程）](https://juejin.cn/post/7682663370555899958) | 知码研习 | 赞0/藏0/阅88 | 知码研习 MySQL 8.0.44 Windows 安装：ZIP 免安装、MSI、卸载三套流程 + utf8mb4 + Navicat。环境搭建教程，与 AI 无关。 | https://juejin.cn/post/7682663370555899958 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+
+### 跨榜重复与去重说明
+
+- 本轮新摘要 URL 数：20
+- 因 `seen_urls` 跳过：100（只给数量；不要把已见文再展开成表行）
+- 同文多标签/双榜出现：无
+
+### 来源清单
+
+- 快照日：2026-09-11（Asia/Shanghai）
+- 页面：https://juejin.cn/hot/articles 、 https://juejin.cn/hot/collected-articles
+- 抓取：`tools/juejin_hot_fetch.py` → `_staging_latest.json`
+
+| 标签 | 榜单 | 标题 | 链接 |
+| --- | --- | --- | --- |
+| 后端 | 文章热榜 | 为什么不推荐走Agent开发？ | https://juejin.cn/post/7683457864929329204 |
+| 后端 | 文章热榜 | 为啥 Blender 突然火了？ | https://juejin.cn/post/7683515498140221478 |
+| 后端 | 文章热榜 | 推荐一个比ES快5倍的搜索引擎 | https://juejin.cn/post/7683722642070896690 |
+| 后端 | 文章热榜 | ChatGPT Plus、Pro 5x、Pro 20x 到底有多少额度？聊聊 Codex 那个让人看不懂的“周限额” | https://juejin.cn/post/7681223706186596387 |
+| 后端 | 文章热榜 | Java 图片处理还在用 ImageIO？这个库让你代码从 30 行变 3 行 | https://juejin.cn/post/7681245344118063131 |
+| 后端 | 文章热榜 | 学习 FastAPI 的 Day 1：看懂接口与请求流程 | https://juejin.cn/post/7682323883429232691 |
+| 前端 | 文章热榜 | 为什么市面上的 coding agent 大多数都基于Nodejs？ | https://juejin.cn/post/7683481485497188403 |
+| 前端 | 文章热榜 | 为什么技术极强的前端，往往当不好前端 Team Leader？ | https://juejin.cn/post/7683013257235283987 |
+| 人工智能 | 文章热榜 | DeepSeek V4.1 Flash：一次把自家旗舰送走的发布 | https://juejin.cn/post/7683722642071470130 |
+| 人工智能 | 文章热榜 | DeepSeek 明天又降价（涵历史价格对比） | https://juejin.cn/post/7683347149876051977 |
+| 人工智能 | 文章热榜 | 每天白嫖 WorkBuddy 100 积分，我让WorkBuddy自己领 | https://juejin.cn/post/7683353819855077412 |
+| 人工智能 | 文章热榜 | GPT images 2.5 一手实测，这也太颠了。。。 | https://juejin.cn/post/7683072481465057323 |
+| 人工智能 | 文章热榜 | 从 ChatGPT 到 Astra：四年走完的路，AGI 真的来了吗？ | https://juejin.cn/post/7682634449856675867 |
+| 人工智能 | 文章热榜 | GPT-6 Astra 发布：OpenAI 正式宣告“AGI 时代到来” | https://juejin.cn/post/7681626346015916068 |
+| 开发工具 | 文章热榜 | 会开完了，活还是没人干？我用 AiiOnly + Workbuddy 做了个「会议行动项助手」 | https://juejin.cn/post/7683062233580634122 |
+| 开发工具 | 文章热榜 | Codex、Claude Code、WorkBuddy + Tabbit CLI：让 AI 操控浏览器发文章 | https://juejin.cn/post/7683738599201685538 |
+| 开发工具 | 文章热榜 | TraeCode从0.5开发微信小程序【需求-开发-测试】 | https://juejin.cn/post/7683095604146421802 |
+| 开发工具 | 文章热榜 | Codex 里很好用但容易被忽视的功能：Hook | https://juejin.cn/post/7683493984028459035 |
+| 开发工具 | 文章热榜 | Windows MySQL8.0.44 保姆级超详细安装配置教程（含 ZIP 免安装、MSI 图形安装、完整卸载流程） | https://juejin.cn/post/7682663370555899958 |
+| 前端 | 收藏热榜 | 我给 AI 搭了个法庭：一个前端仔的 LangGraph 实战全记录 | https://juejin.cn/post/7653442979387506726 |
+
 ## 2026-09-10
 
 ### 今日总览

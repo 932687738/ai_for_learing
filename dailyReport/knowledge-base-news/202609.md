@@ -2,6 +2,73 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-09-10
+
+### 今日总览
+
+**一句话结论**：固定来源可核验增量集中在 **美团《Agent 评测白皮书》首篇** 与 **阿里云 PolarClaw / RDS AI 助手 / DeepSeek Flash 调价**；五个专项在固定来源内仍无新原文。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 阿里/腾讯/字节/百度/美团/京东/滴滴/网易/360/有赞 + 掘金专项 + 五个专项 |
+| 核心趋势 | 1）Agent 搭建门槛下降但「评测认知稀缺」，美团白皮书强调两条 Loop + 三种能力；2）阿里云把 OpenClaw 生态包装成 PolarClaw 企业 PaaS；3）DeepSeek Flash 系列 9/10 12:00 起再次降价，缓存命中回到 0.02 元/Mtok |
+| 可直接关注 | 美团评测四模块框架；PolarClaw 的 NL2SQL/Mem0/向量检索技能；RDS AI 助手降 DBA 人工干预；Flash 降价对 RAG/多轮 Agent 的缓存成本 |
+| 专项检索结论 | Langfuse / LangChain·LangGraph / Code Graph / Spring Alibaba AI / Loop Engineering：固定来源内均未发现可核验的 9/10 新文。全球 GPT-Live-1 / Anthropic 威胁情报见 AI 日报 |
+| 未发现更新 | 阿里技术门户/中间件/语雀、腾讯（未检索到带可核验 URL 的 9/10 硬文）、字节博客、百度、京东、滴滴、360、有赞、网易、AlloyTeam |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Agent / 评测 | [《Agent 评测白皮书》系列01：Agent 评测全览](https://tech.meituan.com/2026/09/10/Agent-Evaluation-White-Paper-01.html) | 2026-09-10 | 美团技术团队 | 四模块三能力两条 Loop 一套资产；强调评测是「精密量具」要定期校准；面向冷启动/扩量/自进化 |
+| Agent / 企业 PaaS | [PolarClaw 企业级数据智能 Agent 开箱即用指南](https://developer.aliyun.com/article/1762237) | 2026-09-10 | 阿里云开发者社区 | 基于 OpenClaw 的 PolarDB Agent Express：Serverless、VM 隔离、NL2SQL/Mem0/PolarSearch、IM 集成 |
+| 数据库 / AIOps | [RDS AI 助手三大场景降本实战](https://developer.aliyun.com/article/1762250) | 2026-09-10 | 阿里云开发者社区 | 高并发 OLTP 场景自动巡检、慢 SQL 诊断、索引推荐；宣称 DBA 人工干预降 70%+ |
+| 大模型 / 成本 | [DeepSeek Flash 系列降价：缓存输入 0.02 元](https://developer.aliyun.com/article/1761981) | 2026-09-10 | 阿里云开发者社区 | 9/10 12:00 起 Flash 缓存命中 0.02、未命中 1、输出 4（高峰翻倍）；RAG/Agent 重复上下文场景受益 |
+| 可观测 / 自动化 | [自动化可观测性：监控看板与运行度量体系](https://developer.aliyun.com/article/1762128) | 2026-09-10 | 阿里云开发者社区 | 保险集团黑灯工厂案例：运行/业务/治理三层指标 + 可行动告警 + 闭环运营 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Agent 评测体系 | [美团 Agent 评测白皮书 01](https://tech.meituan.com/2026/09/10/Agent-Evaluation-White-Paper-01.html) | 评测演进 Loop vs Agent 演进 Loop；Case 挖掘与归因枢纽；Metrics/Rubric/样本资产 | Agent 产品/研发/评测负责人 |
+| 企业 Agent 底座 | [PolarClaw 指南](https://developer.aliyun.com/article/1762237) | OpenClaw 兼容 + 瑶池数据库集成 + 预置企业技能 | 要做「连库连知识库」内部 Agent 的团队 |
+| 模型成本 | [DeepSeek Flash 调价解读](https://developer.aliyun.com/article/1761981) | 缓存命中价回到 8/17 前水平；高峰时段翻倍 | 跑长上下文 Agent/RAG 的成本 owner |
+
+### 工程实践归纳
+
+**总体判断**：知识库侧 9/10 最强信号是 **「Agent 评测方法论」与「企业 Agent PaaS 化」** 两条线并行；五个专项仍无固定来源新文。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Agent 评测 | 美团白皮书首篇 | 不要停在 Demo：要有评测集/Rubric/在线监控咬合的两条 Loop |
+| Spring Alibaba AI / OpenClaw | PolarClaw 文把 OpenClaw 当企业底座 | 与 spring-ai-alibaba 无直接 9/10 新文；OpenClaw 生态走 PaaS 封装路线 |
+| Langfuse / LangChain / Code Graph / Loop | 固定来源无 9/10 新文 | 掘金热榜有 LangGraph 长尾文（见掘金 digest），不计入知识库当日更新 |
+| 成本工程 | DeepSeek Flash 再降价 | Agent 设计应优先提高 cache 命中率，而不只换更大模型 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [美团 Agent 评测白皮书 01](https://tech.meituan.com/2026/09/10/Agent-Evaluation-White-Paper-01.html) | 国内少见体系化 Agent 评测落地指南，不是单点评测工具 |
+| 推荐 | [PolarClaw 指南](https://developer.aliyun.com/article/1762237) | 看 OpenClaw 如何被云厂商收成「连库 Agent PaaS」 |
+| 推荐 | [DeepSeek Flash 降价](https://developer.aliyun.com/article/1761981) | 9/10 当天生效，直接影响 Agent token 账单 |
+| 延伸 | [RDS AI 助手降本](https://developer.aliyun.com/article/1762250) | DBA 场景 AIOps 落地叙事，偏运维侧 |
+
+### 来源清单
+
+- 检索范围：2026-09-10 00:00:00 到 2026-09-10 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：美团技术团队、阿里云开发者社区；其余维度已检索
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 美团 | 美团技术团队 | 技术文章 | Agent 评测白皮书系列01 | 2026-09-10 | https://tech.meituan.com/2026/09/10/Agent-Evaluation-White-Paper-01.html |
+| 阿里巴巴 | 阿里云开发者社区 | 技术文章 | PolarClaw 企业级 Agent PaaS | 2026-09-10 | https://developer.aliyun.com/article/1762237 |
+| 阿里巴巴 | 阿里云开发者社区 | 技术文章 | RDS AI 助手三大场景降本 | 2026-09-10 | https://developer.aliyun.com/article/1762250 |
+| 阿里巴巴 | 阿里云开发者社区 | 技术文章 | DeepSeek Flash 系列降价 | 2026-09-10 | https://developer.aliyun.com/article/1761981 |
+| 阿里巴巴 | 阿里云开发者社区 | 技术文章 | 自动化可观测性与运行度量 | 2026-09-10 | https://developer.aliyun.com/article/1762128 |
+| 全部 | 固定来源清单其余维度 | 无新增 | 腾讯/字节/百度/京东/滴滴/360/有赞/网易及五个专项无 9/10 原文 | - | - |
+
 ## 2026-09-09
 
 ### 今日总览

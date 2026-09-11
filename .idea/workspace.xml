@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="docs(dailyReport): 更新 GitHub 仓库排行榜数据&#10;&#10;- 更新了全局累计 Star 排序快照的时间戳&#10;- 同步了各热门仓库的最新 Star 数量变化&#10;- 清理了上一轮标记为「新增」的仓库标识&#10;- 刷新了每日、每周、每月的 Trending 榜单数据&#10;- 修正了部分仓库的 Star 和 Fork 数量统计&#10;- 移除了过期的新增标记并更新了排名顺序" />
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="docs(dailyReport): 更新 GitHub 仓库排行榜数据&#10;&#10;- 更新了全局累计 Star 排序快照的时间戳&#10;- 同步了各热门仓库的最新 Star 数量变化&#10;- 清理了上一轮标记为「新增」的仓库标识&#10;- 刷新了每日、每周、每月的 Trending 榜单数据&#10;- 修正了部分仓库的 Star 和 Fork 数量统计&#10;- 移除了过期的新增标记并更新了排名顺序">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,14 +303,7 @@
       <workItem from="1788517388129" duration="38000" />
       <workItem from="1788748775991" duration="263000" />
       <workItem from="1788916108915" duration="206000" />
-    </task>
-    <task id="LOCAL-00045" summary="更新每日新闻摘要，包含2026-06-05的AI相关资讯和知识库动态，新增AI Daily News Digest和Knowledge Base Digest文件，修正项目配置，优化工作空间设置。">
-      <option name="closed" value="true" />
-      <created>1782100758812</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1782100758812</updated>
+      <workItem from="1789005649697" duration="502000" />
     </task>
     <task id="LOCAL-00046" summary="更新每日新闻摘要，包含2026-06-23的AI相关资讯和知识库动态，新增AI Daily News Digest和Knowledge Base Digest文件，修正项目配置，优化工作空间设置。">
       <option name="closed" value="true" />
@@ -694,7 +689,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788916306674</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="docs(dailyReport): 更新 GitHub 仓库排行榜数据&#10;&#10;- 更新了全局累计 Star 排序快照的时间戳&#10;- 同步了各热门仓库的最新 Star 数量变化&#10;- 清理了上一轮标记为「新增」的仓库标识&#10;- 刷新了每日、每周、每月的 Trending 榜单数据&#10;- 修正了部分仓库的 Star 和 Fork 数量统计&#10;- 移除了过期的新增标记并更新了排名顺序">
+      <option name="closed" value="true" />
+      <created>1789005947239</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1789005947240</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
