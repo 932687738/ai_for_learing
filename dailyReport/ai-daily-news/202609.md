@@ -2,6 +2,162 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-09-13
+
+### 今日总览
+
+本次按 Asia/Shanghai 的 2026-09-13 00:00:00 到 23:59:59 检索 AI、人工智能、LLM、Agent、RAG、MCP、LangChain、LangGraph、Langfuse、Code Graph、Loop Engineering、Spring AI、Spring Alibaba AI、Claude Code、Codex、OpenClaw、Hermes、skills、模型发布、论文与政策监管等关键词。周日窗口未发现可确认属于该日期且具备可靠出处的重大官方更新；HF Daily Papers 页面未给出可与 9/11 区分的独立日刊。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、论文、专项主题、政策监管、技术媒体 |
+| 核心趋势 | 周末空窗；不把 9/10–11 已收录事件回填成本日新闻 |
+| 可直接关注 | 无新增官方动作；下个工作日再跟 Habitat 系列下篇 / Claude Code 后续 tag |
+| 专项检索结论 | Claude Code / Codex / OpenClaw / Hermes / Spring AI / Spring Alibaba AI / Langfuse / LangChain·LangGraph / Code Graph / Loop Engineering / skills：均未发现可核验 9/13 新稳定版 |
+
+### 重要事件与发布
+
+- 未发现可核验的重大事件或发布。
+
+### 技术文档与教程
+
+- 未发现值得收录的新文档或教程。
+
+### LangChain / Agent / LLM 工程相关进展
+
+- 未发现可复现价值明确的新进展。
+
+### 值得深入阅读的资料
+
+- 本日暂无推荐。
+
+### 来源清单
+
+- 检索范围：2026-09-13 00:00:00 到 2026-09-13 23:59:59（Asia/Shanghai）
+- 引用域名：无可靠新增来源
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 无 | 无可靠新增来源 | - | - |
+
+## 2026-09-12
+
+### 今日总览
+
+**一句话结论**：9 月 12 日（周六）官方发版窗口偏空；可核验增量主要是 **媒体转述 Anthropic/OpenAI CEO「放缓前沿 + 第三方评测」口径**，以及 **NVIDIA NeMo Switchyard 路由代理在社区 briefing 中出现**；专项框架无新稳定版。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、政策监管、编码 CLI、HF 日刊、专项主题、技术媒体 |
+| 核心趋势 | 1）周末几乎没有实验室产品/release；2）治理叙事从「要立法」转到「实验室自己喊减速」，但缺官方原文交叉验证；3）路由层（便宜模型顶贵模型）继续被当成生产 harness 组件 |
+| 可直接关注 | 不要把 GPB 转述的「IPO 推迟到 2027」当成 OpenAI 官方 IR 公告；Switchyard 若落地要回 NVIDIA 文档核验 |
+| 专项检索结论 | Claude Code / Codex / OpenClaw / Hermes / Spring AI / Spring Alibaba AI / Langfuse / LangChain·LangGraph / Code Graph / skills：未发现可核验 9/12 新稳定版。Loop Engineering：无官方 loop CLI 更新。HF Daily Papers 页面未给出与 9/11 可区分的独立日刊集合（周末空窗） |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 政策 / 治理 | [Anthropic and OpenAI CEOs call for AI development to slow down](https://www.gpb.org/news/2026/09/12/anthropic-and-openai-ceos-call-for-ai-development-slow-down) | 2026-09-12 | 技术媒体 | 转述 Amodei「pace the frontier」+ 第三方评测员，以及 Altman 表态跟随、IPO 延至 2027。**单源媒体，未回官方 blog/X 原文，不升格为实验室立场** |
+| 基础设施 / 路由 | [Claude Code Daily Briefing 提及 Switchyard](https://claude-news.today/en/briefings/briefing-2026-09-12/) | 2026-09-12 | 技术媒体 | NVIDIA NeMo Switchyard：兼容 OpenAI/Anthropic API 的 LLM 路由器，按任务选更便宜模型。社区 briefing，不是 NVIDIA 官方发布页 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 治理背景 | [GPB 报道](https://www.gpb.org/news/2026/09/12/anthropic-and-openai-ceos-call-for-ai-development-slow-down) | 第三方评测嵌入实验室；「减速」与持续发版并存 | 写内部合规口径的人，先当背景 |
+| 路由 | [同日 Claude Code briefing](https://claude-news.today/en/briefings/briefing-2026-09-12/) | 现有 client 只改 endpoint 即可走代理 | 已经自建 gateway 的团队 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：没有可复现的框架发版；工程上只把 **「路由代理」和「第三方评测」** 记为周末舆论，不写进路线图。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 治理 | 媒体称两家 CEO 支持减速与独立评测 | 在官方原文落地前，不要改内部发布门禁叙事 |
+| 路由 / harness | Switchyard 被 briefing 点名 | 路由层应保持 OpenAI/Anthropic 协议兼容，避免锁死一家 |
+| 其余专项 | 无 9/12 稳定更新 | 记空 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 延伸 | [GPB 报道](https://www.gpb.org/news/2026/09/12/anthropic-and-openai-ceos-call-for-ai-development-slow-down) | 仅作周末舆论索引，等官方文再升级 |
+| 延伸 | [Claude Code briefing 9/12](https://claude-news.today/en/briefings/briefing-2026-09-12/) | 顺带扫 Switchyard 与 2.1.269 余波 |
+
+### 来源清单
+
+- 检索范围：2026-09-12 00:00:00 到 2026-09-12 23:59:59（Asia/Shanghai）
+- 引用域名：gpb.org, claude-news.today
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 技术媒体 | Anthropic and OpenAI CEOs call for AI development to slow down | 2026-09-12 | https://www.gpb.org/news/2026/09/12/anthropic-and-openai-ceos-call-for-ai-development-slow-down |
+| 技术媒体 | Claude Code Daily Briefing 2026-09-12 | 2026-09-12 | https://claude-news.today/en/briefings/briefing-2026-09-12/ |
+
+## 2026-09-11
+
+### 今日总览
+
+**一句话结论**：9 月 11 日主线是 **OpenAI 公开在线存储平台 Habitat 如何撑住 10 亿周活 / 7000 万 QPS**，以及 **Claude Code 2.1.269 把 plugin eval 与 workflow 并发上限做成可调旋钮**；HF 日刊把 **EvoSafeHarness** 推到安全 harness 头条。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、基础设施、编码 CLI、HF 日刊、专项主题、政策监管 |
+| 核心趋势 | 1）前沿实验室开始写「存储/多租户/驻留」而不是只发模型；2）Claude Code 连续三日发版后，9/11 把 plugin 质量评分和 fan-out 并发做成组织级配置；3）论文侧继续把 harness 当安全原语，而不是只当执行器 |
+| 可直接关注 | Habitat 从 Python 库拆成服务、Rust 重写路径（95% 流量）；`claude plugin eval` + `CLAUDE_CODE_WORKFLOW_MAX_CONCURRENT_AGENTS`；EvoSafeHarness |
+| 专项检索结论 | Claude Code：第三方 briefing 记 2.1.269（9/11），含 plugin eval / 并发 cap；须回 GitHub CHANGELOG 交叉验证。Codex：GitHub 未见 9/11 新稳定 tag（Agents API 官方日期为 9/10，不重复当新发布）。Langfuse：changelog 无 9/11 新条目。LangChain·LangGraph / Spring AI / Spring Alibaba AI / Code Graph / OpenClaw / Hermes / skills：未发现可核验 9/11 稳定 release。Loop Engineering：HF《EvoSafeHarness》把安全 harness 做成可进化对象 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 基础设施 | [Rapidly scaling online storage to serve over 1 billion ChatGPT users](https://openai.com/index/scaling-storage-one-billion-users-part-one/) | 2026-09-11 | 官方发布 | Habitat：>70M req/s、周活 10 亿+、>500PB；从 DevDay 2023 Python 库演变成服务。2 人 + Codex + GPT-5.5 用 Rust 重写后扛 95% 生产流量，CPU/内存效率约 6x/15x |
+| 编码工具 | [Claude Code Daily Briefing 2026-09-12（覆盖 2.1.269）](https://claude-news.today/en/briefings/briefing-2026-09-12/) | 2026-09-11 | 开源发布 | `claude plugin eval` 给 plugin 打分；`CLAUDE_CODE_WORKFLOW_MAX_CONCURRENT_AGENTS` 把 fan-out 上限调到 1–256；另有 prompt cache / permission / plugin isolation 修复。第三方聚合，重大结论回官方 changelog |
+| 论文 | [HF Daily Papers 2026-09-11](https://huggingface.co/papers/date/2026-09-11) | 2026-09-11 | 论文原文 | 头条含 EvoSafeHarness（进化式安全 harness）、NCP-ArchPreview、SenseNova-U1.5、Recursive Code World Models |
+| 政策 / 产品（相邻） | [Introducing the Agents API](https://openai.com/index/introducing-the-agents-api/) | 2026-09-10（相邻日期/中国时间窗口传播） | 官方发布 | Codex harness 以 Agents API 公测开放；无额外平台费。9/10 已记过，此处只作当日传播窗口对照，不升格为新发布 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 在线存储 | [Habitat 扩容（上）](https://openai.com/index/scaling-storage-one-billion-users-part-one/) | 库→服务；schema/ACL/驻留/加密；Cosmos DB + Nanobase + Valkey；Python 撑到极限后再 Rust | 做多租户存储 / 平台层的人 |
+| 编码 Agent 治理 | [Claude Code changelog](https://code.claude.com/docs/en/changelog) | plugin 评分、workflow 并发、权限规则作用域 | 给团队发 plugin / 跑 fan-out workflow 的人 |
+| Agent 安全 harness | [HF Daily Papers 9/11](https://huggingface.co/papers/date/2026-09-11) | 按模型/域进化安全 harness，而不是固定规则表 | 做 red team / agent 护栏的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：工程增量在 **「存储平台化」+「编码 CLI 的组织级旋钮」**；框架发版平静，安全 harness 论文补上 Loop 侧信号。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 存储 / 多租户 | Habitat 把产品团队从路由/ACL/驻留里解放出来 | Agent 产品的「会话/文件/设置」也是存储问题；先服务化再语言替换 |
+| Claude Code | 2.1.269 plugin eval + 并发 cap | plugin marketplace 要有质量门；fan-out 必须有组织级硬顶 |
+| Loop / 安全 | EvoSafeHarness | verifier/安全规则也要能随模型与域一起进化，不能写死一次 |
+| Langfuse / LangChain / Spring / Code Graph | 无 9/11 稳定 release | 专项记空 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [Habitat 扩容（上）](https://openai.com/index/scaling-storage-one-billion-users-part-one/) | 少见的「10 亿用户存储」第一人称工程叙事，含 Rust 重写数字 |
+| 推荐 | [HF Daily Papers 2026-09-11](https://huggingface.co/papers/date/2026-09-11) | EvoSafeHarness 把安全做成可进化 harness |
+| 延伸 | [Claude Code briefing 9/12](https://claude-news.today/en/briefings/briefing-2026-09-12/) | 快速扫 2.1.269，细节回官方 changelog |
+
+### 来源清单
+
+- 检索范围：2026-09-11 00:00:00 到 2026-09-11 23:59:59（Asia/Shanghai）
+- 引用域名：openai.com, huggingface.co, claude-news.today, code.claude.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Rapidly scaling online storage to serve over 1 billion ChatGPT users | 2026-09-11 | https://openai.com/index/scaling-storage-one-billion-users-part-one/ |
+| 论文原文 | Hugging Face Daily Papers | 2026-09-11 | https://huggingface.co/papers/date/2026-09-11 |
+| 开源发布 | Claude Code 2.1.269 摘要（第三方聚合，待 GitHub 交叉验证） | 2026-09-11 | https://claude-news.today/en/briefings/briefing-2026-09-12/ |
+| 官方发布 | Introducing the Agents API（相邻日期，不重复当新发布） | 2026-09-10（相邻日期/中国时间窗口传播） | https://openai.com/index/introducing-the-agents-api/ |
+
 ## 2026-09-10
 
 ### 今日总览
@@ -644,3 +800,4 @@
 | 开源发布 | Claude Code v2.1.252 | 2026-09-01（UTC 8/31 19:46） | https://github.com/anthropics/claude-code/releases/tag/v2.1.252 |
 | 开源发布 | Langfuse v4.26.0 | 2026-09-01（UTC 8/31 17:53） | https://github.com/langfuse/langfuse/releases/tag/v4.26.0 |
 | 开源发布 | Langfuse v4.27.0 | 2026-09-01 | https://github.com/langfuse/langfuse/releases/tag/v4.27.0 |
+

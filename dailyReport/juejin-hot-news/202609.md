@@ -2,6 +2,131 @@
 
 按 Asia/Shanghai 时区汇总掘金文章热榜与收藏热榜（后端 / 前端 / 人工智能 / 开发工具），按文章链接去重并归纳正文。
 
+## 2026-09-14
+
+### 今日总览
+
+**一句话结论**：`2026-09-14` 新 URL 主线是 **DeepSeek Harness/V4.1 Flash + WorkBuddy/Skills 产品化**，工程向关注 **先盘工作流再选模型、Dart Skills CLI、浏览器自动化坑**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 文章热榜 + 收藏热榜 × 后端/前端/人工智能/开发工具 |
+| 榜单规模 | 每槽最多 15 条；列表总条数 120；去重后新 URL **25**；跳过已见 **95**；详情成功 25 / 失败 0 |
+| 核心趋势 | 1）AI/工具槽继续消化 DeepSeek Flash 与国产 Agent 工作台；2）前端热文偏情绪与小程序账本；3）收藏榜补 Agent 概念面经和浏览器自动化 |
+| 可直接关注 | [不要先问用哪个 AI](https://juejin.cn/post/7683020866855632906)；[Dart Skills CLI 1.0](https://juejin.cn/post/7684080641566867471)；[WorkBuddy 技术拆解](https://juejin.cn/post/7684313635775004712)；[DeepSeek 桌面端 vs WebUI](https://juejin.cn/post/7683816340574945343) |
+
+### 后端
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 2 | [SQL Server数据库迁移：V9R4C019 如何接住存量 T-SQL 批处理](https://juejin.cn/post/7683830679906287643) | 一只牛博 | 赞1/藏1/阅3700 | 牛博把 SQL Server 迁移看成「语义对位」：先保住 MERGE / DML OUTPUT / 窗口函数 / PIVOT / LIKE，而不是按文件数估工期。V9R4C019 补这些高频 T-SQL，存量批处理才有少改业务语义的条件。适合做异构库迁移的人。 | https://juejin.cn/post/7683830679906287643 |
+| 6 | [跟 WebUI 说再见了，最强 DeepSeek 桌面端来了！](https://juejin.cn/post/7683816340574945343) | cxuanAI | 赞12/藏10/阅2110 | cxuanAI 认为 DeepSeek Harness 的 WebUI 不适合当日常 Agent：浏览器管不好长期会话。对比 CLI 编排与桌面端「项目/会话/进程」收口。观点文，产品形态选择参考，不是官方发版说明。 | https://juejin.cn/post/7683816340574945343 |
+| 11 | [10 MB 的 Postman 替代品，启动不到 1 秒](https://juejin.cn/post/7683086663756693554) | 小奏技术 | 赞2/藏4/阅291 | 小奏介绍 RustFox：Rust+Tauri 2+Vue 的本地优先 API 客户端，安装包约 10MB、启动亚秒级，对标 Postman 的体积和启动成本。适合本地调试，先看 Collection 兼容再替换团队流程。 | https://juejin.cn/post/7683086663756693554 |
+| 13 | [DeepSeek V4.1 Flash 正式发布！](https://juejin.cn/post/7683784267848122395) | cxuanAI | 赞3/藏0/阅317 | cxuanAI 解读 DeepSeek V4.1 Flash 正式版：官方跑分对标 Opus 5 / GPT-5.6 Sol；552B MoE，输入激活 8B / 输出 16B，另有 196B Engram 条件记忆；原生多模态。数字以官方技术报告为准。 | https://juejin.cn/post/7683784267848122395 |
+| 14 | [Go 还是 Golang？可能你一直都搞错了！](https://juejin.cn/post/7683700156294873134) | 江湖十年 | 赞5/藏1/阅224 | 江湖十年考证 Go vs Golang：语言官方名是 Go，Golang 来自域名/搜索妥协。严肃但无工程增量，扫一眼即可。 | https://juejin.cn/post/7683700156294873134 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 前端
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 9 | [2025，记住这一年！它是古法编程的最后一年。](https://juejin.cn/post/7683846471338885171) | 阳火锅 | 赞25/藏8/阅1024 | 阳火锅随笔：自称 2025 年后不再手写前端，只审 AI 补丁。情绪向「古法编程最后一年」，技术增量有限，略读。 | https://juejin.cn/post/7683846471338885171 |
+| 11 | [一个人 + AI 做的小程序，一个月赚了 36 块](https://juejin.cn/post/7683443642279723023) | 好市民_ | 赞8/藏11/阅1087 | 好市民复盘「签小签」小程序满月：31 天自然流量收入 36.21 元，年成本约 144 元。账算得很清楚，适合看流量主现实，不是增长范文。 | https://juejin.cn/post/7683443642279723023 |
+| 13 | [从codex转战workbuddy使用一周的感受](https://juejin.cn/post/7684460980934049807) | wing98 | 赞18/藏6/阅762 | wing98 从 Codex 中转站被封切到 WorkBuddy 一周：积分消耗体感偏贵，GLM 5.3 修小 bug 可用。非评测，是账号稳定性驱动的搬家记录。 | https://juejin.cn/post/7684460980934049807 |
+| 14 | [DeepSeek V4.1 Flash 来了，明天中午 Flash 降价 60%](https://juejin.cn/post/7683375934587502643) | 乘风gg | 赞3/藏2/阅1011 | 乘风gg 转述 DeepSeek 用量页：V4.1 Flash 上线后、V4.1 Pro 之前，V4 Pro 请求路由到 Flash 并按 Flash 计价。过渡期成本自动下降，对比测试要分开「你点的模型和实际跑的模型」。 | https://juejin.cn/post/7683375934587502643 |
+| 15 | [2026 年，你可以从项目中删掉这 5 个 npm 包了](https://juejin.cn/post/7683724457530376198) | 涛涛ing | 赞11/藏12/阅650 | 涛涛ing 主张 2026 可删 5 类 npm：原生 Signals 替状态库、浏览器 API 吞日期/工具/动画等。要按目标浏览器基线验证，不要无脑卸 lodash/dayjs。 | https://juejin.cn/post/7683724457530376198 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 人工智能
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 6 | [为什么现在越来越多的开源模型，都“毕业“于 Qwen？](https://juejin.cn/post/7682499191234707497) | 吴佳浩Alben | 赞4/藏7/阅560 | 吴佳浩指出大量「新开源模型」Model Card 写着 Base Model: Qwen。信息传播快过技术理解；评模型先看底座和增量训练，别被标题带跑。 | https://juejin.cn/post/7682499191234707497 |
+| 8 | [我用 WorkBuddy 做了一次三巨头年报横向财务分析：从 276 页 PDF 到一张可核验的比较表](https://juejin.cn/post/7683438420874461247) | 倔强的石头_ | 赞2/藏3/阅540 | 石头用 WorkBuddy+GLM 5.1 把三份家电年报做成可核验横向表：记录第一次失败、改配置、验收口径。重点是过程门禁，不是「AI 很厉害」。 | https://juejin.cn/post/7683438420874461247 |
+| 10 | [用 AI 做短剧出海，赚麻了！（附 Skill 及教程）](https://juejin.cn/post/7684069447021035562) | 苍何 | 赞4/藏6/阅450 | 苍何讲 AI 短剧出海与 Skill 流水线。偏营销增长，数字多转述媒体；当案例扫，不当市场规模结论。 | https://juejin.cn/post/7684069447021035562 |
+| 11 | [迷茫焦虑期，我做了一个带支付带官网的 AI 聊天虚拟恋人 App](https://juejin.cn/post/7683400830063444006) | 北岛贰 | 赞4/藏6/阅245 | 北岛贰记录焦虑期做带支付的虚拟恋人 App。个人项目叙事，技术细节少。 | https://juejin.cn/post/7683400830063444006 |
+| 12 | [不要先问“用哪个 AI”，先盘点你的开发工作流](https://juejin.cn/post/7683020866855632906) | 全栈弄潮儿 | 赞9/藏5/阅282 | 全栈弄潮儿：先盘开发工作流再选模型。AI 应进需求澄清/读旧代码/排障，而不只写代码；每次对话留下可复用清单。比工具横评更有复用价值。 | https://juejin.cn/post/7683020866855632906 |
+| 13 | [我把苹果发布会里的折叠屏，真的用网页做出来了](https://juejin.cn/post/7684463933702291466) | 雨夜寻晴天 | 赞4/藏2/阅254 | 雨夜用 React+CSS 3D+GSAP 在网页复刻折叠屏展开，无 WebGL。AI 只帮规划。适合前端动效练习。 | https://juejin.cn/post/7684463933702291466 |
+| 14 | [什么是 RAG？如何用 RAG 实现一个用户记忆？](https://juejin.cn/post/7683339702867542058) | 2分钟速写快排 | 赞4/藏4/阅208 | 2分钟速写快排用 RAG 做跨对话用户记忆：检索资料库再生成，避免每轮重读全对话。Vibe Coding 场景下把技术栈/布局约定写成可检索记忆。入门向。 | https://juejin.cn/post/7683339702867542058 |
+| 15 | [Anthropic一次性锁死十年算力，5170亿美元买什么](https://juejin.cn/post/7682593227544936454) | 计算机魔术师 | 赞4/藏3/阅313 | 计算机魔术师复盘 Anthropic 长期算力租赁叙事（Claude Code/Cowork 拉高 token）。媒体向算力财经文，数字需回官方 Economic Index，不当采购依据。 | https://juejin.cn/post/7682593227544936454 |
+
+#### 收藏热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 14 | [腾讯面试官：“你说你做了一个终端Agent，那说说 LLM 和 Agent的区别，ReAct、MCP、Tool、Memory、Skills？”我信誓旦旦开始背了](https://juejin.cn/post/7667008177453252659) | 沉默王二 | 赞35/藏82/阅2636 | 沉默王二面经体：LLM vs Agent，以及 ReAct/MCP/Tool/Memory/Skills 边界。收藏榜长文，适合面试备课，不是新框架发布。 | https://juejin.cn/post/7667008177453252659 |
+
+### 开发工具
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 1 | [2026年AI编程工具大全，33个主流工具一次看懂](https://juejin.cn/post/7683784267847794715) | 狂师 | 赞5/藏11/阅430 | 狂师盘点 33 个 AI 编程工具（含 TraeWork/豆包工作）。清单体，用来定位官网/仓库，不要当评测。 | https://juejin.cn/post/7683784267847794715 |
+| 8 | [WorkBuddy 技术解析：核心并不神秘，真正壁垒在产品化、生态与规模工程](https://juejin.cn/post/7684313635775004712) | MobotStone | 赞3/藏1/阅124 | MobotStone 拆 WorkBuddy：技术上是成熟 harness+MCP+Skills+沙箱的产品化，壁垒在办公场景与规模工程，不在发明新 Agent 架构。可与 Codex 对照产品形态。 | https://juejin.cn/post/7684313635775004712 |
+| 12 | [Dart Skills CLI 1.0发布，老刘年初的预言兑现了](https://juejin.cn/post/7684080641566867471) | 程序员老刘 | 赞0/藏0/阅148 | 老刘报道 Dart Skills CLI 1.0：官方博客称可为 package 打包分发 Agent Skills。印证「官方 Skill 会像官方文档一样成为标配」。以 Dart 官方博文为准。 | https://juejin.cn/post/7684080641566867471 |
+| 13 | [从产品角度：拆解WorkBuddy 功能](https://juejin.cn/post/7684615074137718824) | MobotStone | 赞4/藏2/阅56 | MobotStone 从产品拆 WorkBuddy：连接器=接工具，技能=教方法，专家=定角色，专家团=协作，灵感=抄方案。适合第一次打开产品的人。 | https://juejin.cn/post/7684615074137718824 |
+| 14 | [5个Skills，一个人干一个团队的活](https://juejin.cn/post/7683384640531841059) | 周一同学Zelina | 赞0/藏0/阅119 | 周一同学用秒哒 5 个 Skill 对应资料/客户/数据/PPT/视觉。演示「一人多角色 + Skill」，偏产品测评。 | https://juejin.cn/post/7683384640531841059 |
+
+#### 收藏热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 14 | [比 Playwright 更给力，推荐一个AI Agent的浏览器自动化开源项目！](https://juejin.cn/post/7657076812560367626) | 狂师 | 赞10/藏15/阅426 | 狂师推荐比 Playwright 更贴 Agent 的浏览器自动化开源项目：针对登录态、验证码、反爬。Agent 用干净浏览器会被拦。先核项目活跃度再接入。 | https://juejin.cn/post/7657076812560367626 |
+
+
+### 跨榜重复与去重说明
+
+- 本轮新摘要 URL 数：25
+- 因 `seen_urls` 跳过：95（只给数量；不要把已见文再展开成表行）
+- 同文多标签/双榜出现：无
+
+### 来源清单
+
+- 快照日：2026-09-14（Asia/Shanghai）
+- 页面：https://juejin.cn/hot/articles 、 https://juejin.cn/hot/collected-articles
+- 抓取：`tools/juejin_hot_fetch.py` → `_staging_latest.json`
+
+| 标签 | 榜单 | 标题 | 链接 |
+| --- | --- | --- | --- |
+| 后端 | 文章热榜 | SQL Server数据库迁移：V9R4C019 如何接住存量 T-SQL 批处理 | https://juejin.cn/post/7683830679906287643 |
+| 后端 | 文章热榜 | 跟 WebUI 说再见了，最强 DeepSeek 桌面端来了！ | https://juejin.cn/post/7683816340574945343 |
+| 后端 | 文章热榜 | 10 MB 的 Postman 替代品，启动不到 1 秒 | https://juejin.cn/post/7683086663756693554 |
+| 后端 | 文章热榜 | DeepSeek V4.1 Flash 正式发布！ | https://juejin.cn/post/7683784267848122395 |
+| 后端 | 文章热榜 | Go 还是 Golang？可能你一直都搞错了！ | https://juejin.cn/post/7683700156294873134 |
+| 前端 | 文章热榜 | 2025，记住这一年！它是古法编程的最后一年。 | https://juejin.cn/post/7683846471338885171 |
+| 前端 | 文章热榜 | 一个人 + AI 做的小程序，一个月赚了 36 块 | https://juejin.cn/post/7683443642279723023 |
+| 前端 | 文章热榜 | 从codex转战workbuddy使用一周的感受 | https://juejin.cn/post/7684460980934049807 |
+| 前端 | 文章热榜 | DeepSeek V4.1 Flash 来了，明天中午 Flash 降价 60% | https://juejin.cn/post/7683375934587502643 |
+| 前端 | 文章热榜 | 2026 年，你可以从项目中删掉这 5 个 npm 包了 | https://juejin.cn/post/7683724457530376198 |
+| 人工智能 | 文章热榜 | 为什么现在越来越多的开源模型，都“毕业“于 Qwen？ | https://juejin.cn/post/7682499191234707497 |
+| 人工智能 | 文章热榜 | 我用 WorkBuddy 做了一次三巨头年报横向财务分析：从 276 页 PDF 到一张可核验的比较表 | https://juejin.cn/post/7683438420874461247 |
+| 人工智能 | 文章热榜 | 用 AI 做短剧出海，赚麻了！（附 Skill 及教程） | https://juejin.cn/post/7684069447021035562 |
+| 人工智能 | 文章热榜 | 迷茫焦虑期，我做了一个带支付带官网的 AI 聊天虚拟恋人 App | https://juejin.cn/post/7683400830063444006 |
+| 人工智能 | 文章热榜 | 不要先问“用哪个 AI”，先盘点你的开发工作流 | https://juejin.cn/post/7683020866855632906 |
+| 人工智能 | 文章热榜 | 我把苹果发布会里的折叠屏，真的用网页做出来了 | https://juejin.cn/post/7684463933702291466 |
+| 人工智能 | 文章热榜 | 什么是 RAG？如何用 RAG 实现一个用户记忆？ | https://juejin.cn/post/7683339702867542058 |
+| 人工智能 | 文章热榜 | Anthropic一次性锁死十年算力，5170亿美元买什么 | https://juejin.cn/post/7682593227544936454 |
+| 开发工具 | 文章热榜 | 2026年AI编程工具大全，33个主流工具一次看懂 | https://juejin.cn/post/7683784267847794715 |
+| 开发工具 | 文章热榜 | WorkBuddy 技术解析：核心并不神秘，真正壁垒在产品化、生态与规模工程 | https://juejin.cn/post/7684313635775004712 |
+| 开发工具 | 文章热榜 | Dart Skills CLI 1.0发布，老刘年初的预言兑现了 | https://juejin.cn/post/7684080641566867471 |
+| 开发工具 | 文章热榜 | 从产品角度：拆解WorkBuddy 功能 | https://juejin.cn/post/7684615074137718824 |
+| 开发工具 | 文章热榜 | 5个Skills，一个人干一个团队的活 | https://juejin.cn/post/7683384640531841059 |
+| 人工智能 | 收藏热榜 | 腾讯面试官：“你说你做了一个终端Agent，那说说 LLM 和 Agent的区别，ReAct、MCP、Tool、Memory、Skills？”我信誓旦旦开始背了 | https://juejin.cn/post/7667008177453252659 |
+| 开发工具 | 收藏热榜 | 比 Playwright 更给力，推荐一个AI Agent的浏览器自动化开源项目！ | https://juejin.cn/post/7657076812560367626 |
+
 ## 2026-09-11
 
 ### 今日总览

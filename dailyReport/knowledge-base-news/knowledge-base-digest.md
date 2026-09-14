@@ -2,6 +2,171 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-09-13
+
+### 今日总览
+
+**一句话结论**：固定来源可核验增量主要是 **阿里云开发者社区对 Trezor/Brevo 供应链钓鱼的复盘**；五个专项与其余大厂无新原文。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 阿里/腾讯/字节/百度/美团/京东/滴滴/网易/360/有赞 + 掘金专项 + 五个专项 |
+| 核心趋势 | 官方渠道被第三方 SaaS 劫持后，钓鱼不再需要攻破产品本身 |
+| 可直接关注 | 邮件服务商失守 = 官方发信通道失守；助记词/密钥类产品要假设「官方邮件不可信」 |
+| 专项检索结论 | Langfuse / LangChain·LangGraph / Code Graph / Spring Alibaba AI / Loop Engineering：固定来源内均未发现可核验 9/13 新文 |
+| 未发现更新 | 腾讯团队博客、美团、京东、字节、百度、滴滴、360、有赞、网易、阿里技术门户 |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 安全 / 供应链 | [第三方服务商沦陷引发定向钓鱼：Trezor 事件带来的安全启示](https://developer.aliyun.com/article/1762927) | 2026-09-13 | 阿里云开发者社区 | Brevo 被入侵后向 34.7 万订阅者发高仿钓鱼，诱导提交助记词；厂商 20 分钟关停域名，仍有 2500 人点击。钱包本体未破。数月内第二起第三方供应链事故 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 供应链钓鱼 | [Trezor 事件启示](https://developer.aliyun.com/article/1762927) | 劫持官方发信渠道；STM32 漏洞话术；物流商 ShipMonk 前案 | 安全/合规、用 SaaS 发官方邮件的团队 |
+
+### 工程实践归纳
+
+**总体判断**：周日只有安全供应链一条硬信号；Agent 专项无更新。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 供应链 | 官方邮件通道被第三方劫持 | 密钥/助记词类产品禁止「点邮件里的修复程序」；发信商纳入红队范围 |
+| 五个专项 | 无 9/13 新文 | 记空 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [Trezor 事件启示](https://developer.aliyun.com/article/1762927) | 短、数字清楚，适合对照自己的邮件/物流供应商清单 |
+
+### 来源清单
+
+- 检索范围：2026-09-13 00:00:00 到 2026-09-13 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：阿里云开发者社区；其余已检索
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 阿里巴巴 | 阿里云开发者社区 | 技术文章 | Trezor 第三方钓鱼启示 | 2026-09-13 | https://developer.aliyun.com/article/1762927 |
+| 全部 | 固定来源清单其余维度 | 无新增 | 其余公司/五个专项无 9/13 原文 | - | - |
+
+## 2026-09-12
+
+### 今日总览
+
+**一句话结论**：固定来源可核验增量集中在 **阿里云 Token Plan 个人版加量不加价 + 12 类 Agent Harness（MCP）**，以及 **掘金 Spring AI Alibaba Agent 长教程**；其余大厂博客无新原文。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 阿里/腾讯/字节/百度/美团/京东/滴滴/网易/360/有赞 + 掘金专项 + 五个专项 |
+| 核心趋势 | 1）云厂商把「模型额度 + Agent 工具」捆成订阅，Harness 不占 Credits；2）Java 侧仍在用长文把 ReactAgent / Graph 讲清楚 |
+| 可直接关注 | Token Plan 只支持华北2（北京）；Standard/Pro 才送 Harness；Spring AI Alibaba 优先 Agent Framework、Graph 当底层 |
+| 专项检索结论 | **Spring Alibaba AI**：掘金出现可核验 9/12 教程（ReactAgent / Graph Core / DashScope）。Langfuse / LangChain·LangGraph / Code Graph / Loop Engineering：固定来源内无 9/12 新文 |
+| 未发现更新 | 阿里技术门户/中间件/语雀、腾讯团队博客、美团、京东、字节、百度、滴滴、360、有赞、网易 |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Agent / 订阅 | [Token Plan 个人版：加量不加价，新增 12 类 Agent Harness](https://developer.aliyun.com/article/1762805) | 2026-09-12 | 阿里云开发者社区 | Credits 统一计量；Standard/Pro 附赠 12 类 MCP Harness（不占模型额度）；适配 Claude Code / Cursor / Qwen Code / OpenClaw。7 天窗口不结转；仅华北2 |
+| Spring Alibaba AI | [Spring AI Alibaba Agent 学习教程](https://juejin.cn/post/7684190922504290304) | 2026-09-12 | 掘金 | 对齐 1.1.2.2：Agent Framework vs Graph Core；ReactAgent / Sequential / Parallel；建议高层抽象优先、细粒度再下 Graph |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 个人 Agent 成本 | [Token Plan 升级](https://developer.aliyun.com/article/1762805) | Lite/Standard/Pro + 用量包；夜间指定模型 5 折 | 个人开发者 / 要配齐 MCP 工具的人 |
+| Java Agent | [Spring AI Alibaba 教程](https://juejin.cn/post/7684190922504290304) | BOM、DashScope starter、Graph 是运行时 | Java 团队从 Demo 走到可编排 Agent |
+
+### 工程实践归纳
+
+**总体判断**：9/12 固定来源把 **「订阅里送 harness」** 和 **「Java Agent 分层」** 写清楚；Langfuse / LangChain / Code Graph / Loop 仍无新文。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Spring Alibaba AI | 掘金长教程拆 Framework vs Graph | 先 ReactAgent，不要一上来手写 StateGraph |
+| Loop / Harness | Token Plan 把 12 类工具当订阅权益 | harness 成本应和模型 token 分账，避免「工具一开账单爆炸」 |
+| 其余专项 | 无新文 | 记空 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [Token Plan 升级](https://developer.aliyun.com/article/1762805) | 把套餐、7 天限额、Harness 是否占额度写明白 |
+| 推荐 | [Spring AI Alibaba 教程](https://juejin.cn/post/7684190922504290304) | 当前少见的、按官方分层讲完的中文长文 |
+
+### 来源清单
+
+- 检索范围：2026-09-12 00:00:00 到 2026-09-12 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：阿里云开发者社区、掘金；其余已检索
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 阿里巴巴 | 阿里云开发者社区 | 技术文章 | Token Plan 个人版升级 + Agent Harness | 2026-09-12 | https://developer.aliyun.com/article/1762805 |
+| （社区） | 掘金 | 技术文章 | Spring AI Alibaba Agent 学习教程 | 2026-09-12 | https://juejin.cn/post/7684190922504290304 |
+| 全部 | 固定来源清单其余维度 | 无新增 | 腾讯/美团/京东/字节/百度/滴滴/360/有赞/网易及其余专项无 9/12 原文 | - | - |
+
+## 2026-09-11
+
+### 今日总览
+
+**一句话结论**：固定来源可核验增量集中在 **阿里云「cosh / Copilot Shell」人机共驾终端** 与 **腾讯云+社区银狐木马变异处置文**；五个专项无新原文。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 阿里/腾讯/字节/百度/美团/京东/滴滴/网易/360/有赞 + 掘金专项 + 五个专项 |
+| 核心趋势 | 1）Agent 不再另开一个 CLI，而是叠在现有 bash/zsh 上当副驾；2）银狐继续走仿冒钓鱼 + 无文件，EDR 要比特征库更靠行为 |
+| 可直接关注 | cosh 三种介入模式与 Alibaba Cloud Linux 4 Agentic 镜像；银狐识别/溯源流程 |
+| 专项检索结论 | Langfuse / LangChain·LangGraph / Code Graph / Spring Alibaba AI / Loop Engineering：固定来源内均未发现可核验 9/11 新文。全球 Habitat / Claude Code 2.1.269 见 AI 日报 |
+| 未发现更新 | 阿里技术门户/中间件/语雀、美团、京东、字节博客、百度、滴滴、360、有赞、网易、AlloyTeam |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Agent / 终端 | [AI Agent 时代，下一代 Shell 应该长什么样？](https://developer.aliyun.com/article/1762771) | 2026-09-11 | 阿里云开发者社区 | cosh（Copilot Shell）叠在 bash/zsh 上：人主驾、AI 副驾；三种介入。随 Alibaba Cloud Linux 4 Agentic 镜像内置，`/auth` 配模型 |
+| 安全 / 终端 | [银狐病毒变异升级：仿冒钓鱼 + 无文件攻击的识别与处置](https://cloud.tencent.com/developer/article/2741711) | 2026-09-11 | 腾讯云+社区 | 拆银狐仿冒钓鱼与无文件手法；给终端检测、调查、溯源清单。偏 EDR 产品文，手法部分可复用 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Agent Shell | [下一代 Shell](https://developer.aliyun.com/article/1762771) | 不换终端、共享会话；失败按 exit code 补位 | SRE / 要在服务器上放 Agent 的人 |
+| 终端安全 | [银狐变异处置](https://cloud.tencent.com/developer/article/2741711) | 仿冒钓鱼 + 无文件；行为检测优于特征 | 安全运营 / 桌面安全 |
+
+### 工程实践归纳
+
+**总体判断**：知识库侧把 **「Agent 进现有 shell」** 写成产品形态；专项框架仍无固定来源新文。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Loop / 人机共驾 | cosh 强调键盘仍在人手上 | Agent 默认不要抢 REPL；失败再接管 |
+| 五个专项 | 无 9/11 新文 | 不把历史掘金教程回填成当日更新 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [下一代 Shell](https://developer.aliyun.com/article/1762771) | 把「另开 Agent CLI」和「叠在现有 shell」两条路拆开 |
+| 延伸 | [银狐变异处置](https://cloud.tencent.com/developer/article/2741711) | 周末前补一版钓鱼+无文件手法 |
+
+### 来源清单
+
+- 检索范围：2026-09-11 00:00:00 到 2026-09-11 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：阿里云开发者社区、腾讯云+社区；其余已检索
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 阿里巴巴 | 阿里云开发者社区 | 技术文章 | AI Agent 时代，下一代 Shell 应该长什么样？ | 2026-09-11 | https://developer.aliyun.com/article/1762771 |
+| 腾讯 | 腾讯云+社区 | 技术文章 | 银狐病毒变异升级 | 2026-09-11 | https://cloud.tencent.com/developer/article/2741711 |
+| 全部 | 固定来源清单其余维度 | 无新增 | 美团/京东/字节/百度/滴滴/360/有赞/网易及五个专项无 9/11 原文 | - | - |
+
 ## 2026-09-10
 
 ### 今日总览
@@ -540,3 +705,4 @@
 | 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
 | --- | --- | --- | --- | --- | --- |
 | 全部 | 固定来源清单 | 无新增 | 无可靠新增来源 | - | - |
+
