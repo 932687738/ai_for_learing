@@ -2,6 +2,66 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-09-14
+
+### 今日总览
+
+**一句话结论**：9 月 14 日主线是 **OpenAI 用 Perplexity 客户故事把 Astra 写成「可少盯的端到端系统」**，以及 **Google 官宣 DevFest 2026「Agentic Era」主题季**；HF 日刊把 **Skill 进化 / 多样化路由** 推到头条。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、企业落地、开发者活动、HF 日刊、专项主题、政策监管 |
+| 核心趋势 | 1）厂商叙事从「模型更强」转到「客户敢把测试/改系统/盯生产交给模型」；2）Google 用社区活动把 Gemini/Antigravity/Web MCP 绑成 agent 栈；3）论文侧 Skill 不再静态检索，而是 bandit 进化 + diversity-aware routing |
+| 可直接关注 | Perplexity 用 Astra 生成测试替身做端到端联调；DevFest 10/1–12/31 agent-athon；COBRA-Skills / Beyond Top-k Skill Retrieval |
+| 专项检索结论 | Claude Code：未见可核验 9/14 新稳定 tag（2.1.270 为 9/12，不回填）。Codex / OpenClaw / Hermes / Spring AI / Spring Alibaba AI / Langfuse / LangChain·LangGraph / Code Graph：未发现 9/14 新稳定 release。Loop Engineering / skills：HF《COBRA-Skills》《Beyond Top-k Skill Retrieval》与 skill 路由/进化同构。Safety Fellowship 项目周期含 9/14，但公告是 4 月，不当成当日新发布 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 企业落地 | [Perplexity trusts GPT-6 Astra with end-to-end systems](https://openai.com/index/perplexity-improving-accuracy-with-astra/) | 2026-09-14 | 官方发布 | Perplexity 用 Astra 写通讯、改软件、盯生产；并让模型生成「替身服务」做端到端测试。客户故事，不是新模型发布 |
+| 开发者生态 | [DevFest 2026](https://blog.google/innovation-and-ai/technology/developers-tools/devfest2026/) | 2026-09-14 | 官方发布 | 10/1–12/31，主题 Build/Secure/Scale in the Agentic Era；现场覆盖 Gemini、AI Studio、Antigravity、Firebase、Web MCP、agent-athon |
+| 论文 | [HF Daily Papers 2026-09-14](https://huggingface.co/papers/date/2026-09-14) | 2026-09-14 | 论文原文 | Benchmark Radar（活体评测库）、COBRA-Skills（bandit 进化 skill）、Beyond Top-k Skill Retrieval、TRACE（GUI agent 准入） |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Agent 测试 | [Perplexity × Astra](https://openai.com/index/perplexity-improving-accuracy-with-astra/) | 模型生成假下游响应，把联调从人手测改成 agent 自测 | 缺测试环境的平台团队 |
+| Skill 路由 | [HF Daily Papers 9/14](https://huggingface.co/papers/date/2026-09-14) | 不要只 top-k 召回 skill；要 diversity + 在线进化 | 做 skill marketplace / 路由的人 |
+| 社区活动 | [DevFest 2026](https://blog.google/innovation-and-ai/technology/developers-tools/devfest2026/) | 把 MCP / Antigravity 放进线下实验 | 想跟 Google agent 栈动手的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：工程增量不在框架发版，而在 **「客户敢少盯生产」** 和 **「Skill 要可进化、不要只检索」**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 端到端测试 | Perplexity 让模型当下游替身 | 缺沙箱时，先用模型模拟 connector，再上真实系统 |
+| Loop / skills | COBRA-Skills、diversity-aware skill routing | skill 库会膨胀，路由要带探索，不能永远点同一批 |
+| 评测基础设施 | Benchmark Radar | 评测集本身需要可检索的活库，而不是静态表格 |
+| Langfuse / LangChain / Spring / Code Graph / Claude Code | 无 9/14 稳定更新 | 专项记空 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [Perplexity × Astra](https://openai.com/index/perplexity-improving-accuracy-with-astra/) | 短客户故事，把「信任」写成可观察的盯人频率下降 |
+| 推荐 | [HF Daily Papers 2026-09-14](https://huggingface.co/papers/date/2026-09-14) | 一天内同时出现 skill 进化、skill 路由和评测检索 |
+| 延伸 | [DevFest 2026](https://blog.google/innovation-and-ai/technology/developers-tools/devfest2026/) | 看 Google 把哪些产品点名进 agent 主题季 |
+
+### 来源清单
+
+- 检索范围：2026-09-14 00:00:00 到 2026-09-14 23:59:59（Asia/Shanghai）
+- 引用域名：openai.com, blog.google, huggingface.co
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Perplexity trusts GPT-6 Astra with end-to-end systems | 2026-09-14 | https://openai.com/index/perplexity-improving-accuracy-with-astra/ |
+| 官方发布 | DevFest 2026 | 2026-09-14 | https://blog.google/innovation-and-ai/technology/developers-tools/devfest2026/ |
+| 论文原文 | Hugging Face Daily Papers | 2026-09-14 | https://huggingface.co/papers/date/2026-09-14 |
+
 ## 2026-09-13
 
 ### 今日总览

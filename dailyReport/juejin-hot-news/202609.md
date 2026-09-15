@@ -2,6 +2,101 @@
 
 按 Asia/Shanghai 时区汇总掘金文章热榜与收藏热榜（后端 / 前端 / 人工智能 / 开发工具），按文章链接去重并归纳正文。
 
+## 2026-09-15
+
+### 今日总览
+
+**一句话结论**：`2026-09-15` 新 URL 主线是 **DeepSeek Harness 桌面端/插件架构** 与 **JWT vs 大站 Session**，AI 槽继续消化降价机制和递归自改进舆论。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 文章热榜 + 收藏热榜 × 后端/前端/人工智能/开发工具 |
+| 榜单规模 | 每槽最多 15 条；列表总条数 120；去重后新 URL **11**；跳过已见 **109**；详情成功 11 / 失败 0 |
+| 核心趋势 | 1）DeepSeek Harness 从 WebUI 叙事转到仓库里的 desktop + plugin；2）后端热文回到认证/备份/消息总线基本功；3）收藏槽全是已见文 |
+| 可直接关注 | [主流站不用 JWT](https://juejin.cn/post/7684261460002701338)；[Harness 桌面端](https://juejin.cn/post/7685188623412133898)；[Harness 架构](https://juejin.cn/post/7684759404727320627)；[Kafka 当 Agent 总线](https://juejin.cn/post/7684573646439317514) |
+
+### 后端
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 8 | [被吹上天的 JWT，为什么主流网站一个都不用](https://juejin.cn/post/7684261460002701338) | 减瓦 | 赞22/藏18/阅1299 | 减瓦对照 GitHub/Google/Amazon/Netflix 登录 Cookie：主流站点用服务端 session，不是浏览器 JWT。JWT 出镜率高来自教程和脚手架，不是大站实践。适合面试和网关选型时把「无状态」和「可吊销」分开。 | https://juejin.cn/post/7684261460002701338 |
+| 12 | [只备份一个 schema，别把整库都搬走](https://juejin.cn/post/7685224902321848358) | 一只牛博 | 赞0/藏0/阅753 | 牛博讲只备份单个 schema：用 sys_dump `-n` 锁范围，避免整库 dump 带出审计/他人业务表。先 `help` 确认当前版本认不认该参数。适合多 schema 共库的迁移/外发。 | https://juejin.cn/post/7685224902321848358 |
+| 13 | [Kafka已正式接入AI](https://juejin.cn/post/7684573646439317514) | 苏三说技术 | 赞9/藏10/阅493 | 苏三主张 Multi-Agent 别用同步 HTTP 串：改 Kafka 当 Agent 总线（Topic 异步、挂了不丢中间态）。并提到 Kafka 在 MCP/A2A/实时上下文上的布局。架构观点文，落地要自补幂等和 schema。 | https://juejin.cn/post/7684573646439317514 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 前端
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 12 | [DeepSeek 官方仓库惊现 DeepSeek Harness 桌面端！](https://juejin.cn/post/7685188623412133898) | ikoala | 赞20/藏12/阅866 | ikoala 翻 DeepSeek Harness 官方仓 `apps/desktop`：8/28 起有 Electron 打包，现 0.1.5 rc.2；截至 9/13 仍是 Developer Preview，Releases 无安装包。桌面端不走本地 Web 服务。以仓库为准。 | https://juejin.cn/post/7685188623412133898 |
+| 15 | [倒反天罡！押注 React Native 6 年后，Shopify 又回到了原生开发](https://juejin.cn/post/7683784267847925787) | parade岁月 | 赞7/藏7/阅667 | parade岁月转述 Shopify 9/10 工程博文：押注 RN 六年后回到 Swift/Kotlin Native，背景之一是 AI Coding Agent 更吃原生工具链。热榜传播窗口，细节回 Shopify Engineering 原文。 | https://juejin.cn/post/7683784267847925787 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 人工智能
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 10 | [代码80%是AI写的，这家AI公司呼吁暂停AI开发](https://juejin.cn/post/7684228650583375878) | 计算机魔术师 | 赞4/藏2/阅529 | 计算机魔术师复述 Anthropic《当 AI 构建自身》：内部超 80% 合入代码由 Claude 写，同时警告递归自改进。观点/转述，重大数字回官方署名文，不当成 9/15 新数据。 | https://juejin.cn/post/7684228650583375878 |
+| 11 | [DeepSeek 这波操作很凶](https://juejin.cn/post/7684154085232017443) | 码事漫谈 | 赞7/藏5/阅425 | 码事漫谈把 DeepSeek 9/10 降价解释成「KV Cache 工作记忆砍掉约 3/4」的结果，而不只是促销。Agent 长上下文账单的关键是草稿纸厚度。机制向解读，以官方价目和技术报告为准。 | https://juejin.cn/post/7684154085232017443 |
+| 12 | [5000亿估值冲刺科创板，DeepSeek 为何急着上市？](https://juejin.cn/post/7684102772083195958) | 计算机魔术师 | 赞7/藏5/阅389 | 计算机魔术师转述路透：DeepSeek 接洽中信证券筹备科创板，5000 亿估值融资后不到三月。尚未见辅导备案。财经向，不当技术结论。 | https://juejin.cn/post/7684102772083195958 |
+| 13 | [Deepseek Harness 架构解析和应用](https://juejin.cn/post/7684759404727320627) | 古茗前端团队 | 赞7/藏6/阅344 | 古茗前端拆 DeepSeek Harness：Everything is a plugin，底层 Cordis；`npx @deepseek-ai/dsh web` 或源码启动。解释为何短时间高 star。适合对照 Claude Code/Codex 的 skill/plugin 模型。 | https://juejin.cn/post/7684759404727320627 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 开发工具
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 14 | [Docker 多阶段构建实践指南](https://juejin.cn/post/7682977354633609243) | 鸿观工坊 | 赞0/藏1/阅104 | 鸿观工坊用 Spring Boot 3 演示 Docker 多阶段构建：builder 阶段 Maven 打包，运行镜像只留产物；先拷 pom 吃缓存。适合个人/中小团队当简易 CI，无 AI 增量。 | https://juejin.cn/post/7682977354633609243 |
+| 15 | [受够微信偷偷更新，我做了一个 Windows 微信更新屏蔽工具](https://juejin.cn/post/7685317187398664238) | 张海潮 | 赞1/藏0/阅47 | 张海潮开源 wechat-update-blocker：屏蔽 Windows 微信 4.x / xwechat 自动更新。禁止单个更新 EXE 不够，更新通道比设置开关更深。个人工具，注意安全与条款。 | https://juejin.cn/post/7685317187398664238 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+
+### 跨榜重复与去重说明
+
+- 本轮新摘要 URL 数：11
+- 因 `seen_urls` 跳过：109（只给数量；不要把已见文再展开成表行）
+- 同文多标签/双榜出现：无
+
+### 来源清单
+
+- 快照日：2026-09-15（Asia/Shanghai）
+- 页面：https://juejin.cn/hot/articles 、 https://juejin.cn/hot/collected-articles
+- 抓取：`tools/juejin_hot_fetch.py` → `_staging_latest.json`
+
+| 标签 | 榜单 | 标题 | 链接 |
+| --- | --- | --- | --- |
+| 后端 | 文章热榜 | 被吹上天的 JWT，为什么主流网站一个都不用 | https://juejin.cn/post/7684261460002701338 |
+| 后端 | 文章热榜 | 只备份一个 schema，别把整库都搬走 | https://juejin.cn/post/7685224902321848358 |
+| 后端 | 文章热榜 | Kafka已正式接入AI | https://juejin.cn/post/7684573646439317514 |
+| 前端 | 文章热榜 | DeepSeek 官方仓库惊现 DeepSeek Harness 桌面端！ | https://juejin.cn/post/7685188623412133898 |
+| 前端 | 文章热榜 | 倒反天罡！押注 React Native 6 年后，Shopify 又回到了原生开发 | https://juejin.cn/post/7683784267847925787 |
+| 人工智能 | 文章热榜 | 代码80%是AI写的，这家AI公司呼吁暂停AI开发 | https://juejin.cn/post/7684228650583375878 |
+| 人工智能 | 文章热榜 | DeepSeek 这波操作很凶 | https://juejin.cn/post/7684154085232017443 |
+| 人工智能 | 文章热榜 | 5000亿估值冲刺科创板，DeepSeek 为何急着上市？ | https://juejin.cn/post/7684102772083195958 |
+| 人工智能 | 文章热榜 | Deepseek Harness 架构解析和应用 | https://juejin.cn/post/7684759404727320627 |
+| 开发工具 | 文章热榜 | Docker 多阶段构建实践指南 | https://juejin.cn/post/7682977354633609243 |
+| 开发工具 | 文章热榜 | 受够微信偷偷更新，我做了一个 Windows 微信更新屏蔽工具 | https://juejin.cn/post/7685317187398664238 |
+
 ## 2026-09-14
 
 ### 今日总览
