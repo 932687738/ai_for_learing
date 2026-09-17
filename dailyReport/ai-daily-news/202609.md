@@ -2,6 +2,130 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-09-16
+
+### 今日总览
+
+**一句话结论**：9 月 16 日主线是 **OpenAI 把广告做成「点广告后进 Sponsored Agent」**，以及 **GitHub 把 AI Scan / Copilot 额度审批做成组织级开关**；HF 日刊继续堆 **harness / RSI / skill 路由**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、广告/经济研究、GitHub changelog、HF 日刊、专项主题、政策监管 |
+| 核心趋势 | 1）对话广告从横幅变成可点进的商家 Agent；2）安全扫描不再绑死 CodeQL default setup；3）论文侧把 harness 自改进和 native skill routing 写进同一天 |
+| 可直接关注 | Sponsored Agents（美国部分广告主测试）；GitHub AI Scan 解绑 CodeQL；ScienceBuddy / ModularRSI / The Router Within |
+| 专项检索结论 | Claude Code：第三方 changelog 记 2.1.273 为 9/15，不回填。Codex / OpenClaw / Hermes / Spring AI / Spring Alibaba AI / Langfuse / LangChain changelog / Code Graph：未见 9/16 新稳定发布。Loop / skills：HF《ModularRSI》《The Router Within》《Generalized Agent Iteration》。Anthropic：当日为 AWS 上 Claude 三路径 webinar，不是新模型。政策：未见可核验官方新公告 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 广告 / Agent | [Reimagining advertising with AI](https://openai.com/index/reimagining-advertising-with-ai/) | 2026-09-16 | 官方发布 | 点 ChatGPT 广告后可进商家 Sponsored Agent；Ads Manager 用自然语言改投放；HubSpot / Shopify 接入。美国测试，对话与独立回答隔离 |
+| 劳动研究 | [How workers are unlocking new ways of working](https://openai.com/index/unlocking-new-ways-of-working/) | 2026-09-16 | 官方研究 | 150 万条工作消息：跨职业任务从 13.1% 升到 25.9%。岗位扩张先于改职称 |
+| 代码安全 | [Code scanning AI Scan no longer requires CodeQL default setup](https://github.blog/changelog/2026-09-16-code-scanning-ai-scan-no-longer-requires-codeql-default-setup/) | 2026-09-16 | 官方发布 | PR AI Scan 不再要求仓库开 CodeQL default setup；仍须组织级开启。GHES 不支持 |
+| Copilot 治理 | [Copilot budget increase requests are generally available](https://github.blog/changelog/2026-09-16-copilot-budget-increase-requests-are-generally-available/) | 2026-09-16 | 官方发布 | 额度用尽可当场申请加预算，审批后立刻恢复。Business / Enterprise 按量计费 |
+| 论文 | [HF Daily Papers 2026-09-16](https://huggingface.co/papers/date/2026-09-16) | 2026-09-16 | 论文原文 | ScienceBuddy、HarnessVLN、ModularRSI、The Router Within、Generalized Agent Iteration、StepAudio 3 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 对话广告 | [Sponsored Agents](https://openai.com/index/reimagining-advertising-with-ai/) | 商家 Agent 必须与 ChatGPT 独立回答分开；用户主动点进 | 做增长/广告接入的人 |
+| PR 安全 | [AI Scan changelog](https://github.blog/changelog/2026-09-16-code-scanning-ai-scan-no-longer-requires-codeql-default-setup/) | 组织开了 AI Scan，仓库没 CodeQL 也能扫 PR | 管 GHAS 的安全同学 |
+| harness / RSI | [HF Daily Papers 9/16](https://huggingface.co/papers/date/2026-09-16) | 冻结模型上挖 native skill routing；harness 模块化自改进 | 做 skill marketplace 的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：工程增量在 **「广告也是一条受控 Agent 会话」** 和 **「组织级额度/扫描开关」**，不在框架发版。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 商家 Agent | Sponsored Agents 与主对话隔离 | 任何「代言式 Agent」都要显式标注赞助，并禁止污染原会话 |
+| Copilot 预算 | 成员自助申请加额度 | 用量闸门应允许当场申诉，而不是静默 429 |
+| Loop / skills | ModularRSI、The Router Within | skill 路由最好从冻结模型里挖，而不是永远外挂分类器 |
+| Langfuse / LangChain changelog / Spring / Code Graph / Claude Code | 无 9/16 稳定更新 | 专项记空 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [Reimagining advertising with AI](https://openai.com/index/reimagining-advertising-with-ai/) | 短官方文，把广告从展示改成可点进的 Agent |
+| 推荐 | [HF Daily Papers 2026-09-16](https://huggingface.co/papers/date/2026-09-16) | 一天内同时出现 harness RSI 和 native skill routing |
+| 延伸 | [Work at the Frontier](https://openai.com/index/unlocking-new-ways-of-working/) | 用复发率看哪些跨岗任务会变成日常 |
+
+### 来源清单
+
+- 检索范围：2026-09-16 00:00:00 到 2026-09-16 23:59:59（Asia/Shanghai）
+- 引用域名：openai.com, github.blog, huggingface.co
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Reimagining advertising with AI | 2026-09-16 | https://openai.com/index/reimagining-advertising-with-ai/ |
+| 官方研究 | How workers are unlocking new ways of working | 2026-09-16 | https://openai.com/index/unlocking-new-ways-of-working/ |
+| 官方发布 | Code scanning AI Scan no longer requires CodeQL default setup | 2026-09-16 | https://github.blog/changelog/2026-09-16-code-scanning-ai-scan-no-longer-requires-codeql-default-setup/ |
+| 官方发布 | Copilot budget increase requests are generally available | 2026-09-16 | https://github.blog/changelog/2026-09-16-copilot-budget-increase-requests-are-generally-available/ |
+| 论文原文 | Hugging Face Daily Papers | 2026-09-16 | https://huggingface.co/papers/date/2026-09-16 |
+
+## 2026-09-15
+
+### 今日总览
+
+**一句话结论**：9 月 15 日主线是 **Google 把 Gemini 3.8 Live / Live Extended Thinking 做成「边说边干」的语音 Agent 栈**；HF 日刊把 **递归自改进 / Computer-Use 安全 / GUI Agent** 推到头条。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、语音 Agent、HF 日刊、专项主题、政策监管、中文补充 |
+| 核心趋势 | 1）语音模型从级联 STT/TTS 转到原生 speech-to-speech，并异步跑工具；2）Extended Thinking 一边说话一边做多步推理；3）论文侧 RSI 与「审计看得见、拦不住」同时出现 |
+| 可直接关注 | Gemini Live API（$0.005/min 入、$0.018/min 出）；LiveKit/LangChain/Pipecat 等接入；Dream-RSI / RSIAgent / HazardAuditor |
+| 专项检索结论 | Claude Code / Codex / OpenClaw / Hermes：未见可核验 9/15 新稳定 tag（OpenClaw 2026.9.14 不回填）。Spring AI / Spring Alibaba AI / Langfuse / LangChain·LangGraph changelog / Code Graph：未见 9/15 新稳定发布。LangChain 仅作为 Google Live API 合作伙伴被点名。Loop / skills：HF《Dream-RSI》《RSIAgent》与 Google live api skill 同构。Anthropic：当日为企业成本管控 webinar 与 Claude 工作坊，不是新模型。政策：未见 AI Office 当日官方新公告 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 语音 Agent | [Introducing Gemini 3.8 Live and 3.8 Live Extended Thinking](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/) | 2026-09-15 | 官方发布 | 97 语种中途切换；视觉接地；后台异步 tool/API；Extended Thinking 边说边推理。Workspace/Search/Gemini app 同步铺开 |
+| 开发者 API | [Build real-time voice applications with Gemini 3.8 Live](https://blog.google/innovation-and-ai/technology/developers-tools/build-real-time-voice-applications-gemini-audio/) | 2026-09-15 | 官方发布 | Live API 定价与异步函数调用、字母数字精度、增量结构化更新；合作伙伴含 LangChain / LiveKit / Pipecat |
+| 论文 | [HF Daily Papers 2026-09-15](https://huggingface.co/papers/date/2026-09-15) | 2026-09-15 | 论文原文 | Vidu S2、Atria Dawn、ZGCM-1、Dream-RSI、RSIAgent、HazardAuditor、LLaDA-UI。部分 arXiv submitted 为 9/14，以 HF 日刊日为准 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 语音 Agent | [Gemini 3.8 Live](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/) | 先回一句「我去查」，工具在后台跑，主对话不中断 | 做客服/入职导览/语音下单的人 |
+| Live API | [开发者音频套件](https://blog.google/innovation-and-ai/technology/developers-tools/build-real-time-voice-applications-gemini-audio/) | 不要再自己拼级联；用 Live API + 媒体中间件 | 要从 WebSocket 语音 demo 上生产的人 |
+| Agent 自改进 | [HF Daily Papers 9/15](https://huggingface.co/papers/date/2026-09-15) | 用历史探索树做「做梦」回放，少烧在线 rollout | 做 harness / explorer 的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：工程增量在 **「语音通道也能跑异步工具」** 和 **「RSI 要可回放、安全闸要能拦」**，不在框架发版。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 语音 + 工具 | Gemini Live 异步 function calling | 语音 Agent 的超时不应卡死主对话；进度用口头旁白 |
+| Loop / RSI | Dream-RSI、RSIAgent | explorer 策略要能离线评估；新环境先造可复用记忆再上线 |
+| Computer-Use 安全 | HazardAuditor | 可执行威胁要进评测，不能只看截图分类 |
+| Langfuse / LangChain changelog / Spring / Code Graph / Claude Code | 无 9/15 稳定更新 | 专项记空 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [Gemini 3.8 Live](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/) | 官方把「边说边干」写成可对标的产品能力 |
+| 推荐 | [HF Daily Papers 2026-09-15](https://huggingface.co/papers/date/2026-09-15) | 一天内同时出现 RSI、GUI Agent 和 Computer-Use 审计 |
+| 延伸 | [Gemini Audio for developers](https://blog.google/innovation-and-ai/technology/developers-tools/build-real-time-voice-applications-gemini-audio/) | 看定价和合作伙伴名单，决定要不要换级联架构 |
+
+### 来源清单
+
+- 检索范围：2026-09-15 00:00:00 到 2026-09-15 23:59:59（Asia/Shanghai）
+- 引用域名：blog.google, huggingface.co
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Introducing Gemini 3.8 Live and 3.8 Live Extended Thinking | 2026-09-15 | https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/ |
+| 官方发布 | Build real-time voice applications with Gemini 3.8 Live | 2026-09-15 | https://blog.google/innovation-and-ai/technology/developers-tools/build-real-time-voice-applications-gemini-audio/ |
+| 论文原文 | Hugging Face Daily Papers | 2026-09-15 | https://huggingface.co/papers/date/2026-09-15 |
+
 ## 2026-09-14
 
 ### 今日总览

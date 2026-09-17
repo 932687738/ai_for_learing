@@ -2,6 +2,128 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-09-16
+
+### 今日总览
+
+**一句话结论**：固定来源可核验增量集中在 **百炼 Agent Studio 手册** 与 **qwen3.8-max-0902 / DeepSeek-V4.1-Flash 的 CLI 同题实测**；掘金侧 OpenWiki / OpenSider 补 Agent 长期记忆和浏览器上下文。五个专项无新框架原文。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 阿里/腾讯/字节/百度/美团/京东/滴滴/网易/360/有赞 + 掘金专项 + 五个专项 |
+| 核心趋势 | 1）平台手册把 MCP/Skill/Connector 写成一条生命周期；2）同一 `--max-tokens` 在两家模型上语义不同，长任务要显式 timeout + stream |
+| 可直接关注 | 百炼 CLI 对跑里的 headers timeout；OpenWiki 给 Agent 写 Wiki；OpenSider 把标签页上下文交给本机 CLI Agent |
+| 专项检索结论 | Langfuse / LangChain changelog / Code Graph / Spring Alibaba AI / Loop Engineering：固定来源内无 9/16 新框架文。OpenWiki 可作 **LangChain Deep Agents / 长期记忆** 对照（7 月开源，9/15 传播窗口）。AgentLoop 文可作 Loop 对照（9/13 原文，热榜传播） |
+| 未发现更新 | 阿里技术门户/中间件/语雀、美团、京东、字节博客、百度、滴滴、360、有赞、网易；Qoder 积分翻倍与腾讯云 DeepSeek V4 转载过滤为营销 |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Agent 平台 | [阿里云百炼 Agent Studio 产品手册全新发布](https://developer.aliyun.com/article/1763850) | 2026-09-16 | 阿里云开发者社区 | 手册覆盖可视化编排、RAG/Memory、MCP/Skill/Connector、安全治理。**产品手册，免费额度以活动页为准** |
+| 模型选型 | [一周双旗舰上架百炼：qwen3.8-max-0902 与 DeepSeek-V4.1-Flash CLI 同题实测](https://developer.aliyun.com/article/1763931) | 2026-09-16 | 阿里云开发者社区 | 0902 的 max-tokens 只管正文；V4.1-Flash 把思考算进总预算。长任务必须 `--timeout 600`，再加 `--stream` 躲 headers timeout |
+| Agent 记忆 | [为什么越来越多人用OpenWiki？](https://juejin.cn/post/7685591822258585626) | 2026-09-15（相邻日期/中国时间窗口传播） | 掘金 | LangChain 开源：给 Agent 生成带 Claims 溯源的 Markdown Wiki，不是给人读的 Confluence |
+| 浏览器 Agent | [OpenSider：让浏览器驱动 Agent](https://juejin.cn/post/7685651354878754825) | 2026-09-16 | 掘金 | 浏览器侧边栏对接本机 Claude Code/Codex，复用已打开标签页，避免 Playwright 冷启丢登录态 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 百炼 CLI | [双旗舰同题实测](https://developer.aliyun.com/article/1763931) | 默认别名会静默滚到最新快照；锁定版本要写全名 | 用 `bl text chat` 做批量生成的人 |
+| Agent Wiki | [OpenWiki 拆解](https://juejin.cn/post/7685591822258585626) | Wiki 读者是 Agent；事实进 `.claims/` | 给 coding agent 补仓库记忆的人 |
+
+### 工程实践归纳
+
+**总体判断**：知识库侧 9/16 最有复用价值的是 **「同一参数两套语义」** 和 **「给 Agent 写文档」**；五个专项框架无新原文。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 模型网关 | 百炼 CLI 对跑 | 写成本模型前先 `bl model list`，别信社区价目 |
+| LangChain / 记忆 | OpenWiki | 长期记忆应编译成 Agent 可读 Wiki，而不是再塞一份人话 README |
+| Loop | 热榜《AgentLoop》传播 | 生产 loop 的差距在压缩/死循环检测/流式进度，不在 while |
+| Langfuse / Code Graph / Spring Alibaba AI | 无 9/16 新文 | 记空 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [双旗舰 CLI 实测](https://developer.aliyun.com/article/1763931) | 把 timeout / stream / usage 三坑写成可复现命令 |
+| 推荐 | [OpenWiki 拆解](https://juejin.cn/post/7685591822258585626) | 讲清「给人的 Wiki」和「给 Agent 的 Wiki」差在哪 |
+| 延伸 | [Agent Studio 手册](https://developer.aliyun.com/article/1763850) | 只当能力地图读，细节回百炼文档 |
+
+### 来源清单
+
+- 检索范围：2026-09-16 00:00:00 到 2026-09-16 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：阿里云开发者社区、掘金；其余大厂已检索
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 阿里巴巴 | 阿里云开发者社区 | 产品手册 | 百炼 Agent Studio 产品手册 | 2026-09-16 | https://developer.aliyun.com/article/1763850 |
+| 阿里巴巴 | 阿里云开发者社区 | 技术实测 | qwen3.8-max-0902 与 DeepSeek-V4.1-Flash CLI 对跑 | 2026-09-16 | https://developer.aliyun.com/article/1763931 |
+| （社区） | 掘金 | 技术文章 | 为什么越来越多人用OpenWiki？ | 2026-09-15（相邻日期/中国时间窗口传播） | https://juejin.cn/post/7685591822258585626 |
+| （社区） | 掘金 | 开源工具 | OpenSider：让浏览器驱动 Agent | 2026-09-16 | https://juejin.cn/post/7685651354878754825 |
+| 全部 | 固定来源清单其余维度 | 无新增 | 美团/京东/字节/百度/滴滴/360/有赞/网易及五个专项无 9/16 原文 | - | - |
+
+## 2026-09-15
+
+### 今日总览
+
+**一句话结论**：固定来源可核验增量集中在 **千问平台上线 Kimi K3 API** 与 **掘金：Android Studio Quail 4 的 Android Skills**；大厂官网当日无新硬文，五个专项无新框架原文。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 阿里/腾讯/字节/百度/美团/京东/滴滴/网易/360/有赞 + 掘金专项 + 五个专项 |
+| 核心趋势 | 1）平台把已发布开源 Agent 模型接到函数调用/上下文缓存，而不是再发一个新基座；2）IDE 把 Agent Skills 预装成可离线复用的升级手册 |
+| 可直接关注 | 千问平台 Kimi K3 的函数调用与百万上下文；Android Skills 可被 Claude Code 通过 CLI 复用 |
+| 专项检索结论 | Langfuse / LangChain·LangGraph / Code Graph / Spring Alibaba AI / Loop Engineering：固定来源内无 9/15 新框架文。Android Skills 可作 **skills / harness** 对照（社区解读，细节回 Google 官方 release notes） |
+| 未发现更新 | 阿里技术门户/中间件/语雀、美团、京东、字节博客、百度（当日仅为视频云活动回放）、滴滴、360、有赞、网易；腾讯云当日 DeepSeek V4/Cursor 断供等转载过滤为营销 |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 模型接入 | [Kimi K3 上线千问AI平台](https://developer.aliyun.com/article/1763527) | 2026-09-15 | 阿里云开发者社区 | 7/28 已发布的 MoE Agent 模型现可走千问 API：函数调用、上下文缓存、结构化输出。**产品上线文，不是新权重发布** |
+| IDE / Skills | [Android Studio Quail 4发布，看日志我以为谷歌放弃Flutter了](https://juejin.cn/post/7685597597233905716) | 2026-09-15 | 掘金 | 预装 23 项 Android Skills（AGP 9 / Profiler / Navigation3）；Gemma 4 本地推理；并行 Agent 状态可视化。Flutter 迁移注释在下一版 Canary，勿当成当日官方弃坑 |
+| 测试工具 | [2026 性能测试工具大盘点](https://juejin.cn/post/7685282635451531273) | 2026-09-15 | 掘金 | 先强调压测机先挂会污染结论；JMeter/k6/Locust/wrk 对照。清单文，无 AI 增量 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Agent 模型接入 | [Kimi K3 × 千问](https://developer.aliyun.com/article/1763527) | 先开通 API，网页体验暂无；看函数调用和缓存再谈长程编程 | 要在阿里云上试开源 Agent 模型的人 |
+| Agent Skills | [AS Quail 4 解读](https://juejin.cn/post/7685597597233905716) | `android skills add --all` 让 CLI Agent 吃同一套手册 | 做 Android / Cursor / Claude Code 的人 |
+
+### 工程实践归纳
+
+**总体判断**：知识库侧 9/15 最有复用价值的是 **「Skills 预装 + 可被 CLI 复用」**；五个专项框架无新原文。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| skills / harness | Android Skills 离 IDE 也能装 | 升级手册应是 Agent 可读的 skill，而不是 wiki |
+| 模型平台 | Kimi K3 上千问 | 新模型价值常在「何时能走现有网关」，不在再发一篇评测 |
+| Langfuse / LangChain / Code Graph / Spring Alibaba AI / Loop | 无 9/15 新文 | 记空 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [AS Quail 4 解读](https://juejin.cn/post/7685597597233905716) | 把 IDE Agent 能力拆成 Skills / 本地模型 / 并行会话三块 |
+| 延伸 | [Kimi K3 上线千问](https://developer.aliyun.com/article/1763527) | 只当接入说明读，模型事实回月之暗面原文 |
+
+### 来源清单
+
+- 检索范围：2026-09-15 00:00:00 到 2026-09-15 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：阿里云开发者社区、掘金；其余大厂已检索
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 阿里巴巴 | 阿里云开发者社区 | 产品上线 | Kimi K3 上线千问AI平台 | 2026-09-15 | https://developer.aliyun.com/article/1763527 |
+| （社区） | 掘金 | 技术文章 | Android Studio Quail 4 与 Android Skills | 2026-09-15 | https://juejin.cn/post/7685597597233905716 |
+| （社区） | 掘金 | 技术清单 | 2026 性能测试工具大盘点 | 2026-09-15 | https://juejin.cn/post/7685282635451531273 |
+| 全部 | 固定来源清单其余维度 | 无新增 | 美团/京东/字节/百度/滴滴/360/有赞/网易及五个专项无 9/15 原文 | - | - |
+
 ## 2026-09-14
 
 ### 今日总览
