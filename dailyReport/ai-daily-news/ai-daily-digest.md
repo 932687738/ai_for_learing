@@ -2,6 +2,66 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-09-17
+
+### 今日总览
+
+**一句话结论**：9 月 17 日主线是 **Anthropic 把 Claude 做成生物建模加速器，并开闸生命科学核验计划（LSVP）**；HF 日刊把 **科学代码环境 / 共享 Git 记忆 / 自进化交易与假设 Agent** 推到头条。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方厂商、生命科学安全、HF 日刊、专项主题、政策监管 |
+| 核心趋势 | 1）科研 Agent 从「花 2500 H100 小时出 binder」压到单卡 24 小时同水平；2）生命科学访问从实时拦截改成核验 + 离线监测；3）论文侧把仓库当 Agent 环境、把 Git 当共享记忆 |
+| 可直接关注 | FlashPairformer / Big mode 开源代码；LSVP Standard vs High-risk 授权；ScienceIDE、Agora、CERA-MoA |
+| 专项检索结论 | Claude Code / Codex / OpenClaw / Hermes：未见可核验 9/17 新稳定 tag（The New Stack 称 Projects 并行会话 beta，事实以官方为准）。Spring AI / Spring Alibaba AI / Langfuse / LangChain changelog / Code Graph：未见 9/17 新稳定发布。Loop / skills：HF《EvolveTrade》《HypoEvolve》《CERA-MoA》；OpenAI《Rethinking skills》原文为 9/11，不回填。OpenAI / Google：未见 9/17 新模型或开发者 API。政策：LSVP 属受控放宽，不是监管新法 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 科研 Agent | [How Claude is uplifting biomolecular modeling](https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling) | 2026-09-17 | 官方研究 | 四周内优化 30+ 开源生物模型，平均约 4x；FlashPairformer 加速 triangle attention；Big mode 单节点跑 1 万+ token 分子机器。开源优化代码；Adaptyv 竞赛最高 100 万美元 Claude 额度 |
+| 生命科学访问 | [Introducing the Life Sciences Verification Program](https://www.anthropic.com/news/life-sciences-verification-program) | 2026-09-17 | 官方发布 | 核验后开放 Mythos/Opus/Sonnet，分类器对生物学更宽松。Standard Use 按团队年审；High-risk 按项目半年审。从实时拦截改成 30 天保留 + 离线监测。个人套餐与第三方平台暂不支持 |
+| 论文 | [HF Daily Papers 2026-09-17](https://huggingface.co/papers/date/2026-09-17) | 2026-09-17 | 论文原文 | ScienceIDE、ProgramDistill、Agora、EvolveTrade、HypoEvolve、CERA-MoA。科学代码当可学环境，Git 当集体记忆 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 推理优化 | [Claude × 生物建模](https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling) | 先写可迁移 kernel，再对单模型做缓存/死分支折叠；监督者不必是 kernel 专家 | 做科学计算加速或科研 harness 的人 |
+| 受控放宽 | [LSVP](https://www.anthropic.com/news/life-sciences-verification-program) | 合法科研和滥用在单请求上分不开，所以核验组织、锁用例、事后看行为 | 做生物/医药 Agent 合规的人 |
+| Agent 环境 | [HF Daily Papers 9/17](https://huggingface.co/papers/date/2026-09-17) | 把世界科学代码库变成可学环境，比再堆 prompt 更稳 | 做 explorer / eval harness 的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：工程增量在 **「科研 Agent 的算力账」** 和 **「双用途访问从拦请求改成核验组织」**，不在框架发版。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 科研 harness | 单模型 + 加速后的开源工具，GPU 小时降两个数量级 | 先优化工具链再堆子代理；prompt 从 1.6 万字压到约 1100 字也能打平 |
+| 安全闸 | LSVP 离线监测 | 合法/恶意难实时二分时，把拦截换成授权范围 + 行为审计 |
+| Loop / 自进化 | EvolveTrade、HypoEvolve、CERA-MoA | 路由机制应和 Agent 一起共进化，而不是写死分类器 |
+| Langfuse / LangChain changelog / Spring / Code Graph / Claude Code | 无 9/17 稳定更新 | 专项记空 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [Claude × 生物建模](https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling) | 官方把「Agent 优化别人的模型」写成可对标的实验 |
+| 推荐 | [LSVP](https://www.anthropic.com/news/life-sciences-verification-program) | 讲清 Standard / High-risk、数据保留和共享责任 |
+| 延伸 | [HF Daily Papers 2026-09-17](https://huggingface.co/papers/date/2026-09-17) | 一天内同时出现科学代码环境和集体 Git 记忆 |
+
+### 来源清单
+
+- 检索范围：2026-09-17 00:00:00 到 2026-09-17 23:59:59（Asia/Shanghai）
+- 引用域名：anthropic.com, huggingface.co
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方研究 | How Claude is uplifting biomolecular modeling | 2026-09-17 | https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling |
+| 官方发布 | Introducing the Life Sciences Verification Program | 2026-09-17 | https://www.anthropic.com/news/life-sciences-verification-program |
+| 论文原文 | Hugging Face Daily Papers | 2026-09-17 | https://huggingface.co/papers/date/2026-09-17 |
+
 ## 2026-09-16
 
 ### 今日总览
