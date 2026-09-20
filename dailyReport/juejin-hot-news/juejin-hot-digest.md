@@ -2,6 +2,108 @@
 
 按 Asia/Shanghai 时区汇总掘金文章热榜与收藏热榜（后端 / 前端 / 人工智能 / 开发工具），按文章链接去重并归纳正文。
 
+## 2026-09-20
+
+### 今日总览
+
+**一句话结论**：`2026-09-20` 新 URL 主线是 **AGENTS.md 分层治理**、**若依+jeeflow 审批** 与 **本地 AI Gateway/自托管 Agent 平台**，AI 槽补 **结构化决策模型 Jev** 与 **微信小微** 体验文。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 文章热榜 + 收藏热榜 × 后端/前端/人工智能/开发工具 |
+| 榜单规模 | 每槽最多 15 条；列表总条数 120；去重后新 URL **15**；跳过已见 **105**；详情成功 15 / 失败 0 |
+| 核心趋势 | 1）Coding Agent 说明文件从「堆规则」转向分层；2）后端热文偏 Java 生态落地（若依/FastAPI/JDK）；3）开发工具槽集中本地网关与自托管 PaaS |
+| 可直接关注 | [AGENTS.md 分层](https://juejin.cn/post/7685944661652602914)；[若依+jeeflow](https://juejin.cn/post/7685577977079185423)；[ServBay AI Gateway](https://juejin.cn/post/7685936943797141558) |
+
+### 后端
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 10 | [学习 FastAPI 的 Day 4：完成用户系统与接口联调（完结）](https://juejin.cn/post/7684893611952619529) | Dragon_xjy | 赞4/藏8/阅747 | FastAPI 系列收官：注册/登录/资料/改密串成链路，并导入 Apifox 联调。适合已跟前三篇的入门者；源码 dragonxjy/FastAPI。 | https://juejin.cn/post/7684893611952619529 |
+| 11 | [给若依加审批流，不用 Flowable](https://juejin.cn/post/7685577977079185423) | mldong | 赞11/藏10/阅501 | 若依 3.9.2 免费版无审批流：用 jeeflow 而非 Flowable，后端一依赖+前端宿主组件，菜单 SQL 收口 RBAC，半天跑通待办/会签/设计器。附真机截图与踩坑。 | https://juejin.cn/post/7685577977079185423 |
+| 14 | [从 0 到 1 速通 WorkBuddy](https://juejin.cn/post/7686090678486073395) | cxuanAI | 赞6/藏8/阅454 | WorkBuddy 从 0 到 1 第一篇：安装后主页三大场景（办公/代码/设计）与中文界面 walkthrough。系列长文，偏产品导览。 | https://juejin.cn/post/7686090678486073395 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 前端
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 5 | [用了一个月 WorkBuddy，聊聊我的真实感受](https://juejin.cn/post/7686407614478237748) | 勇宝趣学前端 | 赞16/藏9/阅1730 | 作者长期使用第三方 GPT 中转站的体验：高峰超时、断连丢上下文、站点跑路风险；引出对稳定官方/自建通道的需求。偏叙事，非技术方案。 | https://juejin.cn/post/7686407614478237748 |
+| 10 | [周下载量1.1亿的Tailwind，为什么养不活自己？](https://juejin.cn/post/7686054741464694826) | 涛涛ing | 赞7/藏4/阅974 | Tailwind 加入 Shopify 背景：周安装 1.1 亿但文档流量降 40%、付费 UI 收入近崩。论点：AI 写 UI 绕过文档，冲击 Tailwind Plus 商业模式。 | https://juejin.cn/post/7686054741464694826 |
+| 11 | [掌控自己的 K 线数据：TradingView 本地部署与数据源接入](https://juejin.cn/post/7685573804516868105) | Dragon_xjy | 赞4/藏5/阅1054 | Vue 集成 TradingView 图表：本地部署 charting library、历史 K 线格式转换、PubSub+WebSocket 推实时 bar。含在线 demo 链接，地址用占位符。 | https://juejin.cn/post/7685573804516868105 |
+| 12 | [别再堆 AGENTS.md 了：前端团队的 Agent 上下文分层落地指南](https://juejin.cn/post/7685944661652602914) | 作者见榜 | 赞/藏/阅见榜 | 前端团队 AGENTS.md 从 40 行涨到 600 行仍管不住 Agent：提出分层（宪法/技能/任务）而非单文件堆规则；与 Claude Code 2.1.277 读 AGENTS.md 同题。 | https://juejin.cn/post/7685944661652602914 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 人工智能
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 3 | [电商资料包合规体检实战：用蓝耘元生代把 20 分钟人工核验压成一分半](https://juejin.cn/post/7686361321609887790) | 勇宝趣学前端 | 赞4/藏5/阅1054 | 电商六份上架资料（说明书/检测/授权/规则/参数/文案）字段一致性：蓝耘元生代分工文本模型+视觉模型，把约 20 分钟人工核对压到约 1.5 分钟。多模态合规体检案例。 | https://juejin.cn/post/7686361321609887790 |
+| 12 | [发布 3 天登顶 HN：不生成一个字的模型 Jev，我把它的源码和黑料都扒了一遍](https://juejin.cn/post/7686669083098775562) | 涛涛ing | 赞22/藏40/阅623 | TypeSafe AI 的 Jev 模型（9/15 发布）：结构化决策输出、不生成自由文本；作者扒源码并标注早期 HN 热度与官方自报指标水分。研究向。 | https://juejin.cn/post/7686669083098775562 |
+| 14 | [微信里多了个[小微]，可以帮你看朋友圈、发消息、点外卖了](https://juejin.cn/post/7685606304111509545) | 晓凡 | 赞4/藏3/阅2464 | 微信「小微」助手实测：看朋友圈、代发消息、点外卖等；入口在聊天列表或右滑。体验向，能力随版本变化。 | https://juejin.cn/post/7685606304111509545 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 开发工具
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 6 | [跨平台开发地图 \| 2026年9月](https://juejin.cn/post/7686341837753368611) | 老刘 | 赞4/藏1/阅1144 | 2026 年 9 月跨平台地图：KMP 2.4.20 正式版 Swift 互操作转正；.NET 11 RC1 go-live；Flutter 3.47.4 hotfix；RN/uni-app 空窗。信息汇总帖。 | https://juejin.cn/post/7686341837753368611 |
+| 7 | [从 0 到 1 搭建你的 AI Agent 平台：当 Agent 有了工厂，人人都能造同事](https://juejin.cn/post/7686588753231560740) | Dragon_xjy | 赞6/藏2/阅832 | 浏览器式 Agent 平台：Next.js + FastAPI + LiteLLM + ChromaDB，Docker 一键部署，支持创建/编排 Agent。系列第 7 篇，偏全栈脚手架。 | https://juejin.cn/post/7686588753231560740 |
+| 8 | [一天一个开源项目（第219篇）：Openship —— 自托管部署平台](https://juejin.cn/post/7685982562691416070) | tingke | 赞1/藏1/阅202 | Openship 开源自托管部署：push 触发构建 Docker、OpenResty 路由 TLS，对标 Vercel 体验但数据在自有服务器。系列第 219 篇介绍文。 | https://juejin.cn/post/7685982562691416070 |
+| 9 | [ServBay 1.33.0 来了：AI Gateway 一键接管主流 AI CLI 与多模型](https://juejin.cn/post/7685936943797141558) | ServBay | 赞1/藏3/阅139 | ServBay 1.33.0 本地 AI Gateway：聚合 Claude Code 等 CLI 的多模型 endpoint、Key 与用量控制，减少环境变量散落与代理调试。 | https://juejin.cn/post/7685936943797141558 |
+| 13 | [Docker 部署填鸭表单完整教程：搭建私有化问卷与表单收集平台](https://juejin.cn/post/7685659198119542818) | 一只牛博 | 赞0/藏2/阅142 | Docker 部署填鸭 tduck 社区版 6.0 私有化问卷：数据不出域、Spring Boot 2.7.8 栈。跟做 latest 镜像，Ubuntu 24.04 实测。 | https://juejin.cn/post/7685659198119542818 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 跨榜重复与去重说明
+
+- 本轮新摘要 URL 数：15
+- 因 `seen_urls` 跳过：105
+- 同文多榜：本轮 15 篇均仅出现在单槽
+
+### 来源清单
+
+- 快照日：2026-09-20（Asia/Shanghai）
+- 页面：https://juejin.cn/hot/articles 、 https://juejin.cn/hot/collected-articles
+- 抓取：`tools/juejin_hot_fetch.py` → `_staging_latest.json`
+
+| 标签 | 榜单 | 标题 | 链接 |
+| --- | --- | --- | --- |
+| 后端 | 文章热榜 | 学习 FastAPI 的 Day 4：完成用户系统与接口联调（完结） | https://juejin.cn/post/7684893611952619529 |
+| 后端 | 文章热榜 | 给若依加审批流，不用 Flowable | https://juejin.cn/post/7685577977079185423 |
+| 后端 | 文章热榜 | 从 0 到 1 速通 WorkBuddy | https://juejin.cn/post/7686090678486073395 |
+| 前端 | 文章热榜 | 用了一个月 WorkBuddy，聊聊我的真实感受 | https://juejin.cn/post/7686407614478237748 |
+| 前端 | 文章热榜 | 周下载量1.1亿的Tailwind，为什么养不活自己？ | https://juejin.cn/post/7686054741464694826 |
+| 前端 | 文章热榜 | 掌控自己的 K 线数据：TradingView 本地部署与数据源接入 | https://juejin.cn/post/7685573804516868105 |
+| 前端 | 文章热榜 | 别再堆 AGENTS.md 了：前端团队的 Agent 上下文分层落地指南 | https://juejin.cn/post/7685944661652602914 |
+| 人工智能 | 文章热榜 | 电商资料包合规体检实战：用蓝耘元生代把 20 分钟人工核验压成一分半 | https://juejin.cn/post/7686361321609887790 |
+| 人工智能 | 文章热榜 | 发布 3 天登顶 HN：不生成一个字的模型 Jev，我把它的源码和黑料都扒了一遍 | https://juejin.cn/post/7686669083098775562 |
+| 人工智能 | 文章热榜 | 微信里多了个[小微]，可以帮你看朋友圈、发消息、点外卖了 | https://juejin.cn/post/7685606304111509545 |
+| 开发工具 | 文章热榜 | 跨平台开发地图 | 2026年9月 | https://juejin.cn/post/7686341837753368611 |
+| 开发工具 | 文章热榜 | 从 0 到 1 搭建你的 AI Agent 平台：当 Agent 有了工厂，人人都能造同事 | https://juejin.cn/post/7686588753231560740 |
+| 开发工具 | 文章热榜 | 一天一个开源项目（第219篇）：Openship —— 自托管部署平台，把 Vercel 的体验搬到你自己的服务器上 | https://juejin.cn/post/7685982562691416070 |
+| 开发工具 | 文章热榜 | ServBay 1.33.0 来了：AI Gateway 一键接管主流 AI CLI 与多模型 | https://juejin.cn/post/7685936943797141558 |
+| 开发工具 | 文章热榜 | Docker 部署填鸭表单完整教程：搭建私有化问卷与表单收集平台 | https://juejin.cn/post/7685659198119542818 |
+
 ## 2026-09-18
 
 ### 今日总览
