@@ -2,6 +2,72 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-09-20
+
+### 今日总览
+
+**一句话结论**：固定来源 9/20 可核验增量在 **杭州云栖：阿里云首发云原生 NDR**，以及 **掘金热榜传播** 的 Agent/RAG/框架-for-AI 长文（NeoHorse-1、Lynx 4.0、Hadice、ZCode 安全复盘等）；大厂博客当日无其它硬文。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 阿里/腾讯/字节/百度/美团/京东/滴滴/网易/360/有赞 + 掘金 + 五个专项 |
+| 核心趋势 | 1）云安全产品化 NDR+流量取证；2）前端框架开始写「AI 能力边界」与 A2UI；3）Agent 供应链安全（ZCode 静默上传）进入社区讨论 |
+| 可直接关注 | 云栖 NDR；[NeoHorse-1](https://juejin.cn/post/7686341072615948326)；[Lynx 4.0](https://juejin.cn/post/7686452260913053715)；[RAG 管道](https://juejin.cn/post/7687422041256689691) |
+| 专项检索结论 | **Langfuse/LangChain/Code Graph/Spring Alibaba AI**：固定来源无 9/20 新框架原文。**Loop**：NeoHorse harness+路由可对照 RSI/loop，非 Loop Engineering 官方。**skills**：OpenTiny NEXT Agent Skills 文 |
+| 未发现更新 | 美团/京东/字节博客/百度/滴滴/360/有赞/网易/腾讯官网 9/20 无新硬文；阿里 102/中间件/语雀无 9/20 新文 |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 云安全 | [云原生 NDR 等能力升级（云栖）](https://developer.aliyun.com/article/1610010) | 2026-09-20 | 阿里云开发者社区 | 首发云原生 NDR、攻击前后 5 分钟流量取证；WAAP/DDoS/WAF 一体化；免费安全额度 |
+| Agent/RSI | [NeoHorse-1 黑马解读](https://juejin.cn/post/7686341072615948326) | 2026-09-20（热榜传播） | 掘金 | Harness+Agentic Routing+轨迹筛选做后训练；4B 赛道官方评测叙事 |
+| 前端+AI | [2026 前端框架为 AI 而生](https://juejin.cn/post/7686452260913053715) | 2026-09-11（相邻日期/传播） | 掘金 | Lynx 4.0 lynx-api-docs Skill + A2UI；WeaveFox 多 Agent 100 万行代码 |
+| RAG | [Agent 第四篇：RAG 基础](https://juejin.cn/post/7687422041256689691) | 2026-09-20（热榜传播） | 掘金 | 分块、稠密/稀疏嵌入、混合检索完整管道 |
+| 移动调试 | [货拉拉开源 Hadice](https://juejin.cn/post/7687209773675937818) | 2026-09-20（热榜传播） | 掘金 · 货拉拉 | Android/HarmonyOS 桌面调试工具开源 |
+| 安全 | [ZCode 客户端逆向：Git 仓库上传 OSS](https://juejin.cn/post/7686534839903535144) | 2026-09-20（热榜传播） | 掘金 | Coding Agent 客户端供应链风险案例 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 云原生安全 | [NDR 发布文](https://developer.aliyun.com/article/1610010) | 免部署开通、自动留存取证 | 云上安全架构师 |
+| RAG 入门 | [RAG 管道文](https://juejin.cn/post/7687422041256689691) | 企业知识更新 vs 模型 cutoff | Agent 后端 |
+| A2UI | [Lynx 4.0 文](https://juejin.cn/post/7686452260913053715) | Agent 输出协议消息而非直接 codegen | 跨端+Agent |
+
+### 工程实践归纳
+
+**总体判断**：9/20 知识库侧 **云栖安全** + **Agent 工程长文** 为主；五个专项框架仍无新原文。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Langfuse / LangChain / Code Graph / Spring Alibaba AI | 无 9/20 新文 | 记空 |
+| Loop / harness | NeoHorse-1 | 路由轨迹→训练混合；RSI 仍要人工筛样本 |
+| skills | OpenTiny NEXT / AICoding 组合拳（传播） | Skill 优先级与仓库加密上传风险并读 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [云栖 NDR](https://developer.aliyun.com/article/1610010) | 云原生检测响应产品化 |
+| 推荐 | [RAG 第四篇](https://juejin.cn/post/7687422041256689691) | 系列化 Agent 知识管道 |
+| 延伸 | [ZCode 逆向](https://juejin.cn/post/7686534839903535144) | Agent IDE 客户端数据面 |
+
+### 来源清单
+
+- 检索范围：2026-09-20 00:00:00 到 2026-09-20 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：阿里云开发者社区、掘金；其余已检索
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 阿里巴巴 | 阿里云开发者社区 | 技术文章 | 云原生 NDR（云栖） | 2026-09-20 | https://developer.aliyun.com/article/1610010 |
+| （社区） | 掘金 | Agent | NeoHorse-1 | 2026-09-20（热榜传播） | https://juejin.cn/post/7686341072615948326 |
+| 字节跳动 | 掘金 | 前端+AI | Lynx 4.0 / A2UI | 2026-09-11（相邻日期/传播） | https://juejin.cn/post/7686452260913053715 |
+| （社区） | 掘金 | RAG | Agent 知识获取管道 | 2026-09-20（热榜传播） | https://juejin.cn/post/7687422041256689691 |
+| 货拉拉 | 掘金 | 开源工具 | Hadice | 2026-09-20（热榜传播） | https://juejin.cn/post/7687209773675937818 |
+| （社区） | 掘金 | 安全 | ZCode 客户端逆向 | 2026-09-20（热榜传播） | https://juejin.cn/post/7686534839903535144 |
+
 ## 2026-09-19
 
 ### 今日总览

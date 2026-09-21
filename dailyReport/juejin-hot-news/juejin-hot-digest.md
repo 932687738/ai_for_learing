@@ -2,6 +2,108 @@
 
 按 Asia/Shanghai 时区汇总掘金文章热榜与收藏热榜（后端 / 前端 / 人工智能 / 开发工具），按文章链接去重并归纳正文。
 
+## 2026-09-21
+
+### 今日总览
+
+**一句话结论**：`2026-09-21` 新 URL 主线是 **RAG 管道系列爆热**、**NeoHorse-1/ Lynx-for-AI** 与 **Agent IDE 供应链（ZCode）**，后端槽补单表恢复与 Canvas 游戏。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 文章热榜 + 收藏热榜 × 后端/前端/人工智能/开发工具 |
+| 榜单规模 | 每槽最多 15 条；列表总条数 120；去重后新 URL **15**；跳过已见 **105**；详情成功 15 / 失败 0 |
+| 核心趋势 | 1）RAG/框架-for-AI 长文占前端榜；2）安全从模型转向客户端静默上传；3）老 Skill 文首次进入热榜 |
+| 可直接关注 | [RAG 第四篇](https://juejin.cn/post/7687422041256689691)；[ZCode 逆向](https://juejin.cn/post/7686534839903535144)；[NeoHorse-1](https://juejin.cn/post/7686341072615948326) |
+
+### 后端
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 10 | [只恢复一张表，别把整个库都还回去](https://juejin.cn/post/7687439830713237513) | vipxieliang | 赞1/藏0/阅719 | 单表误删/误改时用 binlog 或备份只还原一张表，避免全库 PITR。偏 DBA 实操。 | https://juejin.cn/post/7687439830713237513 |
+| 13 | [真没想到，AI 圈又杀出来一匹黑马！](https://juejin.cn/post/7686341072615948326) | 作者见文 | 赞3/藏3/阅429 | 介绍 NeoHorse-1：Harness+Agentic Routing 记录调用轨迹，筛成后训练数据，探索 RSI 工程路径；4B 赛道评测叙事。 | https://juejin.cn/post/7686341072615948326 |
+| 14 | [为什么 AI 写代码时，总喜欢“防御性编程”？](https://juejin.cn/post/7686396501736357951) | 作者见文 | 赞5/藏3/阅308 | 简单方法被 AI 堆满判空/校验/重试；讨论 prompt 与 review 如何约束过度防御。 | https://juejin.cn/post/7686396501736357951 |
+| 15 | [不用游戏引擎，用 Canvas 2D 做搜打撤游戏](https://juejin.cn/post/7686283257302925338) | 作者见文 | 赞4/藏7/阅304 | Canvas 2D 实现背包归属、掩体挡子弹、撤离结算等状态机；无引擎游戏逻辑向。 | https://juejin.cn/post/7686283257302925338 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 前端
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 1 | [走进 AI Agent 第四篇：知识获取管道——RAG 基础](https://juejin.cn/post/7687422041256689691) | 作者见文 | 赞9/藏7/阅12103 | 企业知识更新：分块、稠密/稀疏嵌入、混合检索到 Agent 可读上下文；系列第四篇。 | https://juejin.cn/post/7687422041256689691 |
+| 11 | [ZCode 把整个 Git 仓库加密上传到了阿里云 OSS](https://juejin.cn/post/7686534839903535144) | 作者见文 | 赞3/藏3/阅1243 | 逆向智谱 ZCode：登录后静默打包含 Git 历史的加密包上传 OSS；Agent IDE 供应链警示。 | https://juejin.cn/post/7686534839903535144 |
+| 12 | [2026年，前端框架开始为 AI 而生了](https://juejin.cn/post/7686452260913053715) | 作者见文 | 赞8/藏11/阅735 | Lynx 4.0 发布 lynx-api-docs Skill 与 A2UI；WeaveFox 多 Agent 协同与百万行生成量。 | https://juejin.cn/post/7686452260913053715 |
+| 13 | [记录一种很新的大屏开发方式](https://juejin.cn/post/7687436260063100963) | 作者见文 | 赞18/藏10/阅456 | AI 承接园区三维大屏：Revit/IFC→Three.js→Vue iframe；LOD 与构件交互。 | https://juejin.cn/post/7687436260063100963 |
+| 14 | [为什么越来越多开发者开始用 PostgreSQL？](https://juejin.cn/post/7686397150886477851) | 作者见文 | 赞6/藏6/阅660 | Stack Overflow 调查趋势解读：Postgres 占比上升；选型讨论，非 9/21 官方发布。 | https://juejin.cn/post/7686397150886477851 |
+| 14 | [摸鱼神器：一边写代码，一边刷剧](https://juejin.cn/post/7685770509586284550) | 作者见文 | 赞9/藏7/阅668 | Vibe Coding 等待窗口的趣味工具文；与 AI 工作流相关但偏娱乐。 | https://juejin.cn/post/7685770509586284550 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 人工智能
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 4 | [货拉拉开源Hadice：安卓 & 鸿蒙桌面调试工具](https://juejin.cn/post/7687209773675937818) | 货拉拉技术 | 赞6/藏1/阅187 | Hadice 开源：Android/HarmonyOS 桌面调试，内部经验沉淀。 | https://juejin.cn/post/7687209773675937818 |
+| 10 | [我终于遇到一台懂 AI 编程的专业编程显示器！](https://juejin.cn/post/7687386851712991278) | 作者见文 | 赞2/藏0/阅105 | 显示器评测向；Vibe Coding 阅读体验，偏硬件。 | https://juejin.cn/post/7687386851712991278 |
+| 15 | [OpenTiny NEXT 如何构建 Agent 时代的 Web 应用？](https://juejin.cn/post/7686078320399974438) | 作者见文 | 赞1/藏1/阅101 | OpenTiny NEXT：Agent Skills、TinyRobot、GenUI SDK 等前端 AI 工具链介绍。 | https://juejin.cn/post/7686078320399974438 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 开发工具
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 14 | [Agent 新手 Skill 优先级指南](https://juejin.cn/post/7663018729802498082) | 作者见文 | 赞8/藏16/阅404 | Skill 像 SOP：先装证据收集/测试再补专业能力；新手优先级清单。 | https://juejin.cn/post/7663018729802498082 |
+| 15 | [分享一套 AICoding 组合拳](https://juejin.cn/post/7664486932710113331) | 歪歪 | 赞47/藏88/阅2964 | GitHub 上一套 skills 工作流：从想法到 AICoding 落地；老文首次上热榜。 | https://juejin.cn/post/7664486932710113331 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 跨榜重复与去重说明
+
+- 本轮新摘要 URL 数：15
+- 因 `seen_urls` 跳过：105
+- 同文多榜：本轮 15 篇均仅单槽
+
+### 来源清单
+
+- 快照日：2026-09-21（Asia/Shanghai）
+- 页面：https://juejin.cn/hot/articles 、 https://juejin.cn/hot/collected-articles
+- 抓取：`tools/juejin_hot_fetch.py` → `_staging_latest.json`
+
+| 标签 | 榜单 | 标题 | 链接 |
+| --- | --- | --- | --- |
+| 后端 | 文章热榜 | 只恢复一张表，别把整个库都还回去 | https://juejin.cn/post/7687439830713237513 |
+| 后端 | 文章热榜 | 真没想到，AI 圈又杀出来一匹黑马！ | https://juejin.cn/post/7686341072615948326 |
+| 后端 | 文章热榜 | 为什么 AI 写代码时，总喜欢“防御性编程”？ | https://juejin.cn/post/7686396501736357951 |
+| 后端 | 文章热榜 | 不用游戏引擎，用 Canvas 2D 做搜打撤游戏 | https://juejin.cn/post/7686283257302925338 |
+| 前端 | 文章热榜 | 走进 AI Agent 第四篇：知识获取管道——RAG 基础 | https://juejin.cn/post/7687422041256689691 |
+| 前端 | 文章热榜 | 2026年，前端框架开始为 AI 而生了 | https://juejin.cn/post/7686452260913053715 |
+| 前端 | 文章热榜 | 记录一种很新的大屏开发方式 | https://juejin.cn/post/7687436260063100963 |
+| 前端 | 文章热榜 | 为什么越来越多开发者开始用 PostgreSQL？ | https://juejin.cn/post/7686397150886477851 |
+| 前端 | 文章热榜 | ZCode 把整个 Git 仓库加密上传到了阿里云 OSS | https://juejin.cn/post/7686534839903535144 |
+| 前端 | 文章热榜 | 摸鱼神器：一边写代码，一边刷剧 | https://juejin.cn/post/7685770509586284550 |
+| 人工智能 | 文章热榜 | 货拉拉开源Hadice：安卓 & 鸿蒙桌面调试工具 | https://juejin.cn/post/7687209773675937818 |
+| 人工智能 | 文章热榜 | 我终于遇到一台懂 AI 编程的专业编程显示器！ | https://juejin.cn/post/7687386851712991278 |
+| 人工智能 | 文章热榜 | OpenTiny NEXT 如何构建 Agent 时代的 Web 应用？ | https://juejin.cn/post/7686078320399974438 |
+| 开发工具 | 文章热榜 | 分享一套 AICoding 组合拳 | https://juejin.cn/post/7664486932710113331 |
+| 开发工具 | 文章热榜 | Agent 新手 Skill 优先级指南 | https://juejin.cn/post/7663018729802498082 |
+
 ## 2026-09-20
 
 ### 今日总览
