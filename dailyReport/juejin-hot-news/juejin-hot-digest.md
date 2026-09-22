@@ -2,6 +2,109 @@
 
 按 Asia/Shanghai 时区汇总掘金文章热榜与收藏热榜（后端 / 前端 / 人工智能 / 开发工具），按文章链接去重并归纳正文。
 
+## 2026-09-22
+
+### 今日总览
+
+**一句话结论**：`2026-09-22` 新 URL 主线是 **ZCode 信任危机与 JEV/框架选型**、**Qwen/AgentScope 实践**，开发工具槽补 Hypit 与 XXL-JOB Docker。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 文章热榜 + 收藏热榜 × 后端/前端/人工智能/开发工具 |
+| 榜单规模 | 列表 120；新 URL **16**；跳过已见 **104**；详情成功 16 / 失败 0 |
+| 核心趋势 | 1）Java AI 框架选型热；2）Agent IDE 上传 .git 成 AI 榜头条；3）JEV 结构化决策持续发酵 |
+| 可直接关注 | [ZCode 复盘](https://juejin.cn/post/7687441604429692955)；[框架选型](https://juejin.cn/post/7687440193649033222)；[JEV 实战](https://juejin.cn/post/7686808742222856211) |
+
+### 后端
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 8 | [Spring AI、LangChain4j、AgentScope、Embabel，哪个AI框架更好？](https://juejin.cn/post/7687440193649033222) | 作者见文 | 赞10/藏13/阅521 | 智能客服立项：四人争论 Spring AI 官方稳、LangChain4j 灵活、AgentScope 阿里系等；对比 Embabel，给选型维度而非结论。 | https://juejin.cn/post/7687440193649033222 |
+| 10 | [为什么最近开始关注 JEV？几个实战案例告诉你答案](https://juejin.cn/post/7686808742222856211) | 作者见文 | 赞9/藏4/阅564 | JEV 做路由/RAG 排序/代码审查/风险判断等结构化决策，非文本生成；与 TypeSafe System One 叙事一致。 | https://juejin.cn/post/7686808742222856211 |
+| 11 | [推荐一个牛逼的AgentScope系统](https://juejin.cn/post/7687438959296413732) | 苏三 | 赞7/藏8/阅407 | 基于 AgentScope 的多 Agent 企业招聘系统；作者系列第 14 个 SpringBoot/AI 项目之一。 | https://juejin.cn/post/7687438959296413732 |
+| 15 | [弃用 ZCode，转 DeepSeek Harness：GitHub Actions 自建 Windows 打包](https://juejin.cn/post/7686780705862582278) | 作者见文 | 赞1/藏3/阅361 | ZCode 静默上传实锤后改 DSH；无官方 Windows 包则 fork 用 Actions 打 .exe，浏览器操作实录。 | https://juejin.cn/post/7686780705862582278 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 前端
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 10 | [2026年9月，前端圈同时发生了四件事](https://juejin.cn/post/7687443714885959699) | 作者见文 | 赞12/藏8/阅1024 | ES2026 Temporal、Tailwind/Shopify、Lynx-for-AI、WeaveFox 等四线汇总，指向前端为 Agent 服务。 | https://juejin.cn/post/7687443714885959699 |
+| 14 | [从 0 到 1，记录我的第一个出海 SaaS](https://juejin.cn/post/7687457196955631657) | 作者见文 | 赞17/藏8/阅344 | 独立开发者出海：万事达卡、域名、工具站冷启动；非 AI 专文。 | https://juejin.cn/post/7687457196955631657 |
+| 15 | [这个小程序是 AI 帮我写的，可它里面一个 AI 功能都没有](https://juejin.cn/post/7686699741968400430) | 作者见文 | 赞6/藏3/阅474 | 厨菜记小程序：家庭私有菜单，无推荐流；AI 辅助开发但产品本身不做 AI 功能。 | https://juejin.cn/post/7686699741968400430 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 人工智能
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 4 | [智谱 ZCode 静默上传 Git 历史：48 小时信任危机复盘](https://juejin.cn/post/7687441604429692955) | 作者见文 | 赞19/藏8/阅2086 | ferstar 发现 ~/.zcode 313MB 加密包与状态文件；披露本地商业项目 Git 历史被上传 OSS 的时间线。 | https://juejin.cn/post/7687441604429692955 |
+| 7 | [本地图库语义搜索实战：接上蓝耘元生代](https://juejin.cn/post/7687331138987196425) | 作者见文 | 赞5/藏2/阅1880 | 本地图库用多模态 embedding 做「傍晚海边」类语义搜图；工程向 RAG/视觉检索。 | https://juejin.cn/post/7687331138987196425 |
+| 13 | [WorkBuddy 最值得落地的 10 个技能](https://juejin.cn/post/7686407614478893108) | 作者见文 | 赞8/藏14/阅676 | Java 后端向：springboot-scaffold、code-review、mcp-builder、TDD 等 skill 清单。 | https://juejin.cn/post/7686407614478893108 |
+| 14 | [【AI+Gpt-Image2.5】虚拟角色](https://juejin.cn/post/7685701789799022602) | 作者见文 | 赞7/藏6/阅526 | 图像生成趣味实践；偏创意非工程框架。 | https://juejin.cn/post/7685701789799022602 |
+| 15 | [AI越来越强了，为什么测试人反而越来越累](https://juejin.cn/post/7686408837754748978) | 作者见文 | 赞10/藏10/阅474 | AI 提效研发但测试成瓶颈；「迎合 vs 挑刺」与验证难以线性扩展。 | https://juejin.cn/post/7686408837754748978 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 开发工具
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 7 | [一行命令复刻爆款视频，Hypit 从安装到出片](https://juejin.cn/post/7687521521469440041) | 怕浪猫 | 赞4/藏2/阅153 | Hypit CLI 复刻短视频广告结构；9/17 文，热榜传播。 | https://juejin.cn/post/7687521521469440041 |
+| 11 | [Docker 部署 XXL-JOB 3.4.2](https://juejin.cn/post/7686043275372183586) | 作者见文 | 赞1/藏3/阅140 | 分布式任务调度 Docker 部署教程；无 AI 增量。 | https://juejin.cn/post/7686043275372183586 |
+| 14 | [Wails v2 + Go + Vue3 架构约定编译成会变红的测试](https://juejin.cn/post/7686798164308279330) | 作者见文 | 赞2/藏1/阅86 | 把 ARCH 规范变成失败即红的测试，防止脚手架文档腐烂。 | https://juejin.cn/post/7686798164308279330 |
+| 15 | [如何用 TraeCode 构建个人知识库 Wiki](https://juejin.cn/post/7686674237757898790) | 作者见文 | 赞1/藏0/阅139 | LLM Wiki：人策展、LLM 维护摘要与交叉引用；个人知识库模式。 | https://juejin.cn/post/7686674237757898790 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 跨榜重复与去重说明
+
+- 本轮新摘要 URL 数：16
+- 因 `seen_urls` 跳过：104
+- 同文多榜：本轮均单槽
+
+### 来源清单
+
+- 快照日：2026-09-22（Asia/Shanghai）
+- 页面：https://juejin.cn/hot/articles 、 https://juejin.cn/hot/collected-articles
+
+| 标签 | 榜单 | 标题 | 链接 |
+| --- | --- | --- | --- |
+| 后端 | 文章热榜 | Spring AI、LangChain4j、AgentScope、Embabel，哪个AI框架更好？ | https://juejin.cn/post/7687440193649033222 |
+| 后端 | 文章热榜 | 为什么最近开始关注 JEV？几个实战案例告诉你答案 | https://juejin.cn/post/7686808742222856211 |
+| 后端 | 文章热榜 | 推荐一个牛逼的AgentScope系统 | https://juejin.cn/post/7687438959296413732 |
+| 后端 | 文章热榜 | 弃用 ZCode，转 DeepSeek Harness：GitHub Actions 自建 Windows 打包 | https://juejin.cn/post/7686780705862582278 |
+| 前端 | 文章热榜 | 2026年9月，前端圈同时发生了四件事 | https://juejin.cn/post/7687443714885959699 |
+| 前端 | 文章热榜 | 从 0 到 1，记录我的第一个出海 SaaS | https://juejin.cn/post/7687457196955631657 |
+| 前端 | 文章热榜 | 这个小程序是 AI 帮我写的，可它里面一个 AI 功能都没有 | https://juejin.cn/post/7686699741968400430 |
+| 人工智能 | 文章热榜 | 智谱 ZCode 静默上传 Git 历史：48 小时信任危机复盘 | https://juejin.cn/post/7687441604429692955 |
+| 人工智能 | 文章热榜 | 本地图库语义搜索实战：接上蓝耘元生代 | https://juejin.cn/post/7687331138987196425 |
+| 人工智能 | 文章热榜 | WorkBuddy 最值得落地的 10 个技能 | https://juejin.cn/post/7686407614478893108 |
+| 人工智能 | 文章热榜 | 【AI+Gpt-Image2.5】虚拟角色 | https://juejin.cn/post/7685701789799022602 |
+| 人工智能 | 文章热榜 | AI越来越强了，为什么测试人反而越来越累 | https://juejin.cn/post/7686408837754748978 |
+| 开发工具 | 文章热榜 | 一行命令复刻爆款视频，Hypit 从安装到出片 | https://juejin.cn/post/7687521521469440041 |
+| 开发工具 | 文章热榜 | Docker 部署 XXL-JOB 3.4.2 | https://juejin.cn/post/7686043275372183586 |
+| 开发工具 | 文章热榜 | Wails v2 + Go + Vue3 架构约定编译成会变红的测试 | https://juejin.cn/post/7686798164308279330 |
+| 开发工具 | 文章热榜 | 如何用 TraeCode 构建个人知识库 Wiki | https://juejin.cn/post/7686674237757898790 |
+
 ## 2026-09-21
 
 ### 今日总览

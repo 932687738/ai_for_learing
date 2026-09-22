@@ -2,6 +2,73 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-09-21
+
+### 今日总览
+
+**一句话结论**：固定来源 9/21 增量在 **阿里云开发者社区 Qwen3.7/3.8-Max Agent 实战长文** 与 **Jev「System One」企业放权讨论**；掘金热榜补 **Java AI 框架选型、ZCode 信任危机、AgentScope 招聘系统** 等。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 固定清单 + 掘金 + 五个专项 |
+| 核心趋势 | 1）国内社区继续写 Qwen Agent 闭环与 API 避坑；2）Jev 结构化决策进企业治理叙事；3）Coding Agent 客户端上传 Git 历史成安全热点 |
+| 可直接关注 | [Qwen3.8-Max 指南](https://developer.aliyun.com/article/1765214)；[Jev 企业放权](https://developer.aliyun.com/article/1765008)；[Spring AI vs LangChain4j 选型](https://juejin.cn/post/7687440193649033222) |
+| 专项检索结论 | **Spring Alibaba AI**：Qwen3.8 社区文（非 github release）。**LangChain/LangChain4j**：掘金选型文对照 Spring AI/AgentScope。**Langfuse/Code Graph/Loop**：无 9/21 固定来源框架原文 |
+| 未发现更新 | 美团/京东/字节博客/百度/滴滴/360/有赞/网易/腾讯官网 9/21 无新硬文；阿里 102/中间件/语雀无 9/21 新文 |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 大模型/Agent | [Qwen3.8‑Max 全解析](https://developer.aliyun.com/article/1765214) | 2026-09-21 | 阿里云开发者社区 | MoE 2.4T/激活 95B、百万上下文、Agent API 避坑（营销文，价格以控制台为准） |
+| 大模型/Agent | [Qwen3.7‑Max 深度实战](https://developer.aliyun.com/article/1765073) | 2026-09-21 | 阿里云开发者社区 | 长周期 Agent 闭环、多文件工程编程教程向 |
+| Agent 决策 | [Jev 火了：企业该如何放权？](https://developer.aliyun.com/article/1765008) | 2026-09-21 | 阿里云开发者社区 | System One 模型；对照 9/14–18 安全框架与 Accenture eval |
+| Java AI | [Spring AI、LangChain4j、AgentScope 选型](https://juejin.cn/post/7687440193649033222) | 2026-09-21（热榜） | 掘金 | 智能客服场景框架对比辩论 |
+| 安全 | [智谱 ZCode 静默上传复盘](https://juejin.cn/post/7687441604429692955) | 2026-09-21（热榜） | 掘金 | ~/.zcode 313MB 加密包；与 DSH 迁移文对照 |
+| Agent 框架 | [AgentScope 企业招聘系统](https://juejin.cn/post/7687438959296413732) | 2026-09-21（热榜） | 掘金 | 多智能体编排实战系列 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Qwen Agent | [3.8-Max 指南](https://developer.aliyun.com/article/1765214) | 上下文缓存、结构化输出、长任务 | Java/云 API 集成 |
+| 框架选型 | [Spring AI vs LC4j](https://juejin.cn/post/7687440193649033222) | 官方栈 vs 阿里 AgentScope 生态 | 国内 Java Agent 立项 |
+| 客户端安全 | [ZCode 复盘](https://juejin.cn/post/7687441604429692955) | Agent IDE 数据面与 .git 历史 | 安全+研发负责人 |
+
+### 工程实践归纳
+
+**总体判断**：9/21 知识库以 **Qwen Agent 教程** + **Agent IDE 信任** 为主；专项无新 changelog。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Spring Alibaba AI / Qwen | 3.7/3.8 社区长文 | 与 Spring AI 选型文一起读 |
+| LangChain4j / AgentScope | 掘金对比 | 编排框架≠模型；看团队栈 |
+| Langfuse / Code Graph / Loop | 无 9/21 新文 | 记空 |
+| skills | WorkBuddy 10 技能（传播） | Java 后端 skill 清单 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 推荐 | [Qwen3.8-Max 指南](https://developer.aliyun.com/article/1765214) | Agent 长任务 API 参数扫盲 |
+| 推荐 | [框架选型文](https://juejin.cn/post/7687440193649033222) | 国内 Java Agent 立项常见分歧 |
+| 必读 | [ZCode 复盘](https://juejin.cn/post/7687441604429692955) | 与 AI 日报 Gemini/Irregular 同属 Agent 安全周 |
+
+### 来源清单
+
+- 检索范围：2026-09-21 00:00:00 到 2026-09-21 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：阿里云开发者社区、掘金；其余已检索
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 阿里巴巴 | 阿里云开发者社区 | 教程 | Qwen3.8-Max 全解析 | 2026-09-21 | https://developer.aliyun.com/article/1765214 |
+| 阿里巴巴 | 阿里云开发者社区 | 教程 | Qwen3.7-Max 实战 | 2026-09-21 | https://developer.aliyun.com/article/1765073 |
+| 阿里巴巴 | 阿里云开发者社区 | 观点 | Jev 企业放权 | 2026-09-21 | https://developer.aliyun.com/article/1765008 |
+| （社区） | 掘金 | Java AI | 框架选型 | 2026-09-21（热榜） | https://juejin.cn/post/7687440193649033222 |
+| （社区） | 掘金 | 安全 | ZCode 复盘 | 2026-09-21（热榜） | https://juejin.cn/post/7687441604429692955 |
+| （社区） | 掘金 | Agent | AgentScope 招聘 | 2026-09-21（热榜） | https://juejin.cn/post/7687438959296413732 |
+
 ## 2026-09-20
 
 ### 今日总览
