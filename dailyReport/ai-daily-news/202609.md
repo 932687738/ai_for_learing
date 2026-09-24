@@ -2,6 +2,154 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-09-23
+
+### 今日总览
+
+**一句话结论**：9 月 23 日主线是 **Claude Code v2.1.280 把 Opus 5.5 设为默认 Opus，并把 Pro/Team Standard 默认模型从 Sonnet 换成 Opus**，叠加 **Copilot 本地沙箱与代码审查配置 GA**；Anthropic 同日公开 **Claude 在噬菌体 DNA 中发现类 CRISPR 酶系统 ART**。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方 release/changelog、科学博文、Copilot 平台、政策议程、专项主题、中文固定来源补充 |
+| 核心趋势 | 1）Opus 5.5 从可选变成 Claude Code 默认档，便宜档套餐也会默认烧 Opus；2）Agent 执行面补沙箱与审查力度；3）科学发现仍是「人做实验、Agent 扫库」 |
+| 可直接关注 | [Claude Code v2.1.280](https://github.com/anthropics/claude-code/releases/tag/v2.1.280)；[Copilot 本地沙箱](https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app/)；[ART 酶系统](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system) |
+| 专项检索结论 | **Claude Code**：v2.1.280 于 UTC 9/22 16:38 发布，对应北京时间 9/23 00:38。**Codex CLI / OpenClaw / Hermes**：未核到 9/23 GitHub tag。**Spring AI / Spring Alibaba AI**：无 9/23 release（Langfuse 接线 PR 仍为 3 月开立、未合并）。**Langfuse / LangChain·LangGraph / Code Graph / Loop Engineering / skills**：无 9/23 官方 changelog |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Claude Code | [v2.1.280](https://github.com/anthropics/claude-code/releases/tag/v2.1.280) | 2026-09-23（Published 2026-09-22 16:38 UTC） | 开源发布 | Opus 5.5 成为默认 Opus；Pro/Team Standard 默认从 Sonnet 改为 Opus；symlink 写入按落地路径审批 |
+| Copilot | [Local sandboxing in the Copilot app](https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app/) | 2026-09-23 | 官方发布 | 按项目限制文件/网络/凭据；OS 无法执行策略则失败而不是裸跑；默认关闭，public preview |
+| Copilot | [More ways to request Copilot code reviews](https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews/) | 2026-09-23 | 官方发布 | 全套餐个人审查页；自动审查可覆盖新 push/draft；企业可设 Lite/Balanced 默认力度 |
+| 科学发现 | [Claude discovers a novel enzyme system](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system) | 2026-09-23 | 官方发布 | 约 950 个 Agent、21 小时、2.1 亿 token 扫 RT 家族；人做湿实验；功能仍未知，preprint 未同行评审 |
+| 模型跟进 | [TOI: GPT-6 Sol and Luna](https://timesofindia.indiatimes.com/technology/tech-news/openai-expands-gpt-6-lineup-with-cheaper-faster-sol-and-luna-models/articleshow/134425564.cms) | 2026-09-23（相邻日期/中国时间窗口传播） | 技术媒体 | 复述 9/22 发布：Sol $2/$10、Luna $0.10/$0.50；标准 Chat 尚未开放 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Claude Code | [v2.1.280](https://github.com/anthropics/claude-code/releases/tag/v2.1.280) | 默认 Opus、MCP 描述长度上限、auto mode 拒绝后不再空转重试、符号链接写路径 | 升级后看账单与权限的人 |
+| Agent 沙箱 | [Copilot app sandbox](https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app/) | `/sandbox on` 只改当前会话；与 CLI、云沙箱配置分开 | 本地 Agent 要碰 git/网络的团队 |
+| 代码审查 | [Copilot review settings](https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews/) | Lite vs Balanced；企业默认可被组织/仓库覆盖 | 平台 admin |
+| AI for science | [ART 博文](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system) | maker 扫库 + 人做实验；BSL-1/2，不碰人类病原 | 想看 Agent 科学工作流边界的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：工程增量在 **默认模型上调** 与 **执行沙箱**，框架专项无新 release。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Claude Code | Pro/Team Standard 默认 Opus；子 Agent 会继承会话模型 | 不改 `/model` 的长任务会多烧额度；effort 旧配置不会自动套到新模型 |
+| 权限 | symlink 按真实落地路径判断；auto mode 安全检查无答案时退避，连续 10 次停 | 不要用链接把写操作绕出工作区 |
+| Copilot | 本地沙箱默认关；策略执行不了就失败 | 比「沙箱开了但实际没隔离」更安全 |
+| 科学 Agent | 950 路并行扫库，湿实验仍是人 | 高并行假设生成要配人工口味过滤 |
+| Langfuse / LangChain / Spring / Code Graph / Loop / skills / Codex CLI | 无已核验 9/23 发布 | 专项记空 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [Claude Code v2.1.280](https://github.com/anthropics/claude-code/releases/tag/v2.1.280) | 当天对账单和默认行为影响最大的官方 tag |
+| 推荐 | [Copilot 本地沙箱](https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app/) | Agent 误命令的最小隔离面 |
+| 推荐 | [ART 酶系统](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system) | 看清「自主发现」实际是扫库+人实验，且功能未明 |
+| 延伸 | [Copilot code review](https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews/) | 企业审查力度终于能设默认值 |
+
+### 来源清单
+
+- 检索范围：2026-09-23 00:00:00 到 2026-09-23 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, github.blog, anthropic.com, theverge.com, thenextweb.com, timesofindia.indiatimes.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Claude Code v2.1.280 | 2026-09-23（Published 2026-09-22 16:38 UTC） | https://github.com/anthropics/claude-code/releases/tag/v2.1.280 |
+| 官方发布 | Local sandboxing in the Copilot app | 2026-09-23 | https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app/ |
+| 官方发布 | Copilot code review settings | 2026-09-23 | https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews/ |
+| 官方发布 | Claude discovers ART enzyme system | 2026-09-23 | https://www.anthropic.com/news/claude-discovers-novel-enzyme-system |
+| 技术媒体 | The Verge: Anthropic biolab | 2026-09-23 | https://www.theverge.com/ai-artificial-intelligence/999470/anthropic-biolab-claude-crispr |
+| 技术媒体 | TOI: GPT-6 Sol and Luna | 2026-09-23（相邻日期/中国时间窗口传播） | https://timesofindia.indiatimes.com/technology/tech-news/openai-expands-gpt-6-lineup-with-cheaper-faster-sol-and-luna-models/articleshow/134425564.cms |
+
+## 2026-09-22
+
+### 今日总览
+
+**一句话结论**：9 月 22 日是 **定价与效率同日对撞的 frontier 发布日**——Anthropic 推出 **Claude Opus 5.5**（约 Fable 5.1 水准、比 Opus 5 便宜约 40%），OpenAI 随即放出 **GPT-6 Sol / Luna**（相对 GPT-5.6 促销价 API 腰斩并进 Codex/Copilot）；GitHub 同日把两家新模型与 **C++ 全库索引** 推进 Copilot。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方 changelog、厂商公告、可信媒体、政策监管、专项主题、中文补充 |
+| 核心趋势 | 1）5.5/GPT-6 中档模型以「更少 token、更低价」抢 agentic coding 份额；2）Copilot 模型池同日扩容 + C++ 符号索引；3）美联邦 M-25-21 高影响 AI 合规截止与州级框架并行 |
+| 可直接关注 | [Claude Opus 5.5](https://www.anthropic.com/claude-opus-5-5)；[GPT-6 Sol/Luna（TechCrunch）](https://techcrunch.com/2026/09/22/openai-launches-gpt-6-sol-and-luna/)；[Copilot 上的 Sol/Luna](https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-luna-now-available/)；[Copilot 上的 Opus 5.5](https://github.blog/changelog/2026-09-22-claude-opus-5-5-is-now-available-in-github-copilot/) |
+| 专项检索结论 | **Claude Code**：无 9/22 stable tag（最近 v2.1.278 为 9/19）。**Codex**：产品层接入 Sol/Luna，无 9/22 CLI GitHub tag。**OpenClaw**：v2026.9.5 发布于 9/19，非当日。**Hermes**：v2026.9.21 为 9/21。**Spring AI / Spring Alibaba AI / Langfuse / LangChain·LangGraph / Code Graph / Loop Engineering / skills**：未发现可核验的 9/22 官方 changelog |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 模型 | [Introducing Claude Opus 5.5](https://www.anthropic.com/claude-opus-5-5) | 2026-09-22 | 官方发布 | 5.5 家族首模；默认约 $4/$20；cache read $0.20；thinking 不可关、强制 tool 报错等 API 破坏性变更 |
+| 模型 | [OpenAI launches GPT-6 Sol and Luna](https://techcrunch.com/2026/09/22/openai-launches-gpt-6-sol-and-luna/) | 2026-09-22 | 技术媒体（交叉：Verge/社区） | Sol 面向复杂编码与 agent；Luna 面向高吞吐；相对 5.6 促销价 API 降 50%；晚于 Opus 5.5 约 90 分钟 |
+| Copilot | [GPT-6 Sol and Luna now available](https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-luna-now-available/) | 2026-09-22 | 官方发布 | Sol：Pro+/Max/Biz/Ent；Luna：另含 Pro；按 usage billing；admin model policy 可控 |
+| Copilot | [Claude Opus 5.5 in GitHub Copilot](https://github.blog/changelog/2026-09-22-claude-opus-5-5-is-now-available-in-github-copilot/) | 2026-09-22 | 官方发布 | Pro+/Max/Biz/Ent；早期测试称步数/token 更少；输出带文本水印 |
+| 代码智能 | [Faster C++ code intelligence with WCI](https://github.blog/changelog/2026-09-22-faster-c-code-intelligence-with-whole-codebase-indexing/) | 2026-09-22 | 官方发布 | Copilot CLI 默认开全库符号索引；`/lsp logs` 看进度；大仓首编会抬内存 |
+| Workspace | [Study notebooks in Gemini for Workspace](https://workspaceupdates.googleblog.com/2026/09/study-notebooks-in-gemini-are-now-available-for-Google-Workspace-accounts.html) | 2026-09-22 | 官方发布 | 学校/工作账号可用；需管理员同时打开 Gemini app 与 Gemini Notebook；EEA 延后 |
+| 政策 | [Federal AI compliance deadline; memo page 404](https://forkast.news/the-federal-ai-compliance-deadline-is-here-the-memo-behind-it-has-vanished/) | 2026-09-22 | 技术媒体 | OMB M-25-21 高影响 AI 最低风控汇报截止；白宫原文页据称 404 |
+| 政策 | [Trump doubles down on hands-off AI regulation](https://cyberscoop.com/trump-hands-off-ai-regulation-china-race/) | 2026-09-22 | 技术媒体 | 以对华竞争为由维持宽松；对照近日 agent 越狱/误连事件 |
+| 政策 | [Maryland AI framework](https://governor.maryland.gov/news/press-releases/governor-moore-outlines-ai-framework-protect-marylanders) | 2026-09-22 | 政策标准 | 州级评测、审计、劳工与 24h 事件报告原则 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Claude API | [Opus 5.5 overview](https://platform.claude.com/docs/en/models/opus-5-5/overview) | `claude-opus-5-5`；thinking 不可关；`computer_20251124` 不再接受；工具间文本进 thinking 块 | 已接 Opus 5 的 Agent/工具链 |
+| OpenAI API | [GPT-6 Sol](https://developers.openai.com/api/docs/models/gpt-6-sol) / [Luna](https://developers.openai.com/api/docs/models/gpt-6-luna) | `gpt-6-sol` / `gpt-6-luna`；约 1.05M 上下文 | 要换中档 GPT-6 的 Codex/API 团队 |
+| Copilot 治理 | Sol/Luna 与 Opus 5.5 changelog | 默认启用新模型；Enterprise 用 model policy 关 | Copilot admin |
+| C++ Agent | WCI changelog | 持久符号索引 vs 每次重解析 | Copilot CLI + 大 C++ 仓 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：工程增量在 **模型单价/步数** 与 **IDE 模型池**，不在 LangChain/Langfuse/Spring 框架发布。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Opus 5.5 | 官方称默认 effort 下 FrontierCode 成本约为 Astra 的约 1/5；GitHub 称 VS Code 终端任务步数约为 Opus 5 的一半 | 长任务先比「每任务美元」不要只看榜分；升级前读破坏性变更 |
+| GPT-6 Sol/Luna | 进 Codex、ChatGPT Work 与 Copilot；Luna 对 Free/Go 桌面可用 | 路由：Astra/Opus 扛长程，Sol 日常 agent，Luna 抽数/摘要 |
+| Copilot | 两家同日进 picker；C++ WCI 默认开 | 大仓先看索引内存；Business 检查 default model enablement |
+| Claude Code / Codex CLI | 无 9/22 tag | 模型换了，harness 版本未动 |
+| Langfuse / LangChain / Spring / Code Graph / Loop / skills | 无 9/22 官方更新 | 专项记空 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [Claude Opus 5.5](https://www.anthropic.com/claude-opus-5-5) | 当日最完整的官方评测、价格、安全与「pace the frontier」后首发 |
+| 必读 | [TechCrunch: GPT-6 Sol and Luna](https://techcrunch.com/2026/09/22/openai-launches-gpt-6-sol-and-luna/) | 交叉核验 OpenAI 价格/可用性与同日对撞时间线 |
+| 推荐 | [Copilot Sol/Luna](https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-luna-now-available/) | 研发侧真正能点到的模型入口与套餐边界 |
+| 推荐 | [Opus 5.5 API overview](https://platform.claude.com/docs/en/models/opus-5-5/overview) | 升级会炸的四处破坏性变更 |
+| 延伸 | [Maryland AI framework](https://governor.maryland.gov/news/press-releases/governor-moore-outlines-ai-framework-protect-marylanders) | 联邦放松时州级护栏如何补位 |
+
+### 来源清单
+
+- 检索范围：2026-09-22 00:00:00 到 2026-09-22 23:59:59（Asia/Shanghai）
+- 引用域名：anthropic.com, platform.claude.com, techcrunch.com, theverge.com, community.openai.com, developers.openai.com, github.blog, workspaceupdates.googleblog.com, forkast.news, cyberscoop.com, governor.maryland.gov, thenewstack.io
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Introducing Claude Opus 5.5 | 2026-09-22 | https://www.anthropic.com/claude-opus-5-5 |
+| 官方文档 | Claude Opus 5.5 overview | 2026-09-22 | https://platform.claude.com/docs/en/models/opus-5-5/overview |
+| 技术媒体 | OpenAI launches GPT-6 Sol and Luna | 2026-09-22 | https://techcrunch.com/2026/09/22/openai-launches-gpt-6-sol-and-luna/ |
+| 技术媒体 | OpenAI launches GPT-6 Sol and Luna | 2026-09-22 | https://www.theverge.com/ai-artificial-intelligence/998997/openai-launches-faster-and-more-efficient-gpt-6-sol-and-luna-models |
+| 社区公告 | Announcing GPT-6 Sol and Luna | 2026-09-22 | https://community.openai.com/t/announcing-gpt-6-sol-and-gpt-6-luna-in-the-api-codex-and-chatgpt/1399925 |
+| 官方文档 | GPT-6 Sol model | 2026-09-22 | https://developers.openai.com/api/docs/models/gpt-6-sol |
+| 官方发布 | GPT-6 Sol and Luna in Copilot | 2026-09-22 | https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-luna-now-available/ |
+| 官方发布 | Claude Opus 5.5 in Copilot | 2026-09-22 | https://github.blog/changelog/2026-09-22-claude-opus-5-5-is-now-available-in-github-copilot/ |
+| 官方发布 | C++ whole codebase indexing | 2026-09-22 | https://github.blog/changelog/2026-09-22-faster-c-code-intelligence-with-whole-codebase-indexing/ |
+| 官方发布 | Study notebooks in Gemini for Workspace | 2026-09-22 | https://workspaceupdates.googleblog.com/2026/09/study-notebooks-in-gemini-are-now-available-for-Google-Workspace-accounts.html |
+| 技术媒体 | Federal AI compliance deadline | 2026-09-22 | https://forkast.news/the-federal-ai-compliance-deadline-is-here-the-memo-behind-it-has-vanished/ |
+| 技术媒体 | Trump hands-off AI regulation | 2026-09-22 | https://cyberscoop.com/trump-hands-off-ai-regulation-china-race/ |
+| 政策标准 | Maryland AI framework | 2026-09-22 | https://governor.maryland.gov/news/press-releases/governor-moore-outlines-ai-framework-protect-marylanders |
+
 ## 2026-09-21
 
 ### 今日总览

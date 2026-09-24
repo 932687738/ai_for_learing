@@ -2,6 +2,137 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-09-23
+
+### 今日总览
+
+**一句话结论**：固定来源 9/23 硬文在 **腾讯云开发者社区的 RAG/MCP 鉴权审计** 与 **FastAPI 阻塞事件循环**；掘金窗口补 **PI Harness 拆解、三进制 Qwen 本地部署、Jev 用法**。渠道商云栖复述稿已过滤。五个框架专项无新官方 release。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 阿里/腾讯/字节/百度/美团/京东/滴滴/网易/360/有赞 + 掘金 + 五个专项 |
+| 核心趋势 | 1）企业 Agent 把校验/鉴权/幂等从模型里拆出来；2）社区继续拆 Harness 与本地小模型；3）云栖渠道稿重复芯片参数，不构成新工程原文 |
+| 可直接关注 | [RAG/MCP 鉴权审计](https://cloud.tencent.com/developer/article/2749454)；[PI 生产级 Harness](https://juejin.cn/post/7686462220679594034)；[Bonsai 2 部署](https://juejin.cn/post/7687509634027831348) |
+| 专项检索结论 | **Langfuse / LangChain·LangGraph / Code Graph / Spring Alibaba AI / Loop Engineering**：固定来源内无 9/23 新原文。Spring AI Alibaba 的 Langfuse 接线仍是未合并旧 PR |
+| 未发现更新 | 美团/京东/字节博客/百度/滴滴/360/有赞/网易/阿里 102 与语雀/中间件 9/23 无新硬文；阿里云开发者社区当日可见渠道复述，未作技术原文收录 |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| RAG/MCP | [上下文与工具链：鉴权审计实践 23.4](https://cloud.tencent.com/developer/article/2749454) | 2026-09-23 | 腾讯云+社区 | 上下文、RAG、记忆、业务 API、MCP 分工；模型参数必须过校验网关 |
+| 后端 | [FastAPI async def 与 def](https://cloud.tencent.com/developer/article/2749825) | 2026-09-23 | 腾讯云+社区 | `async def` 里同步 IO 会堵事件循环；阻塞库先用 `def` 进线程池 |
+| Agent Harness | [把 Agent 框架拆开：PI 开发生产级 Harness](https://juejin.cn/post/7686462220679594034) | 2026-09-18（相邻日期/中国时间窗口传播） | 掘金 | `pi-ai` 管模型协议，`pi-agent-core` 管 loop/session/tool/skill |
+| 本地模型 | [16GB 显卡跑 Qwen3.8-27B，只要 7GB](https://juejin.cn/post/7687509634027831348) | 2026-09-21（相邻日期/中国时间窗口传播） | 掘金 | 三进制权重部署手记；体积与效果以仓库实测为准 |
+| Agent 决策 | [Jev 到底是什么](https://juejin.cn/post/7688238990706016283) | 2026-09-23 | 掘金 | 测试开发视角：路由/分类用决策模型，生成仍走 LLM |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 企业 Agent | [鉴权审计 23.4](https://cloud.tencent.com/developer/article/2749454) | 最小权限、幂等、审计；不把 JSON 参数直接打到业务接口 | Java/通用后端接工具的人 |
+| Harness | [PI 拆解](https://juejin.cn/post/7686462220679594034) | 模型适配与 Agent loop 分包 | 自研 Agent 运行时 |
+| 本地推理 | [Bonsai 2](https://juejin.cn/post/7687509634027831348) | 三进制 GGUF、消费级显存 | 想离线跑 27B 的人 |
+
+### 工程实践归纳
+
+**总体判断**：9/23 知识库把 **工具调用的安全兜底** 写清楚了；Langfuse、LangChain、Code Graph、Spring Alibaba AI、Loop Engineering **未发现可核验更新**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| RAG / MCP | 腾讯云长文把知识、记忆、API、MCP 拆开 | 幻觉和越权用应用层拦截，不靠换更大模型 |
+| Harness | 掘金用 PI 0.85.1 对照 LangGraph 职责 | 先分清协议适配和 loop，再谈多 Agent |
+| Langfuse / LangChain / Code Graph / Spring Alibaba AI / Loop | 无 9/23 固定来源新文 | 记空 |
+| FastAPI | 同步 DB 放进 `async def` 会拖垮健康检查 | Agent 网关同样不要在事件循环里做阻塞 IO |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [RAG/MCP 鉴权审计](https://cloud.tencent.com/developer/article/2749454) | 当日固定来源里最完整的生产兜底清单 |
+| 推荐 | [PI Harness](https://juejin.cn/post/7686462220679594034) | 用一张职责表看 Agent 框架在拆什么 |
+| 延伸 | [FastAPI async/def](https://cloud.tencent.com/developer/article/2749825) | 高并发网关的经典踩坑 |
+
+### 来源清单
+
+- 检索范围：2026-09-23 00:00:00 到 2026-09-23 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：已覆盖固定来源清单中的公司/组织维度
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 腾讯 | 腾讯云+社区 | 技术文章 | RAG/MCP 鉴权审计 23.4 | 2026-09-23 | https://cloud.tencent.com/developer/article/2749454 |
+| 腾讯 | 腾讯云+社区 | 技术文章 | FastAPI async def | 2026-09-23 | https://cloud.tencent.com/developer/article/2749825 |
+| （社区） | 掘金 | 技术文章 | PI 生产级 Harness | 2026-09-18（相邻日期/中国时间窗口传播） | https://juejin.cn/post/7686462220679594034 |
+| （社区） | 掘金 | 技术文章 | Bonsai 2 部署 | 2026-09-21（相邻日期/中国时间窗口传播） | https://juejin.cn/post/7687509634027831348 |
+| （社区） | 掘金 | 技术文章 | Jev 用法 | 2026-09-23 | https://juejin.cn/post/7688238990706016283 |
+| 阿里巴巴 | 阿里云开发者社区 | 无新增（营销过滤） | 渠道商云栖复述 | 2026-09-23 | https://developer.aliyun.com/article/1765722 |
+
+## 2026-09-22
+
+### 今日总览
+
+**一句话结论**：固定来源 9/22 硬增量在 **阿里云开发者社区对云栖平头哥真武 V900 / 真超节点** 的工程解读；渠道商营销稿已过滤；掘金窗口继续发酵 **Jev 决策模型** 与 **Spring AI RAG 接入**，五个框架专项无新 changelog。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 阿里/腾讯/字节/百度/美团/京东/滴滴/网易/360/有赞 + 掘金 + 五个专项 |
+| 核心趋势 | 1）国产算力叙事从「单卡参数」转向「算力×内存×互联」超节点；2）社区把 Jev 当低成本路由/护栏组件讨论；3）Java RAG 从「建库」转向租户过滤与拒答 |
+| 可直接关注 | [真武 V900](https://developer.aliyun.com/article/1765525)；[Spring AI RAG 实战](https://juejin.cn/post/7687176748632293419)；[ZCode 开源 24h](https://juejin.cn/post/7688252916676231168) |
+| 专项检索结论 | **Spring Alibaba AI**：无 9/22 github/java2ai release。**Spring AI**：掘金有 2.0.1 RAG 接入文（9/20 发、9/22 窗口传播）。**Langfuse / LangChain·LangGraph / Code Graph / Loop Engineering**：固定来源内无 9/22 新原文 |
+| 未发现更新 | 美团/京东/字节博客/百度/滴滴/360/有赞/网易/腾讯技术工程官网 9/22 无新硬文；阿里 102/中间件/语雀无 9/22 新文；腾讯云+社区 9/22 可见转载资讯，无团队原创硬文 |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 算力/基础设施 | [一颗真武 V900，平头哥的算力野心](https://developer.aliyun.com/article/1765525) | 2026-09-22 | 阿里云开发者社区 | 216GB 显存、1200GB/s 片间互联；ICN Switch 千卡内存语义；宣称跑通 Qwen3.8/Kimi K3 |
+| Java RAG | [知识库已经有了，Java 程序员还要做什么？](https://juejin.cn/post/7687176748632293419) | 2026-09-20（相邻日期/中国时间窗口传播） | 掘金 | Spring AI 2.0.1：租户过滤、阈值、拒答、trace |
+| Agent 决策 | [上线 24 小时，13% 付费团队连夜换到 Jev](https://juejin.cn/post/7687855879103021108) | 2026-09-22 | 掘金 | TypeSafe System One；Vercel Gateway 采用叙事（社区转述） |
+| 安全 | [ZCode 开源 24 小时：没有历史的账本](https://juejin.cn/post/7688252916676231168) | 2026-09-22 | 掘金 | 开源仓库无法证明历史上传是否含客户代码 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 智算架构 | [真武 V900](https://developer.aliyun.com/article/1765525) | Scale-up vs Scale-out；统一编址；Agent 多轮把 KV/通信变成瓶颈 | 基础设施与 MoE 推理 |
+| Java RAG | [Spring AI RAG](https://juejin.cn/post/7687176748632293419) | Embedding 对齐、权限过滤、引用来源、资料不足拒答 | 国内 Java 后端 |
+| 决策组件 | [Jev 入门第一课](https://juejin.cn/post/7686925590315696138) | 不生成文本、Schema 并行输出概率 | 想把分类/路由从 LLM 拆出的人 |
+
+### 工程实践归纳
+
+**总体判断**：9/22 知识库主线是 **云栖国产超节点**；专项框架无新发布，社区增量在 **Spring AI RAG 工程化** 与 **Jev vs LLM 路由**。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| Spring Alibaba AI | 无 9/22 官方 release | 记空；真武文属芯片/云，不计入 Graph Agent |
+| Spring AI / RAG | 掘金 2.0.1 接入文 | 建库≠上线；权限与拒答要写在检索层 |
+| Langfuse / LangChain / Code Graph / Loop | 无 9/22 固定来源新文 | 记空 |
+| Jev | 多篇掘金正反讨论 | 分类/护栏用小决策模型，生成仍走 LLM |
+| Agent 客户端安全 | ZCode 开源后追问证据链 | 开源当下代码 ≠ 证明历史未偷包 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [真武 V900](https://developer.aliyun.com/article/1765525) | 当日固定来源唯一可核验的基础设施长文 |
+| 推荐 | [Spring AI RAG](https://juejin.cn/post/7687176748632293419) | 把 RAG 写成后端职责清单 |
+| 推荐 | [ZCode 开源 24h](https://juejin.cn/post/7688252916676231168) | 接 9/21 信任危机，看开源能否当免责声明 |
+
+### 来源清单
+
+- 检索范围：2026-09-22 00:00:00 到 2026-09-22 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：已覆盖固定来源清单中的公司/组织维度
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 阿里巴巴 | 阿里云开发者社区 | 技术文章 | 真武 V900 | 2026-09-22 | https://developer.aliyun.com/article/1765525 |
+| （社区） | 掘金 | 技术文章 | Spring AI RAG 实战 | 2026-09-20（相邻日期/中国时间窗口传播） | https://juejin.cn/post/7687176748632293419 |
+| （社区） | 掘金 | 观点 | Jev 24h 采用叙事 | 2026-09-22 | https://juejin.cn/post/7687855879103021108 |
+| （社区） | 掘金 | 安全 | ZCode 开源 24h | 2026-09-22 | https://juejin.cn/post/7688252916676231168 |
+| 阿里巴巴 | 阿里云开发者社区 | 无新增（营销过滤） | 渠道商云栖解读稿 | 2026-09-22 | https://developer.aliyun.com/article/1765407 |
+
 ## 2026-09-21
 
 ### 今日总览
