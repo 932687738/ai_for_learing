@@ -2,6 +2,198 @@
 
 按 Asia/Shanghai 时区汇总掘金文章热榜与收藏热榜（后端 / 前端 / 人工智能 / 开发工具），按文章链接去重并归纳正文。
 
+## 2026-10-08
+
+### 今日总览
+
+**一句话结论**：10 月 8 日四榜新文主要在文章热榜，主线是 **Java Agent 运行时、技能/插件和本机调试**；收藏热榜没有未收录的新链接。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 文章热榜 + 收藏热榜 × 后端/前端/人工智能/开发工具 |
+| 榜单规模 | 列表 120；新 URL **60**；跳过已见 **60**；详情成功 60 / 失败 0 |
+| 核心趋势 | 1）后端在核对 Spring AI Alibaba 是否停更，并写 Go/Rust 边界；2）人工智能槽集中在 Java Agent、MCP 和 Claude Code Mods；3）开发工具槽有大量 GitHub 日榜转载，另有 vConsole MCP 和本地代码搜索 |
+| 可直接关注 | [Spring AI Alibaba 停更传闻](https://juejin.cn/post/7693821701955567670)；[Claude Code Mods](https://juejin.cn/post/7691498553260884008)；[dowse / tgrep](https://juejin.cn/post/7691151105851195430)；[vConsole MCP](https://juejin.cn/post/7691270105432784931) |
+
+### 后端
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 1 | [Spring AI Alibaba已停更了，Java还有希望吗？](https://juejin.cn/post/7693821701955567670) | 苏三说技术 | 赞16/藏8/阅952 | 作者核对了 spring-ai-alibaba 的 Release：正式版仍停在 2026-03-10 的 v1.1.2.2，并据此反驳「已停更」。结论是仓库在换内核而不是弃坑。Star 数和「换心脏」是作者判断，要以仓库提交记录为准。 | https://juejin.cn/post/7693821701955567670 |
+| 2 | [我埋了 8 个假文件，看谁会上钩：12 天 502 次扫描实录](https://juejin.cn/post/7692743066844135433) | 变量探索SEQVEC | 赞1/藏4/阅404 | 作者放了 8 个假敏感文件，12 天收到 502 次访问、119 个独立 IP，扫描最集中的是 .env。来源里有泄露扫描平台和伪装成常见设备的自动化请求。这是个人蜜罐记录，不能外推成全网比例。 | https://juejin.cn/post/7692743066844135433 |
+| 3 | [2026年后端开发进化：告别CRUD内卷，拥抱AI原生架构与服务编排新时代](https://juejin.cn/post/7691917465479446591) | ZhenYuChen2000 | 赞4/藏4/阅321 | 文章认为 2026 年的后端价值在服务编排、高可用和把 AI 放进架构，而不是继续堆 CRUD。没有给出可复现的系统或指标，适合当作岗位能力清单，不适合当作架构决策。 | https://juejin.cn/post/7691917465479446591 |
+| 4 | [Go 写业务，Rust 扛底盘：一套可落地的混合架构](https://juejin.cn/post/7691152001448820746) | 喵个咪 | 赞5/藏3/阅279 | 用「变化频率 × 延迟敏感度」划分 Go 业务和 Rust 底盘，并比较进程、sidecar、FFI、WASM 四种接法。样本是作者的 RushWind Admin 与 Go 服务共享 proto。成本数字需要在自己的系统里重测。 | https://juejin.cn/post/7691152001448820746 |
+| 5 | [给页面加一个 JSON 编辑器：jsoneditor 的功能、配置和接入注意事项](https://juejin.cn/post/7691155417934594074) | 羲云 | 赞5/藏7/阅215 | 介绍轻量 jsoneditor：一个脚本提供结构、思维导图和文本三种视图，并有 Vue 3 与 React 18 适配。作者声明没有做大数据性能和生产长期验证，行为以他看到的源码为准。 | https://juejin.cn/post/7691155417934594074 |
+| 6 | [Loop Engineering 保姆级教程 + 项目实战](https://juejin.cn/post/7692336657548279842) | hsfxuebao | 赞2/藏1/阅276 | 用 Claude Code 与 OpenClaw 创始人的公开说法引出 Loop Engineering，再写成保姆级实战。适合了解「人写循环、循环去提示模型」这一句，具体命令要以官方文档为准。 | https://juejin.cn/post/7692336657548279842 |
+| 7 | [DuckDB：一个正在改变数据分析方式的数据库](https://juejin.cn/post/7691498553260851240) | 前端小小栈 | 赞1/藏4/阅298 | 把 DuckDB 定义成嵌在进程里的分析库，用 SQL 直接查 CSV、Parquet 或 DataFrame，不必先起一台数据库。适合轻量探查和 AI 侧的本地分析，不是要替换线上 OLTP。 | https://juejin.cn/post/7691498553260851240 |
+| 8 | [用 Codex 加速 Java 开发：从代码生成到测试覆盖的完整实战](https://juejin.cn/post/7692058641252237322) | 要努力啊469 | 赞3/藏5/阅205 | 个人经验：用 Codex 写 Spring 模板、补测试，作者称同类功能从 30–40 小时降到 15–20 小时。没有对照实验，时间不能外推；文中仍把 GPT-4 和 Codex 放在一起说。 | https://juejin.cn/post/7692058641252237322 |
+| 9 | [Redis 分布式锁：从 2.8 之前到 2.8+，一篇讲透](https://juejin.cn/post/7691898006993010698) | 用户622288404819 | 赞3/藏4/阅198 | 按 Redis 2.8 前后讲分布式锁：早期 SETNX 加 EXPIRE 有两步窗口，2.8 起用 SET NX PX。后半写释放、续期和主从边界，是面试向整理，不是新版本发布。 | https://juejin.cn/post/7691898006993010698 |
+| 10 | [百万级数据导出OOM：POI的坑与EasyExcel的流式写入实战（附内存对比）](https://juejin.cn/post/7691585964053512238) | 知守观 | 赞4/藏4/阅183 | 百万行导出时 POI 全量装入内存会 OOM，作者改成 EasyExcel 流式写加分页查询，并提到 CellStyle 数量上限。案例来自作者自己的评估平台，内存对比要以文中实验条件阅读。 | https://juejin.cn/post/7691585964053512238 |
+| 11 | [多环境配置治理：开发、测试、生产连接信息如何隔离](https://juejin.cn/post/7691326130512265254) | 倔强的石头_ | 赞0/藏1/阅247 | 围绕金仓数据库，说明开发、测试、生产的连接信息要分开，避免连错库和把密码提交进仓库。做法是环境隔离，不涉及金仓内核。 | https://juejin.cn/post/7691326130512265254 |
+| 12 | [只会 Vibe Coding 的程序员，为什么可能会被淘汰？](https://juejin.cn/post/7691234322111660067) | 前端小小栈 | 赞2/藏1/阅146 | 文章认为只会逐条提示模型会碰到上限，提效来自一个人同时看管多个 Agent，并给它们可检查的完成条件。没有实验数据，是观点文。 | https://juejin.cn/post/7691234322111660067 |
+| 13 | [DeepSeek Harness 插件开发新手教程](https://juejin.cn/post/7691149921396834354) | 章鱼哥1971 | 赞2/藏3/阅180 | 用一个余额胶囊插件带新手看 DeepSeek Harness、插件和 cordis 的关系，并对照本机目录里的命令。适合第一次写 dsh 插件，路径是作者机器上的。 | https://juejin.cn/post/7691149921396834354 |
+| 14 | [Rust/Go/Java/Python/PHP 大比拼：负载下后端框架到底差多少？](https://juejin.cn/post/7693160537133629455) | 狼爷 | 赞4/藏2/阅135 | 汇总 TechEmpower 等公开基准，强调空闲内存不能代表负载下的吞吐和 P99。文中提醒基准是受控环境，选型仍要看自己的并发和延迟。 | https://juejin.cn/post/7693160537133629455 |
+| 15 | [Spring Boot 2.1 → 3.5 迁移推演：这个 2018 年的项目会炸在哪](https://juejin.cn/post/7692739051067342857) | 知守观 | 赞2/藏3/阅133 | 用一套 2018 年的 Spring Boot 2.1 源码推演升到 3.5：javax 包名、Springfox、Druid 和 MyBatis-Plus 的改名点。这是推演不是已完成的迁移记录。 | https://juejin.cn/post/7692739051067342857 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 前端
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 1 | [Node.js 50个优势场景盘点：一个人单干，为啥我多数时候只用它](https://juejin.cn/post/7691227873459028006) | iDao技术魔方 | 赞6/藏19/阅631 | 把 Node.js 的适用面收成 API、胶水层等几类，并写明什么时候不要用。偏选型清单，附作者认为可抄的代码，不是基准测试。 | https://juejin.cn/post/7691227873459028006 |
+| 2 | [Vue3 UIKit 实战：把聊天、会话、主题和移动端适配全部封装好](https://juejin.cn/post/7691345821564174363) | codeGoogle | 赞6/藏13/阅621 | 在 Vue 3 里封装聊天 UI：会话未读、置顶、草稿和消息区，而不只是把 IM SDK 接上。适合要做会话列表的人，组件边界以作者这套 UIKit 为准。 | https://juejin.cn/post/7691345821564174363 |
+| 3 | [前端转全栈笔记：讲框架之前，先把 TypeScript 这关过了](https://juejin.cn/post/7691835382221389824) | Timmy | 赞7/藏15/阅496 | 前端转全栈时，作者卡在 NestJS 的装饰器和依赖注入，因此先补 TypeScript。是学习笔记，不是框架发布说明。 | https://juejin.cn/post/7691835382221389824 |
+| 4 | [ai agent --- mem0 外挂记忆系统](https://juejin.cn/post/7691517675236556854) | snow来了 | 赞4/藏3/阅366 | 介绍 mem0 的三层范围：用户、Agent、单次运行，以及从对话里抽事实。适合给 Agent 外挂记忆时看作用域怎么分，生产写入策略文中没有展开。 | https://juejin.cn/post/7691517675236556854 |
+| 5 | [2026-09-27-Qwen-Image-2.1-1660Ti本地部署实战](https://juejin.cn/post/7692143474695569458) | 用户337409692426 | 赞3/藏4/阅411 | 在 6GB 的 1660 Ti 上用 GGUF Q4 跑 Qwen-Image-2.1，再用 int8 权重做加速，作者给出约 2.28 倍。标题日期是 9 月 27 日，这篇是低显存实录，硬件结果不能直接照搬。 | https://juejin.cn/post/7692143474695569458 |
+| 6 | [ai agent --- redis 缓存](https://juejin.cn/post/7691450666426286134) | snow来了 | 赞3/藏4/阅372 | 用 Redis 做 Agent 侧缓存，并复述内存、单线程和 epoll。是入门说明，标题里的拼写错误不影响主题，但不要把它当成缓存架构设计。 | https://juejin.cn/post/7691450666426286134 |
+| 7 | [pnpm 12 升级实测](https://juejin.cn/post/7691498553261342760) | 独立开发阿平 | 赞1/藏2/阅368 | 作者在同一台机器上比较 pnpm 11.2.2 和 12.8.1，称四项契约没变、迁移成本低。只是一次实测，锁文件和依赖集不同时要自己再跑。 | https://juejin.cn/post/7691498553261342760 |
+| 8 | [diff 算法（虚拟 DOM Reconciliation）](https://juejin.cn/post/7692296625806229544) | 前端阿凡 | 赞2/藏4/阅332 | 讲虚拟 DOM 的 diff：在新旧树上找一组增删移，并说明最少操作在理论上很难。是算法笔记，没有绑定某一个框架版本的补丁。 | https://juejin.cn/post/7692296625806229544 |
+| 9 | [给 Vue 页面加个 Markdown 编辑器：ME.js 的接入、图片粘贴与音视频](https://juejin.cn/post/7692127219867877414) | 羲云 | 赞6/藏10/阅260 | 在 Vue 页面接入 ME.js，覆盖排版、粘贴图片和音视频，内容以 Markdown 存储。适合后台文章框，不是富文本编辑器的全面评测。 | https://juejin.cn/post/7692127219867877414 |
+| 10 | [前端转 NestJS 全栈实践：从表单页面到微信业务系统](https://juejin.cn/post/7691774360802164751) | 花旗蜕变 | 赞4/藏6/阅261 | 后端只有两人时，作者用 NestJS 从表单做到微信侧业务，写了字段联动、服务端校验和支付幂等。是个人全栈实践，幂等细节要按支付渠道再核对。 | https://juejin.cn/post/7691774360802164751 |
+| 11 | [Nuxt 中使用 useHead 优化 SEO 与 GEO](https://juejin.cn/post/7692387846459654178) | excel | 赞5/藏4/阅213 | 用 Nuxt 的 useHead 写规范链接和 JSON-LD，让搜索引擎和生成式回答更容易读懂页面。适合做 SEO/GEO 的基础标签，不保证排名。 | https://juejin.cn/post/7692387846459654178 |
+| 12 | [后端零改动，给若依换一套现代化前端](https://juejin.cn/post/7692369572608786467) | niyongsheng | 赞2/藏5/阅277 | ruoyi-vue-nys 用 Vue 3.5、Vite 和 TypeScript 重写若依前端，并声明后端 API 不用改。适合要换皮的若依项目，接口兼容要以作者仓库的适配清单为准。 | https://juejin.cn/post/7692369572608786467 |
+| 13 | [ai agent --- 文件存储](https://juejin.cn/post/7692274273326579748) | snow来了 | 赞1/藏3/阅280 | 会话里的图片和文档在历史记录中要能再打开，作者把它们放到对象存储。讲的是文件落点，不是对象存储产品对比。 | https://juejin.cn/post/7692274273326579748 |
+| 14 | [组合式 API（Composition API）](https://juejin.cn/post/7692042894160511011) | 前端阿凡 | 赞1/藏5/阅245 | 说明 Options API 在组件变大后按选项拆开会散，再转向组合式 API。是 Vue 概念笔记，没有新的框架发布。 | https://juejin.cn/post/7692042894160511011 |
+| 15 | [我给 DeepSeek 的编程智能体写了三个插件:余额胶囊、任务面板、番茄钟](https://juejin.cn/post/7692059206256394249) | 章鱼哥1971 | 赞2/藏3/阅212 | 作者给 DeepSeek Harness 写了余额胶囊、任务面板和番茄钟三个插件，用来演示插件由浅到深。适合对照着写，不是 Harness 官方教程。 | https://juejin.cn/post/7692059206256394249 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 人工智能
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 1 | [31岁罗福莉，晋升小米最高职级22级](https://juejin.cn/post/7691227873460125734) | 沉默王二 | 赞20/藏6/阅1617 | 梳理小米 MiMo 从 7B 到 V2.6 的迭代、V2.6 的强化学习，以及作者所写的 HySparse2、MiMo Code 和 Desktop。人物职级是标题信息，技术部分要回小米原文核对。 | https://juejin.cn/post/7691227873460125734 |
+| 2 | [副业搞起来，小说，漫画，漫剧的成本优化思路](https://juejin.cn/post/7692440533922971667) | 小呆呆666 | 赞13/藏15/阅1361 | 讨论小说、漫画、漫剧的成本，并给出一个 novel_to_comic 技能仓库。偏副业流程，成本数字是作者自己的算法。 | https://juejin.cn/post/7692440533922971667 |
+| 3 | [千问偷偷进村修改 token plan 重置周期这个事大家都知道了吧？](https://juejin.cn/post/7691284233897656383) | math4mads | 赞6/藏1/阅478 | 作者称 9 月 28 日晚看到通义千问个人中心的 token plan 重置周期变了，并保留当时剩余额度的截图式描述。这是用户观察，不是阿里云公告。 | https://juejin.cn/post/7691284233897656383 |
+| 4 | [Muse 登顶 App Store 第一，SDK 直接开源：AI Agent 开始进入下一个阶段](https://juejin.cn/post/7692296625806508072) | 前端小小栈 | 赞6/藏7/阅666 | 从 Muse 登上 App Store 榜首并开源 SDK 推论 Agent 会从单个 App 走到开发者生态和硬件。榜单名次会变，SDK 能力要以仓库为准。 | https://juejin.cn/post/7692296625806508072 |
+| 5 | [LLM 面试必问的 8 个问题，答不上来直接淘汰](https://juejin.cn/post/7691530846752538639) | 怕浪猫 | 赞7/藏14/阅611 | 把 LLM 面试收成推理、工具、记忆等题，面向做 Agent 的人。是题库不是论文，答案需要自己用官方文档校验。 | https://juejin.cn/post/7691530846752538639 |
+| 6 | [Space-Bunny 匿名模型观察：0.03 倍积分、1M 上下文，以及模型选型的算术题](https://juejin.cn/post/7691876916195016719) | 小虎AI生活 | 赞5/藏1/阅487 | 观察 WorkBuddy 面板里的匿名模型 Space-Bunny：作者写倍率 0.03、限时折扣和调用榜，并讨论选型时怎么算账。匿名模型的供应方未知，价格以面板当时显示为准。 | https://juejin.cn/post/7691876916195016719 |
+| 7 | [云端部署阿里 Qwen-Image-2.1 保姆级教程](https://juejin.cn/post/7691823753387376649) | Cosolar | 赞6/藏3/阅389 | 在云 GPU 上部署 Qwen-Image-2.1，逐步给命令，并标出系统盘写满、显存不够和忘了关机继续扣费。面向没管过 Linux 的人，账单仍取决于所选实例。 | https://juejin.cn/post/7691823753387376649 |
+| 8 | [LangSmith：从链路追踪到 RAG 自动化评估](https://juejin.cn/post/7691774360802246671) | 东风破_ | 赞9/藏9/阅298 | 用 LangSmith 看 LangGraph 或 RAG 的节点、检索结果和真正送进模型的提示，并接到自动化评估。讲的是 LangSmith，不是 Langfuse。 | https://juejin.cn/post/7691774360802246671 |
+| 9 | [LangChain4j 新手入门实战教程（Java版）](https://juejin.cn/post/7692127219867123750) | dora | 赞7/藏4/阅275 | Java 新手向的 LangChain4j 教程，作者声明接触 Agent 不久。适合看 Java 侧怎么起一个链，错误要以库文档校正。 | https://juejin.cn/post/7692127219867123750 |
+| 10 | [MCP 技术分享：从协议握手到 LangGraph 多 Server 调用](https://juejin.cn/post/7691835382220111872) | 码农悟道 | 赞3/藏3/阅300 | 从 MCP 握手写到自己做工具，再用 LangGraph 聚合多个 Server，并比较传输方式。文中有可运行的 Python 示例，生产鉴权要另补。 | https://juejin.cn/post/7691835382220111872 |
+| 11 | [2026 年 AI Agent 面试到底考什么？这套题库覆盖了 90% 的高频考点](https://juejin.cn/post/7691231137718353920) | 怕浪猫 | 赞3/藏7/阅317 | 整理 Agent 面试题，从定义写到架构，并称覆盖大部分高频点。是题库，覆盖率是作者估计。 | https://juejin.cn/post/7691231137718353920 |
+| 12 | [从零用 Java 构建 AI Agent 框架：JavaManus 设计与实现深度解析](https://juejin.cn/post/7692742889198387200) | 狼爷 | 赞4/藏3/阅218 | 用自建项目 JavaManus 拆 ReAct 循环、工具编排和记忆。适合看一个 Java Agent 的模块边界，不是 Spring AI 官方框架。 | https://juejin.cn/post/7692742889198387200 |
+| 13 | [用纯 Java 做一个企业级 Agent Harness 平台：BizBuddy 的设计与取舍](https://juejin.cn/post/7692084224499367971) | 长弓三石 | 赞3/藏4/阅238 | BizBuddy 用 AgentScope 2.0.3 做内核、若依做业务底座，做入口智能体和专家路由。版本号以作者所写为准，企业级是项目自称。 | https://juejin.cn/post/7692084224499367971 |
+| 14 | [Personal Agent 火了，新酿还是旧酒？](https://juejin.cn/post/7691717198448148518) | 飞哥数智谈 | 赞3/藏4/阅207 | 认为个人 Agent 的长期记忆和主动执行并不新，变化在产品形态，并从 OpenClaw、Work 谈到 Muse。是评论，不是产品发布说明。 | https://juejin.cn/post/7691717198448148518 |
+| 15 | [Claude Code Mods 是什么：给 Claude 加工具、在终端画界面](https://juejin.cn/post/7691498553260884008) | ZzT | 赞3/藏1/阅218 | 说明 Claude Code 2.1.287 的 Mods 能注册工具并在终端画界面，这是钩子做不到的，并用一个防误删插件演示。版本能力与 AI 日报里的 v2.1.287 一致，演示是作者插件。 | https://juejin.cn/post/7691498553260884008 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 开发工具
+
+#### 文章热榜
+
+| 排名 | 标题 | 作者 | 热度/互动 | 内容摘要 | 链接 |
+| --- | ---:| --- | --- | --- | --- |
+| 1 | [GitHub 周榜趋势速报 / 2026-10-02](https://juejin.cn/post/7691399863522918438) | miofly | 赞2/藏1/阅209 | GitHub 周榜转载，列出 2026-10-02 这一周 Star 增速靠前的仓库。偏聚合，略读；具体项目要回 GitHub 看。 | https://juejin.cn/post/7691399863522918438 |
+| 2 | [「vConsole MCP🛠️」我让 AI 直接看见任何 H5 的日志和请求帮你 debug](https://juejin.cn/post/7691270105432784931) | JustHappy | 赞3/藏2/阅199 | 作者做了 vConsole MCP，让模型读到手机 H5 的日志和请求，用来补跨端调试。适合在真机页面上排错，权限范围要看这个 MCP 实际暴露了什么。 | https://juejin.cn/post/7691270105432784931 |
+| 3 | [GitHub 日榜趋势速报 / 2026-10-07](https://juejin.cn/post/7693049513120661550) | miofly | 赞3/藏3/阅138 | GitHub 日榜转载，日期写的是 2026-10-07。偏聚合，略读。 | https://juejin.cn/post/7693049513120661550 |
+| 4 | [单片机底层系列：C 库运行时——从 libspace 到多任务与中断安全](https://juejin.cn/post/7692881705649193001) | oku62089 | 赞0/藏0/阅203 | 从 libspace 比较 ARM C 库和 Newlib，用错误码、堆损坏和 HardFault 实验说明多任务和中断里的 C 库安全。面向单片机，不是主机端工具链新闻。 | https://juejin.cn/post/7692881705649193001 |
+| 5 | [Agent 开发框架深度对比——LangGraph、AutoGen、CrewAI 与 Microsoft Agent Framework 该选谁](https://juejin.cn/post/7692612898275967002) | 为你学会写情书 | 赞3/藏2/阅146 | 比较 LangGraph、AutoGen、CrewAI 和 Microsoft Agent Framework 的选型。作者把时间定在 2026 年，结论会随各框架版本变，要用当前文档复核。 | https://juejin.cn/post/7692612898275967002 |
+| 6 | [GitHub 今日推荐｜archify：AI 代理自动生成可交互架构图的技能模块](https://juejin.cn/post/7691231869480566830) | miofly | 赞2/藏1/阅161 | 推荐 archify：给编码代理用的技能，把系统描述或仓库收成一份自包含的 HTML 架构图。是 GitHub 项目推荐，图的正确性取决于仓库解析。 | https://juejin.cn/post/7691231869480566830 |
+| 7 | [GitHub 日榜趋势速报 / 2026-10-02](https://juejin.cn/post/7691231869480288302) | miofly | 赞1/藏1/阅195 | GitHub 日榜转载，日期写的是 2026-10-02。偏聚合，略读。 | https://juejin.cn/post/7691231869480288302 |
+| 8 | [万物皆插件：DeepSeek Harness 底层揭秘，脚手架如何蜕变为产品](https://juejin.cn/post/7693225151681396746) | MobotStone | 赞2/藏1/阅116 | 把 DeepSeek Harness 解释成「运行框架才是产品」，并写到 8 月 13 日的开源和 MIT 许可。日期是作者叙述，插件模型要回官方仓库。 | https://juejin.cn/post/7693225151681396746 |
+| 9 | [GitHub 今日推荐｜lipflow：无麦克风唇读文字输入工具](https://juejin.cn/post/7692059206256738313) | miofly | 赞3/藏1/阅118 | 推荐 lipflow：本地用摄像头做唇读输入，不依赖麦克风。是项目推荐，识别效果要以仓库说明为准。 | https://juejin.cn/post/7692059206256738313 |
+| 10 | [GitHub 日榜趋势速报 / 2026-10-03](https://juejin.cn/post/7691479433083142171) | miofly | 赞0/藏0/阅150 | GitHub 日榜转载，日期写的是 2026-10-03。偏聚合，略读。 | https://juejin.cn/post/7691479433083142171 |
+| 11 | [GitHub 日榜趋势速报 / 2026-10-06](https://juejin.cn/post/7692863129294716966) | miofly | 赞2/藏2/阅102 | GitHub 日榜转载，日期写的是 2026-10-06。偏聚合，略读。 | https://juejin.cn/post/7692863129294716966 |
+| 12 | [一部手机开发安卓 App：让写代码和看效果都舒服起来](https://juejin.cn/post/7692440533922693139) | 编码生活禅意录 | 赞1/藏0/阅42 | 只用安卓手机开发 App：构建和测试放在服务器，手机上看入口和结果，并配合终端与 Agent。是一条工作流，不是新的 IDE 发布。 | https://juejin.cn/post/7692440533922693139 |
+| 13 | [GitHub 日榜趋势速报 / 2026-10-04](https://juejin.cn/post/7692229946185531442) | miofly | 赞0/藏0/阅105 | GitHub 日榜转载，日期写的是 2026-10-04。偏聚合，略读。 | https://juejin.cn/post/7692229946185531442 |
+| 14 | [GitHub 今日推荐｜REDox：64 位 token 表示结构化数据，内存占用降 70% 支持多格式互转](https://juejin.cn/post/7691766112886816819) | miofly | 赞0/藏0/阅101 | 推荐 REDox：用 64 位 token 表示结构化数据，作者称内存占用下降约 70%，并做多格式读写。数字来自项目说明，要在自己的数据上复测。 | https://juejin.cn/post/7691766112886816819 |
+| 15 | [我把微软开源的 tgrep 做成了本地版 GitHub Code Search：45,629 个文件里搜一次 10ms](https://juejin.cn/post/7691151105851195430) | 张宏宇 | 赞0/藏2/阅104 | dowse 用微软开源的 tgrep 做本地跨仓库搜索，作者在 45629 个文件的一次查询里只读了 73 个文件、约 10 毫秒，并支持 GitHub Code Search 语法。这是本地索引，不是 GitHub 托管搜索，也不是代码知识图谱。 | https://juejin.cn/post/7691151105851195430 |
+
+#### 收藏热榜
+
+本槽无新增。
+
+### 跨榜重复与去重说明
+
+- 本轮新摘要 URL 数：60
+- 因 `seen_urls` 跳过：60（只计数量）
+- 同文多标签/双榜出现：无。60 条新 URL 都只出现在对应标签的文章热榜
+
+### 来源清单
+
+- 快照日：2026-10-08（Asia/Shanghai）
+- 页面：https://juejin.cn/hot/articles 、 https://juejin.cn/hot/collected-articles
+- 抓取：`tools/juejin_hot_fetch.py` → `_staging_latest.json`
+
+| 标签 | 榜单 | 标题 | 链接 |
+| --- | --- | --- | --- |
+| 后端 | 文章热榜 | Spring AI Alibaba已停更了，Java还有希望吗？ | https://juejin.cn/post/7693821701955567670 |
+| 后端 | 文章热榜 | 我埋了 8 个假文件，看谁会上钩：12 天 502 次扫描实录 | https://juejin.cn/post/7692743066844135433 |
+| 后端 | 文章热榜 | 2026年后端开发进化：告别CRUD内卷，拥抱AI原生架构与服务编排新时代 | https://juejin.cn/post/7691917465479446591 |
+| 后端 | 文章热榜 | Go 写业务，Rust 扛底盘：一套可落地的混合架构 | https://juejin.cn/post/7691152001448820746 |
+| 后端 | 文章热榜 | 给页面加一个 JSON 编辑器：jsoneditor 的功能、配置和接入注意事项 | https://juejin.cn/post/7691155417934594074 |
+| 后端 | 文章热榜 | Loop Engineering 保姆级教程 + 项目实战 | https://juejin.cn/post/7692336657548279842 |
+| 后端 | 文章热榜 | DuckDB：一个正在改变数据分析方式的数据库 | https://juejin.cn/post/7691498553260851240 |
+| 后端 | 文章热榜 | 用 Codex 加速 Java 开发：从代码生成到测试覆盖的完整实战 | https://juejin.cn/post/7692058641252237322 |
+| 后端 | 文章热榜 | Redis 分布式锁：从 2.8 之前到 2.8+，一篇讲透 | https://juejin.cn/post/7691898006993010698 |
+| 后端 | 文章热榜 | 百万级数据导出OOM：POI的坑与EasyExcel的流式写入实战（附内存对比） | https://juejin.cn/post/7691585964053512238 |
+| 后端 | 文章热榜 | 多环境配置治理：开发、测试、生产连接信息如何隔离 | https://juejin.cn/post/7691326130512265254 |
+| 后端 | 文章热榜 | 只会 Vibe Coding 的程序员，为什么可能会被淘汰？ | https://juejin.cn/post/7691234322111660067 |
+| 后端 | 文章热榜 | DeepSeek Harness 插件开发新手教程 | https://juejin.cn/post/7691149921396834354 |
+| 后端 | 文章热榜 | Rust/Go/Java/Python/PHP 大比拼：负载下后端框架到底差多少？ | https://juejin.cn/post/7693160537133629455 |
+| 后端 | 文章热榜 | Spring Boot 2.1 → 3.5 迁移推演：这个 2018 年的项目会炸在哪 | https://juejin.cn/post/7692739051067342857 |
+| 前端 | 文章热榜 | Node.js 50个优势场景盘点：一个人单干，为啥我多数时候只用它 | https://juejin.cn/post/7691227873459028006 |
+| 前端 | 文章热榜 | Vue3 UIKit 实战：把聊天、会话、主题和移动端适配全部封装好 | https://juejin.cn/post/7691345821564174363 |
+| 前端 | 文章热榜 | 前端转全栈笔记：讲框架之前，先把 TypeScript 这关过了 | https://juejin.cn/post/7691835382221389824 |
+| 前端 | 文章热榜 | ai agent --- mem0 外挂记忆系统 | https://juejin.cn/post/7691517675236556854 |
+| 前端 | 文章热榜 | 2026-09-27-Qwen-Image-2.1-1660Ti本地部署实战 | https://juejin.cn/post/7692143474695569458 |
+| 前端 | 文章热榜 | ai agent --- redis 缓存 | https://juejin.cn/post/7691450666426286134 |
+| 前端 | 文章热榜 | pnpm 12 升级实测 | https://juejin.cn/post/7691498553261342760 |
+| 前端 | 文章热榜 | diff 算法（虚拟 DOM Reconciliation） | https://juejin.cn/post/7692296625806229544 |
+| 前端 | 文章热榜 | 给 Vue 页面加个 Markdown 编辑器：ME.js 的接入、图片粘贴与音视频 | https://juejin.cn/post/7692127219867877414 |
+| 前端 | 文章热榜 | 前端转 NestJS 全栈实践：从表单页面到微信业务系统 | https://juejin.cn/post/7691774360802164751 |
+| 前端 | 文章热榜 | Nuxt 中使用 useHead 优化 SEO 与 GEO | https://juejin.cn/post/7692387846459654178 |
+| 前端 | 文章热榜 | 后端零改动，给若依换一套现代化前端 | https://juejin.cn/post/7692369572608786467 |
+| 前端 | 文章热榜 | ai agent --- 文件存储 | https://juejin.cn/post/7692274273326579748 |
+| 前端 | 文章热榜 | 组合式 API（Composition API） | https://juejin.cn/post/7692042894160511011 |
+| 前端 | 文章热榜 | 我给 DeepSeek 的编程智能体写了三个插件:余额胶囊、任务面板、番茄钟 | https://juejin.cn/post/7692059206256394249 |
+| 人工智能 | 文章热榜 | 31岁罗福莉，晋升小米最高职级22级 | https://juejin.cn/post/7691227873460125734 |
+| 人工智能 | 文章热榜 | 副业搞起来，小说，漫画，漫剧的成本优化思路 | https://juejin.cn/post/7692440533922971667 |
+| 人工智能 | 文章热榜 | 千问偷偷进村修改 token plan 重置周期这个事大家都知道了吧？ | https://juejin.cn/post/7691284233897656383 |
+| 人工智能 | 文章热榜 | Muse 登顶 App Store 第一，SDK 直接开源：AI Agent 开始进入下一个阶段 | https://juejin.cn/post/7692296625806508072 |
+| 人工智能 | 文章热榜 | LLM 面试必问的 8 个问题，答不上来直接淘汰 | https://juejin.cn/post/7691530846752538639 |
+| 人工智能 | 文章热榜 | Space-Bunny 匿名模型观察：0.03 倍积分、1M 上下文，以及模型选型的算术题 | https://juejin.cn/post/7691876916195016719 |
+| 人工智能 | 文章热榜 | 云端部署阿里 Qwen-Image-2.1 保姆级教程 | https://juejin.cn/post/7691823753387376649 |
+| 人工智能 | 文章热榜 | LangSmith：从链路追踪到 RAG 自动化评估 | https://juejin.cn/post/7691774360802246671 |
+| 人工智能 | 文章热榜 | LangChain4j 新手入门实战教程（Java版） | https://juejin.cn/post/7692127219867123750 |
+| 人工智能 | 文章热榜 | MCP 技术分享：从协议握手到 LangGraph 多 Server 调用 | https://juejin.cn/post/7691835382220111872 |
+| 人工智能 | 文章热榜 | 2026 年 AI Agent 面试到底考什么？这套题库覆盖了 90% 的高频考点 | https://juejin.cn/post/7691231137718353920 |
+| 人工智能 | 文章热榜 | 从零用 Java 构建 AI Agent 框架：JavaManus 设计与实现深度解析 | https://juejin.cn/post/7692742889198387200 |
+| 人工智能 | 文章热榜 | 用纯 Java 做一个企业级 Agent Harness 平台：BizBuddy 的设计与取舍 | https://juejin.cn/post/7692084224499367971 |
+| 人工智能 | 文章热榜 | Personal Agent 火了，新酿还是旧酒？ | https://juejin.cn/post/7691717198448148518 |
+| 人工智能 | 文章热榜 | Claude Code Mods 是什么：给 Claude 加工具、在终端画界面 | https://juejin.cn/post/7691498553260884008 |
+| 开发工具 | 文章热榜 | GitHub 周榜趋势速报 / 2026-10-02 | https://juejin.cn/post/7691399863522918438 |
+| 开发工具 | 文章热榜 | 「vConsole MCP🛠️」我让 AI 直接看见任何 H5 的日志和请求帮你 debug | https://juejin.cn/post/7691270105432784931 |
+| 开发工具 | 文章热榜 | GitHub 日榜趋势速报 / 2026-10-07 | https://juejin.cn/post/7693049513120661550 |
+| 开发工具 | 文章热榜 | 单片机底层系列：C 库运行时——从 libspace 到多任务与中断安全 | https://juejin.cn/post/7692881705649193001 |
+| 开发工具 | 文章热榜 | Agent 开发框架深度对比——LangGraph、AutoGen、CrewAI 与 Microsoft Agent Framework 该选谁 | https://juejin.cn/post/7692612898275967002 |
+| 开发工具 | 文章热榜 | GitHub 今日推荐｜archify：AI 代理自动生成可交互架构图的技能模块 | https://juejin.cn/post/7691231869480566830 |
+| 开发工具 | 文章热榜 | GitHub 日榜趋势速报 / 2026-10-02 | https://juejin.cn/post/7691231869480288302 |
+| 开发工具 | 文章热榜 | 万物皆插件：DeepSeek Harness 底层揭秘，脚手架如何蜕变为产品 | https://juejin.cn/post/7693225151681396746 |
+| 开发工具 | 文章热榜 | GitHub 今日推荐｜lipflow：无麦克风唇读文字输入工具 | https://juejin.cn/post/7692059206256738313 |
+| 开发工具 | 文章热榜 | GitHub 日榜趋势速报 / 2026-10-03 | https://juejin.cn/post/7691479433083142171 |
+| 开发工具 | 文章热榜 | GitHub 日榜趋势速报 / 2026-10-06 | https://juejin.cn/post/7692863129294716966 |
+| 开发工具 | 文章热榜 | 一部手机开发安卓 App：让写代码和看效果都舒服起来 | https://juejin.cn/post/7692440533922693139 |
+| 开发工具 | 文章热榜 | GitHub 日榜趋势速报 / 2026-10-04 | https://juejin.cn/post/7692229946185531442 |
+| 开发工具 | 文章热榜 | GitHub 今日推荐｜REDox：64 位 token 表示结构化数据，内存占用降 70% 支持多格式互转 | https://juejin.cn/post/7691766112886816819 |
+| 开发工具 | 文章热榜 | 我把微软开源的 tgrep 做成了本地版 GitHub Code Search：45,629 个文件里搜一次 10ms | https://juejin.cn/post/7691151105851195430 |
+
 ## 2026-10-02
 
 ### 今日总览
