@@ -2,6 +2,139 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-10-09
+
+### 今日总览
+
+**一句话结论**：10 月 9 日主线是 **开源漏洞扫描和编码代理的失败关闭**：Anthropic 的 OSS Scanner 在北京时间凌晨上线，Claude Code 让起不来的钩子默认拦住动作，Codex 0.162.0 补上受控的 Git worktree。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Anthropic、GitHub changelog、Claude Code、Codex、Langfuse，以及 Spring AI、LangGraph、Code Graph、Loop Engineering、论文与政策 |
+| 核心趋势 | 1）模型生成的漏洞报告可以选入，但没有人工复核；2）钩子和 `/loop` 在进程挂掉或超时时要失败关闭；3）观测查询开始强制时间窗，读流量拆到副本 |
+| 可直接关注 | [OSS Scanner](https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source)；[Claude Code v2.1.295](https://github.com/anthropics/claude-code/releases/tag/v2.1.295)；[Codex 0.162.0](https://github.com/openai/codex/releases/tag/rust-v0.162.0)；[Langfuse v4.56.0](https://github.com/langfuse/langfuse/releases/tag/v4.56.0) |
+| 专项检索结论 | **Claude Code**：v2.1.295，Published 2026-10-08 19:48 UTC，北京时间 10/9 03:48。**Codex**：稳定版 0.162.0，Published 10/8 18:55 UTC，北京时间 10/9 02:55。同日 alpha 无独立变更说明，不展开。**Langfuse**：v4.56.0。**Loop Engineering**：v2.1.295 写明后台 `/loop` 在进程不在时不再静默停掉，Esc 可以取消已转入后台的自定步循环。**Spring AI / Spring Alibaba AI / LangChain·LangGraph / Code Graph / OpenClaw / Hermes / skills**：无本日官方 release。Langfuse 本日改的是产品内评测结果，不是 Agent Skills 规范 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 开源安全 | [OSS Scanner](https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source) | 2026-10-09（页面写 10/8，Published 2026-10-08 19:00 UTC） | 官方发布 | 符合条件的开源项目可免费接受最强模型的定期扫描，报告不经人工复核，可能有误报。用 PR 登记。另有 Claude for OSS 的 Max 20x 订阅用于修复 |
+| Claude Code | [v2.1.295](https://github.com/anthropics/claude-code/releases/tag/v2.1.295) | 2026-10-09（Published 2026-10-08 19:48 UTC） | 开源发布 | 命令和 HTTP 钩子可设 `onFailure: "block"`：起不来、超时或退出码异常时拦住动作。支持 OSC 7501，终端可显示正在工作、等待或已完成。后台 `/loop` 在进程不在时会说明唤醒落空 |
+| Codex | [0.162.0](https://github.com/openai/codex/releases/tag/rust-v0.162.0) | 2026-10-09（Published 2026-10-08 18:55 UTC） | 开源发布 | 受信任的本地项目可创建和列出托管 Git worktree。命令中心可用 `p` 固定任务。自定义 Responses 兼容供应商可配置实时网页访问和远程压缩 |
+| Langfuse | [v4.56.0](https://github.com/langfuse/langfuse/releases/tag/v4.56.0) | 2026-10-09（Published 10:13 UTC） | 开源发布 | MCP 的 get observations 必须带日期范围。决策模型评测结果重做。ClickHouse 计费组织可收花费告警。大量分数和导出读请求改走只读副本 |
+| Copilot | [10 月 5 日当周汇总](https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5/) | 2026-10-09 | 官方发布 | 新点是 Copilot 应用可以把许可证账号和仓库账号分开，CLI 用 `/model` 发现本机 Ollama，VS Code 1.141 可并排看代理会话并清理 worktree。Haiku 5.5 和本地沙箱已在 10/7 记过 |
+| 代码扫描 | [CodeQL 2.27.2](https://github.blog/changelog/2026-10-09-codeql-2-27-2-improves-c-go-rust-and-javascript-analysis/) | 2026-10-09 | 官方发布 | 补了 C++ 正则解析，并改进 Rust 的属性、文档注释和 async 数据流。github.com 的代码扫描会自动用上新版本 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 开源扫描 | [OSS Scanner](https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source) | 选择加入、无人工复核、PR 登记 | 关键基础设施类开源项目的维护者 |
+| 钩子 | [v2.1.295](https://github.com/anthropics/claude-code/releases/tag/v2.1.295) | `onFailure: "block"`、`/loop` 掉线说明 | 用钩子做门禁的人 |
+| 观测 | [v4.56.0](https://github.com/langfuse/langfuse/releases/tag/v4.56.0) | MCP 必须带时间范围 | 用 Langfuse MCP 拉观测的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：没有 LangGraph 或 Spring AI release。工程变化是「扫描和钩子都要明确失败时怎么办」。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 安全扫描 | OSS Scanner 的报告全是模型生成 | 选择加入等于接受误报；不能把未复核报告直接当漏洞工单 |
+| Loop | 进程不在时 `/loop` 会说明，而不是静默停 | 唤醒失败要写进会话，否则人以为循环还在跑 |
+| 观测 | MCP 拉观测必须带日期 | 禁止无界查询，避免一次把历史 trace 拖下来 |
+| Worktree | Codex 可创建托管 worktree | 并行任务先隔离工作区，再谈代理数量 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [OSS Scanner](https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source) | 写清无人工复核这一条 |
+| 推荐 | [v2.1.295](https://github.com/anthropics/claude-code/releases/tag/v2.1.295) | 钩子失败关闭和 `/loop` 掉线 |
+| 延伸 | [CodeQL 2.27.2](https://github.blog/changelog/2026-10-09-codeql-2-27-2-improves-c-go-rust-and-javascript-analysis/) | 代码扫描规则面，不是生成式模型 |
+
+### 来源清单
+
+- 检索范围：2026-10-09 00:00:00 到 2026-10-09 23:59:59（Asia/Shanghai）
+- 引用域名：anthropic.com, github.com, github.blog
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | OSS Scanner | 2026-10-09（页面 10/8，Published 19:00 UTC） | https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source |
+| 开源发布 | Claude Code v2.1.295 | 2026-10-09（Published 2026-10-08 19:48 UTC） | https://github.com/anthropics/claude-code/releases/tag/v2.1.295 |
+| 开源发布 | Codex 0.162.0 | 2026-10-09（Published 2026-10-08 18:55 UTC） | https://github.com/openai/codex/releases/tag/rust-v0.162.0 |
+| 开源发布 | Langfuse v4.56.0 | 2026-10-09 | https://github.com/langfuse/langfuse/releases/tag/v4.56.0 |
+| 官方发布 | Copilot weekly releases October 5 | 2026-10-09 | https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5/ |
+| 官方发布 | CodeQL 2.27.2 | 2026-10-09 | https://github.blog/changelog/2026-10-09-codeql-2-27-2-improves-c-go-rust-and-javascript-analysis/ |
+
+## 2026-10-08
+
+### 今日总览
+
+**一句话结论**：10 月 8 日主线是 **Claude Code 在北京时间落地 Haiku 5.5 默认模型，并当天补上钩子放行漏洞**；Langfuse 同时加上零漏洞镜像和技能包导入，ChatGPT 的免费档开始切到 GPT-6 Luna。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Anthropic / OpenAI / GitHub / NVIDIA、Claude Code、Langfuse，以及五个工程专项、论文与政策 |
+| 核心趋势 | 1）轻量模型进入编码代理的默认档，钩子指令却能把该拦的命令放行；2）观测平台开始收技能包并出 FIPS 镜像；3）免费 ChatGPT 按 10/7 博客的「次日」切换 |
+| 可直接关注 | [Claude Code v2.1.294](https://github.com/anthropics/claude-code/releases/tag/v2.1.294)；[Langfuse v4.55.0](https://github.com/langfuse/langfuse/releases/tag/v4.55.0)；[Copilot 代码评审计费](https://github.blog/changelog/2026-10-08-copilot-code-review-new-organization-billing-options-and-controls/) |
+| 专项检索结论 | **Claude Code**：v2.1.293 列表时间 10/7 18:10，按 UTC 口径为北京时间 10/8 02:10，把 `claude-haiku-5-5` 设为 API 默认 Haiku。v2.1.294 在 10/8 13:03（北京时间）修钩子。**Langfuse**：v4.55.0，Published 13:36 UTC，北京时间 21:36。**skills**：Langfuse 可从本地文件和 ZIP 导入技能，不是 Claude/Cursor Skills 规范更新。**Codex**：0.162.0 的发布时间落在北京时间 10/9。**Spring AI / Spring Alibaba AI / LangChain·LangGraph / Code Graph / OpenClaw / Hermes / Loop Engineering**：无本日官方 release。v2.1.294 修的是指令式钩子，不是 `/loop` 命令本身 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Claude Code | [v2.1.293](https://github.com/anthropics/claude-code/releases/tag/v2.1.293) | 2026-10-08（列表 10/7 18:10，按 UTC 口径换算） | 开源发布 | Haiku 5.5 成为 Anthropic API 上的默认 Haiku：1M 上下文，100K 以内提示约 $0.10 / $0.50 每百万 token，超过 100K 为 $0.50 / $2.50。模型公告本身在 10/7，见 [Haiku 5.5](https://www.anthropic.com/claude-haiku-5-5) |
+| Claude Code | [v2.1.294](https://github.com/anthropics/claude-code/releases/tag/v2.1.294) | 2026-10-08（Published 05:03 UTC） | 开源发布 | 写成「Block commands that...」这类说明的 prompt/agent 钩子，之前会放行本该拦住的命令。Stop 上的「构建坏了就继续」也不容易过早停 |
+| Langfuse | [v4.55.0](https://github.com/langfuse/langfuse/releases/tag/v4.55.0) | 2026-10-08（Published 13:36 UTC） | 开源发布 | 零漏洞基础镜像和 FIPS 模式；trace 主题一次总结全部分面；技能可从本地文件和 ZIP 导入；评测支持 OpenAI 决策模型；导出可到 Google Cloud Storage；价格表加入 Haiku 5.5 |
+| ChatGPT | [GPT-6 免费档开始切换](https://openai.com/index/gpt-6-for-everyone/) | 2026-10-08（博客发布于 10/7，写明次日扩到 Free 与 Go） | 官方发布 | Plus/Pro/Business/Enterprise 在 10/7 用 GPT-6 Sol。Free 与 Go 从 10/8 起用 GPT-6 Luna。Work 和 Codex 的模型不在这次更换里 |
+| Copilot | [代码评审的组织计费](https://github.blog/changelog/2026-10-08-copilot-code-review-new-organization-billing-options-and-controls/) | 2026-10-08 | 官方发布 | 组织可以把成员发起的评审记到组织成本中心，而不是扣成员额度。也可限制只有本组织许可证才能发起评审 |
+| 算力 | [NVIDIA 五年 10 亿美元科研承诺](https://www.globenewswire.com/news-release/2026/10/08/3377484/0/en/nvidia-commits-1-billion-to-advance-us-science-over-the-next-five-years.html) | 2026-10-08（10:31 ET） | 官方发布 | 面向美国科研、量子、医疗和能源的五年承诺，新闻稿口径，不是新的推理芯片发布 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 钩子安全 | [v2.1.294](https://github.com/anthropics/claude-code/releases/tag/v2.1.294) | 指令式钩子不再放行该拦的命令 | 用自然语言写门禁的人 |
+| 默认小模型 | [Haiku 5.5](https://www.anthropic.com/claude-haiku-5-5) | 价目、子代理、缓存读取降价 | 把小模型当子代理的人 |
+| 观测部署 | [v4.55.0](https://github.com/langfuse/langfuse/releases/tag/v4.55.0) | FIPS 镜像、技能导入、GCS 导出 | 自建 Langfuse 的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：没有 LangGraph 或 Spring 发布。当天要处理的是「默认小模型已经换了」和「用自然语言写的钩子曾经形同虚设」。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 钩子 | v2.1.294 堵住指令式放行 | 门禁要用可执行规则核对，不要只写一句 Block |
+| 模型 | Claude Code 默认 Haiku 换成 5.5；免费 ChatGPT 换成 Luna | 子代理和免费入口的价目、上下文要分开记账 |
+| 技能 | Langfuse 可导入 ZIP 技能 | 这是观测产品里的技能草稿，不是编码代理的 Skills 市场 |
+| 评审计费 | 组织可改记到成本中心 | 代码评审的额度归属要在放开代理评审前定好 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [v2.1.294](https://github.com/anthropics/claude-code/releases/tag/v2.1.294) | 两行说明，但是钩子安全修复 |
+| 推荐 | [Haiku 5.5](https://www.anthropic.com/claude-haiku-5-5) | 价目和子代理定位；公告日是 10/7 |
+| 延伸 | [Langfuse v4.55.0](https://github.com/langfuse/langfuse/releases/tag/v4.55.0) | 自建时的镜像和导出 |
+
+### 来源清单
+
+- 检索范围：2026-10-08 00:00:00 到 2026-10-08 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, anthropic.com, openai.com, github.blog, globenewswire.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Claude Code v2.1.293 | 2026-10-08（列表时间换算） | https://github.com/anthropics/claude-code/releases/tag/v2.1.293 |
+| 官方发布 | Introducing Claude Haiku 5.5 | 2026-10-07（模型公告；Claude Code 默认落在北京时间 10/8） | https://www.anthropic.com/claude-haiku-5-5 |
+| 开源发布 | Claude Code v2.1.294 | 2026-10-08 | https://github.com/anthropics/claude-code/releases/tag/v2.1.294 |
+| 开源发布 | Langfuse v4.55.0 | 2026-10-08 | https://github.com/langfuse/langfuse/releases/tag/v4.55.0 |
+| 官方发布 | GPT-6 and Intelligent UI | 2026-10-07 发布，Free/Go 从 10/8 起 | https://openai.com/index/gpt-6-for-everyone/ |
+| 官方发布 | Copilot code review billing | 2026-10-08 | https://github.blog/changelog/2026-10-08-copilot-code-review-new-organization-billing-options-and-controls/ |
+| 官方发布 | NVIDIA 五年 10 亿美元科研承诺 | 2026-10-08 | https://www.globenewswire.com/news-release/2026/10/08/3377484/0/en/nvidia-commits-1-billion-to-advance-us-science-over-the-next-five-years.html |
+
 ## 2026-10-07
 
 ### 今日总览
