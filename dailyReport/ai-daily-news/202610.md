@@ -2,6 +2,249 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-10-13
+
+### 今日总览
+
+**一句话结论**：可观测性和 Agent 运行时在补正确性与鉴权，GitHub 把 Anthropic 密钥纳入默认推送保护；Gemini 4 Argon 的官方发布时间落在北京时间 10-14，本日记入边界，不展开。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 官方博客、GitHub Releases、GitHub Changelog、Langfuse / LangChain / LangGraph / OpenClaw / Hermes / Spring AI / Code Graph |
+| 核心趋势 | Langfuse 4.57/4.58 连续补 FIPS、API Key 与 OTEL 媒体；LangGraph 1.2.15 修 DeltaChannel 与中断；OpenClaw 2026.10.3 继续清升级阻塞 |
+| 可直接关注 | Langfuse API Key 过期与停用新 Key 的 bcrypt；LangChain `SummarizationMiddleware` 可注入 summarizer；密钥扫描默认拦截 Anthropic service/user key |
+| 专项检索结论 | Claude Code / Codex 稳定版无新 tag（0.163 alpha 无说明，不展开）。OpenClaw 见 2026.10.3。Hermes 无新 tag。Spring AI、Spring Alibaba AI、Code Graph 无核验 release。Langfuse、LangChain/LangGraph 见下表。Loop Engineering 无独立新文。skills 仅 Langfuse 补 CLI 安装说明。Gemini 4 Argon 博客 Published `2026-10-13T16:00:00Z`（北京时间 10-14 00:00），Copilot 条目 Published `2026-10-13T18:39:56Z`（北京时间 10-14 02:39），留待下一窗口 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Langfuse | [v4.57.0](https://github.com/langfuse/langfuse/releases/tag/v4.57.0) | 2026-10-13（Published 10-12 17:20Z，北京时间 10-13 01:20） | 开源发布 | FIPS 拒绝会算 MD5 的存储、密码改 PBKDF2；API Key 可过期且新 Key 不再算 bcrypt；决策模型评估器转正；从原始 OTEL 抽内联媒体 |
+| Langfuse | [v4.58.0](https://github.com/langfuse/langfuse/releases/tag/v4.58.0) | 2026-10-13（Published 07:05Z，北京时间 15:05） | 开源发布 | 重置密码邮件强制 Turnstile；OTEL 媒体先于 TypeScript 解析并加上传并发/字节上限；Topics 改走项目自己的 LLM 连接；Ask AI 换 Haiku 5.5 |
+| LangChain | [langchain 1.4.5](https://github.com/langchain-ai/langchain/releases/tag/langchain==1.4.5) | 2026-10-13（Published 10-12 19:28Z，北京时间 10-13 03:28） | 开源发布 | `SummarizationMiddleware` 接受自定义 `summarizer`，摘要步骤可以换模型或换实现 |
+| LangGraph | [langgraph 1.2.15](https://github.com/langchain-ai/langgraph/releases/tag/1.2.15) | 2026-10-13（Published 10-12 22:38Z，北京时间 10-13 06:38） | 开源发布 | 写入 messages DeltaChannel 的消息补 id；`interrupt_before` 在 drain 前仍会停下；失败的 Delta 写入不再落检查点 |
+| OpenClaw | [2026.10.3](https://github.com/openclaw/openclaw/releases/tag/v2026.10.3) | 2026-10-13（Published 13:49Z，北京时间 21:49） | 开源发布 | 清掉会挡住下一次升级的残留记录；受影响的 Doctor 修复保留登录态和记忆文件；压缩或供应商回复中断后对话还能续上 |
+| GitHub | [Secret scanning 默认拦截 Anthropic 密钥](https://github.blog/changelog/2026-10-13-secret-scanning-blocks-anthropic-keys-by-default-adds-salesforce/) | 2026-10-13 | 官方发布 | 新增 `anthropic_service_api_key` 与 `anthropic_user_api_key`，推送保护默认开启；Salesforce、Cloudsmith 进入检测 |
+| OpenAI | [Higgsfield 把 AI 视频从约 1 分钟拉到 10 分钟以上](https://openai.com/index/higgsfield-longer-videos-voice/) | 2026-10-13 | 企业案例 | 客户故事，不是新模型发布；说明长视频生成已有可对外讲述的生产用法 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| LLM 可观测 | [Langfuse v4.57.0](https://github.com/langfuse/langfuse/releases/tag/v4.57.0) | FIPS 存储约束、API Key 生命周期、OTEL 媒体提取 | 自建 Langfuse 或接 Spring/OTel 的团队 |
+| Agent 检查点 | [langgraph 1.2.15](https://github.com/langchain-ai/langgraph/releases/tag/1.2.15) | DeltaChannel、interrupt、fork 后的检查点归属 | 用 LangGraph 做长任务和人机中断的人 |
+| 密钥治理 | [Anthropic key push protection](https://github.blog/changelog/2026-10-13-secret-scanning-blocks-anthropic-keys-by-default-adds-salesforce/) | 服务密钥与用户密钥分开检测，公开仓库默认阻断 | 把 Claude API Key 放进 CI 的仓库管理员 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：这一天的工程增量在「摘要可替换、检查点不写脏、密钥默认拦住」，没有新的框架大版本。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 摘要中间件 | langchain 1.4.5 允许注入 summarizer | 长对话压缩不要绑死默认摘要模型，方便按成本换小模型 |
+| 检查点 | 1.2.15 把中断、fork、失败写入和消息 id 收拢 | 恢复运行前先确认检查点没有跨过失败写入 |
+| 可观测 | 4.58 的 Topics 使用项目自己的 LLM 连接 | 主题聚类的密钥和配额跟业务项目走，不要共用一把全局 Key |
+| OpenClaw | 2026.10.3 以升级恢复为主 | 从 10.1/10.2 升上来仍要先看 Doctor，不要跳过残留收据 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [Langfuse v4.57.0](https://github.com/langfuse/langfuse/releases/tag/v4.57.0) | API Key 与 FIPS 两项会改变自建部署的存储和鉴权假设 |
+| 推荐 | [langgraph 1.2.15](https://github.com/langchain-ai/langgraph/releases/tag/1.2.15) | 中断和 DeltaChannel 的修复清单适合对照自己的恢复测试 |
+| 延伸 | [Higgsfield 客户故事](https://openai.com/index/higgsfield-longer-videos-voice/) | 看长视频产品怎么讲效果，不把它当成模型规格 |
+
+### 来源清单
+
+- 检索范围：2026-10-13 00:00:00 到 2026-10-13 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, github.blog, openai.com
+- 同日 GitHub Changelog 索引里还有 App 最小权限、Code Quality 驳回审计、企业托管设置启动拉取、Dependabot 撤回告警、预算搜索、AI Scan 指标；条目页未逐篇打开，见 [10 月索引](https://github.blog/changelog/month/10-2026/)
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Langfuse v4.57.0 | 2026-10-13（北京时间） | https://github.com/langfuse/langfuse/releases/tag/v4.57.0 |
+| 开源发布 | Langfuse v4.58.0 | 2026-10-13 | https://github.com/langfuse/langfuse/releases/tag/v4.58.0 |
+| 开源发布 | langchain 1.4.5 | 2026-10-13（北京时间） | https://github.com/langchain-ai/langchain/releases/tag/langchain==1.4.5 |
+| 开源发布 | langgraph 1.2.15 | 2026-10-13（北京时间） | https://github.com/langchain-ai/langgraph/releases/tag/1.2.15 |
+| 开源发布 | OpenClaw 2026.10.3 | 2026-10-13 | https://github.com/openclaw/openclaw/releases/tag/v2026.10.3 |
+| 官方发布 | Secret scanning blocks Anthropic keys | 2026-10-13 | https://github.blog/changelog/2026-10-13-secret-scanning-blocks-anthropic-keys-by-default-adds-salesforce/ |
+| 企业案例 | Higgsfield longer videos | 2026-10-13 | https://openai.com/index/higgsfield-longer-videos-voice/ |
+
+## 2026-10-12
+
+### 今日总览
+
+**一句话结论**：OpenClaw 把供应商原生压缩设为 API Key 路线的默认，Hermes 改为跟随正式 tag 更新；GitHub 给 Copilot 遥测加了默认关闭的身份字段。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenClaw、Hermes、LangChain 补丁 tag、GitHub Changelog、Spring / Langfuse / Code Graph |
+| 核心趋势 | 升级路径和提示缓存稳定性；源码安装不再追 `main` 的每一个提交；企业遥测把身份与提示内容拆开且默认关闭 |
+| 可直接关注 | OpenClaw 2026.10.2 的压缩与密钥跨块脱敏；Hermes 更新通道；Copilot `telemetry.capture.identity` |
+| 专项检索结论 | Claude Code、Codex 稳定版无新 tag。Langfuse 4.57 的发布时间在北京时间 10-13。Spring AI、Spring Alibaba AI、Code Graph、Loop Engineering 无核验发布。skills 无独立更新。langchain-core 1.6.10、langchain-openai 1.7.1、langchain-anthropic 1.7.6 于北京时间 10-12 22 时左右发布，说明页未列功能变更，不展开 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| OpenClaw | [2026.10.2](https://github.com/openclaw/openclaw/releases/tag/v2026.10.2) | 2026-10-12（Published 05:34Z，北京时间 13:34） | 开源发布 | 从 2026.10.1 的第一次升级可以走完；OpenAI/Anthropic API Key 路线默认走供应商原生压缩；长工具输出跨块的凭据会被打码；Anthropic 对话前缀在重放和 Gateway 重启后保持字节一致，缓存才打得中 |
+| Hermes | [v0.21.7](https://github.com/NousResearch/hermes-agent/releases/tag/v0.21.7) | 2026-10-12（Published 05:53Z，北京时间 13:53） | 开源发布 | 官方仓库的源码安装改为跟最新 `vX.Y.Z`，不再每个 `main` 提交都拉；`hermes chat --resume` 会重放已签名的 thinking；说明写 Release Date 为 10-11，收录以 Published 的北京时间为准 |
+| GitHub | [Copilot 遥测可归因到用户且默认可不采内容](https://github.blog/changelog/2026-10-12-client-telemetry-user-attribution-and-configurable-capture/) | 2026-10-12 | 官方发布 | `telemetry.capture.identity` 增加登录名、本机账号和主机名，默认关闭；prompts、responses、toolArguments、toolOutput、policyDetail 五类也默认关闭，且身份开关不会被旧的 `captureContent` 打开 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| Agent 运行时 | [OpenClaw 2026.10.2](https://github.com/openclaw/openclaw/releases/tag/v2026.10.2) | 原生压缩、提示缓存前缀、跨块脱敏 | 自建 OpenClaw Gateway 的人 |
+| 更新通道 | [Hermes v0.21.7](https://github.com/NousResearch/hermes-agent/releases/tag/v0.21.7) | tag 通道与 `hermes update --set-channel main` | 用 Hermes 桌面端或源码安装的人 |
+| 企业遥测 | [Client telemetry capture](https://github.blog/changelog/2026-10-12-client-telemetry-user-attribution-and-configurable-capture/) | 身份与内容分开关，显式托管值压过本地和 SDK | Copilot 企业管理员 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：框架大版本没有动，运行时在修「压缩丢缓存」和「更新追错分支」。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 压缩 | OpenClaw 对 API Key 路线默认供应商原生压缩，主凭证冷却时仍能恢复 | 压缩要跟鉴权配置绑定，不要假设只有会话内摘要一条路 |
+| 缓存 | 检查点、工具结果和会话来源在后续回合保持字节级一致 | 前缀多一个空白就会打穿缓存，升级后用同一条对话做对照 |
+| 更新 | Hermes 源码安装默认停在 tag | 要跟每日提交必须显式切到 `main`，避免防火墙对 release 接口返回 403 时误失败 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [OpenClaw 2026.10.2](https://github.com/openclaw/openclaw/releases/tag/v2026.10.2) | 压缩默认值和缓存稳定性会改变线上成本和账单 |
+| 推荐 | [Copilot telemetry](https://github.blog/changelog/2026-10-12-client-telemetry-user-attribution-and-configurable-capture/) | 打开内容采集前要知道五类开关各自带走什么 |
+| 延伸 | [Hermes v0.21.7](https://github.com/NousResearch/hermes-agent/releases/tag/v0.21.7) | 看 tag 通道和 resume thinking 是否符合自己的桌面安装 |
+
+### 来源清单
+
+- 检索范围：2026-10-12 00:00:00 到 2026-10-12 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, github.blog
+- 同日索引还有提交推送者归因、Dependabot 组织级匿名仓库；未逐篇打开，见 [10 月索引](https://github.blog/changelog/month/10-2026/)
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | OpenClaw 2026.10.2 | 2026-10-12 | https://github.com/openclaw/openclaw/releases/tag/v2026.10.2 |
+| 开源发布 | Hermes Agent v0.21.7 | 2026-10-12（北京时间） | https://github.com/NousResearch/hermes-agent/releases/tag/v0.21.7 |
+| 官方发布 | Copilot client telemetry | 2026-10-12 | https://github.blog/changelog/2026-10-12-client-telemetry-user-attribution-and-configurable-capture/ |
+
+## 2026-10-11
+
+### 今日总览
+
+**一句话结论**：OpenClaw 2026.10.1 是这四天里最大的一版运行时发布，其余官方源这一天没有可核验的大版本。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenClaw changelog、Claude Code / Codex / Langfuse / LangChain / Spring / Code Graph / 政策源 |
+| 核心趋势 | 会话与记忆、MCP Apps 在视图打开时仍可调工具、安装代际密封、Haiku 5.5 接入 |
+| 可直接关注 | 预压缩前的记忆刷写交给已选记忆插件；Codex 流被掐掉最后一个 delta 时不再丢字；对端凭据解析失败则拒绝 |
+| 专项检索结论 | Claude Code、Codex、Langfuse、LangChain/LangGraph、Spring AI、Spring Alibaba AI、Code Graph、Hermes、Loop Engineering、skills 均无落在本日北京时间窗口的正式发布。OpenClaw `2026.10.5-beta.1` 同日有 tag，无独立说明，不展开 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| OpenClaw | [2026.10.1](https://docs.openclaw.ai/releases/2026.10.1) | 2026-10-11（Published 10-10 23:54Z，北京时间 10-11 07:54） | 开源发布 | 3055 commits 量级的稳定版：支持 Claude Haiku 5.5；MCP Apps 视图不关也能调工具；安装代际可激活和回滚；记忆插件负责压缩前的记忆刷写；Codex 流丢失末 token 时补回；未解析的对端凭据直接失败关闭 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 个人 Agent 运行时 | [OpenClaw 2026.10.1 说明](https://docs.openclaw.ai/releases/2026.10.1) | 会话、插件隔离状态、Gateway 与渠道修复 | 正在跟 OpenClaw 稳定通道的人 |
+| 变更原文 | [CHANGELOG/2026.10.1.md](https://github.com/openclaw/openclaw/blob/main/CHANGELOG/2026.10.1.md) | 与文档站同一份内容的纯 Markdown | 需要按条目对照升级的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：本日可核验的 Agent 工程增量集中在 OpenClaw，不在 LangChain 主线。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 记忆 | 选中的记忆插件拥有压缩前刷写 | 压缩前写记忆要有唯一责任方，避免两个插件各写一份 |
+| MCP | 视图保持打开时仍可调工具，表单和文件上下文同步 | 带 UI 的 MCP 不要假设「关掉面板才算一次调用结束」 |
+| 安全 | NUL 参数在启动前拒绝，过期的远程执行批准不能污染鉴权配置 | 失败应关闭，而不是带着脏会话继续 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [OpenClaw 2026.10.1](https://docs.openclaw.ai/releases/2026.10.1) | 后续 10.2、10.3 都是在这一版上的升级修复，先读这版再升 |
+| 推荐 | [发布 tag](https://github.com/openclaw/openclaw/releases/tag/v2026.10.1) | 用来核对 Published 时间，避免把 10-10 的 UTC 晚上当成 10-10 白天 |
+
+### 来源清单
+
+- 检索范围：2026-10-11 00:00:00 到 2026-10-11 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, docs.openclaw.ai
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | OpenClaw 2026.10.1 | 2026-10-11（北京时间） | https://github.com/openclaw/openclaw/releases/tag/v2026.10.1 |
+| 技术文档 | OpenClaw 2026.10.1 release notes | 2026-10-11 | https://docs.openclaw.ai/releases/2026.10.1 |
+
+## 2026-10-10
+
+### 今日总览
+
+**一句话结论**：Claude Code 2.1.296 与 Codex 0.162.1 都在北京时间凌晨落地，前者改网关策略和 Sonnet 5.5 缓存读价，后者修 TUI 与启动特性检查；JetBrains 上的 Copilot 开始要求 IDE 2025.2。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Claude Code、Codex、GitHub Changelog、Langfuse、Spring、OpenClaw、政策与论文源 |
+| 核心趋势 | 网关把 Desktop Code 页纳入与 CLI 相同的托管策略；大文件读取和 MCP 说明长度放宽；IDE 插件抬高最低版本 |
+| 可直接关注 | `managed.policies[].code`；Read 的 `allow_large`；Sonnet 5.5 缓存读价从每百万 0.20 美元改为 0.10 美元；JetBrains 2025.1 停用 |
+| 专项检索结论 | OpenClaw 2026.10.1 的 Published 落在 10-11。Hermes、Spring AI、Spring Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering 无落在本日的正式发布。skills：2.1.296 修复了从 claude.ai 同步的 skill 装不完、且每次同步都重新下载的问题。Codex `0.163.0-alpha.5` 同日有 tag，无说明，不展开 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Claude Code | [v2.1.296](https://github.com/anthropics/claude-code/releases/tag/v2.1.296) | 2026-10-10（Published 10-09 19:28Z，北京时间 10-10 03:28） | 开源发布 | 网关 `code` 策略与 `cli` 相同并作用于 Desktop Code 页；子代理可单独设 `autoCompactWindow`；Read 增加 `allow_large`；`/cost` 与 SDK 把 Sonnet 5.5 缓存读价改为每百万 token 0.10 美元；MCP 工具说明默认上限从 2048 提到 4096。托管 PreToolUse 拒绝调用时不再结束整轮 |
+| Codex | [rust-v0.162.1](https://github.com/openai/codex/releases/tag/rust-v0.162.1) | 2026-10-10（Published 10-09 19:44Z，北京时间 10-10 03:44） | 开源发布 | 多行异步提问不再把 TUI 打崩，换行和链接目标保留；启动时只对显式命令行特性覆盖做兼容检查，避免后台服务的特性集和 CLI 默认值不一致就起不来 |
+| GitHub | [Copilot for JetBrains 的模型与 MCP 控制](https://github.blog/changelog/2026-10-10-new-controls-and-chat-improvements-in-copilot-for-jetbrains/) | 2026-10-10 | 官方发布 | 可关闭 Copilot 与 Claude 的 MCP 自动启动；停止支持 JetBrains IDE 2025.1，插件需要 2025.2 或更高 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 编码代理 | [Claude Code v2.1.296](https://github.com/anthropics/claude-code/releases/tag/v2.1.296) | 网关策略、子代理压缩窗口、费用口径 | 管 Claude Desktop / CLI 网关的人 |
+| 终端代理 | [Codex 0.162.1](https://github.com/openai/codex/releases/tag/rust-v0.162.1) | TUI 提问与后台特性兼容 | 已升到 0.162.0、启动失败的人 |
+| IDE | [JetBrains Copilot 更新](https://github.blog/changelog/2026-10-10-new-controls-and-chat-improvements-in-copilot-for-jetbrains/) | MCP 启动开关、最低 IDE 版本 | JetBrains 用户和插件管理员 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：本日没有 LangChain 发布，工程变化在编码代理的权限、费用和 IDE 插件。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 网关 | `code` 与 `cli` 共用一套托管策略 | Desktop Code 页不要假设还能绕过 CLI 已关掉的能力 |
+| 费用 | Sonnet 5.5 缓存读价在 `/cost`、状态栏和 SDK 里减半 | 对账时区分模型公告价和 CLI 内置价，这一版两者对齐到 0.10 |
+| 权限 | 给 `BASH_ARGV0` 赋值再执行的命令改为询问；非 UTF-8 文件的 Edit 直接拒绝 | 允许规则不要只看命令字符串的前半段 |
+| IDE | JetBrains 2025.1 被移出支持 | 升级插件前先升 IDE，否则会停在不受支持的组合 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [Claude Code v2.1.296](https://github.com/anthropics/claude-code/releases/tag/v2.1.296) | 网关策略和费用口径同时变了，升级说明比功能列表更值得先看 |
+| 推荐 | [Codex 0.162.1](https://github.com/openai/codex/releases/tag/rust-v0.162.1) | 补丁很小，但能解释「后台服务已起、CLI 却起不来」 |
+| 延伸 | [JetBrains Copilot](https://github.blog/changelog/2026-10-10-new-controls-and-chat-improvements-in-copilot-for-jetbrains/) | 确认自己的 IDE 版本是否还在支持范围内 |
+
+### 来源清单
+
+- 检索范围：2026-10-10 00:00:00 到 2026-10-10 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, github.blog
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Claude Code v2.1.296 | 2026-10-10（北京时间） | https://github.com/anthropics/claude-code/releases/tag/v2.1.296 |
+| 开源发布 | Codex rust-v0.162.1 | 2026-10-10（北京时间） | https://github.com/openai/codex/releases/tag/rust-v0.162.1 |
+| 官方发布 | Copilot for JetBrains controls | 2026-10-10 | https://github.blog/changelog/2026-10-10-new-controls-and-chat-improvements-in-copilot-for-jetbrains/ |
+
 ## 2026-10-09
 
 ### 今日总览
