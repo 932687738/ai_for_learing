@@ -2,6 +2,120 @@
 
 按 Asia/Shanghai 时区增量汇总固定中文技术知识库来源。
 
+## 2026-10-15
+
+### 今日总览
+
+**一句话结论**：固定来源只有阿里云社区的模型上手和套餐说明，没有美团、字节或阿里技术的工程复盘。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 阿里、腾讯、字节、百度、美团、京东、滴滴、网易、360、有赞及五个专项 |
+| 核心趋势 | 社区文在讲 Qwen 多模态与 MoE，以及把订阅说成 Harness；规格都要回百炼或模型卡 |
+| 可直接关注 | 不要把社区文里的「Qwen4 预览」当成官方架构发布；Token Plan 的 12 项权益是产品说明 |
+| 专项检索结论 | Langfuse、LangChain/LangGraph、Code Graph、Spring Alibaba AI 无当日固定来源新文。Loop Engineering 只有社区把 DeepSeek Harness 和 Token Plan 权益写成教程或套餐，不是 loop 设计文档 |
+| 未发现更新 | 阿里技术、语雀、腾讯云与腾讯技术工程、字节技术博客、美团、百度、京东、滴滴、网易、360、有赞。企业智能体定制广告未收录 |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 多模态 | [Qwen3.7-Plus 上手全解](https://developer.aliyun.com/article/1771025) | 2026-10-15 | 阿里云开发者社区 | 社区文。把 Plus 写成文本、图片、视频和工具调用的均衡档，并提到百万上下文缓存。参数和是否原生 GUI 以百炼文档为准 |
+| MoE | [一文看懂 Qwen3.8-Flash](https://developer.aliyun.com/article/1771100) | 2026-10-15 | 阿里云开发者社区 | 社区转述：约 125B 总参数、每 token 激活约 6B，开源上下文 262144、可用 YaRN 拉到 100 万。文中「预览 Qwen4」是作者说法，不是阿里技术博客的架构公告 |
+| Agent 底座 | [DeepSeek Harness 实操](https://developer.aliyun.com/article/1771052) | 2026-10-15 | 阿里云开发者社区 | 社区教程，列出 npx、npm、源码和 Python SDK 四种装法，以及 WebUI、插件和进程守护。文末导向百炼，部署步骤可以参考，产品边界以仓库为准 |
+| 订阅 | [Token Plan 个人版新增 12 项 Harness 权益](https://developer.aliyun.com/article/1771045) | 2026-10-15 | 阿里云开发者社区 | 产品说明：搜索、网页解析、图像、语音、代码解释器、知识库、记忆、沙箱、托管 Agent 和 MCP 放进同一份订阅，超量写 88 折。这是套餐文，不是工程复盘 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 模型档位 | [Qwen3.7-Plus](https://developer.aliyun.com/article/1771025) | 多模态输入和工具调用不要当成已经核实的模型卡 | 要在百炼上选档的人 |
+| 安装 | [DeepSeek Harness](https://developer.aliyun.com/article/1771052) | 四种安装方式分开，云上要另做进程守护 | 想本地试 Agent 底座的人 |
+
+### 工程实践归纳
+
+**总体判断**：Loop Engineering 只有社区教程和套餐清单；Langfuse、LangChain、Code Graph、Spring Alibaba AI 未发现可核验更新。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 激活参数 | 社区文把 Flash 写成总参数大、激活参数小 | 成本和延迟看激活规模，标题里的总参数不够 |
+| Harness | 套餐文把沙箱、记忆、MCP 列成权益 | 这些是产品开关，不等于你已经有了可审计的执行循环 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 延伸 | [Qwen3.8-Flash 社区文](https://developer.aliyun.com/article/1771100) | 用来找到要核对的模型名，数字回模型卡 |
+| 延伸 | [DeepSeek Harness 实操](https://developer.aliyun.com/article/1771052) | 安装路径清楚，广告段可以跳过 |
+
+### 来源清单
+
+- 检索范围：2026-10-15 00:00:00 到 2026-10-15 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：阿里云开发者社区；其余维度已检索无核验更新
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 阿里巴巴 | 阿里云开发者社区 | 技术文章 | Qwen3.7-Plus 上手 | 2026-10-15 | https://developer.aliyun.com/article/1771025 |
+| 阿里巴巴 | 阿里云开发者社区 | 技术文章 | Qwen3.8-Flash | 2026-10-15 | https://developer.aliyun.com/article/1771100 |
+| 阿里巴巴 | 阿里云开发者社区 | 技术文章 | DeepSeek Harness 实操 | 2026-10-15 | https://developer.aliyun.com/article/1771052 |
+| 阿里巴巴 | 阿里云开发者社区 | 技术文章 | Token Plan Harness 权益 | 2026-10-15 | https://developer.aliyun.com/article/1771045 |
+
+## 2026-10-14
+
+### 今日总览
+
+**一句话结论**：固定来源没有厂商工程博客，只有阿里云和腾讯云社区在转述 Gemini 4 Argon 开放和 Step 5 Preview 的参数。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | 阿里、腾讯、字节、百度、美团、京东、滴滴、网易、360、有赞及五个专项 |
+| 核心趋势 | 社区文跟着官方模型开放写体验，规格和榜单名次都要回查原文 |
+| 可直接关注 | Argon 的可用范围以 Google 博客为准；Step 5 的 6000 亿 / 270 亿是社区转述，不是本日新发布 |
+| 专项检索结论 | Langfuse、LangChain/LangGraph、Code Graph、Spring Alibaba AI、Loop Engineering 在固定来源内无当日可核验新文 |
+| 未发现更新 | 阿里技术、语雀、腾讯技术工程、字节技术博客、美团、百度、京东、滴滴、网易、360、有赞。阿里云大促与 ECS 报价帖已过滤 |
+
+### 重要文章与更新
+
+| 主题 | 标题 | 日期 | 来源 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| 模型开放 | [Gemini 4 上线！又回到御三家了？](https://developer.aliyun.com/article/1770886) | 2026-10-14 | 阿里云开发者社区 | 社区文。作者按北京时间描述 Argon 扩大开放，并区分 Gemini 应用、Antigravity 和付费 API。开放范围和价格以 Google 官方帖为准，文中的作品演示不当成评测结论 |
+| 模型参数 | [6000 亿参数只激活 270 亿，Step 5 Preview](https://cloud.tencent.com/developer/article/2760748) | 2026-10-14 | 腾讯云开发者社区 | 社区转述阶跃星辰模型：稀疏 MoE、总参数约 6000 亿、每 token 约 270 亿、100 万上下文、文本和图片输入。与 10-12 的 WorkBuddy 限免文是同一模型的另一篇介绍，不是新发布 |
+
+### 技术文档与实践
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 模型选型 | [Gemini 4 社区转述](https://developer.aliyun.com/article/1770886) | 应用、Antigravity、API 三条入口不要混 | 想确认自己账号能不能选到 Argon 的人 |
+| MoE | [Step 5 Preview 社区文](https://cloud.tencent.com/developer/article/2760748) | 总参数和激活参数分开看 | 在比较开源 MoE 成本的人 |
+
+### 工程实践归纳
+
+**总体判断**：五个专项均未发现可核验更新。本日信号是社区对已发布模型的转述。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 入口 | 社区文把 Argon 的应用端和 API 付费层分开写 | 先看自己的套餐再谈迁移，不要用「已全面开放」概括所有入口 |
+| 成本 | Step 5 文强调激活参数远小于总参数 | 报价和延迟看激活规模，不看总参数标题 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 延伸 | [Gemini 4 社区转述](https://developer.aliyun.com/article/1770886) | 中文时间线有用，规格回官方博客 |
+| 延伸 | [Step 5 Preview](https://cloud.tencent.com/developer/article/2760748) | 参数表便于和 10-12 那篇对照，榜单名次未在本轮复核 |
+
+### 来源清单
+
+- 检索范围：2026-10-14 00:00:00 到 2026-10-14 23:59:59（Asia/Shanghai）
+- 固定来源覆盖：阿里云开发者社区、腾讯云开发者社区；其余维度已检索。标题党测评与云产品促销未收录
+- 来源清单表格：
+
+| 公司/组织 | 来源 | 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- | --- | --- |
+| 阿里巴巴 | 阿里云开发者社区 | 技术文章 | Gemini 4 上线转述 | 2026-10-14 | https://developer.aliyun.com/article/1770886 |
+| 腾讯 | 腾讯云开发者社区 | 技术文章 | Step 5 Preview 参数转述 | 2026-10-14 | https://cloud.tencent.com/developer/article/2760748 |
+
 ## 2026-10-13
 
 ### 今日总览

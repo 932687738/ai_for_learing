@@ -2,6 +2,155 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-10-15
+
+### 今日总览
+
+**一句话结论**：GitHub 把代码扫描的自动修复和 PR 上的 AI Scan 做成正式功能，并预告 11 月 16 日下线三款 Copilot 模型；LangChain 给人工介入加了按次中断。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | GitHub Changelog、Claude Code、Hermes、Langfuse、LangChain、LangGraph、OpenClaw、Codex、Spring、Code Graph |
+| 核心趋势 | 安全告警可以交给 Copilot 跨仓库改完再开草稿 PR；人机中断从整段对话下到单次调用；Hermes 0.22.1 打错提交，要用 0.22.2 |
+| 可直接关注 | 代码扫描 Assign to Copilot；AI Scan 不阻断合并；HITL 按次中断；Langfuse 组织级模型连接和出站白名单 |
+| 专项检索结论 | Claude Code v2.1.300、Hermes v0.22.1/0.22.2、Langfuse v4.60.0、langchain 1.4.6、LangGraph CLI 0.4.35 与 checkpoint-postgres 3.2.0 见下表。OpenClaw 本日是 9 月延长稳定线 2026.9.33，不是替代 2026.10.3。Codex 只有无说明的 alpha。Spring AI、Spring Alibaba AI、Code Graph 无正式发布。Loop Engineering 无独立新文，按次中断属于 HITL。skills：Langfuse 补了 CLI 导入说明，并追踪 skill 是否可用、资源是否被加载 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| GitHub | [代码扫描的 Agentic autofix 正式可用](https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability/) | 2026-10-15 | 官方发布 | 面向 GitHub Code Security / Advanced Security 的 Enterprise Cloud（含数据驻留）。把默认分支上的告警派给 Copilot 后，它会翻相关文件、改代码、再跑 CodeQL，通过后开草稿 PR。一次最多 25 条。只在 PR 或其他分支上出现的告警不能派 |
+| GitHub | [PR 上的 AI Scan 正式可用](https://github.blog/changelog/2026-10-15-ai-scan-for-pull-requests-generally-available/) | 2026-10-15 | 官方发布 | 补 CodeQL 还没覆盖的 PHP、Shell、Terraform、Dockerfile、JSP、Blazor 等。发现标成 AI，可带解释和建议修复。发现不让代码扫描检查失败，也不能靠规则集挡住合并。fork 和 Dependabot 的 PR 不跑。公开仓库可用；私有和内部仓库需要 Code Security 或 Advanced Security，不要求 Copilot 许可证，消耗 Code Security AI Credits |
+| GitHub | [11 月 16 日下线部分 Copilot 模型](https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november/) | 2026-10-15 | 官方发布 | 下线 Claude Opus 4.8、Claude Opus 5、GPT-5.6 Terra。建议换成 Opus 5.5，或 GPT-6.1 Sol / GPT-6 Luna。年付个人订阅仍保留 Opus 4.8。企业若关了「新模型默认开启」，要自己打开替代模型 |
+| Claude Code | [v2.1.300](https://github.com/anthropics/claude-code/releases/tag/v2.1.300) | 2026-10-15（Published 10-14 18:24Z，北京时间 10-15 02:24） | 开源发布 | OpenTelemetry 把缓存写入拆成 5 分钟和 1 小时。trace 补上 GenAI 语义属性。AWS 上的 Claude Platform 增加 `/advisor`，不选就不跑。mod 的 `agent.spawn` 可以改工作流代理的 prompt 和 model，不再只能拒绝 |
+| LangChain | [langchain 1.4.6](https://github.com/langchain-ai/langchain/releases/tag/langchain==1.4.6) | 2026-10-15（Published 10-14 17:28Z，北京时间 10-15 01:28） | 开源发布 | HITL 中间件增加可选的按次中断，不必整段对话都停下来等人 |
+| Langfuse | [v4.60.0](https://github.com/langfuse/langfuse/releases/tag/v4.60.0) | 2026-10-15（Published 10:26Z，北京时间 18:26） | 开源发布 | 模型连接可以挂在组织上；计费单位写入只追加的 ClickHouse 账本；追踪页显示提示缓存命中率；自建实例可配置出站主机白名单；API 可选返回 skill 文件内容 |
+| Hermes | [v0.22.2](https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.2) | 2026-10-15（Published 08:21Z，北京时间 16:21） | 开源发布 | 0.22.1（北京时间 07:59，说明写 10-14）打错提交，带上了未发布的网关改动，微软商店可能停在 Connecting。0.22.2 才是预期补丁：重启后不再把无关 PID 当成网关；本地长回合在笔记本休眠后不再误判超时。已知问题：0.22.1 网关上跑过的会话，在 0.22.2 里删不掉 |
+| OpenClaw | [2026.9.33](https://github.com/openclaw/openclaw/releases/tag/v2026.9.33) | 2026-10-15（Published 10:39Z，北京时间 18:39） | 开源发布 | 这是 9 月线的延长稳定版，说明写明当时最新仍是 2026.10.3。本版补安全与升级可靠性，并支持 Meta Muse Wonder 和 MiniMax M3.1 的思考力度 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 代码安全 | [Agentic autofix](https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability/) | 派给 Copilot、重跑 CodeQL、草稿 PR | 管 Advanced Security 的人 |
+| 人机中断 | [langchain 1.4.6](https://github.com/langchain-ai/langchain/releases/tag/langchain==1.4.6) | 按次 interrupt，而不是整段 HITL | 用 LangChain HITL 中间件的人 |
+| 检查点 | [checkpoint-postgres 3.2.0](https://github.com/langchain-ai/langgraph/releases/tag/checkpointpostgres==3.2.0) | `PostgresSaver` / `AsyncPostgresSaver` 增加 prune（北京时间 03:54） | 检查点表已经很大的人 |
+| 可观测 | [Langfuse v4.60.0](https://github.com/langfuse/langfuse/releases/tag/v4.60.0) | 组织级连接、出站白名单、缓存命中率 | 自建 Langfuse 的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：本日的工程增量是「人可以在单次工具调用上打断」和「安全修复先自己验证再交 PR」，不是新模型日。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| HITL | langchain 1.4.6 的按次中断是显式打开的 | 默认不要让每一次调用都停，只在有副作用的那次停 |
+| 检查点 | Postgres saver 可以 prune；CLI 0.4.35 支持私有镜像拉取密钥，并保留失败构建日志 | 清历史和部署失败要分开处理，日志别跟着失败部署一起丢 |
+| prebuilt | [prebuilt 1.1.1](https://github.com/langchain-ai/langgraph/releases/tag/prebuilt==1.1.1)（北京时间 12:32）的说明主要是把已发布的 langgraph 1.2.15 和 checkpoint 收进依赖 | 不要把 10-13 已经写过的 ToolNode 修复再当成今天的新行为 |
+| Hermes | 先看 tag 是不是打在预期提交上 | 0.22.1 不要留在生产；升到 0.22.2 后旧网关会话可能删不掉 |
+| 遥测 | Claude Code 把 5 分钟和 1 小时缓存写入分开计数 | 对账时不要再把两种缓存写混成一个数 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [Agentic autofix](https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability/) | 它会改默认分支上的告警并开 PR，范围和许可证要先确认 |
+| 必读 | [Copilot 模型下线](https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november/) | 11 月 16 日前要改工作流里写死的模型名 |
+| 推荐 | [Hermes v0.22.2](https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.2) | 说明 0.22.1 为什么不能当正式补丁 |
+| 延伸 | [OpenClaw 2026.9.33](https://github.com/openclaw/openclaw/releases/tag/v2026.9.33) | 只在还停在 9 月延长稳定线时需要 |
+
+### 来源清单
+
+- 检索范围：2026-10-15 00:00:00 到 2026-10-15 23:59:59（Asia/Shanghai）
+- 引用域名：github.blog, github.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Agentic autofix GA | 2026-10-15 | https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability/ |
+| 官方发布 | AI Scan for pull requests GA | 2026-10-15 | https://github.blog/changelog/2026-10-15-ai-scan-for-pull-requests-generally-available/ |
+| 官方发布 | Copilot model deprecation | 2026-10-15 | https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november/ |
+| 开源发布 | Claude Code v2.1.300 | 2026-10-15（北京时间） | https://github.com/anthropics/claude-code/releases/tag/v2.1.300 |
+| 开源发布 | langchain 1.4.6 | 2026-10-15（北京时间） | https://github.com/langchain-ai/langchain/releases/tag/langchain==1.4.6 |
+| 开源发布 | Langfuse v4.60.0 | 2026-10-15 | https://github.com/langfuse/langfuse/releases/tag/v4.60.0 |
+| 开源发布 | Hermes v0.22.2 | 2026-10-15 | https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.2 |
+| 开源发布 | OpenClaw 2026.9.33 | 2026-10-15 | https://github.com/openclaw/openclaw/releases/tag/v2026.9.33 |
+| 开源发布 | langgraph cli 0.4.35 | 2026-10-15（北京时间） | https://github.com/langchain-ai/langgraph/releases/tag/cli==0.4.35 |
+| 开源发布 | checkpoint-postgres 3.2.0 | 2026-10-15（北京时间） | https://github.com/langchain-ai/langgraph/releases/tag/checkpointpostgres==3.2.0 |
+
+## 2026-10-14
+
+### 今日总览
+
+**一句话结论**：Gemini 4 Argon 在北京时间零点开放，GitHub Copilot 随即跟上；同一天 Claude Code 用空闲压缩保住提示缓存，Hermes 发布跟 tag 走的 0.22.0。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Google / GitHub 官方、Claude Code、Hermes、Langfuse、LangChain、LangGraph、Codex、Spring、Code Graph、政策源 |
+| 核心趋势 | 前沿模型进入 API 与 Copilot；编码代理开始在缓存过期前主动压缩；Actions 用锁文件钉住 action 的提交 |
+| 可直接关注 | `gemini-4-argon` 的 1M 统一窗口和试用价；Copilot 里的 Argon 与 HydraFusion Max；Claude Code 空闲压缩；Hermes 首次启动向导 |
+| 专项检索结论 | Claude Code v2.1.299、Hermes v0.22.0、Langfuse v4.59.0、LangGraph CLI 0.4.34、langchain-openai 1.7.2 见下表。Codex 只有 0.163 alpha，无说明，不展开。OpenClaw、Spring AI、Spring Alibaba AI、Code Graph 无落在本日北京时间的正式发布。Loop Engineering 无独立新文，空闲压缩属于 Claude Code 的上下文策略。skills：v2.1.299 让 mod 的 `skill.prompt` 钩子拿到 frontmatter、来源和路径 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Gemini | [Gemini 4 Argon 面向所有人开放](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/) | 2026-10-14（Published 10-13 16:00Z，北京时间 10-14 00:00；页面写 Oct 13） | 官方发布 | 模型 ID `gemini-4-argon`。API 上输入、思考、输出共用 1M token。试用价到 2026-11-30：输入每百万 2 美元、输出（含思考）10 美元，隐式缓存 0.10 美元；12 月 1 日起改为 4 / 20 美元。API 不在免费层。开发者走付费 API；Antigravity 需要 Google AI Ultra；Gemini 应用和搜索 AI Mode 面向 Ultra 与 Pro |
+| GitHub | [Copilot 提供 Gemini 4 Argon](https://github.blog/changelog/2026-10-13-gemini-4-argon-in-github-copilot/) | 2026-10-14（Published 10-13 18:39Z，北京时间 10-14 02:39；页面写 Oct 13） | 官方发布 | Pro+、Max、Business、Enterprise 可在 VS Code、Visual Studio、CLI、coding agent、Copilot app、JetBrains、Xcode、Eclipse 里选。按供应商标价、用量计费，灰度开放。企业用模型策略管控，新模型默认开启除非管理员关掉 |
+| GitHub | [HydraFusion 更新并增加 Max](https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option/) | 2026-10-14 | 官方发布 | 仍是研究预览。模型池含 Claude Opus 5.5、GPT-6 Astra、GPT-6.1 Sol、GPT-6 Luna。Max 用同一套编排，但在更难的任务上提高推理力度。VS Code、Copilot app、CLI 都可用，需打开实验功能并受组织模型策略约束 |
+| GitHub | [Actions 工作流锁文件公开预览](https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview/) | 2026-10-14（Published 13:49Z，北京时间 21:49） | 官方发布 | 用 `gh actions-lock` 生成 `.github/workflows/actions.lock`，把 action 及其传递依赖钉到提交。已接入的工作流即使用 tag，也跑锁定的提交。Require lockfile 策略可按企业、组织或仓库要求启用。公告范围是 GitHub Enterprise Cloud（含数据驻留） |
+| Claude Code | [v2.1.299](https://github.com/anthropics/claude-code/releases/tag/v2.1.299) | 2026-10-14（Published 02:49Z，北京时间 10:49） | 开源发布 | 终端里约 20 万 token 以上的会话闲置约 54 分钟会先压缩，避免一小时提示缓存过期后整段重算。`idleCompaction: false` 可关。`CLAUDE_CODE_DISABLE_FILE_MENTIONS` 让 `@` 文件只给路径、不塞正文。agent 视图可用 `/effort`、`/fast`。`claude plugin eval` 可用 `--disallow-tools` 排除 Agent 等内置工具 |
+| Hermes | [v0.22.0](https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.0) | 2026-10-14（Published 03:21Z，北京时间 11:21；说明写 Release Date 10-13） | 开源发布 | 新装桌面端先走引导对话，试用模型 `nous/welcome` 不需要自己的 Key。本地可一键起 llama.cpp。安装默认跟经过测试的 SemVer tag。这一版把 v0.21.1 到 v0.21.7 的补丁收成正式说明 |
+| Langfuse | [v4.59.0](https://github.com/langfuse/langfuse/releases/tag/v4.59.0) | 2026-10-14（Published 09:20Z，北京时间 17:20） | 开源发布 | 修正 Claude Sonnet 5.5 的缓存读价格；会话视图默认用新设计；Topics 可过滤和搜索；迟到的 trace 按分片就绪重放；OTEL 媒体上传并发有上限 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 模型 API | [Gemini 4 Argon 开发者说明](https://ai.google.dev/gemini-api/docs/latest-model) | 1M 统一窗口、思考档 `low`/`medium`/`high`、长输出可超过 64K | 要迁到 `gemini-4-argon` 的人 |
+| 编码代理 | [Claude Code v2.1.299](https://github.com/anthropics/claude-code/releases/tag/v2.1.299) | 空闲压缩与缓存过期的关系 | 长会话、在意缓存费用的人 |
+| CI 供应链 | [Actions lockfiles](https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview/) | tag 可以移动，锁文件钉提交 | 管 GitHub Actions 的人 |
+| 可观测 | [Langfuse v4.59.0](https://github.com/langfuse/langfuse/releases/tag/v4.59.0) | 价格表、会话视图、迟到 trace | 自建或云上 Langfuse 的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：框架没有大版本，增量是 OpenAI 流式块的修正、LangGraph CLI 的 JSON 输出，以及各家代理把缓存和安装通道收紧。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 空闲压缩 | 会话闲置接近一小时缓存寿命时先压缩 | 长任务中间停下来，不一定要等用户回来才付整段重算的费用 |
+| 流式 | [langchain-openai 1.7.2](https://github.com/langchain-ai/langchain/releases/tag/langchain-openai==1.7.2)（北京时间 21:51）在 `output_index` 漂移时仍把 Responses 流项目放在同一块 | 解析流时不要假设 index 单调就拆块 |
+| CLI | [langgraph cli 0.4.34](https://github.com/langchain-ai/langgraph/releases/tag/cli==0.4.34)（北京时间 05:18）给 `deploy listeners list` 加了 `--json` | 部署检查可以进脚本 |
+| 安装 | Hermes 0.22.0 把「跟 tag」写成稳定通道，并补上 0.21.x 的正式说明 | 昨天若还停在 0.21.7 的补丁说明，今天看 0.22.0 即可 |
+| Codex | `rust-v0.163.0-alpha.10` / `alpha.11` 落在本日，发布页没有说明 | 不把 alpha 当成可升级的稳定行为 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [Gemini 4 Argon](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/) | 价格、窗口和谁能用 API 是这天最需要核对的规格 |
+| 必读 | [Claude Code v2.1.299](https://github.com/anthropics/claude-code/releases/tag/v2.1.299) | 空闲压缩会在你不打字时改会话，升级前要知道怎么关 |
+| 推荐 | [HydraFusion Max](https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option/) | 看编排池里现在有哪些模型，避免把它当成单模型 |
+| 延伸 | [Hermes v0.22.0](https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.0) | 体积大，先读 Highlights 里的安装通道和本地 llama.cpp |
+
+### 来源清单
+
+- 检索范围：2026-10-14 00:00:00 到 2026-10-14 23:59:59（Asia/Shanghai）
+- 引用域名：blog.google, ai.google.dev, github.blog, github.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Gemini 4 Argon | 2026-10-14（北京时间） | https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/ |
+| 技术文档 | Gemini 4 Argon latest model | 2026-10-13 UTC 文档更新，对应北京时间 10-14 开放 | https://ai.google.dev/gemini-api/docs/latest-model |
+| 官方发布 | Gemini 4 Argon in GitHub Copilot | 2026-10-14（北京时间） | https://github.blog/changelog/2026-10-13-gemini-4-argon-in-github-copilot/ |
+| 官方发布 | HydraFusion Max | 2026-10-14 | https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option/ |
+| 官方发布 | Actions workflow lockfiles | 2026-10-14 | https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview/ |
+| 开源发布 | Claude Code v2.1.299 | 2026-10-14 | https://github.com/anthropics/claude-code/releases/tag/v2.1.299 |
+| 开源发布 | Hermes Agent v0.22.0 | 2026-10-14（北京时间） | https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.0 |
+| 开源发布 | Langfuse v4.59.0 | 2026-10-14 | https://github.com/langfuse/langfuse/releases/tag/v4.59.0 |
+| 开源发布 | langchain-openai 1.7.2 | 2026-10-14 | https://github.com/langchain-ai/langchain/releases/tag/langchain-openai==1.7.2 |
+| 开源发布 | langgraph cli 0.4.34 | 2026-10-14（北京时间） | https://github.com/langchain-ai/langgraph/releases/tag/cli==0.4.34 |
+
 ## 2026-10-13
 
 ### 今日总览
