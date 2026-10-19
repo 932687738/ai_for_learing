@@ -2,6 +2,189 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-10-18
+
+### 今日总览
+
+**一句话结论**：这一天没有新的模型或框架正式版，Anthropic 宣布把一部分股权放进公益基金。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Anthropic、OpenAI、Google、GitHub Changelog、Claude Code、Codex、Langfuse、LangChain、OpenClaw、Spring、Code Graph |
+| 核心趋势 | 公司治理公告，不是产品发布日 |
+| 可直接关注 | 公益基金的比例和触发条件；不要把它当成模型或 API 变更 |
+| 专项检索结论 | Claude Code、Codex、OpenClaw、Hermes、Spring AI、Spring Alibaba AI、Langfuse、LangChain/LangGraph、Code Graph、Loop Engineering、skills 均无落在本日北京时间的正式发布 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Anthropic | [把一部分股权放进公益基金](https://www.anthropic.com/news/public-benefit-fund) | 2026-10-18 | 官方发布 | 在股东批准的前提下，今天承诺 5% 股份进入 Anthropic Public Benefit Fund；公司价值每再涨 50%，董事会还可再加 2%。这是治理结构，不改变 API 或 Claude Code |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 治理 | [Public Benefit Fund](https://www.anthropic.com/news/public-benefit-fund) | 固定比例加上随估值增加的追加份额 | 关心厂商治理、不需要改集成的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：本日没有可复现的框架或代理工程更新。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 框架 | 未发现 LangChain、LangGraph、Langfuse、Spring AI 的新 tag | 集成版本保持在 10-17 已写的水平上 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 延伸 | [Public Benefit Fund](https://www.anthropic.com/news/public-benefit-fund) | 看清承诺的是股份比例，不是新的研究预算接口 |
+
+### 来源清单
+
+- 检索范围：2026-10-18 00:00:00 到 2026-10-18 23:59:59（Asia/Shanghai）
+- 引用域名：anthropic.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Investing in the public benefit | 2026-10-18 | https://www.anthropic.com/news/public-benefit-fund |
+
+## 2026-10-17
+
+### 今日总览
+
+**一句话结论**：Claude Code 把空闲压缩的开关放进配置，并预告 Claude Design 将在 12 月 14 日关闭；LangGraph 修复恢复运行时把别的任务一起打停的问题。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Claude Code、LangGraph、LangChain、Anthropic 研究、Codex alpha、GitHub Changelog |
+| 核心趋势 | 代理的压缩和恢复路径在收口；密码学旧谜题被解释为时间戳随机数，不是曲线后门 |
+| 可直接关注 | `/config` 里的 Idle compaction；镜像读取超过 128MB 会被拒绝；无效 resume 不再拖垮其他任务 |
+| 专项检索结论 | Claude Code v2.1.302、langgraph 1.2.16、langchain-core 1.6.12、LangGraph CLI 0.4.36 见下表。Codex 0.164 alpha 无说明，不展开。Langfuse 的 4.61–4.63 落在 10-16。OpenClaw、Hermes、Spring AI、Spring Alibaba AI、Code Graph 无本日正式发布。Loop Engineering 无独立新文。skills 无独立更新 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Claude Code | [v2.1.302](https://github.com/anthropics/claude-code/releases/tag/v2.1.302) | 2026-10-17（Published 10-16 20:53Z，北京时间 10-17 04:53） | 开源发布 | `/config` 可以开关空闲压缩。独立的 Claude Design（claude.ai/design）将于 2026-12-14 关闭。Read 不再把超过 128MB 的图片或伪装成图片的设备整段读进内存。会话中途通过 ToolSearch 或压缩后再次加载的工具，不再打穿提示缓存 |
+| LangGraph | [langgraph 1.2.16](https://github.com/langchain-ai/langgraph/releases/tag/1.2.16) | 2026-10-17（Published 10-16 22:11Z，北京时间 10-17 06:11） | 开源发布 | 恢复值无效时其他任务可以跑完；子图恢复时不再重跑已经完成的任务；恢复得到的 Command 更新只应用一次 |
+| LangChain | [langchain-core 1.6.12](https://github.com/langchain-ai/langchain/releases/tag/langchain-core==1.6.12) | 2026-10-17（Published 10-16 19:28Z，北京时间 10-17 03:28） | 开源发布 | `content-block-start` 事件会带上 extras，流式解析不要在块开始时把附加字段丢掉 |
+| Anthropic | [Claude 解释 ECDSA 曲线种子的来源](https://www.anthropic.com/research/ecdsa-curve-origins) | 2026-10-17（Published 10-16 17:02Z，北京时间 10-17 01:02；页面写 Oct 16） | 研究 | NIST P-192 到 P-521 的种子来自 C 库 `lrand48`，用 Unix 时间戳做种子，不是哈希口令，也不是新的攻击。官方写明不需要更换曲线 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 编码代理 | [Claude Code v2.1.302](https://github.com/anthropics/claude-code/releases/tag/v2.1.302) | 空闲压缩开关、超大图片拒绝、中途加工具与缓存 | 已打开 2.1.299 空闲压缩的人 |
+| 恢复运行 | [langgraph 1.2.16](https://github.com/langchain-ai/langgraph/releases/tag/1.2.16) | 无效 resume、子图已完成任务、Command 更新只写一次 | 做人机中断和子图的人 |
+| 密码学背景 | [ECDSA curve origins](https://www.anthropic.com/research/ecdsa-curve-origins) | 种子是时间戳随机数，不是后门证据 | 想知道要不要因此换曲线的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：恢复语义比新功能更重要：无效输入不应中断无关任务，压缩开关要让用户找得到。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 恢复 | 1.2.16 让无效 resume 只影响自己的那条路径 | 测试时故意传入坏的 resume，确认其他分支还在 |
+| 缓存 | 中途加载的工具不再造成缓存失效 | 升级后用同一条长会话对照缓存命中，而不是只看功能列表 |
+| CLI | [langgraph cli 0.4.36](https://github.com/langchain-ai/langgraph/releases/tag/cli==0.4.36)（北京时间 00:39）接受 serverless / dedicated 别名，并按当前 Docker context 推送 | 部署命令不要假设只有一套镜像名 |
+| 设计工具 | Claude Design 独立站 12 月 14 日关闭 | 还把设计稿流程指到 claude.ai/design 的，要改入口 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [Claude Code v2.1.302](https://github.com/anthropics/claude-code/releases/tag/v2.1.302) | 空闲压缩从环境变量变成配置项，升级后行为会变 |
+| 推荐 | [langgraph 1.2.16](https://github.com/langchain-ai/langgraph/releases/tag/1.2.16) | 恢复相关的四条修复适合加进回归测试 |
+| 延伸 | [ECDSA 种子](https://www.anthropic.com/research/ecdsa-curve-origins) | 用来停掉「NIST 曲线有隐藏种子后门」的旧猜测 |
+
+### 来源清单
+
+- 检索范围：2026-10-17 00:00:00 到 2026-10-17 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, anthropic.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Claude Code v2.1.302 | 2026-10-17（北京时间） | https://github.com/anthropics/claude-code/releases/tag/v2.1.302 |
+| 开源发布 | langgraph 1.2.16 | 2026-10-17（北京时间） | https://github.com/langchain-ai/langgraph/releases/tag/1.2.16 |
+| 开源发布 | langchain-core 1.6.12 | 2026-10-17（北京时间） | https://github.com/langchain-ai/langchain/releases/tag/langchain-core==1.6.12 |
+| 开源发布 | langgraph cli 0.4.36 | 2026-10-17（北京时间） | https://github.com/langchain-ai/langgraph/releases/tag/cli==0.4.36 |
+| 研究 | Claude reveals ECDSA curve origins | 2026-10-17（北京时间） | https://www.anthropic.com/research/ecdsa-curve-origins |
+
+## 2026-10-16
+
+### 今日总览
+
+**一句话结论**：Codex 0.163.0 稳定版可以在回答过程中改方向，Langfuse 一天连发三版并把 skill 做成追踪里的一等对象；GitHub 的开源许可证合规检查正式可用。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Codex、Claude Code、Langfuse、LangChain、OpenClaw、GitHub Changelog、Anthropic 研究 |
+| 核心趋势 | 编码代理从「等一轮结束再改」变成可以中途转向；可观测开始单列 skill；许可证政策可以挡住不合规依赖的合并 |
+| 可直接关注 | Codex 的跟随插话和并行只读工具；Langfuse skill 页与 AI Gateway 按连接路由；企业许可证规则集 |
+| 专项检索结论 | Codex rust-v0.163.0、Claude Code v2.1.301、Langfuse v4.61.0–v4.63.0、langchain-core 1.6.11、OpenClaw 2026.10.4 见下表。0.164 alpha 无说明，不展开。Hermes、Spring AI、Spring Alibaba AI、Code Graph 无本日正式发布。Loop Engineering 无独立新文。skills：Langfuse 增加 skill 页、入门引导、按版本看 trace，并在 4.63 把 skill 管理做成公开的 v4 预览 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Codex | [rust-v0.163.0](https://github.com/openai/codex/releases/tag/rust-v0.163.0) | 2026-10-16（Published 10-15 21:30Z，北京时间 10-16 05:30） | 开源发布 | `/config` 可跨分类搜索并立刻改设置。回答过程中可以插话改方向，打断回合也会停掉 Code Mode 单元。只读工具（含 skill、记忆、历史）可以并行。符合条件的账号默认开启 Daybreak。网络代理在 DNS 查询前就检查权限 |
+| Claude Code | [v2.1.301](https://github.com/anthropics/claude-code/releases/tag/v2.1.301) | 2026-10-16（Published 10-15 19:22Z，北京时间 10-16 03:22） | 开源发布 | 无人值守重试遇到重置还很远的用量上限时可以停止等待。退出时不再不问就删掉可能有未推送提交的 worktree。组织还没有最新 Fable 时，`fable` 别名会回退到上一档。OpenTelemetry 的工具决定带上分类器结论和权限模式 |
+| Langfuse | [v4.61.0 至 v4.63.0](https://github.com/langfuse/langfuse/releases/tag/v4.63.0) | 2026-10-16 | 开源发布 | 4.61（北京时间 16:20）给 trace 单独的 skills 页，AI Gateway 按连接 slug 路由。4.62（18:00）把请求上限提到 16MiB，执行限制可配。4.63（22:33）给 skill 增加用量页，并把 skill 管理做成公开 v4 预览；没有 slug 的 `codex-` 模型会送到 OpenAI 连接 |
+| OpenClaw | [2026.10.4](https://github.com/openclaw/openclaw/releases/tag/v2026.10.4) | 2026-10-16（Published 00:36Z，北京时间 08:36） | 开源发布 | 对 2026.10.3 的稳定补丁，没有新配置项。休眠或系统时钟跳变后 Gateway 不再因为心跳看起来过期而自己重启。手动 `/compact` 会先结束当前回合。Tlon 群私聊不再把其他参与者当成所有者 |
+| GitHub | [开源许可证合规正式可用](https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available/) | 2026-10-16 | 官方发布 | 面向开了 Code Security 的 GitHub Enterprise Cloud（含数据驻留）。规则集可以用「合并前必须有许可证合规结果」。不合规依赖要删掉、换掉、改政策或做包例外。新 API 让编码代理在引入包之前就能查政策 |
+| Anthropic | [就业如何在 Anthropic 内部变化](https://www.anthropic.com/research/employment-at-anthropic) | 2026-10-16 | 研究 | 到 8 月，交互式代理工时是员工的 6 倍。技术部门初级员工占比从 2025 年初的 21% 降到 14%，初级技术招聘占比从 27% 降到 9%。这是一家公司的内部研究，不是行业统计 |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 终端代理 | [Codex 0.163.0](https://github.com/openai/codex/releases/tag/rust-v0.163.0) | 中途改方向、并行只读、代理在 DNS 前鉴权 | 从 0.162 往上升的人 |
+| 可观测 | [Langfuse v4.63.0](https://github.com/langfuse/langfuse/releases/tag/v4.63.0) | skill 页、用量、按连接路由 | 要看 skill 实际被调用没有的人 |
+| 许可证 | [License compliance GA](https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available/) | 规则集挡住不合规依赖，代理可先查 API | 管企业依赖政策的人 |
+| 追踪 | [langchain-core 1.6.11](https://github.com/langchain-ai/langchain/releases/tag/langchain-core==1.6.11) | `LangChainTracer` 可以传入地址（北京时间 02:32） | 自建 LangSmith 兼容端点的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：稳定版 Codex 和 Langfuse 的 skill 追踪，比零散补丁更值得升级评估。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 转向 | 回答过程中的插话会停掉正在跑的 Code Mode | 不要假设一轮里的工具会全部跑完 |
+| skill | Langfuse 把 skill 的版本、trace 和用量分开 | 装了很多 skill 时，先看哪些版本真的被加载 |
+| 网关 | 没有 slug 的 `codex-` 模型走 OpenAI 连接 | 自建网关的模型名要和连接路由对上，否则会送错上游 |
+| 运行时 | OpenClaw 10.4 只修休眠、压缩和身份，不改配置 | 从 10.3 升上来风险低于跨大版本 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [Codex 0.163.0](https://github.com/openai/codex/releases/tag/rust-v0.163.0) | 中途转向和默认 Daybreak 会改变日常用法 |
+| 必读 | [许可证合规 GA](https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available/) | 合并门禁和给代理用的查询 API 是新的 |
+| 推荐 | [Langfuse v4.63.0](https://github.com/langfuse/langfuse/releases/tag/v4.63.0) | skill 从 changelog 条目变成可追踪对象 |
+| 延伸 | [Anthropic 就业研究](https://www.anthropic.com/research/employment-at-anthropic) | 看一家前沿公司怎么量化代理工时和初级招聘，不要外推成全行业 |
+
+### 来源清单
+
+- 检索范围：2026-10-16 00:00:00 到 2026-10-16 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, github.blog, anthropic.com
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Codex rust-v0.163.0 | 2026-10-16（北京时间） | https://github.com/openai/codex/releases/tag/rust-v0.163.0 |
+| 开源发布 | Claude Code v2.1.301 | 2026-10-16（北京时间） | https://github.com/anthropics/claude-code/releases/tag/v2.1.301 |
+| 开源发布 | Langfuse v4.61.0 | 2026-10-16 | https://github.com/langfuse/langfuse/releases/tag/v4.61.0 |
+| 开源发布 | Langfuse v4.62.0 | 2026-10-16 | https://github.com/langfuse/langfuse/releases/tag/v4.62.0 |
+| 开源发布 | Langfuse v4.63.0 | 2026-10-16 | https://github.com/langfuse/langfuse/releases/tag/v4.63.0 |
+| 开源发布 | OpenClaw 2026.10.4 | 2026-10-16 | https://github.com/openclaw/openclaw/releases/tag/v2026.10.4 |
+| 开源发布 | langchain-core 1.6.11 | 2026-10-16（北京时间） | https://github.com/langchain-ai/langchain/releases/tag/langchain-core==1.6.11 |
+| 官方发布 | Open source license compliance GA | 2026-10-16 | https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available/ |
+| 研究 | How employment is changing at Anthropic | 2026-10-16 | https://www.anthropic.com/research/employment-at-anthropic |
+
 ## 2026-10-15
 
 ### 今日总览
