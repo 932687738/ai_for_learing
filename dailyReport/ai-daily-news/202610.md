@@ -2,6 +2,84 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-10-19
+
+### 今日总览
+
+**一句话结论**：OpenAI 用自建评测说明新模型在 COBOL 等少样本语言上明显变强；GitHub 当天停用一批旧 Copilot 模型，并开放模型策略 API。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | OpenAI、Anthropic、GitHub Changelog、Microsoft、Hugging Face、Claude Code、Codex、OpenClaw、LangGraph、Langfuse、Spring |
+| 核心趋势 | 少样本语言的迁移能力被写成可复现评测；企业开始用 API 管模型可用性，并用「监护代理」看内部 Agent |
+| 可直接关注 | COBOL 迁移评测的通过标准是输出逐字节一致；Copilot 旧模型已下线；LangGraph CLI 默认部署改成 serverless |
+| 专项检索结论 | OpenClaw 2026.10.5 的 Skill Workshop 带版本和撤销。Claude Code v2.1.303 只有「缺陷修复」，不展开。Codex 0.164 alpha.4/alpha.5 无说明。LangGraph CLI 0.4.37 见下表。Langfuse、Hermes、Spring AI、Spring Alibaba AI、Code Graph 无本日正式发布。Loop Engineering 无独立新文 |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| OpenAI | [少样本编程语言上的编码能力](https://openai.com/index/low-resource-programming-languages/) | 2026-10-19 | 官方发布 | 官方自报：MultiLangBench 上 GPT-6 Astra 二十种语言平均通过率 87.4%，上一对照 GPT-5.6 Sol 为 26.8%；COBOL 从 10.9% 到 72.1%。COBOL 迁到 C++/Java/Kotlin/Python/Rust 时，GPT-6.1 Sol 低推理 86.6%、高推理 97.9%，通过标准是隐藏测试上的输出逐字节一致。生产迁移仍要人工验收 |
+| GitHub | [Copilot 一批模型于今天停用](https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026/) | 2026-10-19 | 官方发布 | Gemini 3.7 Flash、GPT-5.5、GPT-5.4、GPT-5.4 mini、GPT-5 mini、Grok 4.5 在聊天、补全和 Agent 模式停用。替代分别指向 Gemini 3.8 Flash、GPT-6.1 Sol、GPT-6 Luna、Grok 4.7。管理员要在模型策略里打开替代模型 |
+| GitHub | [模型策略 REST API 正式可用](https://github.blog/changelog/2026-10-19-copilot-model-policy-api-for-enterprise-orgs-and-teams/) | 2026-10-19 | 官方发布 | 企业、企业团队、企业应用和组织都可以 GET/PATCH `/copilot/model-policies`。企业可以把模型开关下放到组织，或在企业团队模式下放到团队和应用 |
+| GitHub | [部分 HTTPS 克隆可能临时要求登录](https://github.blog/changelog/2026-10-19-some-git-over-https-may-temporarily-require-authentication/) | 2026-10-19 | 官方发布 | 异常流量期间，未登录的公开仓库 HTTPS 克隆和拉取可能失败。已登录的 HTTPS、SSH 和推送不受影响。CI 优先用 Actions 的 `GITHUB_TOKEN` 或 GitHub App 安装令牌 |
+| OpenClaw | [2026.10.5](https://github.com/openclaw/openclaw/releases/tag/v2026.10.5) | 2026-10-19（Published 10-18 21:47Z，北京时间 10-19 05:47） | 开源发布 | 侧边栏可搜索和置顶，子代理与进程面板贴在父会话旁边。Skill Workshop 保存最多十个版本，可以撤销。公开会话链接不登录也能读，之后的新消息也会出现在同一链接里；关闭分享收不回已经保存的副本 |
+| LangGraph | [cli 0.4.37](https://github.com/langchain-ai/langgraph/releases/tag/cli==0.4.37) | 2026-10-19（Published 14:06Z，北京时间 22:06） | 开源发布 | 默认部署目标改成 serverless。verbose 输出不再打印子进程的标准输入 |
+| Anthropic | [前沿安全路线图 10 月 19 日更新](https://www.anthropic.com/responsible-scaling-policy/roadmap) | 2026-10-19 | 政策标准 | 内部红队目标提前完成：自动系统在 24 组「题目 × 分类器」上匹配或超过最佳人类提交。宪法对齐这条目标按现有写法退役。新增两项政策目标，截止日期分别是 2026-12-15 和 2027-01-15。推理校验原型给内部 token 流量加了签名 |
+| Microsoft | [把企业内部 Agent 当成内部人来管](https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/) | 2026-10-19 | 官方发布 | 论点是自建 Agent 往往权限过大，不能因为是自己部署的就默认信任。建议用持续运行的 Guardian Agent，在动作发生前按风险收紧权限 |
+| Hugging Face | [TorchNeuron：PyTorch 原生跑 Trainium](https://huggingface.co/blog/hf-torchneuron) | 2026-10-19 | 开源发布 | `neuron` 成为 PyTorch 设备，支持 eager、`torch.compile`、FSDP 和张量并行。公开测试版从 10 月 20 日起可用 `pip install torch-neuronx`。文中称前一百个常用文本生成架构的开箱支持从 46% 提到 89% |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 遗留语言 | [少样本语言评测](https://openai.com/index/low-resource-programming-languages/) | 从零写 SQLite 兼容引擎；迁移必须保住舍入和缺记录行为 | 还在维护 COBOL、Fortran、Visual Basic 的团队 |
+| 模型治理 | [Copilot 模型策略 API](https://github.blog/changelog/2026-10-19-copilot-model-policy-api-for-enterprise-orgs-and-teams/) | 四级策略的读取和更新 | 管企业 Copilot 模型开关的人 |
+| 技能版本 | [OpenClaw 2026.10.5](https://docs.openclaw.ai/releases/2026.10.5) | 学习到的流程可撤销；后台学习可关；三十天未用技能的清理对 Codex 关闭 | 已经打开自动学习的人 |
+| 构建追踪 | [CodeQL 与 macOS 27](https://github.blog/changelog/2026-10-19-codeql-changes-for-macos-27-xcode-27-and-swift-6-4/) | Xcode 27 上追踪式扫描不可用，Swift 6.4 暂不支持；Intel Mac 支持将于 2026 年 12 月中旬弃用 | 在苹果新系统上跑 CodeQL 的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：可复用的工程变化是技能可回滚、部署默认值改变，以及企业内部 Agent 要单独的身份和权限。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 技能 | Workshop 保留 Auto，旧的「先提案」模式迁到关闭 | 升级后核对学习开关，不要假设还要人工批准才会写入 |
+| 分享 | 公开链接覆盖已有和未来的用户消息与最终回复 | 发布前先看会话里有没有密钥和内部链接 |
+| CLI | 0.4.37 默认 serverless，verbose 不再泄露子进程输入 | 依赖旧默认部署目标的脚本要显式写目标 |
+| 预发布 | OpenClaw `2026.10.10-beta.2` 在改文件前拒绝上下文对不上的多文件补丁 | 稳定线仍是 2026.10.5；beta 只给已经跟 10.10 预览的人 |
+| 研究 | [GRAFT](https://alignment.anthropic.com/2026/graft/) 把被发现的奖励作弊更新限制在事后可删的参数上 | 实验限于小模型和简单监视器，不是 Claude 产品变更 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [少样本编程语言](https://openai.com/index/low-resource-programming-languages/) | 通过标准写的是行为保持，不是「能编译」 |
+| 必读 | [Copilot 模型停用](https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026/) | 今天起旧模型名会直接不可用 |
+| 推荐 | [OpenClaw 2026.10.5](https://docs.openclaw.ai/releases/2026.10.5) | 技能版本和公开链接都会改变现有数据的可见范围 |
+| 延伸 | [前沿安全路线图更新](https://www.anthropic.com/responsible-scaling-policy/roadmap) | 看哪些安全目标被宣布完成、哪些被改写 |
+
+### 来源清单
+
+- 检索范围：2026-10-19 00:00:00 到 2026-10-19 23:59:59（Asia/Shanghai）
+- 引用域名：openai.com, github.blog, github.com, anthropic.com, blogs.microsoft.com, huggingface.co, alignment.anthropic.com, docs.openclaw.ai
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 官方发布 | Advancing coding in low-resource programming languages | 2026-10-19 | https://openai.com/index/low-resource-programming-languages/ |
+| 官方发布 | Copilot models deprecated | 2026-10-19 | https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026/ |
+| 官方发布 | Copilot model policy API | 2026-10-19 | https://github.blog/changelog/2026-10-19-copilot-model-policy-api-for-enterprise-orgs-and-teams/ |
+| 官方发布 | Git over HTTPS may require authentication | 2026-10-19 | https://github.blog/changelog/2026-10-19-some-git-over-https-may-temporarily-require-authentication/ |
+| 官方发布 | CodeQL, macOS 27, Swift 6.4 | 2026-10-19 | https://github.blog/changelog/2026-10-19-codeql-changes-for-macos-27-xcode-27-and-swift-6-4/ |
+| 开源发布 | OpenClaw 2026.10.5 | 2026-10-19（北京时间） | https://github.com/openclaw/openclaw/releases/tag/v2026.10.5 |
+| 开源发布 | Claude Code v2.1.303 | 2026-10-19（北京时间） | https://github.com/anthropics/claude-code/releases/tag/v2.1.303 |
+| 开源发布 | langgraph cli 0.4.37 | 2026-10-19 | https://github.com/langchain-ai/langgraph/releases/tag/cli==0.4.37 |
+| 政策标准 | Frontier Safety Roadmap | 2026-10-19 | https://www.anthropic.com/responsible-scaling-policy/roadmap |
+| 研究 | GRAFT | 2026-10-19 | https://alignment.anthropic.com/2026/graft/ |
+| 官方发布 | Securing the agentic insider | 2026-10-19 | https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/ |
+| 开源发布 | TorchNeuron | 2026-10-19 | https://huggingface.co/blog/hf-torchneuron |
+
 ## 2026-10-18
 
 ### 今日总览

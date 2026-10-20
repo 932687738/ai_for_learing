@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="docs(daily-report): 添加 AI 资讯和掘金热榜日报内容&#10;&#10;- 新增 2026-10-15 AI 资讯日报，涵盖 GitHub 代码扫描 Agentic autofix&#10;  GA、AI Scan GA、Copilot 模型下线公告、Claude Code v2.1.300、&#10;  langchain 1.4.6、Langfuse v4.60.0、Hermes v0.22.2 等发布&#10;- 新增 2026-10-14 AI 资讯日报，涵盖 Gemini 4 Argon 开放、&#10;  Copilot 集成 Argon、HydraFusion Max、Actions 工作流锁文件、&#10;  Claude Code v2.1.299 空闲压缩、Hermes v0.22.0 等发布&#10;- 新增 2026-10-16 掘金热榜日报，包含前端乱序 HTML 流等&#10;  两篇新文摘要&#10;- 新增 2026-10-15 掘金热榜日报，涵盖 Agent 记忆系统设计、&#10;  FastAPI JWT、nvm-windows 按项目切 Node 等 29 篇新文摘要">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f6ee28f4-cf78-4bef-898b-70d7918c577e" name="Changes" comment="docs(daily-report): 添加 AI 资讯和掘金热榜日报内容&#10;&#10;- 新增 2026-10-15 AI 资讯日报，涵盖 GitHub 代码扫描 Agentic autofix&#10;  GA、AI Scan GA、Copilot 模型下线公告、Claude Code v2.1.300、&#10;  langchain 1.4.6、Langfuse v4.60.0、Hermes v0.22.2 等发布&#10;- 新增 2026-10-14 AI 资讯日报，涵盖 Gemini 4 Argon 开放、&#10;  Copilot 集成 Argon、HydraFusion Max、Actions 工作流锁文件、&#10;  Claude Code v2.1.299 空闲压缩、Hermes v0.22.0 等发布&#10;- 新增 2026-10-16 掘金热榜日报，包含前端乱序 HTML 流等&#10;  两篇新文摘要&#10;- 新增 2026-10-15 掘金热榜日报，涵盖 Agent 记忆系统设计、&#10;  FastAPI JWT、nvm-windows 按项目切 Node 等 29 篇新文摘要" />
     <list id="e90a82d0-ad0a-4dbb-b361-ef2d470b4a33" name="not commit" comment="not commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -323,14 +321,7 @@
       <workItem from="1791941101092" duration="811000" />
       <workItem from="1792114303299" duration="717000" />
       <workItem from="1792137901326" duration="4000" />
-    </task>
-    <task id="LOCAL-00060" summary="feat(dailyReport): 添加2026年7月7日AI日报和知识库新闻&#10;&#10;- 添加Meta Muse图像和视频模型发布的相关内容&#10;- 添加Anthropic Claude Cowork移动端和网页版扩展信息&#10;- 添加Claude for Government Desktop公测详情&#10;- 更新Microsoft自研模型成本削减趋势报道&#10;- 添加Alibaba禁止使用Claude Code的安全合规信息&#10;- 更新Claude Code v2.1.203版本发布说明&#10;- 同步更新github-topz排行榜数据至最新状态&#10;- 更新ai-daily-state.json同步日期至2026-07-07">
-      <option name="closed" value="true" />
-      <created>1783565262848</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1783565262849</updated>
+      <workItem from="1792372869820" duration="130000" />
     </task>
     <task id="LOCAL-00061" summary="feat(dailyReport): 添加2026-07-09 AI日报和知识库日报内容&#10;&#10;- 新增 ai-daily-news/202607.md 中 2026-07-09 日报内容&#10;- 新增 knowledge-base-news/202607.md 中 2026-07-09 知识库日报内容&#10;- 更新 ai-daily-digest.md 添加 2026-07-09 AI摘要内容&#10;- 更新 ai-daily-state.json 同步状态至 2026-07-09&#10;- 更新 github-topz.md 最近更新时间为 2026-07-10 09:09:20">
       <option name="closed" value="true" />
@@ -716,7 +707,15 @@
       <option name="project" value="LOCAL" />
       <updated>1792114938954</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="docs(daily-report): 添加 AI 资讯和掘金热榜日报内容&#10;&#10;- 新增 2026-10-15 AI 资讯日报，涵盖 GitHub 代码扫描 Agentic autofix&#10;  GA、AI Scan GA、Copilot 模型下线公告、Claude Code v2.1.300、&#10;  langchain 1.4.6、Langfuse v4.60.0、Hermes v0.22.2 等发布&#10;- 新增 2026-10-14 AI 资讯日报，涵盖 Gemini 4 Argon 开放、&#10;  Copilot 集成 Argon、HydraFusion Max、Actions 工作流锁文件、&#10;  Claude Code v2.1.299 空闲压缩、Hermes v0.22.0 等发布&#10;- 新增 2026-10-16 掘金热榜日报，包含前端乱序 HTML 流等&#10;  两篇新文摘要&#10;- 新增 2026-10-15 掘金热榜日报，涵盖 Agent 记忆系统设计、&#10;  FastAPI JWT、nvm-windows 按项目切 Node 等 29 篇新文摘要">
+      <option name="closed" value="true" />
+      <created>1792372900540</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1792372900540</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
