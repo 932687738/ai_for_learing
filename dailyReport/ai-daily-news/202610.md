@@ -2,6 +2,90 @@
 
 按 Asia/Shanghai 时区增量汇总 AI/人工智能相关每日资讯。
 
+## 2026-10-20
+
+### 今日总览
+
+**一句话结论**：Claude Code 把自动模式的环境摸底做成了命令，Langfuse 把技能 API 稳住并恢复 MCP；GitHub 开始用包防火墙挡住安装期的恶意 npm 包。
+
+| 维度 | 本日结论 |
+| --- | --- |
+| 检索范围 | Claude Code、Langfuse、GitHub Changelog、OpenAI、Anthropic、Hugging Face、Gemini Notebook |
+| 核心趋势 | 编码代理在补权限和缓存边界；企业供应链从「扫漏洞」扩到「安装前拦截」；攻击面收缩被收成可重复跑的技能 |
+| 可直接关注 | `v2.1.304` 的压缩窗口和 `/loop` 缓存；Langfuse 技能 API；npm 包防火墙只覆盖 npm |
+| 专项检索结论 | Claude Code v2.1.304、Langfuse v4.64.0 与 v4.65.0 见下表。`/loop` 整点唤醒不再刚好错过一小时缓存。技能：压缩后重发技能列表，`/reload-skills` 只发新增和变更；Langfuse 稳定技能 API 并恢复 MCP。Codex 0.164 alpha.6 与 alpha.7 无说明。OpenClaw、Hermes、Spring AI、Spring Alibaba AI、LangGraph、Code Graph 无落在本日的新正式版。Loop Engineering 无独立新文，相关命令在 Claude Code |
+
+### 重要事件与发布
+
+| 主题 | 标题 | 日期 | 类型 | 研发/学习价值 |
+| --- | --- | --- | --- | --- |
+| Claude Code | [v2.1.304](https://github.com/anthropics/claude-code/releases/tag/v2.1.304) | 2026-10-20（Published 10-19 21:34Z，北京时间 10-20 05:34） | 开源发布 | `/auto-mode-setup` 会读项目和近期会话，教自动模式认识环境，Bedrock、Vertex、Foundry 也能用。`/claude-api managed-agents-secure` 只对照已发布的安全指南，不改配置。`CLAUDE_CODE_AUTO_COMPACT_WINDOW=200k` 以前会被静默当成 100K，现在接受 `k`/`M` 并在越界时警告。自定时 `/loop` 设在一小时上限时，不再刚好在提示缓存过期后才醒来 |
+| Langfuse | [v4.64.0 与 v4.65.0](https://github.com/langfuse/langfuse/releases/tag/v4.65.0) | 2026-10-20 | 开源发布 | 4.64（北京时间 01:34）把应用内助手改名为 Halo，项目 API key 权限默认打开，并拒绝路径指向另一个项目的 key。4.65（21:35）稳定技能 API、恢复 MCP，并给自建网关增加不入库的 None 摄取模式。主题聚类改成非阻塞 |
+| GitHub | [包防火墙公开预览](https://github.blog/changelog/2026-10-20-github-package-firewall-in-public-preview/) | 2026-10-20 | 官方发布 | 面向 GitHub Enterprise Cloud（含数据驻留）。装包请求先过防火墙，可设冷却期、对照 Advisory 里的恶意软件和漏洞，并检查证明降级。预览期免费，正式版后按量计费。目前只支持 npm |
+| GitHub | [密钥扫描更新](https://github.blog/changelog/2026-10-20-updates-to-github-secret-scanning/) | 2026-10-20 | 官方发布 | 2026-11-12 起，相关审计日志的 `business` 从企业显示名改成 slug，集成要能同时认两种，或改用 `business_id`。私有和内部仓库里，Base64 编码的 GitHub 令牌也可以走现有撤销动作 |
+| GitHub | [Dependabot 带上依赖版本，并支持新包管理器](https://github.blog/changelog/2026-10-20-dependabot-alerts-rest-api-now-includes-dependency-versions/) | 2026-10-20 | 官方发布 | 告警 REST 增加 `version_requirement`：锁文件给解析后的版本，没有锁文件时给清单里的约束。同一天支持 [npm 12、pnpm 11/12 和 Bun 1.4](https://github.blog/changelog/2026-10-20-dependabot-now-supports-npm-12-pnpm-11-and-12-and-bun-1-4/)。仓库还可以[一次把全部分支保护规则导入成规则集](https://github.blog/changelog/2026-10-20-bulk-migrate-branch-protections-to-rulesets-for-a-repository/) |
+| OpenAI | [收购 Orchestra Bio](https://openai.com/index/openai-to-acquire-orchestra-bio) | 2026-10-20 | 官方发布 | 把药物研发协调平台并入 Rosalind。目标是让代理跟踪试验和决策，不是新的通用模型 |
+| OpenAI | [ChatGPT 10 月 20 日更新](https://help.openai.com/en/articles/6825453-chatgpt-release-notes) | 2026-10-20 | 官方发布 | 锁定聊天用账户 PIN 打开，不进普通历史和搜索，保留策略不变，正逐步给到 Free、Go、Plus、Pro。Slides 在 Space 里协作，面向有 Space 的 Pro、Business、Enterprise。GPT-6 Pro 可以让多个代理并行做同一任务的不同部分 |
+| Anthropic | [用 Claude 缩小代码攻击面](https://www.anthropic.com/research/attack-surface-reduction) | 2026-10-20 | 研究 | 在 25 个开源项目、约五百万行代码里报出 493 个「不该那么早被碰到」的问题。三类做法：默认配置就能到达但默认功能用不到、两个选项凑在一起悄悄关掉安全控制、认证或协议状态之前就执行。OpenSSH 里未启用的签名解析曾在认证前可达，维护者在 10.6 把检查挪到解析之前。方法收成一个技能，改动不得改变项目默认行为的测试结果 |
+| Anthropic | [Claude 设计蝎毒结合蛋白](https://www.anthropic.com/research/claude-scorpion-toxin-binder-design) | 2026-10-20（Published 13:01Z，北京时间 21:01） | 研究 | 实验检测 211 个设计，17 个达到作者设定的结合标准。这不是抗毒血清，也不改变 Claude 产品。设计步骤不在此展开 |
+| Hugging Face | [TorchTPU](https://huggingface.co/blog/hf-torchtpu) | 2026-10-20 | 开源发布 | TPU 成为 PyTorch 设备，Transformers、Diffusers、Kernels 可以直接 `to("tpu")`，不必先改成 JAX 或 `torch_xla` |
+
+### 技术文档与教程
+
+| 方向 | 推荐资料 | 核心技术点 | 适合谁看 |
+| --- | --- | --- | --- |
+| 编码代理 | [Claude Code v2.1.304](https://github.com/anthropics/claude-code/releases/tag/v2.1.304) | 压缩窗口后缀、整点 loop 与缓存、自定义网关默认打开工具搜索 | 已设 `AUTO_COMPACT_WINDOW` 或自建网关的人 |
+| 可观测 | [Langfuse v4.65.0](https://github.com/langfuse/langfuse/releases/tag/v4.65.0) | 技能 API、MCP、网关不入库模式 | 在 Langfuse 里管技能和自建网关的人 |
+| 供应链 | [包防火墙](https://github.blog/changelog/2026-10-20-github-package-firewall-in-public-preview/) | 安装期拦截，误拦可走例外 | 管企业 npm 安装的人 |
+| 幻灯片 | [Gemini Notebook 共创](https://blog.google/innovation-and-ai/products/gemini-notebook/co-create-slides-videos/) | 先审大纲或制作笔记再渲染（Published 10-19 17:00Z，北京时间 10-20 01:00） | 用 Notebook 出幻灯片和视频的人 |
+| 苹果本地模型 | [AnyLanguageModel 1.0](https://huggingface.co/blog/anylanguagemodel-1-0) | 同一套 Foundation Models 风格 API 切本地和托管模型 | 写 Swift 应用的人 |
+
+### LangChain / Agent / LLM 工程相关进展
+
+**总体判断**：本日没有 LangChain 或 LangGraph 新版本。工程变化在技能的加载边界，以及把「缩小可达代码」做成独立技能。
+
+| 主题 | 进展 | 工程启发 |
+| --- | --- | --- |
+| 技能 | 压缩之后重发技能列表；`/reload-skills` 只发新的和改过的。同一来源最多 1024 个钩子 | 升级后看钩子有没有因为策略被拿掉，从而丢掉 `allowed-tools` |
+| 权限 | 模块的 `tool.check` 可以要求必须由人批准，并带上这次调用是不是只读 | 只读工具不要再走同一套人工确认 |
+| 循环 | 一小时上限的 `/loop` 不再在缓存过期后立刻重读整段对话 | 定时任务的唤醒要算进缓存窗口，而不是卡在整点之后 |
+| 网关 | 自定义 `ANTHROPIC_BASE_URL` 默认打开工具搜索；网关返回 400 或 422 会去掉该字段重试 | 自建网关若明确禁用 ToolSearch，要准备这次重试 |
+| 案例 | [Terminal X](https://openai.com/index/terminal-x) 称 GPT-6.1 Sol 让评估代理多抓住约 25% 偏离基金授权的答案 | 客户案例，数字未独立复测 |
+
+### 值得深入阅读的资料
+
+| 推荐级别 | 资料 | 为什么值得读 |
+| --- | --- | --- |
+| 必读 | [Claude Code v2.1.304](https://github.com/anthropics/claude-code/releases/tag/v2.1.304) | 压缩窗口和 loop 缓存会改变长会话的费用 |
+| 必读 | [包防火墙预览](https://github.blog/changelog/2026-10-20-github-package-firewall-in-public-preview/) | 安装期拦截和正式版后的按量计费要提前设计例外流程 |
+| 推荐 | [攻击面收缩](https://www.anthropic.com/research/attack-surface-reduction) | 先减少不该被碰到的代码，再谈逐个修洞 |
+| 延伸 | [Langfuse v4.65.0](https://github.com/langfuse/langfuse/releases/tag/v4.65.0) | 技能 API 和 MCP 在同一天恢复，升级前对一下调用方 |
+
+### 来源清单
+
+- 检索范围：2026-10-20 00:00:00 到 2026-10-20 23:59:59（Asia/Shanghai）
+- 引用域名：github.com, github.blog, openai.com, help.openai.com, anthropic.com, huggingface.co, blog.google
+- 来源清单表格：
+
+| 类型 | 标题 | 日期 | 链接 |
+| --- | --- | --- | --- |
+| 开源发布 | Claude Code v2.1.304 | 2026-10-20（北京时间） | https://github.com/anthropics/claude-code/releases/tag/v2.1.304 |
+| 开源发布 | Langfuse v4.64.0 | 2026-10-20（北京时间） | https://github.com/langfuse/langfuse/releases/tag/v4.64.0 |
+| 开源发布 | Langfuse v4.65.0 | 2026-10-20（北京时间） | https://github.com/langfuse/langfuse/releases/tag/v4.65.0 |
+| 官方发布 | Package firewall public preview | 2026-10-20 | https://github.blog/changelog/2026-10-20-github-package-firewall-in-public-preview/ |
+| 官方发布 | Secret scanning updates | 2026-10-20 | https://github.blog/changelog/2026-10-20-updates-to-github-secret-scanning/ |
+| 官方发布 | Dependabot version_requirement | 2026-10-20 | https://github.blog/changelog/2026-10-20-dependabot-alerts-rest-api-now-includes-dependency-versions/ |
+| 官方发布 | Dependabot npm 12, pnpm 11/12, Bun 1.4 | 2026-10-20 | https://github.blog/changelog/2026-10-20-dependabot-now-supports-npm-12-pnpm-11-and-12-and-bun-1-4/ |
+| 官方发布 | Bulk migrate branch protections | 2026-10-20 | https://github.blog/changelog/2026-10-20-bulk-migrate-branch-protections-to-rulesets-for-a-repository/ |
+| 官方发布 | OpenAI acquires Orchestra Bio | 2026-10-20 | https://openai.com/index/openai-to-acquire-orchestra-bio |
+| 官方发布 | ChatGPT release notes | 2026-10-20 | https://help.openai.com/en/articles/6825453-chatgpt-release-notes |
+| 研究 | Attack surface reduction | 2026-10-20 | https://www.anthropic.com/research/attack-surface-reduction |
+| 研究 | Protein binders against scorpion neurotoxins | 2026-10-20 | https://www.anthropic.com/research/claude-scorpion-toxin-binder-design |
+| 开源发布 | TorchTPU | 2026-10-20 | https://huggingface.co/blog/hf-torchtpu |
+| 开源发布 | AnyLanguageModel 1.0 | 2026-10-20 | https://huggingface.co/blog/anylanguagemodel-1-0 |
+| 官方发布 | Gemini Notebook co-create | 2026-10-20（北京时间） | https://blog.google/innovation-and-ai/products/gemini-notebook/co-create-slides-videos/ |
+| 技术媒体 | Terminal X customer story | 2026-10-20 | https://openai.com/index/terminal-x |
+
 ## 2026-10-19
 
 ### 今日总览

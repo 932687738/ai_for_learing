@@ -322,14 +322,7 @@
       <workItem from="1792114303299" duration="717000" />
       <workItem from="1792137901326" duration="4000" />
       <workItem from="1792372869820" duration="130000" />
-    </task>
-    <task id="LOCAL-00061" summary="feat(dailyReport): 添加2026-07-09 AI日报和知识库日报内容&#10;&#10;- 新增 ai-daily-news/202607.md 中 2026-07-09 日报内容&#10;- 新增 knowledge-base-news/202607.md 中 2026-07-09 知识库日报内容&#10;- 更新 ai-daily-digest.md 添加 2026-07-09 AI摘要内容&#10;- 更新 ai-daily-state.json 同步状态至 2026-07-09&#10;- 更新 github-topz.md 最近更新时间为 2026-07-10 09:09:20">
-      <option name="closed" value="true" />
-      <created>1783648883254</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1783648883254</updated>
+      <workItem from="1792464531223" duration="451000" />
     </task>
     <task id="LOCAL-00062" summary="feat(dailyReport): 添加2026-07-10 AI日报和知识库日报内容&#10;&#10;- 新增 ai-daily-news/202607.md 中 2026-07-10 日报内容，包含 Claude Code v2.1.206 发布、阿里禁 Anthropic 工具生效等重要信息&#10;- 新增 knowledge-base-news/202607.md 中 2026-07-10 知识库日报内容，记录固定来源当日检索结果&#10;- 更新 ai-daily-news/ai-daily-digest.md 添加 2026-07-10 摘要内容&#10;- 修改 ai-daily-news/ai-daily-state.json 将最后同步日期更新至 2026-07-10&#10;- 更新 github-topz.md 的统计时间戳和仓库排名数据，反映最新 GitHub 趋势变化">
       <option name="closed" value="true" />
@@ -715,7 +708,15 @@
       <option name="project" value="LOCAL" />
       <updated>1792372900540</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="docs(daily-report): 添加 AI 资讯和掘金热榜日报内容&#10;&#10;- 新增 2026-10-15 AI 资讯日报，涵盖 GitHub 代码扫描 Agentic autofix&#10;  GA、AI Scan GA、Copilot 模型下线公告、Claude Code v2.1.300、&#10;  langchain 1.4.6、Langfuse v4.60.0、Hermes v0.22.2 等发布&#10;- 新增 2026-10-14 AI 资讯日报，涵盖 Gemini 4 Argon 开放、&#10;  Copilot 集成 Argon、HydraFusion Max、Actions 工作流锁文件、&#10;  Claude Code v2.1.299 空闲压缩、Hermes v0.22.0 等发布&#10;- 新增 2026-10-16 掘金热榜日报，包含前端乱序 HTML 流等&#10;  两篇新文摘要&#10;- 新增 2026-10-15 掘金热榜日报，涵盖 Agent 记忆系统设计、&#10;  FastAPI JWT、nvm-windows 按项目切 Node 等 29 篇新文摘要">
+      <option name="closed" value="true" />
+      <created>1792464604094</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1792464604094</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
